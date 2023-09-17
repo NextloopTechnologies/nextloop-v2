@@ -1,3 +1,89 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* styles/animations.css */
+
+.aboutUsBackgroundWrapper {
+  width: 100%; /* This wrapper will control the width expansion */
+  height: 100vh; /* Set a fixed height to cover the full viewport height */
+  overflow: hidden; /* Hide any overflow if the image exceeds the container */
+}
+
+.aboutUsBackgroundImage {
+  background-image: url('../../assets/AboutUsBackground.png');
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat;
+  width: 100%; /* Expand to the full width of the wrapper */
+  height: 100%; /* Cover the full height of the wrapper */
+}
+.linesBackgroundImage {
+  background-image: url('../../assets/line.png');
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the background image */
+  /* background-repeat: no-repeat; */
+
+  width: 100%; /* Expand to the full width of the wrapper */
+  height: 100%; /* Cover the full height of the wrapper */
+}
+
+.oval {
+  width: 300;
+  height: 600;
+  background-color: green;
+  clip-path: ellipse(25% 50% at 47% 50%);
+}
+
+/* Customize scrollbar width and height for webkit browsers */
+::-webkit-scrollbar {
+  width: 12px; /* Adjust the width as needed */
+  height: 10px; /* Adjust the height as needed */
+}
+
+/* Customize scrollbar track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Track color */
+}
+
+/* Customize scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Thumb color */
+  border-radius: 2px; /* Round the corners of the thumb */
+}
+
+/* On hover, style the scrollbar thumb */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Thumb color on hover */
+}
+
+html {
+  scroll-snap-type: y proximity;
+}
+
+section {
+  /* height: 100vh; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  scroll-snap-align: center;
+  perspective: 500px;
+  scroll-snap-stop: always; /* Add this property for smoother scrolling */
+  overflow: hidden; /* Add this property to hide any overflowing content */
+}
+
+/* Define the keyframes for continuous rotation */
+@keyframes rotate360 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Apply the animation to the rotating-image class */
+.rotating-image {
+  animation: rotate360 10s linear infinite;
+}

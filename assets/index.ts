@@ -1,0 +1,15 @@
+export { default as AboutUsBackground } from './AboutUsBackground.png';
+export { default as CompositeLayer_1 } from './CompositeLayer-1.png';
+export { default as CompositeLayer_2 } from './CompositeLayer-2.png';
+export { default as CompositeLayer_3 } from './CompositeLayer-3.png';
+export { default as CompositeLayer_4 } from './CompositeLayer-4.png';
+export { default as ContactArrow } from './ContactArrow.png';
+export { default as ContactUs } from './ContactUs.png';
+export { default as DoubleQuotes } from './DoubleQuotes.png';
+export { default as Lines } from './line.png';
+export { default as Mobile_1 } from './Mobile-1.png';
+export { default as Mobile_2 } from './Mobile-2.png';
+export { default as NextLoopColoredLogo } from './NextLoopColoredLogo.png';
+export { default as NextLoopLogo } from './NextLoopLogo.png';
+export { default as User_1 } from './user-1.png';
+export { default as Whyus } from './whyus.png';

@@ -1,0 +1,129 @@
+import { motion } from 'framer-motion';
+import React, { FC, useState } from 'react';
+
+import {
+  inputFieldVariants,
+  introHeaderVariants,
+  introHeaderVariants2,
+  textVariants,
+} from '../../utils/frameMotionAnimations';
+
+const PitchThought: FC = () => {
+  const [email, setEmail] = useState('');
+  const [description, setDescription] = useState('');
+
+  const handleEmailChange = (e: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
+    setEmail(e.target.value);
+  };
+
+  const handleDescriptionChange = (e: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
+    setDescription(e.target.value);
+  };
+
+  return (
+    <>
+      <div className='flex gap-x-32 items-center h-screen overflow-x-hidden'>
+        <motion.header
+          initial='hide'
+          whileInView='show'
+          exit='hide'
+          variants={introHeaderVariants}
+          className='flex  justify-end w-full text-white'
+        >
+          <div className='flex flex-col justify-end w-4/6 gap-y-20 '>
+            <div className='text-right   '>
+              <span className='flex justify-end '>#connect with us</span>
+              <motion.span
+                initial='hide'
+                animate='show'
+                variants={textVariants} // Apply animation variants to this text element
+                className='text-7xl font-bold text-right'
+              >
+                PITCH your <b className='text-orange-400'>thoughts</b> here
+              </motion.span>
+            </div>
+
+            <motion.span
+              initial='hide'
+              animate='show'
+              variants={textVariants} // Apply animation variants to this text element
+              className='text-sm '
+            >
+              Send us some details about your project, and feel free to ask
+              questions about our process. Our consultants will be with you
+              ASAP.
+            </motion.span>
+          </div>
+        </motion.header>
+        <motion.header
+          initial='hide'
+          whileInView='show'
+          exit='hide'
+          variants={introHeaderVariants2}
+          className='flex gap-x-10 justify-center   w-full text-white'
+        >
+          <div className='flex flex-col w-2/3 pt-20 gap-y-12'>
+            <motion.div
+              className='relative'
+              variants={inputFieldVariants}
+              initial='unfocused'
+              whileFocus='focused'
+            >
+              <input
+                type='text'
+                value={description}
+                onChange={handleDescriptionChange}
+                className='border-b border-gray-400 w-full h-10 bg-transparent focus:outline-none focus:border-gray-400 transition-all duration-300'
+                placeholder='Describe your idea'
+              />
+            </motion.div>
+            <motion.div
+              className='relative'
+              variants={inputFieldVariants}
+              initial='unfocused'
+              whileFocus='focused'
+            >
+              <input
+                type='text'
+                value={email}
+                onChange={handleEmailChange}
+                className='border-b border-gray-400 w-full  h-10 bg-transparent focus:outline-none focus:border-gray-400 transition-all duration-300'
+                placeholder='Your email'
+              />
+            </motion.div>
+            <motion.div
+              className='flex justify-center items-center py-4 bg-white text-black rounded-full font-medium'
+              variants={inputFieldVariants}
+              initial='unfocused'
+              whileFocus='focused'
+            >
+              Send your idea!
+            </motion.div>
+            <motion.div
+              className='flex '
+              variants={inputFieldVariants}
+              initial='unfocused'
+              whileFocus='focused'
+            >
+              420, Onam Plaza, New Palasia, Indore, MP. 452001
+            </motion.div>
+            <motion.div
+              className='flex text-xl'
+              variants={inputFieldVariants}
+              initial='unfocused'
+              whileFocus='focused'
+            >
+              info@nextlooptechnologies.com
+            </motion.div>
+          </div>
+        </motion.header>
+      </div>
+    </>
+  );
+};
+
+export default PitchThought;
