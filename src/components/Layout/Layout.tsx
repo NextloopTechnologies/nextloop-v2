@@ -1,6 +1,10 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 
+import Hamburger from './Hamburger';
 import Header from './Header';
+import PitchThought from '../PitchThought';
+import { Section } from '../../pages';
+import useWindowSize from '../../utils/useWindowSize';
 
 interface LayoutProps {
   children: ReactNode;
@@ -25,10 +29,17 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     };
   }, []);
 
+  const { width } = useWindowSize();
+
   return (
     <>
-      <Header isSticky={isSticky} />
+      {width! > 1023 ? <Header isSticky={isSticky} /> : <Hamburger />}
       <div className='z-10'>{children}</div>
+      <Section className='min-h-screen bg-[#010103] '>
+        <div className='container mx-auto'>
+          <PitchThought />
+        </div>
+      </Section>
     </>
   );
 };

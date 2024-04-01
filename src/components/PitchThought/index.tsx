@@ -26,17 +26,19 @@ const PitchThought: FC = () => {
 
   return (
     <>
-      <div className='flex gap-x-32 items-center h-screen overflow-x-hidden'>
+      <div className='flex lg:flex-row flex-col gap-x-32 items-center h-screen overflow-x-hidden px-4'>
         <motion.header
           initial='hide'
           whileInView='show'
           exit='hide'
           variants={introHeaderVariants}
-          className='flex  justify-end w-full text-white'
+          className='flex justify-end w-full text-white'
         >
-          <div className='flex flex-col justify-end w-4/6 gap-y-20 '>
-            <div className='text-right   '>
-              <span className='flex justify-end '>#connect with us</span>
+          <div className='flex flex-col justify-end lg:w-4/6 gap-y-20 w-full'>
+            <div className='lg:text-right text-center'>
+              <span className='flex lg:justify-end justify-center'>
+                #connect with us
+              </span>
               <motion.span
                 initial='hide'
                 animate='show'
@@ -66,7 +68,7 @@ const PitchThought: FC = () => {
           variants={introHeaderVariants2}
           className='flex gap-x-10 justify-center   w-full text-white'
         >
-          <div className='flex flex-col w-2/3 pt-20 gap-y-12'>
+          <div className='flex flex-col lg:w-2/3 pt-20 gap-y-12 w-full'>
             <motion.div
               className='relative'
               variants={inputFieldVariants}

@@ -1,8 +1,9 @@
 import { motion, useAnimation } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
-import { NextLoopColoredLogo, NextLoopLogo } from '../../../assets';
+import { NextLoopColoredLogo } from '../../../assets';
 
 interface HeaderProps {
   isSticky: boolean;
@@ -29,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
 
   useEffect(() => {
     headerAnimation.start({
-      color: isScrolled ? 'black' : 'white',
+      color: !isSticky ? 'white' : 'black',
       position: isSticky ? 'sticky' : 'absolute',
       top: isSticky ? 0 : undefined,
       transition: {
@@ -53,30 +54,32 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
     <motion.nav
       initial={{ y: 0 }}
       animate={headerAnimation}
-      className="px-10 pt-6 absolute top-0 left-0 w-full z-20"
+      className={`px-10 pt-6 absolute top-0 left-0 w-full z-20 ${
+        isSticky ? 'bg-white' : ''
+      }`}
     >
-      <div className='flex justify-between '>
+      <div className='flex justify-between'>
         <Image
-          src={isScrolled ? NextLoopColoredLogo : NextLoopLogo}
+          src={NextLoopColoredLogo}
           width={80}
           height={60}
           alt='NextLoopLogo'
         />
         <ul className='flex space-x-4 items-center'>
           <li>
-            <a href='#about-us'>About Us</a>
+            <Link href='/about-us'>About us</Link>
           </li>
           <li>
-            <a href='#portfolio'>Portfolio</a>
+            <Link href='/portfolio'>Portfolio</Link>
           </li>
           <li>
-            <a href='#services'>Services</a>
+            <Link href='/services'>Services</Link>
           </li>
           <li>
-            <a href='#career'>Career</a>
+            <Link href='/careers'>Career</Link>
           </li>
           <li>
-            <a href='#contact-us'>Blog</a>
+            <Link href='/blog'>Blog</Link>
           </li>
           <li>
             <button

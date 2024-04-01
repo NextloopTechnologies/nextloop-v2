@@ -7,7 +7,6 @@ import ClientReview from '../components/ClientReview';
 import Experience from '../components/Experience';
 import Intro from '../components/Intro';
 import Layout from '../components/Layout/Layout';
-import PitchThought from '../components/PitchThought';
 import Portfolio from '../components/Portfolio';
 import Services from '../components/ServicesGroup';
 import WhoWeAre from '../components/WhoWeAre';
@@ -24,7 +23,7 @@ const sectionStyle: React.CSSProperties = {
   overflow: 'hidden',
 };
 
-function Section({
+export function Section({
   children,
   id,
   className,
@@ -149,11 +148,6 @@ export default function Home() {
         <Section className='min-h-screen '>
           <div className='container mx-auto'>
             <ClientReview />
-          </div>
-        </Section>
-        <Section className='min-h-screen bg-[#010103]'>
-          <div className='container mx-auto'>
-            <PitchThought />
           </div>
         </Section>
 

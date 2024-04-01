@@ -28,6 +28,17 @@
   height: 100%; /* Cover the full height of the wrapper */
 }
 
+.aboutUsPageBackgroundImage {
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+    url('../../assets/aboutUsBg.png');
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat;
+
+  width: 100%; /* Expand to the full width of the wrapper */
+  height: 100%; /* Cover the full height of the wrapper */
+}
+
 .oval {
   width: 300;
   height: 600;

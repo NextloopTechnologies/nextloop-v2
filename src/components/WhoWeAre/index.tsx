@@ -50,12 +50,16 @@ const WhoWeAre: FC = () => {
               variants={textVariants}
               className='text-sm w-5/6 pt-8'
             >
-              If you are looking for a complete business solution at one place
-              in combination with distinctive designs, that is what you can
-              expect from us. To stimulate the growth of your company, we focus
-              on various services, although we do not limit ourselves to this.
-              We keep learning and stay ourselves up to date with current market
-              trends.
+              Nestled in the heart of India, NextLoop Technologies is more than
+              just a company; we're a passionate team on a mission. With each
+              project, we infuse our work with dedication and empathy,
+              understanding that behind every line of code lies a dream, a
+              vision, and a journey.
+              <br />
+              From startups taking their first steps to established enterprises
+              reaching for new heights, we're here to be your partner in growth,
+              innovation, and success. Together, let's turn aspirations into
+              achievements and challenges into triumphs.
             </motion.span>
           </div>
         </motion.header>
@@ -74,7 +78,7 @@ const WhoWeAre: FC = () => {
                 variants={imageVariants}
                 className='flex items-end h-full'
               >
-                <Image src={Whyus} width={250} height={305} alt="image" />
+                <Image src={Whyus} width={250} height={305} alt='image' />
               </motion.span>
             )}
           </div>
