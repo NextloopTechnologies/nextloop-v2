@@ -6,6 +6,7 @@ import {
   introHeaderVariants,
   textVariants,
 } from '../../utils/frameMotionAnimations';
+import useWindowSize from '../../utils/useWindowSize';
 
 const Experience: FC = () => {
   const content = [
@@ -23,38 +24,40 @@ const Experience: FC = () => {
     },
   ];
 
+  const { isMobile } = useWindowSize();
+
   return (
     <>
-      <div className='flex justify-center items-center  h-screen overflow-x-hidden'>
+      <div className='flex justify-center items-center  min-h-screen overflow-x-hidden'>
         <motion.header
-          initial='hide'
+          initial={isMobile ? 'visible' : 'hide'}
           whileInView='show'
           exit='hide'
           variants={introHeaderVariants}
-          className='flex gap-x-10 w-5/6 '
+          className='flex gap-x-10 lg:w-5/6 w-full text-left lg:text-center'
         >
           <div className='flex flex-col h-full gap-y-20'>
             <motion.span
-              initial='hide'
+              initial={isMobile ? 'visible' : 'hide'}
               animate='show'
               variants={textVariants} // Apply animation variants to this text element
-              className='text-6xl font-bold  flex justify-end'
+              className='lg:text-6xl text-3xl font-bold  flex lg:justify-end justify-center'
             >
-              <div className='w-2/3 text-right'>
+              <div className='lg:w-2/3 lg:text-right text-center'>
                 Experience Full Spectrum of{' '}
-                <b className='text-orange-400'>Services</b> we're providing.
+                <b className='text-orange-500'>Services</b> we're providing.
               </div>
             </motion.span>
             <motion.span
-              initial='hide'
+              initial={isMobile ? 'visible' : 'hide'}
               animate='show'
               variants={textVariants}
-              className='text-2xl pt-8 flex h-full'
+              className='text-2xl pt-8 flex lg:flex-row flex-col h-full gap-4'
             >
               <div className='flex h-56'>
                 {content.map((item, index) => {
                   return (
-                    <div className='flex gap-x-2 ' key={item.heading}>
+                    <div className='flex gap-2 ' key={item.heading}>
                       <div className='border-l border-gray-600'></div>
                       <div className='flex flex-col justify-between'>
                         {' '}

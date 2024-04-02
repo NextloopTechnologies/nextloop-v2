@@ -1,8 +1,9 @@
-import { motion,Variants } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import React, { FC, useRef } from 'react';
 
 import Coverover from './Coverover'; // Import the Coverover component
 import { textVariants } from '../../utils/frameMotionAnimations';
+import useWindowSize from '../../utils/useWindowSize';
 
 type CoveroverProps = {
   isModalOpen: boolean;
@@ -44,34 +45,36 @@ const Services: FC<CoveroverProps> = ({ isModalOpen, setIsModalOpen }) => {
     // }
   };
 
+  const { isMobile } = useWindowSize();
+
   return (
     <>
-      <div className='flex justify-center items-center h-screen overflow-x-hidden'>
+      <div className='flex justify-center items-center min-h-screen overflow-x-hidden flex-col lg:flex-row'>
         <motion.header
-          initial='hide'
+          initial={isMobile ? 'visible' : 'hide'}
           whileInView='show'
           exit='hide'
           variants={introHeaderVariants}
-          className='flex gap-x-10 w-4/6  px-10 text-center'
+          className='flex gap-10 lg:w-4/6 lg:px-10 text-center'
         >
-          <div className='flex flex-col gap-y-3 px-20 '>
+          <div className='flex flex-col gap-y-3 lg:px-20 '>
             <span>#OUR VALUES</span>
             <motion.span
-              initial='hide'
+              initial={isMobile ? 'visible' : 'hide'}
               animate='show'
               variants={textVariants}
-              className='text-6xl font-bold text-center'
+              className='lg:text-6xl text-3xl font-bold text-center'
             >
               Curious about how we manage to make all this{' '}
-              <b className='text-orange-400'>possible?</b>
+              <b className='text-orange-500'>possible?</b>
             </motion.span>
             <motion.span
-              initial='hide'
+              initial={isMobile ? 'visible' : 'hide'}
               animate='show'
               variants={textVariants}
               className='text-xs  pt-8 text-center flex items-center'
             >
-              <div className='px-20 '>
+              <div className='lg:px-20 '>
                 Are you curious about our secret behind making all this
                 possible? At the heart of our software solutions lies a
                 dedication to understanding your needs, which drives our
@@ -96,7 +99,7 @@ const Services: FC<CoveroverProps> = ({ isModalOpen, setIsModalOpen }) => {
             // Implement your custom scrolling logic for the modal content here
           }
         }}
-        className='h-96 overflow-y-auto'
+        className='h-96 overflow-y-auto hidden lg:block'
       >
         {/* Scrollable content */}
       </div>

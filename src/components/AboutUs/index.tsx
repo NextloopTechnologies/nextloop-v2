@@ -5,52 +5,54 @@ import {
   introHeaderVariants,
   textVariants,
 } from '../../utils/frameMotionAnimations';
+import useWindowSize from '../../utils/useWindowSize';
 
 const AboutUs: FC = () => {
+  const { isMobile } = useWindowSize();
   return (
     <>
-      <div className='flex justify-center items-center h-screen overflow-x-hidden'>
+      <div className='flex justify-center items-center min-h-screen overflow-x-hidden'>
         <motion.header
-          initial='hide'
+          initial={isMobile ? 'visible' : 'hide'}
           whileInView='show'
           exit='hide'
           variants={introHeaderVariants}
-          className='flex gap-x-10 w-5/6'
+          className='flex gap-x-10 lg:w-5/6 text-center lg:text-left py-8 px-4 lg:py-0 lg:px-0'
         >
           <div className='flex flex-col gap-y-1 '>
             <span>#ABOUT US</span>
             <motion.span
-              initial='hide'
+              initial={isMobile ? 'visible' : 'hide'}
               animate='show'
               variants={textVariants} // Apply animation variants to this text element
-              className='text-6xl font-bold w-2/3'
+              className='lg:text-6xl text-3xl font-bold lg:w-2/3'
             >
               We are a group of goal{' '}
-              <b className='text-orange-400'>developers.</b>
+              <b className='text-orange-500'>developers.</b>
             </motion.span>
             <motion.span
-              initial='hide'
+              initial={isMobile ? 'visible' : 'hide'}
               animate='show'
               variants={textVariants}
-              className='text-2xl pt-8 flex items-center'
+              className='text-2xl pt-8 flex lg:flow-row flex-col items-center'
             >
-              <div className='w-5/6' />
+              <div className='lg:w-5/6 w-full' />
               <div>
-                <div className=' w-2/3'>
+                <div className='lg:w-2/3 w-full'>
                   {/* <span className=''> */}
                   Tech enthusiasts, who create{' '}
-                  <b className='text-orange-400 font-normal'>
+                  <b className='text-orange-500 font-normal'>
                     {' '}
                     great solutions.
                   </b>{' '}
                   We pride ourselves in delivering exceptional services and
                   experiences with a fast, highly{' '}
-                  <b className='text-orange-400 font-normal'>
+                  <b className='text-orange-500 font-normal'>
                     disciplined team.
                   </b>{' '}
                   We wish to help our clients with continuous innovation and
                   progress by building strong and lasting{' '}
-                  <b className='text-orange-400 font-normal'>partnerships.</b>
+                  <b className='text-orange-500 font-normal'>partnerships.</b>
                 </div>
 
                 <div className='text-sm mt-8 flex flex-col gap-y-4'>

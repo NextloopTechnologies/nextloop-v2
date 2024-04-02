@@ -7,6 +7,7 @@ import {
   introHeaderVariants2,
   textVariants,
 } from '../../utils/frameMotionAnimations';
+import useWindowSize from '../../utils/useWindowSize';
 
 const PitchThought: FC = () => {
   const [email, setEmail] = useState('');
@@ -24,11 +25,13 @@ const PitchThought: FC = () => {
     setDescription(e.target.value);
   };
 
+  const { isMobile } = useWindowSize();
+
   return (
     <>
       <div className='flex lg:flex-row flex-col gap-x-32 items-center h-screen overflow-x-hidden px-4'>
         <motion.header
-          initial='hide'
+          initial={isMobile ? 'visible' : 'hide'}
           whileInView='show'
           exit='hide'
           variants={introHeaderVariants}
@@ -40,17 +43,17 @@ const PitchThought: FC = () => {
                 #connect with us
               </span>
               <motion.span
-                initial='hide'
+                initial={isMobile ? 'visible' : 'hide'}
                 animate='show'
                 variants={textVariants} // Apply animation variants to this text element
                 className='text-7xl font-bold text-right'
               >
-                PITCH your <b className='text-orange-400'>thoughts</b> here
+                PITCH your <b className='text-orange-500'>thoughts</b> here
               </motion.span>
             </div>
 
             <motion.span
-              initial='hide'
+              initial={isMobile ? 'visible' : 'hide'}
               animate='show'
               variants={textVariants} // Apply animation variants to this text element
               className='text-sm '
@@ -62,7 +65,7 @@ const PitchThought: FC = () => {
           </div>
         </motion.header>
         <motion.header
-          initial='hide'
+          initial={isMobile ? 'visible' : 'hide'}
           whileInView='show'
           exit='hide'
           variants={introHeaderVariants2}

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 
 import { introHeaderVariants } from '../../utils/frameMotionAnimations';
+import useWindowSize from '../../utils/useWindowSize';
 import { DoubleQuotes, User_1 } from '../../../assets';
 
 interface CardData {
@@ -18,7 +19,7 @@ const cardData = [
     quote: (
       <span>
         Nextloop has expertise that{' '}
-        <b className='text-orange-400'>transformed our business,</b> making them
+        <b className='text-orange-500'>transformed our business,</b> making them
         an invaluable partner for our growth and innovation.
       </span>
     ),
@@ -29,7 +30,7 @@ const cardData = [
     quote: (
       <span>
         Nextloop has expertise that{' '}
-        <b className='text-orange-400'>transformed our business,</b> making them
+        <b className='text-orange-500'>transformed our business,</b> making them
         an invaluable partner for our growth and innovation.
       </span>
     ),
@@ -40,7 +41,7 @@ const cardData = [
     quote: (
       <span>
         Nextloop has expertise that{' '}
-        <b className='text-orange-400'>transformed our business,</b> making them
+        <b className='text-orange-500'>transformed our business,</b> making them
         an invaluable partner for our growth and innovation.
       </span>
     ),
@@ -51,7 +52,7 @@ const cardData = [
     quote: (
       <span>
         Nextloop has expertise that{' '}
-        <b className='text-orange-400'>transformed our business,</b> making them
+        <b className='text-orange-500'>transformed our business,</b> making them
         an invaluable partner for our growth and innovation.
       </span>
     ),
@@ -65,37 +66,40 @@ const textVariants = {
 };
 
 const Card = ({ card }: { card: CardData }) => {
+  const { isMobile } = useWindowSize();
   return (
     <motion.div
-      initial='hide'
+      initial={isMobile ? 'visible' : 'hide'}
       animate='show'
       exit='hide' // Add exit animation
       variants={textVariants}
-      className='text-2xl pt-8 flex h-full'
+      className='text-2xl pt-8 flex h-full lg:w-full'
       key={card.name} // Add a unique key to force a re-render when card changes
     >
-      <div className='flex'>
+      <div className='flex w-full'>
         <div className='relative'>
           <div>
-            <Image src={DoubleQuotes} alt="Mobile" width={250} height={100} />
+            <Image src={DoubleQuotes} alt='Mobile' width={250} height={100} />
           </div>
 
           <Image
             src={User_1}
-            alt="Mobile"
+            alt='Mobile'
             width={50}
             height={50}
             className='absolute top-4 right-5'
           />
         </div>
-        <div className='flex flex-col gap-y-1 pt-5 pl-2'>
+        <div className='flex flex-col gap-y-1 pt-5 pl-2 w-full lg:w-auto'>
           <span className='text-sm font-medium text-gray-600'>{card.name}</span>
           <span className='text-xs font-medium text-gray-500'>
             {card.title}
           </span>
-          <span className='text-2xl w-3/6 italic pt-5'>{card.quote}</span>
-          <span className='text-xs  pt-5 flex justify-between w-5/6'>
-            <span className='w-3/6'>
+          <span className='text-2xl lg:w-3/6 w-full italic pt-5'>
+            {card.quote}
+          </span>
+          <span className='text-xs  pt-5 flex justify-between lg:w-5/6 w-full'>
+            <span className='lg:w-3/6 w-full'>
               Under tight deadlines and with high expectations, Nextloop
               Technologies was a pleasure to partner with. Professional,
               conscientious and thoroughly competent - I wouldn't hesitate in
@@ -129,25 +133,27 @@ const CardSlider = () => {
     quote: '',
   };
 
+  const { isMobile } = useWindowSize();
+
   return (
-    <div className='flex items-center justify-center h-screen'>
+    <div className='flex items-center justify-center min-h-screen'>
       <motion.header
-        initial='hide'
+        initial={isMobile ? 'visible' : 'hide'}
         whileInView='show'
         exit='hide'
         variants={introHeaderVariants}
-        className='flex gap-x-10 w-5/6 '
+        className='flex gap-x-10 lg:w-5/6 w-full'
       >
         <div className='flex flex-col h-full gap-y-20'>
           <motion.span
-            initial='hide'
+            initial={isMobile ? 'visible' : 'hide'}
             animate='show'
             variants={textVariants}
-            className='text-6xl font-bold  flex justify-end'
+            className='lg:text-6xl text-3xl font-bold  flex lg:justify-end justify-center'
           >
             {/* <span className='text-sm'>#TESTIMONIAL</span> */}
-            <div className='w-2/3 text-right'>
-              What <b className='text-orange-400'>clients</b> have to say about
+            <div className='lg:w-2/3 lg:text-right w-full text-center'>
+              What <b className='text-orange-500'>clients</b> have to say about
               our work.
             </div>
           </motion.span>
@@ -156,7 +162,7 @@ const CardSlider = () => {
               {currentCardData && (
                 <motion.div
                   key={currentCard}
-                  initial={{ opacity: 0, x: 100 }}
+                  initial={{ opacity: isMobile ? 1 : 0, x: 100 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -100 }}
                   transition={{ duration: 0.5 }}
@@ -165,7 +171,7 @@ const CardSlider = () => {
                 </motion.div>
               )}
             </AnimatePresence>
-            <div className=' flex gap-x-4  pr-10 items-end'>
+            <div className=' flex gap-x-4 lg:pr-10 items-end'>
               <button
                 onClick={prevCard}
                 className={`text-2xl hover:bg-gray-100 cursor-pointer border w-10 h-10 rounded-full flex items-center justify-center text-center ${

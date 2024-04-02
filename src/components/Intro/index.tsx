@@ -6,55 +6,52 @@ import {
   introHeaderVariants,
   introRightHeaderVariants,
 } from '../../utils/frameMotionAnimations';
+import useWindowSize from '../../utils/useWindowSize';
 
 const Intro: FC = () => {
+  const { isMobile } = useWindowSize();
   return (
     <>
-      <div className=' flex justify-center items-center h-screen overflow-x-hidden'>
-        <div className='  inset-0 z-50 flex items-center justify-center text-white '>
+      <div className='flex justify-center items-center h-screen overflow-x-hidden relative'>
+        <div className='inset-0 z-50 flex items-center justify-center text-white '>
           <div className='flex flex-col items-center justify-center pt-20'>
             <motion.header
-              initial='hide'
+              initial={isMobile ? 'visible' : 'hide'}
               whileInView='show'
               exit='hide'
               variants={introHeaderVariants}
             >
-              <div>
-                <div className='flex gap-x-6'>
-                  <div className='relative'>
-                    <span className='text-xs absolute top-4 left-0 '>MADE</span>
-                    <span className='text-xs absolute top-4 right-[-2px] '>
-                      WITH
-                    </span>
-
-                    <div className='text-[100px] px-2 py-0 font-bold'>
-                      UNLOCK
-                    </div>
+              <div className='text-white flex-col items-center'>
+                <div className='flex gap-x-8'>
+                  <div className='flex flex-col uppercase'>
+                    <p className='text-xs'>made</p>
+                    <p className='xl:text-9xl lg:text-5xl text-3xl font-bold'>
+                      unlock
+                    </p>
                   </div>
-                  <div className='relative'>
-                    <span className='text-xs absolute top-4 right-8'>
-                      TECHNOLOGIES
-                    </span>
-                    <div className='text-[100px] px-2 py-0 font-bold text-orange-400'>
-                      Innovative
+                  <div className='flex flex-col uppercase'>
+                    <div className='flex justify-between'>
+                      <p className='text-xs'>with</p>
+                      <p className='text-xs'>technologies</p>
                     </div>
+                    <p className='xl:text-9xl lg:text-5xl text-3xl font-bold text-orange-500'>
+                      innovative
+                    </p>
                   </div>
                 </div>
-                <div className='relative text-center'>
-                  <div className='text-[100px] px-2 absolute top-[-50px] w-full font-bold text-center'>
-                    <span>Solutions</span>
-                  </div>
-                </div>
+                <p className='xl:text-9xl lg:text-5xl text-3xl font-bold uppercase text-center'>
+                  solutions
+                </p>
               </div>
             </motion.header>
             <motion.header
-              initial='hide'
+              initial={isMobile ? 'visible' : 'hide'}
               whileInView='show'
               exit='hide'
               variants={introRightHeaderVariants}
             >
-              <div className='flex justify-end pr-36 pt-28'>
-                <div className='text-xs w-1/3 '>
+              <div className='flex lg:justify-end justify-center lg:pr-36 lg:pt-28 pt-8 px-4 lg:px-0 lg:text-left text-center'>
+                <div className='text-xs lg:w-1/3 w-full'>
                   If you are looking for a complete business solution at a one
                   place in combination with distinctive designs, that is what
                   you can expect from us. To stimulate the growth of your
@@ -63,12 +60,12 @@ const Intro: FC = () => {
                   up to date with current market trends.
                 </div>
               </div>
-              <div className='pl-20'>
-                <ContactUs />
-              </div>
             </motion.header>
           </div>
         </div>
+      </div>
+      <div className='absolute left-8 bottom-8'>
+        <ContactUs />
       </div>
     </>
   );

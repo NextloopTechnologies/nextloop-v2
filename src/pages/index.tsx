@@ -10,9 +10,10 @@ import Layout from '../components/Layout/Layout';
 import Portfolio from '../components/Portfolio';
 import Services from '../components/ServicesGroup';
 import WhoWeAre from '../components/WhoWeAre';
+import useWindowSize from '../utils/useWindowSize';
 
 const sectionStyle: React.CSSProperties = {
-  height: '100vh',
+  minHeight: '100vh',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -95,6 +96,7 @@ export default function Home() {
   // Ref for the Services section
   const servicesSectionRef = useRef<HTMLDivElement | null>(null);
 
+  const { isMobile } = useWindowSize();
   return (
     <>
       <Layout>
@@ -120,7 +122,6 @@ export default function Home() {
               setIsModalOpen={setIsModalOpen}
               isModalOpen={isModalOpen}
             />
-            {/* <Coverover /> */}
           </div>
         </Section>
 
@@ -153,7 +154,7 @@ export default function Home() {
 
         {showNextPageButton && (
           <motion.button
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: isMobile ? 1 : 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 40 }}
             transition={{ duration: 0.5 }}
@@ -167,7 +168,7 @@ export default function Home() {
 
         {showToTopButton && (
           <motion.button
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: isMobile ? 1 : 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 40 }}
             transition={{ duration: 0.5 }}

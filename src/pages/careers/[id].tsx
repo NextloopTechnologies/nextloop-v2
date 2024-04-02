@@ -60,14 +60,14 @@ const JobDetails: React.FC<{ job: Job }> = ({
   },
 }) => {
   const temp = JSON.parse(
-    responsibilities.replace(/'/g, '"')
+    responsibilities.replace(/\\./g, '')
   ) as unknown as string[];
 
   const tQualifications = JSON.parse(
-    qualifications.replace(/'/g, '"')
+    qualifications.replace(/\\./g, '')
   ) as unknown as string[];
 
-  const tSkills = JSON.parse(skills.replace(/'/g, '"')) as unknown as string[];
+  const tSkills = JSON.parse(skills.replace(/\\./g, '')) as unknown as string[];
 
   return (
     <div className='flex flex-col gap-8'>

@@ -3,14 +3,16 @@ import Image from 'next/image';
 import React, { FC } from 'react';
 
 import { introHeaderVariants } from '../../utils/frameMotionAnimations';
+import useWindowSize from '../../utils/useWindowSize';
 import { Mobile_1, Mobile_2 } from '../../../assets';
 
 const Portfolio: FC = () => {
+  const { isMobile } = useWindowSize();
   return (
     <>
-      <div className='flex justify-center items-center h-screen'>
+      <div className='flex justify-center items-center min-h-screen'>
         <motion.header
-          initial='hide'
+          initial={isMobile ? 'visible' : 'hide'}
           whileInView='show'
           exit='hide'
           variants={introHeaderVariants}
@@ -21,22 +23,22 @@ const Portfolio: FC = () => {
           <div className='flex flex-col gap-y-1 w-full'>
             <span className='whitespace-nowrap w-full'>#Portfolio</span>
             <motion.span
-              initial='hide'
+              initial={isMobile ? 'visible' : 'hide'}
               whileInView='show'
               exit='hide'
               drag='x'
               dragConstraints={{ left: -1000, right: 0 }}
               className=''
             >
-              <div className='flex space-x-4 '>
+              <div className='flex gap-4 flex-col lg:flex-row '>
                 {Array(10)
                   .fill(null)
                   .map((_, index) => (
                     <span key={index} className='relative'>
-                      <span className='bg-gray-200 pt-10 w-[650px] rounded-md flex items-center justify-center'>
+                      <span className='bg-gray-200 pt-10 lg:w-[650px] rounded-md flex items-center justify-center'>
                         <Image
                           src={index % 2 !== 0 ? Mobile_1 : Mobile_2}
-                          alt="Mobile"
+                          alt='Mobile'
                           width={300}
                           height={100}
                         />

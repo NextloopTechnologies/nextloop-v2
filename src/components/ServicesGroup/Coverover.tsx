@@ -1,7 +1,8 @@
-import { AnimatePresence,motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import React, { FC } from 'react'; // Import FC (Functional Component) type from React
 
+import useWindowSize from '../../utils/useWindowSize';
 import {
   CompositeLayer_1,
   CompositeLayer_2,
@@ -47,32 +48,35 @@ const Coverover: FC<CoveroverProps> = ({ isOpen, onClose }) => {
         'A tailored, reliable, and fully functional IT solution that meets your goals, ensuring a seamless transition into your business.',
     },
   ];
+
+  const { isMobile } = useWindowSize();
+
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, y: '100%' }}
+          initial={{ opacity: isMobile ? 1 : 0, y: '100%' }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: '100%' }}
           transition={{ duration: 0.3 }}
-          className='fixed inset-0 bg-transparent z-50 overflow-y-auto'
+          className='fixed inset-0 2xl:bg-transparent bg-white z-50 overflow-y-auto hidden lg:block'
         >
           {/* Your modal content goes here */}
-          <div className='w-full h-screen p-4'>
+          <div className='w-full min-h-screen p-4'>
             <button
               onClick={onClose}
               className='absolute top-4 right-4 text-red-500'
             >
               Close
             </button>
-            <div className='flex flex-col overflow-x-hidden  px-20 z-50'>
+            <div className='flex flex-col overflow-x-hidden  lg:px-20 z-50'>
               {imageArray.map((item, index) => {
                 return (
                   <div key={index} className=''>
                     <div
                       className={`flex ${
                         index % 2 !== 0 ? 'justify-start' : 'justify-end'
-                      } m-4`}
+                      } m-4 lg:flex-row flex-col`}
                     >
                       <div className='relative'>
                         <Image

@@ -6,6 +6,7 @@ import {
   introHeaderVariants,
   textVariants,
 } from '../../utils/frameMotionAnimations';
+import useWindowSize from '../../utils/useWindowSize';
 
 const Career: FC = () => {
   const badge = [
@@ -27,42 +28,44 @@ const Career: FC = () => {
     },
   ];
 
+  const { isMobile } = useWindowSize();
+
   return (
     <>
-      <div className='flex justify-center items-center h-screen overflow-x-hidden'>
+      <div className='flex justify-center items-center min-h-screen overflow-x-hidden lg:text-left text-center'>
         <motion.header
-          initial='hide'
+          initial={isMobile ? 'visible' : 'hide'}
           whileInView='show'
           exit='hide'
           variants={introHeaderVariants}
-          className='flex gap-x-10 w-5/6   text-white'
+          className='flex gap-x-10 lg:w-5/6 w-full lg:flow-row flex-col text-white'
         >
           <div className='flex flex-col gap-y-3 '>
             <span>#SUCCESS NUMBERS</span>
             <motion.span
-              initial='hide'
+              initial={isMobile ? 'visible' : 'hide'}
               animate='show'
               variants={textVariants} // Apply animation variants to this text element
-              className='flex w-full'
+              className='flex lg:flex-row flex-col w-full'
             >
-              <span className='text-6xl font-bold'>
+              <span className='lg:text-6xl text-3xl font-bold'>
                 A Closer Look at Our Company's{' '}
-                <b className='text-orange-400'>Success.</b>
+                <b className='text-orange-500'>Success.</b>
               </span>
-              <span className='flex justify-center items-center w-full '>
+              <span className=' justify-center items-center w-full hidden lg:flex'>
                 <ContactUs />
               </span>
             </motion.span>
             <motion.span
-              initial='hide'
+              initial={isMobile ? 'visible' : 'hide'}
               animate='show'
               variants={textVariants}
               className='text-2xl pt-8 flex items-center'
             >
-              <div className='w-1/2'>
+              <div className='lg:w-1/2'>
                 Explore the remarkable milestones, groundbreaking innovations,
                 and{' '}
-                <b className='text-orange-400 font-normal'>
+                <b className='text-orange-500 font-normal'>
                   {' '}
                   unwavering dedication
                 </b>{' '}
@@ -71,14 +74,14 @@ const Career: FC = () => {
               </div>
             </motion.span>
             <motion.span
-              initial='hide'
+              initial={isMobile ? 'visible' : 'hide'}
               animate='show'
               variants={textVariants}
-              className='flex text-white justify-between w-5/6 mt-6'
+              className='flex text-white justify-between lg:w-5/6 mt-6 flex-wrap gap-8'
             >
               {badge.map((item) => {
                 return (
-                  <div className='flex flex-col gap-y-3' key={item.number}>
+                  <div className='flex flex-col gap-3' key={item.number}>
                     <span className='text-5xl w-min flex justify-center rounded-full items-center border px-6 py-3.5 '>
                       {item.number}
                     </span>
