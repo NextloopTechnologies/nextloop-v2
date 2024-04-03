@@ -99,7 +99,7 @@ const Services: FC<CoveroverProps> = ({ isModalOpen, setIsModalOpen }) => {
             // Implement your custom scrolling logic for the modal content here
           }
         }}
-        className='h-96 overflow-y-auto hidden lg:block'
+        className='h-96 overflow-y-auto hidden xl:block'
       >
         {/* Scrollable content */}
       </div>

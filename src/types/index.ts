@@ -13,12 +13,12 @@ type JobType = 'Full Time' | 'Part Time' | 'Contract';
 export interface Job {
   id: number;
   title: string;
-  responsibilities: string;
+  responsibilities: string[];
   descp: string;
   created_at: string;
   updated_at: string;
-  qualifications: string;
-  skills: string;
+  qualifications: string[];
+  skills: string[];
   location: string;
   job_mode: JobMode;
   package: string;

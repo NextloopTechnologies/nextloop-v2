@@ -59,16 +59,6 @@ const JobDetails: React.FC<{ job: Job }> = ({
     skills,
   },
 }) => {
-  const temp = JSON.parse(
-    responsibilities.replace(/\\./g, '')
-  ) as unknown as string[];
-
-  const tQualifications = JSON.parse(
-    qualifications.replace(/\\./g, '')
-  ) as unknown as string[];
-
-  const tSkills = JSON.parse(skills.replace(/\\./g, '')) as unknown as string[];
-
   return (
     <div className='flex flex-col gap-8'>
       <div className='flex flex-col gap-4'>
@@ -87,7 +77,7 @@ const JobDetails: React.FC<{ job: Job }> = ({
             <h2 className='text-2xl font-bold'>Responsibilties</h2>
             <div className='text-lg'>
               <ul className='list-disc'>
-                {temp?.map((t, i) => (
+                {responsibilities?.map((t, i) => (
                   <li className='ml-6' key={i}>
                     {t}
                   </li>
@@ -99,7 +89,7 @@ const JobDetails: React.FC<{ job: Job }> = ({
             <h2 className='text-2xl font-bold'>Required Qualification</h2>
             <div className='text-lg'>
               <ul className='list-disc'>
-                {tQualifications?.map((t, i) => (
+                {qualifications?.map((t, i) => (
                   <li className='ml-6' key={i}>
                     {t}
                   </li>
@@ -110,7 +100,7 @@ const JobDetails: React.FC<{ job: Job }> = ({
           <div className='flex flex-col gap-4 md:w-[70%]'>
             <h2 className='text-2xl font-bold'>Skills</h2>
             <div className='flex flex-wrap gap-4'>
-              {tSkills?.map((s, i) => (
+              {skills?.map((s, i) => (
                 <div
                   className='border text-orange-500 border-orange-500 rounded-3xl px-2 py-1'
                   key={i}

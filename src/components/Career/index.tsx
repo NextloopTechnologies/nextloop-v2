@@ -81,7 +81,10 @@ const Career: FC = () => {
             >
               {badge.map((item) => {
                 return (
-                  <div className='flex flex-col gap-3' key={item.number}>
+                  <div
+                    className='flex flex-col gap-3 w-full lg:w-auto items-center lg:items-start'
+                    key={item.number}
+                  >
                     <span className='text-5xl w-min flex justify-center rounded-full items-center border px-6 py-3.5 '>
                       {item.number}
                     </span>

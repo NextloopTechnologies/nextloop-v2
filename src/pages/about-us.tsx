@@ -1,4 +1,5 @@
 import Image, { StaticImageData } from 'next/image';
+import { useRouter } from 'next/router';
 
 import Layout from '../components/Layout/Layout';
 import PageHero from '../components/PageHero';
@@ -99,21 +100,27 @@ const WhyUs = () => (
   </div>
 );
 
-const Journey = () => (
-  <div className='min-h-screen bg-[#010103] text-white flex flex-col justify-center items-center text-center gap-24 p-8 lg:p-0'>
-    <h2 className='font-medium text-2xl uppercase'>#ourjourney</h2>
-    <div className='grid xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 grid-cols-1 w-full place-items-center gap-12 xl:px-16'>
-      {journeyArr.map((t, i) => (
-        <JourneyCard {...t} key={i} odd={i % 2 !== 0} />
-      ))}
+const Journey = () => {
+  const router = useRouter();
+  return (
+    <div className='min-h-screen bg-[#010103] text-white flex flex-col justify-center items-center text-center gap-24 p-8 lg:p-0'>
+      <h2 className='font-medium text-2xl uppercase'>#ourjourney</h2>
+      <div className='grid xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 grid-cols-1 w-full place-items-center gap-12 xl:px-16'>
+        {journeyArr.map((t, i) => (
+          <JourneyCard {...t} key={i} odd={i % 2 !== 0} />
+        ))}
+      </div>
+      <div className='flex justify-center w-full'>
+        <button
+          onClick={() => router.push('#footer')}
+          className='bg-transparent border border-white ml-10 text-white px-5 py-3 rounded-full'
+        >
+          Request quote &#10230;
+        </button>
+      </div>
     </div>
-    <div className='flex justify-center w-full'>
-      <button className='bg-transparent border border-white ml-10 text-white px-5 py-3 rounded-full'>
-        Request quote &#10230;
-      </button>
-    </div>
-  </div>
-);
+  );
+};
 
 const Certificates = () => (
   <div className='min-h-screen aboutUsPageBackgroundImage flex flex-col gap-24 items-center justify-center text-white p-8 lg:p-0'>

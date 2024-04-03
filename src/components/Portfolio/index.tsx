@@ -1,13 +1,15 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import React, { FC } from 'react';
 
+import { caseStudies } from '../../pages/portfolio';
 import { introHeaderVariants } from '../../utils/frameMotionAnimations';
 import useWindowSize from '../../utils/useWindowSize';
-import { Mobile_1, Mobile_2 } from '../../../assets';
 
 const Portfolio: FC = () => {
   const { isMobile } = useWindowSize();
+  const router = useRouter();
   return (
     <>
       <div className='flex justify-center items-center min-h-screen'>
@@ -31,27 +33,27 @@ const Portfolio: FC = () => {
               className=''
             >
               <div className='flex gap-4 flex-col lg:flex-row '>
-                {Array(10)
-                  .fill(null)
-                  .map((_, index) => (
-                    <span key={index} className='relative'>
-                      <span className='bg-gray-200 pt-10 lg:w-[650px] rounded-md flex items-center justify-center'>
-                        <Image
-                          src={index % 2 !== 0 ? Mobile_1 : Mobile_2}
-                          alt='Mobile'
-                          width={300}
-                          height={100}
-                        />
-                      </span>
-                      <span className='bg-white bottom-0 w-5/6 h-28 absolute px-4 pt-4'>
-                        <p className='text-2xl font-medium'>Sarthi bus app</p>
-                        <p>
-                          A mobile app that offers state-wide local bus
-                          transportation.
-                        </p>
-                      </span>
+                {caseStudies.map((proj, index) => (
+                  <span key={index} className='relative'>
+                    <span
+                      onClick={() => {
+                        router.push(`/portfolio/${index}`);
+                      }}
+                      className='bg-gray-200 pt-10 w-full lg:w-[650px] rounded-md flex items-center justify-center'
+                    >
+                      <Image
+                        src={`/portfolio/${index}.svg`}
+                        alt='Mobile'
+                        width={300}
+                        height={100}
+                        className='object-contain h-[600px]'
+                      />
                     </span>
-                  ))}
+                    <span className='bg-white bottom-0 w-5/6 h-28 absolute px-4 pt-4'>
+                      <p className='text-2xl font-medium'>{proj.title}</p>
+                    </span>
+                  </span>
+                ))}
               </div>
             </motion.span>
           </div>

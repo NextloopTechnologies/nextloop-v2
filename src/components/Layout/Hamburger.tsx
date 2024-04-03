@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 import { NextLoopColoredLogo } from '../../../assets';
@@ -8,7 +9,7 @@ import navIcon from '../../../public/hamburger.svg';
 
 const Hamburger = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const router = useRouter();
   return (
     <>
       <div className='flex justify-between px-4'>
@@ -47,7 +48,10 @@ const Hamburger = () => {
             <Link href='/blog'>Blog</Link>
           </li>
           <li>
-            <button className='bg-orange-500 text-white px-5 py-3 rounded-full'>
+            <button
+              onClick={() => router.push('#footer')}
+              className='bg-orange-500 text-white px-5 py-3 rounded-full'
+            >
               Request quote &#10230;
             </button>
           </li>

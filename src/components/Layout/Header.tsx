@@ -1,6 +1,7 @@
 import { motion, useAnimation } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
 import { NextLoopColoredLogo } from '../../../assets';
@@ -28,6 +29,8 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
     };
   }, []);
 
+  const router = useRouter();
+
   useEffect(() => {
     headerAnimation.start({
       color: !isSticky ? 'white' : 'black',
@@ -38,17 +41,6 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
       },
     });
   }, [isScrolled, isSticky, headerAnimation]);
-
-  const handleScrollOnClick = () => {
-    const windowHeight = window?.innerHeight;
-    const documentHeight = document.body.clientHeight;
-    const scrollToY = documentHeight - windowHeight;
-
-    window?.scrollTo({
-      top: scrollToY,
-      behavior: 'smooth',
-    });
-  };
 
   return (
     <motion.nav
@@ -83,7 +75,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
           </li>
           <li>
             <button
-              onClick={handleScrollOnClick}
+              onClick={() => router.push('#footer')}
               className='bg-orange-500 ml-10 text-white px-5 py-3 rounded-full'
             >
               Request quote &#10230;

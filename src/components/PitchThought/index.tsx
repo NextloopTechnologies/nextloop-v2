@@ -29,7 +29,10 @@ const PitchThought: FC = () => {
 
   return (
     <>
-      <div className='flex lg:flex-row flex-col gap-x-32 items-center h-screen overflow-x-hidden px-4'>
+      <div
+        id='footer'
+        className='flex lg:flex-row flex-col gap-x-32 items-center h-screen overflow-x-hidden px-4'
+      >
         <motion.header
           initial={isMobile ? 'visible' : 'hide'}
           whileInView='show'
