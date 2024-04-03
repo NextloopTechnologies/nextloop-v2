@@ -4,11 +4,14 @@ import { useRouter } from 'next/router';
 
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
-import { Blog } from '../../types';
+import { type Blog } from '../../types';
 import supabaseClient from '../../utils/client';
 import blogsBg from '../../../assets/blogs.png';
 
-const Blog: React.FC<{ data?: Blog[]; error?: string }> = ({ data, error }) => {
+const BlogPage: React.FC<{ data?: Blog[]; error?: string }> = ({
+  data,
+  error,
+}) => {
   const router = useRouter();
   return (
     <Layout>
@@ -58,7 +61,7 @@ const Blog: React.FC<{ data?: Blog[]; error?: string }> = ({ data, error }) => {
   );
 };
 
-export default Blog;
+export default BlogPage;
 
 export async function getServerSideProps() {
   // Fetch data from Supabase
