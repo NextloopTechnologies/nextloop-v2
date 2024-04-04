@@ -18,6 +18,7 @@ const Hamburger = () => {
           width={80}
           height={60}
           alt='NextLoopLogo'
+          onClick={() => router.push('/')}
         />
         <Image
           src={navIcon}

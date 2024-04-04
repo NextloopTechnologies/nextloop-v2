@@ -103,21 +103,23 @@ const PitchThought: FC = () => {
                 placeholder='Your email'
               />
             </motion.div>
-            <motion.div
-              className='flex justify-center items-center py-4 bg-white text-black rounded-full font-medium'
+            <motion.a
+              className='flex justify-center items-center py-4 bg-white text-black rounded-full font-medium cursor-pointer'
               variants={inputFieldVariants}
               initial='unfocused'
               whileFocus='focused'
+              href='mailto:info@nextlooptechnologies.com'
             >
               Send your idea!
-            </motion.div>
+            </motion.a>
             <motion.div
               className='flex '
               variants={inputFieldVariants}
               initial='unfocused'
               whileFocus='focused'
             >
-              420, Onam Plaza, New Palasia, Indore, MP. 452001
+              101, Kanchan Sagar, 18/1, Near Industry House, Old Palasia,
+              Indore, Madhya Pradesh 452001
             </motion.div>
             <motion.div
               className='flex text-xl'

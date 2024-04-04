@@ -56,6 +56,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
           width={80}
           height={60}
           alt='NextLoopLogo'
+          onClick={() => router.push('/')}
         />
         <ul className='flex space-x-4 items-center'>
           <li>
