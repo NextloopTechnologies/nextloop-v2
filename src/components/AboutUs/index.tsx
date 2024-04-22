@@ -20,7 +20,6 @@ const AboutUs: FC = () => {
           className='flex gap-x-10 lg:w-5/6 text-center lg:text-left py-8 px-4 lg:py-0 lg:px-0'
         >
           <div className='flex flex-col gap-y-1 '>
-            <span>#ABOUT US</span>
             <motion.span
               initial={isMobile ? 'visible' : 'hide'}
               animate='show'

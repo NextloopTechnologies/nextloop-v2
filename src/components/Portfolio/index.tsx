@@ -23,7 +23,6 @@ const Portfolio: FC = () => {
           // Adjust constraints as needed
         >
           <div className='flex flex-col gap-y-1 w-full'>
-            <span className='whitespace-nowrap w-full'>#Portfolio</span>
             <motion.span
               initial={isMobile ? 'visible' : 'hide'}
               whileInView='show'

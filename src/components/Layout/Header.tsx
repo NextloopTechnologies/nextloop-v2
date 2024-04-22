@@ -30,6 +30,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
   }, []);
 
   const router = useRouter();
+  const { pathname } = router;
 
   useEffect(() => {
     headerAnimation.start({
@@ -46,7 +47,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
     <motion.nav
       initial={{ y: 0 }}
       animate={headerAnimation}
-      className={`px-10 pt-6 absolute top-0 left-0 w-full z-20 ${
+      className={`px-10 pt-6 absolute top-0 left-0 w-full z-30 ${
         isSticky ? 'bg-white' : ''
       }`}
     >
@@ -59,19 +60,22 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
           onClick={() => router.push('/')}
         />
         <ul className='flex space-x-4 items-center'>
-          <li>
+          <li className={`${pathname === '/' && 'text-orange-500'}`}>
+            <Link href='/'>Home</Link>
+          </li>
+          <li className={`${pathname === '/about-us' && 'text-orange-500'}`}>
             <Link href='/about-us'>About us</Link>
           </li>
-          <li>
+          <li className={`${pathname === '/portfolio' && 'text-orange-500'}`}>
             <Link href='/portfolio'>Portfolio</Link>
           </li>
-          <li>
+          <li className={`${pathname === '/services' && 'text-orange-500'}`}>
             <Link href='/services'>Services</Link>
           </li>
-          <li>
+          <li className={`${pathname === '/careers' && 'text-orange-500'}`}>
             <Link href='/careers'>Career</Link>
           </li>
-          <li>
+          <li className={`${pathname === '/blog' && 'text-orange-500'}`}>
             <Link href='/blog'>Blog</Link>
           </li>
           <li>

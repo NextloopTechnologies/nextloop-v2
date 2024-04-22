@@ -22,7 +22,7 @@ const cards: { title: string; desc: string }[] = [
     desc: 'The cloud holds immense potential for your business. Our expert cloud architects can help you unlock that potential. We offer comprehensive cloud services including secure migration, cost-optimization strategies, and cutting-edge DevOps solutions to ensure maximum scalability, reliability, and agility for your cloud infrastructure.',
   },
   {
-    title: 'Mobile Development (Android, iOS, Flutter)',
+    title: 'Mobile Development',
     desc: "Everyone's glued to their phones these days.  Reach your audience exactly where they are with our custom-built mobile applications. Whether you need a native Android or iOS app, or a cross-platform solution with Flutter, we have the expertise to create engaging mobile experiences that will keep your users coming back for more.",
   },
   {
@@ -67,9 +67,7 @@ const Services = () => {
       <div className='grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12 xl:p-24 md:p-8 p-4 place-items-center'>
         {cards.map((card, idx) => (
           <div
-            className={`flex flex-col items-center justify-center text-center gap-8 shadow-md md:h-[580px] px-8 py-8 md:py-0 ${
-              idx === 4 ? 'bg-[#1D1D1D] text-white' : 'bg-white text-black'
-            }`}
+            className='flex flex-col items-center justify-center text-center gap-8 shadow-md md:h-[580px] px-8 py-8 md:py-0 bg-white text-black hover:bg-[#1D1D1D] hover:text-white transition-all duration-200 ease-in-out'
             key={idx}
           >
             <Image
@@ -78,7 +76,7 @@ const Services = () => {
               height={140}
               width={140}
             />
-            <h1 className='font-medium lg:text-4xl text-2xl w-2/3'>
+            <h1 className='font-medium lg:text-4xl text-2xl w-4/5'>
               {card.title}
             </h1>
             <p className=''>{card.desc}</p>

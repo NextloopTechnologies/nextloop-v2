@@ -49,7 +49,7 @@ export default function Home() {
 
   const handleScrollOnClick = () => {
     if (showNextPageButton) {
-      window?.scrollBy(0, 500);
+      window?.scrollBy({ top: 1000, behavior: 'smooth' });
     } else if (showToTopButton) {
       window?.scrollTo({ top: 0, behavior: 'smooth' });
     }

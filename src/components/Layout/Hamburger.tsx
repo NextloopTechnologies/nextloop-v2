@@ -10,6 +10,8 @@ import navIcon from '../../../public/hamburger.svg';
 const Hamburger = () => {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
+  const { pathname } = router;
+
   return (
     <>
       <div className='flex justify-between px-4'>
@@ -33,19 +35,22 @@ const Hamburger = () => {
         transition={{ duration: 0.5 }}
       >
         <ul className='flex flex-col items-center py-16 gap-8 h-full'>
-          <li>
+          <li className={`${pathname === '/' && 'text-orange-500'}`}>
+            <Link href='/'>Home</Link>
+          </li>
+          <li className={`${pathname === '/about-us' && 'text-orange-500'}`}>
             <Link href='/about-us'>About us</Link>
           </li>
-          <li>
+          <li className={`${pathname === '/portfolio' && 'text-orange-500'}`}>
             <Link href='/portfolio'>Portfolio</Link>
           </li>
-          <li>
+          <li className={`${pathname === '/services' && 'text-orange-500'}`}>
             <Link href='/services'>Services</Link>
           </li>
-          <li>
+          <li className={`${pathname === '/careers' && 'text-orange-500'}`}>
             <Link href='/careers'>Career</Link>
           </li>
-          <li className='grow'>
+          <li className={`${pathname === '/blog' && 'text-orange-500'}`}>
             <Link href='/blog'>Blog</Link>
           </li>
           <li>
