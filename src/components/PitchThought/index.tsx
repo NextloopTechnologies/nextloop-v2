@@ -16,6 +16,11 @@ const PitchThought: FC = () => {
     setDescription(e.target.value);
   };
 
+<<<<<<< Updated upstream
+=======
+  // const { isMobile } = useWindowSize();
+
+>>>>>>> Stashed changes
   return (
     <>
       <div
