@@ -1,7 +1,5 @@
 import React, { FC, useState } from 'react';
 
-import useWindowSize from '../../utils/useWindowSize';
-
 const PitchThought: FC = () => {
   const [email, setEmail] = useState('');
   const [description, setDescription] = useState('');
