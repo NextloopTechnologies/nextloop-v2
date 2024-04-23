@@ -18,8 +18,6 @@ const PitchThought: FC = () => {
     setDescription(e.target.value);
   };
 
-  const { isMobile } = useWindowSize();
-
   return (
     <>
       <div
