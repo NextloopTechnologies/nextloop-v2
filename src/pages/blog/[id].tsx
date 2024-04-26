@@ -4,7 +4,7 @@ import { GetServerSideProps } from 'next';
 
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
-import { Blog } from '../../types';
+import { type Blog } from '../../types';
 import supabaseClient from '../../utils/client';
 import blogsBg from '../../../assets/blogs.png';
 
