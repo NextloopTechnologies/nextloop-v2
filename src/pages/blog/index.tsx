@@ -4,11 +4,11 @@ import { useRouter } from 'next/router';
 
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
-import { type Blog } from '../../types';
+import { BlogType } from '../../types';
 import supabaseClient from '../../utils/client';
 import blogsBg from '../../../assets/blogs.png';
 
-const BlogPage: React.FC<{ data?: Blog[]; error?: string }> = ({
+const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
   data,
   error,
 }) => {
