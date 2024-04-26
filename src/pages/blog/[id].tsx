@@ -4,11 +4,11 @@ import { GetServerSideProps } from 'next';
 
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
-import { type Blog } from '../../types';
+import { BlogType } from '../../types';
 import supabaseClient from '../../utils/client';
 import blogsBg from '../../../assets/blogs.png';
 
-const BlogID: React.FC<{ data?: Blog[]; error?: string }> = ({
+const BlogID: React.FC<{ data?: BlogType[]; error?: string }> = ({
   data,
   error,
 }) => {
