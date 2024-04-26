@@ -35,7 +35,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <>
       {width! > 1023 ? <Header isSticky={isSticky} /> : <Hamburger />}
       <div className='z-10'>{children}</div>
-      <Section className='min-h-screen bg-[#010103] '>
+      <Section className='min-h-screen bg-[#010103] w-screen'>
         <div className='container mx-auto'>
           <PitchThought />
         </div>

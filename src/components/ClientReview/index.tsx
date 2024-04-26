@@ -14,46 +14,57 @@ interface CardData {
 
 const cardData = [
   {
-    name: 'Harry Adetola',
-    title: 'CEO, Harris Energy',
+    name: 'Sushil Kumar',
+    title: 'Founder, Stemens Software Pvt. Ltd.',
     quote: (
       <span>
-        Nextloop has expertise that{' '}
-        <b className='text-orange-500'>transformed our business,</b> making them
-        an invaluable partner for our growth and innovation.
+        I have been associated with NextLoop for a while now, and I can say with
+        confidence that they are the real deal.
       </span>
     ),
   },
   {
-    name: 'Rishabh Pandey',
-    title: 'CEO, Harris Energy',
+    name: 'Vivek Pandey',
+    title: 'CEO, Bright Hustle',
     quote: (
       <span>
-        Nextloop has expertise that{' '}
-        <b className='text-orange-500'>transformed our business,</b> making them
-        an invaluable partner for our growth and innovation.
+        Working with NextLoop Technologies has been a game-changer for my
+        business. They have helped me to improve employee productivity, and
+        enhance my overall software process.
       </span>
     ),
   },
   {
-    name: 'Rakshit',
-    title: 'CEO, Harris Energy',
+    name: 'Mohit Chawla',
+    title: 'CEO, Chawla Bearings',
     quote: (
       <span>
-        Nextloop has expertise that{' '}
-        <b className='text-orange-500'>transformed our business,</b> making them
-        an invaluable partner for our growth and innovation.
+        I've been utilizing NextLoop's services for some time, and without a
+        doubt, they excel in their field. They have helped me streamline my CRM
+        processes, reduce costs, and improve employee engagement.
       </span>
     ),
   },
   {
-    name: 'Harsh',
-    title: 'CEO, Harris Energy',
+    name: 'Shivansh Sharma',
+    title: 'Founder, Blue Bird Events',
     quote: (
       <span>
-        Nextloop has expertise that{' '}
-        <b className='text-orange-500'>transformed our business,</b> making them
-        an invaluable partner for our growth and innovation.
+        Nextloop team is friendly, knowledgeable, and always available to answer
+        any questions we may have.
+      </span>
+    ),
+  },
+  {
+    name: 'Brijesh panchal',
+    title: 'Manager, Levram Lifesciences',
+    quote: (
+      <span>
+        Nextloop Technologies LLP delivered the project on time, meeting the
+        client's expectations. They communicated frequently and promptly via
+        email, ensuring an effective workflow. Their expertise, knowledge,
+        customized solutions, proactivity, and transparent pricing were
+        hallmarks of their work.
       </span>
     ),
   },
@@ -98,14 +109,14 @@ const Card = ({ card }: { card: CardData }) => {
           <span className='text-2xl lg:w-3/6 w-full italic pt-5'>
             {card.quote}
           </span>
-          <span className='text-xs  pt-5 flex justify-between lg:w-5/6 w-full'>
+          {/* <span className='text-xs  pt-5 flex justify-between lg:w-5/6 w-full'>
             <span className='lg:w-3/6 w-full'>
               Under tight deadlines and with high expectations, Nextloop
               Technologies was a pleasure to partner with. Professional,
               conscientious and thoroughly competent - I wouldn't hesitate in
               recommending them to other agencies.
             </span>
-          </span>
+          </span> */}
         </div>
       </div>
     </motion.div>

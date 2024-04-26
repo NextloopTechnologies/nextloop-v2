@@ -25,7 +25,7 @@ const Intro: FC = () => {
                 <div className='flex gap-x-8'>
                   <div className='flex flex-col uppercase'>
                     <p className='text-xs'>made</p>
-                    <p className='xl:text-9xl lg:text-5xl text-3xl font-bold'>
+                    <p className='xl:text-9xl lg:text-5xl md:text-6xl text-6xl font-bold'>
                       unlock
                     </p>
                   </div>
@@ -34,12 +34,12 @@ const Intro: FC = () => {
                       <p className='text-xs'>with</p>
                       <p className='text-xs'>technologies</p>
                     </div>
-                    <p className='xl:text-9xl lg:text-5xl text-3xl font-bold text-orange-500'>
+                    <p className='xl:text-9xl lg:text-5xl md:text-6xl text-3xl font-bold text-orange-500'>
                       innovative
                     </p>
                   </div>
                 </div>
-                <p className='xl:text-9xl lg:text-5xl text-3xl font-bold uppercase text-center'>
+                <p className='xl:text-9xl lg:text-5xl md:text-6xl text-3xl font-bold uppercase text-center'>
                   solutions
                 </p>
               </div>
@@ -50,8 +50,8 @@ const Intro: FC = () => {
               exit='hide'
               variants={introRightHeaderVariants}
             >
-              <div className='flex lg:justify-end justify-center lg:pr-36 lg:pt-28 pt-8 px-4 lg:px-0 lg:text-left text-center'>
-                <div className='text-xs lg:w-1/3 w-full'>
+              <div className='flex justify-center pt-8 px-4 text-center'>
+                <div className='text-sm lg:w-2/5 md:w-2/3 w-full'>
                   If you are looking for a complete business solution at a one
                   place in combination with distinctive designs, that is what
                   you can expect from us. To stimulate the growth of your

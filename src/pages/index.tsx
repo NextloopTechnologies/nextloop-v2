@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 
 import AboutUs from '../components/AboutUs';
@@ -11,6 +12,7 @@ import Portfolio from '../components/Portfolio';
 import Services from '../components/ServicesGroup';
 import WhoWeAre from '../components/WhoWeAre';
 import useWindowSize from '../utils/useWindowSize';
+import { DownArrow } from '../../assets';
 
 const sectionStyle: React.CSSProperties = {
   minHeight: '100vh',
@@ -47,9 +49,19 @@ export default function Home() {
   const [scrollBelowServices, setScrollBelowServices] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const introRef = useRef<HTMLDivElement | null>(null);
+  const whoWeAreRef = useRef<HTMLDivElement | null>(null);
+  const servicesSectionRef = useRef<HTMLDivElement | null>(null);
+  const careersRef = useRef<HTMLDivElement | null>(null);
+
+  const aboutUsRef = useRef<HTMLDivElement | null>(null);
+  const experienceRef = useRef<HTMLDivElement | null>(null);
+  const portfolioRef = useRef<HTMLDivElement | null>(null);
+  const clientReviewRef = useRef<HTMLDivElement | null>(null);
+
   const handleScrollOnClick = () => {
     if (showNextPageButton) {
-      window?.scrollBy(0, 500);
+      window?.scrollBy({ top: 1000, behavior: 'smooth' });
     } else if (showToTopButton) {
       window?.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -93,20 +105,101 @@ export default function Home() {
     };
   }, []);
 
-  // Ref for the Services section
-  const servicesSectionRef = useRef<HTMLDivElement | null>(null);
-
   const { isMobile } = useWindowSize();
+
+  useEffect(() => {
+    const handleScroll = (e: WheelEvent) => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const introOffset = introRef.current!.offsetTop;
+      const whoWeAreRefOffset = whoWeAreRef.current!.offsetTop;
+      const servicesSectionRefOffset = servicesSectionRef.current!.offsetTop;
+      const careersOffset = careersRef.current!.offsetTop;
+      const aboutUsOffset = aboutUsRef.current!.offsetTop;
+      const experienceOffset = experienceRef.current!.offsetTop;
+      const portfolioOffset = portfolioRef.current!.offsetTop;
+      const clientReviewOffset = clientReviewRef.current!.offsetTop;
+
+      if (e.deltaY > 0) {
+        if (scrollY < introOffset) {
+          introRef.current!.scrollIntoView({ behavior: 'smooth' });
+        } else if (
+          scrollY >= introOffset &&
+          scrollY < whoWeAreRefOffset - windowHeight
+        ) {
+          whoWeAreRef.current!.scrollIntoView({ behavior: 'smooth' });
+        } else if (
+          scrollY >= whoWeAreRefOffset &&
+          scrollY < servicesSectionRefOffset - windowHeight
+        ) {
+          servicesSectionRef.current!.scrollIntoView({ behavior: 'smooth' });
+        } else if (
+          scrollY >= servicesSectionRefOffset &&
+          scrollY < careersOffset - windowHeight
+        ) {
+          careersRef.current!.scrollIntoView({ behavior: 'smooth' });
+        } else if (
+          scrollY >= careersOffset &&
+          scrollY < aboutUsOffset - windowHeight
+        ) {
+          aboutUsRef.current!.scrollIntoView({ behavior: 'smooth' });
+        } else if (
+          scrollY >= aboutUsOffset &&
+          scrollY < experienceOffset - windowHeight
+        ) {
+          experienceRef.current!.scrollIntoView({ behavior: 'smooth' });
+        } else if (
+          scrollY >= experienceOffset &&
+          scrollY < portfolioOffset - windowHeight
+        ) {
+          portfolioRef.current!.scrollIntoView({ behavior: 'smooth' });
+        } else if (
+          scrollY >= portfolioOffset &&
+          scrollY < clientReviewOffset - windowHeight
+        ) {
+          clientReviewRef.current!.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        if (
+          scrollY >= clientReviewOffset - windowHeight &&
+          scrollY < portfolioOffset
+        ) {
+          portfolioRef.current!.scrollIntoView({ behavior: 'smooth' });
+        } else if (scrollY >= portfolioOffset && scrollY < experienceOffset) {
+          experienceRef.current!.scrollIntoView({ behavior: 'smooth' });
+        } else if (scrollY >= experienceOffset && scrollY < aboutUsOffset) {
+          aboutUsRef.current!.scrollIntoView({ behavior: 'smooth' });
+        } else if (scrollY >= aboutUsOffset && scrollY < careersOffset) {
+          careersRef.current!.scrollIntoView({ behavior: 'smooth' });
+        } else if (scrollY >= careersOffset && scrollY < whoWeAreRefOffset) {
+          whoWeAreRef.current!.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+
+      e.preventDefault(); // Prevent default scrolling behavior
+    };
+
+    window.addEventListener('wheel', handleScroll);
+
+    return () => {
+      window.removeEventListener('wheel', handleScroll);
+    };
+  }, []);
+
   return (
     <>
       <Layout>
-        <div id='about-us' className='min-h-screen aboutUsBackgroundImage'>
+        <Section
+          refProp={introRef}
+          id='about-us'
+          className='min-h-screen aboutUsBackgroundImage'
+        >
           <div className='container mx-auto'>
             <Intro />
           </div>
-        </div>
+        </Section>
 
-        <Section id='portfolio' className='min-h-screen'>
+        <Section refProp={whoWeAreRef} id='portfolio' className='min-h-screen'>
           <div className='container mx-auto '>
             <WhoWeAre />
           </div>
@@ -125,28 +218,32 @@ export default function Home() {
           </div>
         </Section>
 
-        <Section id='career' className='min-h-screen  bg-[#010103] '>
+        <Section
+          refProp={careersRef}
+          id='career'
+          className='min-h-screen bg-[#010103] '
+        >
           <div className='container mx-auto z-10 '>
             <Career />
           </div>
         </Section>
 
-        <Section id='contact-us' className='min-h-screen '>
+        <Section refProp={aboutUsRef} id='contact-us' className='min-h-screen '>
           <div className='container mx-auto'>
             <AboutUs />
           </div>
         </Section>
-        <Section className='min-h-screen '>
+        <Section refProp={experienceRef} className='min-h-screen '>
           <div className='container mx-auto'>
             <Experience />
           </div>
         </Section>
-        <Section className='min-h-screen '>
+        <Section refProp={portfolioRef} className='min-h-screen '>
           <div className='container mx-auto'>
             <Portfolio />
           </div>
         </Section>
-        <Section className='min-h-screen '>
+        <Section refProp={clientReviewRef} className='min-h-screen '>
           <div className='container mx-auto'>
             <ClientReview />
           </div>
@@ -158,11 +255,10 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 40 }}
             transition={{ duration: 0.5 }}
-            className='fixed bottom-10 right-5 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-full flex items-center space-x-2 cursor-pointer'
+            className='fixed bottom-10 right-5 bg-orange-500 hover:bg-orange-600 text-white h-10 w-10 justify-center rounded-full flex items-center cursor-pointer'
             onClick={handleScrollOnClick}
           >
-            Down
-            <span>Next Page</span>
+            <Image src={DownArrow} alt='Down arrow' className='h-5 w-7' />
           </motion.button>
         )}
 
