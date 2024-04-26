@@ -66,7 +66,9 @@ const Experience: FC = () => {
                           <span className='text-sm font-medium'>
                             {item.heading}
                           </span>
-                          <span className='text-xs w-2/3'>{item.desc}</span>
+                          <span className='text-xs w-2/3 mx-auto'>
+                            {item.desc}
+                          </span>
                         </div>
                       </div>
                     </div>

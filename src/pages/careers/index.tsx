@@ -32,12 +32,11 @@ const CareersPage: React.FC<{ jobs?: Job[]; error?: string }> = ({
 
 const WhyUs = () => (
   <div className='min-h-screen flex flex-col justify-center items-center text-center gap-12 p-8 lg:px-0 lg:py-8'>
-    <h2 className='font-medium text-2xl uppercase'>#GALLERY</h2>
     <p className='font-bold xl:text-7xl md:text-5xl text-3xl  2xl:w-[40%] xl:w-[60%] w-full'>
       CURIOUS ABOUT HOW WE MANAGE TO MAKE ALL THIS{' '}
       <span className='text-orange-500'>POSSIBLE?</span>
     </p>
-    <div className='flex gap-24 w-full justify-around flex-col lg:flex-row'>
+    <div className='flex gap-24 w-full justify-around flex-col lg:flex-row lg:gap-0'>
       <div className='flex flex-col gap-8 lg:w-1/2 items-center xl:px-48'>
         <div className='flex gap-8'>
           <div className='h-full'>
@@ -120,7 +119,6 @@ const WhyUs = () => (
 
 const Jobs: React.FC<{ jobs?: Job[]; error?: string }> = ({ error, jobs }) => (
   <div className='min-h-screen aboutUsPageBackgroundImage flex flex-col gap-24 items-center justify-center text-white p-8 lg:p-0'>
-    <h2 className='font-medium text-2xl uppercase'>#opportunities</h2>
     <p className='font-bold xl:text-7xl md:text-5xl text-3xl uppercase xl:w-[30%] text-center'>
       find a <span className='text-orange-500'>suitable job</span> for you
     </p>

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 
 import AboutUs from '../components/AboutUs';
@@ -11,6 +12,7 @@ import Portfolio from '../components/Portfolio';
 import Services from '../components/ServicesGroup';
 import WhoWeAre from '../components/WhoWeAre';
 import useWindowSize from '../utils/useWindowSize';
+import { DownArrow } from '../../assets';
 
 const sectionStyle: React.CSSProperties = {
   minHeight: '100vh',
@@ -253,11 +255,10 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 40 }}
             transition={{ duration: 0.5 }}
-            className='fixed bottom-10 right-5 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-full flex items-center space-x-2 cursor-pointer'
+            className='fixed bottom-10 right-5 bg-orange-500 hover:bg-orange-600 text-white h-10 w-10 justify-center rounded-full flex items-center cursor-pointer'
             onClick={handleScrollOnClick}
           >
-            Down
-            <span>Next Page</span>
+            <Image src={DownArrow} alt='Down arrow' className='h-5 w-7' />
           </motion.button>
         )}
 
