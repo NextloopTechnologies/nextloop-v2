@@ -1,4 +1,7 @@
 export { default as AboutUsBackground } from './AboutUsBackground.png';
+export { default as BottomBig } from './careers/bottomBig.png';
+export { default as BottomLeft } from './careers/bottomLeft.png';
+export { default as BottomRight } from './careers/bottomRight.png';
 export { default as CompositeLayer_1 } from './CompositeLayer-1.png';
 export { default as CompositeLayer_2 } from './CompositeLayer-2.png';
 export { default as CompositeLayer_3 } from './CompositeLayer-3.png';

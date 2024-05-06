@@ -147,7 +147,7 @@ const CardSlider = () => {
   const { isMobile } = useWindowSize();
 
   return (
-    <div className='flex items-center justify-center min-h-screen'>
+    <div className='flex relative items-center justify-center min-h-screen'>
       <motion.header
         initial={isMobile ? 'visible' : 'hide'}
         whileInView='show'
@@ -162,7 +162,7 @@ const CardSlider = () => {
             variants={textVariants}
             className='lg:text-6xl text-3xl font-bold  flex lg:justify-end justify-center'
           >
-            {/* <span className='text-sm'>#TESTIMONIAL</span> */}
+            {/* <span className='text-sm'>TESTIMONIAL</span> */}
             <div className='lg:w-2/3 lg:text-right w-full text-center'>
               What <b className='text-orange-500'>clients</b> have to say about
               our work.
@@ -182,31 +182,32 @@ const CardSlider = () => {
                 </motion.div>
               )}
             </AnimatePresence>
-            <div className=' flex gap-x-4 lg:pr-10 items-end'>
-              <button
-                onClick={prevCard}
-                className={`text-2xl hover:bg-gray-100 cursor-pointer border w-10 h-10 rounded-full flex items-center justify-center text-center ${
-                  currentCard === 0 ? 'opacity-50 cursor-not-allowed' : ''
-                }`}
-                disabled={currentCard === 0}
-              >
-                &larr;
-              </button>
-              <button
-                onClick={nextCard}
-                className={`text-2xl border hover:bg-gray-100 cursor-pointer w-10 h-10 rounded-full flex items-center justify-center text-center ${
-                  currentCard === cardData.length - 1
-                    ? 'opacity-50 cursor-not-allowed'
-                    : ''
-                }`}
-                disabled={currentCard === cardData.length - 1}
-              >
-                &rarr;
-              </button>
-            </div>
           </div>
         </div>
       </motion.header>
+
+      <div className='absolute flex gap-x-4 bottom-0 right-0 lg:pr-10'>
+        <button
+          onClick={prevCard}
+          className={`text-2xl hover:bg-gray-100 cursor-pointer border w-10 h-10 rounded-full flex items-center justify-center text-center ${
+            currentCard === 0 ? 'opacity-50 cursor-not-allowed' : ''
+          }`}
+          disabled={currentCard === 0}
+        >
+          &larr;
+        </button>
+        <button
+          onClick={nextCard}
+          className={`text-2xl border hover:bg-gray-100 cursor-pointer w-10 h-10 rounded-full flex items-center justify-center text-center ${
+            currentCard === cardData.length - 1
+              ? 'opacity-50 cursor-not-allowed'
+              : ''
+          }`}
+          disabled={currentCard === cardData.length - 1}
+        >
+          &rarr;
+        </button>
+      </div>
     </div>
   );
 };

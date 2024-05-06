@@ -15,13 +15,13 @@ type CoveroverProps = {
   onClose: () => void;
 };
 
+export const imageArray = [
+  CompositeLayer_1,
+  CompositeLayer_2,
+  CompositeLayer_3,
+  CompositeLayer_4,
+];
 const Coverover: FC<CoveroverProps> = ({ isOpen, onClose }) => {
-  const imageArray = [
-    CompositeLayer_1,
-    CompositeLayer_2,
-    CompositeLayer_3,
-    CompositeLayer_4,
-  ];
   const content = [
     {
       heading: 'we first,',
@@ -59,16 +59,16 @@ const Coverover: FC<CoveroverProps> = ({ isOpen, onClose }) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: '100%' }}
           transition={{ duration: 0.3 }}
-          className='fixed inset-0 2xl:bg-transparent bg-white z-50 overflow-y-auto hidden lg:block'
+          className='fixed inset-0 2xl:bg-transparent bg-white overflow-y-auto hidden lg:block'
         >
           {/* Your modal content goes here */}
           <div className='w-full min-h-screen p-4'>
-            <button
+            {/* <button
               onClick={onClose}
               className='absolute top-4 right-4 text-red-500'
             >
               Close
-            </button>
+            </button> */}
             <div className='flex flex-col overflow-x-hidden  lg:px-20 z-50'>
               {imageArray.map((item, index) => {
                 return (

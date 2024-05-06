@@ -35,6 +35,7 @@ const WhoWeAre: FC = () => {
           className='flex lg:flex-row flex-col gap-x-10 lg:px-10 text-center lg:text-left'
         >
           <div className='flex flex-col gap-3 lg:px-20 px-4'>
+            <span>who we are</span>
             <motion.span
               initial={isMobile ? 'visible' : 'hide'}
               animate={textAnimationCompleted ? 'show' : 'hide'}

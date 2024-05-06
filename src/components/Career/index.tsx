@@ -41,6 +41,7 @@ const Career: FC = () => {
           className='flex gap-x-10 lg:w-5/6 w-full lg:flow-row flex-col text-white'
         >
           <div className='flex flex-col gap-y-3 '>
+            <span>SUCCESS NUMBERS</span>
             <motion.span
               initial={isMobile ? 'visible' : 'hide'}
               animate='show'
