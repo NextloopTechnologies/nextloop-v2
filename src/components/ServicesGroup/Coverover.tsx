@@ -21,7 +21,7 @@ export const imageArray = [
   CompositeLayer_3,
   CompositeLayer_4,
 ];
-const Coverover: FC<CoveroverProps> = ({ isOpen, onClose }) => {
+const Coverover: FC<CoveroverProps> = ({ isOpen }) => {
   const content = [
     {
       heading: 'we first,',
