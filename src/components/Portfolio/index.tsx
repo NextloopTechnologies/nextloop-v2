@@ -91,11 +91,11 @@ const Portfolio: FC = () => {
           <button
             onClick={() => handleScroll('right')}
             className={`text-3xl border bg-white hover:bg-gray-50 w-14 h-14 rounded-full flex items-center justify-center text-center border-gray-300 ${
-              currentImageIndex === caseStudies.length - 2
+              currentImageIndex === caseStudies.length - 3
                 ? 'opacity-50 cursor-not-allowed'
                 : 'cursor-pointer'
             }`}
-            disabled={currentImageIndex === caseStudies.length - 2}
+            disabled={currentImageIndex === caseStudies.length - 3}
           >
             &rarr;
           </button>
