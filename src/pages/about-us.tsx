@@ -87,6 +87,7 @@ const AboutUsHome = () => {
 
 const WhyUs = () => (
   <div className='min-h-screen flex flex-col justify-center items-center text-center gap-12 p-8 lg:p-0'>
+    <h2 className='font-medium text-2xl uppercase'>Why us</h2>
     <p className='font-bold xl:text-7xl md:text-5xl text-3xl  2xl:w-[30%] xl:w-[60%] w-full'>
       CURIOUS ABOUT HOW WE MANAGE TO MAKE ALL THIS{' '}
       <span className='text-orange-500'>POSSIBLE?</span>
@@ -103,6 +104,7 @@ const Journey = () => {
   const router = useRouter();
   return (
     <div className='min-h-screen bg-[#010103] text-white flex flex-col justify-center items-center text-center gap-24 p-8 lg:p-0'>
+      <h2 className='font-medium text-2xl uppercase'>ourjourney</h2>
       <div className='grid xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 grid-cols-1 w-full place-items-center gap-12 xl:px-16'>
         {journeyArr.map((t, i) => (
           <JourneyCard {...t} key={i} odd={i % 2 !== 0} />
@@ -122,6 +124,7 @@ const Journey = () => {
 
 const Certificates = () => (
   <div className='min-h-screen aboutUsPageBackgroundImage flex flex-col gap-24 items-center justify-center text-white p-8 lg:p-0'>
+    <h2 className='font-medium text-2xl uppercase'>certificates</h2>
     <p className='font-bold xl:text-7xl md:text-5xl text-3xl'>
       COMMITMENT TO<span className='text-orange-500'> EXCELLENCE</span>
     </p>
@@ -150,6 +153,7 @@ const CertificateCard: React.FC<{
 const AboutUsInAboutUs = () => (
   <div className='flex flex-col min-h-screen bg-white justify-center items-center xl:p-24 p-8 md:p-0 gap-24'>
     <div className='flex flex-col w-full gap-8'>
+      <h2 className='font-medium text-2xl uppercase'>aboutus</h2>
       <span className='font-bold xl:text-7xl md:text-5xl text-3xl uppercase hidden lg:block'>
         we are a group of goal <br />
         <span className='text-orange-500'>developers.</span>
