@@ -16,4 +16,5 @@ export { default as Mobile_2 } from './Mobile-2.png';
 export { default as NextLoopColoredLogo } from './NextLoopColoredLogo.jpeg';
 export { default as NextLoopLogo } from './NextLoopLogo.png';
 export { default as User_1 } from './user-1.png';
+export { default as WhyBuildEventManagement } from './whyBuildEventManagement.png';
 export { default as Whyus } from './whyus.png';
