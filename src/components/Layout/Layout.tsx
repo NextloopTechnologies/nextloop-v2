@@ -8,9 +8,13 @@ import useWindowSize from '../../utils/useWindowSize';
 
 interface LayoutProps {
   children: ReactNode;
+  pitchThoughtSectionEnabled?: boolean;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({
+  children,
+  pitchThoughtSectionEnabled,
+}) => {
   const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
@@ -35,11 +39,19 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <>
       {width! > 1023 ? <Header isSticky={isSticky} /> : <Hamburger />}
       <div className='z-10'>{children}</div>
-      <Section className='min-h-screen bg-[#010103] w-screen'>
-        <div className='container mx-auto'>
-          <PitchThought />
+      {pitchThoughtSectionEnabled ? (
+        <Section className='min-h-screen bg-[#010103] w-screen'>
+          <div className='container mx-auto'>
+            <PitchThought />
+          </div>
+        </Section>
+      ) : (
+        <div className='min-h-screen bg-[#010103] w-screen'>
+          <div className='container mx-auto'>
+            <PitchThought />
+          </div>
         </div>
-      </Section>
+      )}
     </>
   );
 };
