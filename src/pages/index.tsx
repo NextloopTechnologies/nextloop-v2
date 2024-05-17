@@ -188,7 +188,7 @@ export default function Home() {
 
   return (
     <>
-      <Layout>
+      <Layout pitchThoughtSectionEnabled>
         <Section
           refProp={introRef}
           id='about-us'
@@ -268,11 +268,14 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 40 }}
             transition={{ duration: 0.5 }}
-            className='fixed bottom-10 right-5 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-full flex items-center space-x-2 cursor-pointer'
+            className='fixed bottom-10 right-5 bg-orange-500 hover:bg-orange-600 text-white h-10 w-10 justify-center rounded-full flex items-center z-10 cursor-pointer'
             onClick={handleScrollOnClick}
           >
-            UP
-            <span>To the Top</span>
+            <Image
+              src={DownArrow}
+              alt='Up arrow'
+              className='h-5 w-7 rotate-180'
+            />
           </motion.button>
         )}
       </Layout>

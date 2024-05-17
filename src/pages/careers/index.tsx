@@ -5,6 +5,7 @@ import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
 import { Job } from '../../types';
 import supabaseClient from '../../utils/client';
+import { BottomBig, BottomLeft, BottomRight } from '../../../assets';
 import careerBg from '../../../assets/careerBg.png';
 import bigRec from '../../../assets/careers/bigrec.png';
 import leftBig from '../../../assets/careers/leftBig.png';
@@ -32,17 +33,18 @@ const CareersPage: React.FC<{ jobs?: Job[]; error?: string }> = ({
 
 const WhyUs = () => (
   <div className='min-h-screen flex flex-col justify-center items-center text-center gap-12 p-8 lg:px-0 lg:py-8'>
+    <h2 className='font-medium text-2xl uppercase'>GALLERY</h2>
     <p className='font-bold xl:text-7xl md:text-5xl text-3xl  2xl:w-[40%] xl:w-[60%] w-full'>
       CURIOUS ABOUT HOW WE MANAGE TO MAKE ALL THIS{' '}
       <span className='text-orange-500'>POSSIBLE?</span>
     </p>
     <div className='flex gap-24 w-full justify-around flex-col lg:flex-row lg:gap-0'>
-      <div className='flex flex-col gap-8 lg:w-1/2 items-center xl:px-48'>
-        <div className='flex gap-8'>
+      {/* <div className='flex flex-col gap-4 lg:w-1/2 items-center xl:px-48'>
+        <div className='flex gap-4'>
           <div className='h-full'>
             <Image src={leftBig} alt='' className='h-full object-cover' />
           </div>
-          <div className='flex flex-col gap-8'>
+          <div className='flex flex-col gap-4'>
             <div className=''>
               <Image src={rightTop} alt='' />
             </div>
@@ -54,7 +56,46 @@ const WhyUs = () => (
         <div className='w-full'>
           <Image src={bigRec} alt='' className='object-cover w-full h-1/2' />
         </div>
+      </div> */}
+
+      <div className='flex flex-col gap-4 lg:w-1/2 xl:px-48 items-center'>
+        {/* First */}
+        <div className='flex items-center gap-4'>
+          <div className='h-full'>
+            <Image src={leftBig} alt='' className='h-full object-cover' />
+          </div>
+
+          <div className='flex flex-col gap-4'>
+            <div className=''>
+              <Image src={rightTop} alt='' />
+            </div>
+            <div className=''>
+              <Image src={rightMiddle} alt='' />
+            </div>
+          </div>
+        </div>
+
+        {/* Middle */}
+        <Image src={bigRec} alt='' className='object-cover w-full h-[180px]' />
+
+        {/* Bottom 1 */}
+        <div className='flex items-center gap-4'>
+          <div className=''>
+            <Image src={BottomLeft} alt='' />
+          </div>
+          <div className=''>
+            <Image src={BottomRight} alt='' />
+          </div>
+        </div>
+
+        {/* Bottom */}
+        <Image
+          src={BottomBig}
+          alt=''
+          className='object-cover w-full h-[180px]'
+        />
       </div>
+
       <div className='lg:w-1/2 w-full flex flex-col gap-16 xl:pr-48 text-left'>
         <div className='flex flex-col gap-4'>
           <p className=''>
@@ -119,6 +160,7 @@ const WhyUs = () => (
 
 const Jobs: React.FC<{ jobs?: Job[]; error?: string }> = ({ error, jobs }) => (
   <div className='min-h-screen aboutUsPageBackgroundImage flex flex-col gap-24 items-center justify-center text-white p-8 lg:p-0'>
+    <h2 className='font-medium text-2xl uppercase'>opportunities</h2>
     <p className='font-bold xl:text-7xl md:text-5xl text-3xl uppercase xl:w-[30%] text-center'>
       find a <span className='text-orange-500'>suitable job</span> for you
     </p>

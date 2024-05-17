@@ -87,7 +87,7 @@ const Card = ({ card }: { card: CardData }) => {
       className='text-2xl pt-8 flex h-full lg:w-full'
       key={card.name} // Add a unique key to force a re-render when card changes
     >
-      <div className='flex w-full'>
+      <div className='flex w-full max-h-40'>
         <div className='relative'>
           <div>
             <Image src={DoubleQuotes} alt='Mobile' width={250} height={100} />
@@ -160,9 +160,9 @@ const CardSlider = () => {
             initial={isMobile ? 'visible' : 'hide'}
             animate='show'
             variants={textVariants}
-            className='lg:text-6xl text-3xl font-bold  flex lg:justify-end justify-center'
+            className='lg:text-6xl text-3xl font-bold flex flex-col items-center lg:items-end lg:justify-end'
           >
-            {/* <span className='text-sm'>#TESTIMONIAL</span> */}
+            <span className='text-sm'>TESTIMONIAL</span>
             <div className='lg:w-2/3 lg:text-right w-full text-center'>
               What <b className='text-orange-500'>clients</b> have to say about
               our work.
@@ -182,7 +182,7 @@ const CardSlider = () => {
                 </motion.div>
               )}
             </AnimatePresence>
-            <div className=' flex gap-x-4 lg:pr-10 items-end'>
+            <div className='flex gap-x-4 lg:hidden items-end'>
               <button
                 onClick={prevCard}
                 className={`text-2xl hover:bg-gray-100 cursor-pointer border w-10 h-10 rounded-full flex items-center justify-center text-center ${
@@ -207,6 +207,29 @@ const CardSlider = () => {
           </div>
         </div>
       </motion.header>
+
+      <div className='hidden lg:inline-flex absolute gap-x-4 bottom-20 right-20 lg:pr-10'>
+        <button
+          onClick={prevCard}
+          className={`text-2xl hover:bg-gray-100 cursor-pointer border w-10 h-10 rounded-full flex items-center justify-center text-center ${
+            currentCard === 0 ? 'opacity-50 cursor-not-allowed' : ''
+          }`}
+          disabled={currentCard === 0}
+        >
+          &larr;
+        </button>
+        <button
+          onClick={nextCard}
+          className={`text-2xl border hover:bg-gray-100 cursor-pointer w-10 h-10 rounded-full flex items-center justify-center text-center ${
+            currentCard === cardData.length - 1
+              ? 'opacity-50 cursor-not-allowed'
+              : ''
+          }`}
+          disabled={currentCard === cardData.length - 1}
+        >
+          &rarr;
+        </button>
+      </div>
     </div>
   );
 };
