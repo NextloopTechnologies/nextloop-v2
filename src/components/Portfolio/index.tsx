@@ -1,15 +1,15 @@
 import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
+// import Image from 'next/image';
+// import { useRouter } from 'next/router';
 import React, { FC } from 'react';
 
-import { caseStudies } from '../../pages/portfolio';
+// import { caseStudies } from '../../pages/portfolio';
 import { introHeaderVariants } from '../../utils/frameMotionAnimations';
 import useWindowSize from '../../utils/useWindowSize';
-
+0
 const Portfolio: FC = () => {
   const { isMobile } = useWindowSize();
-  const router = useRouter();
+  // const router = useRouter();
   return (
     <>
       <div className='flex justify-center items-center min-h-screen'>
@@ -32,7 +32,7 @@ const Portfolio: FC = () => {
               className=''
             >
               <div className='flex gap-4 flex-col lg:flex-row '>
-                {caseStudies.map((proj, index) => (
+                {/* {caseStudies.map((proj, index) => (
                   <span key={index} className='relative'>
                     <span
                       onClick={() => {
@@ -52,7 +52,7 @@ const Portfolio: FC = () => {
                       <p className='text-2xl font-medium'>{proj.title}</p>
                     </span>
                   </span>
-                ))}
+                ))} */}
               </div>
             </motion.span>
           </div>
