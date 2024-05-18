@@ -21,9 +21,9 @@ const CustomPageHero = ({
   titleChildren,
 }: Props) => {
   return (
-    <>
+    <div className='flex'>
       {titleChildren ? (
-        <div className='h-screen relative flex items-center justify-center text-white'>
+        <div className='md:w-full h-screen relative flex items-center justify-center text-white'>
           <Image
             src={image}
             className='absolute h-full w-full object-cover'
@@ -33,7 +33,7 @@ const CustomPageHero = ({
           <div className={`absolute inset-0 bg-black ${opacity}`}></div>
           <div className='flex flex-col gap-8 items-center z-20 px-4 lg:p-0'>
             {titleChildren}
-            <span className='text-lg xl:w-[50%] md:w-[60%] text-center font-normal'>
+            <span className='text-xl xl:w-[50%] md:w-[60%] text-center font-normal'>
               {subtitle}
             </span>
           </div>
@@ -49,7 +49,7 @@ const CustomPageHero = ({
           coloredTitle={coloredTitle}
         />
       )}
-    </>
+    </div>
   );
 };
 

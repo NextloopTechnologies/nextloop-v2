@@ -1,7 +1,9 @@
 import { WhyBuildEventManagement } from '../../../../assets';
 import eventsBg from '../../../../assets/eventsBg.png';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
+import EventManagementSolution from '../../../components/Domains/EventManagementSolution';
 import WhyBuild from '../../../components/Domains/WhyBuild';
+import WhyWorkWithUs from '../../../components/Domains/WhyWorkWithUs';
 import Layout from '../../../components/Layout/Layout';
 
 const benefits = [
@@ -38,7 +40,7 @@ const Events = () => {
       <CustomPageHero
         image={eventsBg}
         titleChildren={
-          <h1 className='text-white text-8xl uppercase font-bold text-center max-w-[1306px]'>
+          <h1 className='text-white text-3xl md:text-7xl uppercase font-bold text-center w-full md:max-w-[1306px]'>
             Create a professional{' '}
             <span className='text-orange-500'>event website</span>
           </h1>
@@ -52,8 +54,8 @@ const Events = () => {
         image={WhyBuildEventManagement}
         colouredTitle='Event Management'
         informationSection={
-          <div className='max-w-[737px]'>
-            <p className='text-lg font-normal gap-5'>
+          <div className='mx-10 lg:mx-0 lg:max-w-[737px]'>
+            <p className='text-sm md:text-lg font-normal gap-5'>
               Event planning can be a complex and time-consuming process. From
               coordinating schedules and vendors to managing registrations and
               budgets, there are countless details to keep track of. This is
@@ -61,17 +63,17 @@ const Events = () => {
               streamline and simplify the planning process.
             </p>
 
-            <h3 className='font-bold text-2xl uppercase my-5'>
+            <h3 className='font-bold text-lg md:text-2xl uppercase my-5'>
               The Benefits of Event Management Software
             </h3>
 
-            <p className='text-lg font-normal'>
+            <p className='text-sm md:text-lg font-normal'>
               Event management software offers a wide range of benefits for
               businesses and organizations looking to streamline their event
               planning processes. Some key advantages include:
             </p>
 
-            <ul className='list-disc text-lg pl-10'>
+            <ul className='list-disc text-sm md:text-lg pl-10'>
               {benefits.map((benefit) => (
                 <li key={benefit.id} className='font-medium'>
                   {benefit.title}{' '}
@@ -82,6 +84,10 @@ const Events = () => {
           </div>
         }
       />
+
+      <WhyWorkWithUs />
+
+      <EventManagementSolution />
     </Layout>
   );
 };
