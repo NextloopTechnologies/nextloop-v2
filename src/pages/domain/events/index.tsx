@@ -1,6 +1,9 @@
 import { WhyBuildEventManagement } from '../../../../assets';
 import eventsBg from '../../../../assets/eventsBg.png';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
+import ClientReviews from '../../../components/Domains/ClientReviews';
+import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
+import DesignYourEvents from '../../../components/Domains/DesignYourEvents';
 import EventManagementSolution from '../../../components/Domains/EventManagementSolution';
 import WhyBuild from '../../../components/Domains/WhyBuild';
 import WhyWorkWithUs from '../../../components/Domains/WhyWorkWithUs';
@@ -40,7 +43,7 @@ const Events = () => {
       <CustomPageHero
         image={eventsBg}
         titleChildren={
-          <h1 className='text-white text-3xl md:text-7xl uppercase font-bold text-center w-full md:max-w-[1306px]'>
+          <h1 className='text-white text-3xl md:text-8xl uppercase font-bold text-center w-full md:max-w-[1306px]'>
             Create a professional{' '}
             <span className='text-orange-500'>event website</span>
           </h1>
@@ -88,6 +91,12 @@ const Events = () => {
       <WhyWorkWithUs />
 
       <EventManagementSolution />
+
+      <ClientReviews />
+
+      <DesignYourEvents />
+
+      <CustomRequestQuote title='Your complete event management platform' />
     </Layout>
   );
 };
