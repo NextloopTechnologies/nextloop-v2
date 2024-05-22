@@ -14,8 +14,8 @@ const FAQ: React.FC<AccordionProps> = ({ faqsContent }) => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center ">
-      <h1 className="text-5xl font-bold mb-[85px]">FAQ'S</h1>
+    <div className="min-h-screen flex flex-col items-center py-[122px] mx-auto gap-[109px]">
+      <h1 className="text-8xl font-bold mb-7">FAQ'S</h1>
       <div className="w-full p-10">
         { faqsContent?.map((faq) => (
           <div key={faq.id} className="w-full border-b border-gray-400 p-4 mb-3">
