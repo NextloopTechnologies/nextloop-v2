@@ -38,3 +38,9 @@ export interface IPortfolio {
  image?: IFileUpload[]|null;
  active?: boolean;
 }
+
+export interface IFAQ {
+  id: number;
+  question: string;
+  answer: string
+}
