@@ -147,7 +147,7 @@ const CardSlider = () => {
   const { isMobile } = useWindowSize();
 
   return (
-    <div className='flex items-center justify-center min-h-screen'>
+    <div className='flex items-center justify-center min-h-screen w-screen md:w-[1400px]'>
       <motion.header
         initial={isMobile ? 'visible' : 'hide'}
         whileInView='show'

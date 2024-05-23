@@ -127,7 +127,11 @@ const JobDetails: React.FC<{ job: Job }> = ({
             <p className='text-lg font-bold'>{money}</p>
           </div>
           <button className='flex rounded-3xl px-6 bg-orange-500 text-white py-1 text-lg justify-center'>
-            Apply for this job
+            <a
+              href={`mailto:info@nextlooptechnologies.com?subject=Applying for ${title} position`}
+            >
+              Apply for this job
+            </a>
           </button>
         </div>
       </div>
