@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
-import { FaPlus, FaTimes } from 'react-icons/fa';
+import React, { useState } from 'react';
 import { IFAQ } from '../../../types';
+import Image from 'next/image';
+import faqPlusIcon from "../../../../assets/faqPlusIcon.png";
+import faqCrossIcon from "../../../../assets/faqCrossIcon.png";
 
 interface AccordionProps {
   faqsContent: IFAQ[];
@@ -24,7 +26,7 @@ const FAQ: React.FC<AccordionProps> = ({ faqsContent }) => {
               onClick={() => handleToggle(faq.id)}
             >
               <span className="text-xl font-medium uppercase mb-4">{faq.question}</span>
-              {isOpen === faq.id ? <FaTimes /> : <FaPlus />}
+              {isOpen === faq.id ? <Image src={faqCrossIcon} alt=''/> : <Image src={faqPlusIcon} alt=''/>}
             </div>
             {isOpen === faq.id  && (
               <div className="sm:ml-[140px]">
