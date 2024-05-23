@@ -18,7 +18,7 @@ const ToolBox: React.FC<ToolBoxProps> = ({
 }) => {
   return (
     <div 
-      className="flex flex-col items-center p-6 bg-white rounded-lg"
+      className="flex flex-col items-center text-center p-6 bg-white rounded-lg"
       style={{ boxShadow: '0px 1px 10px 1px #0000001A' }}
     >
       <Image 
@@ -28,7 +28,7 @@ const ToolBox: React.FC<ToolBoxProps> = ({
         alt='tools-icon' 
         className='mt-8 mb-10'
       />
-      <h3 className="text-[#1D1D1D] text-xl font-bold mb-4 uppercase">{title}</h3>
+      <h3 className="text-[#1D1D1D] text-xl font-medium mb-4 uppercase">{title}</h3>
       <p className="text-[#1D1D1D] mb-15">{descp}</p>
     </div>
   )

@@ -1,6 +1,8 @@
+import Image from 'next/image';
 import React, { useState } from 'react';
-import { FaPlus, FaTimes } from 'react-icons/fa';
 
+import faqCrossIcon from '../../../../assets/faqCrossIcon.png';
+import faqPlusIcon from '../../../../assets/faqPlusIcon.png';
 import { IFAQ } from '../../../types';
 
 interface AccordionProps {
@@ -30,7 +32,11 @@ const FAQ: React.FC<AccordionProps> = ({ faqsContent }) => {
               <span className='text-xl font-medium uppercase mb-4'>
                 {faq.question}
               </span>
-              {isOpen === faq.id ? <FaTimes /> : <FaPlus />}
+              {isOpen === faq.id ? (
+                <Image src={faqCrossIcon} alt='' />
+              ) : (
+                <Image src={faqPlusIcon} alt='' />
+              )}
             </div>
             {isOpen === faq.id && (
               <div className='sm:ml-[140px]'>
