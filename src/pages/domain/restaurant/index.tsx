@@ -90,7 +90,7 @@ const Restaurant: React.FC = () => {
         colouredTitle='restaurant'
         informationSection={
           <div className='max-w-[737px]'>
-            <p className='text-lg font-normal gap-5'>
+            <p className='text-lg font-normal gap-5 mt-[100px]' >
               One of the most significant industries in many nations, the cafe 
               and restaurant sector is constantly expanding. But in order to handle 
               multitasking effectively, technology must be used across the board. 
@@ -99,7 +99,7 @@ const Restaurant: React.FC = () => {
               ERP solutions for restaurants are:
             </p>
 
-            <ul className='list-disc text-lg pl-10'>
+            <ul className='list-disc text-lg pl-10 mt-8'>
               {benefits.map((benefit) => (
                 <li key={benefit.id} className='font-medium'>
                   <span className='font-normal'>{benefit.solution}</span>
