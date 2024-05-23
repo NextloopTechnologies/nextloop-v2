@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export interface BlogType {
   id: number;
   title: string;
@@ -43,4 +45,10 @@ export interface IFAQ {
   id: number;
   question: string;
   answer: string
+}
+
+export interface IWhyChooseUs {
+  title: string;
+  descp: string;
+  image: StaticImageData;
 }
