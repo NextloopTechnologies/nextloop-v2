@@ -1,3 +1,4 @@
+import { faqsContent } from '../restaurant';
 import { WhyBuildEventManagement } from '../../../../assets';
 import eventsBg from '../../../../assets/eventsBg.png';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
@@ -5,6 +6,7 @@ import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
 import DesignYourEvents from '../../../components/Domains/DesignYourEvents';
 import EventManagementSolution from '../../../components/Domains/EventManagementSolution';
+import FAQ from '../../../components/Domains/FAQ';
 import WhyBuild from '../../../components/Domains/WhyBuild';
 import WhyWorkWithUs from '../../../components/Domains/WhyWorkWithUs';
 import Layout from '../../../components/Layout/Layout';
@@ -95,6 +97,8 @@ const Events = () => {
       <ClientReviews />
 
       <DesignYourEvents />
+
+      <FAQ faqsContent={faqsContent} />
 
       <CustomRequestQuote title='Your complete event management platform' />
     </Layout>
