@@ -52,7 +52,7 @@ const SimpleWebsite = () => {
             data={data}
             classname='mx-auto md:w-[350px] h-[510px]'
             imageClassname='md:w-[300px] h-[286px] object-cover'
-            titleClassname='mx-0'
+            titleClassname='-mx-0 md:mx-0'
           />
         ))}
       </div>
