@@ -51,13 +51,13 @@ const Events = () => {
           </h1>
         }
         subtitle='Create a website for online and in-person events, sell tickets or collect RSVPs, accept secure online payments, reach more guests with advanced marketing tools and manage the day of your event.'
-        opacity='opacity-90'
+        opacity='opacity-80'
         title=''
       />
 
       <WhyBuild
         image={WhyBuildEventManagement}
-        colouredTitle='Event Management'
+        colouredTitle='Event Management?'
         informationSection={
           <div className='mx-10 lg:mx-0 lg:max-w-[737px]'>
             <p className='text-sm md:text-lg font-normal gap-5'>

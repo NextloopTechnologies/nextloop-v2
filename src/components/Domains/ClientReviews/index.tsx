@@ -94,7 +94,12 @@ const ReviewCard = ({ review }: ReviewProps) => (
   </motion.div>
 );
 
-const ClientReviews = () => {
+type Props = {
+  title?: string;
+  colouredTitle?: string;
+};
+
+const ClientReviews = ({ colouredTitle, title }: Props) => {
   const [index, setIndex] = useState(0);
   const [buttonClicked, setButtonClicked] = useState('');
 
@@ -116,8 +121,16 @@ const ClientReviews = () => {
 
   return (
     <div className='bg-[#1D1D1D] pt-[134px] pb-[112px] flex flex-col items-center gap-[90px]'>
-      <h1 className='text-3xl md:text-7xl uppercase font-bold text-white text-center'>
-        What our <span className='text-orange-500'>client</span> says
+      <h1 className='text-3xl md:text-7xl uppercase md:mx-72 font-bold text-white text-center'>
+        {!title && !colouredTitle ? (
+          <>
+            What our <span className='text-orange-500'>client</span> says
+          </>
+        ) : (
+          <>
+            {title} <span className='text-orange-500'>{colouredTitle}</span>
+          </>
+        )}
       </h1>
 
       <div className='flex flex-col md:flex-row items-center gap-14'>
