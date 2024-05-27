@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
 import { Building, EnrollForWebsiteBg } from '../../../../assets';
 
@@ -30,11 +30,18 @@ const sampleData = [
 ];
 
 type Props = {
+  image?: StaticImageData;
+  imageClassname?: string;
+  titleElement?: React.ReactNode;
+  data?: any[];
+};
+
+type TitleDescCardProps = {
   title: string;
   description?: string;
 };
 
-export const TitleDescCard = ({ title, description }: Props) => (
+export const TitleDescCard = ({ title, description }: TitleDescCardProps) => (
   <div className='flex flex-col opacity-85 bg-[#1C1C1D] py-5 md:py-10 px-5 gap-4 h-[130px] md:h-[180px] w-[350px]'>
     <h3 className='text-sm md:text-xl font-medium uppercase'>{title}</h3>
     {description && (
@@ -43,7 +50,12 @@ export const TitleDescCard = ({ title, description }: Props) => (
   </div>
 );
 
-const EnrollForWebsite = () => {
+const EnrollForWebsite = ({
+  image,
+  imageClassname,
+  titleElement,
+  data,
+}: Props) => {
   return (
     <div className='flex'>
       <div className='w-full h-screen relative flex items-center justify-center text-white'>
@@ -54,14 +66,16 @@ const EnrollForWebsite = () => {
           quality={100}
         />
         <div className='absolute h-screen flex flex-col inset-0 bg-black opacity-85 py-20 md:py-32 gap-10'>
-          <h1 className='text-3xl md:text-7xl uppercase font-bold text-center max-w-[1400px] mx-auto'>
-            Enroll for website development to boost your hotel's most{' '}
-            <span className='text-orange-500'>profitable channel</span>
-          </h1>
+          {titleElement || (
+            <h1 className='text-3xl md:text-7xl uppercase font-bold text-center max-w-[1400px] mx-auto'>
+              Enroll for website development to boost your hotel's most{' '}
+              <span className='text-orange-500'>profitable channel</span>
+            </h1>
+          )}
 
           <div className='flex flex-col md:flex-row items-centers px-10 gap-8 md:gap-10 md:px-[170px]'>
             <div className='flex flex-wrap gap-8'>
-              {sampleData.map((data) => (
+              {(data || sampleData).map((data) => (
                 <TitleDescCard
                   key={data.id}
                   title={data.title}
@@ -71,9 +85,9 @@ const EnrollForWebsite = () => {
             </div>
 
             <Image
-              src={Building}
+              src={image || Building}
               alt='building'
-              className='hidden md:inline-flex md:w-[406px] md:h-[406px] object-contain ml-auto'
+              className={`hidden md:inline-flex md:w-[406px] md:h-[406px] object-contain ml-auto ${imageClassname}`}
             />
           </div>
         </div>

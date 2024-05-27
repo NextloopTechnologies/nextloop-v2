@@ -41,6 +41,7 @@ export { default as ProWebsite2 } from './proWebsite2.png';
 export { default as ProWebsite3 } from './proWebsite3.png';
 export { default as ProWebsite4 } from './proWebsite4.png';
 export { default as RequestQuote } from './requestQuote.png';
+export { default as RobustOnline } from './robustOnline.png';
 export { default as Seminars } from './seminars.png';
 export { default as SimpleWebsite1 } from './simpleWebsite1.png';
 export { default as SimpleWebsite2 } from './simpleWebsite2.png';
