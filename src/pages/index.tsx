@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { GetServerSideProps } from 'next';
 import Image from 'next/image';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import AboutUs from '../components/AboutUs';
 import Career from '../components/Career';
@@ -37,6 +37,7 @@ export function Section({
 }: React.PropsWithChildren<{
   id?: string;
   className?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   refProp?: any;
 }>) {
   return (
@@ -46,24 +47,21 @@ export function Section({
   );
 }
 
-const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = ({
-  data,
-  error,
-}) => {
+const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = ({ data }) => {
   const [showNextPageButton, setShowNextPageButton] = useState(true);
   const [showToTopButton, setShowToTopButton] = useState(false);
-  const [scrollBelowServices, setScrollBelowServices] = useState(false);
+  // const [scrollBelowServices, setScrollBelowServices] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const introRef = useRef<HTMLDivElement | null>(null);
-  const whoWeAreRef = useRef<HTMLDivElement | null>(null);
-  const servicesSectionRef = useRef<HTMLDivElement | null>(null);
-  const careersRef = useRef<HTMLDivElement | null>(null);
+  // const introRef = useRef<HTMLDivElement | null>(null);
+  // const whoWeAreRef = useRef<HTMLDivElement | null>(null);
+  // const servicesSectionRef = useRef<HTMLDivElement | null>(null);
+  // const careersRef = useRef<HTMLDivElement | null>(null);
 
-  const aboutUsRef = useRef<HTMLDivElement | null>(null);
-  const experienceRef = useRef<HTMLDivElement | null>(null);
-  const portfolioRef = useRef<HTMLDivElement | null>(null);
-  const clientReviewRef = useRef<HTMLDivElement | null>(null);
+  // const aboutUsRef = useRef<HTMLDivElement | null>(null);
+  // const experienceRef = useRef<HTMLDivElement | null>(null);
+  // const portfolioRef = useRef<HTMLDivElement | null>(null);
+  // const clientReviewRef = useRef<HTMLDivElement | null>(null);
 
   const handleScrollOnClick = () => {
     if (showNextPageButton) {
@@ -73,43 +71,43 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = ({
     }
   };
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const windowHeight = window?.innerHeight;
-  //     const documentHeight = document.documentElement.scrollHeight;
+  useEffect(() => {
+    const handleScroll = () => {
+      const windowHeight = window?.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
 
-  //     if (window?.scrollY + windowHeight >= documentHeight - 100) {
-  //       setShowNextPageButton(false);
-  //       setShowToTopButton(true);
-  //     } else {
-  //       setShowNextPageButton(true);
-  //       setShowToTopButton(false);
-  //     }
-  //     if (
-  //       servicesSectionRef?.current &&
-  //       window?.scrollY + windowHeight >=
-  //         servicesSectionRef.current.offsetTop +
-  //           servicesSectionRef.current.clientHeight
-  //     ) {
-  //       if (!scrollBelowServices) {
-  //         // You have just scrolled to the Services section
-  //         setScrollBelowServices(true);
-  //         setIsModalOpen(true);
-  //         // Call your specific function here
-  //       }
-  //     }
-  //     if (window?.scrollY + windowHeight === 2803) {
-  //       setScrollBelowServices(false);
-  //       // setIsModalOpen(false);
-  //     }
-  //   };
+      if (window?.scrollY + windowHeight >= documentHeight - 100) {
+        setShowNextPageButton(false);
+        setShowToTopButton(true);
+      } else {
+        setShowNextPageButton(true);
+        setShowToTopButton(false);
+      }
+      // if (
+      //   servicesSectionRef?.current &&
+      //   window?.scrollY + windowHeight >=
+      //     servicesSectionRef.current.offsetTop +
+      //       servicesSectionRef.current.clientHeight
+      // ) {
+      //   if (!scrollBelowServices) {
+      //     // You have just scrolled to the Services section
+      //     setScrollBelowServices(true);
+      //     setIsModalOpen(true);
+      //     // Call your specific function here
+      //   }
+      // }
+      // if (window?.scrollY + windowHeight === 2803) {
+      //   setScrollBelowServices(false);
+      //   // setIsModalOpen(false);
+      // }
+    };
 
-  //   window?.addEventListener('scroll', handleScroll);
+    window?.addEventListener('scroll', handleScroll);
 
-  //   return () => {
-  //     window?.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, []);
+    return () => {
+      window?.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const { isMobile } = useWindowSize();
 

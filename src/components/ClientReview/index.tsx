@@ -9,6 +9,7 @@ import { DoubleQuotes, User_1 } from '../../../assets';
 interface CardData {
   name: string;
   title: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   quote: any;
 }
 
