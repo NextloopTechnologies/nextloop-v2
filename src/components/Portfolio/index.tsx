@@ -1,18 +1,18 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { FC, useState } from 'react';
 
-import { caseStudies } from '../../pages/portfolio';
+import { IPortfolio } from '../../types';
 import { introHeaderVariants } from '../../utils/frameMotionAnimations';
 import useWindowSize from '../../utils/useWindowSize';
 
-const Portfolio: FC = () => {
+const Portfolio: FC<{ caseStudies: IPortfolio[] }> = ({ caseStudies }) => {
   const { isMobile } = useWindowSize();
   const router = useRouter();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [scrollPosition, setScrollPosition] = useState(0);
-
   const handleLeftArrowClick = () => {
     setCurrentImageIndex((prevIndex) =>
       prevIndex === 0 ? caseStudies.length - 1 : prevIndex - 1
@@ -57,13 +57,14 @@ const Portfolio: FC = () => {
                     onClick={() => {
                       router.push(`/portfolio/${index}`);
                     }}
-                    className='bg-gray-200 pt-10 w-full lg:w-[650px] rounded-md flex items-center justify-center'
+                    className='bg-gray-200 w-full lg:w-[650px] rounded-md flex items-center justify-center'
                   >
                     <Image
-                      src={`/portfolio/${index}.svg`}
+                      // @ts-ignore
+                      src={proj.image[0]?.url}
                       alt='Mobile'
-                      width={300}
-                      height={100}
+                      width={600}
+                      height={600}
                       className='object-contain h-[600px]'
                     />
                   </span>

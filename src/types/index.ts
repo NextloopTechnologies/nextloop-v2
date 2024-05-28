@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export interface BlogType {
   id: number;
   title: string;
@@ -23,4 +25,30 @@ export interface Job {
   job_mode: JobMode;
   package: string;
   job_type: JobType;
+}
+
+export interface IFileUpload {
+  fileId: string;
+  url: string;
+  status?: string;
+}
+
+export interface IPortfolio {
+ id: number;
+ title: string|null;
+ descp?: string|null;
+ image?: IFileUpload[]|null;
+ active?: boolean;
+}
+
+export interface IFAQ {
+  id: number;
+  question: string;
+  answer: string
+}
+
+export interface IWhyChooseUs {
+  title: string;
+  descp: string;
+  image: StaticImageData;
 }

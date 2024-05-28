@@ -4,6 +4,12 @@
 
 /* styles/animations.css */
 
+@layer components {
+  .arrow_buttons {
+    @apply text-2xl bg-gray-100 hover:bg-gray-200 cursor-pointer border w-10 h-10 rounded-full items-center justify-center text-center disabled:cursor-not-allowed disabled:hover:bg-gray-100
+  }
+}
+
 .aboutUsBackgroundWrapper {
   width: 100%; /* This wrapper will control the width expansion */
   height: 100vh; /* Set a fixed height to cover the full viewport height */

@@ -1,26 +1,16 @@
+import { GetServerSideProps } from 'next';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
 
-import { caseStudies } from '.';
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
+import { IPortfolio } from '../../types';
+import supabaseClient from '../../utils/client';
 import portfolioBg from '../../../assets/portfolioBg.png';
 
-const PortfolioID: React.FC = () => {
-  const router = useRouter();
-
-  const [data, setData] = useState<{ title: string } | undefined>();
-  const [ID, setID] = useState<number>();
-  useEffect(() => {
-    const id = router.query?.id;
-    if (id) {
-      setID(parseInt(id as string));
-      const caseStudy = caseStudies[parseInt(id as string)];
-      setData(caseStudy);
-    }
-  }, [router]);
-
+const PortfolioID: React.FC<{ data?: IPortfolio; error?: string }> = ({
+  data,
+  error,
+}) => {
   return (
     <Layout>
       <PageHero
@@ -33,17 +23,43 @@ const PortfolioID: React.FC = () => {
         {data ? (
           <div className='flex w-full min-h-screen items-center justify-center'>
             <Image
-              src={`/portfolio/case-studies/${ID}.svg`}
-              alt=''
+              src={data?.image?.[0]?.url as string}
+              alt='portfolio-image'
               className='object-contain'
               width={900}
               height={900}
             />
           </div>
-        ) : null}
+        ) : (
+          <div className='h-screen flex items-center justify-center text-2xl'>
+            {error}
+          </div>
+        )}
       </div>
     </Layout>
   );
 };
 
 export default PortfolioID;
+
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+  const { data, error } = await supabaseClient
+    .from('portfolio')
+    .select('id, title, descp, image')
+    .filter('id', 'eq', params?.id)
+    .single();
+
+  if (error) {
+    return {
+      props: {
+        error: error.message,
+      },
+    };
+  }
+
+  return {
+    props: {
+      data: data || [],
+    },
+  };
+};
