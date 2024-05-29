@@ -175,7 +175,10 @@ const Restaurant: React.FC = () => {
         </div>
       </div>
 
-      <ClientReviews />
+      <ClientReviews
+        title='Real success stories from'
+        colouredTitle='Real customer'
+      />
 
       <FAQ faqsContent={faqsContent} />
 

@@ -10,6 +10,7 @@ type Props = {
   coloredTitle?: boolean | string;
   opacity?: string;
   titleChildren?: React.ReactNode;
+  customSubtitleClassname?: string;
 };
 
 const CustomPageHero = ({
@@ -19,6 +20,7 @@ const CustomPageHero = ({
   coloredTitle = false,
   opacity = 'opacity-40',
   titleChildren,
+  customSubtitleClassname,
 }: Props) => {
   return (
     <div className='flex'>
@@ -33,7 +35,9 @@ const CustomPageHero = ({
           <div className={`absolute inset-0 bg-black ${opacity}`}></div>
           <div className='flex flex-col gap-8 items-center z-20 px-4 lg:p-0'>
             {titleChildren}
-            <span className='text-xl xl:w-[50%] md:w-[60%] text-center font-normal'>
+            <span
+              className={`text-lg xl:w-[50%] md:w-[60%] text-center font-normal ${customSubtitleClassname}`}
+            >
               {subtitle}
             </span>
           </div>
