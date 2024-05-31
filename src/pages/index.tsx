@@ -237,8 +237,8 @@ export default function Home() {
           <div className='container mx-auto'>
             <Experience />
           </div>
-        </Section>
-        <Section refProp={portfolioRef} className='min-h-screen '>
+        </div>
+        <div className='min-h-screen max-w-[100vw] overflow-hidden'>
           <div className='container mx-auto'>
             <Portfolio />
           </div>
