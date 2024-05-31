@@ -28,20 +28,20 @@ const arr = [
 
 const journeyArr = [
   {
-    title: 'heading 1',
-    sub: 'Started with a vision of driving the loop towards new age technologies. Next loop has evolved into a thriving enterprise where unique minds shape innovative experiences for millions of users.',
+    title: 'Inception',
+    sub: 'our team of four engineers has come together from a variety of professions, including tech, administration, sales, and management, with the goal of assisting individuals in solving their challenges. Due to the pressing demand for digitalization in society and our proficiency in the field, we began developing mobile and web applications for nearby suppliers, and from there the whole idea was formed.',
   },
   {
-    title: 'heading 2',
-    sub: 'Started with a vision of driving the loop towards new age technologies. Next loop has evolved into a thriving enterprise where unique minds shape innovative experiences for millions of users.',
+    title: 'Extension',
+    sub: 'Possessing all the necessary components for both digitization and humanitarian work, they began contacting various companies with their high-caliber offerings and, in just four months, secured our first project abroad',
   },
   {
-    title: 'heading 3',
-    sub: 'Started with a vision of driving the loop towards new age technologies. Next loop has evolved into a thriving enterprise where unique minds shape innovative experiences for millions of users.',
+    title: 'Progression',
+    sub: ' In just eight months, through perseverance and hard work, we expanded to a team of fifteen driven employees and moved into an office. This was a significant turning point in our self-funded journey, and it gave us hope that we still had a long way to go. It will take months for the team to reach its full potential.',
   },
   {
-    title: 'heading 4',
-    sub: 'Started with a vision of driving the loop towards new age technologies. Next loop has evolved into a thriving enterprise where unique minds shape innovative experiences for millions of users.',
+    title: 'Transformation',
+    sub: ' We will have 40 members by 2024 and be expanding quickly, all the while assisting numerous businesses. We have six domains in which we are experts. With every project, we redefine possibilities because we are committed to risk-taking experimentation. We believe in innovation. developing innovative technologies that will influence IT in the future.',
   },
 ];
 
@@ -216,7 +216,7 @@ const JourneyCard: React.FC<{ title: string; sub: string; odd: boolean }> = ({
       <div className='absolute flex flex-col xl:w-[550px] md:w-[500px] w-full items-center gap-4 md:px-24 mt-12'>
         <Image src={bulb} alt='bulb' />
         <h1 className='text-xl font-bold'>{title}</h1>
-        <span className='px-12 text-sm'>{sub}</span>
+        <span className='px-12 text-[10px]'>{sub}</span>
       </div>
     </div>
   );
