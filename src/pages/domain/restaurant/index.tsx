@@ -6,6 +6,12 @@ import toolsIcon1 from '../../../../assets/restaurantToolsIcon-1.png';
 import toolsIcon2 from '../../../../assets/restaurantToolsIcon-2.png';
 import toolsIcon3 from '../../../../assets/restaurantToolsIcon-3.png';
 import WhyBuildRestaurant from '../../../../assets/whyBuildRestaurant.png';
+import FAQ from '../../../components/Domains/FAQ';
+import { IFAQ, IWhyChooseUs } from '../../../types';
+import toolsIcon1 from '../../../../assets/restaurantToolsIcon-1.png';
+import toolsIcon2 from '../../../../assets/restaurantToolsIcon-2.png';
+import toolsIcon3 from '../../../../assets/restaurantToolsIcon-3.png';
+import ToolBox from '../../../components/Domains/Restaurant/ToolBox';
 import whyChooseUsImg from '../../../../assets/whyChooseUs1.png';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import ClientReviews from '../../../components/Domains/ClientReviews';
@@ -15,6 +21,7 @@ import FAQ from '../../../components/Domains/FAQ';
 import ToolBox from '../../../components/Domains/Restaurant/ToolBox';
 import WhyBuild from '../../../components/Domains/WhyBuild';
 import WhyChooseUs from '../../../components/Domains/WhyChooseUs';
+import whyChooseUsImg from '../../../../assets/whyChooseUs1.png';
 import Layout from '../../../components/Layout/Layout';
 import { IFAQ, IWhyChooseUs } from '../../../types';
 
@@ -70,25 +77,6 @@ const whyChooseContent: IWhyChooseUs[] = [
     descp:
       'Use analytics to get to know your customers and increase sales, then tailor their online experience to fit their needs.',
     image: whyChooseUsImg,
-  },
-];
-
-const sampleData = [
-  {
-    id: 1,
-    title: "Showcase your restaurant's dishes with an online menu.",
-  },
-  {
-    id: 2,
-    title: 'Allow customers to make reservations from your site 24/7.',
-  },
-  {
-    id: 3,
-    title: 'Get paid safely and securely through multiple payment methods.',
-  },
-  {
-    id: 4,
-    title: 'Run your entire online ordering system from one dashboard.',
   },
 ];
 
