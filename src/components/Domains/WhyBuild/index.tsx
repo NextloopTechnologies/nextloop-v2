@@ -17,7 +17,9 @@ const WhyBuild = ({ image, informationSection, colouredTitle }: Props) => {
         )}
       </h1>
 
-      <div className='flex flex-col lg:flex-row gap-[74px] justify-between'>
+      <div
+        className={`flex flex-col lg:flex-row gap-[74px] md:gap-[124px] justify-between ${infoAndImgClassname}`}
+      >
         <Image
           src={image}
           alt='Event Image'
