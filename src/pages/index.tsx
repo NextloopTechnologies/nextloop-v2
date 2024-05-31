@@ -230,7 +230,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = ({ data }) => {
             <Experience />
           </div>
         </div>
-        <div className='min-h-screen '>
+        <div className='min-h-screen max-w-[100vw] overflow-hidden'>
           <div className='container mx-auto'>
             {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
             <Portfolio caseStudies={data!} />
