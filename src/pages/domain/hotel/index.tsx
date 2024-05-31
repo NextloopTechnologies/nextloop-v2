@@ -30,7 +30,7 @@ const Hotel = () => {
       <WhyBuild
         image={WhyBuildHotelBooking}
         colouredTitle='Hotel Booking?'
-        infoAndImgClassname='items-center gap-40'
+        infoAndImgClassname='items-center'
         informationSection={
           <div className='mx-10 lg:mx-0 md:max-w-[600px] text-lg font-normal'>
             There was once a time when hotels attracted and retained their

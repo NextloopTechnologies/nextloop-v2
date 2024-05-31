@@ -24,7 +24,7 @@ const WhyBuild = ({
       </h1>
 
       <div
-        className={`flex flex-col lg:flex-row gap-[74px] justify-between ${infoAndImgClassname}`}
+        className={`flex flex-col lg:flex-row gap-[74px] md:gap-[124px] justify-between ${infoAndImgClassname}`}
       >
         <Image
           src={image}

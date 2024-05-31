@@ -1,10 +1,17 @@
-import Image from 'next/image';
-import React from 'react';
+import Image, { StaticImageData } from 'next/image';
+import React, { useMemo } from 'react';
 
 import { WhatWeDo1, WhatWeDo2, WhatWeDo3, WhatWeDo4 } from '../../../../assets';
 
-const WhatWeDo = () => {
-  const images = [WhatWeDo1, WhatWeDo2, WhatWeDo3, WhatWeDo4];
+type Props = {
+  imgs?: StaticImageData[];
+};
+
+const WhatWeDo = ({ imgs }: Props) => {
+  const images = useMemo(() => {
+    if (imgs && imgs.length > 0) return imgs;
+    return [WhatWeDo1, WhatWeDo2, WhatWeDo3, WhatWeDo4];
+  }, [imgs]);
 
   return (
     <div className='flex bg-[#1D1D1D0D] flex-col items-center'>
