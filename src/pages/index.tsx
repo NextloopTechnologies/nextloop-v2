@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
+import { GetServerSideProps } from 'next';
 import Image from 'next/image';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import AboutUs from '../components/AboutUs';
 import Career from '../components/Career';
@@ -11,6 +12,8 @@ import Layout from '../components/Layout/Layout';
 import Portfolio from '../components/Portfolio';
 import Services from '../components/ServicesGroup';
 import WhoWeAre from '../components/WhoWeAre';
+import { IPortfolio } from '../types';
+import supabaseClient from '../utils/client';
 import useWindowSize from '../utils/useWindowSize';
 import { DownArrow } from '../../assets';
 
@@ -34,6 +37,7 @@ export function Section({
 }: React.PropsWithChildren<{
   id?: string;
   className?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   refProp?: any;
 }>) {
   return (
@@ -43,21 +47,21 @@ export function Section({
   );
 }
 
-export default function Home() {
+const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = ({ data }) => {
   const [showNextPageButton, setShowNextPageButton] = useState(true);
   const [showToTopButton, setShowToTopButton] = useState(false);
-  const [scrollBelowServices, setScrollBelowServices] = useState(false);
+  // const [scrollBelowServices, setScrollBelowServices] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const introRef = useRef<HTMLDivElement | null>(null);
-  const whoWeAreRef = useRef<HTMLDivElement | null>(null);
-  const servicesSectionRef = useRef<HTMLDivElement | null>(null);
-  const careersRef = useRef<HTMLDivElement | null>(null);
+  // const introRef = useRef<HTMLDivElement | null>(null);
+  // const whoWeAreRef = useRef<HTMLDivElement | null>(null);
+  // const servicesSectionRef = useRef<HTMLDivElement | null>(null);
+  // const careersRef = useRef<HTMLDivElement | null>(null);
 
-  const aboutUsRef = useRef<HTMLDivElement | null>(null);
-  const experienceRef = useRef<HTMLDivElement | null>(null);
-  const portfolioRef = useRef<HTMLDivElement | null>(null);
-  const clientReviewRef = useRef<HTMLDivElement | null>(null);
+  // const aboutUsRef = useRef<HTMLDivElement | null>(null);
+  // const experienceRef = useRef<HTMLDivElement | null>(null);
+  // const portfolioRef = useRef<HTMLDivElement | null>(null);
+  // const clientReviewRef = useRef<HTMLDivElement | null>(null);
 
   const handleScrollOnClick = () => {
     if (showNextPageButton) {
@@ -79,23 +83,23 @@ export default function Home() {
         setShowNextPageButton(true);
         setShowToTopButton(false);
       }
-      if (
-        servicesSectionRef?.current &&
-        window?.scrollY + windowHeight >=
-          servicesSectionRef.current.offsetTop +
-            servicesSectionRef.current.clientHeight
-      ) {
-        if (!scrollBelowServices) {
-          // You have just scrolled to the Services section
-          setScrollBelowServices(true);
-          setIsModalOpen(true);
-          // Call your specific function here
-        }
-      }
-      if (window?.scrollY + windowHeight === 2803) {
-        setScrollBelowServices(false);
-        // setIsModalOpen(false);
-      }
+      // if (
+      //   servicesSectionRef?.current &&
+      //   window?.scrollY + windowHeight >=
+      //     servicesSectionRef.current.offsetTop +
+      //       servicesSectionRef.current.clientHeight
+      // ) {
+      //   if (!scrollBelowServices) {
+      //     // You have just scrolled to the Services section
+      //     setScrollBelowServices(true);
+      //     setIsModalOpen(true);
+      //     // Call your specific function here
+      //   }
+      // }
+      // if (window?.scrollY + windowHeight === 2803) {
+      //   setScrollBelowServices(false);
+      //   // setIsModalOpen(false);
+      // }
     };
 
     window?.addEventListener('scroll', handleScroll);
@@ -107,147 +111,136 @@ export default function Home() {
 
   const { isMobile } = useWindowSize();
 
-  useEffect(() => {
-    const handleScroll = (e: WheelEvent) => {
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const introOffset = introRef.current!.offsetTop;
-      const whoWeAreRefOffset = whoWeAreRef.current!.offsetTop;
-      const servicesSectionRefOffset = servicesSectionRef.current!.offsetTop;
-      const careersOffset = careersRef.current!.offsetTop;
-      const aboutUsOffset = aboutUsRef.current!.offsetTop;
-      const experienceOffset = experienceRef.current!.offsetTop;
-      const portfolioOffset = portfolioRef.current!.offsetTop;
-      const clientReviewOffset = clientReviewRef.current!.offsetTop;
+  // useEffect(() => {
+  //   const handleScroll = (e: WheelEvent) => {
+  //     const scrollY = window.scrollY;
+  //     const windowHeight = window.innerHeight;
+  //     const introOffset = introRef.current!.offsetTop;
+  //     const whoWeAreRefOffset = whoWeAreRef.current!.offsetTop;
+  //     const servicesSectionRefOffset = servicesSectionRef.current!.offsetTop;
+  //     const careersOffset = careersRef.current!.offsetTop;
+  //     const aboutUsOffset = aboutUsRef.current!.offsetTop;
+  //     const experienceOffset = experienceRef.current!.offsetTop;
+  //     const portfolioOffset = portfolioRef.current!.offsetTop;
+  //     const clientReviewOffset = clientReviewRef.current!.offsetTop;
 
-      if (e.deltaY > 0) {
-        if (scrollY < introOffset) {
-          introRef.current!.scrollIntoView({ behavior: 'smooth' });
-        } else if (
-          scrollY >= introOffset &&
-          scrollY < whoWeAreRefOffset - windowHeight
-        ) {
-          whoWeAreRef.current!.scrollIntoView({ behavior: 'smooth' });
-        } else if (
-          scrollY >= whoWeAreRefOffset &&
-          scrollY < servicesSectionRefOffset - windowHeight
-        ) {
-          servicesSectionRef.current!.scrollIntoView({ behavior: 'smooth' });
-        } else if (
-          scrollY >= servicesSectionRefOffset &&
-          scrollY < careersOffset - windowHeight
-        ) {
-          careersRef.current!.scrollIntoView({ behavior: 'smooth' });
-        } else if (
-          scrollY >= careersOffset &&
-          scrollY < aboutUsOffset - windowHeight
-        ) {
-          aboutUsRef.current!.scrollIntoView({ behavior: 'smooth' });
-        } else if (
-          scrollY >= aboutUsOffset &&
-          scrollY < experienceOffset - windowHeight
-        ) {
-          experienceRef.current!.scrollIntoView({ behavior: 'smooth' });
-        } else if (
-          scrollY >= experienceOffset &&
-          scrollY < portfolioOffset - windowHeight
-        ) {
-          portfolioRef.current!.scrollIntoView({ behavior: 'smooth' });
-        } else if (
-          scrollY >= portfolioOffset &&
-          scrollY < clientReviewOffset - windowHeight
-        ) {
-          clientReviewRef.current!.scrollIntoView({ behavior: 'smooth' });
-        }
-      } else {
-        if (
-          scrollY >= clientReviewOffset - windowHeight &&
-          scrollY < portfolioOffset
-        ) {
-          portfolioRef.current!.scrollIntoView({ behavior: 'smooth' });
-        } else if (scrollY >= portfolioOffset && scrollY < experienceOffset) {
-          experienceRef.current!.scrollIntoView({ behavior: 'smooth' });
-        } else if (scrollY >= experienceOffset && scrollY < aboutUsOffset) {
-          aboutUsRef.current!.scrollIntoView({ behavior: 'smooth' });
-        } else if (scrollY >= aboutUsOffset && scrollY < careersOffset) {
-          careersRef.current!.scrollIntoView({ behavior: 'smooth' });
-        } else if (scrollY >= careersOffset && scrollY < whoWeAreRefOffset) {
-          whoWeAreRef.current!.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
+  //     if (e.deltaY > 0) {
+  //       if (scrollY < introOffset) {
+  //         introRef.current!.scrollIntoView({ behavior: 'smooth' });
+  //       } else if (
+  //         scrollY >= introOffset &&
+  //         scrollY < whoWeAreRefOffset - windowHeight
+  //       ) {
+  //         whoWeAreRef.current!.scrollIntoView({ behavior: 'smooth' });
+  //       } else if (
+  //         scrollY >= whoWeAreRefOffset &&
+  //         scrollY < servicesSectionRefOffset - windowHeight
+  //       ) {
+  //         servicesSectionRef.current!.scrollIntoView({ behavior: 'smooth' });
+  //       } else if (
+  //         scrollY >= servicesSectionRefOffset &&
+  //         scrollY < careersOffset - windowHeight
+  //       ) {
+  //         careersRef.current!.scrollIntoView({ behavior: 'smooth' });
+  //       } else if (
+  //         scrollY >= careersOffset &&
+  //         scrollY < aboutUsOffset - windowHeight
+  //       ) {
+  //         aboutUsRef.current!.scrollIntoView({ behavior: 'smooth' });
+  //       } else if (
+  //         scrollY >= aboutUsOffset &&
+  //         scrollY < experienceOffset - windowHeight
+  //       ) {
+  //         experienceRef.current!.scrollIntoView({ behavior: 'smooth' });
+  //       } else if (
+  //         scrollY >= experienceOffset &&
+  //         scrollY < portfolioOffset - windowHeight
+  //       ) {
+  //         portfolioRef.current!.scrollIntoView({ behavior: 'smooth' });
+  //       } else if (
+  //         scrollY >= portfolioOffset &&
+  //         scrollY < clientReviewOffset - windowHeight
+  //       ) {
+  //         clientReviewRef.current!.scrollIntoView({ behavior: 'smooth' });
+  //       }
+  //     } else {
+  //       if (
+  //         scrollY >= clientReviewOffset - windowHeight &&
+  //         scrollY < portfolioOffset
+  //       ) {
+  //         portfolioRef.current!.scrollIntoView({ behavior: 'smooth' });
+  //       } else if (scrollY >= portfolioOffset && scrollY < experienceOffset) {
+  //         experienceRef.current!.scrollIntoView({ behavior: 'smooth' });
+  //       } else if (scrollY >= experienceOffset && scrollY < aboutUsOffset) {
+  //         aboutUsRef.current!.scrollIntoView({ behavior: 'smooth' });
+  //       } else if (scrollY >= aboutUsOffset && scrollY < careersOffset) {
+  //         careersRef.current!.scrollIntoView({ behavior: 'smooth' });
+  //       } else if (scrollY >= careersOffset && scrollY < whoWeAreRefOffset) {
+  //         whoWeAreRef.current!.scrollIntoView({ behavior: 'smooth' });
+  //       }
+  //     }
 
-      e.preventDefault(); // Prevent default scrolling behavior
-    };
+  //     e.preventDefault(); // Prevent default scrolling behavior
+  //   };
 
-    window.addEventListener('wheel', handleScroll);
+  //   window.addEventListener('wheel', handleScroll);
 
-    return () => {
-      window.removeEventListener('wheel', handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('wheel', handleScroll);
+  //   };
+  // }, []);
 
   return (
     <>
-      <Layout pitchThoughtSectionEnabled>
-        <Section
-          refProp={introRef}
-          id='about-us'
-          className='min-h-screen aboutUsBackgroundImage'
-        >
+      <Layout>
+        <div id='about-us' className='min-h-screen aboutUsBackgroundImage'>
           <div className='container mx-auto'>
             <Intro />
           </div>
-        </Section>
+        </div>
 
-        <Section refProp={whoWeAreRef} id='portfolio' className='min-h-screen'>
+        <div id='portfolio' className='min-h-screen'>
           <div className='container mx-auto '>
             <WhoWeAre />
           </div>
-        </Section>
+        </div>
 
-        <Section
-          id='services'
-          refProp={servicesSectionRef}
-          className='min-h-screen'
-        >
+        <div id='services' className='min-h-screen'>
           <div className='container mx-auto'>
             <Services
               setIsModalOpen={setIsModalOpen}
               isModalOpen={isModalOpen}
             />
           </div>
-        </Section>
+        </div>
 
-        <Section
-          refProp={careersRef}
-          id='career'
-          className='min-h-screen bg-[#010103] '
-        >
+        <div id='career' className='min-h-screen bg-[#010103] '>
           <div className='container mx-auto z-10 '>
             <Career />
           </div>
-        </Section>
+        </div>
 
-        <Section refProp={aboutUsRef} id='contact-us' className='min-h-screen '>
+        <div id='contact-us' className='min-h-screen '>
           <div className='container mx-auto'>
             <AboutUs />
           </div>
-        </Section>
-        <Section refProp={experienceRef} className='min-h-screen '>
+        </div>
+        <div className='min-h-screen '>
           <div className='container mx-auto'>
             <Experience />
           </div>
         </div>
         <div className='min-h-screen max-w-[100vw] overflow-hidden'>
           <div className='container mx-auto'>
-            <Portfolio />
+            {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
+            <Portfolio caseStudies={data!} />
           </div>
-        </Section>
-        <Section refProp={clientReviewRef} className='min-h-screen '>
+        </div>
+        <div className='min-h-screen relative'>
           <div className='container mx-auto'>
             <ClientReview />
           </div>
-        </Section>
+        </div>
 
         {showNextPageButton && (
           <motion.button
@@ -281,10 +274,27 @@ export default function Home() {
       </Layout>
     </>
   );
-}
-export async function getServerSideProps() {
-  // Return an empty object to make the page SSR
+};
+
+export default Home;
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const { data, error } = await supabaseClient
+    .from('portfolio')
+    .select('id, title, image')
+    .order('id', { ascending: false });
+
+  if (error) {
+    return {
+      props: {
+        error: error.message,
+      },
+    };
+  }
+
   return {
-    props: {},
+    props: {
+      data: data || [],
+    },
   };
-}
+};
