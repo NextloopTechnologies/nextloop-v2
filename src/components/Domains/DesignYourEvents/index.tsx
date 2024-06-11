@@ -9,11 +9,10 @@ import {
   Seminars,
 } from '../../../../assets';
 
-export type Data = {
+type Data = {
   id: number;
   image: StaticImageData;
   title: string;
-  description?: string;
 };
 
 const sampleData: Data[] = [
@@ -51,36 +50,18 @@ const sampleData: Data[] = [
 
 type Props = {
   data: Data;
-  classname?: string;
-  imageClassname?: string;
-  titleClassname?: string;
 };
 
-export const Card = ({
-  data,
-  classname,
-  imageClassname,
-  titleClassname,
-}: Props) => (
-  <div
-    className={`flex flex-col justify-center items-center h-auto py-4 md:py-5 w-[380px] md:mx-0 md:w-[430px] gap-8 rounded-lg bg-white shadow-lg ${classname}`}
-  >
+const Card = ({ data }: Props) => (
+  <div className='flex flex-col justify-center items-center h-auto py-4 md:py-5 w-[380px] md:mx-0 md:w-[430px] gap-8 rounded-lg bg-white shadow-lg'>
     <Image
       src={data.image}
-      className={`w-[350px] md:w-[392px] object-contain rounded-lg ${imageClassname}`}
+      className='w-[350px] md:w-[392px] object-contain rounded-lg'
       alt={data.title}
     />
-    <h3
-      className={`font-medium text-2xl leading-6 uppercase text-center mx-20 ${titleClassname}`}
-    >
+    <h3 className='font-medium text-2xl leading-6 uppercase text-center mx-20'>
       {data.title}
     </h3>
-
-    {data.description && (
-      <p className='text-[16px] leading-6 font-normal text-center mx-4'>
-        {data.description}
-      </p>
-    )}
   </div>
 );
 

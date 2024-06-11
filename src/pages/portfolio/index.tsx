@@ -1,18 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
-import { IPortfolio } from '../../types';
-import supabaseClient from '../../utils/client';
 import portfolioBg from '../../../assets/portfolioBg.png';
+import { GetServerSideProps } from 'next';
+import supabaseClient from '../../utils/client';
+import { IPortfolio } from '../../types';
 
-const Portfolio: React.FC<{ data?: IPortfolio[]; error?: string }> = ({
+const Portfolio: React.FC<{ data?: IPortfolio[], error?: string }> = ({
   data,
-  error,
+  error
 }) => {
   return (
     <Layout>
@@ -22,12 +21,12 @@ const Portfolio: React.FC<{ data?: IPortfolio[]; error?: string }> = ({
         subtitle="View the range of projects completed by Nextloop Technologies. We have provided assistance to a wide range of firms in various industries and locations across the globe, from small startups to large corporations. This demonstrates our exceptional ability to generate fresh concepts and tailor solutions to the specific needs of each client. So, if you're interested in learning more about what Nextloop can accomplish for your company, have a look at our portfolios!"
         opacity='opacity-90'
       />
-      {data?.length ? (
-        <div className='grid xl:grid-cols-2 grid-cols-1 gap-24 xl:p-24 md:p-8 p-4 place-items-center mb-16 xl:mb-0'>
-          {data.map((portfolio: IPortfolio) => (
-            <ProjectCard proj={portfolio} key={portfolio.id} />
-          ))}
-        </div>
+      { data?.length ? (
+         <div className='grid xl:grid-cols-2 grid-cols-1 gap-24 xl:p-24 md:p-8 p-4 place-items-center mb-16 xl:mb-0'>
+         {data.map((portfolio: IPortfolio) => (
+           <ProjectCard proj={portfolio} key={portfolio.id} />
+         ))}
+       </div>
       ) : (
         <div className='h-screen flex items-center justify-center text-2xl'>
           {error}
@@ -39,8 +38,8 @@ const Portfolio: React.FC<{ data?: IPortfolio[]; error?: string }> = ({
 
 export default Portfolio;
 
-const ProjectCard: React.FC<{ proj: IPortfolio }> = ({
-  proj: { title, image, id },
+const ProjectCard: React.FC<{ proj: IPortfolio; }> = ({ 
+  proj: { title, image, id }
 }) => {
   const router = useRouter();
   return (

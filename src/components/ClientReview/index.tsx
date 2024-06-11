@@ -9,7 +9,6 @@ import { DoubleQuotes, User_1 } from '../../../assets';
 interface CardData {
   name: string;
   title: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   quote: any;
 }
 
@@ -148,7 +147,7 @@ const CardSlider = () => {
   const { isMobile } = useWindowSize();
 
   return (
-    <div className='flex items-center justify-center min-h-screen w-screen md:w-[1400px]'>
+    <div className='flex items-center justify-center min-h-screen'>
       <motion.header
         initial={isMobile ? 'visible' : 'hide'}
         whileInView='show'

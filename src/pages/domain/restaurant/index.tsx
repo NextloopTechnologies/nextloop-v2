@@ -1,27 +1,20 @@
 import React from 'react';
-
-import { RobustOnline } from '../../../../assets';
+import Layout from '../../../components/Layout/Layout';
+import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
+import WhyBuild from '../../../components/Domains/WhyBuild';
 import restaurantBg from '../../../../assets/restaurantBg.png';
-import toolsIcon1 from '../../../../assets/restaurantToolsIcon-1.png';
-import toolsIcon2 from '../../../../assets/restaurantToolsIcon-2.png';
-import toolsIcon3 from '../../../../assets/restaurantToolsIcon-3.png';
 import WhyBuildRestaurant from '../../../../assets/whyBuildRestaurant.png';
 import FAQ from '../../../components/Domains/FAQ';
 import { IFAQ, IWhyChooseUs } from '../../../types';
 import toolsIcon1 from '../../../../assets/restaurantToolsIcon-1.png';
 import toolsIcon2 from '../../../../assets/restaurantToolsIcon-2.png';
 import toolsIcon3 from '../../../../assets/restaurantToolsIcon-3.png';
-import ToolBox from '../../../components/Domains/Restaurant/ToolBox';
+import WhyBuildRestaurant from '../../../../assets/whyBuildRestaurant.png';
 import whyChooseUsImg from '../../../../assets/whyChooseUs1.png';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
-import EnrollForWebsite from '../../../components/Domains/EnrollForWebsite';
-import FAQ from '../../../components/Domains/FAQ';
-import ToolBox from '../../../components/Domains/Restaurant/ToolBox';
-import WhyBuild from '../../../components/Domains/WhyBuild';
 import WhyChooseUs from '../../../components/Domains/WhyChooseUs';
-import whyChooseUsImg from '../../../../assets/whyChooseUs1.png';
 import Layout from '../../../components/Layout/Layout';
 import { IFAQ, IWhyChooseUs } from '../../../types';
 
@@ -44,7 +37,7 @@ const benefits = [
   },
 ];
 
-export const faqsContent: IFAQ[] = [
+const faqsContent: IFAQ[] = [
   {
     id: 1,
     question: 'How can I take my restaurant online?',
@@ -123,17 +116,7 @@ const Restaurant: React.FC = () => {
 
       <WhyChooseUs whyChooseContent={whyChooseContent} />
 
-      <EnrollForWebsite
-        image={RobustOnline}
-        imageClassname='md:w-[450px] md:h-[450px]'
-        data={sampleData}
-        titleElement={
-          <h1 className='text-3xl md:text-7xl uppercase font-bold text-center max-w-[1000px] mx-auto'>
-            Get a robust online{' '}
-            <span className='text-orange-500'>ordering system</span>
-          </h1>
-        }
-      />
+      {/* ADD ONLINE ORDERING COMPONENT HERE */}
 
       <div className='min-h-screen flex flex-col items-center justify-center text-center py-[112px] mx-auto gap-[109px]'>
         <h1 className='font-bold text-3xl uppercase md:text-6xl lg:text-7xl xl:text-8xl sm:text-4xl w-full mb-[25px]'>

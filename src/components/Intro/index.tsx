@@ -13,7 +13,7 @@ const Intro: FC = () => {
   return (
     <>
       <div className='flex justify-center items-center h-screen overflow-x-hidden relative'>
-        <div className='inset-0 z-20 flex items-center justify-center text-white '>
+        <div className='inset-0 z-50 flex items-center justify-center text-white '>
           <div className='flex flex-col items-center justify-center pt-20'>
             <motion.header
               initial={isMobile ? 'visible' : 'hide'}

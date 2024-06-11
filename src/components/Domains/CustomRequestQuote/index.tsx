@@ -12,13 +12,13 @@ const CustomRequestQuote = ({ title }: Props) => {
   return (
     <div className='flex flex-col md:flex-row items-center justify-between bg-[#FA8145] py-6 px-20'>
       <div className='flex flex-col gap-8 max-w-4xl'>
-        <h2 className='text-white font-bold text-center md:text-left text-5xl md:text-[65px] leading-none uppercase'>
+        <h2 className='text-white font-bold text-5xl md:text-[65px] leading-none uppercase'>
           {title}
         </h2>
 
         <button
           onClick={() => router.push('#footer')}
-          className='flex bg-white mx-auto md:ml-0 text-[16px] px-5 justify-center items-center rounded-full'
+          className='flex mr-auto bg-white text-[16px] px-5 justify-center items-center rounded-full'
         >
           <span>Request quote</span>{' '}
           <span className='text-[36px]'>&#10230;</span>
