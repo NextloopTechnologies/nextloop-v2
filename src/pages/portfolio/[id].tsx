@@ -1,10 +1,11 @@
+import { GetServerSideProps } from 'next';
 import Image from 'next/image';
+
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
-import portfolioBg from '../../../assets/portfolioBg.png';
-import { GetServerSideProps } from 'next';
-import supabaseClient from '../../utils/client';
 import { IPortfolio } from '../../types';
+import supabaseClient from '../../utils/client';
+import portfolioBg from '../../../assets/portfolioBg.png';
 
 const PortfolioID: React.FC<{ data?: IPortfolio, error?: string }> = ({
   data,

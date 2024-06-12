@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { IFAQ } from '../../../types';
 import Image from 'next/image';
-import faqPlusIcon from "../../../../assets/faqPlusIcon.png";
+import React, { useState } from 'react';
+
 import faqCrossIcon from "../../../../assets/faqCrossIcon.png";
+import faqPlusIcon from "../../../../assets/faqPlusIcon.png";
+import { IFAQ } from '../../../types';
 
 interface AccordionProps {
   faqsContent: IFAQ[];

@@ -1,4 +1,3 @@
-import { faqsContent } from '../restaurant';
 import {
   ECommerceBg,
   ECommWhatWeDo1,
@@ -19,6 +18,7 @@ import SellEverywhere from '../../../components/Domains/SellEverywhere';
 import WhatWeDo from '../../../components/Domains/WhatWeDo';
 import WhyBuild from '../../../components/Domains/WhyBuild';
 import Layout from '../../../components/Layout/Layout';
+import { IFAQ } from '../../../types';
 
 const sampleData = [
   {
@@ -44,6 +44,27 @@ const sampleData = [
     title: 'Access the right data to drive sales',
     description:
       'Understand your data at a glance with customized reports, real-time analytics and AI-powered benchmarks.',
+  },
+];
+
+const faqsContent: IFAQ[] = [
+  {
+    id: 1,
+    question: 'what is ecommerce website?',
+    answer:
+      'An eCommerce website is a website from which you can buy or sell physical or digital products online. This can include a digital storefront, product galleries, product pages, an online shopping cart, online checkout, and all of the backend features you need to manage payment processing, shipping, customer support and eCommerce marketing.',
+  },
+  {
+    id: 2,
+    question: 'what do i need in order to build an ecommerce website?',
+    answer:
+      'An eCommerce website is a website from which you can buy or sell physical or digital products online. This can include a digital storefront, product galleries, product pages, an online shopping cart, online checkout, and all of the backend features you need to manage payment processing, shipping, customer support and eCommerce marketing.',
+  },
+  {
+    id: 3,
+    question: 'where can i host my ecommerce website?',
+    answer:
+      'An eCommerce website is a website from which you can buy or sell physical or digital products online. This can include a digital storefront, product galleries, product pages, an online shopping cart, online checkout, and all of the backend features you need to manage payment processing, shipping, customer support and eCommerce marketing.',
   },
 ];
 

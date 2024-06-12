@@ -1,11 +1,12 @@
-import React from 'react';
 import Image from 'next/image';
-import onlineBusinessBg from "../../../../../assets/onlineBusinessBg.png"
+import React from 'react';
+
 import ToolBox from '../../Restaurant/ToolBox';
-import visionaryIcon from "../../../../../assets/oilandGasOnlineBusinessVisionaryIcon.png";
 import rapidIcon from "../../../../../assets/oilandGasOnlineBusinessRapidIcon.png";
 import transparentIcon from "../../../../../assets/oilandGasOnlineBusinessTransparentIcon.png";
 import trustedIcon from "../../../../../assets/oilandGasOnlineBusinessTrustedIcon.png";
+import visionaryIcon from "../../../../../assets/oilandGasOnlineBusinessVisionaryIcon.png";
+import onlineBusinessBg from "../../../../../assets/onlineBusinessBg.png"
 
 const data = [
   {

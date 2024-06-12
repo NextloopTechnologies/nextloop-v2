@@ -1,22 +1,23 @@
 import React from 'react';
-import Layout from '../../../components/Layout/Layout';
-import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
+
+import cloudIcon from "../../../../assets/healthcare/cloudIcon.png";
 import healthCareBg from "../../../../assets/healthcare/healthCareBg.png";
+import maintenanceIcon from "../../../../assets/healthcare/maintenanceIcon.png";
+import modernizeIcon from "../../../../assets/healthcare/modernizeIcon.png";
+import settingIcon from "../../../../assets/healthcare/settingIcon.png";
 import whyBuildImg from "../../../../assets/healthcare/whyBuild.png";
 import whyChooseUsImg from "../../../../assets/whyChooseUs1.png";
-import WhyBuild from '../../../components/Domains/WhyBuild';
-import { IFAQ, IWhyChooseUs } from '../../../types';
-import WhyChooseUs from '../../../components/Domains/WhyChooseUs';
+import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import ClientReviews from '../../../components/Domains/ClientReviews';
-import FAQ from '../../../components/Domains/FAQ';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
+import FAQ from '../../../components/Domains/FAQ';
 import OurExpertise from '../../../components/Domains/HealthCare/OurExpertise';
-import ProductServices from '../../../components/Domains/ProductServices';
-import settingIcon from "../../../../assets/healthcare/settingIcon.png";
-import modernizeIcon from "../../../../assets/healthcare/modernizeIcon.png";
-import cloudIcon from "../../../../assets/healthcare/cloudIcon.png";
-import maintenanceIcon from "../../../../assets/healthcare/maintenanceIcon.png";
 import SuccessStories from '../../../components/Domains/HealthCare/SuccessStories';
+import ProductServices from '../../../components/Domains/ProductServices';
+import WhyBuild from '../../../components/Domains/WhyBuild';
+import WhyChooseUs from '../../../components/Domains/WhyChooseUs';
+import Layout from '../../../components/Layout/Layout';
+import { IFAQ, IWhyChooseUs } from '../../../types';
 
 const benefits = [
   {
@@ -94,7 +95,7 @@ const productServiceContent = [
 const HealthCare: React.FC = () => {
   return (
     <Layout>
-       <CustomPageHero
+      <CustomPageHero
         image={healthCareBg}
         titleChildren={
           <h1 className='text-white text-8xl uppercase font-bold text-center max-w-[1306px]'>
@@ -113,18 +114,18 @@ const HealthCare: React.FC = () => {
         informationSection={
           <div className='max-w-[737px] flex flex-col justify-center pr-14'>
             <p className=' text-sm md:text-lg mx-5 md:mx-0'>
-              We all know that technology is rapidly changing the healthcare industry. 
-              From electronic health records (EHRs) to telemedicine, technology is being 
+              We all know that technology is rapidly changing the healthcare industry.
+              From electronic health records (EHRs) to telemedicine, technology is being
               used to improve the quality, efficiency, and affordability of healthcare.
             </p>
             <p className=' text-sm md:text-lg mx-5 md:mx-0'>
-              In fact, the global healthcare software market is expected to reach $974.5 
-              billon by 2027.  This means that healthcare automation is not just a future 
+              In fact, the global healthcare software market is expected to reach $974.5
+              billon by 2027.  This means that healthcare automation is not just a future
               but is becoming a necessity.
             </p>
             <p className=' text-sm md:text-lg mx-5 md:mx-0'>
-              Custom Software solution involve a process in which software is specifically 
-              designed for a particular healthcare organization. They can be used to 
+              Custom Software solution involve a process in which software is specifically
+              designed for a particular healthcare organization. They can be used to
               improve a variety of tasks and processes, such as:
             </p>
             <ul className='list-disc text-sm md:text-lg pl-10 mt-2 mb-2'>
@@ -135,8 +136,8 @@ const HealthCare: React.FC = () => {
               ))}
             </ul>
             <p className='text-sm md:text-lg mx-10 md:mx-0'>
-              In this blog, you will uncover the reasons why healthcare providers 
-              should invest in custom software and how their investment can improve 
+              In this blog, you will uncover the reasons why healthcare providers
+              should invest in custom software and how their investment can improve
               efficiency, reduce costs, and improve patient care.
             </p>
           </div>
@@ -147,7 +148,7 @@ const HealthCare: React.FC = () => {
 
       <OurExpertise />
 
-      <ProductServices 
+      <ProductServices
         title={
           <h1 className='text-black text-3xl md:text-5xl lg:text-7xl xl:text-[85px] uppercase font-bold text-center max-w-[1306px]'>
             specialized{' '}
@@ -162,10 +163,10 @@ const HealthCare: React.FC = () => {
 
       <ClientReviews />
 
-      <FAQ faqsContent={faqsContent}/>
+      <FAQ faqsContent={faqsContent} />
 
       <CustomRequestQuote title='see what your healthcare website could look like' />
-      
+
     </Layout>
   )
 }

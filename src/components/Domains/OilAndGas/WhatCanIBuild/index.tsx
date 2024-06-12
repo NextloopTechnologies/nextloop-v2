@@ -1,12 +1,13 @@
-import React from 'react';
-import productionSoftwareImg from "../../../../../assets/oilAndGasProdSoftware.png";
-import complianceKeyImg from "../../../../../assets/oilAndGasComplianceKey.png";
-import employeeSimplifiedImg from "../../../../../assets/oilAndGasEmployeeSimplified.png";
-import dataSoftwareImg from "../../../../../assets/oilAndGasDataSoftware.png";
-import fleetImg from "../../../../../assets/oilAndGasFleet.png";
-import operationImg from "../../../../../assets/oilAndGasOperation.png";
 import { StaticImageData } from 'next/image';
 import Image from 'next/image';
+import React from 'react';
+
+import complianceKeyImg from "../../../../../assets/oilAndGasComplianceKey.png";
+import dataSoftwareImg from "../../../../../assets/oilAndGasDataSoftware.png";
+import employeeSimplifiedImg from "../../../../../assets/oilAndGasEmployeeSimplified.png";
+import fleetImg from "../../../../../assets/oilAndGasFleet.png";
+import operationImg from "../../../../../assets/oilAndGasOperation.png";
+import productionSoftwareImg from "../../../../../assets/oilAndGasProdSoftware.png";
 
 const data = [
   {
@@ -42,7 +43,7 @@ const data = [
     image: fleetImg,
     title: 'FLEET management',
     description:
-    'Oil and gas is one of the most heavily regulated industries. Your custom software makes compliance easier. Gas operators can complete safety checklists as they progress through a job. Anyone can report issues via your app. Keep your field operations safe – and you have digitised accountability records just in case anything goes wrong.',
+      'Oil and gas is one of the most heavily regulated industries. Your custom software makes compliance easier. Gas operators can complete safety checklists as they progress through a job. Anyone can report issues via your app. Keep your field operations safe – and you have digitised accountability records just in case anything goes wrong.',
   },
   {
     id: 6,
@@ -59,10 +60,10 @@ type ImageWithHoverInfoProps = {
   description?: string;
 };
 
-const ImageWithHoverInfo: React.FC<ImageWithHoverInfoProps> = ({ 
-  description, 
-  image, 
-  title 
+const ImageWithHoverInfo: React.FC<ImageWithHoverInfoProps> = ({
+  description,
+  image,
+  title
 }) => (
   <div className='relative flex flex-col items-center text-center justify-center group'>
     <Image
@@ -88,18 +89,18 @@ const ImageWithHoverInfo: React.FC<ImageWithHoverInfoProps> = ({
 
 const WhatCanIBuild = () => {
   return (
-    <div className="flex bg-[#1D1D1D0D]">  
+    <div className="flex bg-[#1D1D1D0D]">
       <div className="flex flex-col pt-[96px] pb-[122px] max-w-[1479px] mx-auto">
         <h1 className='text-3xl md:text-7xl uppercase font-bold text-center'>
           What can i <span className='text-orange-500'>build?</span>
         </h1>
         <div className='text-sm mx-10 md:text-lg text-center mt-5'>
           <p>
-            Whether it’s mining or the oil and gas industry... you care about That’s 
-            your choice. Bespoke mining industry software solutions are created to meet 
-            your needs. Maybe an iOS or Android app for monitoring production data in 
-            real-time? Perhaps modelling software for macOS or Windows? Maybe even a 
-            website or Progressive Web App (PWA) for staff to view and manage their 
+            Whether it’s mining or the oil and gas industry... you care about That’s
+            your choice. Bespoke mining industry software solutions are created to meet
+            your needs. Maybe an iOS or Android app for monitoring production data in
+            real-time? Perhaps modelling software for macOS or Windows? Maybe even a
+            website or Progressive Web App (PWA) for staff to view and manage their
             rosters. We make your idea a reality.
           </p>
         </div>

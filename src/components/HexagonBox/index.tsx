@@ -1,5 +1,6 @@
-import React from 'react';
 import Image, { StaticImageData } from 'next/image';
+import React from 'react';
+
 import polygonImg from "../../../assets/healthcare/Polygon.png"
 
 type HexagonBoxProps = {

@@ -1,4 +1,6 @@
 import React from 'react';
+
+import SuccessSolutionCard from '../SuccessSolutionCard';
 import fintechWebDesignImg1 from "../../../../assets/fintech/fintechWebDesign1.png";
 import fintechWebDesignImg2 from "../../../../assets/fintech/fintechWebDesign2.png";
 import fintechWebDesignImg3 from "../../../../assets/fintech/fintechWebDesign3.png";
@@ -7,7 +9,6 @@ import fintechWebDesignImg5 from "../../../../assets/fintech/fintechWebDesign5.p
 import fintechWebDesignImg6 from "../../../../assets/fintech/fintechWebDesign6.png";
 import fintechWebDesignImg7 from "../../../../assets/fintech/fintechWebDesign7.png";
 import fintechWebDesignImg8 from "../../../../assets/fintech/fintechWebDesign8.png";
-import SuccessSolutionCard from '../SuccessSolutionCard';
 
 const successSolutionContent = [
   {

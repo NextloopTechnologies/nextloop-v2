@@ -37,6 +37,7 @@ const Layout: React.FC<LayoutProps> = ({
 
   return (
     <>
+      {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
       {width! > 1023 ? <Header isSticky={isSticky} /> : <Hamburger />}
       <div className='z-10'>{children}</div>
       {pitchThoughtSectionEnabled ? (

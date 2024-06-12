@@ -1,34 +1,35 @@
 import React from 'react';
-import Layout from '../../../components/Layout/Layout';
-import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
+
 import hotelAndTravelBg from '../../../../assets/travelandhotel/mainBg.png';
 import whyBuildImg from '../../../../assets/travelandhotel/whyBuild.png';
-import WhyBuild from '../../../components/Domains/WhyBuild';
+import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import ClientReviews from '../../../components/Domains/ClientReviews';
-import FAQ from '../../../components/Domains/FAQ';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
-import { IFAQ } from '../../../types';
-import NextGen from '../../../components/Domains/TravelAndHotel/NextGen';
+import FAQ from '../../../components/Domains/FAQ';
 import GlobalInventory from '../../../components/Domains/TravelAndHotel/GlobalInventory';
+import NextGen from '../../../components/Domains/TravelAndHotel/NextGen';
+import WhyBuild from '../../../components/Domains/WhyBuild';
+import Layout from '../../../components/Layout/Layout';
+import { IFAQ } from '../../../types';
 
 const faqsContent: IFAQ[] = [
   {
     id: 1,
     question: 'why do you need travel & hotel website design?',
     answer:
-      'Fintech businesses frequently shell out over £7,000 for a straightforward lead-generating website. But Web Choice also offers a longer-term solution that generates money from excellent inbound leads, typically costing around £10,000.',
+      'Hotel website design is a huge influence on the booking behaviour of travellers and helps your hotel address their desires and expectations. It’s very important that potential guests are able to navigate your website easily and quickly understand the content that’s most relevant to them.',
   },
   {
     id: 2,
     question: 'why do I need a  website for my hotel?',
     answer:
-      'Fintech businesses frequently shell out over £7,000 for a straightforward lead-generating website. But Web Choice also offers a longer-term solution that generates money from excellent inbound leads, typically costing around £10,000.',
+      'Hotel website design is a huge influence on the booking behaviour of travellers and helps your hotel address their desires and expectations. It’s very important that potential guests are able to navigate your website easily and quickly understand the content that’s most relevant to them.',
   },
   {
     id: 3,
     question: 'What are the benefits of hotel website design?',
     answer:
-      'Fintech businesses frequently shell out over £7,000 for a straightforward lead-generating website. But Web Choice also offers a longer-term solution that generates money from excellent inbound leads, typically costing around £10,000.',
+      'Hotel website design is a huge influence on the booking behaviour of travellers and helps your hotel address their desires and expectations. It’s very important that potential guests are able to navigate your website easily and quickly understand the content that’s most relevant to them.',
   },
 ];
 
@@ -63,19 +64,19 @@ const HotelAndTravel = () => {
             </p>
             <p className=' text-sm md:text-lg mx-5 md:mx-0'>
               Digitalisation has grown at a rapid speed across all industries,
-              especially travel. In fact,  a survey found that in pre-pandemic
+              especially travel. In fact, a survey found that in pre-pandemic
               2017, already 88% of people preferred to make their hotel bookings
               online.
             </p>
             <p className=' text-sm md:text-lg mx-5 md:mx-0'>
               The best outcome of this acceleration into the future is that many
               things that used to take a lot of time and investment are now more
-              accessible, affordable, and offer ease of use, like building your
+              accessible, affordable, and offer ease of use, like building your
               first hotel website.
             </p>
             <p className=' text-sm md:text-lg mx-5 md:mx-0'>
               Gone are the days when you would have to spend a heavy amount of
-              money to hire a developer and designer. It’s now as easy as a
+              money to hire a developer and designer. It’s now as easy as a
               drag-and-drop tool. And if nothing else, a hotel website will tell
               the world that you really exist.
             </p>

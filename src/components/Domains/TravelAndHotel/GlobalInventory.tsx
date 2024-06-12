@@ -1,16 +1,17 @@
 import Image, { StaticImageData } from 'next/image';
 import React from 'react';
-import mobileIcon from '../../../../assets/travelandhotel/mobileIcon.png';
-import templateIcon from '../../../../assets/travelandhotel/templateIcon.png';
-import searchIcon from '../../../../assets/travelandhotel/searchIcon.png';
-import trackingIcon from '../../../../assets/travelandhotel/trackingIcon.png';
+
 import bookingIcon from '../../../../assets/travelandhotel/bookingIcon.png';
-import planningIcon from '../../../../assets/travelandhotel/planningIcon.png';
-import secureIcon from '../../../../assets/travelandhotel/secureIcon.png';
-import customerIcon from '../../../../assets/travelandhotel/customerIcon.png';
 import comfortIcon from '../../../../assets/travelandhotel/comfortIcon.png';
+import customerIcon from '../../../../assets/travelandhotel/customerIcon.png';
 import desktopIcon from '../../../../assets/travelandhotel/desktopIcon.png';
+import mobileIcon from '../../../../assets/travelandhotel/mobileIcon.png';
 import NextGenImg1 from '../../../../assets/travelandhotel/nextGen1.png';
+import planningIcon from '../../../../assets/travelandhotel/planningIcon.png';
+import searchIcon from '../../../../assets/travelandhotel/searchIcon.png';
+import secureIcon from '../../../../assets/travelandhotel/secureIcon.png';
+import templateIcon from '../../../../assets/travelandhotel/templateIcon.png';
+import trackingIcon from '../../../../assets/travelandhotel/trackingIcon.png';
 
 const leftInventoryCardData = [
   {

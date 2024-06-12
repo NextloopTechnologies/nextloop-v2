@@ -1,11 +1,6 @@
 import React from 'react';
-import Layout from '../../../components/Layout/Layout';
-import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
-import WhyBuild from '../../../components/Domains/WhyBuild';
+
 import restaurantBg from '../../../../assets/restaurantBg.png';
-import WhyBuildRestaurant from '../../../../assets/whyBuildRestaurant.png';
-import FAQ from '../../../components/Domains/FAQ';
-import { IFAQ, IWhyChooseUs } from '../../../types';
 import toolsIcon1 from '../../../../assets/restaurantToolsIcon-1.png';
 import toolsIcon2 from '../../../../assets/restaurantToolsIcon-2.png';
 import toolsIcon3 from '../../../../assets/restaurantToolsIcon-3.png';
@@ -14,6 +9,9 @@ import whyChooseUsImg from '../../../../assets/whyChooseUs1.png';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
+import FAQ from '../../../components/Domains/FAQ';
+import ToolBox from '../../../components/Domains/Restaurant/ToolBox';
+import WhyBuild from '../../../components/Domains/WhyBuild';
 import WhyChooseUs from '../../../components/Domains/WhyChooseUs';
 import Layout from '../../../components/Layout/Layout';
 import { IFAQ, IWhyChooseUs } from '../../../types';

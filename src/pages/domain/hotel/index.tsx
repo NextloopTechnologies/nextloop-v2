@@ -1,4 +1,3 @@
-import { faqsContent } from '../restaurant';
 import { HotelBg, WhyBuildHotelBooking } from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import ClientReviews from '../../../components/Domains/ClientReviews';
@@ -10,6 +9,29 @@ import SimpleWebsite from '../../../components/Domains/SimpleWebsite';
 import WhatWeDo from '../../../components/Domains/WhatWeDo';
 import WhyBuild from '../../../components/Domains/WhyBuild';
 import Layout from '../../../components/Layout/Layout';
+import { IFAQ } from '../../../types';
+
+const faqsContent: IFAQ[] = [
+  {
+    id: 1,
+    question: 'why do you need hotel website design?',
+    answer:
+      'Hotel website design is a huge influence on the booking behaviour of travellers and helps your hotel address their desires and expectations. It’s very important that potential guests are able to navigate your website easily and quickly understand the content that’s most relevant to them.',
+  },
+  {
+    id: 2,
+    question: 'why do I need a  website for my hotel?',
+    answer:
+      'Hotel website design is a huge influence on the booking behaviour of travellers and helps your hotel address their desires and expectations. It’s very important that potential guests are able to navigate your website easily and quickly understand the content that’s most relevant to them.',
+  },
+  {
+    id: 3,
+    question: 'What are the benefits of hotel website design?',
+    answer:
+      'Hotel website design is a huge influence on the booking behaviour of travellers and helps your hotel address their desires and expectations. It’s very important that potential guests are able to navigate your website easily and quickly understand the content that’s most relevant to them.',
+  },
+];
+
 
 const Hotel = () => {
   return (

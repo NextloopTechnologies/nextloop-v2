@@ -1,9 +1,10 @@
 import React from 'react';
+
 import SuccessSolutionCard from '../SuccessSolutionCard';
-import solutionManagement from "../../../../assets/healthcare/solutionManagement.png";
 import clinicTreatment from "../../../../assets/healthcare/clinicTreatment.png";
 import healthAndFitness from "../../../../assets/healthcare/healthAndFitness.png";
 import saasPortal from "../../../../assets/healthcare/saasPortal.png";
+import solutionManagement from "../../../../assets/healthcare/solutionManagement.png";
 
 const successSolutionContent = [
   {

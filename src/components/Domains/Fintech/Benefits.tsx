@@ -1,12 +1,13 @@
-import React from 'react';
 import Image, { StaticImageData } from 'next/image';
-import reportIcon from "../../../../assets/fintech/benefitReportsIcon.png";
-import infrastructureIcon from "../../../../assets/fintech/benefitInfrastructureIcon.png";
-import updatesIcon from "../../../../assets/fintech/benefitUpdatesIcon.png";
+import React from 'react';
+
+import developmentIcon from "../../../../assets/fintech/benefitDevelopmentIcon.png";
 import graphIcon from "../../../../assets/fintech/benefitGraphIcon.png";
+import infrastructureIcon from "../../../../assets/fintech/benefitInfrastructureIcon.png";
+import reportIcon from "../../../../assets/fintech/benefitReportsIcon.png";
 import settingIcon from "../../../../assets/fintech/benefitSettingIcon.png";
 import supportIcon from "../../../../assets/fintech/benefitSupportIcon.png";
-import developmentIcon from "../../../../assets/fintech/benefitDevelopmentIcon.png";
+import updatesIcon from "../../../../assets/fintech/benefitUpdatesIcon.png";
 
 type BoxProps = {
   icon: StaticImageData;

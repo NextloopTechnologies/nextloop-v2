@@ -1,18 +1,19 @@
 import React from 'react';
-import Layout from '../../../components/Layout/Layout';
-import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
+
 import fintechBg from "../../../../assets/fintech/mainBg.png"
 import whyChooseUsImg1 from "../../../../assets/fintech/whyChooseUs1.png";
 import whyChooseUsImg2 from "../../../../assets/fintech/whyChooseUs2.png";
 import whyBuildImg from "../../../../assets/whyChooseUs1.png";
-import WhyBuild from '../../../components/Domains/WhyBuild';
-import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
+import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import ClientReviews from '../../../components/Domains/ClientReviews';
+import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
 import FAQ from '../../../components/Domains/FAQ';
-import { IFAQ, IWhyChooseUs } from '../../../types';
-import WhyChooseUs from '../../../components/Domains/WhyChooseUs';
-import WebDesignCompany from '../../../components/Domains/Fintech/WebDesignCompany';
 import Benefits from '../../../components/Domains/Fintech/Benefits';
+import WebDesignCompany from '../../../components/Domains/Fintech/WebDesignCompany';
+import WhyBuild from '../../../components/Domains/WhyBuild';
+import WhyChooseUs from '../../../components/Domains/WhyChooseUs';
+import Layout from '../../../components/Layout/Layout';
+import { IFAQ, IWhyChooseUs } from '../../../types';
 
 const faqsContent: IFAQ[] = [
   {

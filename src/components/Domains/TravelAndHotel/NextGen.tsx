@@ -1,5 +1,6 @@
-import React from 'react';
 import Image from 'next/image';
+import React from 'react';
+
 import NextGenImg1 from '../../../../assets/travelandhotel/nextGen1.png';
 import NextGenImg2 from '../../../../assets/travelandhotel/nextGen2.png';
 
@@ -28,17 +29,17 @@ const NextGen = () => {
             material to potential guests. While that might have been the most
             effective way to let people know about your brand, it’s no longer
             true. Digitalisation has grown at a rapid speed across all
-            industries, especially travel. In fact,  a survey found that in
+            industries, especially travel. In fact, a survey found that in
             pre-pandemic 2017, already 88% of people preferred to make their
             hotel bookings online.
           </p>
           <p className='md:text-lg'>
             The best outcome of this acceleration into the future is that many
             things that used to take a lot of time and investment are now more
-            accessible, affordable, and offer ease of use, like building your
+            accessible, affordable, and offer ease of use, like building your
             first hotel website. Gone are the days when you would have to spend
             a heavy amount of money to hire a developer and designer. It’s now
-            as easy as a drag-and-drop tool. And if nothing else, a hotel
+            as easy as a drag-and-drop tool. And if nothing else, a hotel
             website will tell the world that you really exist.
           </p>
         </div>
@@ -56,17 +57,17 @@ const NextGen = () => {
             material to potential guests. While that might have been the most
             effective way to let people know about your brand, it’s no longer
             true. Digitalisation has grown at a rapid speed across all
-            industries, especially travel. In fact,  a survey found that in
+            industries, especially travel. In fact, a survey found that in
             pre-pandemic 2017, already 88% of people preferred to make their
             hotel bookings online.
           </p>
           <p className='md:text-lg'>
             The best outcome of this acceleration into the future is that many
             things that used to take a lot of time and investment are now more
-            accessible, affordable, and offer ease of use, like building your
+            accessible, affordable, and offer ease of use, like building your
             first hotel website. Gone are the days when you would have to spend
             a heavy amount of money to hire a developer and designer. It’s now
-            as easy as a drag-and-drop tool. And if nothing else, a hotel
+            as easy as a drag-and-drop tool. And if nothing else, a hotel
             website will tell the world that you really exist.
           </p>
         </div>
