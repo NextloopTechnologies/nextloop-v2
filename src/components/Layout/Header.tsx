@@ -68,9 +68,8 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
         </div>
       )}
       <nav
-        className={`px-10 pt-6 fixed transition-all duration-300 ease-in-out top-0 left-0 w-full z-30 ${
-          isSticky ? 'bg-white text-black shadow-md' : 'text-white'
-        }`}
+        className={`px-10 fixed transition-all duration-300 ease-in-out top-0 left-0 w-full z-30 ${isSticky ? 'bg-white text-black shadow-md' : 'text-white'
+          }`}
       >
         <div className='flex justify-between'>
           <Image
