@@ -47,8 +47,8 @@ const Hamburger = () => {
           <li className={`${pathname === '/services' && 'text-orange-500'}`}>
             <Link href='/services'>Services</Link>
           </li>
-          <li className={`${pathname === '/careers' && 'text-orange-500'}`}>
-            <Link href='/careers'>Career</Link>
+          <li className={`${pathname === '/career' && 'text-orange-500'}`}>
+            <Link href='/career'>Career</Link>
           </li>
           <li className={`${pathname === '/blog' && 'text-orange-500'}`}>
             <Link href='/blog'>Blog</Link>

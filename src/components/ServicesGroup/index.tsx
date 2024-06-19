@@ -28,13 +28,13 @@ const Services: FC<CoveroverProps> = ({ isModalOpen, setIsModalOpen }) => {
   };
 
   // Function to open the modal
-  const openModal = () => {
-    setIsModalOpen(true);
-    // Disable scrolling in the Services content when the modal is open
-    // if (scrollableRef.current) {
-    //   scrollableRef.current.style.overflowY = 'hidden';
-    // }
-  };
+  // const openModal = () => {
+  //   setIsModalOpen(true);
+  // Disable scrolling in the Services content when the modal is open
+  // if (scrollableRef.current) {
+  //   scrollableRef.current.style.overflowY = 'hidden';
+  // }
+  // };
 
   // Function to close the modal
   const closeModal = () => {
@@ -72,7 +72,7 @@ const Services: FC<CoveroverProps> = ({ isModalOpen, setIsModalOpen }) => {
               initial={isMobile ? 'visible' : 'hide'}
               animate='show'
               variants={textVariants}
-              className='text-xs  pt-8 text-center flex items-center'
+              className='pt-8 text-center flex items-center'
             >
               <div className='lg:px-20 '>
                 Are you curious about our secret behind making all this
@@ -83,7 +83,7 @@ const Services: FC<CoveroverProps> = ({ isModalOpen, setIsModalOpen }) => {
                 results that truly matter to you.
               </div>
             </motion.span>
-            <button onClick={openModal}>Open</button>
+            {/* <button onClick={openModal}>Open</button> */}
           </div>
         </motion.header>
       </div>
@@ -99,7 +99,7 @@ const Services: FC<CoveroverProps> = ({ isModalOpen, setIsModalOpen }) => {
             // Implement your custom scrolling logic for the modal content here
           }
         }}
-        className='h-96 overflow-y-auto hidden xl:block'
+        className='h-96 overflow-y-auto hidden'  //add xl:block when open is enabled
       >
         {/* Scrollable content */}
       </div>

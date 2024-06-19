@@ -68,9 +68,8 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
         </div>
       )}
       <nav
-        className={`px-10 pt-6 fixed transition-all duration-300 ease-in-out top-0 left-0 w-full z-30 ${
-          isSticky ? 'bg-white text-black shadow-md' : 'text-white'
-        }`}
+        className={`px-10 fixed transition-all duration-300 ease-in-out top-0 left-0 w-full z-30 ${isSticky ? 'bg-white text-black shadow-md' : 'text-white'
+          }`}
       >
         <div className='flex justify-between'>
           <Image
@@ -93,8 +92,8 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
             <li className={`${pathname === '/services' && 'text-orange-500'}`}>
               <Link href='/services'>Services</Link>
             </li>
-            <li className={`${pathname === '/careers' && 'text-orange-500'}`}>
-              <Link href='/careers'>Career</Link>
+            <li className={`${pathname === '/career' && 'text-orange-500'}`}>
+              <Link href='/career'>Career</Link>
             </li>
             <li className={`${pathname === '/blog' && 'text-orange-500'}`}>
               <Link href='/blog'>Blog</Link>

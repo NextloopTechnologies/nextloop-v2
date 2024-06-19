@@ -29,10 +29,10 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
           {error}
         </div>
       ) : (
-        <div className='grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-y-24 xl:p-24 md:p-8 p-4 place-items-center'>
+        <div className='grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 xl:p-24 md:p-8 p-4 place-items-center'>
           {data?.map((blog) => (
             <div
-              className='flex flex-col gap-4 lg:max-w-[400px] w-full self-start'
+              className='flex flex-col lg:max-w-[400px] w-full self-start cursor-pointer'
               key={blog.id}
               onClick={() => router.push(`/blog/${blog.id}`)}
             >
@@ -40,8 +40,8 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
                 <img
                   src={blog.image}
                   alt='blog image'
-                  className='object-contain'
-                  height={400}
+                  className='w-[400px] h-[250px] object-contain'
+                  height={250}
                   width={400}
                 />
               ) : (
@@ -50,7 +50,7 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
               <span className='font-medium md:text-4xl text-2xl'>
                 {blog.title}
               </span>
-              <span className='text-sm'>
+              <span className='text-sm mt-2'>
                 {dayjs(blog.created_at).format('DD/MMM/YYYY')}
               </span>
             </div>
