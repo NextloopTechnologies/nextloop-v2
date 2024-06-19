@@ -87,7 +87,7 @@ const AboutUsHome = () => {
 
 const WhyUs = () => (
   <div className='min-h-screen flex flex-col justify-center items-center text-center gap-12 p-8 lg:p-0'>
-    <h2 className='font-medium text-2xl uppercase'>Why us</h2>
+    <h2 className='font-medium text-2xl uppercase mt-5'>Why us</h2>
     <p className='font-bold xl:text-7xl md:text-5xl text-3xl  2xl:w-[30%] xl:w-[60%] w-full'>
       CURIOUS ABOUT HOW WE MANAGE TO MAKE ALL THIS{' '}
       <span className='text-orange-500'>POSSIBLE?</span>

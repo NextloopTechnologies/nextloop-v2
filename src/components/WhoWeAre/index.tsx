@@ -26,7 +26,7 @@ const WhoWeAre: FC = () => {
 
   return (
     <>
-      <div className='flex lg:flex-row flex-col items-center min-h-screen overflow-hidden gap-8 lg:gap-0'>
+      <div className='flex lg:flex-row flex-col items-center min-h-screen overflow-hidden gap-8 lg:gap-0 py-5'>
         <motion.header
           initial={isMobile ? 'visible' : 'hide'}
           whileInView='show'
@@ -35,7 +35,7 @@ const WhoWeAre: FC = () => {
           className='flex lg:flex-row flex-col gap-x-10 lg:px-10 text-center lg:text-left'
         >
           <div className='flex flex-col gap-3 lg:px-20 px-4'>
-            <span>who we are</span>
+            <span className='uppercase'>who we are</span>
             <motion.span
               initial={isMobile ? 'visible' : 'hide'}
               animate={textAnimationCompleted ? 'show' : 'hide'}
@@ -50,7 +50,7 @@ const WhoWeAre: FC = () => {
               initial={isMobile ? 'visible' : 'hide'}
               animate={textAnimationCompleted ? 'show' : 'hide'}
               variants={textVariants}
-              className='text-sm lg:w-5/6 w-full pt-8'
+              className='text-sm lg:text-base lg:w-5/6 w-full pt-8'
             >
               Nestled in the heart of India, NextLoop Technologies is more than
               just a company; we're a passionate team on a mission. With each
