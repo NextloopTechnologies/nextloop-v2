@@ -197,7 +197,7 @@ const JobCard: React.FC<{ job: Job }> = ({
         </div>
       </div>
       <button
-        onClick={() => router.push(`/careers/${id}`)}
+        onClick={() => router.push(`/career/${id}`)}
         className='text-orange-500 bg-none font-medium py-3 rounded-full w-fit'
       >
         View Details &#10230;

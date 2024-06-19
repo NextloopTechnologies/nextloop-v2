@@ -205,7 +205,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = ({ data }) => {
           </div>
         </div>
 
-        <div id='services' className='min-h-screen'>
+        <div id='services' className='py-10'>
           <div className='container mx-auto'>
             <Services
               setIsModalOpen={setIsModalOpen}
