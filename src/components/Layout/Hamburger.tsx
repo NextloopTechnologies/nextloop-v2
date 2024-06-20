@@ -55,7 +55,10 @@ const Hamburger = () => {
           </li>
           <li>
             <button
-              onClick={() => router.push('#footer')}
+              onClick={() => {
+                router.push('#footer')
+                setIsOpen(!isOpen)
+              }}
               className='bg-orange-500 text-white px-5 py-3 rounded-full'
             >
               Request quote &#10230;

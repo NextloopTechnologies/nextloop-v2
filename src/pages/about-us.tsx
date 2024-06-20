@@ -103,7 +103,7 @@ const WhyUs = () => (
 const Journey = () => {
   const router = useRouter();
   return (
-    <div className='min-h-screen bg-[#010103] text-white flex flex-col justify-center items-center text-center gap-24 p-8 lg:p-0'>
+    <div className='min-h-screen bg-[#010103] text-white flex flex-col justify-center items-center text-center gap-24 p-8'>
       <h2 className='font-medium text-2xl uppercase'>ourjourney</h2>
       <div className='grid xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 grid-cols-1 w-full place-items-center gap-12 xl:px-16'>
         {journeyArr.map((t, i) => (
@@ -113,7 +113,7 @@ const Journey = () => {
       <div className='flex justify-center w-full'>
         <button
           onClick={() => router.push('#footer')}
-          className='bg-transparent border border-white ml-10 text-white px-5 py-3 rounded-full'
+          className='bg-transparent border border-white text-white px-5 py-3 rounded-full'
         >
           Request quote &#10230;
         </button>
