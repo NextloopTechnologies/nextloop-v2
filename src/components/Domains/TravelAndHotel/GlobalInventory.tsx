@@ -6,12 +6,12 @@ import comfortIcon from '../../../../assets/travelandhotel/comfortIcon.png';
 import customerIcon from '../../../../assets/travelandhotel/customerIcon.png';
 import desktopIcon from '../../../../assets/travelandhotel/desktopIcon.png';
 import mobileIcon from '../../../../assets/travelandhotel/mobileIcon.png';
-import NextGenImg1 from '../../../../assets/travelandhotel/nextGen1.png';
 import planningIcon from '../../../../assets/travelandhotel/planningIcon.png';
 import searchIcon from '../../../../assets/travelandhotel/searchIcon.png';
 import secureIcon from '../../../../assets/travelandhotel/secureIcon.png';
 import templateIcon from '../../../../assets/travelandhotel/templateIcon.png';
 import trackingIcon from '../../../../assets/travelandhotel/trackingIcon.png';
+import { ECommWhatWeDo2 } from '../../../../assets';
 
 const leftInventoryCardData = [
   {
@@ -115,7 +115,7 @@ const GlobalInventory = () => {
         set your business apart with design and great{' '}
         <span className='text-orange-500'>global inventory</span>
       </h1>
-      <div className='flex flex-col items-center justify-center xl:flex-row mx-2 mt-[100px] gap-4'>
+      <div className='flex flex-col items-center justify-center  xl:flex-row mx-2 mt-[100px] gap-4'>
         <div>
           {leftInventoryCardData.map(({ title, bg, icon }, idx) => (
             <InventoryCard
@@ -127,7 +127,9 @@ const GlobalInventory = () => {
             />
           ))}
         </div>
-        <Image src={NextGenImg1} alt='' height={600} width={400} />
+        <div className='-mt-2'>
+          <Image src={ECommWhatWeDo2} alt='' className='w-[400px] h-[420px]' />
+        </div>
         <div>
           {rightInventoryCardData.map(({ title, bg, icon }, idx) => (
             <InventoryCard key={idx} title={title} icon={icon} bg={bg} />

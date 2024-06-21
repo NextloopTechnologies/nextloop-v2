@@ -1,6 +1,6 @@
 import {
   ECommerceBg,
-  ECommWhatWeDo1,
+  WhatWeDo1,
   ECommWhatWeDo2,
   ECommWhatWeDo3,
   ECommWhatWeDo4,
@@ -68,7 +68,34 @@ const faqsContent: IFAQ[] = [
   },
 ];
 
-const Events = () => {
+const WhatWeDoData = [
+  {
+    image: WhatWeDo1,
+    title: 'Mobile Responsive',
+    description:
+      'A responsive website get used to the device of each unique visitor, whether desktop, smartphone or  tablet. A responsive website dynamically re-sizes its content and imagery for a variety of different screen size to ensure the website is effective and easy to use on any device. Whether your company is large and established, or just starting. Nextloop can build a website that gets noticed. With our enhanced web design & development for Travel and Hotel, your online visitor enjoys the same experience. ',
+  },
+  {
+    image: ECommWhatWeDo2,
+    title: 'Mobile Responsive',
+    description:
+      'A responsive website get used to the device of each unique visitor, whether desktop, smartphone or  tablet. A responsive website dynamically re-sizes its content and imagery for a variety of different screen size to ensure the website is effective and easy to use on any device. Whether your company is large and established, or just starting. Nextloop can build a website that gets noticed. With our enhanced web design & development for Travel and Hotel, your online visitor enjoys the same experience. ',
+  },
+  {
+    image: ECommWhatWeDo3,
+    title: 'Mobile Responsive',
+    description:
+      'A responsive website get used to the device of each unique visitor, whether desktop, smartphone or  tablet. A responsive website dynamically re-sizes its content and imagery for a variety of different screen size to ensure the website is effective and easy to use on any device. Whether your company is large and established, or just starting. Nextloop can build a website that gets noticed. With our enhanced web design & development for Travel and Hotel, your online visitor enjoys the same experience. ',
+  },
+  {
+    image: ECommWhatWeDo4,
+    title: 'Mobile Responsive',
+    description:
+      'A responsive website get used to the device of each unique visitor, whether desktop, smartphone or  tablet. A responsive website dynamically re-sizes its content and imagery for a variety of different screen size to ensure the website is effective and easy to use on any device. Whether your company is large and established, or just starting. Nextloop can build a website that gets noticed. With our enhanced web design & development for Travel and Hotel, your online visitor enjoys the same experience. ',
+  }
+];
+
+const Ecommerce = () => {
   return (
     <Layout>
       <CustomPageHero
@@ -110,9 +137,7 @@ const Events = () => {
         }
       />
 
-      <WhatWeDo
-        imgs={[ECommWhatWeDo1, ECommWhatWeDo2, ECommWhatWeDo3, ECommWhatWeDo4]}
-      />
+      <WhatWeDo content={WhatWeDoData} />
 
       <EnrollForWebsite
         image={RobustOnline}
@@ -144,4 +169,4 @@ const Events = () => {
   );
 };
 
-export default Events;
+export default Ecommerce;
