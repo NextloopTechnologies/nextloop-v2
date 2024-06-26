@@ -57,7 +57,7 @@ const Services: FC<CoveroverProps> = ({ isModalOpen, setIsModalOpen }) => {
           variants={introHeaderVariants}
           className='flex gap-10 lg:w-4/6 lg:px-10 text-center'
         >
-          <div className='flex flex-col gap-y-3 lg:px-20 z-10'>
+          <div className='flex flex-col gap-y-3 z-10 px-4'>
             <span>OUR VALUES</span>
             <motion.span
               initial={isMobile ? 'visible' : 'hide'}

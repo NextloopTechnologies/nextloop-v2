@@ -36,7 +36,7 @@ const Experience: FC = () => {
           variants={introHeaderVariants}
           className='flex gap-x-10 lg:w-5/6 w-full text-left lg:text-center'
         >
-          <div className='flex flex-col h-full gap-y-20'>
+          <div className='flex flex-col h-full gap-y-20 px-2'>
             <motion.span
               initial={isMobile ? 'visible' : 'hide'}
               animate='show'
@@ -54,16 +54,16 @@ const Experience: FC = () => {
               variants={textVariants}
               className='text-2xl pt-8 flex lg:flex-row flex-col h-full gap-4'
             >
-              <div className='flex h-56'>
+              <div className='flex'>
                 {content.map((item, index) => {
                   return (
-                    <div className='flex gap-2 ' key={item.heading}>
+                    <div className='flex gap-2' key={item.heading}>
                       <div className='border-l border-gray-600'></div>
-                      <div className='flex flex-col justify-between'>
+                      <div className='flex flex-col justify-center items-center'>
                         {' '}
                         <div>0{index + 1}</div>
-                        <div className='flex flex-col gap-y-4'>
-                          <span className='text-sm font-medium'>
+                        <div className='flex flex-col mt-4 px-2'>
+                          <span className='text-sm font-medium mb-4'>
                             {item.heading}
                           </span>
                           <span className='text-sm lg:text-[12px] w-2/3 mx-auto'>
