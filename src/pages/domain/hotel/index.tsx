@@ -1,4 +1,11 @@
-import { HotelBg, WhyBuildHotelBooking } from '../../../../assets';
+import {
+  HotelBg,
+  WhyBuildHotelBooking,
+  WhatWeDo1,
+  WhatWeDo2,
+  WhatWeDo3,
+  WhatWeDo4
+} from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
@@ -32,6 +39,32 @@ const faqsContent: IFAQ[] = [
   },
 ];
 
+const WhatWeDoData = [
+  {
+    image: WhatWeDo1,
+    title: 'Drive more reviews and positive word-of-mouth',
+    description:
+      'Nextloop is where your idea comes to life. If you can order pizza online, you Embed a Tripadvisor widget on your website so guests who have completed their stay can easily share their feedback.',
+  },
+  {
+    image: WhatWeDo2,
+    title: 'Drive more reviews and positive word-of-mouth',
+    description:
+      'Nextloop is where your idea comes to life. If you can order pizza online, you Embed a Tripadvisor widget on your website so guests who have completed their stay can easily share their feedback.',
+  },
+  {
+    image: WhatWeDo3,
+    title: 'Drive more reviews and positive word-of-mouth',
+    description:
+      'Nextloop is where your idea comes to life. If you can order pizza online, you Embed a Tripadvisor widget on your website so guests who have completed their stay can easily share their feedback.',
+  },
+  {
+    image: WhatWeDo4,
+    title: 'Drive more reviews and positive word-of-mouth',
+    description:
+      'Nextloop is where your idea comes to life. If you can order pizza online, you Embed a Tripadvisor widget on your website so guests who have completed their stay can easily share their feedback.',
+  }
+];
 
 const Hotel = () => {
   return (
@@ -74,7 +107,7 @@ const Hotel = () => {
         }
       />
 
-      <WhatWeDo />
+      <WhatWeDo content={WhatWeDoData} />
 
       <SimpleWebsite />
 

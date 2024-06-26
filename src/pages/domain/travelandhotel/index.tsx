@@ -12,12 +12,13 @@ import WhyBuild from '../../../components/Domains/WhyBuild';
 import Layout from '../../../components/Layout/Layout';
 import { IFAQ } from '../../../types';
 import {
-  WhatWeDo1,
+  ECommWhatWeDo1,
   ECommWhatWeDo2,
   ECommWhatWeDo3,
   ECommWhatWeDo4,
 } from '../../../../assets';
 import WhatWeDo from '../../../components/Domains/WhatWeDo';
+import FlourishBusiness from '../../../components/Domains/TravelAndHotel/FlourishBusiness';
 
 const faqsContent: IFAQ[] = [
   {
@@ -42,7 +43,7 @@ const faqsContent: IFAQ[] = [
 
 const WhatWeDoData = [
   {
-    image: WhatWeDo1,
+    image: ECommWhatWeDo1,
     title: 'Mobile Responsive',
     description:
       'A responsive website get used to the device of each unique visitor, whether desktop, smartphone or  tablet. A responsive website dynamically re-sizes its content and imagery for a variety of different screen size to ensure the website is effective and easy to use on any device. Whether your company is large and established, or just starting. Nextloop can build a website that gets noticed. With our enhanced web design & development for Travel and Hotel, your online visitor enjoys the same experience. ',
@@ -119,6 +120,8 @@ const HotelAndTravel = () => {
       />
 
       <WhatWeDo content={WhatWeDoData} />
+
+      <FlourishBusiness />
 
       <NextGen />
 
