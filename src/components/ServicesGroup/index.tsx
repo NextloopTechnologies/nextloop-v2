@@ -49,7 +49,7 @@ const Services: FC<CoveroverProps> = ({ isModalOpen, setIsModalOpen }) => {
 
   return (
     <>
-      <div className='flex justify-center items-center overflow-x-hidden flex-col lg:flex-row'>
+      <div className='flex justify-center items-center sm:min-h-screen overflow-x-hidden flex-col lg:flex-row'>
         <motion.header
           initial={isMobile ? 'visible' : 'hide'}
           whileInView='show'
@@ -74,7 +74,7 @@ const Services: FC<CoveroverProps> = ({ isModalOpen, setIsModalOpen }) => {
               variants={textVariants}
               className='pt-8 text-center flex items-center'
             >
-              <div className='lg:px-20 '>
+              <div className='lg:px-20 text-sm lg:text-xl '>
                 Are you curious about our secret behind making all this
                 possible? At the heart of our software solutions lies a
                 dedication to understanding your needs, which drives our
@@ -99,7 +99,7 @@ const Services: FC<CoveroverProps> = ({ isModalOpen, setIsModalOpen }) => {
             // Implement your custom scrolling logic for the modal content here
           }
         }}
-        className='h-96 overflow-y-auto hidden'  //add xl:block when open is enabled
+        className='h-96 overflow-y-auto hidden' //add xl:block when open is enabled
       >
         {/* Scrollable content */}
       </div>
