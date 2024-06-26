@@ -55,7 +55,7 @@ const AboutUs: FC = () => {
                   <b className='text-orange-500 font-normal'>partnerships.</b>
                 </div>
 
-                <div className='text-sm mt-8 flex flex-col gap-y-4'>
+                <div className='text-sm lg:text-[18px] mt-8 flex flex-col gap-y-4'>
                   <p>
                     Founded in 2020 with a vision of driving the loop towards
                     new age technologies. Next loop has evolved into a thriving

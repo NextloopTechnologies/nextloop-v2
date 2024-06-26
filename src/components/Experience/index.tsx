@@ -66,7 +66,7 @@ const Experience: FC = () => {
                           <span className='text-sm font-medium'>
                             {item.heading}
                           </span>
-                          <span className='text-xs w-2/3 mx-auto'>
+                          <span className='text-sm lg:text-[12px] w-2/3 mx-auto'>
                             {item.desc}
                           </span>
                         </div>
@@ -76,7 +76,7 @@ const Experience: FC = () => {
                 })}
               </div>
               <div className='flex flex-col gap-y-10'>
-                <div className='text-xs '>
+                <div className='text-sm lg:text-[16px]'>
                   We commit passionately and persistently, fueled by a shared
                   vision. Desiring more than just a contract - we work
                   diligently to earn lasting partnerships with our clients.

@@ -35,7 +35,7 @@ const PitchThought: FC = () => {
               </span>
             </div>
 
-            <span className='text-sm '>
+            <span className='text-sm lg:text-[14px]'>
               Send us some details about your project, and feel free to ask
               questions about our process. Our consultants will be with you
               ASAP.

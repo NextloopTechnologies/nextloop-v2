@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { GetServerSideProps } from 'next';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 import AboutUs from '../components/AboutUs';
 import Career from '../components/Career';
@@ -111,6 +111,34 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = ({ data }) => {
 
   const { isMobile } = useWindowSize();
 
+  const [visibleDiv, setVisibleDiv] = useState<string | null>(null);
+  const divRefs = useRef<(HTMLDivElement | null)[]>([]);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleDiv(entry.target.id);
+          }
+        });
+      },
+      {
+        root: null, // Use the viewport as the container
+        threshold: 0.1, // Adjust threshold as needed
+      }
+    );
+
+    divRefs.current.forEach((div) => {
+      if (div) observer.observe(div);
+    });
+
+    return () => {
+      divRefs.current.forEach((div) => {
+        if (div) observer.unobserve(div);
+      });
+    };
+  }, []);
+
   // useEffect(() => {
   //   const handleScroll = (e: WheelEvent) => {
   //     const scrollY = window.scrollY;
@@ -189,23 +217,48 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = ({ data }) => {
   //     window.removeEventListener('wheel', handleScroll);
   //   };
   // }, []);
+  const scrollToNext = () => {
+    if (visibleDiv) {
+      const currentIndex = divRefs.current.findIndex(
+        (div) => div?.id === visibleDiv
+      );
+      if (currentIndex >= 0 && currentIndex < divRefs.current.length - 1) {
+        const nextDiv = divRefs.current[currentIndex + 1];
+        if (nextDiv) {
+          nextDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+  };
 
   return (
     <>
       <Layout>
-        <div id='about-us' className='min-h-screen aboutUsBackgroundImage'>
+        <div
+          id='intro'
+          ref={(el: any) => (divRefs.current[0] = el)}
+          className='min-h-screen aboutUsBackgroundImage'
+        >
           <div className='container mx-auto'>
             <Intro />
           </div>
         </div>
 
-        <div id='portfolio' className='min-h-screen'>
+        <div
+          id='who-we-are'
+          ref={(el: any) => (divRefs.current[1] = el)}
+          className='sm:min-h-screen'
+        >
           <div className='container mx-auto '>
             <WhoWeAre />
           </div>
         </div>
 
-        <div id='services' className='min-h-screen'>
+        <div
+          id='services'
+          ref={(el: any) => (divRefs.current[2] = el)}
+          className='sm:min-h-screen'
+        >
           <div className='container mx-auto'>
             <Services
               setIsModalOpen={setIsModalOpen}
@@ -214,29 +267,49 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = ({ data }) => {
           </div>
         </div>
 
-        <div id='career' className='min-h-screen bg-[#010103] '>
+        <div
+          id='career'
+          ref={(el: any) => (divRefs.current[3] = el)}
+          className='sm:min-h-screen bg-[#010103] '
+        >
           <div className='container mx-auto z-10 '>
             <Career />
           </div>
         </div>
 
-        <div id='contact-us' className='min-h-screen '>
+        <div
+          id='about-us'
+          ref={(el: any) => (divRefs.current[4] = el)}
+          className='min-h-screen '
+        >
           <div className='container mx-auto'>
             <AboutUs />
           </div>
         </div>
-        <div className='min-h-screen '>
+        <div
+          id='experience'
+          ref={(el: any) => (divRefs.current[5] = el)}
+          className='sm:min-h-screen '
+        >
           <div className='container mx-auto'>
             <Experience />
           </div>
         </div>
-        <div className='min-h-screen max-w-[100vw] overflow-hidden'>
+        <div
+          id='portfolio'
+          ref={(el: any) => (divRefs.current[6] = el)}
+          className='min-h-screen max-w-[100vw] overflow-hidden'
+        >
           <div className='container mx-auto'>
             {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
             <Portfolio caseStudies={data!} />
           </div>
         </div>
-        <div className='min-h-screen relative'>
+        <div
+          id='client-review'
+          ref={(el: any) => (divRefs.current[7] = el)}
+          className='min-h-screen relative'
+        >
           <div className='container mx-auto'>
             <ClientReview />
           </div>
@@ -249,7 +322,8 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = ({ data }) => {
             exit={{ opacity: 0, y: 40 }}
             transition={{ duration: 0.5 }}
             className='fixed bottom-10 right-5 bg-orange-500 hover:bg-orange-600 text-white h-10 w-10 justify-center rounded-full flex items-center cursor-pointer'
-            onClick={handleScrollOnClick}
+            // onClick={handleScrollOnClick}
+            onClick={scrollToNext}
           >
             <Image src={DownArrow} alt='Down arrow' className='h-5 w-7' />
           </motion.button>

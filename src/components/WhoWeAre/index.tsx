@@ -50,7 +50,7 @@ const WhoWeAre: FC = () => {
               initial={isMobile ? 'visible' : 'hide'}
               animate={textAnimationCompleted ? 'show' : 'hide'}
               variants={textVariants}
-              className='text-sm lg:text-base lg:w-5/6 w-full pt-8'
+              className='text-sm lg:text-xl lg:w-5/6 w-full pt-8'
             >
               Nestled in the heart of India, NextLoop Technologies is more than
               just a company; we're a passionate team on a mission. With each
@@ -70,7 +70,7 @@ const WhoWeAre: FC = () => {
           whileInView='show'
           exit='hide'
           variants={imageVariants}
-          className='flex w-full h-full pb-36 '
+          className='flex w-full h-full pb:10 sm:pb-36 '
         >
           <div className='lg:flex-shrink-0 w-full'>
             {textAnimationCompleted && (

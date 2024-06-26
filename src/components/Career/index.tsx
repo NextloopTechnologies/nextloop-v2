@@ -32,7 +32,7 @@ const Career: FC = () => {
 
   return (
     <>
-      <div className='flex justify-center items-center min-h-screen overflow-x-hidden lg:text-left text-center'>
+      <div className='flex justify-center items-center sm:min-h-screen overflow-x-hidden lg:text-left text-center'>
         <motion.header
           initial={isMobile ? 'visible' : 'hide'}
           whileInView='show'
