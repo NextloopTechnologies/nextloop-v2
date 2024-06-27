@@ -1,11 +1,10 @@
 import {
   HotelBg,
-  WhyBuildHotelBooking,
   WhatWeDo1,
   WhatWeDo2,
   WhatWeDo3,
-  WhatWeDo4
-} from '../../../../assets';
+  WhatWeDo4,
+  WhyBuildHotelBooking} from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';

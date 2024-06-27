@@ -1,24 +1,24 @@
 import React from 'react';
 
-import hotelAndTravelBg from '../../../../assets/travelandhotel/mainBg.png';
-import whyBuildImg from '../../../../assets/travelandhotel/whyBuild.png';
-import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
-import ClientReviews from '../../../components/Domains/ClientReviews';
-import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
-import FAQ from '../../../components/Domains/FAQ';
-import GlobalInventory from '../../../components/Domains/TravelAndHotel/GlobalInventory';
-import NextGen from '../../../components/Domains/TravelAndHotel/NextGen';
-import WhyBuild from '../../../components/Domains/WhyBuild';
-import Layout from '../../../components/Layout/Layout';
-import { IFAQ } from '../../../types';
 import {
   ECommWhatWeDo1,
   ECommWhatWeDo2,
   ECommWhatWeDo3,
   ECommWhatWeDo4,
+  hotelAndTravelBg,
+  whyBuildImg,
 } from '../../../../assets';
-import WhatWeDo from '../../../components/Domains/WhatWeDo';
+import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
+import ClientReviews from '../../../components/Domains/ClientReviews';
+import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
+import FAQ from '../../../components/Domains/FAQ';
 import FlourishBusiness from '../../../components/Domains/TravelAndHotel/FlourishBusiness';
+import GlobalInventory from '../../../components/Domains/TravelAndHotel/GlobalInventory';
+import NextGen from '../../../components/Domains/TravelAndHotel/NextGen';
+import WhatWeDo from '../../../components/Domains/WhatWeDo';
+import WhyBuild from '../../../components/Domains/WhyBuild';
+import Layout from '../../../components/Layout/Layout';
+import { IFAQ } from '../../../types';
 
 const faqsContent: IFAQ[] = [
   {

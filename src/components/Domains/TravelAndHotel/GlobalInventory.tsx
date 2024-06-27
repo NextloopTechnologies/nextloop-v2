@@ -1,6 +1,7 @@
 import Image, { StaticImageData } from 'next/image';
 import React from 'react';
 
+import { ECommWhatWeDo2 } from '../../../../assets';
 import bookingIcon from '../../../../assets/travelandhotel/bookingIcon.png';
 import comfortIcon from '../../../../assets/travelandhotel/comfortIcon.png';
 import customerIcon from '../../../../assets/travelandhotel/customerIcon.png';
@@ -11,7 +12,6 @@ import searchIcon from '../../../../assets/travelandhotel/searchIcon.png';
 import secureIcon from '../../../../assets/travelandhotel/secureIcon.png';
 import templateIcon from '../../../../assets/travelandhotel/templateIcon.png';
 import trackingIcon from '../../../../assets/travelandhotel/trackingIcon.png';
-import { ECommWhatWeDo2 } from '../../../../assets';
 
 const leftInventoryCardData = [
   {

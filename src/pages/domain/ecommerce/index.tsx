@@ -1,10 +1,10 @@
 import {
   ECommerceBg,
-  WhatWeDo1,
   ECommWhatWeDo2,
   ECommWhatWeDo3,
   ECommWhatWeDo4,
   RobustOnline,
+  WhatWeDo1,
   WhyBuildEcomIndustry,
 } from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';

@@ -63,3 +63,13 @@ export { default as WhyBuildEventManagement } from './whyBuildEventManagement.pn
 export { default as WhyBuildHotelBooking } from './whyBuildHotelBooking.png';
 export { default as Whyus } from './whyus.png';
 export { default as WhyWorkWithUs } from './whyWorkWithUs.png';
+export { default as PolygonInner } from './travelandhotel/PolygonInner.png';
+export { default as PolygonOuter } from './travelandhotel/polygonOuter.png';
+export { default as dynamicIcon } from './travelandhotel/dynamicIcon.png';
+export { default as paymentIcon } from './travelandhotel/paymentIcon.png';
+export { default as pictureIcon } from './travelandhotel/pictureIcon.png';
+export { default as languageIcon } from './travelandhotel/languageIcon.png';
+export { default as travelIcon } from './travelandhotel/travelIcon.png';
+export { default as supportIcon } from './travelandhotel/supportIcon.png';
+export { default as hotelAndTravelBg } from './travelandhotel/mainBg.png';
+export { default as whyBuildImg } from './travelandhotel/whyBuild.png';
