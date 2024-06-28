@@ -37,23 +37,26 @@ const data = [
 
 const TransformYourBusiness = () => {
   return (
-    <div className='bg-[#010103] relative flex justify-center items-center min-h-screen'>
+    <div className='h-full relative bg-[#010103] '>
       <Image
         src={onlineBusinessBg}
-        className='w-full h-full object-cover'
+        className='absolute inset-0 w-full h-full object-cover z-[1]'
         alt='online-business-background'
         quality={100}
       />
-      <div className='absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 '>
-        <h1 className='text-white md:text-6xl lg:text-7xl xl:text-[85px] font-bold text-3xl leading-none uppercase text-center mb-8 mt-14'>
+      {/* <div className='absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 z-[2]'> */}
+      <div className='relative flex flex-col px-14 md:px-24 lg:px-12 z-[2]'>
+        {/* <h1 className='text-white md:text-6xl lg:text-7xl xl:text-[85px] font-bold text-3xl leading-none uppercase text-center mb-8 mt-14'> */}
+        <h1 className='text-white md:text-6xl lg:text-7xl xl:text-[85px] font-bold text-3xl leading-none uppercase text-center mb-24 mt-40'>
           Transform your business{' '}
           <span className='text-orange-500'>today</span>
         </h1>
-        <div className='grid grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-7xl lg:py-14 mb-14'>
+        {/* <div className='grid grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-7xl mb-14'> */}
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-14 mb-40'>
           {data?.map(({ descp, id, icon, title }) => (
-            <ToolBox 
+            <ToolBox
               key={id}
-              icons={icon} 
+              icons={icon}
               title={title}
               descp={descp}
             />

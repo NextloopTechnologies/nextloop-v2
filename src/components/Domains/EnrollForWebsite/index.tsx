@@ -58,42 +58,45 @@ const EnrollForWebsite = ({
   data,
 }: Props) => {
   return (
-    <div className='flex'>
-      <div className='w-full h-screen relative flex items-center justify-center text-white'>
-        <Image
-          src={EnrollForWebsiteBg}
-          className='absolute h-full w-full object-cover'
-          alt='blogs background'
-          quality={100}
-        />
-        <div className='absolute h-screen flex flex-col inset-0 bg-black opacity-85 py-20 md:py-32 gap-10'>
-          {titleElement || (
-            <h1 className='text-3xl md:text-7xl uppercase font-bold text-center max-w-[1400px] mx-auto'>
-              Enroll for website development to boost your hotel's most{' '}
-              <span className='text-orange-500'>profitable channel</span>
-            </h1>
-          )}
+    //  <div className='flex '>
+    //    <div className='w-full h-screen relative flex items-center justify-center text-white'> 
+    <div className='h-full bg-[#010103] relative flex items-center justify-center text-white'>
+      <Image
+        src={EnrollForWebsiteBg}
+        className='absolute h-full w-full object-cover z-[1]'
+        alt='blogs background'
+        quality={100}
+      />
+      {/* <div className='absolute h-screen flex flex-col inset-0 bg-black opacity-85 py-20 md:py-32 gap-10'> */}
+      <div className='flex flex-col py-20 md:py-32 gap-10 z-[2]'>
+        {titleElement || (
+          <h1 className='text-3xl md:text-7xl uppercase font-bold text-center max-w-[1400px] mx-auto'>
+            Enroll for website development to boost your hotel's most{' '}
+            <span className='text-orange-500'>profitable channel</span>
+          </h1>
+        )}
 
-          <div className='flex flex-col md:flex-row items-centers px-10 gap-8 md:gap-10 md:px-[170px]'>
-            <div className='flex flex-wrap gap-8'>
-              {(data || sampleData).map((data) => (
-                <TitleDescCard
-                  key={data.id}
-                  title={data.title}
-                  description={data.description}
-                />
-              ))}
-            </div>
-
-            <Image
-              src={image || Building}
-              alt='building'
-              className={`hidden md:inline-flex md:w-[406px] md:h-[406px] object-contain ml-auto ${imageClassname}`}
-            />
+        {/* <div className='flex flex-col md:flex-row items-centers px-10 gap-8 md:gap-10 md:px-[170px]'> */}
+        <div className='flex flex-col items-centers px-10  md:px-[170px]'>
+          <div className='flex flex-wrap gap-4 justify-center'>
+            {(data || sampleData).map((data) => (
+              <TitleDescCard
+                key={data.id}
+                title={data.title}
+                description={data.description}
+              />
+            ))}
           </div>
+
+          <Image
+            src={image || Building}
+            alt='building'
+            className={`hidden md:inline-flex md:w-[406px] md:h-[406px] object-contain ml-auto ${imageClassname}`}
+          />
         </div>
       </div>
     </div>
+    // </div>
   );
 };
 
