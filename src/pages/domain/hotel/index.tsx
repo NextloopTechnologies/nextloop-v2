@@ -4,7 +4,8 @@ import {
   WhatWeDo2,
   WhatWeDo3,
   WhatWeDo4,
-  WhyBuildHotelBooking} from '../../../../assets';
+  WhyBuildHotelBooking
+} from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
@@ -110,7 +111,7 @@ const Hotel = () => {
 
       <SimpleWebsite />
 
-      <EnrollForWebsite />
+      <EnrollForWebsite imageClassname='w-[270px] h-[270px] mt-14' />
 
       <ProfessionalWebsite />
 

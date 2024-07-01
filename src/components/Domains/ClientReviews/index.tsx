@@ -124,7 +124,7 @@ const ClientReviews = ({ colouredTitle, title }: Props) => {
       <h1 className='text-3xl md:text-7xl uppercase md:mx-72 font-bold text-white text-center'>
         {!title && !colouredTitle ? (
           <>
-            What our <span className='text-orange-500'>client</span> says
+            What our <span className='text-orange-500'>clients</span> say
           </>
         ) : (
           <>

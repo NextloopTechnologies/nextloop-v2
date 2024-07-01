@@ -141,7 +141,7 @@ const Ecommerce = () => {
 
       <EnrollForWebsite
         image={RobustOnline}
-        imageClassname='md:w-[450px] md:h-[450px]'
+        imageClassname='w-[450px] h-[450px]'
         data={sampleData}
         titleElement={
           <h1 className='text-3xl md:text-7xl uppercase font-bold text-center max-w-[950px] mx-auto'>

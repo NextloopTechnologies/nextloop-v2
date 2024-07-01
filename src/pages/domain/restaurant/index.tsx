@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { RobustOnline } from '../../../../assets';
 import restaurantBg from '../../../../assets/restaurantBg.png';
 import toolsIcon1 from '../../../../assets/restaurantToolsIcon-1.png';
 import toolsIcon2 from '../../../../assets/restaurantToolsIcon-2.png';
@@ -9,6 +10,7 @@ import whyChooseUsImg from '../../../../assets/whyChooseUs1.png';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
+import EnrollForWebsite from '../../../components/Domains/EnrollForWebsite';
 import FAQ from '../../../components/Domains/FAQ';
 import ToolBox from '../../../components/Domains/Restaurant/ToolBox';
 import WhyBuild from '../../../components/Domains/WhyBuild';
@@ -71,6 +73,25 @@ const whyChooseContent: IWhyChooseUs[] = [
   },
 ];
 
+const enrolData = [
+  {
+    id: 1,
+    title: "Showcase your restaurant's dishes with an online menu."
+  },
+  {
+    id: 2,
+    title: "Allow customers to make reservations from your site 24/7. "
+  },
+  {
+    id: 3,
+    title: "Get paid safely and securely through multiple payment methods."
+  },
+  {
+    id: 4,
+    title: "Run your entire online ordering system from one dashboard. "
+  }
+]
+
 const Restaurant: React.FC = () => {
   return (
     <Layout>
@@ -114,7 +135,16 @@ const Restaurant: React.FC = () => {
 
       <WhyChooseUs whyChooseContent={whyChooseContent} />
 
-      {/* ADD ONLINE ORDERING COMPONENT HERE */}
+      <EnrollForWebsite
+        image={RobustOnline}
+        imageClassname='w-[450px] h-[450px]'
+        data={enrolData}
+        titleElement={
+          <h1 className='text-3xl md:text-7xl uppercase font-bold text-center max-w-[950px] mx-auto'>
+            Get a robust online <span className='text-orange-500'>ordering system</span>
+          </h1>
+        }
+      />
 
       <div className='min-h-screen flex flex-col items-center justify-center text-center py-[112px] mx-auto gap-[109px]'>
         <h1 className='font-bold text-3xl uppercase md:text-6xl lg:text-7xl xl:text-8xl sm:text-4xl w-full mb-[25px]'>

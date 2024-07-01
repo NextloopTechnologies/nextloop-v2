@@ -23,7 +23,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ whyChooseContent }) => {
                 className='object-fill'
               />
             </div>
-            <h1 className=' text-xl md:text-3xl lg:text-[50px] leading-none font-bold uppercase mb-5'>
+            <h1 className=' text-xl md:text-3xl lg:text-[50px] lg:leading-none font-bold uppercase mb-5'>
               {whyChooseContent?.[0]?.title}
             </h1>
             <span className='lg:text-lg'>{whyChooseContent?.[0]?.descp}</span>
@@ -39,7 +39,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ whyChooseContent }) => {
                 className='object-fill'
               />
             </div>
-            <h1 className='text-xl md:text-3xl lg:text-[50px] leading-none font-bold uppercase mb-5'>
+            <h1 className='text-xl md:text-3xl lg:text-[50px] lg:leading-none font-bold uppercase mb-5'>
               {whyChooseContent?.[1]?.title}
             </h1>
             <span className='lg:text-lg'>{whyChooseContent?.[1]?.descp}</span>
