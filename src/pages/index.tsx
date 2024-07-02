@@ -233,7 +233,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = ({ data }) => {
 
   return (
     <>
-      <Layout>
+      <Layout divRefs={divRefs} id='connect-with-us'>
         <div
           id='intro'
           ref={(el: any) => (divRefs.current[0] = el)}

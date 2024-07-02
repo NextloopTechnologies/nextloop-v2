@@ -32,7 +32,7 @@ const Career: FC = () => {
 
   return (
     <>
-      <div className='flex justify-center items-center sm:min-h-screen overflow-x-hidden lg:text-left text-center'>
+      <div className='flex justify-center items-center mt-10 sm:min-h-screen overflow-x-hidden lg:text-left text-center'>
         <motion.header
           initial={isMobile ? 'visible' : 'hide'}
           whileInView='show'
@@ -40,7 +40,7 @@ const Career: FC = () => {
           variants={introHeaderVariants}
           className='flex gap-x-10 lg:w-5/6 w-full lg:flow-row flex-col text-white'
         >
-          <div className='flex flex-col gap-y-3 '>
+          <div className='flex flex-col gap-y-3 mt-10'>
             <span>SUCCESS NUMBERS</span>
             <motion.span
               initial={isMobile ? 'visible' : 'hide'}
@@ -48,7 +48,7 @@ const Career: FC = () => {
               variants={textVariants} // Apply animation variants to this text element
               className='flex lg:flex-row flex-col w-full'
             >
-              <span className='lg:text-6xl text-3xl font-bold'>
+              <span className='uppercase lg:text-4xl text-3xl font-bold'>
                 A Closer Look at Our Company's{' '}
                 <b className='text-orange-500'>Success.</b>
               </span>
@@ -60,7 +60,7 @@ const Career: FC = () => {
               initial={isMobile ? 'visible' : 'hide'}
               animate='show'
               variants={textVariants}
-              className='text-2xl pt-8 flex items-center'
+              className='text-xl pt-2 flex items-center'
             >
               <div className='lg:w-1/2'>
                 Explore the remarkable milestones, groundbreaking innovations,

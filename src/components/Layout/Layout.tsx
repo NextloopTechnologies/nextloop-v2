@@ -9,14 +9,17 @@ import useWindowSize from '../../utils/useWindowSize';
 interface LayoutProps {
   children: ReactNode;
   pitchThoughtSectionEnabled?: boolean;
+  divRefs?: any;
+  id?: string;
 }
 
 const Layout: React.FC<LayoutProps> = ({
   children,
   pitchThoughtSectionEnabled,
+  divRefs,
+  id,
 }) => {
   const [isSticky, setIsSticky] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
       if (window?.scrollY > 100) {
@@ -42,13 +45,25 @@ const Layout: React.FC<LayoutProps> = ({
       <div className='z-10'>{children}</div>
       {pitchThoughtSectionEnabled ? (
         <Section className='min-h-screen bg-[#010103] w-screen'>
-          <div className='container mx-auto'>
+          <div
+            id={id}
+            ref={(el: any) =>
+              divRefs?.current?.length ? (divRefs.current[8] = el) : null
+            }
+            className='container mx-auto'
+          >
             <PitchThought />
           </div>
         </Section>
       ) : (
-        <div className='min-h-screen bg-[#010103] w-screen'>
-          <div className='container mx-auto'>
+        <div className='sm:min-h-screen bg-[#010103] sm:w-screen'>
+          <div
+            id={id}
+            ref={(el: any) =>
+              divRefs?.current?.length ? (divRefs.current[8] = el) : null
+            }
+            className='container mx-auto'
+          >
             <PitchThought />
           </div>
         </div>

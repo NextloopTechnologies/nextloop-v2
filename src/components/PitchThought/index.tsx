@@ -22,7 +22,7 @@ const PitchThought: FC = () => {
     <>
       <div
         id='footer'
-        className='flex lg:flex-row flex-col gap-x-32 items-center h-screen overflow-x-hidden px-4'
+        className='flex lg:flex-row flex-col gap-x-32 items-center sm:h-screen  px-4'
       >
         <div className='flex justify-end w-full text-white'>
           <div className='flex flex-col justify-end lg:w-4/6 gap-y-20 w-full'>
@@ -30,7 +30,7 @@ const PitchThought: FC = () => {
               <span className='flex lg:justify-end justify-center'>
                 connect with us
               </span>
-              <span className='text-7xl font-bold text-right'>
+              <span className='uppercase text-6xl font-bold text-right'>
                 PITCH your <b className='text-orange-500'>thoughts</b> here
               </span>
             </div>

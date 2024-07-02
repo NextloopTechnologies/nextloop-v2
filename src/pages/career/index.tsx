@@ -58,25 +58,37 @@ const WhyUs = () => (
         </div>
       </div> */}
 
-      <div className='flex flex-col gap-4 lg:w-1/2 xl:px-48 items-center'>
+      <div className='flex flex-col gap-4 w-full lg:w-1/2 sm:px-20 items-center'>
         {/* First */}
-        <div className='flex items-center gap-4'>
-          <div className='h-full'>
-            <Image src={leftBig} alt='' className='h-full object-cover' />
+        <div className='flex items-center justify-center gap-4'>
+          <div className=''>
+            <Image
+              src={leftBig}
+              alt=''
+              className='h-[314px] w-[400px] object-cover'
+            />
           </div>
 
           <div className='flex flex-col gap-4'>
             <div className=''>
-              <Image src={rightTop} alt='' />
+              <Image
+                src={rightTop}
+                alt=''
+                className='h-[150px] w-[300px] object-cover'
+              />
             </div>
             <div className=''>
-              <Image src={rightMiddle} alt='' />
+              <Image
+                src={rightMiddle}
+                alt=''
+                className='h-[150px] w-[300px] object-cover'
+              />
             </div>
           </div>
         </div>
 
         {/* Middle */}
-        <Image src={bigRec} alt='' className='object-cover w-full h-[180px]' />
+        <Image src={bigRec} alt='' className='object-cover w-full h-[250px]' />
 
         {/* Bottom 1 */}
         <div className='flex items-center gap-4'>
@@ -96,8 +108,8 @@ const WhyUs = () => (
         />
       </div>
 
-      <div className='lg:w-1/2 w-full flex flex-col gap-16 xl:pr-48 text-left'>
-        <div className='flex flex-col gap-4'>
+      <div className='lg:w-1/2 w-full flex flex-col gap-6 sm:pr-20 text-left'>
+        <div className='flex flex-col'>
           <p className=''>
             Come be a part of Nextloop Technologies, where your ideas,
             abilities, and potential are valued. Embracing technology and
@@ -161,7 +173,7 @@ const WhyUs = () => (
 const Jobs: React.FC<{ jobs?: Job[]; error?: string }> = ({ error, jobs }) => (
   <div className='min-h-screen aboutUsPageBackgroundImage flex flex-col gap-24 items-center justify-center text-white p-8 lg:p-0'>
     <h2 className='font-medium text-2xl uppercase'>opportunities</h2>
-    <p className='font-bold xl:text-7xl md:text-5xl text-3xl uppercase xl:w-[30%] text-center'>
+    <p className='font-bold xl:text-4xl md:text-5xl text-3xl uppercase xl:w-[30%] text-center'>
       find a <span className='text-orange-500'>suitable job</span> for you
     </p>
     {error ? (
@@ -169,7 +181,7 @@ const Jobs: React.FC<{ jobs?: Job[]; error?: string }> = ({ error, jobs }) => (
         {error}
       </div>
     ) : (
-      <div className='grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full place-items-center gap-12'>
+      <div className='grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full place-items-center sm:gap-12 gap-10'>
         {jobs?.map((j) => (
           <JobCard job={j} key={j.id} />
         ))}
@@ -183,7 +195,7 @@ const JobCard: React.FC<{ job: Job }> = ({
 }) => {
   const router = useRouter();
   return (
-    <div className='px-8 py-12 bg-white text-black xl:min-w-[470px] min-w-full flex flex-col gap-4'>
+    <div className='px-8 py-12 bg-white text-black sm:min-w-[350px] min-w-full flex flex-col gap-4'>
       <div className='flex justify-between items-end'>
         <div className='flex flex-col gap-4'>
           <p className='font-medium text-xl'>{title}</p>

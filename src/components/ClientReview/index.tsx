@@ -164,7 +164,7 @@ const CardSlider = () => {
             className='lg:text-6xl text-3xl font-bold flex flex-col items-center lg:items-end lg:justify-end'
           >
             <span className='text-sm'>TESTIMONIAL</span>
-            <div className='lg:w-2/3 lg:text-right w-full text-center'>
+            <div className='uppercase lg:w-2/3 lg:text-right w-full text-center'>
               What <b className='text-orange-500'>clients</b> have to say about
               our work.
             </div>

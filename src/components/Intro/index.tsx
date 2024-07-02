@@ -25,7 +25,7 @@ const Intro: FC = () => {
                 <div className='flex gap-x-8'>
                   <div className='flex flex-col uppercase'>
                     <p className='text-xs'>made</p>
-                    <p className='xl:text-[7.5rem] lg:text-5xl md:text-6xl text-3xl font-bold'>
+                    <p className='xl:text-[7.5rem] tracking-tighter lg:text-5xl md:text-6xl text-3xl font-bold'>
                       unlock
                     </p>
                   </div>
@@ -34,12 +34,12 @@ const Intro: FC = () => {
                       <p className='text-xs'>with</p>
                       <p className='text-xs'>technologies</p>
                     </div>
-                    <p className='xl:text-[7.5rem] lg:text-5xl md:text-6xl text-3xl font-bold text-orange-500'>
+                    <p className='tracking-tighter xl:text-[7.5rem] lg:text-5xl md:text-6xl text-3xl font-bold text-orange-500'>
                       innovative
                     </p>
                   </div>
                 </div>
-                <p className='xl:text-[7.5rem] lg:text-5xl md:text-6xl text-3xl font-bold uppercase text-center'>
+                <p className='tracking-tighter xl:text-[7.5rem] lg:text-5xl md:text-6xl text-3xl font-bold uppercase text-center'>
                   solutions
                 </p>
               </div>
