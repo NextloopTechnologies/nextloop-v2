@@ -14,7 +14,7 @@ const Hamburger = () => {
 
   return (
     <>
-      <div className='flex justify-between px-4'>
+      <div className='relative flex justify-between px-4'>
         <Image
           src={NextLoopColoredLogo}
           width={80}
@@ -28,13 +28,19 @@ const Hamburger = () => {
           onClick={() => setIsOpen((t) => !t)}
         />
       </div>
+      <div
+        onClick={() => setIsOpen(false)}
+        className={`z-[99] ${
+          isOpen ? 'w-screen h-screen' : 'w-0 h-0'
+        } fixed top-0 bg-black opacity-0`}
+      ></div>
       <motion.div
         className='fixed top-0 left-0 w-1/2 h-full bg-white z-[999]'
         initial={{ x: '-100%' }}
         animate={{ x: isOpen ? 0 : '-100%' }}
         transition={{ duration: 0.5 }}
       >
-        <ul className='flex flex-col items-center py-16 gap-8 h-full'>
+        <ul className=' flex flex-col items-center py-16 gap-8 h-full'>
           <li className={`${pathname === '/' && 'text-orange-500'}`}>
             <Link href='/'>Home</Link>
           </li>
@@ -56,8 +62,8 @@ const Hamburger = () => {
           <li>
             <button
               onClick={() => {
-                router.push('#footer')
-                setIsOpen(!isOpen)
+                router.push('#footer');
+                setIsOpen(!isOpen);
               }}
               className='bg-orange-500 text-white px-5 py-3 rounded-full'
             >

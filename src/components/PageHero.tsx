@@ -24,7 +24,7 @@ const PageHero: React.FC<{
       <div className={`absolute inset-0 bg-black ${opacity}`}></div>
       <div className='flex flex-col gap-8 items-center z-20 px-4 lg:p-0'>
         {coloredTitle ? (
-          <h1 className='font-bold lg:text-9xl text-3xl md:text-6xl uppercase '>
+          <h1 className='font-bold lg:text-9xl text-6xl md:text-6xl uppercase '>
             <span className='text-orange-500'>{coloredTitle}</span>
             {title}
           </h1>
@@ -33,7 +33,7 @@ const PageHero: React.FC<{
             {title}
           </h1>
         )}
-        <span className='text-lg xl:w-[30%] md:w-[60%] text-center'>
+        <span className='text-lg lg:text-[16px] xl:w-[50%] md:w-[60%] text-center'>
           {subtitle}
         </span>
       </div>

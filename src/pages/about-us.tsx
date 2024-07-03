@@ -88,11 +88,12 @@ const AboutUsHome = () => {
 const WhyUs = () => (
   <div className='min-h-screen flex flex-col justify-center items-center text-center gap-12 p-8 lg:p-0'>
     <h2 className='font-medium text-2xl uppercase mt-5'>Why us</h2>
-    <p className='font-bold xl:text-7xl md:text-5xl text-3xl  2xl:w-[30%] xl:w-[60%] w-full'>
+    <p className='font-bold xl:text-6xl md:text-5xl text-3xl  2xl:w-[30%] xl:w-[60%] w-full'>
       CURIOUS ABOUT HOW WE MANAGE TO MAKE ALL THIS{' '}
       <span className='text-orange-500'>POSSIBLE?</span>
     </p>
-    <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full place-items-center gap-12'>
+
+    <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full sm:w-[80%] place-items-center gap-12 p-10'>
       {arr.map((t, i) => (
         <Card {...t} key={i} />
       ))}
@@ -128,7 +129,7 @@ const Certificates = () => (
     <p className='font-bold xl:text-7xl md:text-5xl text-3xl'>
       COMMITMENT TO<span className='text-orange-500'> EXCELLENCE</span>
     </p>
-    <div className='grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full place-items-center gap-12'>
+    <div className='grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-2 w-full place-items-center gap-16 sm:px-6'>
       {certificateCardArr.map((c, i) => (
         <CertificateCard {...c} key={i} />
       ))}
@@ -141,11 +142,11 @@ const CertificateCard: React.FC<{
   title: string;
   sub: string;
 }> = ({ img, sub, title }) => (
-  <div className='bg-white flex flex-col gap-4 p-8 text-black items-center w-80 h-full text-center justify-between'>
+  <div className='bg-white flex flex-col gap-4 p-4 sm:p-4 text-black items-center w-[180px] sm:w-72 h-full text-center justify-between'>
     <div className='h-2/3'>
       <Image src={img} alt='certificate' height={200} width={200} />
     </div>
-    <p className='uppercase text-xl font-medium'>{title}</p>
+    <p className='uppercase text-[12px] sm:text-xl font-medium'>{title}</p>
     <p className=''>{sub}</p>
   </div>
 );
@@ -193,14 +194,21 @@ const AboutUsInAboutUs = () => (
 
 const Card: React.FC<{ title: string; sub: string }> = ({ title, sub }) => {
   return (
-    <div className='bg-white shadow-lg rounded-md flex flex-col gap-4 max-w-md py-12 px-4 h-full'>
-      <div className='flex gap-2 items-center'>
-        <div className=''>
-          <Image src={arrow} alt='arrow' />
+    <div className='p-4 border-[2px] border-orange-400  h-[420px] sm:h-[320px] w-full relative'>
+      <div className='w-full h-full absolute bottom-6 left-6'>
+        <div
+          style={{ boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px' }}
+          className='bg-white rounded-[2px] flex flex-col gap-2 max-w-md py-10 px-4 h-[420px] sm:h-[320px]'
+        >
+          <div className='flex gap-2 items-center'>
+            <div className=''>
+              <Image src={arrow} alt='arrow' />
+            </div>
+            <span className='font-medium text-xl uppercase'>{title}</span>
+          </div>
+          <span className='text-left text-[12px]'>{sub}</span>
         </div>
-        <span className='font-medium text-xl uppercase'>{title}</span>
       </div>
-      <span className='text-left'>{sub}</span>
     </div>
   );
 };

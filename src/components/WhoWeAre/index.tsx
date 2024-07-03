@@ -32,14 +32,14 @@ const WhoWeAre: FC = () => {
           whileInView='show'
           exit='hide'
           variants={introHeaderVariants}
-          className='flex lg:flex-row flex-col gap-x-10 lg:px-10 text-center lg:text-left'
+          className='flex lg:flex-row flex-col gap-x-10 lg:pl-10 text-center lg:text-left'
         >
-          <div className='flex flex-col gap-3 lg:px-20 px-4'>
+          <div className='flex flex-col gap-3 lg:pl-20 pl-4'>
             <span className='uppercase'>who we are</span>
             <motion.span
               initial={isMobile ? 'visible' : 'hide'}
               animate={textAnimationCompleted ? 'show' : 'hide'}
-              className='lg:text-6xl text-3xl font-bold lg:w-5/6 w-full'
+              className='uppercase lg:text-4xl text-3xl font-bold lg:w-[80%] w-full'
             >
               We are a group of goal focused{' '}
               <b className='text-orange-400'>developers</b> and{' '}
@@ -50,7 +50,7 @@ const WhoWeAre: FC = () => {
               initial={isMobile ? 'visible' : 'hide'}
               animate={textAnimationCompleted ? 'show' : 'hide'}
               variants={textVariants}
-              className='text-sm lg:text-xl lg:w-5/6 w-full pt-8'
+              className='text-sm lg:text-[14px] lg:w-5/6 w-full pt-8'
             >
               Nestled in the heart of India, NextLoop Technologies is more than
               just a company; we're a passionate team on a mission. With each
@@ -72,7 +72,7 @@ const WhoWeAre: FC = () => {
           variants={imageVariants}
           className='flex w-full h-full pb:10 sm:pb-36 '
         >
-          <div className='lg:flex-shrink-0 w-full'>
+          <div className='lg:flex-shrink-0 w-full pt-24'>
             {textAnimationCompleted && (
               <motion.span
                 initial={isMobile ? 'visible' : 'hide'}
