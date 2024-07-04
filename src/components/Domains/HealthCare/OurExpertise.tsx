@@ -1,9 +1,8 @@
 import React from 'react';
 
 import HexagonBox from '../../HexagonBox';
-import arrowIcon from '../../../../assets/healthcare/arrowIcon.png';
-import heartMedicalIcon from '../../../../assets/healthcare/heartMedicalIcon.png';
-import trustedIcon from '../../../../assets/healthcare/trustedIcon.png';
+import { healthcareAssets } from '../../../../assets';
+import { getStaticImageData } from '../../../utils/helper';
 
 const expertiseSuccessData = [
   {
@@ -11,7 +10,7 @@ const expertiseSuccessData = [
     title: 'Leading with Technology',
     descp:
       'Embracing the latest in AI and technology innovations, we deliver future-ready healthcare software that sets the standard for patient care and operational success.',
-    icon: arrowIcon,
+    icon: getStaticImageData(healthcareAssets.arrowIcon),
     height: 60,
     width: 60,
   },
@@ -20,7 +19,7 @@ const expertiseSuccessData = [
     title: 'Compliance and Security First',
     descp:
       'We prioritize the protection of sensitive data, ensuring our software exceeds the stringent requirements of healthcare regulations, including HIPAA and GDPR, for unmatched cybersecurity and compliance.',
-    icon: trustedIcon,
+    icon: getStaticImageData(healthcareAssets.trustedIcon),
     height: 50,
     width: 50,
   },
@@ -29,7 +28,7 @@ const expertiseSuccessData = [
     title: 'Expertise in Healthcare',
     descp:
       'Our deep understanding of healthcare intricacies ensures solutions are precisely tailored to enhance patient care and provider efficiency.',
-    icon: heartMedicalIcon,
+    icon: getStaticImageData(healthcareAssets.heartMedicalIcon),
     height: 62,
     width: 62,
   },

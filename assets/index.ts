@@ -215,9 +215,6 @@ export const staticAssests = {
   supportIcon: '',
   hotelAndTravelBg:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/mainBg.png?updatedAt=1720014661635',
-  whyBuildImg: '',
-  WhyChooseUsImage:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/whyChooseUs1.png?updatedAt=1719991914092',
 };
 
 export const fintechAssets = {
@@ -273,4 +270,37 @@ export const clientReviewsAssets = {
 export const requestQuoteAssets = {
   RequestQuote:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/requestQuote.png?updatedAt=1719991895252',
+};
+
+export const healthcareAssets = {
+  whyChooseUsImg:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/whyChooseUs1.png?updatedAt=1719991914092',
+  cloudIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/cloudIcon.png?updatedAt=1720073536584',
+  healthCareBg:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/healthCareBg.png?updatedAt=1720073536899',
+  whyBuildImg:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/whyBuild.png?updatedAt=1720073539774',
+  maintenanceIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/maintenanceIcon.png?updatedAt=1720073536602',
+  modernizeIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/modernizeIcon.png?updatedAt=1720073536539',
+  settingIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/settingIcon.png?updatedAt=1720073539254',
+  arrowIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/arrowIcon.png?updatedAt=1720073536542',
+  heartMedicalIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/heartMedicalIcon.png?updatedAt=1720073536590',
+  trustedIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/trustedIcon.png?updatedAt=1720073539649',
+  polygonImg:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/Polygon.png?updatedAt=1720073536545',
+  clinicTreatment:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/clinicTreatment.png?updatedAt=1720073536712',
+  healthAndFitness:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/healthAndFitness.png?updatedAt=1720073536816',
+  saasPortal:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/saasPortal.png?updatedAt=1720073536760',
+  solutionManagement:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/solutionManagement.png?updatedAt=1720073539299',
 };

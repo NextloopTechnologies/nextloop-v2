@@ -1,12 +1,6 @@
 import React from 'react';
 
-import cloudIcon from "../../../../assets/healthcare/cloudIcon.png";
-import healthCareBg from "../../../../assets/healthcare/healthCareBg.png";
-import maintenanceIcon from "../../../../assets/healthcare/maintenanceIcon.png";
-import modernizeIcon from "../../../../assets/healthcare/modernizeIcon.png";
-import settingIcon from "../../../../assets/healthcare/settingIcon.png";
-import whyBuildImg from "../../../../assets/healthcare/whyBuild.png";
-import whyChooseUsImg from "../../../../assets/whyChooseUs1.png";
+import { healthcareAssets } from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
@@ -18,6 +12,7 @@ import WhyBuild from '../../../components/Domains/WhyBuild';
 import WhyChooseUs from '../../../components/Domains/WhyChooseUs';
 import Layout from '../../../components/Layout/Layout';
 import { IFAQ, IWhyChooseUs } from '../../../types';
+import { getStaticImageData } from '../../../utils/helper';
 
 const benefits = [
   {
@@ -60,33 +55,33 @@ const whyChooseContent: IWhyChooseUs[] = [
   {
     title: "Accept payments from anywhere with POS integrations",
     descp: "Streamline your operations by syncing menus and orders with advanced point of sale solutions—right on your dashboard.",
-    image: whyChooseUsImg
+    image: getStaticImageData(healthcareAssets.whyChooseUsImg)
   },
   {
     title: "Up your service with real-time data",
     descp: "Use analytics to get to know your customers and increase sales, then tailor their online experience to fit their needs.",
-    image: whyChooseUsImg
+    image: getStaticImageData(healthcareAssets.whyChooseUsImg)
   }
 ];
 
 const productServiceContent = [
   {
-    icon: settingIcon,
+    icon: getStaticImageData(healthcareAssets.settingIcon),
     title: "Product Engineering",
     descp: "Transforming innovative ideas into cutting-edge healthcare software products designed for superior next-generation patient care."
   },
   {
-    icon: modernizeIcon,
+    icon: getStaticImageData(healthcareAssets.modernizeIcon),
     title: "Application Modernization",
     descp: "Revitalizing legacy healthcare systems with modern tech to enhance efficiency, security, and user experience."
   },
   {
-    icon: cloudIcon,
+    icon: getStaticImageData(healthcareAssets.cloudIcon),
     title: "Cloud Migration",
     descp: "Seamlessly transitioning your healthcare solutions to the cloud for enhanced scalability, reliability, and performance."
   },
   {
-    icon: maintenanceIcon,
+    icon: getStaticImageData(healthcareAssets.maintenanceIcon),
     title: "Application Maintenance",
     descp: "Providing continuous support & updates to ensure your healthcare applications run smoothly and securely."
   }
@@ -96,7 +91,7 @@ const HealthCare: React.FC = () => {
   return (
     <Layout>
       <CustomPageHero
-        image={healthCareBg}
+        image={getStaticImageData(healthcareAssets.healthCareBg)}
         titleChildren={
           <h1 className='text-white text-8xl uppercase font-bold text-center max-w-[1306px]'>
             <span className='text-orange-500'>healthcare</span>
@@ -109,7 +104,7 @@ const HealthCare: React.FC = () => {
       />
 
       <WhyBuild
-        image={whyBuildImg}
+        image={getStaticImageData(healthcareAssets.whyBuildImg)}
         colouredTitle='healthcare'
         informationSection={
           <div className='max-w-[737px] flex flex-col justify-center pr-14'>

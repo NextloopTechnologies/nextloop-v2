@@ -1,29 +1,27 @@
 import React from 'react';
 
 import SuccessSolutionCard from '../SuccessSolutionCard';
-import clinicTreatment from "../../../../assets/healthcare/clinicTreatment.png";
-import healthAndFitness from "../../../../assets/healthcare/healthAndFitness.png";
-import saasPortal from "../../../../assets/healthcare/saasPortal.png";
-import solutionManagement from "../../../../assets/healthcare/solutionManagement.png";
+import { healthcareAssets } from '../../../../assets';
+import { getStaticImageData } from '../../../utils/helper';
 
 const successSolutionContent = [
   {
-    image: solutionManagement,
+    image: getStaticImageData(healthcareAssets.solutionManagement),
     title: "340B Management solution",
     descp: "This case study reflects our dedication to reshaping the landscape of 340B drug pricing programs. By addressing the intricate challenges of data management, pricing accuracy, and regulatory adherence, we have redefined what it means to deliver comprehensive healthcare solutions. Our initiative not only exemplifies AnAr’s prowess in leveraging advanced technology but also our commitment to enhancing the operational efficiencies of healthcare providers."
   },
   {
-    image: saasPortal,
+    image: getStaticImageData(healthcareAssets.saasPortal),
     title: "saas portal for medical practitioners",
     descp: "This case study illustrates our comprehensive approach to developing a tailored SaaS platform, which addresses the multifaceted challenges faced by today’s healthcare practitioners. Our partnership with a leading healthcare product company has been instrumental in constructing a solution that not only meets but exceeds the complex demands of the medical industry. This collaboration aimed to produce a tool that enhances operational efficiency, secures patient data, and simplifies the user experience for both practitioners and patients."
   },
   {
-    image: clinicTreatment,
+    image: getStaticImageData(healthcareAssets.clinicTreatment),
     title: "fertility clinic treatment modernization",
     descp: "This case study spotlights the challenges of outdated technologies and the triumphs through strategic modernization, underscoring AnAr’s expertise in navigating and revitalizing healthcare tech landscapes. Our journey with the healthcare client revolved around replacing the obsolete Silverlight technology, which limited user experience and hindered market expansion. By transitioning to a modern tech stack including Angular 16 and .Net Core 7, we revolutionized both front-end user interfaces and back-end functionality. "
   },
   {
-    image: healthAndFitness,
+    image: getStaticImageData(healthcareAssets.healthAndFitness),
     title: "integrated health and fitness management",
     descp: "Our comprehensive solution caters to the needs of nutritionists and fitness trainers, facilitating a seamless integration of nutrition plans, workout schedules, and client interactions. This case study highlights our journey in creating an all-encompassing wellness tool, showcasing our technical expertise, ethical commitment, and dedication to delivering user-centric solutions."
   }
