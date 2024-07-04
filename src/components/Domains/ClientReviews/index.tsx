@@ -3,10 +3,9 @@ import Image, { StaticImageData } from 'next/image';
 import { useEffect, useMemo, useState } from 'react';
 
 import {
-  InvertedCommaEndOrange,
-  InvertedCommaStartOrange,
-  User_1,
+  clientReviewsAssets
 } from '../../../../assets';
+import { getStaticImageData } from '../../../utils/helper';
 
 type Data = {
   id: number;
@@ -25,7 +24,7 @@ const sampleData: Data[] = [
     id: 1,
     name: 'Charlotte Reiss',
     subTitle: 'Vivi et Margot',
-    image: User_1,
+    image: getStaticImageData(clientReviewsAssets.User_1),
     description:
       "Wix Events made this the easiest pivot of all! We piloted our first online program as a free weekend retreat and after a few short days of sending out the eBlast, we had hundreds registered through the frictionless process of Wix's online registration.",
   },
@@ -33,7 +32,7 @@ const sampleData: Data[] = [
     id: 2,
     name: 'Charlotte Reiss2',
     subTitle: 'Vivi et Margot2',
-    image: User_1,
+    image: getStaticImageData(clientReviewsAssets.User_1),
     description:
       "Wix Events made this the easiest pivot of all! We piloted our first online program as a free weekend retreat and after a few short days of sending out the eBlast, we had hundreds registered through the frictionless process of Wix's online registration.",
   },
@@ -41,7 +40,7 @@ const sampleData: Data[] = [
     id: 3,
     name: 'Charlotte Reiss3',
     subTitle: 'Vivi et Margot3',
-    image: User_1,
+    image: getStaticImageData(clientReviewsAssets.User_1),
     description:
       "Wix Events made this the easiest pivot of all! We piloted our first online program as a free weekend retreat and after a few short days of sending out the eBlast, we had hundreds registered through the frictionless process of Wix's online registration.",
   },
@@ -49,7 +48,7 @@ const sampleData: Data[] = [
     id: 4,
     name: 'Charlotte Reiss4',
     subTitle: 'Vivi et Margot4',
-    image: User_1,
+    image: getStaticImageData(clientReviewsAssets.User_1),
     description:
       "Wix Events made this the easiest pivot of all! We piloted our first online program as a free weekend retreat and after a few short days of sending out the eBlast, we had hundreds registered through the frictionless process of Wix's online registration.",
   },
@@ -65,6 +64,8 @@ const ReviewCard = ({ review }: ReviewProps) => (
       <Image
         src={review.image}
         alt='user'
+        height={400}
+        width={400}
         className='w-[100px] md:w-[200px] object-cover'
       />
 
@@ -76,8 +77,10 @@ const ReviewCard = ({ review }: ReviewProps) => (
 
     <div className='flex flex-col gap-12'>
       <Image
-        src={InvertedCommaStartOrange}
+        src={getStaticImageData(clientReviewsAssets.InvertedCommaStartOrange)}
         className='w-6 h-6 md:w-14 md:h-10'
+        height={50}
+        width={50}
         alt='inverted start'
       />
 
@@ -86,8 +89,10 @@ const ReviewCard = ({ review }: ReviewProps) => (
       </p>
 
       <Image
-        src={InvertedCommaEndOrange}
+        src={getStaticImageData(clientReviewsAssets.InvertedCommaEndOrange)}
         className='w-6 h-6 md:w-14 md:h-10 ml-auto'
+        height={50}
+        width={50}
         alt='inverted start'
       />
     </div>

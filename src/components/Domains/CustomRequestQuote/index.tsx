@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import { RequestQuote } from '../../../../assets';
+import { requestQuoteAssets } from '../../../../assets';
 
 type Props = {
   title: string;
@@ -26,8 +26,10 @@ const CustomRequestQuote = ({ title }: Props) => {
       </div>
 
       <Image
-        src={RequestQuote}
+        src={requestQuoteAssets.RequestQuote}
         className='mt-10 md:mt-0 w-[397px] aspect-square rounded-full'
+        height={500}
+        width={500}
         alt='request'
       />
     </div>

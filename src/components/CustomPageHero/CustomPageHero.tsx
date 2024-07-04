@@ -30,7 +30,10 @@ const CustomPageHero = ({
             src={image}
             className='absolute h-full w-full object-cover'
             alt='blogs background'
+            fill
+            sizes='100vw'
             quality={100}
+            priority
           />
           <div className={`absolute inset-0 bg-black ${opacity}`}></div>
           <div className='flex flex-col gap-8 items-center z-20 px-4 lg:p-0'>

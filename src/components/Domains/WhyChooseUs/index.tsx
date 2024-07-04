@@ -20,7 +20,9 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ whyChooseContent }) => {
               <Image
                 src={whyChooseContent?.[0]?.image as StaticImageData}
                 alt='why-choose-us'
-                className='object-fill'
+                height={400}
+                width={400}
+                className='h-full w-full object-fill'
               />
             </div>
             <h1 className=' text-xl md:text-3xl lg:text-[50px] lg:leading-none font-bold uppercase mb-5'>
@@ -36,7 +38,9 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ whyChooseContent }) => {
               <Image
                 src={whyChooseContent?.[1]?.image as StaticImageData}
                 alt='why-choose-us'
-                className='object-fill'
+                height={400}
+                width={400}
+                className='h-full w-full object-fill'
               />
             </div>
             <h1 className='text-xl md:text-3xl lg:text-[50px] lg:leading-none font-bold uppercase mb-5'>

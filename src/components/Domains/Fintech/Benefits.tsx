@@ -1,13 +1,8 @@
 import Image, { StaticImageData } from 'next/image';
 import React from 'react';
 
-import developmentIcon from "../../../../assets/fintech/benefitDevelopmentIcon.png";
-import graphIcon from "../../../../assets/fintech/benefitGraphIcon.png";
-import infrastructureIcon from "../../../../assets/fintech/benefitInfrastructureIcon.png";
-import reportIcon from "../../../../assets/fintech/benefitReportsIcon.png";
-import settingIcon from "../../../../assets/fintech/benefitSettingIcon.png";
-import supportIcon from "../../../../assets/fintech/benefitSupportIcon.png";
-import updatesIcon from "../../../../assets/fintech/benefitUpdatesIcon.png";
+import { fintechAssets } from '../../../../assets';
+import { getStaticImageData } from '../../../utils/helper';
 
 type BoxProps = {
   icon: StaticImageData;
@@ -16,39 +11,39 @@ type BoxProps = {
 
 const orangeBoxData: BoxProps[] = [
   {
-    icon: reportIcon,
+    icon: getStaticImageData(fintechAssets.reportIcon),
     title: "customized reports"
   },
   {
-    icon: infrastructureIcon,
+    icon: getStaticImageData(fintechAssets.infrastructureIcon),
     title: "design infrastrusture"
   },
   {
-    icon: updatesIcon,
+    icon: getStaticImageData(fintechAssets.updatesIcon),
     title: "On demand updates"
   }
 ];
 
 const blackBoxData: BoxProps[] = [
   {
-    icon: graphIcon,
+    icon: getStaticImageData(fintechAssets.graphIcon),
     title: "On demand updates"
   },
   {
-    icon: settingIcon,
+    icon: getStaticImageData(fintechAssets.settingIcon),
     title: "custom integration"
   },
   {
-    icon: supportIcon,
+    icon: getStaticImageData(fintechAssets.supportIcon),
     title: "constant support"
   },
   {
-    icon: developmentIcon,
+    icon: getStaticImageData(fintechAssets.developmentIcon),
     title: "development from  scratch"
   },
 ];
 
-const OrangeBox: React.FC<BoxProps>  = ({
+const OrangeBox: React.FC<BoxProps> = ({
   icon,
   title
 }) => {
@@ -56,14 +51,14 @@ const OrangeBox: React.FC<BoxProps>  = ({
     <div className="relative w-[90px] h-[90px] sm:w-[120px] sm:h-[120px] md:w-[180px] md:h-[180px] bg-[#FA8145] transform rotate-45 flex items-center justify-center rounded">
       <div className="transform -rotate-45">
         <div className="absolute -top-8 left-[30px] sm:-top-10 sm:left-[45px] md:-top-12 md:left-[75px] py-2">
-          <Image src={icon} height={32} width={32} alt=''/>
+          <Image src={icon} height={32} width={32} alt='orange-box-icon' />
         </div>
-        <h3 className='text-center text-xs sm:text-sm md:text-xl mt-3'>{ title }</h3>
+        <h3 className='text-center text-xs sm:text-sm md:text-xl mt-3'>{title}</h3>
       </div>
     </div>
   )
 }
-const BlackBox: React.FC<BoxProps>  = ({
+const BlackBox: React.FC<BoxProps> = ({
   icon,
   title
 }) => {
@@ -71,9 +66,9 @@ const BlackBox: React.FC<BoxProps>  = ({
     <div className="relative w-[90px] h-[90px] sm:w-[120px] sm:h-[120px] md:w-[180px] md:h-[180px] bg-[#1D1D1D] transform rotate-45 flex items-center justify-center rounded">
       <div className="transform -rotate-45">
         <div className="absolute -top-8 left-[30px] sm:-top-10 sm:left-[45px] md:-top-12 md:left-[75px] py-2">
-          <Image src={icon} height={32} width={32} alt=''/>
+          <Image src={icon} height={32} width={32} alt='black-box-icon' />
         </div>
-        <h3 className='text-center text-xs sm:text-sm md:text-xl mt-3'>{ title }</h3>
+        <h3 className='text-center text-xs sm:text-sm md:text-xl mt-3'>{title}</h3>
       </div>
     </div>
   )
@@ -87,14 +82,14 @@ const Benefits: React.FC = () => {
           benefits
         </h1>
         <p className='text-sm md:text-lg xl:mx-[150px] mx-2 mb-24'>
-          In a highly competitive business world, originality and uniqueness have 
-          become critical factors for successful business development. That’s why 
-          modern companies are increasingly using only software solutions that fully 
-          consider all the individual features of their projects. When it comes to 
-          Fintech software development, custom solutions can be more cost-effective 
-          as Fintech is highly technological. That’s why it can be the best option for 
-          you. Moreover, financial custom software development can boost Fintech’s 
-          digital acceleration. Find out the significant benefits of custom software 
+          In a highly competitive business world, originality and uniqueness have
+          become critical factors for successful business development. That’s why
+          modern companies are increasingly using only software solutions that fully
+          consider all the individual features of their projects. When it comes to
+          Fintech software development, custom solutions can be more cost-effective
+          as Fintech is highly technological. That’s why it can be the best option for
+          you. Moreover, financial custom software development can boost Fintech’s
+          digital acceleration. Find out the significant benefits of custom software
           development in our article.
         </p>
       </div>
