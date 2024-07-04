@@ -63,16 +63,6 @@ export { default as WhyBuildEventManagement } from './whyBuildEventManagement.pn
 export { default as WhyBuildHotelBooking } from './whyBuildHotelBooking.png';
 export { default as Whyus } from './whyus.png';
 export { default as WhyWorkWithUs } from './whyWorkWithUs.png';
-export { default as PolygonInner } from './travelandhotel/PolygonInner.png';
-export { default as PolygonOuter } from './travelandhotel/polygonOuter.png';
-export { default as dynamicIcon } from './travelandhotel/dynamicIcon.png';
-export { default as paymentIcon } from './travelandhotel/paymentIcon.png';
-export { default as pictureIcon } from './travelandhotel/pictureIcon.png';
-export { default as languageIcon } from './travelandhotel/languageIcon.png';
-export { default as travelIcon } from './travelandhotel/travelIcon.png';
-export { default as supportIcon } from './travelandhotel/supportIcon.png';
-export { default as hotelAndTravelBg } from './travelandhotel/mainBg.png';
-export { default as whyBuildImg } from './travelandhotel/whyBuild.png';
 
 export const staticAssests = {
   AboutUsBackground:
@@ -205,16 +195,6 @@ export const staticAssests = {
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/whyus.png?updatedAt=1719991921001',
   WhyWorkWithUs:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/whyWorkWithUs.png?updatedAt=1719991921077',
-  PolygonInner: '',
-  PolygonOuter: '',
-  dynamicIcon: '',
-  paymentIcon: '',
-  pictureIcon: '',
-  languageIcon: '',
-  travelIcon: '',
-  supportIcon: '',
-  hotelAndTravelBg:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/mainBg.png?updatedAt=1720014661635',
 };
 
 export const fintechAssets = {
@@ -303,4 +283,61 @@ export const healthcareAssets = {
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/saasPortal.png?updatedAt=1720073536760',
   solutionManagement:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/solutionManagement.png?updatedAt=1720073539299',
+};
+
+export const travelandhotelAssets = {
+  hotelAndTravelBg:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/travelandhotel/mainBg.png?updatedAt=1720073308043',
+  whyBuildImg:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/whyBuildHotelBooking.png?updatedAt=1719991910968',
+  WhatWeDo1:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/whatWeDo1.png?updatedAt=1719991906706',
+  WhatWeDo2:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/eCommWhatWeDo2.png?updatedAt=1719991859466',
+  WhatWeDo3:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/whatWeDo3.png?updatedAt=1719991910598',
+  WhatWeDo4:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/whatWeDo4.png?updatedAt=1719991910627',
+  dynamicIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/travelandhotel/dynamicIcon.png?updatedAt=1720073402934',
+  paymentIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/travelandhotel/paymentIcon.png?updatedAt=1720073403294',
+  pictureIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/travelandhotel/pictureIcon.png?updatedAt=1720073405482',
+  languageIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/travelandhotel/languageIcon.png?updatedAt=1720073402919',
+  travelIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/travelandhotel/travelIcon.png?updatedAt=1720073406591',
+  supportIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/travelandhotel/supportIcon.png?updatedAt=1720073406115',
+  enrollForWebsiteBg:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/enrollForWebsite.png?updatedAt=1719991861773',
+  polygonInner:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/travelandhotel/PolygonInner.png?updatedAt=1720073405886',
+  polygonOuter:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/travelandhotel/polygonOuter.png?updatedAt=1720073405962',
+  nextGen1:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/travelandhotel/nextGen1.png?updatedAt=1720073402899',
+  nextGen2:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/travelandhotel/nextGen2.png?updatedAt=1720073402925',
+  bookingIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/travelandhotel/bookingIcon.png?updatedAt=1720073402264',
+  comfortIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/travelandhotel/comfortIcon.png?updatedAt=1720073402508',
+  customerIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/travelandhotel/customerIcon.png?updatedAt=1720073402564',
+  desktopIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/travelandhotel/desktopIcon.png?updatedAt=1720073402569',
+  mobileIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/travelandhotel/mobileIcon.png?updatedAt=1720073402913',
+  planningIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/travelandhotel/planningIcon.png?updatedAt=1720073405469',
+  searchIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/travelandhotel/searchIcon.png?updatedAt=1720073405630',
+  secureIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/travelandhotel/secureIcon.png?updatedAt=1720073405588',
+  templateIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/travelandhotel/templateIcon.png?updatedAt=1720073405697',
+  trackingIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/travelandhotel/trackingIcon.png?updatedAt=1720073406238',
 };

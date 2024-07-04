@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 
-import NextGenImg1 from '../../../../assets/travelandhotel/nextGen1.png';
-import NextGenImg2 from '../../../../assets/travelandhotel/nextGen2.png';
+import { travelandhotelAssets } from '../../../../assets';
 
 const NextGen = () => {
   return (
@@ -13,9 +12,11 @@ const NextGen = () => {
       </h1>
       <div className='flex flex-col lg:flex-row gap-[54px] justify-between mx-5 mt-[100px]'>
         <Image
-          src={NextGenImg1}
+          src={travelandhotelAssets.nextGen1}
           alt='next-gen-image'
           className='w-[300px] h-[300px] mx-auto lg:w-[600px] lg:h-[450px] object-fill mt-4'
+          height={300}
+          width={300}
         />
         <div className='text-[#1D1D1D]'>
           <h3 className='font-medium uppercase lg:text-2xl mb-3'>
@@ -72,9 +73,11 @@ const NextGen = () => {
           </p>
         </div>
         <Image
-          src={NextGenImg2}
+          src={travelandhotelAssets.nextGen2}
           alt='next-gen-image'
           className='w-[300px] h-[300px] mx-auto lg:w-[600px] lg:h-[450px] object-fill mt-4'
+          height={300}
+          width={300}
         />
       </div>
     </div>

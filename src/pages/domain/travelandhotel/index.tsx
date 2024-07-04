@@ -1,13 +1,6 @@
 import React from 'react';
 
-import {
-  ECommWhatWeDo1,
-  ECommWhatWeDo2,
-  ECommWhatWeDo3,
-  ECommWhatWeDo4,
-  hotelAndTravelBg,
-  whyBuildImg,
-} from '../../../../assets';
+import { travelandhotelAssets } from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
@@ -19,6 +12,7 @@ import WhatWeDo from '../../../components/Domains/WhatWeDo';
 import WhyBuild from '../../../components/Domains/WhyBuild';
 import Layout from '../../../components/Layout/Layout';
 import { IFAQ } from '../../../types';
+import { getStaticImageData } from '../../../utils/helper';
 
 const faqsContent: IFAQ[] = [
   {
@@ -43,25 +37,25 @@ const faqsContent: IFAQ[] = [
 
 const WhatWeDoData = [
   {
-    image: ECommWhatWeDo1,
+    image: getStaticImageData(travelandhotelAssets.WhatWeDo1),
     title: 'Mobile Responsive',
     description:
       'A responsive website get used to the device of each unique visitor, whether desktop, smartphone or  tablet. A responsive website dynamically re-sizes its content and imagery for a variety of different screen size to ensure the website is effective and easy to use on any device. Whether your company is large and established, or just starting. Nextloop can build a website that gets noticed. With our enhanced web design & development for Travel and Hotel, your online visitor enjoys the same experience. ',
   },
   {
-    image: ECommWhatWeDo2,
+    image: getStaticImageData(travelandhotelAssets.WhatWeDo2),
     title: 'Mobile Responsive',
     description:
       'A responsive website get used to the device of each unique visitor, whether desktop, smartphone or  tablet. A responsive website dynamically re-sizes its content and imagery for a variety of different screen size to ensure the website is effective and easy to use on any device. Whether your company is large and established, or just starting. Nextloop can build a website that gets noticed. With our enhanced web design & development for Travel and Hotel, your online visitor enjoys the same experience. ',
   },
   {
-    image: ECommWhatWeDo3,
+    image: getStaticImageData(travelandhotelAssets.WhatWeDo3),
     title: 'Mobile Responsive',
     description:
       'A responsive website get used to the device of each unique visitor, whether desktop, smartphone or  tablet. A responsive website dynamically re-sizes its content and imagery for a variety of different screen size to ensure the website is effective and easy to use on any device. Whether your company is large and established, or just starting. Nextloop can build a website that gets noticed. With our enhanced web design & development for Travel and Hotel, your online visitor enjoys the same experience. ',
   },
   {
-    image: ECommWhatWeDo4,
+    image: getStaticImageData(travelandhotelAssets.WhatWeDo4),
     title: 'Mobile Responsive',
     description:
       'A responsive website get used to the device of each unique visitor, whether desktop, smartphone or  tablet. A responsive website dynamically re-sizes its content and imagery for a variety of different screen size to ensure the website is effective and easy to use on any device. Whether your company is large and established, or just starting. Nextloop can build a website that gets noticed. With our enhanced web design & development for Travel and Hotel, your online visitor enjoys the same experience. ',
@@ -72,7 +66,7 @@ const HotelAndTravel = () => {
   return (
     <Layout>
       <CustomPageHero
-        image={hotelAndTravelBg}
+        image={getStaticImageData(travelandhotelAssets.hotelAndTravelBg)}
         titleChildren={
           <h1 className='text-white text-8xl uppercase font-bold text-center max-w-[1306px]'>
             uncover new business opportunities with appealing{' '}
@@ -86,7 +80,7 @@ const HotelAndTravel = () => {
       />
 
       <WhyBuild
-        image={whyBuildImg}
+        image={getStaticImageData(travelandhotelAssets.whyBuildImg)}
         colouredTitle='travel & hotel industry'
         informationSection={
           <div className='max-w-[737px] flex flex-col justify-center pr-14'>

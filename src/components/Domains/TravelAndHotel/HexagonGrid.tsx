@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Image, { StaticImageData } from "next/image";
 
-import { PolygonInner, PolygonOuter } from "../../../../assets";
+import { travelandhotelAssets } from "../../../../assets";
 
 export type HexagonGridType = {
   title: string;
@@ -21,17 +21,23 @@ const HexagonGrid: NextPage<HexagonGridType> = ({
       <Image
         className="absolute top-[0px] left-[0px] rounded w-full h-full z-[2]"
         alt="Indicators-image"
-        src={PolygonOuter}
+        width={300}
+        height={300}
+        src={travelandhotelAssets.polygonOuter}
       />
       <div className="absolute w-[calc(100%_-_18px)] top-[9px] right-[9px] left-[9px] h-[344px]">
         <Image
           className="absolute top-[0px] left-[0px] rounded w-full h-full z-[3]"
           alt="Dots-image"
-          src={PolygonInner}
+          width={300}
+          height={300}
+          src={travelandhotelAssets.polygonInner}
         />
         <Image
           className="absolute top-[52px] left-[148px] w-12 h-12 overflow-hidden z-[4]"
           loading="lazy"
+          width={50}
+          height={50}
           alt="chartline-image"
           src={icon}
         />

@@ -16,7 +16,9 @@ const ImageWithHoverInfo: React.FC<ImageWithHoverInfoProps> = ({
     <Image
       src={image}
       alt={title}
-      className="object-fill rounded-lg z-[1]"
+      height={300}
+      width={300}
+      className="object-fill h-[350px] w-full rounded-lg z-[1]"
     />
     <div className='absolute inset-0 bg-[#1D1D1D] flex flex-col opacity-0 group-hover:opacity-100 m-5 md:m-14 p-5 lg:m-5 transition-opacity z-[2]'>
       <h2 className='uppercase text-xs sm:text-lg lg:text-base xl:text-2xl font-bold text-white mb-2 xl:mb-5'>

@@ -1,38 +1,39 @@
 import Image, { StaticImageData } from "next/image";
 
 import HexagonGrid from "./HexagonGrid";
-import { dynamicIcon, EnrollForWebsiteBg, languageIcon, paymentIcon, pictureIcon, supportIcon, travelIcon } from '../../../../assets'
+import { travelandhotelAssets } from '../../../../assets'
+import { getStaticImageData } from "../../../utils/helper";
 
 const content: { title: string; descp: string; icon: StaticImageData }[] = [
   {
     title: "Dynamic content",
     descp: "It’s good to have an admin panel based on tour and travel packaging, in a dynamic content website you can show personalized content to your website visitors.",
-    icon: dynamicIcon
+    icon: getStaticImageData(travelandhotelAssets.dynamicIcon)
   },
   {
     title: "payment gateway integration",
     descp: "We can integrate a suitable payment gateway to your website visitor can directly make the payment from your website.",
-    icon: paymentIcon
+    icon: getStaticImageData(travelandhotelAssets.paymentIcon)
   },
   {
     title: "make your site picture perfect",
     descp: "Inventory make all the difference between showing is better. A great website features easy to book inventories globally.",
-    icon: pictureIcon
+    icon: getStaticImageData(travelandhotelAssets.pictureIcon)
   },
   {
     title: "multi language support",
     descp: "It’s good to have an admin panel based on tour and travel packaging, in a dynamic content website you can show personalized content to your website visitors.",
-    icon: languageIcon
+    icon: getStaticImageData(travelandhotelAssets.languageIcon)
   },
   {
     title: "travel & hotel website design",
     descp: "It’s good to have an admin panel based on tour and travel packaging, in a dynamic content website you can show personalized content to your website visitors.",
-    icon: travelIcon
+    icon: getStaticImageData(travelandhotelAssets.travelIcon)
   },
   {
     title: "support",
     descp: "It’s good to have an admin panel based on tour and travel packaging, in a dynamic content website you can show personalized content to your website visitors.",
-    icon: supportIcon
+    icon: getStaticImageData(travelandhotelAssets.supportIcon)
   }
 ]
 
@@ -45,7 +46,10 @@ const FlourishBusiness = () => (
       <Image
         className="absolute inset-0 w-full h-full object-cover z-[1]"
         alt="main bg"
-        src={EnrollForWebsiteBg} />
+        fill
+        sizes="100vw"
+        priority
+        src={travelandhotelAssets.enrollForWebsiteBg} />
       <div className="relative flex flex-col justify-center items-center z-[2] gap-y-6 py-3 px-2 lg:flex-row lg:gap-10 olg:gap-6 olg:py-24">
         {content.slice(0, 2).map(({ title, descp, icon }, idx) => (
           <HexagonGrid

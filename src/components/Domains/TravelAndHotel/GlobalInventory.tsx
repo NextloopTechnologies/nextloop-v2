@@ -1,42 +1,33 @@
 import Image, { StaticImageData } from 'next/image';
 import React from 'react';
 
-import { ECommWhatWeDo2 } from '../../../../assets';
-import bookingIcon from '../../../../assets/travelandhotel/bookingIcon.png';
-import comfortIcon from '../../../../assets/travelandhotel/comfortIcon.png';
-import customerIcon from '../../../../assets/travelandhotel/customerIcon.png';
-import desktopIcon from '../../../../assets/travelandhotel/desktopIcon.png';
-import mobileIcon from '../../../../assets/travelandhotel/mobileIcon.png';
-import planningIcon from '../../../../assets/travelandhotel/planningIcon.png';
-import searchIcon from '../../../../assets/travelandhotel/searchIcon.png';
-import secureIcon from '../../../../assets/travelandhotel/secureIcon.png';
-import templateIcon from '../../../../assets/travelandhotel/templateIcon.png';
-import trackingIcon from '../../../../assets/travelandhotel/trackingIcon.png';
+import { travelandhotelAssets } from '../../../../assets';
+import { getStaticImageData } from '../../../utils/helper';
 
 const leftInventoryCardData = [
   {
     title: 'responsive/ mobile friendly',
-    icon: mobileIcon,
+    icon: getStaticImageData(travelandhotelAssets.mobileIcon),
     bg: '#1D1D1D',
   },
   {
     title: 'template based design',
-    icon: templateIcon,
+    icon: getStaticImageData(travelandhotelAssets.templateIcon),
     bg: '#FA8145',
   },
   {
     title: 'google/bing search console',
-    icon: searchIcon,
+    icon: getStaticImageData(travelandhotelAssets.searchIcon),
     bg: '#1D1D1D',
   },
   {
     title: 'contact form conversion tracking',
-    icon: trackingIcon,
+    icon: getStaticImageData(travelandhotelAssets.trackingIcon),
     bg: '#FA8145',
   },
   {
     title: 'easy online booking & cancellation',
-    icon: bookingIcon,
+    icon: getStaticImageData(travelandhotelAssets.bookingIcon),
     bg: '#1D1D1D',
   },
 ];
@@ -44,27 +35,27 @@ const leftInventoryCardData = [
 const rightInventoryCardData = [
   {
     title: 'clear planning & costing og your packages',
-    icon: planningIcon,
+    icon: getStaticImageData(travelandhotelAssets.planningIcon),
     bg: '#1D1D1D',
   },
   {
     title: 'secure and multiple payment gateway integration',
-    icon: secureIcon,
+    icon: getStaticImageData(travelandhotelAssets.secureIcon),
     bg: '#FA8145',
   },
   {
     title: 'excellent customer support',
-    icon: customerIcon,
+    icon: getStaticImageData(travelandhotelAssets.customerIcon),
     bg: '#1D1D1D',
   },
   {
     title: 'utmost comfort levelg',
-    icon: comfortIcon,
+    icon: getStaticImageData(travelandhotelAssets.comfortIcon),
     bg: '#FA8145',
   },
   {
     title: 'appealing both desktop & mobile user',
-    icon: desktopIcon,
+    icon: getStaticImageData(travelandhotelAssets.desktopIcon),
     bg: '#1D1D1D',
   },
 ];
@@ -128,7 +119,7 @@ const GlobalInventory = () => {
           ))}
         </div>
         <div className='-mt-2'>
-          <Image src={ECommWhatWeDo2} alt='' className='w-[400px] h-[420px]' />
+          <Image src={travelandhotelAssets.WhatWeDo2} alt='' width={400} height={420} className='w-[400px] h-[420px]' />
         </div>
         <div>
           {rightInventoryCardData.map(({ title, bg, icon }, idx) => (
