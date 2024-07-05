@@ -85,7 +85,7 @@ const Card = ({ card }: { card: CardData }) => {
       animate='show'
       exit='hide' // Add exit animation
       variants={textVariants}
-      className='text-2xl pt-8 flex h-full lg:w-full'
+      className='text-2xl pt-8 pb-10 sm:pb:0 flex h-full lg:w-full'
       key={card.name} // Add a unique key to force a re-render when card changes
     >
       <div className='flex w-full max-h-40'>
@@ -107,7 +107,7 @@ const Card = ({ card }: { card: CardData }) => {
           <span className='text-xs font-medium text-gray-500'>
             {card.title}
           </span>
-          <span className='text-2xl lg:w-3/6 w-full italic pt-5'>
+          <span className='text-[12px] leading-5 sm:text-2xl lg:w-3/6 w-full italic sm:pt-5'>
             {card.quote}
           </span>
           {/* <span className='text-xs  pt-5 flex justify-between lg:w-5/6 w-full'>
@@ -148,13 +148,13 @@ const CardSlider = () => {
   const { isMobile } = useWindowSize();
 
   return (
-    <div className='flex items-center justify-center min-h-screen w-screen md:w-[1400px]'>
+    <div className='flex items-center  justify-center min-h-screen w-screen md:w-[1400px]'>
       <motion.header
         initial={isMobile ? 'visible' : 'hide'}
         whileInView='show'
         exit='hide'
         variants={introHeaderVariants}
-        className='flex gap-x-10 lg:w-5/6 w-full'
+        className='flex gap-x-10 lg:w-5/6 w-full px-10'
       >
         <div className='flex flex-col h-full gap-y-20'>
           <motion.span
@@ -164,26 +164,28 @@ const CardSlider = () => {
             className='lg:text-6xl text-3xl font-bold flex flex-col items-center lg:items-end lg:justify-end'
           >
             <span className='text-sm'>TESTIMONIAL</span>
-            <div className='lg:w-2/3 lg:text-right w-full text-center'>
+            <div className='uppercase lg:w-2/3 lg:text-right w-full text-center'>
               What <b className='text-orange-500'>clients</b> have to say about
               our work.
             </div>
           </motion.span>
-          <div className='flex'>
+          <div className='flex flex-col sm:flex-row'>
             <AnimatePresence mode='wait'>
               {currentCardData && (
                 <motion.div
                   key={currentCard}
-                  initial={{ opacity: isMobile ? 1 : 0, x: 100 }}
+                  initial={{ opacity: isMobile ? 1 : 0, x: isMobile ? 0 : 100 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -100 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <Card card={currentCardData} />
+                  <div className='h-[40vh] sm:h-full'>
+                    <Card card={currentCardData} />
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
-            <div className='flex gap-x-4 lg:hidden items-end'>
+            <div className='flex justify-center absolute gap-x-4 bottom-10 left-[40%] lg:hidden items-end'>
               <button
                 onClick={prevCard}
                 className={`text-2xl hover:bg-gray-100 cursor-pointer border w-10 h-10 rounded-full flex items-center justify-center text-center ${currentCard === 0 ? 'opacity-50 cursor-not-allowed' : ''

@@ -28,7 +28,7 @@ const Experience: FC = () => {
 
   return (
     <>
-      <div className='flex justify-center items-center  min-h-screen overflow-x-hidden'>
+      <div className='flex justify-center items-center  sm:min-h-screen '>
         <motion.header
           initial={isMobile ? 'visible' : 'hide'}
           whileInView='show'
@@ -52,21 +52,21 @@ const Experience: FC = () => {
               initial={isMobile ? 'visible' : 'hide'}
               animate='show'
               variants={textVariants}
-              className='text-2xl pt-8 flex lg:flex-row flex-col h-full gap-4'
+              className='text-2xl sm:pt-8 flex lg:flex-row flex-col h-full gap-4'
             >
-              <div className='flex'>
+              <div className='flex flex-col justify-center  sm:flex-row'>
                 {content.map((item, index) => {
                   return (
-                    <div className='flex gap-2' key={item.heading}>
-                      <div className='border-l border-gray-600'></div>
+                    <div className='flex py-4 sm:gap-2' key={item.heading}>
+                      <div className='hidden sm:block border-l border-gray-600'></div>
                       <div className='flex flex-col justify-center items-center'>
                         {' '}
-                        <div>0{index + 1}</div>
-                        <div className='flex flex-col mt-4 px-2'>
-                          <span className='text-sm font-medium mb-4'>
+                        <div className='mt-4'>0{index + 1}</div>
+                        <div className='flex flex-col justify-center items-center mt-4 px-2'>
+                          <span className='text-[sm] font-medium mb-4'>
                             {item.heading}
                           </span>
-                          <span className='text-xs'>
+                          <span className='text-sm text-center lg:text-[12px] w-1/2 sm:w-2/3 mx-auto'>
                             {item.desc}
                           </span>
                         </div>
@@ -75,8 +75,8 @@ const Experience: FC = () => {
                   );
                 })}
               </div>
-              <div className='flex flex-col gap-y-10'>
-                <div className='text-xs '>
+              <div className='flex text-center flex-col gap-y-10'>
+                <div className='text-sm lg:text-[16px]'>
                   We commit passionately and persistently, fueled by a shared
                   vision. Desiring more than just a contract - we work
                   diligently to earn lasting partnerships with our clients.
