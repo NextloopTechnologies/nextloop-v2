@@ -1,4 +1,3 @@
-import { faqsContent } from '../restaurant';
 import { WhyBuildEventManagement } from '../../../../assets';
 import eventsBg from '../../../../assets/eventsBg.png';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
@@ -6,7 +5,6 @@ import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
 import DesignYourEvents from '../../../components/Domains/DesignYourEvents';
 import EventManagementSolution from '../../../components/Domains/EventManagementSolution';
-import FAQ from '../../../components/Domains/FAQ';
 import WhyBuild from '../../../components/Domains/WhyBuild';
 import WhyWorkWithUs from '../../../components/Domains/WhyWorkWithUs';
 import Layout from '../../../components/Layout/Layout';
@@ -51,13 +49,13 @@ const Events = () => {
           </h1>
         }
         subtitle='Create a website for online and in-person events, sell tickets or collect RSVPs, accept secure online payments, reach more guests with advanced marketing tools and manage the day of your event.'
-        opacity='opacity-80'
+        opacity='opacity-90'
         title=''
       />
 
       <WhyBuild
         image={WhyBuildEventManagement}
-        colouredTitle='Event Management?'
+        colouredTitle='Event Management'
         informationSection={
           <div className='mx-10 lg:mx-0 lg:max-w-[737px]'>
             <p className='text-sm md:text-lg font-normal gap-5'>
@@ -97,8 +95,6 @@ const Events = () => {
       <ClientReviews />
 
       <DesignYourEvents />
-
-      <FAQ faqsContent={faqsContent} />
 
       <CustomRequestQuote title='Your complete event management platform' />
     </Layout>

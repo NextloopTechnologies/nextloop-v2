@@ -37,7 +37,7 @@ const benefits = [
   },
 ];
 
-export const faqsContent: IFAQ[] = [
+const faqsContent: IFAQ[] = [
   {
     id: 1,
     question: 'How can I take my restaurant online?',
@@ -73,24 +73,24 @@ const whyChooseContent: IWhyChooseUs[] = [
   },
 ];
 
-const sampleData = [
+const enrolData = [
   {
     id: 1,
-    title: "Showcase your restaurant's dishes with an online menu.",
+    title: "Showcase your restaurant's dishes with an online menu."
   },
   {
     id: 2,
-    title: 'Allow customers to make reservations from your site 24/7.',
+    title: "Allow customers to make reservations from your site 24/7. "
   },
   {
     id: 3,
-    title: 'Get paid safely and securely through multiple payment methods.',
+    title: "Get paid safely and securely through multiple payment methods."
   },
   {
     id: 4,
-    title: 'Run your entire online ordering system from one dashboard.',
-  },
-];
+    title: "Run your entire online ordering system from one dashboard. "
+  }
+]
 
 const Restaurant: React.FC = () => {
   return (
@@ -137,12 +137,11 @@ const Restaurant: React.FC = () => {
 
       <EnrollForWebsite
         image={RobustOnline}
-        imageClassname='md:w-[450px] md:h-[450px]'
-        data={sampleData}
+        imageClassname='w-[450px] h-[450px]'
+        data={enrolData}
         titleElement={
-          <h1 className='text-3xl md:text-7xl uppercase font-bold text-center max-w-[1000px] mx-auto'>
-            Get a robust online{' '}
-            <span className='text-orange-500'>ordering system</span>
+          <h1 className='text-3xl md:text-7xl uppercase font-bold text-center max-w-[950px] mx-auto'>
+            Get a robust online <span className='text-orange-500'>ordering system</span>
           </h1>
         }
       />

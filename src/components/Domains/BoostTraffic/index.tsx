@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { EnrollForWebsiteBg } from '../../../../assets';
+import { ecommerceAssets } from '../../../../assets';
 
 const sampleData = [
   {
@@ -72,9 +72,12 @@ const BoostTraffic = () => {
     <div className='flex h-[250vh] md:h-[130vh]'>
       <div className='w-full min-h-screen relative flex items-center justify-center text-white'>
         <Image
-          src={EnrollForWebsiteBg}
+          src={ecommerceAssets.BoostTrafficBg}
           className='absolute h-full w-full object-cover'
           alt='blogs background'
+          fill
+          sizes='100vw'
+          priority
           quality={100}
         />
         <div className='absolute min-h-screen flex flex-col items-center inset-0 bg-black opacity-85 py-20 md:py-32 gap-10'>

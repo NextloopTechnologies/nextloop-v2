@@ -1,12 +1,5 @@
-import { faqsContent } from '../restaurant';
 import {
-  ECommerceBg,
-  ECommWhatWeDo1,
-  ECommWhatWeDo2,
-  ECommWhatWeDo3,
-  ECommWhatWeDo4,
-  RobustOnline,
-  WhyBuildEcomIndustry,
+  ecommerceAssets,
 } from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import BoostTraffic from '../../../components/Domains/BoostTraffic';
@@ -19,6 +12,8 @@ import SellEverywhere from '../../../components/Domains/SellEverywhere';
 import WhatWeDo from '../../../components/Domains/WhatWeDo';
 import WhyBuild from '../../../components/Domains/WhyBuild';
 import Layout from '../../../components/Layout/Layout';
+import { IFAQ } from '../../../types';
+import { getStaticImageData } from '../../../utils/helper';
 
 const sampleData = [
   {
@@ -47,11 +42,59 @@ const sampleData = [
   },
 ];
 
-const Events = () => {
+const faqsContent: IFAQ[] = [
+  {
+    id: 1,
+    question: 'what is ecommerce website?',
+    answer:
+      'An eCommerce website is a website from which you can buy or sell physical or digital products online. This can include a digital storefront, product galleries, product pages, an online shopping cart, online checkout, and all of the backend features you need to manage payment processing, shipping, customer support and eCommerce marketing.',
+  },
+  {
+    id: 2,
+    question: 'what do i need in order to build an ecommerce website?',
+    answer:
+      'An eCommerce website is a website from which you can buy or sell physical or digital products online. This can include a digital storefront, product galleries, product pages, an online shopping cart, online checkout, and all of the backend features you need to manage payment processing, shipping, customer support and eCommerce marketing.',
+  },
+  {
+    id: 3,
+    question: 'where can i host my ecommerce website?',
+    answer:
+      'An eCommerce website is a website from which you can buy or sell physical or digital products online. This can include a digital storefront, product galleries, product pages, an online shopping cart, online checkout, and all of the backend features you need to manage payment processing, shipping, customer support and eCommerce marketing.',
+  },
+];
+
+const WhatWeDoData = [
+  {
+    image: getStaticImageData(ecommerceAssets.WhatWeDo1),
+    title: 'Mobile Responsive',
+    description:
+      'A responsive website get used to the device of each unique visitor, whether desktop, smartphone or  tablet. A responsive website dynamically re-sizes its content and imagery for a variety of different screen size to ensure the website is effective and easy to use on any device. Whether your company is large and established, or just starting. Nextloop can build a website that gets noticed. With our enhanced web design & development for Travel and Hotel, your online visitor enjoys the same experience. ',
+  },
+  {
+    image: getStaticImageData(ecommerceAssets.WhatWeDo2),
+    title: 'Mobile Responsive',
+    description:
+      'A responsive website get used to the device of each unique visitor, whether desktop, smartphone or  tablet. A responsive website dynamically re-sizes its content and imagery for a variety of different screen size to ensure the website is effective and easy to use on any device. Whether your company is large and established, or just starting. Nextloop can build a website that gets noticed. With our enhanced web design & development for Travel and Hotel, your online visitor enjoys the same experience. ',
+  },
+  {
+    image: getStaticImageData(ecommerceAssets.WhatWeDo3),
+    title: 'Mobile Responsive',
+    description:
+      'A responsive website get used to the device of each unique visitor, whether desktop, smartphone or  tablet. A responsive website dynamically re-sizes its content and imagery for a variety of different screen size to ensure the website is effective and easy to use on any device. Whether your company is large and established, or just starting. Nextloop can build a website that gets noticed. With our enhanced web design & development for Travel and Hotel, your online visitor enjoys the same experience. ',
+  },
+  {
+    image: getStaticImageData(ecommerceAssets.WhatWeDo4),
+    title: 'Mobile Responsive',
+    description:
+      'A responsive website get used to the device of each unique visitor, whether desktop, smartphone or  tablet. A responsive website dynamically re-sizes its content and imagery for a variety of different screen size to ensure the website is effective and easy to use on any device. Whether your company is large and established, or just starting. Nextloop can build a website that gets noticed. With our enhanced web design & development for Travel and Hotel, your online visitor enjoys the same experience. ',
+  }
+];
+
+const Ecommerce = () => {
   return (
     <Layout>
       <CustomPageHero
-        image={ECommerceBg}
+        image={getStaticImageData(ecommerceAssets.ECommerceBg)}
         titleChildren={
           <h1 className='text-white text-3xl md:text-8xl uppercase font-bold text-center w-full md:max-w-[1500px]'>
             Build an <span className='text-orange-500'>ecommerce website.</span>
@@ -68,7 +111,7 @@ const Events = () => {
       />
 
       <WhyBuild
-        image={WhyBuildEcomIndustry}
+        image={getStaticImageData(ecommerceAssets.WhyBuildEcomIndustry)}
         colouredTitle='Ecommerce Industry?'
         infoAndImgClassname='items-center'
         informationSection={
@@ -89,13 +132,11 @@ const Events = () => {
         }
       />
 
-      <WhatWeDo
-        imgs={[ECommWhatWeDo1, ECommWhatWeDo2, ECommWhatWeDo3, ECommWhatWeDo4]}
-      />
+      <WhatWeDo content={WhatWeDoData} />
 
       <EnrollForWebsite
-        image={RobustOnline}
-        imageClassname='md:w-[450px] md:h-[450px]'
+        image={getStaticImageData(ecommerceAssets.RobustOnline)}
+        imageClassname='w-[450px] h-[450px]'
         data={sampleData}
         titleElement={
           <h1 className='text-3xl md:text-7xl uppercase font-bold text-center max-w-[950px] mx-auto'>
@@ -123,4 +164,4 @@ const Events = () => {
   );
 };
 
-export default Events;
+export default Ecommerce;

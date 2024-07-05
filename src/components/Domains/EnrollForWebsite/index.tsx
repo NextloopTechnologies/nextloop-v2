@@ -1,6 +1,6 @@
 import Image, { StaticImageData } from 'next/image';
 
-import { Building, EnrollForWebsiteBg } from '../../../../assets';
+import { ecommerceAssets } from '../../../../assets';
 
 const sampleData = [
   {
@@ -43,7 +43,7 @@ type TitleDescCardProps = {
 };
 
 export const TitleDescCard = ({ title, description }: TitleDescCardProps) => (
-  <div className='flex flex-col opacity-85 bg-[#1C1C1D] py-5 md:py-10 px-5 gap-4 h-[130px] md:h-[180px] w-[350px]'>
+  <div className="flex flex-col opacity-85 bg-[#1C1C1D] h-[250px] w-[150px] sm:h-[200px] sm:w-[250px] p-5 md:py-10 md:h-[180px] md:w-[350px] gap-4">
     <h3 className='text-sm md:text-xl font-medium uppercase'>{title}</h3>
     {description && (
       <p className='text-xs md:text-sm font-normal'>{description}</p>
@@ -58,25 +58,28 @@ const EnrollForWebsite = ({
   data,
 }: Props) => {
   return (
-    <div className='flex'>
-      <div className='w-full h-screen relative flex items-center justify-center text-white'>
-        <Image
-          src={EnrollForWebsiteBg}
-          className='absolute h-full w-full object-cover'
-          alt='blogs background'
-          quality={100}
-        />
-        <div className='absolute h-screen flex flex-col inset-0 bg-black opacity-85 py-20 md:py-32 gap-10'>
-          {titleElement || (
-            <h1 className='text-3xl md:text-7xl uppercase font-bold text-center max-w-[1400px] mx-auto'>
-              Enroll for website development to boost your hotel's most{' '}
-              <span className='text-orange-500'>profitable channel</span>
-            </h1>
-          )}
+    <div className='h-full bg-[#010103] relative flex items-center text-white justify-center'>
+      <Image
+        src={ecommerceAssets.EnrollForWebsiteBg}
+        className='absolute h-full w-full object-cover z-[1]'
+        alt='blogs background'
+        fill
+        sizes='100vw'
+        priority
+        quality={100}
+      />
+      <div className='flex flex-col py-20 md:py-32 gap-10 z-[2] items-center justify-center'>
+        {titleElement || (
+          <h1 className='text-3xl md:text-7xl uppercase font-bold text-center max-w-[1400px] mx-auto'>
+            Enroll for website development to boost your hotel's most{' '}
+            <span className='text-orange-500'>profitable channel</span>
+          </h1>
+        )}
 
-          <div className='flex flex-col md:flex-row items-centers px-10 gap-8 md:gap-10 md:px-[170px]'>
-            <div className='flex flex-wrap gap-8'>
-              {(data || sampleData).map((data) => (
+        <div className='grid grid-cols-1 xl:grid-cols-2 place-items-center'>
+          <div className='flex  flex-col items-center justify-center xl:ml-24'>
+            <div className='flex gap-2 mb-2'>
+              {(data || sampleData).slice(0, 2).map((data) => (
                 <TitleDescCard
                   key={data.id}
                   title={data.title}
@@ -84,11 +87,23 @@ const EnrollForWebsite = ({
                 />
               ))}
             </div>
-
+            <div className='flex gap-2 '>
+              {(data || sampleData).slice(2, 4).map((data) => (
+                <TitleDescCard
+                  key={data.id}
+                  title={data.title}
+                  description={data.description}
+                />
+              ))}
+            </div>
+          </div>
+          <div className='flex justify-centrer items-center'>
             <Image
-              src={image || Building}
+              src={image || ecommerceAssets.Building}
+              width={400}
+              height={400}
               alt='building'
-              className={`hidden md:inline-flex md:w-[406px] md:h-[406px] object-contain ml-auto ${imageClassname}`}
+              className={`object-contain ${imageClassname}`}
             />
           </div>
         </div>

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 import { introHeaderVariants } from '../../utils/frameMotionAnimations';
 import useWindowSize from '../../utils/useWindowSize';
-import { DoubleQuotes, User_1 } from '../../../assets';
+import { clientReviewsAssets, DoubleQuotes } from '../../../assets';
 
 interface CardData {
   name: string;
@@ -95,7 +95,7 @@ const Card = ({ card }: { card: CardData }) => {
           </div>
 
           <Image
-            src={User_1}
+            src={clientReviewsAssets.User_1}
             alt='Mobile'
             width={50}
             height={50}
@@ -188,20 +188,18 @@ const CardSlider = () => {
             <div className='flex justify-center absolute gap-x-4 bottom-10 left-[40%] lg:hidden items-end'>
               <button
                 onClick={prevCard}
-                className={`text-2xl hover:bg-gray-100 cursor-pointer border w-10 h-10 rounded-full flex items-center justify-center text-center ${
-                  currentCard === 0 ? 'opacity-50 cursor-not-allowed' : ''
-                }`}
+                className={`text-2xl hover:bg-gray-100 cursor-pointer border w-10 h-10 rounded-full flex items-center justify-center text-center ${currentCard === 0 ? 'opacity-50 cursor-not-allowed' : ''
+                  }`}
                 disabled={currentCard === 0}
               >
                 &larr;
               </button>
               <button
                 onClick={nextCard}
-                className={`text-2xl border hover:bg-gray-100 cursor-pointer w-10 h-10 rounded-full flex items-center justify-center text-center ${
-                  currentCard === cardData.length - 1
+                className={`text-2xl border hover:bg-gray-100 cursor-pointer w-10 h-10 rounded-full flex items-center justify-center text-center ${currentCard === cardData.length - 1
                     ? 'opacity-50 cursor-not-allowed'
                     : ''
-                }`}
+                  }`}
                 disabled={currentCard === cardData.length - 1}
               >
                 &rarr;
@@ -214,20 +212,18 @@ const CardSlider = () => {
       <div className='hidden lg:inline-flex absolute gap-x-4 bottom-20 right-20 lg:pr-10'>
         <button
           onClick={prevCard}
-          className={`text-2xl hover:bg-gray-100 cursor-pointer border w-10 h-10 rounded-full flex items-center justify-center text-center ${
-            currentCard === 0 ? 'opacity-50 cursor-not-allowed' : ''
-          }`}
+          className={`text-2xl hover:bg-gray-100 cursor-pointer border w-10 h-10 rounded-full flex items-center justify-center text-center ${currentCard === 0 ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
           disabled={currentCard === 0}
         >
           &larr;
         </button>
         <button
           onClick={nextCard}
-          className={`text-2xl border hover:bg-gray-100 cursor-pointer w-10 h-10 rounded-full flex items-center justify-center text-center ${
-            currentCard === cardData.length - 1
+          className={`text-2xl border hover:bg-gray-100 cursor-pointer w-10 h-10 rounded-full flex items-center justify-center text-center ${currentCard === cardData.length - 1
               ? 'opacity-50 cursor-not-allowed'
               : ''
-          }`}
+            }`}
           disabled={currentCard === cardData.length - 1}
         >
           &rarr;

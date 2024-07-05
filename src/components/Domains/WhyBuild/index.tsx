@@ -29,6 +29,8 @@ const WhyBuild = ({
         <Image
           src={image}
           alt='Event Image'
+          width={300}
+          height={300}
           className='w-[300px] h-[300px] mx-auto lg:w-[600px] lg:h-[450px] object-fill mt-4 rounded-lg'
         />
 

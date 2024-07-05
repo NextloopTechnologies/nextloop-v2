@@ -51,13 +51,11 @@ const ProfessionalWebsite = () => {
         {sampleData.map((data, index) => (
           <div
             key={data.id}
-            className={`flex flex-col md:flex-row items-center p-7 gap-10 shadow-md ${
-              (index === 1 || index === 2) && 'bg-[#1D1D1D] text-white'
-            } ${
-              index === 2
+            className={`flex flex-col md:flex-row items-center p-7 gap-10 shadow-md ${(index === 1 || index === 2) && 'bg-[#1D1D1D] text-white'
+              } ${index === 2
                 ? 'md:rounded-bl-xl'
                 : index === 1 && 'md:rounded-tr-xl'
-            }`}
+              }`}
           >
             <Image
               src={data.image}

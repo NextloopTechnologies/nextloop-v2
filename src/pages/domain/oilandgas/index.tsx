@@ -81,7 +81,10 @@ const OilAndGas = () => {
 
       <FAQ faqsContent={faqsContent} />
 
-      <ClientReviews />
+      <ClientReviews
+        title='Real success stories from'
+        colouredTitle='Real customer'
+      />
 
       <CustomRequestQuote title='Your complete oil and gas solution' />
     </Layout>

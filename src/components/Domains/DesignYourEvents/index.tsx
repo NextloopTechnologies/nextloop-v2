@@ -1,13 +1,9 @@
 import Image, { StaticImageData } from 'next/image';
 
 import {
-  Charity,
-  Conferences,
-  Exhibitions,
-  Fashion,
-  Music,
-  Seminars,
+  ecommerceAssets,
 } from '../../../../assets';
+import { getStaticImageData } from '../../../utils/helper';
 
 export type Data = {
   id: number;
@@ -19,32 +15,32 @@ export type Data = {
 const sampleData: Data[] = [
   {
     id: 1,
-    image: Music,
+    image: getStaticImageData(ecommerceAssets.Music),
     title: 'Music Venue',
   },
   {
     id: 2,
-    image: Fashion,
+    image: getStaticImageData(ecommerceAssets.Fashion),
     title: 'Fashion shows and red carpets',
   },
   {
     id: 3,
-    image: Conferences,
+    image: getStaticImageData(ecommerceAssets.Conferences),
     title: 'Conferences',
   },
   {
     id: 4,
-    image: Charity,
+    image: getStaticImageData(ecommerceAssets.Charity),
     title: 'Charity Events',
   },
   {
     id: 5,
-    image: Seminars,
+    image: getStaticImageData(ecommerceAssets.Seminars),
     title: 'Seminars',
   },
   {
     id: 6,
-    image: Exhibitions,
+    image: getStaticImageData(ecommerceAssets.Exhibitions),
     title: 'Exhibitions',
   },
 ];
@@ -68,6 +64,8 @@ export const Card = ({
     <Image
       src={data.image}
       className={`w-[350px] md:w-[392px] object-contain rounded-lg ${imageClassname}`}
+      height={300}
+      width={300}
       alt={data.title}
     />
     <h3

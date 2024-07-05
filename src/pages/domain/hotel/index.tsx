@@ -1,5 +1,11 @@
-import { faqsContent } from '../restaurant';
-import { HotelBg, WhyBuildHotelBooking } from '../../../../assets';
+import {
+  HotelBg,
+  WhatWeDo1,
+  WhatWeDo2,
+  WhatWeDo3,
+  WhatWeDo4,
+  WhyBuildHotelBooking
+} from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
@@ -10,6 +16,55 @@ import SimpleWebsite from '../../../components/Domains/SimpleWebsite';
 import WhatWeDo from '../../../components/Domains/WhatWeDo';
 import WhyBuild from '../../../components/Domains/WhyBuild';
 import Layout from '../../../components/Layout/Layout';
+import { IFAQ } from '../../../types';
+
+const faqsContent: IFAQ[] = [
+  {
+    id: 1,
+    question: 'why do you need hotel website design?',
+    answer:
+      'Hotel website design is a huge influence on the booking behaviour of travellers and helps your hotel address their desires and expectations. It’s very important that potential guests are able to navigate your website easily and quickly understand the content that’s most relevant to them.',
+  },
+  {
+    id: 2,
+    question: 'why do I need a  website for my hotel?',
+    answer:
+      'Hotel website design is a huge influence on the booking behaviour of travellers and helps your hotel address their desires and expectations. It’s very important that potential guests are able to navigate your website easily and quickly understand the content that’s most relevant to them.',
+  },
+  {
+    id: 3,
+    question: 'What are the benefits of hotel website design?',
+    answer:
+      'Hotel website design is a huge influence on the booking behaviour of travellers and helps your hotel address their desires and expectations. It’s very important that potential guests are able to navigate your website easily and quickly understand the content that’s most relevant to them.',
+  },
+];
+
+const WhatWeDoData = [
+  {
+    image: WhatWeDo1,
+    title: 'Drive more reviews and positive word-of-mouth',
+    description:
+      'Nextloop is where your idea comes to life. If you can order pizza online, you Embed a Tripadvisor widget on your website so guests who have completed their stay can easily share their feedback.',
+  },
+  {
+    image: WhatWeDo2,
+    title: 'Drive more reviews and positive word-of-mouth',
+    description:
+      'Nextloop is where your idea comes to life. If you can order pizza online, you Embed a Tripadvisor widget on your website so guests who have completed their stay can easily share their feedback.',
+  },
+  {
+    image: WhatWeDo3,
+    title: 'Drive more reviews and positive word-of-mouth',
+    description:
+      'Nextloop is where your idea comes to life. If you can order pizza online, you Embed a Tripadvisor widget on your website so guests who have completed their stay can easily share their feedback.',
+  },
+  {
+    image: WhatWeDo4,
+    title: 'Drive more reviews and positive word-of-mouth',
+    description:
+      'Nextloop is where your idea comes to life. If you can order pizza online, you Embed a Tripadvisor widget on your website so guests who have completed their stay can easily share their feedback.',
+  }
+];
 
 const Hotel = () => {
   return (
@@ -52,11 +107,11 @@ const Hotel = () => {
         }
       />
 
-      <WhatWeDo />
+      <WhatWeDo content={WhatWeDoData} />
 
       <SimpleWebsite />
 
-      <EnrollForWebsite />
+      <EnrollForWebsite imageClassname='w-[270px] h-[270px] mt-14' />
 
       <ProfessionalWebsite />
 
