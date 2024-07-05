@@ -1,6 +1,6 @@
 import Image, { StaticImageData } from 'next/image';
 
-import { Building, EnrollForWebsiteBg } from '../../../../assets';
+import { ecommerceAssets } from '../../../../assets';
 
 const sampleData = [
   {
@@ -60,9 +60,12 @@ const EnrollForWebsite = ({
   return (
     <div className='h-full bg-[#010103] relative flex items-center text-white justify-center'>
       <Image
-        src={EnrollForWebsiteBg}
+        src={ecommerceAssets.EnrollForWebsiteBg}
         className='absolute h-full w-full object-cover z-[1]'
         alt='blogs background'
+        fill
+        sizes='100vw'
+        priority
         quality={100}
       />
       <div className='flex flex-col py-20 md:py-32 gap-10 z-[2] items-center justify-center'>
@@ -96,7 +99,9 @@ const EnrollForWebsite = ({
           </div>
           <div className='flex justify-centrer items-center'>
             <Image
-              src={image || Building}
+              src={image || ecommerceAssets.Building}
+              width={400}
+              height={400}
               alt='building'
               className={`object-contain ${imageClassname}`}
             />
