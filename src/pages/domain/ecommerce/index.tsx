@@ -1,11 +1,5 @@
 import {
-  ECommerceBg,
-  ECommWhatWeDo2,
-  ECommWhatWeDo3,
-  ECommWhatWeDo4,
-  RobustOnline,
-  WhatWeDo1,
-  WhyBuildEcomIndustry,
+  ecommerceAssets,
 } from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import BoostTraffic from '../../../components/Domains/BoostTraffic';
@@ -19,6 +13,7 @@ import WhatWeDo from '../../../components/Domains/WhatWeDo';
 import WhyBuild from '../../../components/Domains/WhyBuild';
 import Layout from '../../../components/Layout/Layout';
 import { IFAQ } from '../../../types';
+import { getStaticImageData } from '../../../utils/helper';
 
 const sampleData = [
   {
@@ -70,25 +65,25 @@ const faqsContent: IFAQ[] = [
 
 const WhatWeDoData = [
   {
-    image: WhatWeDo1,
+    image: getStaticImageData(ecommerceAssets.WhatWeDo1),
     title: 'Mobile Responsive',
     description:
       'A responsive website get used to the device of each unique visitor, whether desktop, smartphone or  tablet. A responsive website dynamically re-sizes its content and imagery for a variety of different screen size to ensure the website is effective and easy to use on any device. Whether your company is large and established, or just starting. Nextloop can build a website that gets noticed. With our enhanced web design & development for Travel and Hotel, your online visitor enjoys the same experience. ',
   },
   {
-    image: ECommWhatWeDo2,
+    image: getStaticImageData(ecommerceAssets.WhatWeDo2),
     title: 'Mobile Responsive',
     description:
       'A responsive website get used to the device of each unique visitor, whether desktop, smartphone or  tablet. A responsive website dynamically re-sizes its content and imagery for a variety of different screen size to ensure the website is effective and easy to use on any device. Whether your company is large and established, or just starting. Nextloop can build a website that gets noticed. With our enhanced web design & development for Travel and Hotel, your online visitor enjoys the same experience. ',
   },
   {
-    image: ECommWhatWeDo3,
+    image: getStaticImageData(ecommerceAssets.WhatWeDo3),
     title: 'Mobile Responsive',
     description:
       'A responsive website get used to the device of each unique visitor, whether desktop, smartphone or  tablet. A responsive website dynamically re-sizes its content and imagery for a variety of different screen size to ensure the website is effective and easy to use on any device. Whether your company is large and established, or just starting. Nextloop can build a website that gets noticed. With our enhanced web design & development for Travel and Hotel, your online visitor enjoys the same experience. ',
   },
   {
-    image: ECommWhatWeDo4,
+    image: getStaticImageData(ecommerceAssets.WhatWeDo4),
     title: 'Mobile Responsive',
     description:
       'A responsive website get used to the device of each unique visitor, whether desktop, smartphone or  tablet. A responsive website dynamically re-sizes its content and imagery for a variety of different screen size to ensure the website is effective and easy to use on any device. Whether your company is large and established, or just starting. Nextloop can build a website that gets noticed. With our enhanced web design & development for Travel and Hotel, your online visitor enjoys the same experience. ',
@@ -99,7 +94,7 @@ const Ecommerce = () => {
   return (
     <Layout>
       <CustomPageHero
-        image={ECommerceBg}
+        image={getStaticImageData(ecommerceAssets.ECommerceBg)}
         titleChildren={
           <h1 className='text-white text-3xl md:text-8xl uppercase font-bold text-center w-full md:max-w-[1500px]'>
             Build an <span className='text-orange-500'>ecommerce website.</span>
@@ -116,7 +111,7 @@ const Ecommerce = () => {
       />
 
       <WhyBuild
-        image={WhyBuildEcomIndustry}
+        image={getStaticImageData(ecommerceAssets.WhyBuildEcomIndustry)}
         colouredTitle='Ecommerce Industry?'
         infoAndImgClassname='items-center'
         informationSection={
@@ -140,7 +135,7 @@ const Ecommerce = () => {
       <WhatWeDo content={WhatWeDoData} />
 
       <EnrollForWebsite
-        image={RobustOnline}
+        image={getStaticImageData(ecommerceAssets.RobustOnline)}
         imageClassname='w-[450px] h-[450px]'
         data={sampleData}
         titleElement={
