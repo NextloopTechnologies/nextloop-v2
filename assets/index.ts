@@ -20,7 +20,7 @@ export { default as EventManagement5 } from './EventManagement5.png';
 export { default as EventManagement6 } from './EventManagement6.png';
 export { default as EventManagement7 } from './EventManagement7.png';
 export { default as GrayEllipse } from './grayEllipse.png';
-export { default as HotelBg } from './hotelBg.png';
+// export { default as HotelBg } from './hotelBg.png';
 export { default as Lines } from './line.png';
 export { default as MakeItReal } from './makeItReal.png';
 export { default as Mobile_1 } from './Mobile-1.png';
@@ -28,22 +28,22 @@ export { default as Mobile_2 } from './Mobile-2.png';
 export { default as NextLoopColoredLogo } from './NextLoopColoredLogo.jpeg';
 export { default as NextLoopLogo } from './NextLoopLogo.png';
 export { default as OrangeRectangle } from './orangeRectangle.png';
-export { default as ProWebsite1 } from './proWebsite1.png';
-export { default as ProWebsite2 } from './proWebsite2.png';
-export { default as ProWebsite3 } from './proWebsite3.png';
-export { default as ProWebsite4 } from './proWebsite4.png';
-export { default as RobustOnline } from './robustOnline.png';
+// export { default as ProWebsite1 } from './proWebsite1.png';
+// export { default as ProWebsite2 } from './proWebsite2.png';
+// export { default as ProWebsite3 } from './proWebsite3.png';
+// export { default as ProWebsite4 } from './proWebsite4.png';
+// export { default as RobustOnline } from './robustOnline.png';
 export { default as SellEverywhereImage } from './sellEverywhere.png';
-export { default as SimpleWebsite1 } from './simpleWebsite1.png';
-export { default as SimpleWebsite2 } from './simpleWebsite2.png';
-export { default as SimpleWebsite3 } from './simpleWebsite3.png';
-export { default as SimpleWebsite4 } from './simpleWebsite4.png';
-export { default as WhatWeDo1 } from './whatWeDo1.png';
-export { default as WhatWeDo2 } from './whatWeDo2.png';
-export { default as WhatWeDo3 } from './whatWeDo3.png';
-export { default as WhatWeDo4 } from './whatWeDo4.png';
+// export { default as SimpleWebsite1 } from './simpleWebsite1.png';
+// export { default as SimpleWebsite2 } from './simpleWebsite2.png';
+// export { default as SimpleWebsite3 } from './simpleWebsite3.png';
+// export { default as SimpleWebsite4 } from './simpleWebsite4.png';
+// export { default as WhatWeDo1 } from './whatWeDo1.png';
+// export { default as WhatWeDo2 } from './whatWeDo2.png';
+// export { default as WhatWeDo3 } from './whatWeDo3.png';
+// export { default as WhatWeDo4 } from './whatWeDo4.png';
 export { default as WhyBuildEventManagement } from './whyBuildEventManagement.png';
-export { default as WhyBuildHotelBooking } from './whyBuildHotelBooking.png';
+// export { default as WhyBuildHotelBooking } from './whyBuildHotelBooking.png';
 export { default as Whyus } from './whyus.png';
 export { default as WhyWorkWithUs } from './whyWorkWithUs.png';
 
@@ -90,8 +90,8 @@ export const staticAssests = {
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/EventManagement7.png?updatedAt=1719991862954',
   GrayEllipse:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/grayEllipse.png?updatedAt=1719991866262',
-  HotelBg:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/hotelBg.png?updatedAt=1719991866503',
+  // HotelBg:
+  //   'https://ik.imagekit.io/nextloop/NextloopWebAssets/hotelBg.png?updatedAt=1719991866503',
   Lines:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/line.png?updatedAt=1719991867284',
   MakeItReal:
@@ -106,24 +106,66 @@ export const staticAssests = {
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/NextLoopLogo.png?updatedAt=1719991873096',
   OrangeRectangle:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/orangeRectangle.png?updatedAt=1719991885242',
-  ProWebsite1:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/proWebsite1.png?updatedAt=1719991887801',
-  ProWebsite2:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/proWebsite2.png?updatedAt=1719991887869',
-  ProWebsite3:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/proWebsite3.png?updatedAt=1719991887853',
-  ProWebsite4:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/proWebsite4.png?updatedAt=1719991887842',
+  // ProWebsite1:
+  //   'https://ik.imagekit.io/nextloop/NextloopWebAssets/proWebsite1.png?updatedAt=1719991887801',
+  // ProWebsite2:
+  //   'https://ik.imagekit.io/nextloop/NextloopWebAssets/proWebsite2.png?updatedAt=1719991887869',
+  // ProWebsite3:
+  //   'https://ik.imagekit.io/nextloop/NextloopWebAssets/proWebsite3.png?updatedAt=1719991887853',
+  // ProWebsite4:
+  //   'https://ik.imagekit.io/nextloop/NextloopWebAssets/proWebsite4.png?updatedAt=1719991887842',
   SellEverywhereImage:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/sellEverywhere.png?updatedAt=1719991898809',
-  SimpleWebsite1:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/simpleWebsite1.png?updatedAt=1719991899802',
-  SimpleWebsite2:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/simpleWebsite2.png?updatedAt=1719991899873',
-  SimpleWebsite3:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/simpleWebsite3.png?updatedAt=1719991900032',
-  SimpleWebsite4:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/simpleWebsite4.png?updatedAt=1719991899898',
+  // SimpleWebsite1:
+  //   'https://ik.imagekit.io/nextloop/NextloopWebAssets/simpleWebsite1.png?updatedAt=1719991899802',
+  // SimpleWebsite2:
+  //   'https://ik.imagekit.io/nextloop/NextloopWebAssets/simpleWebsite2.png?updatedAt=1719991899873',
+  // SimpleWebsite3:
+  //   'https://ik.imagekit.io/nextloop/NextloopWebAssets/simpleWebsite3.png?updatedAt=1719991900032',
+  // SimpleWebsite4:
+  //   'https://ik.imagekit.io/nextloop/NextloopWebAssets/simpleWebsite4.png?updatedAt=1719991899898',
+  // WhatWeDo1:
+  //   'https://ik.imagekit.io/nextloop/NextloopWebAssets/whatWeDo1.png?updatedAt=1719991906706',
+  // WhatWeDo2:
+  //   'https://ik.imagekit.io/nextloop/NextloopWebAssets/whatWeDo2.png?updatedAt=1719991910656',
+  // WhatWeDo3:
+  //   'https://ik.imagekit.io/nextloop/NextloopWebAssets/whatWeDo3.png?updatedAt=1719991910598',
+  // WhatWeDo4:
+  //   'https://ik.imagekit.io/nextloop/NextloopWebAssets/whatWeDo4.png?updatedAt=1719991910627',
+  WhyBuildEventManagement:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/whyBuildEventManagement.png?updatedAt=1719991911128',
+  // WhyBuildHotelBooking:
+  //   'https://ik.imagekit.io/nextloop/NextloopWebAssets/whyBuildHotelBooking.png?updatedAt=1719991910968',
+  Whyus:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/whyus.png?updatedAt=1719991921001',
+  WhyWorkWithUs:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/whyWorkWithUs.png?updatedAt=1719991921077',
+};
+
+export const restaurantAssets = {
+  restaurantBg:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/restaurantBg.png?updatedAt=1719991895719',
+  toolsIcon1:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/restaurantToolsIcon-1.png?updatedAt=1719991895553',
+  toolsIcon2:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/restaurantToolsIcon-2.png?updatedAt=1719991896005',
+  toolsIcon3:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/restaurantToolsIcon-3.png?updatedAt=1719991898578',
+  WhyBuildRestaurant:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/whyBuildRestaurant.png?updatedAt=1719991911133',
+  whyChooseUsImg:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/whyChooseUs1.png?updatedAt=1719991914092',
+  RobustOnline:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/robustOnline.png?updatedAt=1719991898616',
+};
+
+export const hotelAssets = {
+  hotelBg:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/travelandhotel/mainBg.png?updatedAt=1720073308043',
+  whyBuildImg:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/whyBuildHotelBooking.png?updatedAt=1719991910968',
+  Building:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/building.png?updatedAt=1719991855455',
   WhatWeDo1:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/whatWeDo1.png?updatedAt=1719991906706',
   WhatWeDo2:
@@ -132,14 +174,22 @@ export const staticAssests = {
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/whatWeDo3.png?updatedAt=1719991910598',
   WhatWeDo4:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/whatWeDo4.png?updatedAt=1719991910627',
-  WhyBuildEventManagement:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/whyBuildEventManagement.png?updatedAt=1719991911128',
-  WhyBuildHotelBooking:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/whyBuildHotelBooking.png?updatedAt=1719991910968',
-  Whyus:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/whyus.png?updatedAt=1719991921001',
-  WhyWorkWithUs:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/whyWorkWithUs.png?updatedAt=1719991921077',
+  SimpleWebsite1:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/solutionManagement.png?updatedAt=1720073539299',
+  SimpleWebsite2:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/simpleWebsite2.png?updatedAt=1719991899873',
+  SimpleWebsite3:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/simpleWebsite3.png?updatedAt=1719991900032',
+  SimpleWebsite4:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/simpleWebsite4.png?updatedAt=1719991899898',
+  ProWebsite1:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/proWebsite1.png?updatedAt=1719991887801',
+  ProWebsite2:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/proWebsite2.png?updatedAt=1719991887869',
+  ProWebsite3:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/proWebsite3.png?updatedAt=1719991887853',
+  ProWebsite4:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/proWebsite4.png?updatedAt=1719991887842',
 };
 
 export const ecommerceAssets = {
@@ -161,8 +211,6 @@ export const ecommerceAssets = {
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/enrollForWebsite.png?updatedAt=1719991861773',
   EnrollForWebsiteBg:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/enrollForWebsite.png?updatedAt=1719991861773',
-  Building:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/building.png?updatedAt=1719991855455',
   Charity:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/charity.png?updatedAt=1719991855611',
   Conferences:

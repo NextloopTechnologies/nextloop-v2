@@ -1,36 +1,34 @@
 import { Card, Data as ShadowCardData } from '../DesignYourEvents';
 import {
-  SimpleWebsite1,
-  SimpleWebsite2,
-  SimpleWebsite3,
-  SimpleWebsite4,
+  hotelAssets
 } from '../../../../assets';
+import { getStaticImageData } from '../../../utils/helper';
 
 const sampleData: ShadowCardData[] = [
   {
     id: 1,
-    image: SimpleWebsite1,
+    image: getStaticImageData(hotelAssets.SimpleWebsite1),
     title: 'Build your website, without compromise',
     description:
       'Create a professional hotel website, without the hassle of finding and managing web developers.',
   },
   {
     id: 2,
-    image: SimpleWebsite2,
+    image: getStaticImageData(hotelAssets.SimpleWebsite2),
     title: 'Attract more direct bookings',
     description:
       'Drive more direct revenue to your property by seamlessly connecting your website with the SiteMinder booking engine.',
   },
   {
     id: 3,
-    image: SimpleWebsite3,
+    image: getStaticImageData(hotelAssets.SimpleWebsite3),
     title: 'A website in your local language',
     description:
       'Attract global travellers with the option to view your website in more than 20 languages.',
   },
   {
     id: 4,
-    image: SimpleWebsite4,
+    image: getStaticImageData(hotelAssets.SimpleWebsite4),
     title: 'Website design for all devices',
     description:
       'Leverage our mobile-optimised themes and templates to ensure your guests are able to book on-the-go.',
