@@ -19,12 +19,12 @@ const Hamburger = () => {
           src={NextLoopColoredLogo}
           width={80}
           height={60}
-          alt='NextLoopLogo'
+          alt='NextLoop'
           onClick={() => router.push('/')}
         />
         <Image
           src={navIcon}
-          alt='navbar'
+          alt='Technologies'
           onClick={() => setIsOpen((t) => !t)}
         />
       </div>
