@@ -1,6 +1,6 @@
 import Image, { StaticImageData } from 'next/image';
 
-import { ecommerceAssets } from '../../../../assets';
+import { ecommerceAssets, hotelAssets } from '../../../../assets';
 
 const sampleData = [
   {
@@ -99,7 +99,7 @@ const EnrollForWebsite = ({
           </div>
           <div className='flex justify-centrer items-center'>
             <Image
-              src={image || ecommerceAssets.Building}
+              src={image || hotelAssets.Building}
               width={400}
               height={400}
               alt='building'

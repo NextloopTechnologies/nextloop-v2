@@ -1,10 +1,5 @@
 import {
-  HotelBg,
-  WhatWeDo1,
-  WhatWeDo2,
-  WhatWeDo3,
-  WhatWeDo4,
-  WhyBuildHotelBooking
+  hotelAssets
 } from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import ClientReviews from '../../../components/Domains/ClientReviews';
@@ -17,6 +12,7 @@ import WhatWeDo from '../../../components/Domains/WhatWeDo';
 import WhyBuild from '../../../components/Domains/WhyBuild';
 import Layout from '../../../components/Layout/Layout';
 import { IFAQ } from '../../../types';
+import { getStaticImageData } from '../../../utils/helper';
 
 const faqsContent: IFAQ[] = [
   {
@@ -41,25 +37,25 @@ const faqsContent: IFAQ[] = [
 
 const WhatWeDoData = [
   {
-    image: WhatWeDo1,
+    image: getStaticImageData(hotelAssets.WhatWeDo1),
     title: 'Drive more reviews and positive word-of-mouth',
     description:
       'Nextloop is where your idea comes to life. If you can order pizza online, you Embed a Tripadvisor widget on your website so guests who have completed their stay can easily share their feedback.',
   },
   {
-    image: WhatWeDo2,
+    image: getStaticImageData(hotelAssets.WhatWeDo2),
     title: 'Drive more reviews and positive word-of-mouth',
     description:
       'Nextloop is where your idea comes to life. If you can order pizza online, you Embed a Tripadvisor widget on your website so guests who have completed their stay can easily share their feedback.',
   },
   {
-    image: WhatWeDo3,
+    image: getStaticImageData(hotelAssets.WhatWeDo3),
     title: 'Drive more reviews and positive word-of-mouth',
     description:
       'Nextloop is where your idea comes to life. If you can order pizza online, you Embed a Tripadvisor widget on your website so guests who have completed their stay can easily share their feedback.',
   },
   {
-    image: WhatWeDo4,
+    image: getStaticImageData(hotelAssets.WhatWeDo4),
     title: 'Drive more reviews and positive word-of-mouth',
     description:
       'Nextloop is where your idea comes to life. If you can order pizza online, you Embed a Tripadvisor widget on your website so guests who have completed their stay can easily share their feedback.',
@@ -70,7 +66,7 @@ const Hotel = () => {
   return (
     <Layout>
       <CustomPageHero
-        image={HotelBg}
+        image={getStaticImageData(hotelAssets.hotelBg)}
         titleChildren={
           <h1 className='text-white text-3xl md:text-8xl uppercase font-bold text-center w-full md:max-w-[1306px]'>
             Attract more guests with beautiful{' '}
@@ -83,7 +79,7 @@ const Hotel = () => {
       />
 
       <WhyBuild
-        image={WhyBuildHotelBooking}
+        image={getStaticImageData(hotelAssets.whyBuildImg)}
         colouredTitle='Hotel Booking?'
         infoAndImgClassname='items-center'
         informationSection={

@@ -1,7 +1,7 @@
 import Image, { StaticImageData } from 'next/image';
 
 import {
-  ecommerceAssets,
+  eventAssets,
 } from '../../../../assets';
 import { getStaticImageData } from '../../../utils/helper';
 
@@ -15,32 +15,32 @@ export type Data = {
 const sampleData: Data[] = [
   {
     id: 1,
-    image: getStaticImageData(ecommerceAssets.Music),
+    image: getStaticImageData(eventAssets.Music),
     title: 'Music Venue',
   },
   {
     id: 2,
-    image: getStaticImageData(ecommerceAssets.Fashion),
+    image: getStaticImageData(eventAssets.Fashion),
     title: 'Fashion shows and red carpets',
   },
   {
     id: 3,
-    image: getStaticImageData(ecommerceAssets.Conferences),
+    image: getStaticImageData(eventAssets.Conferences),
     title: 'Conferences',
   },
   {
     id: 4,
-    image: getStaticImageData(ecommerceAssets.Charity),
+    image: getStaticImageData(eventAssets.Charity),
     title: 'Charity Events',
   },
   {
     id: 5,
-    image: getStaticImageData(ecommerceAssets.Seminars),
+    image: getStaticImageData(eventAssets.Seminars),
     title: 'Seminars',
   },
   {
     id: 6,
-    image: getStaticImageData(ecommerceAssets.Exhibitions),
+    image: getStaticImageData(eventAssets.Exhibitions),
     title: 'Exhibitions',
   },
 ];

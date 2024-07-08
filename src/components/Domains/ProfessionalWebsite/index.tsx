@@ -1,37 +1,35 @@
 import Image from 'next/image';
 
 import {
-  ProWebsite1,
-  ProWebsite2,
-  ProWebsite3,
-  ProWebsite4,
+  hotelAssets
 } from '../../../../assets';
+import { getStaticImageData } from '../../../utils/helper';
 
 const sampleData = [
   {
     id: 1,
-    image: ProWebsite1,
+    image: getStaticImageData(hotelAssets.ProWebsite1),
     title: 'List your rooms on leading metasearch sites',
     description:
       'Enjoy more direct bookings when your hotel is highly visible on sites such as Google Hotel Ads, Trivago and Tripadvisor.',
   },
   {
     id: 2,
-    image: ProWebsite2,
+    image: getStaticImageData(hotelAssets.ProWebsite2),
     title: 'SEO-friendly web design',
     description:
       'Drive more organic visits to your site with a website builder that makes search engine optimisations easy.',
   },
   {
     id: 3,
-    image: ProWebsite3,
+    image: getStaticImageData(hotelAssets.ProWebsite3),
     title: 'Hotel App Store',
     description:
       'Enhance your website experience and improve conversion with easy access to 100+ hotel apps ranging from upselling and reviews to loyalty and guest messaging.',
   },
   {
     id: 4,
-    image: ProWebsite4,
+    image: getStaticImageData(hotelAssets.ProWebsite4),
     title: 'A range of hotel website designs to choose from',
     description:
       'Stand out from the crowd with multiple customisable themes to make your website wholly unique.',
@@ -61,6 +59,8 @@ const ProfessionalWebsite = () => {
               src={data.image}
               alt={data.title}
               className='h-16 w-16 object-contain'
+              height={16}
+              width={16}
             />
 
             <div className='flex flex-col gap-5'>

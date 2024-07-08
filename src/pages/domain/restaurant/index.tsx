@@ -1,22 +1,17 @@
 import React from 'react';
 
-import { RobustOnline } from '../../../../assets';
-import restaurantBg from '../../../../assets/restaurantBg.png';
-import toolsIcon1 from '../../../../assets/restaurantToolsIcon-1.png';
-import toolsIcon2 from '../../../../assets/restaurantToolsIcon-2.png';
-import toolsIcon3 from '../../../../assets/restaurantToolsIcon-3.png';
-import WhyBuildRestaurant from '../../../../assets/whyBuildRestaurant.png';
-import whyChooseUsImg from '../../../../assets/whyChooseUs1.png';
+import { restaurantAssets } from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
 import EnrollForWebsite from '../../../components/Domains/EnrollForWebsite';
 import FAQ from '../../../components/Domains/FAQ';
-import ToolBox from '../../../components/Domains/Restaurant/ToolBox';
+import GrowBusiness from '../../../components/Domains/Restaurant/GrowBusiness';
 import WhyBuild from '../../../components/Domains/WhyBuild';
 import WhyChooseUs from '../../../components/Domains/WhyChooseUs';
 import Layout from '../../../components/Layout/Layout';
 import { IFAQ, IWhyChooseUs } from '../../../types';
+import { getStaticImageData } from '../../../utils/helper';
 
 const benefits = [
   {
@@ -63,13 +58,13 @@ const whyChooseContent: IWhyChooseUs[] = [
     title: 'Accept payments from anywhere with POS integrations',
     descp:
       'Streamline your operations by syncing menus and orders with advanced point of sale solutions—right on your dashboard.',
-    image: whyChooseUsImg,
+    image: getStaticImageData(restaurantAssets.whyChooseUsImg),
   },
   {
     title: 'Up your service with real-time data',
     descp:
       'Use analytics to get to know your customers and increase sales, then tailor their online experience to fit their needs.',
-    image: whyChooseUsImg,
+    image: getStaticImageData(restaurantAssets.whyChooseUsImg),
   },
 ];
 
@@ -92,11 +87,12 @@ const enrolData = [
   }
 ]
 
+
 const Restaurant: React.FC = () => {
   return (
     <Layout>
       <CustomPageHero
-        image={restaurantBg}
+        image={getStaticImageData(restaurantAssets.restaurantBg)}
         titleChildren={
           <h1 className='text-white text-8xl uppercase font-bold text-center max-w-[1306px]'>
             Your <span className='text-orange-500'>restaurant</span>
@@ -109,7 +105,7 @@ const Restaurant: React.FC = () => {
       />
 
       <WhyBuild
-        image={WhyBuildRestaurant}
+        image={getStaticImageData(restaurantAssets.WhyBuildRestaurant)}
         colouredTitle='restaurant'
         informationSection={
           <div className='max-w-[737px]'>
@@ -136,7 +132,7 @@ const Restaurant: React.FC = () => {
       <WhyChooseUs whyChooseContent={whyChooseContent} />
 
       <EnrollForWebsite
-        image={RobustOnline}
+        image={getStaticImageData(restaurantAssets.RobustOnline)}
         imageClassname='w-[450px] h-[450px]'
         data={enrolData}
         titleElement={
@@ -146,7 +142,9 @@ const Restaurant: React.FC = () => {
         }
       />
 
-      <div className='min-h-screen flex flex-col items-center justify-center text-center py-[112px] mx-auto gap-[109px]'>
+
+      <GrowBusiness />
+      {/* <div className='min-h-screen flex flex-col items-center justify-center text-center py-[112px] mx-auto gap-[109px]'>
         <h1 className='font-bold text-3xl uppercase md:text-6xl lg:text-7xl xl:text-8xl sm:text-4xl w-full mb-[25px]'>
           The tools you need to grow your{' '}
           <span className='text-orange-500'>business</span>
@@ -172,7 +170,7 @@ const Restaurant: React.FC = () => {
             />
           </div>
         </div>
-      </div>
+      </div> */}
 
       <ClientReviews
         title='Real success stories from'

@@ -13,8 +13,8 @@ const ToolBox: React.FC<ToolBoxProps> = ({
   title,
   descp,
   icons,
-  height = 75,
-  width = 75
+  height = 30,
+  width = 30
 }) => {
   return (
     <div
@@ -26,7 +26,7 @@ const ToolBox: React.FC<ToolBoxProps> = ({
         height={height}
         width={width}
         alt='tools-icon'
-        className='mt-6 mb-8 '
+        className='h-[70px] w-[70px] mt-6 mb-8 '
       />
       <h3 className="text-[#1D1D1D] lg:text-xl font-medium mb-4 uppercase">{title}</h3>
       <p className="text-[#1D1D1D] text-xs md:text-sm lg:text-base mb-5">{descp}</p>

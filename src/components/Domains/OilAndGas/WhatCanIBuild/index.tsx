@@ -2,52 +2,48 @@ import { StaticImageData } from 'next/image';
 import Image from 'next/image';
 import React from 'react';
 
-import complianceKeyImg from "../../../../../assets/oilAndGasComplianceKey.png";
-import dataSoftwareImg from "../../../../../assets/oilAndGasDataSoftware.png";
-import employeeSimplifiedImg from "../../../../../assets/oilAndGasEmployeeSimplified.png";
-import fleetImg from "../../../../../assets/oilAndGasFleet.png";
-import operationImg from "../../../../../assets/oilAndGasOperation.png";
-import productionSoftwareImg from "../../../../../assets/oilAndGasProdSoftware.png";
+import { oilAndGasAssets } from '../../../../../assets';
+import { getStaticImageData } from '../../../../utils/helper';
 
 const data = [
   {
     id: 1,
-    image: productionSoftwareImg,
+    image: getStaticImageData(oilAndGasAssets.productionSoftwareImg),
     title: 'Oil  and gas production software',
     description:
       'Oil and gas is one of the most heavily regulated industries. Your custom software makes compliance easier. Gas operators can complete safety checklists as they progress through a job. Anyone can report issues via your app. Keep your field operations safe – and you have digitised accountability records just in case anything goes wrong.',
   },
   {
     id: 2,
-    image: complianceKeyImg,
+    image: getStaticImageData(oilAndGasAssets.complianceKeyImg),
     title: 'Compliance is key',
     description:
       'Oil and gas is one of the most heavily regulated industries. Your custom software makes compliance easier. Gas operators can complete safety checklists as they progress through a job. Anyone can report issues via your app. Keep your field operations safe – and you have digitised accountability records just in case anything goes wrong.',
   },
   {
     id: 3,
-    image: employeeSimplifiedImg,
+    image: getStaticImageData(oilAndGasAssets.employeeSimplifiedImg),
     title: 'Employee management simplified',
     description:
       'Oil and gas is one of the most heavily regulated industries. Your custom software makes compliance easier. Gas operators can complete safety checklists as they progress through a job. Anyone can report issues via your app. Keep your field operations safe – and you have digitised accountability records just in case anything goes wrong.',
   },
   {
     id: 4,
-    image: dataSoftwareImg,
+    image: getStaticImageData(oilAndGasAssets.dataSoftwareImg),
     title: 'Oil  and gas data management software',
     description:
       'Oil and gas is one of the most heavily regulated industries. Your custom software makes compliance easier. Gas operators can complete safety checklists as they progress through a job. Anyone can report issues via your app. Keep your field operations safe – and you have digitised accountability records just in case anything goes wrong.',
   },
   {
     id: 5,
-    image: fleetImg,
+    image: getStaticImageData(oilAndGasAssets.fleetImg),
     title: 'FLEET management',
     description:
       'Oil and gas is one of the most heavily regulated industries. Your custom software makes compliance easier. Gas operators can complete safety checklists as they progress through a job. Anyone can report issues via your app. Keep your field operations safe – and you have digitised accountability records just in case anything goes wrong.',
   },
   {
     id: 6,
-    image: operationImg,
+    image: getStaticImageData(oilAndGasAssets.operationImg),
     title: 'operation overview',
     description:
       'Oil and gas is one of the most heavily regulated industries. Your custom software makes compliance easier. Gas operators can complete safety checklists as they progress through a job. Anyone can report issues via your app. Keep your field operations safe – and you have digitised accountability records just in case anything goes wrong.',
@@ -69,6 +65,8 @@ const ImageWithHoverInfo: React.FC<ImageWithHoverInfoProps> = ({
     <Image
       src={image}
       alt={title}
+      height={300}
+      width={300}
       className='w-full md:w-[719px] object-fill'
     />
     <div className='absolute bottom-0 flex flex-col items-center text-white mb-4 group-hover:opacity-0 transition-opacity'>

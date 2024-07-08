@@ -1,13 +1,17 @@
-import { WhyBuildEventManagement } from '../../../../assets';
-import eventsBg from '../../../../assets/eventsBg.png';
+import {
+  eventAssets
+} from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
 import DesignYourEvents from '../../../components/Domains/DesignYourEvents';
 import EventManagementSolution from '../../../components/Domains/EventManagementSolution';
+import FAQ from '../../../components/Domains/FAQ';
 import WhyBuild from '../../../components/Domains/WhyBuild';
 import WhyWorkWithUs from '../../../components/Domains/WhyWorkWithUs';
 import Layout from '../../../components/Layout/Layout';
+import { IFAQ } from '../../../types';
+import { getStaticImageData } from '../../../utils/helper';
 
 const benefits = [
   {
@@ -37,11 +41,32 @@ const benefits = [
   },
 ];
 
+const faqsContent: IFAQ[] = [
+  {
+    id: 1,
+    question: 'What features should I look for in an events website?',
+    answer:
+      'Whether you offer large scale or intimate events, there are several core features you’ll need for your events website.',
+  },
+  {
+    id: 2,
+    question: 'What types of events can I offer with in this website development?',
+    answer:
+      'Whether you offer large scale or intimate events, there are several core features you’ll need for your events website.',
+  },
+  {
+    id: 3,
+    question: 'Does nextloop have a mobile app? ',
+    answer:
+      'Whether you offer large scale or intimate events, there are several core features you’ll need for your events website.',
+  },
+];
+
 const Events = () => {
   return (
     <Layout>
       <CustomPageHero
-        image={eventsBg}
+        image={getStaticImageData(eventAssets.eventsBg)}
         titleChildren={
           <h1 className='text-white text-3xl md:text-8xl uppercase font-bold text-center w-full md:max-w-[1306px]'>
             Create a professional{' '}
@@ -54,7 +79,7 @@ const Events = () => {
       />
 
       <WhyBuild
-        image={WhyBuildEventManagement}
+        image={getStaticImageData(eventAssets.WhyBuildEventManagement)}
         colouredTitle='Event Management'
         informationSection={
           <div className='mx-10 lg:mx-0 lg:max-w-[737px]'>
@@ -95,6 +120,8 @@ const Events = () => {
       <ClientReviews />
 
       <DesignYourEvents />
+
+      <FAQ faqsContent={faqsContent} />
 
       <CustomRequestQuote title='Your complete event management platform' />
     </Layout>

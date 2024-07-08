@@ -5,7 +5,6 @@ import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import BoostTraffic from '../../../components/Domains/BoostTraffic';
 import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
-import DesignYourEvents from '../../../components/Domains/DesignYourEvents';
 import EnrollForWebsite from '../../../components/Domains/EnrollForWebsite';
 import FAQ from '../../../components/Domains/FAQ';
 import SellEverywhere from '../../../components/Domains/SellEverywhere';
@@ -154,8 +153,6 @@ const Ecommerce = () => {
         title='Real success stories from'
         colouredTitle='Real customer'
       />
-
-      <DesignYourEvents />
 
       <FAQ faqsContent={faqsContent} />
 
