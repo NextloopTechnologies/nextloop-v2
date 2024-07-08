@@ -1,14 +1,8 @@
 import Image, { StaticImageData } from 'next/image';
 import React from 'react';
 
-import fixedPriceIcon from '../../../../../assets/oilAndGasFixedPriceIcon.png';
-import easyIntegrationIcon from '../../../../../assets/oilAndGasIntegrationIcon.png';
-import lifeCycleIcon from '../../../../../assets/oilAndGasLifeCycleIcon.png';
-import miningIcon from '../../../../../assets/oilAndGasMiningIcon.png';
-import optimiseIcon from '../../../../../assets/oilAndGasOptimizeIcon.png';
-import onePlaceIcon from '../../../../../assets/oilAndGasPlaceIcon.png';
-import platformIcon from '../../../../../assets/oilAndGasPlatformIcon.png';
-import readyIcon from '../../../../../assets/oilAndGasReadyIcon.png';
+import { oilAndGasAssets } from '../../../../../assets';
+import { getStaticImageData } from '../../../../utils/helper';
 
 const data = [
   {
@@ -16,56 +10,56 @@ const data = [
     title: 'Smart mining dashboard',
     descp:
       'Your operation produces huge amounts of data. Understand and visualise it with your dashboard. Pick the metrics you want to monitor and AI identifies areas of improvement.',
-    icon: miningIcon,
+    icon: getStaticImageData(oilAndGasAssets.miningIcon),
   },
   {
     id: 2,
     title: 'Asset life cycle management',
     descp:
       'Continuous monitoring of your equipment ensures everything runs optimally and you stay fully compliant. Push notifications send reminders when urgent issues are found.',
-    icon: lifeCycleIcon,
+    icon: getStaticImageData(oilAndGasAssets.lifeCycleIcon),
   },
   {
     id: 3,
     title: 'Run scenarios and optimise',
     descp:
       'Use the data you’ve collected to simulate various outcomes. Want to see how different fluid or gravel figures change things? It’s as easy as clicking a button.',
-    icon: optimiseIcon,
+    icon: getStaticImageData(oilAndGasAssets.optimiseIcon),
   },
   {
     id: 4,
     title: 'Offshore ready',
     descp:
       'Working offshore comes with its own set of challenges: unique regulations, moving personnel, managing supplies and connectivity issues. Your app handles it all.',
-    icon: readyIcon,
+    icon: getStaticImageData(oilAndGasAssets.readyIcon),
   },
   {
     id: 5,
     title: 'Everything in one place',
     descp:
       'No more messy cabinets. All your documents are stored in the cloud. Sort and search features make everything accessible: production, energy efficiency and safety reports.',
-    icon: onePlaceIcon,
+    icon: getStaticImageData(oilAndGasAssets.onePlaceIcon),
   },
   {
     id: 6,
     title: 'Easy integration',
     descp:
       'Your app can be a complete solution. But maybe you like the financial services you currently use? No worries, these tools can be seamlessly integrated into your solution.',
-    icon: easyIntegrationIcon,
+    icon: getStaticImageData(oilAndGasAssets.easyIntegrationIcon),
   },
   {
     id: 7,
     title: 'Fixed price guarantee',
     descp:
       'Our AI calculates your price after we know your project details. This price is locked in and never goes up – if it’s done quicker, you pay less.',
-    icon: fixedPriceIcon,
+    icon: getStaticImageData(oilAndGasAssets.fixedPriceIcon),
   },
   {
     id: 8,
     title: 'The platform you need',
     descp:
       'Your oil and gas software needs to work everywhere. That’s why we can provide web, desktop and mobile support. It’s designed for your business needs.',
-    icon: platformIcon,
+    icon: getStaticImageData(oilAndGasAssets.platformIcon),
   },
 ];
 

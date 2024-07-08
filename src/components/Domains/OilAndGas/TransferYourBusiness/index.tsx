@@ -2,36 +2,33 @@ import Image from 'next/image';
 import React from 'react';
 
 import ToolBox from '../../Restaurant/ToolBox';
-import rapidIcon from "../../../../../assets/oilandGasOnlineBusinessRapidIcon.png";
-import transparentIcon from "../../../../../assets/oilandGasOnlineBusinessTransparentIcon.png";
-import trustedIcon from "../../../../../assets/oilandGasOnlineBusinessTrustedIcon.png";
-import visionaryIcon from "../../../../../assets/oilandGasOnlineBusinessVisionaryIcon.png";
-import onlineBusinessBg from "../../../../../assets/onlineBusinessBg.png"
+import { oilAndGasAssets } from '../../../../../assets';
+import { getStaticImageData } from '../../../../utils/helper';
 
 const data = [
   {
     id: 1,
     title: "Visionary",
     descp: "Nextloop gives best vision for your business",
-    icon: visionaryIcon
+    icon: getStaticImageData(oilAndGasAssets.visionaryIcon)
   },
   {
     id: 2,
     title: "Rapid",
     descp: "Create software especially for your enterprise – delivered 6x faster.",
-    icon: rapidIcon
+    icon: getStaticImageData(oilAndGasAssets.rapidIcon)
   },
   {
     id: 3,
     title: "Transparent",
     descp: "Get a guaranteed price and set timings upfront – calculated by AI.",
-    icon: transparentIcon
+    icon: getStaticImageData(oilAndGasAssets.transparentIcon)
   },
   {
     id: 4,
     title: "Simple & Trusted",
     descp: "Relieve pressure on your internal resources – fully project managed.",
-    icon: trustedIcon
+    icon: getStaticImageData(oilAndGasAssets.trustedIcon)
   }
 ]
 
@@ -39,10 +36,13 @@ const TransformYourBusiness = () => {
   return (
     <div className='h-full relative bg-[#010103] '>
       <Image
-        src={onlineBusinessBg}
+        src={oilAndGasAssets.onlineBusinessBg}
         className='absolute inset-0 w-full h-full object-cover z-[1]'
         alt='online-business-background'
+        fill
+        sizes='100vw'
         quality={100}
+        priority
       />
       <div className='relative flex flex-col px-14 md:px-24 lg:px-12 z-[2]'>
         <h1 className='text-white md:text-6xl lg:text-7xl xl:text-[85px] font-bold text-3xl leading-none uppercase text-center mb-24 mt-40'>

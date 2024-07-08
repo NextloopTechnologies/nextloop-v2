@@ -1,7 +1,6 @@
 import React from 'react';
 
-import oilAndGasBg from '../../../../assets/oilAndGasBg.png';
-import whyBuildOilAndGas from '../../../../assets/whyBuildOilAndGas.png';
+import { oilAndGasAssets } from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
@@ -13,6 +12,7 @@ import WhyBuild from '../../../components/Domains/WhyBuild';
 import WhyWorkWithUs from '../../../components/Domains/WhyWorkWithUs';
 import Layout from '../../../components/Layout/Layout';
 import { IFAQ } from '../../../types';
+import { getStaticImageData } from '../../../utils/helper';
 
 const faqsContent: IFAQ[] = [
   {
@@ -39,7 +39,7 @@ const OilAndGas = () => {
   return (
     <Layout>
       <CustomPageHero
-        image={oilAndGasBg}
+        image={getStaticImageData(oilAndGasAssets.oilAndGasBg)}
         titleChildren={
           <h1 className='text-white text-8xl uppercase font-bold text-center max-w-[1306px]'>
             Build <span className='text-orange-500'>oil and gas</span> software
@@ -52,7 +52,7 @@ const OilAndGas = () => {
       />
 
       <WhyBuild
-        image={whyBuildOilAndGas}
+        image={getStaticImageData(oilAndGasAssets.whyBuildOilAndGas)}
         colouredTitle='mining industry'
         informationSection={
           <div className='max-w-[737px] flex flex-col justify-center pr-14'>
