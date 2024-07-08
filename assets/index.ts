@@ -1,5 +1,4 @@
 export { default as AboutUsBackground } from './AboutUsBackground.png';
-export { default as BlackRectangle } from './blackRectangle.png';
 export { default as BottomBig } from './careers/bottomBig.png';
 export { default as BottomLeft } from './careers/bottomLeft.png';
 export { default as BottomRight } from './careers/bottomRight.png';
@@ -11,30 +10,17 @@ export { default as ContactArrow } from './ContactArrow.png';
 export { default as ContactUs } from './ContactUs.png';
 export { default as DoubleQuotes } from './DoubleQuotes.png';
 export { default as DownArrow } from './down-arrow.png';
-export { default as EnrollForWebsiteBg } from './enrollForWebsite.png';
-export { default as EventManagement1 } from './EventManagement1.png';
-export { default as EventManagement2 } from './EventManagement2.png';
-export { default as EventManagement3 } from './EventManagement3.png';
-export { default as EventManagement4 } from './EventManagement4.png';
-export { default as EventManagement5 } from './EventManagement5.png';
-export { default as EventManagement6 } from './EventManagement6.png';
-export { default as EventManagement7 } from './EventManagement7.png';
-export { default as GrayEllipse } from './grayEllipse.png';
 export { default as Lines } from './line.png';
 export { default as Mobile_1 } from './Mobile-1.png';
 export { default as Mobile_2 } from './Mobile-2.png';
 export { default as NextLoopColoredLogo } from './NextLoopColoredLogo.jpeg';
 export { default as NextLoopLogo } from './NextLoopLogo.png';
-export { default as OrangeRectangle } from './orangeRectangle.png';
 export { default as SellEverywhereImage } from './sellEverywhere.png';
-export { default as WhyBuildEventManagement } from './whyBuildEventManagement.png';
 export { default as Whyus } from './whyus.png';
 
 export const staticAssests = {
   AboutUsBackground:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/AboutUsBackground.png?updatedAt=1719991855890',
-  BlackRectangle:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/blackRectangle.png?updatedAt=1719991856007',
   BottomBig:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/bottomBig.png?updatedAt=1720014462199',
   BottomLeft:
@@ -57,6 +43,28 @@ export const staticAssests = {
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/DoubleQuotes.png?updatedAt=1719991858904',
   DownArrow:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/down-arrow.png?updatedAt=1719991859030',
+  Lines:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/line.png?updatedAt=1719991867284',
+  Mobile_1:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/Mobile-1.png?updatedAt=1719991868759',
+  Mobile_2:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/Mobile-2.png?updatedAt=1719991868786',
+  NextLoopColoredLogo:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/NextLoopColoredLogo.jpeg?updatedAt=1719991869017',
+  NextLoopLogo:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/NextLoopLogo.png?updatedAt=1719991873096',
+  SellEverywhereImage:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/sellEverywhere.png?updatedAt=1719991898809',
+  Whyus:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/whyus.png?updatedAt=1719991921001',
+};
+
+export const eventAssets = {
+  eventsBg: "https://ik.imagekit.io/nextloop/NextloopWebAssets/eventsBg.png?updatedAt=1719991864313",
+  WhyBuildEventManagement:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/whyBuildEventManagement.png?updatedAt=1719991911128',
+  BlackRectangle:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/blackRectangle.png?updatedAt=1719991856007',
   EventManagement1:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/EventManagement1.png?updatedAt=1719991861911',
   EventManagement2:
@@ -73,25 +81,21 @@ export const staticAssests = {
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/EventManagement7.png?updatedAt=1719991862954',
   GrayEllipse:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/grayEllipse.png?updatedAt=1719991866262',
-  Lines:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/line.png?updatedAt=1719991867284',
-  Mobile_1:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/Mobile-1.png?updatedAt=1719991868759',
-  Mobile_2:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/Mobile-2.png?updatedAt=1719991868786',
-  NextLoopColoredLogo:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/NextLoopColoredLogo.jpeg?updatedAt=1719991869017',
-  NextLoopLogo:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/NextLoopLogo.png?updatedAt=1719991873096',
   OrangeRectangle:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/orangeRectangle.png?updatedAt=1719991885242',
-  SellEverywhereImage:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/sellEverywhere.png?updatedAt=1719991898809',
-  WhyBuildEventManagement:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/whyBuildEventManagement.png?updatedAt=1719991911128',
-  Whyus:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/whyus.png?updatedAt=1719991921001',
-};
+  Charity:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/charity.png?updatedAt=1719991855611',
+  Conferences:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/conferences.png?updatedAt=1719991859035',
+  Exhibitions:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/exhibitions.png?updatedAt=1719991864287',
+  Fashion:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/fashion.png?updatedAt=1719991864730',
+  Music:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/music.png?updatedAt=1719991868938',
+  Seminars:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/seminars.png?updatedAt=1719991899034',
+}
 
 export const oilAndGasAssets = {
   oilAndGasBg: "https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasBg.png?updatedAt=1719991876162",
@@ -191,18 +195,6 @@ export const ecommerceAssets = {
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/enrollForWebsite.png?updatedAt=1719991861773',
   EnrollForWebsiteBg:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/enrollForWebsite.png?updatedAt=1719991861773',
-  Charity:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/charity.png?updatedAt=1719991855611',
-  Conferences:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/conferences.png?updatedAt=1719991859035',
-  Exhibitions:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/exhibitions.png?updatedAt=1719991864287',
-  Fashion:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/fashion.png?updatedAt=1719991864730',
-  Music:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/music.png?updatedAt=1719991868938',
-  Seminars:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/seminars.png?updatedAt=1719991899034',
 };
 
 export const fintechAssets = {
@@ -349,3 +341,9 @@ export const travelandhotelAssets = {
   trackingIcon:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/travelandhotel/trackingIcon.png?updatedAt=1720073406238',
 };
+
+
+export const faqAssets = {
+  faqCrossIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/faqCrossIcon.png?updatedAt=1719991864331",
+  faqPlusIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/faqPlusIcon.png?updatedAt=1719991864540",
+}

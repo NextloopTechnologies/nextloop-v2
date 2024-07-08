@@ -1,17 +1,9 @@
 import Image, { StaticImageData } from 'next/image';
 
 import {
-  BlackRectangle,
-  EventManagement1,
-  EventManagement2,
-  EventManagement3,
-  EventManagement4,
-  EventManagement5,
-  EventManagement6,
-  EventManagement7,
-  GrayEllipse,
-  OrangeRectangle,
+  eventAssets
 } from '../../../../assets';
+import { getStaticImageData } from '../../../utils/helper';
 
 const data = [
   {
@@ -21,14 +13,14 @@ const data = [
       'Unlimited event listings | Multilingual capabilities | Event layouts and calendars',
     description:
       'Create a floor plan of your venue where guests can choose and purchase their seats. Customize it with rows, tables or standing room only and set different prices for each',
-    image: EventManagement1,
+    image: getStaticImageData(eventAssets.EventManagement1),
   },
   {
     id: 2,
     title: 'Make an interactive seating map',
     description:
       'Choose from 900+ customizable templates designed to showcase any type of event from professional meetups, conferences, concerts, sports events, parties, weddings and more. With our fully integrated video streaming solution, Wix Live, you can host online events from anywhere.',
-    image: EventManagement2,
+    image: getStaticImageData(eventAssets.EventManagement2),
   },
   {
     id: 3,
@@ -42,7 +34,7 @@ const data = [
       'Tax Collection on Ticket Sales',
       'Sales and Revenue Tracking',
     ],
-    image: EventManagement3,
+    image: getStaticImageData(eventAssets.EventManagement3),
   },
   {
     id: 4,
@@ -51,7 +43,7 @@ const data = [
       'Email marketing | Coupon and promo codes | Google and Facebook integrations',
     description:
       'Generate more ticket sales for your events using smart marketing tools. Drive traffic to your event website with scheduled email campaign, coupon offers designed social posts for Facebook and Instagram and more.',
-    image: EventManagement4,
+    image: getStaticImageData(eventAssets.EventManagement4),
   },
   {
     id: 5,
@@ -59,7 +51,7 @@ const data = [
     subTitle: 'Members Area | Live event feed | Forum',
     description:
       'Create a professional community and networking opportunities. Keep attendees connected and engaged with a blog, discussion forum and live, content feed he day of your event.  Add a Members area where attendees can create a profile and see who else is going.',
-    image: EventManagement5,
+    image: getStaticImageData(eventAssets.EventManagement5),
   },
   {
     id: 6,
@@ -68,7 +60,7 @@ const data = [
       'Editable guest and waitlists | Automated email confirmation | Customizable registration',
     description:
       'Track and manage your attendee list. Capture attendee information and preferences with custom forms. Set your guest capacity and open awaitlist. Trigger automated emails for ticket and RSVP confirmation, reminders and more.',
-    image: EventManagement6,
+    image: getStaticImageData(eventAssets.EventManagement6),
   },
   {
     id: 7,
@@ -76,7 +68,7 @@ const data = [
     subTitle: 'Mobile ticketing app | Walk-in ticket sales',
     description:
       'Smoothly manage your event onsite with the Wix Owner app. Run a clean door by checking in guests, scanning tickets, selling tickets at the door, managing your guest list and more. Open a live event discussion feed that you and your attendees can use to share and discuss content.',
-    image: EventManagement7,
+    image: getStaticImageData(eventAssets.EventManagement7),
   },
 ];
 
@@ -103,36 +95,42 @@ export const EllipsesGradientImageCard = ({ image, position }: Props) => (
   <div className='relative'>
     <Image
       src={image}
-      className={`absolute h-[450px] w-[450px] top-6 ${
-        position === POSITION.LEFT ? '-right-[223px]' : '-left-[223px]'
-      } object-contain`}
+      className={`absolute h-[450px] w-[450px] top-6 ${position === POSITION.LEFT ? '-right-[223px]' : '-left-[223px]'
+        } object-contain`}
       alt='image'
+      height={300}
+      width={300}
     />
     <Image
-      src={GrayEllipse}
-      className={`absolute w-24 h-24 ${
-        position === POSITION.LEFT ? 'left-16' : 'right-16'
-      } top-10`}
+      src={(eventAssets.GrayEllipse)}
+      className={`absolute w-24 h-24 ${position === POSITION.LEFT ? 'left-16' : 'right-16'
+        } top-10`}
       alt='ellipse'
+      height={300}
+      width={300}
     />
     <Image
-      src={GrayEllipse}
-      className={`absolute w-16 h-16 ${
-        position === POSITION.LEFT ? 'left-80' : 'right-80'
-      } top-32`}
+      src={(eventAssets.GrayEllipse)}
+      className={`absolute w-16 h-16 ${position === POSITION.LEFT ? 'left-80' : 'right-80'
+        } top-32`}
       alt='ellipse'
+      height={300}
+      width={300}
     />
     <Image
-      src={GrayEllipse}
-      className={`absolute w-24 h-24 ${
-        position === POSITION.LEFT ? 'left-16' : 'right-16'
-      } bottom-20`}
+      src={(eventAssets.GrayEllipse)}
+      className={`absolute w-24 h-24 ${position === POSITION.LEFT ? 'left-16' : 'right-16'
+        } bottom-20`}
       alt='ellipse'
+      height={300}
+      width={300}
     />
     <Image
-      src={position === POSITION.LEFT ? BlackRectangle : OrangeRectangle}
+      src={position === POSITION.LEFT ? (eventAssets.BlackRectangle) : (eventAssets.OrangeRectangle)}
       className='w-[600px] h-[500px]'
       alt='BG'
+      height={300}
+      width={300}
     />
   </div>
 );
@@ -146,14 +144,12 @@ export const EventIdeaRow = ({
   descriptionPoints,
 }: EventIdeaProps) => (
   <div
-    className={`flex items-center justify-between ${
-      position === POSITION.LEFT && 'flex-row-reverse'
-    }`}
+    className={`flex items-center justify-between ${position === POSITION.LEFT && 'flex-row-reverse'
+      }`}
   >
     <div
-      className={`flex flex-col gap-5 w-[550px] ${
-        position === POSITION.LEFT ? 'mr-32' : 'ml-32'
-      }`}
+      className={`flex flex-col gap-5 w-[550px] ${position === POSITION.LEFT ? 'mr-32' : 'ml-32'
+        }`}
     >
       <h2 className='text-4xl uppercase font-bold'>{title}</h2>
       {subTitle && <h3 className='font-medium text-lg'>{subTitle}</h3>}

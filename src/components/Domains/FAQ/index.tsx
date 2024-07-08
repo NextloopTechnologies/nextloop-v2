@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
 
-import faqCrossIcon from "../../../../assets/faqCrossIcon.png";
-import faqPlusIcon from "../../../../assets/faqPlusIcon.png";
+import { faqAssets } from '../../../../assets';
 import { IFAQ } from '../../../types';
 
 interface AccordionProps {
@@ -20,20 +19,20 @@ const FAQ: React.FC<AccordionProps> = ({ faqsContent }) => {
     <div className="min-h-screen flex flex-col items-center py-[122px] mx-auto gap-[109px]">
       <h1 className="text-8xl font-bold mb-7">FAQ'S</h1>
       <div className="w-full p-10">
-        { faqsContent?.map((faq) => (
+        {faqsContent?.map((faq) => (
           <div key={faq.id} className="w-full border-b border-gray-400 p-4 mb-3">
             <div
               className="flex justify-between items-center cursor-pointer"
               onClick={() => handleToggle(faq.id)}
             >
               <span className="text-xl font-medium uppercase mb-4">{faq.question}</span>
-              {isOpen === faq.id ? <Image src={faqCrossIcon} alt=''/> : <Image src={faqPlusIcon} alt=''/>}
+              {isOpen === faq.id ? <Image src={(faqAssets.faqCrossIcon)} height={20} width={20} alt='' /> : <Image src={(faqAssets.faqPlusIcon)} height={20} width={20} alt='' />}
             </div>
-            {isOpen === faq.id  && (
+            {isOpen === faq.id && (
               <div className="sm:ml-[140px]">
-                  <p className="text-[#261F21] text-lg border-l-[3px] border-orange-500 pl-4">
-                    {faq.answer}
-                  </p>
+                <p className="text-[#261F21] text-lg border-l-[3px] border-orange-500 pl-4">
+                  {faq.answer}
+                </p>
               </div>
             )}
           </div>
