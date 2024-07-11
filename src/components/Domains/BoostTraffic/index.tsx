@@ -81,35 +81,31 @@ export const TitleDescCard = ({
 
 const BoostTraffic = () => {
   return (
-    <div className='flex h-[230vh] md:h-[120vh]'>
-      <div className='w-full min-h-screen relative flex items-center justify-center text-white'>
-        <Image
-          src={ecommerceAssets.BoostTrafficBg}
-          className='absolute h-full w-full object-cover'
-          alt='blogs background'
-          fill
-          sizes='100vw'
-          priority
-          quality={100}
-        />
-        <div className='absolute min-h-screen flex flex-col items-center inset-0 bg-black opacity-85 py-10 md:py-25 gap-5'>
-          <h1
-            className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center max-w-[1200px] mx-auto`}
-          >
-            Boost traffic and revenue with a full{' '}
-            <span className='text-orange-500'>marketing suite</span>
-          </h1>
+    <div className='h-full bg-[#010103] relative flex items-center justify-center text-white'>
+      <Image
+        src={ecommerceAssets.BoostTrafficBg}
+        className='absolute h-full w-full object-cover z-[1]'
+        alt='blogs background'
+        fill
+        sizes='100vw'
+        priority
+        quality={100}
+      />
+      <div className='flex flex-col items-center py-20 md:py-32 gap-10 z-[2]'>
+        <h1 className='text-3xl md:text-7xl uppercase font-bold text-center max-w-[1200px] mx-auto'>
+          Boost traffic and revenue with a full{' '}
+          <span className='text-orange-500'>marketing suite</span>
+        </h1>
 
-          <div className='flex flex-wrap mt-10 gap-8 max-w-[1500px] mx-auto'>
-            {sampleData.map((data) => (
-              <TitleDescCard
-                key={data.id}
-                title={data.title}
-                description={data.description}
-                percentage={data.percentage}
-              />
-            ))}
-          </div>
+        <div className='flex flex-wrap mt-10 gap-8 max-w-[1500px] mx-auto'>
+          {sampleData.map((data) => (
+            <TitleDescCard
+              key={data.id}
+              title={data.title}
+              description={data.description}
+              percentage={data.percentage}
+            />
+          ))}
         </div>
       </div>
     </div>

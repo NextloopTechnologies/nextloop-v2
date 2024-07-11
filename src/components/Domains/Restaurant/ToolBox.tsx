@@ -13,8 +13,8 @@ const ToolBox: React.FC<ToolBoxProps> = ({
   title,
   descp,
   icons,
-  height = 30,
-  width = 30
+  height = 60,
+  width = 60
 }) => {
   return (
     <div

@@ -5,6 +5,7 @@ import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
 import EnrollForWebsite from '../../../components/Domains/EnrollForWebsite';
 import FAQ from '../../../components/Domains/FAQ';
+import ProductServices from '../../../components/Domains/ProductServices';
 import SellEverywhere from '../../../components/Domains/SellEverywhere';
 import WhatWeDo from '../../../components/Domains/WhatWeDo';
 import WhyBuild from '../../../components/Domains/WhyBuild';
@@ -88,6 +89,35 @@ const WhatWeDoData = [
   },
 ];
 
+const productServiceContent = [
+  {
+    icon: getStaticImageData(ecommerceAssets.settingIcon),
+    title: "physical products",
+    descp: "Add an extensive catalog of products to your online store with up to 1,000 variants each. Import and export CSV files with products or seamlessly migrate your catalog with the Cart2Cart app."
+  },
+  {
+    icon: getStaticImageData(ecommerceAssets.modernizeIcon),
+    title: "dropshipping",
+    descp: "Add ready-to-sell products from our dropshipping platform, or third-party apps, and let suppliers take care of fulfillment."
+  },
+  {
+    icon: getStaticImageData(ecommerceAssets.cloudIcon),
+    title: "print on demand",
+    descp: "Add your designs to hundreds of high-quality products, from t-shirts to headphones and let suppliers ship your custom merchandise directly to customers."
+  },
+  {
+    icon: getStaticImageData(ecommerceAssets.maintenanceIcon),
+    title: "digital products",
+    descp: "Sell digital products such as music files, ebooks, online courses, images or gift cards."
+  },
+  {
+    icon: getStaticImageData(ecommerceAssets.cloudIcon),
+    title: "subscriptions",
+    descp: "Easily create and manage recurring products and sell subscriptions to generate a steady revenue stream."
+  },
+]
+
+
 const Ecommerce = () => {
   return (
     <Layout>
@@ -149,6 +179,18 @@ const Ecommerce = () => {
       />
       <SellEverywhere />
       <BoostTraffic />
+
+      <ProductServices
+        title={
+          <h1 className='text-black text-3xl md:text-5xl lg:text-7xl xl:text-[85px] uppercase font-bold text-center max-w-[1306px]'>
+            sell your{' '}
+            <span className='text-orange-500'>own products</span>
+            {' '}or find products to sell
+          </h1>
+        }
+        data={productServiceContent}
+      />
+
       <ClientReviews
         title='Real success stories from'
         colouredTitle='Real customer'
