@@ -195,6 +195,18 @@ export const ecommerceAssets = {
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/enrollForWebsite.png?updatedAt=1719991861773',
   EnrollForWebsiteBg:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/enrollForWebsite.png?updatedAt=1719991861773',
+  cloudIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/cloudIcon.png?updatedAt=1720073536584',
+  maintenanceIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/maintenanceIcon.png?updatedAt=1720073536602',
+  modernizeIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/modernizeIcon.png?updatedAt=1720073536539',
+  settingIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/settingIcon.png?updatedAt=1720073539254',
+  globeIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomGlobeIcon.png?updatedAt=1720703266810",
+  desktopIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomDesktopIcon.png?updatedAt=1720703266804",
+  marketIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomMarketIcon.png?updatedAt=1720703266827",
+  bookReaderIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomBookReaderIcon.png?updatedAt=1720703266602"
 };
 
 export const fintechAssets = {
