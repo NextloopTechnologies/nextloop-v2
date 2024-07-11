@@ -1,3 +1,4 @@
+import parse from 'html-react-parser'
 import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 
@@ -21,7 +22,8 @@ const PortfolioID: React.FC<{ data?: IPortfolio, error?: string }> = ({
       />
       <div className='xl:p-24 lg:p-8 p-4 flex flex-col'>
         {data ? (
-          <div className='flex w-full min-h-screen items-center justify-center'>
+          <div className='flex flex-col w-full min-h-screen items-center justify-center'>
+            <h1 className='font-bold text-4xl mt-5 mb-14'>{data.title}</h1>
             <Image
               src={data?.image?.[0]?.url as string}
               alt='portfolio-image'
@@ -29,6 +31,9 @@ const PortfolioID: React.FC<{ data?: IPortfolio, error?: string }> = ({
               width={900}
               height={900}
             />
+            <p>
+              {parse(data.descp!)}
+            </p>
           </div>
         ) : (
           <div className='h-screen flex items-center justify-center text-2xl'>
