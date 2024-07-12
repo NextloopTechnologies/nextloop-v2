@@ -46,21 +46,39 @@ const SellEverywhere = () => {
         className='h-[370px] w-[370px] md:h-[700px] md:w-[700px] object-contain mt-[100px]'
       /> */}
 
-      <div className="w-screen h-screen flex justify-center items-center">
-        <div className="grid grid-rows-2 gap-4 text-white">
-          <div className="grid grid-cols-2 gap-4">
-            <div className="flex rounded-tl-full bg-[#FA8145] h-[180px] w-[180px] md:h-[320px] md:w-[320px] relative overflow-hidden">
-              <div className='flex flex-col text-right items-center  mt-24 pr-5'>
-                <Image src={data[0]?.icon!} alt='' className='h-10 w-10' height={30} width={30} />
-                <h3 className='uppercase text-base font-medium py-4'>{data[0]?.title}</h3>
-                <p>{data[0]?.descp}</p>
+      <div className="w-screen h-screen flex justify-center items-center mt-[220px] mb-28 md:mt-14 md:mb-4">
+        <div className="grid sm:grid-rows-2 gap-4 text-white">
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div className="flex sm:rounded-tl-full bg-[#FA8145] px-4 sm:px-0 h-[260px] w-[260px] md:h-[320px] md:w-[320px] lg:h-[340px] lg:w-[340px] relative overflow-hidden">
+              <div className='flex flex-col justify-center items-center md:mt-10 lg:mt-10 sm:items-end sm:pr-5'>
+                <Image src={data[0]?.icon!} alt='' className='h-8 w-8 md:h-10 md:w-10' height={30} width={30} />
+                <h3 className='uppercase text-xs md:text-lg font-medium mb-2 mt-3 px-4 sm:px-0 sm:mb-4 sm:mt-6'>{data[0]?.title}</h3>
+                <p className='text-[9px] md:text-sm text-center sm:text-right sm:pl-24'>{data[0]?.descp}</p>
               </div>
             </div>
-            <div className="rounded-tr-full bg-[#1D1D1D] h-[180px] w-[180px] md:h-[320px] md:w-[320px] relative overflow-hidden"></div>
+            <div className="flex sm:rounded-tr-full bg-[#1D1D1D] px-4 sm:px-0 h-[260px] w-[260px] md:h-[320px] md:w-[320px] lg:h-[340px] lg:w-[340px] relative overflow-hidden">
+              <div className='flex flex-col justify-center items-center md:mt-5 lg:mt-5 sm:items-start sm:pl-5'>
+                <Image src={data[1]?.icon!} alt='' className='h-8 w-8 md:h-10 md:w-10' height={30} width={30} />
+                <h3 className='uppercase text-xs md:text-lg font-medium mb-2 mt-3 px-4 sm:px-0 sm:mb-4 sm:mt-6'>{data[1]?.title}</h3>
+                <p className='text-[9px] md:text-sm text-center sm:text-left sm:pr-24'>{data[1]?.descp}</p>
+              </div>
+            </div>
           </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="rounded-bl-full  bg-[#1D1D1D] h-[180px] w-[180px] md:h-[320px] md:w-[320px] relative overflow-hidden"></div>
-            <div className="rounded-br-full  bg-[#FA8145] h-[180px] w-[180px] md:h-[320px] md:w-[320px] relative overflow-hidden"></div>
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div className="flex sm:rounded-bl-full  bg-[#1D1D1D] px-4 sm:px-0  h-[260px] w-[260px] md:h-[320px] md:w-[320px] lg:h-[340px] lg:w-[340px] relative overflow-hidden">
+              <div className='flex flex-col justify-center items-center mb-10 sm:items-end sm:pr-5'>
+                <Image src={data[2]?.icon!} alt='' className='h-7 w-6 md:h-8 md:w-8' height={30} width={30} />
+                <h3 className='uppercase text-xs md:text-lg font-medium mb-2 mt-3 px-4 sm:px-0 sm:mb-4 sm:mt-6'>{data[2]?.title}</h3>
+                <p className='text-[9px] md:text-sm text-center sm:text-right sm:pl-24'>{data[2]?.descp}</p>
+              </div>
+            </div>
+            <div className="flex sm:rounded-br-full  bg-[#FA8145] px-4 sm:px-0 h-[260px] w-[260px] md:h-[320px] md:w-[320px] lg:h-[340px] lg:w-[340px] relative overflow-hidden">
+              <div className='flex flex-col justify-center items-center mb-7 lg:mb-10 sm:items-start sm:pl-5'>
+                <Image src={data[3]?.icon!} alt='' className='h-8 w-8 md:h-10 md:w-10' height={30} width={30} />
+                <h3 className='uppercase text-xs md:text-lg font-medium mb-2 mt-3 px-4 sm:px-0  sm:mb-4 sm:mt-6'>{data[3]?.title}</h3>
+                <p className='text-[9px] md:text-sm text-center sm:text-left sm:pr-24'>{data[3]?.descp}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
