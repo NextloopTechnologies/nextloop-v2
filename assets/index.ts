@@ -206,7 +206,8 @@ export const ecommerceAssets = {
   globeIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomGlobeIcon.png?updatedAt=1720703266810",
   desktopIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomDesktopIcon.png?updatedAt=1720703266804",
   marketIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomMarketIcon.png?updatedAt=1720703266827",
-  bookReaderIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomBookReaderIcon.png?updatedAt=1720703266602"
+  bookReaderIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomBookReaderIcon.png?updatedAt=1720703266602",
+  rectangleBg: "https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomRectangle.png?updatedAt=1721040120178",
 };
 
 export const fintechAssets = {

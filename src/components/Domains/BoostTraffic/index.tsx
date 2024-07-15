@@ -58,12 +58,11 @@ export const TitleDescCard = ({
   description,
   percentage,
 }: TitleDescCardProps) => (
-  <div className='bg-[#1A0E0A] justify-center text-center flex flex-col items-center gap-5 mx-auto w-[370px] md:w-[475px] h-[300px]'>
-    <h4 className='text-2xl font-bold uppercase text-white'>{title}</h4>
-
-    <h1 className='text-5xl text-orange-500 font-bold'>{percentage}</h1>
-
-    <p className='text-lg mx-5 text-[#BAB7B5] font-normal'>{description}</p>
+  <div className='relative flex flex-col justify-center text-center items-center mx-auto p-8'>
+    <Image src={ecommerceAssets.rectangleBg} height={300} width={300} alt='' className='absolute object-cover h-full w-full' />
+    <h4 className='text-2xl font-bold uppercase text-white mb-4'>{title}</h4>
+    <h1 className='text-5xl text-orange-500 font-bold mb-4'>{percentage}</h1>
+    <p className='mx-5 text-white font-normal mb-4'>{description}</p>
   </div>
 );
 
@@ -84,8 +83,7 @@ const BoostTraffic = () => {
           Boost traffic and revenue with a full{' '}
           <span className='text-orange-500'>marketing suite</span>
         </h1>
-
-        <div className='flex flex-wrap mt-10 gap-8 max-w-[1500px] mx-auto'>
+        <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 mx-4'>
           {sampleData.map((data) => (
             <TitleDescCard
               key={data.id}
