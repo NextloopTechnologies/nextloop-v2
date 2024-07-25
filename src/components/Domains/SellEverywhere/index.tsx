@@ -67,7 +67,7 @@ const RoundedTriangle: React.FC<DataProps> = ({
   return (
     <div className={`flex sm:${round_direction} bg-[${bg_color}] px-4 sm:px-0 h-[260px] w-[260px] md:h-[320px] md:w-[320px] lg:h-[340px] lg:w-[340px] relative overflow-hidden`}>
       <div className={`flex flex-col justify-center items-center ${contentStyle}`}>
-        <Image src={icon} alt='' className={`${iconStyle}`} height={30} width={30} />
+        <Image src={icon} alt='sell-icon' className={`${iconStyle}`} height={30} width={30} />
         <h3 className='uppercase text-xs md:text-lg font-medium mb-2 mt-3 px-4 sm:px-0 sm:mb-4 sm:mt-6'>{title}</h3>
         <p className={`text-[9px] md:text-sm text-center ${descpStyle}`}>{descp}</p>
       </div>

@@ -59,7 +59,7 @@ export const TitleDescCard = ({
   percentage,
 }: TitleDescCardProps) => (
   <div className='relative flex flex-col justify-center text-center items-center mx-auto p-8'>
-    <Image src={ecommerceAssets.rectangleBg} height={300} width={300} alt='' className='absolute object-cover h-full w-full' />
+    <Image src={ecommerceAssets.rectangleBg} height={300} width={300} alt='card-bg' className='absolute object-cover h-full w-full' />
     <h4 className='text-2xl font-bold uppercase text-white mb-4'>{title}</h4>
     <h1 className='text-5xl text-orange-500 font-bold mb-4'>{percentage}</h1>
     <p className='mx-5 text-white font-normal mb-4'>{description}</p>
