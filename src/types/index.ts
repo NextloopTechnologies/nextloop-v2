@@ -52,3 +52,15 @@ export interface IWhyChooseUs {
   descp: string;
   image: StaticImageData;
 }
+
+export interface AppliedJob {
+  job_id: number | null;
+  fullname: string;
+  email: string;
+  phone: string;
+  resume_url: string;
+  resume_id: string;
+  cover_letter: string;
+  github_url: string;
+  linkedin_url: string;
+}

@@ -222,7 +222,10 @@ export default CareersPage;
 
 export async function getServerSideProps() {
   // Fetch data from Supabase
-  const { data: jobs, error } = await supabaseClient.from('jobs').select('*');
+  const { data: jobs, error } = await supabaseClient
+    .from('jobs')
+    .select('*')
+    .filter('visibility', 'eq', true)
 
   if (error) {
     return {
