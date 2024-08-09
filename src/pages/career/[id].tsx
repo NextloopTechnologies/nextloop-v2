@@ -2,12 +2,12 @@
 import { GetServerSideProps } from 'next';
 import React from 'react';
 
+import JobDetails from '../../components/Career/JobDetail';
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
 import { Job } from '../../types';
 import supabaseClient from '../../utils/client';
 import careerBg from '../../../assets/careerBg.png';
-import JobDetails from '../../components/Career/JobDetail';
 
 const CareerID: React.FC<{ data?: Job[]; error?: string }> = ({
   data,

@@ -3,10 +3,10 @@ import dayjs from 'dayjs';
 import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 
-import locationIcon from '../../../assets/location.svg';
-import wallet from '../../../assets/wallet.svg';
 import ApplicationForm from '../../components/Career/ApplicationForm';
 import { Job } from '../../types';
+import locationIcon from '../../../assets/location.svg';
+import wallet from '../../../assets/wallet.svg';
 
 
 const JobDetails: React.FC<{ job: Job }> = ({
@@ -116,7 +116,7 @@ const JobDetails: React.FC<{ job: Job }> = ({
         </div>
       </div>
       {showForm && (
-        <div ref={formRef}>
+        <div ref={formRef} className='py-12 mx-2'>
           <ApplicationForm jobId={id} />
         </div>
       )}
