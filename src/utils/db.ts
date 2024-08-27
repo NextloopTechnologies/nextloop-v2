@@ -1,6 +1,8 @@
+/* eslint-disable no-useless-catch */
+import { AppliedJob } from "../types"
 import supabaseClient from "./client"
 
-export const createAppliedJob = async (values: any) => {
+export const createAppliedJob = async (values: AppliedJob) => {
   try {
     const { error } = await supabaseClient
       .from('applied_jobs')

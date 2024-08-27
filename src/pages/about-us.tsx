@@ -10,6 +10,7 @@ import cert3 from '../../assets/certificates/3.png';
 import cert4 from '../../assets/certificates/4.png';
 import bulb from '../../assets/lightbulb.svg';
 import arrow from '../../assets/right-arrow.svg';
+import Head from 'next/head';
 
 const arr = [
   {
@@ -71,6 +72,10 @@ const certificateCardArr = [
 const AboutUsHome = () => {
   return (
     <Layout>
+      <Head>
+        <title>About NextLoop Technologies | Your Trusted IT Partner</title>
+        <meta name="description" content="Learn more about NextLoop Technologies, our mission, and our commitment to delivering exceptional IT solutions. We are dedicated to driving your business success with our expertise." />
+      </Head>
       <PageHero
         image={aboutBg}
         title='us'

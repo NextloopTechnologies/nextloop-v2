@@ -25,29 +25,39 @@ const ApplicationForm: React.FC<{ jobId: number }> = ({
   const handleFileChange = async (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       formData.append('file', e.target.files[0])
-      const response = await uploadResume(formData);
-      if (response.success) {
-        initialValues.resume_id = response.data?.fileId!
-        initialValues.resume_url = response.data?.url!
+      try {
+        const response = await uploadResume(formData);
+        if (response.data && Object.keys(response.data).length) {
+          initialValues.resume_id = response.data.fileId
+          initialValues.resume_url = response.data.url
+        }
+      } catch (error) {
+        console.log("Resume API error", error);
       }
     }
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsLoading(true);
+    try {
+      setIsLoading(true);
 
-    const payload: AppliedJob = { ...initialValues, job_id: jobId }
-    const { success } = await createAppliedJob(payload);
+      const payload: AppliedJob = { ...initialValues, job_id: jobId }
+      const { success } = await createAppliedJob(payload);
 
-    if (success) setFeedback("Thankyou for applying!")
-    else setIsError('We are currently facing some technical issue, Try later!')
+      if (!success) return setIsError('We are currently facing some technical issue, Try later!')
 
-    setInitialValues(AppliedJobDefaultFormValues)
-    if (resumeFileInputRef.current) {
-      resumeFileInputRef.current.value = ''
+      setFeedback("Thankyou for applying!")
+      setInitialValues(AppliedJobDefaultFormValues)
+
+      if (resumeFileInputRef.current) {
+        resumeFileInputRef.current.value = ''
+      }
+    } catch (error) {
+      setIsError("Server Error")
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
 
   return (
