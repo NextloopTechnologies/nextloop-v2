@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Layout from '../components/Layout/Layout';
 import PageHero from '../components/PageHero';
 import servicesBg from '../../assets/servicesBg.png';
+import Head from 'next/head';
 
 const cards: { title: string; desc: string }[] = [
   {
@@ -58,6 +59,10 @@ const cards: { title: string; desc: string }[] = [
 const Services = () => {
   return (
     <Layout>
+      <Head>
+        <title>IT Services | NextLoop Technologies - Transforming Businesses</title>
+        <meta name="description" content="Explore our range of IT services at NextLoop Technologies, from cloud computing and cybersecurity to software development. We empower businesses with innovative tech solutions tailored to their needs." />
+      </Head>
       <PageHero
         image={servicesBg}
         title='services'

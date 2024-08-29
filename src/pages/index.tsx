@@ -16,6 +16,7 @@ import { IPortfolio } from '../types';
 import supabaseClient from '../utils/client';
 import useWindowSize from '../utils/useWindowSize';
 import { DownArrow } from '../../assets';
+import Head from 'next/head';
 
 const sectionStyle: React.CSSProperties = {
   minHeight: '100vh',
@@ -234,6 +235,10 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = ({ data }) => {
   return (
     <>
       <Layout divRefs={divRefs} id='connect-with-us'>
+        <Head>
+          <title>NextLoop Technologies | Innovative IT Solutions for Businesses</title>
+          <meta name="description" content="Discover NextLoop Technologies, your partner in cutting-edge IT solutions. We specialize in digital transformation, software development, and managed services, ensuring your business stays ahead in the tech landscape." />
+        </Head>
         <div
           id='intro'
           ref={(el: any) => (divRefs.current[0] = el)}
