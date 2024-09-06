@@ -5,12 +5,8 @@ import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
 import { Job } from '../../types';
 import supabaseClient from '../../utils/client';
-import { BottomBig, BottomLeft, BottomRight } from '../../../assets';
+import { careerAssets } from '../../../assets';
 import careerBg from '../../../assets/careerBg.png';
-import bigRec from '../../../assets/careers/bigrec.png';
-import leftBig from '../../../assets/careers/leftBig.png';
-import rightMiddle from '../../../assets/careers/rightMiddle.png';
-import rightTop from '../../../assets/careers/rightTop.png';
 import location from '../../../assets/location.svg';
 
 const CareersPage: React.FC<{ jobs?: Job[]; error?: string }> = ({
@@ -61,26 +57,32 @@ const WhyUs = () => (
       <div className='flex flex-col gap-4 w-full lg:w-1/2 sm:px-20 items-center'>
         {/* First */}
         <div className='flex items-center justify-center gap-4'>
-          <div className=''>
+          <div>
             <Image
-              src={leftBig}
-              alt=''
+              src={careerAssets.leftBig}
+              height={400}
+              width={500}
+              alt='career-image'
               className='h-[314px] w-[400px] object-cover'
             />
           </div>
 
           <div className='flex flex-col gap-4'>
-            <div className=''>
+            <div>
               <Image
-                src={rightTop}
-                alt=''
+                src={careerAssets.rightTop}
+                height={400}
+                width={500}
+                alt='career-image'
                 className='h-[150px] w-[300px] object-cover'
               />
             </div>
-            <div className=''>
+            <div>
               <Image
-                src={rightMiddle}
-                alt=''
+                src={careerAssets.rightMiddle}
+                height={400}
+                width={500}
+                alt='career-image'
                 className='h-[150px] w-[300px] object-cover'
               />
             </div>
@@ -88,22 +90,29 @@ const WhyUs = () => (
         </div>
 
         {/* Middle */}
-        <Image src={bigRec} alt='' className='object-cover w-full h-[250px]' />
+        <Image
+          src={careerAssets.middleBig}
+          height={400} width={400}
+          alt='career-image'
+          className='object-cover w-full h-[250px]'
+        />
 
         {/* Bottom 1 */}
         <div className='flex items-center gap-4'>
-          <div className=''>
-            <Image src={BottomLeft} alt='' />
+          <div>
+            <Image src={careerAssets.bottomLeft} height={400} width={400} alt='career-image' />
           </div>
-          <div className=''>
-            <Image src={BottomRight} alt='' />
+          <div>
+            <Image src={careerAssets.bottomRight} height={400} width={400} alt='career-image' />
           </div>
         </div>
 
         {/* Bottom */}
         <Image
-          src={BottomBig}
-          alt=''
+          src={careerAssets.bottomBig}
+          height={400}
+          width={500}
+          alt='career-image'
           className='object-cover w-full h-[180px]'
         />
       </div>
