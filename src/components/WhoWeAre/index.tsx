@@ -18,7 +18,7 @@ const WhoWeAre: FC = () => {
     // Simulate the completion of text animation after a delay
     const textAnimationTimeout = setTimeout(() => {
       setTextAnimationCompleted(true);
-    }, 1500); // Adjust the delay as needed
+    }, 1500);
 
     // Clean up the timeout on component unmount
     return () => clearTimeout(textAnimationTimeout);
@@ -26,20 +26,20 @@ const WhoWeAre: FC = () => {
 
   return (
     <>
-      <div className='flex lg:flex-row flex-col items-center overflow-hidden gap-8 lg:gap-0 py-5'>
+      <div className='flex flex-col lg:flex-row items-center overflow-hidden gap-8 lg:gap-0 py-5'>
         <motion.header
           initial={isMobile ? 'visible' : 'hide'}
           whileInView='show'
           exit='hide'
           variants={introHeaderVariants}
-          className='flex lg:flex-row flex-col gap-x-10 lg:pl-10 text-center lg:text-left'
+          className='flex flex-col lg:flex-row gap-x-10 text-center lg:text-left w-full'
         >
-          <div className='flex flex-col gap-3 lg:pl-20 pl-4'>
+          <div className='flex flex-col gap-3 lg:pl-20 pl-4 w-full'>
             <span className='uppercase'>who we are</span>
             <motion.span
               initial={isMobile ? 'visible' : 'hide'}
               animate={textAnimationCompleted ? 'show' : 'hide'}
-              className='uppercase lg:text-4xl text-3xl font-bold lg:w-[80%] w-full'
+              className='uppercase lg:text-4xl text-3xl font-bold w-full'
             >
               We are a group of goal focused{' '}
               <b className='text-orange-400'>developers</b> and{' '}
@@ -50,7 +50,7 @@ const WhoWeAre: FC = () => {
               initial={isMobile ? 'visible' : 'hide'}
               animate={textAnimationCompleted ? 'show' : 'hide'}
               variants={textVariants}
-              className='text-sm lg:text-[14px] lg:w-5/6 w-full pt-8'
+              className='text-sm lg:text-[14px] w-full pt-8'
             >
               Nestled in the heart of India, NextLoop Technologies is more than
               just a company; we're a passionate team on a mission. With each
@@ -70,7 +70,7 @@ const WhoWeAre: FC = () => {
           whileInView='show'
           exit='hide'
           variants={imageVariants}
-          className='flex w-full h-full pb:10 sm:pb-36 '
+          className='flex w-full h-full pb:10 sm:pb-36'
         >
           <div className='lg:flex-shrink-0 w-full pt-24'>
             {textAnimationCompleted && (
