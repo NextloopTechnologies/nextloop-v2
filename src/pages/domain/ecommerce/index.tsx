@@ -1,6 +1,4 @@
-import {
-  ecommerceAssets,
-} from '../../../../assets';
+import { ecommerceAssets } from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import BoostTraffic from '../../../components/Domains/BoostTraffic';
 import ClientReviews from '../../../components/Domains/ClientReviews';
@@ -86,7 +84,7 @@ const WhatWeDoData = [
     title: 'Mobile Responsive',
     description:
       'A responsive website get used to the device of each unique visitor, whether desktop, smartphone or  tablet. A responsive website dynamically re-sizes its content and imagery for a variety of different screen size to ensure the website is effective and easy to use on any device. Whether your company is large and established, or just starting. Nextloop can build a website that gets noticed. With our enhanced web design & development for Travel and Hotel, your online visitor enjoys the same experience. ',
-  }
+  },
 ];
 
 const Ecommerce = () => {
@@ -95,7 +93,7 @@ const Ecommerce = () => {
       <CustomPageHero
         image={getStaticImageData(ecommerceAssets.ECommerceBg)}
         titleChildren={
-          <h1 className='text-white text-3xl md:text-8xl uppercase font-bold text-center w-full md:max-w-[1500px]'>
+          <h1 className='text-white text-3xl md:text-5xl lg:text-8xl uppercase font-bold text-center w-full md:max-w-[1500px]'>
             Build an <span className='text-orange-500'>ecommerce website.</span>
             <br />
             Start selling immediately.
@@ -103,7 +101,7 @@ const Ecommerce = () => {
             Grow without limits.
           </h1>
         }
-        // customSubtitleClassname='xl:w-[51%]'
+        customSubtitleClassname='xl:w-[51%]'
         subtitle='Get everything you need to build, run and scale your business—on one unified platform.'
         opacity='opacity-0'
         title=''
@@ -114,7 +112,7 @@ const Ecommerce = () => {
         colouredTitle='Ecommerce Industry?'
         infoAndImgClassname='items-center'
         informationSection={
-          <div className='mx-10 lg:mx-0 md:max-w-[600px] text-lg font-normal'>
+          <div className='mx-5 md:mx-10 lg:mx-0 md:max-w-[600px] text-lg font-normal'>
             In this highly competitive eCommerce environment, the struggle to
             acquire customers and keep their interest has made customization
             indispensable. Users are becoming more demanding and impatient. We
@@ -130,32 +128,25 @@ const Ecommerce = () => {
           </div>
         }
       />
-
       <WhatWeDo content={WhatWeDoData} />
-
       <EnrollForWebsite
         image={getStaticImageData(ecommerceAssets.RobustOnline)}
         imageClassname='w-[450px] h-[450px]'
         data={sampleData}
         titleElement={
-          <h1 className='text-3xl md:text-7xl uppercase font-bold text-center max-w-[950px] mx-auto'>
+          <h1 className='text-2xl md:text-5xl lg:text-7xl uppercase font-bold text-center max-w-[950px] mx-auto'>
             One <span className='text-orange-500'>dashboard</span> for total
             business control
           </h1>
         }
       />
-
       <SellEverywhere />
-
       <BoostTraffic />
-
       <ClientReviews
         title='Real success stories from'
         colouredTitle='Real customer'
       />
-
       <FAQ faqsContent={faqsContent} />
-
       <CustomRequestQuote title='Your complete event management platform' />
     </Layout>
   );

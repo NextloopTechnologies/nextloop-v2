@@ -69,7 +69,7 @@ export const TitleDescCard = ({
 
 const BoostTraffic = () => {
   return (
-    <div className='flex h-[250vh] md:h-[130vh]'>
+    <div className='flex h-[250vh] md:h-[250vh]'>
       <div className='w-full min-h-screen relative flex items-center justify-center text-white'>
         <Image
           src={ecommerceAssets.BoostTrafficBg}

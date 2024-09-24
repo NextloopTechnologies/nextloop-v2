@@ -28,20 +28,20 @@ const Experience: FC = () => {
 
   return (
     <>
-      <div className='flex justify-center items-center  sm:min-h-screen '>
+      <div className='flex justify-center items-center sm:min-h-screen'>
         <motion.header
           initial={isMobile ? 'visible' : 'hide'}
           whileInView='show'
           exit='hide'
           variants={introHeaderVariants}
-          className='flex gap-x-10 lg:w-5/6 w-full text-left lg:text-center'
+          className='flex flex-col lg:flex-row gap-10 lg:w-5/6 w-full text-left lg:text-center'
         >
           <div className='flex flex-col h-full gap-y-20 px-2'>
             <motion.span
               initial={isMobile ? 'visible' : 'hide'}
               animate='show'
-              variants={textVariants} // Apply animation variants to this text element
-              className='lg:text-6xl text-3xl font-bold  flex lg:justify-end justify-center'
+              variants={textVariants}
+              className='lg:text-6xl text-3xl font-bold flex lg:justify-end justify-center'
             >
               <div className='lg:w-2/3 lg:text-right text-center'>
                 Experience Full Spectrum of{' '}
@@ -52,9 +52,9 @@ const Experience: FC = () => {
               initial={isMobile ? 'visible' : 'hide'}
               animate='show'
               variants={textVariants}
-              className='text-2xl sm:pt-8 flex lg:flex-row flex-col h-full gap-4'
+              className='text-2xl sm:pt-8 flex flex-col lg:flex-row h-full gap-4'
             >
-              <div className='flex flex-col justify-center  sm:flex-row'>
+              <div className='flex flex-col justify-center sm:flex-row'>
                 {content.map((item, index) => {
                   return (
                     <div className='flex py-4 sm:gap-2' key={item.heading}>
@@ -63,7 +63,7 @@ const Experience: FC = () => {
                         {' '}
                         <div className='mt-4'>0{index + 1}</div>
                         <div className='flex flex-col justify-center items-center mt-4 px-2'>
-                          <span className='text-[sm] font-medium mb-4'>
+                          <span className='text-sm font-medium mb-4'>
                             {item.heading}
                           </span>
                           <span className='text-sm text-center lg:text-[12px] w-1/2 sm:w-2/3 mx-auto'>

@@ -1,6 +1,4 @@
-import {
-  eventAssets
-} from '../../../../assets';
+import { eventAssets } from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
@@ -50,7 +48,8 @@ const faqsContent: IFAQ[] = [
   },
   {
     id: 2,
-    question: 'What types of events can I offer with in this website development?',
+    question:
+      'What types of events can I offer with in this website development?',
     answer:
       'Whether you offer large scale or intimate events, there are several core features you’ll need for your events website.',
   },
@@ -68,7 +67,7 @@ const Events = () => {
       <CustomPageHero
         image={getStaticImageData(eventAssets.eventsBg)}
         titleChildren={
-          <h1 className='text-white text-3xl md:text-8xl uppercase font-bold text-center w-full md:max-w-[1306px]'>
+          <h1 className='text-white text-4xl md:text-8xl uppercase font-bold text-center w-full md:max-w-[1306px]'>
             Create a professional{' '}
             <span className='text-orange-500'>event website</span>
           </h1>
@@ -82,7 +81,7 @@ const Events = () => {
         image={getStaticImageData(eventAssets.WhyBuildEventManagement)}
         colouredTitle='Event Management'
         informationSection={
-          <div className='mx-10 lg:mx-0 lg:max-w-[737px]'>
+          <div className='mx-5 md:mx-10 lg:mx-0 lg:max-w-[737px]'>
             <p className='text-sm md:text-lg font-normal gap-5'>
               Event planning can be a complex and time-consuming process. From
               coordinating schedules and vendors to managing registrations and
@@ -101,7 +100,7 @@ const Events = () => {
               planning processes. Some key advantages include:
             </p>
 
-            <ul className='list-disc text-sm md:text-lg pl-10'>
+            <ul className='list-disc text-sm md:text-lg pl-5 md:pl-10'>
               {benefits.map((benefit) => (
                 <li key={benefit.id} className='font-medium'>
                   {benefit.title}{' '}

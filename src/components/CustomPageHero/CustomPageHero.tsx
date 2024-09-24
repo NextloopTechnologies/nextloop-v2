@@ -11,6 +11,7 @@ type Props = {
   opacity?: string;
   titleChildren?: React.ReactNode;
   customSubtitleClassname?: string;
+  className?: string; // Added className prop
 };
 
 const CustomPageHero = ({
@@ -21,9 +22,10 @@ const CustomPageHero = ({
   opacity = 'opacity-40',
   titleChildren,
   customSubtitleClassname,
+  className,
 }: Props) => {
   return (
-    <div className='flex'>
+    <div className={`flex ${className}`}>
       {titleChildren ? (
         <div className='md:w-full h-screen relative flex items-center justify-center text-white'>
           <Image
@@ -36,7 +38,7 @@ const CustomPageHero = ({
             priority
           />
           <div className={`absolute inset-0 bg-black ${opacity}`}></div>
-          <div className='flex flex-col gap-8 items-center z-20 px-4 lg:p-0'>
+          <div className='flex flex-col gap-8 items-center z-20 px-4 lg:p-0  mt-10'>
             {titleChildren}
             <span
               className={`text-lg xl:w-[50%] md:w-[60%] text-center font-normal ${customSubtitleClassname}`}
