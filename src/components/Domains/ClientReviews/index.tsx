@@ -2,9 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Image, { StaticImageData } from 'next/image';
 import { useEffect, useMemo, useState } from 'react';
 
-import {
-  clientReviewsAssets
-} from '../../../../assets';
+import { clientReviewsAssets } from '../../../../assets';
 import { getStaticImageData } from '../../../utils/helper';
 
 type Data = {
@@ -102,9 +100,10 @@ const ReviewCard = ({ review }: ReviewProps) => (
 type Props = {
   title?: string;
   colouredTitle?: string;
+  className?: string; // Added className prop
 };
 
-const ClientReviews = ({ colouredTitle, title }: Props) => {
+const ClientReviews = ({ colouredTitle, title, className }: Props) => {
   const [index, setIndex] = useState(0);
   const [buttonClicked, setButtonClicked] = useState('');
 
@@ -125,7 +124,11 @@ const ClientReviews = ({ colouredTitle, title }: Props) => {
   }, [index]);
 
   return (
-    <div className='bg-[#1D1D1D] pt-[134px] pb-[112px] flex flex-col items-center gap-[90px]'>
+    <div
+      className={`bg-[#1D1D1D] pt-[134px] pb-[112px] flex flex-col items-center gap-[90px] ${className}`}
+    >
+      {' '}
+      {/* Apply className here */}
       <h1 className='text-3xl md:text-7xl uppercase md:mx-72 font-bold text-white text-center'>
         {!title && !colouredTitle ? (
           <>
@@ -137,7 +140,6 @@ const ClientReviews = ({ colouredTitle, title }: Props) => {
           </>
         )}
       </h1>
-
       <div className='flex flex-col md:flex-row items-center gap-14'>
         <div className='flex items-center gap-5'>
           <button

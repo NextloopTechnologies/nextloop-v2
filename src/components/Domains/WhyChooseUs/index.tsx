@@ -9,45 +9,34 @@ type WhyChooseUsProps = {
 
 const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ whyChooseContent }) => {
   return (
-    <div className='min-h-screen flex bg-[#1D1D1D0D] py-[96px]'>
+    <div className='min-h-screen flex flex-col bg-[#1D1D1D0D] py-[48px]'>
       <div className='w-full max-w-[1479px] mx-auto'>
-        <h1 className='text-3xl md:text-8xl uppercase font-bold text-center mb-[80px]'>
+        <h1 className='text-3xl md:text-8xl uppercase font-bold text-center mb-[40px]'>
           Why Choose Us
         </h1>
-        <div className='relative flex flex-col items-center px-5'>
-          <div className='absolute left-[13%] bg-[#FA8145] pl-[250px] sm:pl-[300px] md:pl-[370px] lg:pl-[515px] text-white flex flex-col justify-center h-[300px] lg:h-[480px]'>
-            <div className='absolute -left-[8%] w-[47%] top-[20%] transform -translate-y-[12%]'>
-              <Image
-                src={whyChooseContent?.[0]?.image as StaticImageData}
-                alt='why-choose-us'
-                height={400}
-                width={400}
-                className='h-full w-full object-fill'
-              />
+        <div className='flex flex-col items-center px-5'>
+          {whyChooseContent.map((content, index) => (
+            <div
+              key={index}
+              className='relative flex flex-col items-center w-full mb-10'
+            >
+              <div className='bg-[#FA8145] p-5 sm:p-10 flex flex-col justify-center h-auto'>
+                <div className='flex justify-center'>
+                  <Image
+                    src={content.image as StaticImageData}
+                    alt='why-choose-us'
+                    height={400}
+                    width={400}
+                    className='h-full w-full object-fill max-w-[200px] sm:max-w-[300px] md:max-w-[400px]'
+                  />
+                </div>
+                <h1 className='text-xl md:text-3xl lg:text-[50px] lg:leading-none font-bold uppercase mb-5 text-center'>
+                  {content.title}
+                </h1>
+                <span className='lg:text-lg text-center'>{content.descp}</span>
+              </div>
             </div>
-            <h1 className=' text-xl md:text-3xl lg:text-[50px] lg:leading-none font-bold uppercase mb-5'>
-              {whyChooseContent?.[0]?.title}
-            </h1>
-            <span className='lg:text-lg'>{whyChooseContent?.[0]?.descp}</span>
-          </div>
-        </div>
-
-        <div className='relative flex flex-col items-center pl-[150px] py-[600px]'>
-          <div className='absolute right-[13%] bg-[#1D1D1D] pl-[80px] pr-[255px] sm:pr-[305px] md:pr-[375px] lg:pr-[520px] text-white flex flex-col justify-center h-[480px]'>
-            <div className='absolute -right-[8%] w-[47%] top-[20%] transform -translate-y-[12%]'>
-              <Image
-                src={whyChooseContent?.[1]?.image as StaticImageData}
-                alt='why-choose-us'
-                height={400}
-                width={400}
-                className='h-full w-full object-fill'
-              />
-            </div>
-            <h1 className='text-xl md:text-3xl lg:text-[50px] lg:leading-none font-bold uppercase mb-5'>
-              {whyChooseContent?.[1]?.title}
-            </h1>
-            <span className='lg:text-lg'>{whyChooseContent?.[1]?.descp}</span>
-          </div>
+          ))}
         </div>
       </div>
     </div>

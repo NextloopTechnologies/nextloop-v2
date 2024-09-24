@@ -1,6 +1,4 @@
-import {
-  hotelAssets
-} from '../../../../assets';
+import { hotelAssets } from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
@@ -59,7 +57,7 @@ const WhatWeDoData = [
     title: 'Drive more reviews and positive word-of-mouth',
     description:
       'Nextloop is where your idea comes to life. If you can order pizza online, you Embed a Tripadvisor widget on your website so guests who have completed their stay can easily share their feedback.',
-  }
+  },
 ];
 
 const Hotel = () => {
@@ -83,7 +81,7 @@ const Hotel = () => {
         colouredTitle='Hotel Booking?'
         infoAndImgClassname='items-center'
         informationSection={
-          <div className='mx-10 lg:mx-0 md:max-w-[600px] text-lg font-normal'>
+          <div className='mx-5 lg:mx-0 md:max-w-[600px] text-lg font-normal'>
             There was once a time when hotels attracted and retained their
             customers by word of mouth and by distributing physical marketing
             material to potential guests. While that might have been the most

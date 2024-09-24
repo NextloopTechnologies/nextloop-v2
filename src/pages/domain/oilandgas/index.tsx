@@ -41,7 +41,7 @@ const OilAndGas = () => {
       <CustomPageHero
         image={getStaticImageData(oilAndGasAssets.oilAndGasBg)}
         titleChildren={
-          <h1 className='text-white text-8xl uppercase font-bold text-center max-w-[1306px]'>
+          <h1 className='text-white text-5xl md:text-8xl uppercase font-bold text-center max-w-[1306px]'>
             Build <span className='text-orange-500'>oil and gas</span> software
             applications
           </h1>
@@ -55,11 +55,11 @@ const OilAndGas = () => {
         image={getStaticImageData(oilAndGasAssets.whyBuildOilAndGas)}
         colouredTitle='mining industry'
         informationSection={
-          <div className='max-w-[737px] flex flex-col justify-center pr-14'>
+          <div className='max-w-[737px] flex flex-col justify-center px-5 md:px-0'>
             <h3 className='font-bold text-lg md:text-2xl uppercase my-5'>
               Why build a custom software solution for the mining industry?
             </h3>
-            <p className='text-lg font-normal gap-5'>
+            <p className='text-lg font-normal'>
               Whether it’s mining or the oil and gas industry... you care about
               performance. Save time and money by creating software that lets
               you more effectively manage your operation. Our no-code solution
