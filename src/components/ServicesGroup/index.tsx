@@ -74,7 +74,7 @@ const Services: FC<CoveroverProps> = ({ isModalOpen, setIsModalOpen }) => {
               variants={textVariants}
               className='pt-8 text-center flex items-center'
             >
-              <div className='lg:px-20 text-sm lg:text-[16px] '>
+              <div className='lg:px-20 text-sm lg:text-[16px]'>
                 Are you curious about our secret behind making all this
                 possible? At the heart of our software solutions lies a
                 dedication to understanding your needs, which drives our
@@ -83,27 +83,20 @@ const Services: FC<CoveroverProps> = ({ isModalOpen, setIsModalOpen }) => {
                 results that truly matter to you.
               </div>
             </motion.span>
-            {/* <button onClick={openModal}>Open</button> */}
           </div>
         </motion.header>
       </div>
 
-      {/* Trigger the modal when reaching the end of Services */}
       <div
         ref={scrollableRef}
         onScroll={(e) => {
-          // Capture scroll events and handle them only if the modal is open
           if (isModalOpen) {
             e.stopPropagation();
             e.preventDefault();
-            // Implement your custom scrolling logic for the modal content here
           }
         }}
-        className='h-96 overflow-y-auto hidden' //add xl:block when open is enabled
-      >
-        {/* Scrollable content */}
-      </div>
-      {/* Render the Coverover modal */}
+        className='h-96 overflow-y-auto hidden'
+      ></div>
       <Coverover isOpen={isModalOpen} onClose={closeModal} />
     </>
   );
