@@ -125,7 +125,7 @@ const HotelAndTravel = () => {
 
       <FAQ faqsContent={faqsContent} />
 
-      <CustomRequestQuote title='see what your travel & hotel website could look like' />
+      <CustomRequestQuote title='see what your travel & hotel website could look like.' />
     </Layout>
   );
 };
