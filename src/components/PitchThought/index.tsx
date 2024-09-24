@@ -1,4 +1,7 @@
+import Image from 'next/image';
+import Link from 'next/link';
 import React, { FC, useState } from 'react';
+import { FB, GMAIL, GOOGLE, YT, X, INSTAGRAM } from '../../../assets';
 
 const PitchThought: FC = () => {
   const [email, setEmail] = useState('');
@@ -40,6 +43,73 @@ const PitchThought: FC = () => {
               questions about our process. Our consultants will be with you
               ASAP.
             </span>
+            <div>
+              <ul className='flex gap-x-3 justify-end'>
+                <li>
+                  <Link
+                    href={
+                      'https://www.facebook.com/profile.php?id=61556914381569&mibextid=ZbWKwL'
+                    }
+                    passHref
+                  >
+                    <Image
+                      src={FB}
+                      alt='fb-icon'
+                      className='w-4 h-5 object-contain'
+                    />
+                  </Link>
+                </li>
+                <li>
+                  <Link aria-disabled href={''}>
+                    <Image
+                      src={GMAIL}
+                      alt='gmail-icon'
+                      className='w-4 h-5 object-contain'
+                    />
+                  </Link>
+                </li>
+                <li>
+                  <Link href={'https://g.co/kgs/7LnLSHN'}>
+                    <Image
+                      src={GOOGLE}
+                      alt='google-icon'
+                      className='w-4 h-5 object-contain'
+                    />
+                  </Link>
+                </li>
+                <li>
+                  <Link aria-disabled href={''}>
+                    <Image
+                      src={YT}
+                      alt='yt-icon'
+                      className='w-4 h-5 object-contain'
+                    />
+                  </Link>
+                </li>
+                <li>
+                  <Link href={'https://x.com/Nextloop_'}>
+                    <Image
+                      src={X}
+                      alt='x-icon'
+                      className='w-4 h-5 object-contain'
+                    />
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href={
+                      'https://www.instagram.com/nextloop_technologies?igsh=MXJ1dzBocGliajBqbg=='
+                    }
+                  >
+                    <Image
+                      src={INSTAGRAM}
+                      alt='insta-icon'
+                      className='w-4 h-5 object-contain'
+                    />
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div className='flex gap-x-10 justify-center w-full text-white'>
