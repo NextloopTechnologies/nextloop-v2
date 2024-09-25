@@ -9,6 +9,7 @@ import SellEverywhere from '../../../components/Domains/SellEverywhere';
 import WhatWeDo from '../../../components/Domains/WhatWeDo';
 import WhyBuild from '../../../components/Domains/WhyBuild';
 import Layout from '../../../components/Layout/Layout';
+import palette from '../../../styles/pallette';
 import { IFAQ } from '../../../types';
 import { getStaticImageData } from '../../../utils/helper';
 
@@ -93,7 +94,9 @@ const Ecommerce = () => {
       <CustomPageHero
         image={getStaticImageData(ecommerceAssets.ECommerceBg)}
         titleChildren={
-          <h1 className='text-white text-3xl md:text-5xl lg:text-8xl uppercase font-bold text-center w-full md:max-w-[1500px]'>
+          <h1
+            className={`text-white ${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} uppercase font-bold text-center w-full md:max-w-[1500px]`}
+          >
             Build an <span className='text-orange-500'>ecommerce website.</span>
             <br />
             Start selling immediately.
@@ -101,18 +104,20 @@ const Ecommerce = () => {
             Grow without limits.
           </h1>
         }
-        customSubtitleClassname='xl:w-[51%]'
+        customSubtitleClassname={`xl:w-[51%] ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop}`}
         subtitle='Get everything you need to build, run and scale your business—on one unified platform.'
-        opacity='opacity-0'
+        opacity='opacity-70'
         title=''
       />
 
       <WhyBuild
         image={getStaticImageData(ecommerceAssets.WhyBuildEcomIndustry)}
-        colouredTitle='Ecommerce Industry?'
+        colouredTitle='Ecommerce Industry'
         infoAndImgClassname='items-center'
         informationSection={
-          <div className='mx-5 md:mx-10 lg:mx-0 md:max-w-[600px] text-lg font-normal'>
+          <div
+            className={`mx-5 md:mx-10 lg:mx-0 md:max-w-[600px] ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
+          >
             In this highly competitive eCommerce environment, the struggle to
             acquire customers and keep their interest has made customization
             indispensable. Users are becoming more demanding and impatient. We
@@ -134,7 +139,9 @@ const Ecommerce = () => {
         imageClassname='w-[450px] h-[450px]'
         data={sampleData}
         titleElement={
-          <h1 className='text-2xl md:text-5xl lg:text-7xl uppercase font-bold text-center max-w-[950px] mx-auto'>
+          <h1
+            className={` ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center max-w-[950px] mx-auto`}
+          >
             One <span className='text-orange-500'>dashboard</span> for total
             business control
           </h1>

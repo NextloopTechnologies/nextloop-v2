@@ -43,7 +43,7 @@ type TitleDescCardProps = {
 };
 
 export const TitleDescCard = ({ title, description }: TitleDescCardProps) => (
-  <div className="flex flex-col opacity-85 bg-[#1C1C1D] h-[250px] w-[150px] sm:h-[200px] sm:w-[250px] p-5 md:py-10 md:h-[180px] md:w-[350px] gap-4">
+  <div className='flex flex-col opacity-85 bg-[#1C1C1D] h-[250px] w-[150px] sm:h-[200px] sm:w-[250px] p-5 md:py-10 md:h-[180px] md:w-[350px] gap-4'>
     <h3 className='text-sm md:text-xl font-medium uppercase'>{title}</h3>
     {description && (
       <p className='text-xs md:text-sm font-normal'>{description}</p>
@@ -68,7 +68,7 @@ const EnrollForWebsite = ({
         priority
         quality={100}
       />
-      <div className='flex flex-col py-20 md:py-32 gap-10 z-[2] items-center justify-center'>
+      <div className='flex flex-col py-10 md:py-20 gap-5 z-[2] items-center justify-center'>
         {titleElement || (
           <h1 className='text-3xl md:text-7xl uppercase font-bold text-center max-w-[1400px] mx-auto'>
             Enroll for website development to boost your hotel's most{' '}
