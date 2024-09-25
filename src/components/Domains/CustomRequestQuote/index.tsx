@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import { requestQuoteAssets } from '../../../../assets';
+import palette from '../../../styles/pallette';
 
 type Props = {
   title: string;
@@ -12,7 +13,9 @@ const CustomRequestQuote = ({ title }: Props) => {
   return (
     <div className='flex flex-col md:flex-row items-center justify-between bg-[#FA8145] py-6 px-20'>
       <div className='flex flex-col gap-8 max-w-4xl'>
-        <h2 className='text-white font-bold text-5xl md:text-[65px] leading-none uppercase'>
+        <h2
+          className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-white font-bold leading-none uppercase`}
+        >
           {title}
         </h2>
 
