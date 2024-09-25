@@ -94,7 +94,7 @@ export const EllipsesGradientImageCard = ({ image, position }: Props) => (
     <Image
       src={image}
       className={`absolute h-[450px] w-[450px] top-6 ${
-        position === POSITION.LEFT ? '-right-[223px]' : '-left-[223px]'
+        position === POSITION.LEFT ? '-right-[0px]' : '-left-[0px]'
       } object-contain`}
       alt='image'
       height={300}
@@ -172,7 +172,6 @@ export const EventIdeaRow = ({
         </ul>
       )}
     </div>
-
     <EllipsesGradientImageCard image={image} position={position} />
   </div>
 );

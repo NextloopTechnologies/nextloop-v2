@@ -76,7 +76,6 @@ const Events = () => {
         opacity='opacity-90'
         title=''
       />
-
       <WhyBuild
         image={getStaticImageData(eventAssets.WhyBuildEventManagement)}
         colouredTitle='Event Management'
@@ -111,17 +110,11 @@ const Events = () => {
           </div>
         }
       />
-
       <WhyWorkWithUs />
-
       <EventManagementSolution />
-
       <ClientReviews />
-
       <DesignYourEvents />
-
       <FAQ faqsContent={faqsContent} />
-
       <CustomRequestQuote title='Your complete event management platform' />
     </Layout>
   );
