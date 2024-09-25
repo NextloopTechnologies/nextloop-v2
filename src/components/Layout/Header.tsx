@@ -13,7 +13,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ isSticky }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [showIndustriesDropdown, setShowIndustriesDropdown] = useState(false);
+  // const [showIndustriesDropdown, setShowIndustriesDropdown] = useState(false);
   const headerAnimation = useAnimation();
   const router = useRouter();
   const { pathname } = router;
@@ -61,16 +61,16 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
     };
   }, [router]);
 
-  const industries = [
-    { name: 'E-commerce', href: '/domain/ecommerce' },
-    { name: 'Events', href: '/domain/events' },
-    { name: 'Fin-Tech', href: '/domain/fintech' },
-    { name: 'Healthcare', href: '/domain/healthcare' },
-    { name: 'Hotel', href: '/domain/hotel' },
-    { name: 'Oil And Gas', href: '/domain/oilandgas' },
-    { name: 'Restaurant', href: '/domain/restaurant' },
-    { name: 'Travel And Hotel', href: '/domain/travelandhotel' },
-  ];
+  // const industries = [
+  //   { name: 'E-commerce', href: '/domain/ecommerce' },
+  //   { name: 'Events', href: '/domain/events' },
+  //   { name: 'Fin-Tech', href: '/domain/fintech' },
+  //   { name: 'Healthcare', href: '/domain/healthcare' },
+  //   { name: 'Hotel', href: '/domain/hotel' },
+  //   { name: 'Oil And Gas', href: '/domain/oilandgas' },
+  //   { name: 'Restaurant', href: '/domain/restaurant' },
+  //   { name: 'Travel And Hotel', href: '/domain/travelandhotel' },
+  // ];
 
   return (
     <>
@@ -99,7 +99,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
             <li className={`${pathname === '/about-us' && 'text-orange-500'}`}>
               <Link href='/about-us'>About us</Link>
             </li>
-            <li
+            {/* <li
               className={`relative ${
                 pathname.startsWith('/domain') && 'text-orange-500'
               }`}
@@ -121,7 +121,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
                   ))}
                 </ul>
               )}
-            </li>
+            </li> */}
             <li className={`${pathname === '/portfolio' && 'text-orange-500'}`}>
               <Link href='/portfolio'>Portfolio</Link>
             </li>
