@@ -1,24 +1,3 @@
-// const palette = {
-//   heading1: {
-//     mobile: '2.25 rem',
-//     desktop: '3rem',
-//   },
-//   heading2: {
-//     mobile: '1.75 rem', // Mobile size
-//     desktop: '2.5 rem', // Desktop size
-//   },
-//   subtitle: {
-//     mobile: '1.25 rem', // Mobile size
-//     desktop: '2 rem', // Desktop size
-//   },
-//   description: {
-//     mobile: '0.8 rem', // Mobile size
-//     desktop: '1.75 rem', // Desktop size
-//   },
-// };
-
-// export default palette;
-
 const palette = {
   fontSize: {
     heading1: {
@@ -34,8 +13,12 @@ const palette = {
       desktop: 'text-xl',
     },
     description: {
-      mobile: 'text-sm',
+      mobile: 'text-base',
       desktop: 'text-lg',
+    },
+    descriptionSmall: {
+      mobile: 'text-xs',
+      desktop: 'text-sm',
     },
   },
 };
