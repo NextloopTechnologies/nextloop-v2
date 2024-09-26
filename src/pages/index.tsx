@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { GetServerSideProps } from 'next';
+import Head from 'next/head';
 import Image from 'next/image';
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef,useState } from 'react';
 
 import AboutUs from '../components/AboutUs';
 import Career from '../components/Career';
@@ -234,6 +235,10 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = ({ data }) => {
   return (
     <>
       <Layout divRefs={divRefs} id='connect-with-us'>
+        <Head>
+          <title>NextLoop Technologies | Innovative IT Solutions for Businesses</title>
+          <meta name="description" content="Discover NextLoop Technologies, your partner in cutting-edge IT solutions. We specialize in digital transformation, software development, and managed services, ensuring your business stays ahead in the tech landscape." />
+        </Head>
         <div
           id='intro'
           ref={(el: any) => (divRefs.current[0] = el)}

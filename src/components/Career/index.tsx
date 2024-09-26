@@ -11,19 +11,19 @@ import useWindowSize from '../../utils/useWindowSize';
 const Career: FC = () => {
   const badge = [
     {
-      number: '14+',
+      number: '4+',
       desc: 'Years of working experience',
     },
     {
-      number: '150',
+      number: '100',
       desc: 'Projects done all over the world',
     },
     {
-      number: '1K+',
+      number: '2K+',
       desc: 'Connections associated with us',
     },
     {
-      number: '20',
+      number: '25',
       desc: 'Clients from all over the world',
     },
   ];

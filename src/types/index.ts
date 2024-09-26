@@ -3,7 +3,7 @@ import { StaticImageData } from "next/image";
 export interface BlogType {
   id: number;
   title: string;
-  image: string | null;
+  image?: IFileUpload[] | null;
   descp: string;
   created_at: string;
   updated_at: string;
@@ -34,11 +34,11 @@ export interface IFileUpload {
 }
 
 export interface IPortfolio {
- id: number;
- title: string|null;
- descp?: string|null;
- image?: IFileUpload[]|null;
- active?: boolean;
+  id: number;
+  title: string | null;
+  descp?: string | null;
+  image?: IFileUpload[] | null;
+  active?: boolean;
 }
 
 export interface IFAQ {
@@ -51,4 +51,16 @@ export interface IWhyChooseUs {
   title: string;
   descp: string;
   image: StaticImageData;
+}
+
+export interface AppliedJob {
+  job_id: number | null;
+  fullname: string;
+  email: string;
+  phone: string;
+  resume_url: string;
+  resume_id: string;
+  cover_letter: string;
+  github_url: string;
+  linkedin_url: string;
 }

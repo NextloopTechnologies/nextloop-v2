@@ -59,8 +59,8 @@ const ProfessionalWebsite = () => {
               src={data.image}
               alt={data.title}
               className='h-16 w-16 object-contain'
-              height={16}
-              width={16}
+              height={50}
+              width={50}
             />
 
             <div className='flex flex-col gap-5'>

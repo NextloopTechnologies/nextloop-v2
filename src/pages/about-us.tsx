@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Image, { StaticImageData } from 'next/image';
 import { useRouter } from 'next/router';
 
@@ -71,6 +72,10 @@ const certificateCardArr = [
 const AboutUsHome = () => {
   return (
     <Layout>
+      <Head>
+        <title>About NextLoop Technologies | Your Trusted IT Partner</title>
+        <meta name="description" content="Learn more about NextLoop Technologies, our mission, and our commitment to delivering exceptional IT solutions. We are dedicated to driving your business success with our expertise." />
+      </Head>
       <PageHero
         image={aboutBg}
         title='us'

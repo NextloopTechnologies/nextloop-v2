@@ -5,7 +5,7 @@ import palette from '../../../styles/pallette';
 
 const SellEverywhere = () => {
   return (
-    <div className='flex flex-col items-center pt-[96px] pb-[122px] max-w-[1479px] mx-auto gap-5'>
+    <div className='flex flex-col items-center pt-[96px] pb-[122px]  gap-5 px-8'>
       <h1
         className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center w-2/3`}
       >

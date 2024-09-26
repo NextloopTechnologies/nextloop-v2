@@ -39,7 +39,7 @@ type WhatWeDoProps = {
 
 const WhatWeDo: React.FC<WhatWeDoProps> = ({ content }) => {
   return (
-    <div className='flex  flex-col items-center'>
+    <div className='flex  flex-col items-center px-10'>
       <div className='flex flex-col pt-[50px] pb-[122px] mx-2 gap-10'>
         <h1
           className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center`}

@@ -92,7 +92,7 @@ const BoostTraffic = () => {
           priority
           quality={100}
         />
-        <div className='absolute min-h-screen flex flex-col items-center inset-0 bg-black opacity-85 py-10 md:py-25 gap-5'>
+        <div className='absolute min-h-screen flex flex-col items-center inset-0 bg-black opacity-85 py-10 md:py-25 gap-5 px-8'>
           <h1
             className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center max-w-[1200px] mx-auto`}
           >
