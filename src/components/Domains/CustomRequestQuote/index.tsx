@@ -11,7 +11,7 @@ type Props = {
 const CustomRequestQuote = ({ title }: Props) => {
   const router = useRouter();
   return (
-    <div className='flex flex-col md:flex-row items-center justify-between bg-[#FA8145] py-6 px-20'>
+    <div className='flex flex-col md:flex-row items-center justify-between bg-[#FA8145] py-7 px-20'>
       <div className='flex flex-col gap-8 max-w-4xl'>
         <h2
           className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-white font-bold leading-none uppercase`}
@@ -21,10 +21,18 @@ const CustomRequestQuote = ({ title }: Props) => {
 
         <button
           onClick={() => router.push('#footer')}
-          className='flex mr-auto bg-white text-[16px] px-5 justify-center items-center rounded-full'
+          className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} flex mx-auto bg-white  px-5 py-1 justify-center items-center rounded-full`}
         >
-          <span>Request quote</span>{' '}
-          <span className='text-[36px]'>&#10230;</span>
+          <span className='flex items-center'>
+            {' '}
+            {/* Added flex and items-center */}
+            Request quote
+          </span>{' '}
+          <span
+            className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} flex items-center ml-1`}
+          >
+            &#8594;
+          </span>
         </button>
       </div>
 
