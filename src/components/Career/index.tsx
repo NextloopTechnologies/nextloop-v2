@@ -32,27 +32,29 @@ const Career: FC = () => {
 
   return (
     <>
-      <div className='flex justify-center items-center mt-10 sm:min-h-screen overflow-x-hidden lg:text-left text-center'>
+      <div className='flex flex-col justify-center items-center mt-10 sm:min-h-screen overflow-x-hidden lg:text-left text-center'>
         <motion.header
           initial={isMobile ? 'visible' : 'hide'}
           whileInView='show'
           exit='hide'
           variants={introHeaderVariants}
-          className='flex gap-x-10 lg:w-5/6 w-full lg:flow-row flex-col text-white'
+          className='flex flex-col gap-y-10 lg:w-5/6 w-full'
         >
           <div className='flex flex-col gap-y-3 mt-10'>
-            <span>SUCCESS NUMBERS</span>
+            <span className='text-lg text-white sm:text-xl'>
+              SUCCESS NUMBERS
+            </span>
             <motion.span
               initial={isMobile ? 'visible' : 'hide'}
               animate='show'
-              variants={textVariants} // Apply animation variants to this text element
-              className='flex lg:flex-row flex-col w-full'
+              variants={textVariants}
+              className='flex flex-col lg:flex-row w-full'
             >
-              <span className='uppercase lg:text-4xl text-3xl font-bold'>
+              <span className='uppercase lg:text-4xl text-3xl font-bold text-white text-center lg:text-left'>
                 A Closer Look at Our Company's{' '}
                 <b className='text-orange-500'>Success.</b>
               </span>
-              <span className=' justify-center items-center w-full hidden lg:flex'>
+              <span className='justify-center items-center w-full hidden lg:flex'>
                 <ContactUs />
               </span>
             </motion.span>
@@ -60,7 +62,7 @@ const Career: FC = () => {
               initial={isMobile ? 'visible' : 'hide'}
               animate='show'
               variants={textVariants}
-              className='text-xl pt-2 flex items-center'
+              className='text-xl pt-2 flex items-center text-center lg:text-left text-white'
             >
               <div className='lg:w-1/2'>
                 Explore the remarkable milestones, groundbreaking innovations,
@@ -85,13 +87,13 @@ const Career: FC = () => {
                     className='flex flex-col gap-3 w-full lg:w-auto items-center lg:items-start'
                     key={item.number}
                   >
-                    <span className='text-5xl w-min flex justify-center rounded-full items-center border px-6 py-3.5 '>
+                    <span className='text-5xl w-min flex justify-center rounded-full items-center border px-6 py-3.5 text-white'>
                       {item.number}
                     </span>
-                    <span className='text-xs font-medium text-center'>
+                    <span className='text-xs font-medium text-center text-white'>
                       {item.desc}
                     </span>
-                    <span className=' border-b mt-2 border-gray-200' />
+                    <span className='border-b mt-2 border-gray-200' />
                   </div>
                 );
               })}

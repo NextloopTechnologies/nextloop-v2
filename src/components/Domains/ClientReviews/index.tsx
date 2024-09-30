@@ -2,9 +2,8 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Image, { StaticImageData } from 'next/image';
 import { useEffect, useMemo, useState } from 'react';
 
-import {
-  clientReviewsAssets
-} from '../../../../assets';
+import { clientReviewsAssets } from '../../../../assets';
+import palette from '../../../styles/pallette';
 import { getStaticImageData } from '../../../utils/helper';
 
 type Data = {
@@ -84,7 +83,9 @@ const ReviewCard = ({ review }: ReviewProps) => (
         alt='inverted start'
       />
 
-      <p className='font-normal text-[16px] text-[#261F21B2] leading-6 md:ml-[53px] md:w-[471px]'>
+      <p
+        className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} text-[#261F21B2] leading-6 md:ml-[53px] md:w-[471px]`}
+      >
         {review.description}
       </p>
 
@@ -102,9 +103,10 @@ const ReviewCard = ({ review }: ReviewProps) => (
 type Props = {
   title?: string;
   colouredTitle?: string;
+  className?: string; // Added className prop
 };
 
-const ClientReviews = ({ colouredTitle, title }: Props) => {
+const ClientReviews = ({ colouredTitle, title, className }: Props) => {
   const [index, setIndex] = useState(0);
   const [buttonClicked, setButtonClicked] = useState('');
 
@@ -125,8 +127,14 @@ const ClientReviews = ({ colouredTitle, title }: Props) => {
   }, [index]);
 
   return (
-    <div className='bg-[#1D1D1D] pt-[134px] pb-[112px] flex flex-col items-center gap-[90px]'>
-      <h1 className='text-3xl md:text-7xl uppercase md:mx-72 font-bold text-white text-center'>
+    <div
+      className={`bg-[#1D1D1D] pt-[50px] pb-[70px] flex flex-col items-center gap-[50px] ${className}`}
+    >
+      {' '}
+      {/* Apply className here */}
+      <h1
+        className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase md:mx-72 font-bold text-white text-center`}
+      >
         {!title && !colouredTitle ? (
           <>
             What our <span className='text-orange-500'>clients</span> say
@@ -137,9 +145,9 @@ const ClientReviews = ({ colouredTitle, title }: Props) => {
           </>
         )}
       </h1>
-
       <div className='flex flex-col md:flex-row items-center gap-14'>
-        <div className='flex items-center gap-5'>
+        <div className='flex items-center gap-5 md:flex-col'>
+          {' '}
           <button
             disabled={index === 0}
             className='arrow_buttons'

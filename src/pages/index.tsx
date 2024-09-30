@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { GetServerSideProps } from 'next';
+import Head from 'next/head';
 import Image from 'next/image';
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef,useState } from 'react';
 
 import AboutUs from '../components/AboutUs';
 import Career from '../components/Career';
@@ -16,7 +17,6 @@ import { IPortfolio } from '../types';
 import supabaseClient from '../utils/client';
 import useWindowSize from '../utils/useWindowSize';
 import { DownArrow } from '../../assets';
-import Head from 'next/head';
 
 const sectionStyle: React.CSSProperties = {
   minHeight: '100vh',

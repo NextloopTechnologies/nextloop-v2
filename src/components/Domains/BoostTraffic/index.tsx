@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 import { ecommerceAssets } from '../../../../assets';
+import palette from '../../../styles/pallette';
 
 const sampleData = [
   {
@@ -58,40 +59,57 @@ export const TitleDescCard = ({
   description,
   percentage,
 }: TitleDescCardProps) => (
-  <div className='relative flex flex-col justify-center text-center items-center mx-auto p-8'>
-    <Image src={ecommerceAssets.rectangleBg} height={300} width={300} alt='card-bg' className='absolute object-cover h-full w-full' />
-    <h4 className='text-2xl font-bold uppercase text-white mb-4'>{title}</h4>
-    <h1 className='text-5xl text-orange-500 font-bold mb-4'>{percentage}</h1>
-    <p className='mx-5 text-white font-normal mb-4'>{description}</p>
+  <div className='bg-[#1A0E0A] justify-center text-center flex flex-col items-center gap-5 mx-auto w-[370px] md:w-[475px] h-[300px]'>
+    <h4
+      className={`${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} font-bold uppercase text-white`}
+    >
+      {title}
+    </h4>
+    <h1
+      className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-orange-500 font-bold`}
+    >
+      {percentage}
+    </h1>
+
+    <p
+      className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} mx-5 text-[#BAB7B5] font-normal`}
+    >
+      {description}
+    </p>
   </div>
 );
 
 const BoostTraffic = () => {
   return (
-    <div className='h-full bg-[#010103] relative flex items-center justify-center text-white'>
-      <Image
-        src={ecommerceAssets.BoostTrafficBg}
-        className='absolute h-full w-full object-cover z-[1]'
-        alt='blogs background'
-        fill
-        sizes='100vw'
-        priority
-        quality={100}
-      />
-      <div className='flex flex-col items-center py-20 md:py-32 gap-10 z-[2]'>
-        <h1 className='text-3xl md:text-7xl uppercase font-bold text-center max-w-[1200px] mx-auto'>
-          Boost traffic and revenue with a full{' '}
-          <span className='text-orange-500'>marketing suite</span>
-        </h1>
-        <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 mx-4'>
-          {sampleData.map((data) => (
-            <TitleDescCard
-              key={data.id}
-              title={data.title}
-              description={data.description}
-              percentage={data.percentage}
-            />
-          ))}
+    <div className='flex h-[230vh] md:h-[120vh]'>
+      <div className='w-full min-h-screen relative flex items-center justify-center text-white'>
+        <Image
+          src={ecommerceAssets.BoostTrafficBg}
+          className='absolute h-full w-full object-cover'
+          alt='blogs background'
+          fill
+          sizes='100vw'
+          priority
+          quality={100}
+        />
+        <div className='absolute min-h-screen flex flex-col items-center inset-0 bg-black opacity-85 py-10 md:py-25 gap-5 px-8'>
+          <h1
+            className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center max-w-[1200px] mx-auto`}
+          >
+            Boost traffic and revenue with a full{' '}
+            <span className='text-orange-500'>marketing suite</span>
+          </h1>
+
+          <div className='flex flex-wrap mt-10 gap-8 max-w-[1500px] mx-auto'>
+            {sampleData.map((data) => (
+              <TitleDescCard
+                key={data.id}
+                title={data.title}
+                description={data.description}
+                percentage={data.percentage}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

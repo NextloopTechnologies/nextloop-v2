@@ -24,7 +24,7 @@ const AboutUs: FC = () => {
             <motion.span
               initial={isMobile ? 'visible' : 'hide'}
               animate='show'
-              variants={textVariants} // Apply animation variants to this text element
+              variants={textVariants}
               className='lg:text-6xl text-3xl font-bold lg:w-2/3'
             >
               We are a group of goal{' '}

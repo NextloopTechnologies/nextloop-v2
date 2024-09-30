@@ -59,7 +59,7 @@ const WhatWeDoData = [
     title: 'Mobile Responsive',
     description:
       'A responsive website get used to the device of each unique visitor, whether desktop, smartphone or  tablet. A responsive website dynamically re-sizes its content and imagery for a variety of different screen size to ensure the website is effective and easy to use on any device. Whether your company is large and established, or just starting. Nextloop can build a website that gets noticed. With our enhanced web design & development for Travel and Hotel, your online visitor enjoys the same experience. ',
-  }
+  },
 ];
 
 const HotelAndTravel = () => {
@@ -68,7 +68,7 @@ const HotelAndTravel = () => {
       <CustomPageHero
         image={getStaticImageData(travelandhotelAssets.hotelAndTravelBg)}
         titleChildren={
-          <h1 className='text-white text-8xl uppercase font-bold text-center max-w-[1306px]'>
+          <h1 className='text-white text-5xl md:text-8xl uppercase font-bold text-center max-w-[1306px]'>
             uncover new business opportunities with appealing{' '}
             <span className='text-orange-500'>travel & hotel website</span>
             <br /> design & development
@@ -83,27 +83,27 @@ const HotelAndTravel = () => {
         image={getStaticImageData(travelandhotelAssets.whyBuildImg)}
         colouredTitle='travel & hotel industry'
         informationSection={
-          <div className='max-w-[737px] flex flex-col justify-center pr-14'>
-            <p className=' text-sm md:text-lg mx-5 md:mx-0'>
+          <div className='max-w-[737px] flex flex-col justify-center px-5 md:px-0'>
+            <p className='text-sm md:text-lg'>
               There was once a time when hotels attracted and retained their
               customers by word of mouth and by distributing physical marketing
               material to potential guests. While that might have been the most
               effective way to let people know about your brand, it’s no longer
               true.
             </p>
-            <p className=' text-sm md:text-lg mx-5 md:mx-0'>
+            <p className='text-sm md:text-lg'>
               Digitalisation has grown at a rapid speed across all industries,
               especially travel. In fact, a survey found that in pre-pandemic
               2017, already 88% of people preferred to make their hotel bookings
               online.
             </p>
-            <p className=' text-sm md:text-lg mx-5 md:mx-0'>
+            <p className='text-sm md:text-lg'>
               The best outcome of this acceleration into the future is that many
               things that used to take a lot of time and investment are now more
               accessible, affordable, and offer ease of use, like building your
               first hotel website.
             </p>
-            <p className=' text-sm md:text-lg mx-5 md:mx-0'>
+            <p className='text-sm md:text-lg'>
               Gone are the days when you would have to spend a heavy amount of
               money to hire a developer and designer. It’s now as easy as a
               drag-and-drop tool. And if nothing else, a hotel website will tell
@@ -125,7 +125,7 @@ const HotelAndTravel = () => {
 
       <FAQ faqsContent={faqsContent} />
 
-      <CustomRequestQuote title='see what your travel & hotel website could look like' />
+      <CustomRequestQuote title='see what your travel & hotel website could look like.' />
     </Layout>
   );
 };

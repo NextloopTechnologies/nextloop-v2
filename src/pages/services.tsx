@@ -1,9 +1,9 @@
+import Head from 'next/head';
 import Image from 'next/image';
 
 import Layout from '../components/Layout/Layout';
 import PageHero from '../components/PageHero';
 import servicesBg from '../../assets/servicesBg.png';
-import Head from 'next/head';
 
 const cards: { title: string; desc: string }[] = [
   {

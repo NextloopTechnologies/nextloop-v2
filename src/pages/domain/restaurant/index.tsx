@@ -71,22 +71,21 @@ const whyChooseContent: IWhyChooseUs[] = [
 const enrolData = [
   {
     id: 1,
-    title: "Showcase your restaurant's dishes with an online menu."
+    title: "Showcase your restaurant's dishes with an online menu.",
   },
   {
     id: 2,
-    title: "Allow customers to make reservations from your site 24/7. "
+    title: 'Allow customers to make reservations from your site 24/7. ',
   },
   {
     id: 3,
-    title: "Get paid safely and securely through multiple payment methods."
+    title: 'Get paid safely and securely through multiple payment methods.',
   },
   {
     id: 4,
-    title: "Run your entire online ordering system from one dashboard. "
-  }
-]
-
+    title: 'Run your entire online ordering system from one dashboard. ',
+  },
+];
 
 const Restaurant: React.FC = () => {
   return (
@@ -94,7 +93,7 @@ const Restaurant: React.FC = () => {
       <CustomPageHero
         image={getStaticImageData(restaurantAssets.restaurantBg)}
         titleChildren={
-          <h1 className='text-white text-8xl uppercase font-bold text-center max-w-[1306px]'>
+          <h1 className='text-white text-5xl md:text-8xl uppercase font-bold text-center max-w-[1306px]'>
             Your <span className='text-orange-500'>restaurant</span>
             {', '}served online
           </h1>
@@ -108,8 +107,8 @@ const Restaurant: React.FC = () => {
         image={getStaticImageData(restaurantAssets.WhyBuildRestaurant)}
         colouredTitle='restaurant'
         informationSection={
-          <div className='max-w-[737px]'>
-            <p className='text-lg font-normal gap-5 mt-[100px]'>
+          <div className='max-w-[737px] mx-5 md:mx-0'>
+            <p className='text-lg font-normal mt-5'>
               One of the most significant industries in many nations, the cafe
               and restaurant sector is constantly expanding. But in order to
               handle multitasking effectively, technology must be used across
@@ -133,15 +132,15 @@ const Restaurant: React.FC = () => {
 
       <EnrollForWebsite
         image={getStaticImageData(restaurantAssets.RobustOnline)}
-        imageClassname='w-[450px] h-[450px]'
+        imageClassname='w-[450px] h-[450px] mx-auto'
         data={enrolData}
         titleElement={
           <h1 className='text-3xl md:text-7xl uppercase font-bold text-center max-w-[950px] mx-auto'>
-            Get a robust online <span className='text-orange-500'>ordering system</span>
+            Get a robust online{' '}
+            <span className='text-orange-500'>ordering system</span>
           </h1>
         }
       />
-
 
       <GrowBusiness />
       {/* <div className='min-h-screen flex flex-col items-center justify-center text-center py-[112px] mx-auto gap-[109px]'>

@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Image, { StaticImageData } from 'next/image';
 import { useRouter } from 'next/router';
 
@@ -10,7 +11,6 @@ import cert3 from '../../assets/certificates/3.png';
 import cert4 from '../../assets/certificates/4.png';
 import bulb from '../../assets/lightbulb.svg';
 import arrow from '../../assets/right-arrow.svg';
-import Head from 'next/head';
 
 const arr = [
   {

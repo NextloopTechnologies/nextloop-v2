@@ -1,8 +1,6 @@
 import Image, { StaticImageData } from 'next/image';
 
-import {
-  eventAssets
-} from '../../../../assets';
+import { eventAssets } from '../../../../assets';
 import { getStaticImageData } from '../../../utils/helper';
 
 const data = [
@@ -95,38 +93,46 @@ export const EllipsesGradientImageCard = ({ image, position }: Props) => (
   <div className='relative'>
     <Image
       src={image}
-      className={`absolute h-[450px] w-[450px] top-6 ${position === POSITION.LEFT ? '-right-[223px]' : '-left-[223px]'
-        } object-contain`}
+      className={`absolute h-[450px] w-[450px] top-6 ${
+        position === POSITION.LEFT ? '-right-[0px]' : '-left-[0px]'
+      } object-contain`}
       alt='image'
       height={300}
       width={300}
     />
     <Image
-      src={(eventAssets.GrayEllipse)}
-      className={`absolute w-24 h-24 ${position === POSITION.LEFT ? 'left-16' : 'right-16'
-        } top-10`}
+      src={eventAssets.GrayEllipse}
+      className={`absolute w-24 h-24 ${
+        position === POSITION.LEFT ? 'left-16' : 'right-16'
+      } top-10`}
       alt='ellipse'
       height={300}
       width={300}
     />
     <Image
-      src={(eventAssets.GrayEllipse)}
-      className={`absolute w-16 h-16 ${position === POSITION.LEFT ? 'left-80' : 'right-80'
-        } top-32`}
+      src={eventAssets.GrayEllipse}
+      className={`absolute w-16 h-16 ${
+        position === POSITION.LEFT ? 'left-80' : 'right-80'
+      } top-32`}
       alt='ellipse'
       height={300}
       width={300}
     />
     <Image
-      src={(eventAssets.GrayEllipse)}
-      className={`absolute w-24 h-24 ${position === POSITION.LEFT ? 'left-16' : 'right-16'
-        } bottom-20`}
+      src={eventAssets.GrayEllipse}
+      className={`absolute w-24 h-24 ${
+        position === POSITION.LEFT ? 'left-16' : 'right-16'
+      } bottom-20`}
       alt='ellipse'
       height={300}
       width={300}
     />
     <Image
-      src={position === POSITION.LEFT ? (eventAssets.BlackRectangle) : (eventAssets.OrangeRectangle)}
+      src={
+        position === POSITION.LEFT
+          ? eventAssets.BlackRectangle
+          : eventAssets.OrangeRectangle
+      }
       className='w-[600px] h-[500px]'
       alt='BG'
       height={300}
@@ -144,12 +150,14 @@ export const EventIdeaRow = ({
   descriptionPoints,
 }: EventIdeaProps) => (
   <div
-    className={`flex items-center justify-between ${position === POSITION.LEFT && 'flex-row-reverse'
-      }`}
+    className={`flex items-center justify-between ${
+      position === POSITION.LEFT && 'flex-row-reverse'
+    }`}
   >
     <div
-      className={`flex flex-col gap-5 w-[550px] ${position === POSITION.LEFT ? 'mr-32' : 'ml-32'
-        }`}
+      className={`flex flex-col gap-5 w-[550px] ${
+        position === POSITION.LEFT ? 'mr-32' : 'ml-32'
+      }`}
     >
       <h2 className='text-4xl uppercase font-bold'>{title}</h2>
       {subTitle && <h3 className='font-medium text-lg'>{subTitle}</h3>}
@@ -164,7 +172,6 @@ export const EventIdeaRow = ({
         </ul>
       )}
     </div>
-
     <EllipsesGradientImageCard image={image} position={position} />
   </div>
 );
