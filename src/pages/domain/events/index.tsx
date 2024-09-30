@@ -8,6 +8,7 @@ import FAQ from '../../../components/Domains/FAQ';
 import WhyBuild from '../../../components/Domains/WhyBuild';
 import WhyWorkWithUs from '../../../components/Domains/WhyWorkWithUs';
 import Layout from '../../../components/Layout/Layout';
+import palette from '../../../styles/pallette';
 import { IFAQ } from '../../../types';
 import { getStaticImageData } from '../../../utils/helper';
 
@@ -67,11 +68,14 @@ const Events = () => {
       <CustomPageHero
         image={getStaticImageData(eventAssets.eventsBg)}
         titleChildren={
-          <h1 className='text-white text-4xl md:text-8xl uppercase font-bold text-center w-full md:max-w-[1306px]'>
+          <h1
+            className={`text-white ${palette.fontSize.heading1} md:${palette.fontSize.heading1} uppercase font-bold text-center w-full md:max-w-[1306px]`}
+          >
             Create a professional{' '}
             <span className='text-orange-500'>event website</span>
           </h1>
         }
+        customSubtitleClassname={`xl:w-[51%] ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop}`}
         subtitle='Create a website for online and in-person events, sell tickets or collect RSVPs, accept secure online payments, reach more guests with advanced marketing tools and manage the day of your event.'
         opacity='opacity-90'
         title=''
@@ -80,8 +84,12 @@ const Events = () => {
         image={getStaticImageData(eventAssets.WhyBuildEventManagement)}
         colouredTitle='Event Management'
         informationSection={
-          <div className='mx-5 md:mx-10 lg:mx-0 lg:max-w-[737px]'>
-            <p className='text-sm md:text-lg font-normal gap-5'>
+          <div
+            className={`mx-5 md:mx-10 lg:mx-0 md:max-w-[600px] ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
+          >
+            <p
+              className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} font-normal gap-5`}
+            >
               Event planning can be a complex and time-consuming process. From
               coordinating schedules and vendors to managing registrations and
               budgets, there are countless details to keep track of. This is
@@ -89,11 +97,15 @@ const Events = () => {
               streamline and simplify the planning process.
             </p>
 
-            <h3 className='font-bold text-lg md:text-2xl uppercase my-5'>
+            <h3
+              className={`${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} uppercase my-5`}
+            >
               The Benefits of Event Management Software
             </h3>
 
-            <p className='text-sm md:text-lg font-normal'>
+            <p
+              className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} font-normal`}
+            >
               Event management software offers a wide range of benefits for
               businesses and organizations looking to streamline their event
               planning processes. Some key advantages include:

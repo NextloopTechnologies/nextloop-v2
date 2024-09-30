@@ -1,8 +1,7 @@
 import Image, { StaticImageData } from 'next/image';
 
-import {
-  oilAndGasAssets
-} from '../../../../assets';
+import { oilAndGasAssets } from '../../../../assets';
+import palette from '../../../styles/pallette';
 import { getStaticImageData } from '../../../utils/helper';
 
 const sampleData = [
@@ -44,10 +43,16 @@ type Props = {
 
 const InfoOnImage = ({ description, image, title }: Props) => (
   <div className='rounded-lg relative'>
-    <div className='absolute flex gap-5 flex-col text-white top-8 left-6 z-10 lg:top-20 lg:left-16 max-w-fit'>
-      <h2 className='uppercase text-sm lg:text-2xl font-bold'>{title}</h2>
+    <div className='absolute flex gap-5 flex-col text-white top-8 left-6 z-10 lg:top-20 lg:left-16 right-6'>
+      <h2
+        className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} font-bold`}
+      >
+        {title}
+      </h2>
 
-      <p className='text-xs lg:text-lg font-normal max-w-[350px] lg:max-w-xl'>
+      <p
+        className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop} font-normal max-w-[350px] lg:max-w-xl`}
+      >
         {description}
       </p>
     </div>
@@ -57,19 +62,23 @@ const InfoOnImage = ({ description, image, title }: Props) => (
       alt={title}
       height={300}
       width={300}
-      className='w-full md:w-[719px] object-fill rounded-lg'
+      className='w-full md:w-[600px] object-fill rounded-lg'
     />
   </div>
 );
 
 const WhyWorkWithUs = () => {
   return (
-    <div className='flex bg-[#1D1D1D0D]'>
-      <div className='flex flex-col pt-[96px] pb-[122px] max-w-[1479px] mx-auto'>
-        <h1 className='text-3xl md:text-7xl uppercase font-bold text-center'>
+    <div className='flex'>
+      <div className='flex flex-col pt-[50px] pb-[122px] max-w-[1479px] mx-auto'>
+        <h1
+          className={`${palette.fontSize.heading2} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center`}
+        >
           Why <span className='text-orange-500'>Work</span> With Us
         </h1>
-        <div className='text-sm mx-10 md:mx-0 md:text-lg text-center mt-5'>
+        <div
+          className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} mx-10 md:mx-0 text-center mt-5`}
+        >
           <p>
             You get your app faster and more cost effective – no tech skills are
             needed. Your delivery date is calculated upfront and we lock in a
@@ -79,7 +88,7 @@ const WhyWorkWithUs = () => {
           <p>But we offer more than just fantastic software. Take a look.</p>
         </div>
 
-        <div className='grid grid-cols-1 md:grid-cols-2 mx-2 lg:mx-0 gap-5 mt-16'>
+        <div className='grid grid-cols-1 md:grid-cols-2  lg:mx-0 gap-5 mt-10 px-8'>
           {sampleData.map(({ description, id, image, title }) => (
             <InfoOnImage
               key={id}
