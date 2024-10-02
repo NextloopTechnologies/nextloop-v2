@@ -20,7 +20,7 @@ const ServiceBox: React.FC<ServiceBoxProps> = ({ title, descp, icon }) => {
       className='relative flex flex-col bg-white rounded-lg'
       style={{ boxShadow: '0px 1px 10px 1px #0000001A' }}
     >
-      <div className='absolute left-[-70px] top-1/2 transform -translate-y-1/2'>
+      <div className='absolute left-[-70px] top-1/2 transform -translate-y-1/2 ml-3'>
         <Image
           src={icon}
           height={110}
@@ -31,11 +31,15 @@ const ServiceBox: React.FC<ServiceBoxProps> = ({ title, descp, icon }) => {
       </div>
       <div className='pl-14 py-8 mx-2'>
         <h3
-          className={`text-[#1D1D1D] ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} font-medium mb-4 uppercase`}
+          className={`text-[#1D1D1D] ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} mb-4 uppercase`}
         >
           {title}
         </h3>
-        <p className='text-[#1D1D1D] mb-2'>{descp}</p>
+        <p
+          className={`text-[#1D1D1D] ${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop} mb-2`}
+        >
+          {descp}
+        </p>
       </div>
     </div>
   );
@@ -43,7 +47,7 @@ const ServiceBox: React.FC<ServiceBoxProps> = ({ title, descp, icon }) => {
 
 const ProductServices: React.FC<ProductServicesProps> = ({ title, data }) => {
   return (
-    <div className='bg-[#1D1D1D0D] py-[100px] md:px-[200px] px-[80px]'>
+    <div className='py-[100px] md:px-[200px] px-[80px]'>
       <div className='mb-14'>{title}</div>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-[85px]'>
         {data?.map(({ descp, icon, title }, index: number) => (

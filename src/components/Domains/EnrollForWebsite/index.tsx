@@ -93,8 +93,8 @@ const EnrollForWebsite = ({
         )}
 
         <div className='grid grid-cols-1 md:grid-cols-2 place-items-center'>
-          <div className='flex  flex-col items-center justify-center '>
-            <div className='flex flex-col gap-3 mb-3 md:flex-row'>
+          <div className='flex  flex-col items-center justify-center'>
+            <div className='flex flex-col gap-3 md:ml-40 mb-3 md:flex-row'>
               {(data || sampleData).slice(0, 2).map((data) => (
                 <TitleDescCard
                   key={data.id}
@@ -104,7 +104,7 @@ const EnrollForWebsite = ({
                 />
               ))}
             </div>
-            <div className='flex flex-col gap-3 md:flex-row'>
+            <div className='flex flex-col gap-3 md:ml-40 md:flex-row'>
               {(data || sampleData).slice(2, 4).map((data) => (
                 <TitleDescCard
                   key={data.id}

@@ -2,6 +2,7 @@ import React from 'react';
 
 import HexagonBox from '../../HexagonBox';
 import { healthcareAssets } from '../../../../assets';
+import palette from '../../../styles/pallette';
 import { getStaticImageData } from '../../../utils/helper';
 
 const expertiseSuccessData = [
@@ -36,12 +37,16 @@ const expertiseSuccessData = [
 
 const OurExpertise = () => {
   return (
-    <div className='min-h-screen bg-white py-[96px] flex'>
+    <div className=' bg-white flex'>
       <div className='flex flex-col text-center items-center'>
-        <h1 className='font-bold text-3xl uppercase md:text-6xl lg:text-7xl xl:text-[85px] sm:text-4xl w-full mb-[45px]'>
+        <h1
+          className={`font-bold  sm:text-4xl w-full mb-[45px] ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop}`}
+        >
           OUR EXPERTISE YOUR <span className='text-orange-500'>SUCCESS!</span>
         </h1>
-        <p className='text-sm md:text-lg xl:mx-[150px] mx-2'>
+        <p
+          className={`xl:mx-[150px] mx-10 ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
+        >
           At Nextloop Technologies, we harness our extensive expertise in the
           healthcare sector alongside our mastery of advanced technological
           innovations to forge software solutions that make a lasting impact.Our
@@ -51,7 +56,7 @@ const OurExpertise = () => {
           leverage a team committed to transforming the healthcare landscape
           through solutions that are as reliable as they are revolutionary.
         </p>
-        <div className='grid gird-cols-1 lg:grid-cols-2 xl:grid-cols-3 mt-[85px] gap-14 mx-5'>
+        <div className='grid gird-cols-1 lg:grid-cols-2 xl:grid-cols-3 mt-[85px] gap-14 md:mx-20 mx-10'>
           {expertiseSuccessData?.map(
             ({ descp, id, icon, title, height, width }) => (
               <HexagonBox
