@@ -23,10 +23,14 @@ const ImageWithHoverInfo: React.FC<ImageWithHoverInfoProps> = ({
       className='object-fill h-[350px] w-full rounded-lg z-[1]'
     />
     <div className='absolute inset-0 bg-[#1D1D1D] flex flex-col opacity-0 group-hover:opacity-100 m-5 md:m-14 p-5 lg:m-5 transition-opacity z-[2]'>
-      <h2 className='uppercase text-xs sm:text-lg lg:text-base xl:text-2xl font-bold text-white mb-2 xl:mb-5'>
+      <h2
+        className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} uppercase  font-bold text-white mb-2 xl:mb-5`}
+      >
         {title}
       </h2>
-      <p className='text-[9px] sm:text-sm lg:text-sm xl:text-base text-white'>
+      <p
+        className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop} text-white`}
+      >
         {description}
       </p>
     </div>

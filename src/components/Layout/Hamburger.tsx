@@ -34,10 +34,10 @@ const Hamburger = () => {
     { name: 'Events', href: '/domain/events' },
     { name: 'Fin-Tech', href: '/domain/fintech' },
     { name: 'Healthcare', href: '/domain/healthcare' },
-    { name: 'Hotel', href: '/domain/hotel' },
+    // { name: 'Hotel', href: '/domain/hotel' },
     { name: 'Oil And Gas', href: '/domain/oilandgas' },
-    { name: 'Restaurant', href: '/domain/restaurant' },
-    { name: 'Travel And Hotel', href: '/domain/travelandhotel' },
+    { name: 'Food and Beverages', href: '/domain/foodandbeverages' },
+    { name: 'Travel And Hospitality', href: '/domain/travelandhospitality' },
   ];
 
   const toggleIndustriesDropdown = () => {

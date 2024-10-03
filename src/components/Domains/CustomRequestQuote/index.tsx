@@ -21,11 +21,11 @@ const CustomRequestQuote = ({ title }: Props) => {
 
         <button
           onClick={() => router.push('#footer')}
-          className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} flex mx-auto bg-white  px-5 py-1 justify-center items-center rounded-full`}
+          className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} w-48 flex md:mx-0 bg-white px-5 py-1 justify-center items-center rounded-full`}
         >
           <span className='flex items-center'>Request quote</span>{' '}
           <span
-            className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} flex items-center ml-1`}
+            className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} flex ml-1`}
           >
             &#8594;
           </span>

@@ -10,6 +10,7 @@ import GrowBusiness from '../../../components/Domains/Restaurant/GrowBusiness';
 import WhyBuild from '../../../components/Domains/WhyBuild';
 import WhyChooseUs from '../../../components/Domains/WhyChooseUs';
 import Layout from '../../../components/Layout/Layout';
+import palette from '../../../styles/pallette';
 import { IFAQ, IWhyChooseUs } from '../../../types';
 import { getStaticImageData } from '../../../utils/helper';
 
@@ -87,18 +88,21 @@ const enrolData = [
   },
 ];
 
-const Restaurant: React.FC = () => {
+const FoodAndBeverages: React.FC = () => {
   return (
     <Layout>
       <CustomPageHero
         image={getStaticImageData(restaurantAssets.restaurantBg)}
         titleChildren={
-          <h1 className='text-white text-5xl md:text-8xl uppercase font-bold text-center max-w-[1306px]'>
+          <h1
+            className={`${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} text-white uppercase font-bold text-center max-w-[1306px]`}
+          >
             Your <span className='text-orange-500'>restaurant</span>
             {', '}served online
           </h1>
         }
         subtitle='Grow your business and deliver the online experience your customers expect with this all-in-one business solution.'
+        customSubtitleClassname={`xl:w-[51%] ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop}`}
         opacity='opacity-10'
         title=''
       />
@@ -108,7 +112,9 @@ const Restaurant: React.FC = () => {
         colouredTitle='restaurant'
         informationSection={
           <div className='max-w-[737px] mx-5 md:mx-0'>
-            <p className='text-lg font-normal mt-5'>
+            <p
+              className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} mt-5`}
+            >
               One of the most significant industries in many nations, the cafe
               and restaurant sector is constantly expanding. But in order to
               handle multitasking effectively, technology must be used across
@@ -117,7 +123,7 @@ const Restaurant: React.FC = () => {
               the main benefits of custom ERP solutions for restaurants are:
             </p>
 
-            <ul className='list-disc text-lg pl-10 mt-8'>
+            <ul className='list-disc text-md pl-10 mt-8'>
               {benefits.map((benefit) => (
                 <li key={benefit.id} className='font-medium'>
                   <span className='font-normal'>{benefit.solution}</span>
@@ -135,7 +141,9 @@ const Restaurant: React.FC = () => {
         imageClassname='w-[450px] h-[450px] mx-auto'
         data={enrolData}
         titleElement={
-          <h1 className='text-3xl md:text-7xl uppercase font-bold text-center max-w-[950px] mx-auto'>
+          <h1
+            className={` ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center max-w-[950px] mx-auto`}
+          >
             Get a robust online{' '}
             <span className='text-orange-500'>ordering system</span>
           </h1>
@@ -183,4 +191,4 @@ const Restaurant: React.FC = () => {
   );
 };
 
-export default Restaurant;
+export default FoodAndBeverages;
