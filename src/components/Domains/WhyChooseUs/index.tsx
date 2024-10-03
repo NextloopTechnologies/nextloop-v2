@@ -16,7 +16,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ whyChooseContent }) => {
       >
         Why Choose Us
       </h1>
-      <div className='relative flex flex-col items-center md:px-5'>
+      <div className='relative flex flex-col items-center md:px-5 mb-5 md:mb-0'>
         <div className='md:absolute md:left-[13%] bg-[#FA8145] sm:pl-[300px] md:pl-[370px] lg:pl-[515px] text-white md:flex md:flex-col md:justify-center lg:h-[480px] z-10'>
           <div className='md:absolute md:left-[15%] md:self-center md:w-[47%] md:top-[18%] md:transform md:-translate-y-[12%] md:-translate-x-1/2 m-5 md:m-0 '>
             <Image
