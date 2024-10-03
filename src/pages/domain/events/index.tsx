@@ -69,7 +69,7 @@ const Events = () => {
         image={getStaticImageData(eventAssets.eventsBg)}
         titleChildren={
           <h1
-            className={`text-white ${palette.fontSize.heading1} md:${palette.fontSize.heading1} uppercase font-bold text-center w-full md:max-w-[1306px]`}
+            className={`text-white ${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} uppercase font-bold text-center w-full md:max-w-[1306px]`}
           >
             Create a professional{' '}
             <span className='text-orange-500'>event website</span>

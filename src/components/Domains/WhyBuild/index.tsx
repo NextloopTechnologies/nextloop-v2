@@ -17,7 +17,7 @@ const WhyBuild = ({
   infoAndImgClassname,
 }: Props) => {
   return (
-    <div className='flex flex-col items-center py-[50px] gap-[30px] px-10'>
+    <div className='flex flex-col items-center md:pt-20 pt-10 md:pb-10 gap-[30px] px-10 mb-10'>
       <h1
         className={`uppercase font-bold text-center max-w-[1479px] ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} px-2`}
       >

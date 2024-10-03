@@ -95,7 +95,7 @@ export const EllipsesGradientImageCard = ({ image, position }: Props) => (
     <Image
       src={image}
       className={`absolute h-[450px] w-[450px] top-6 ${
-        position === POSITION.LEFT ? '-right-[225px]' : '-left-[225px]'
+        position === POSITION.LEFT ? '-right-[224px]' : '-left-[224px]'
       } object-contain`}
       alt='image'
       height={300}
@@ -134,7 +134,7 @@ export const EllipsesGradientImageCard = ({ image, position }: Props) => (
           ? eventAssets.BlackRectangle
           : eventAssets.OrangeRectangle
       }
-      className='w-[600px] h-[500px]'
+      className='md:w-[600px] h-[500px]'
       alt='BG'
       height={300}
       width={300}
@@ -151,13 +151,15 @@ export const EventIdeaRow = ({
   descriptionPoints,
 }: EventIdeaProps) => (
   <div
-    className={`flex flex-col mx-10 md:flex-row items-center justify-between ${
-      position === POSITION.LEFT ? 'md:flex-row-reverse' : ''
+    className={`flex flex-col mx-10 md:flex-row items-center ${
+      position === POSITION.LEFT
+        ? 'md:justify-between md:flex-row-reverse'
+        : 'md:justify-between'
     }`}
   >
     <div
-      className={`flex flex-col gap-5 w-full md:w-[550px] ${
-        position === POSITION.LEFT ? 'md:mr-40' : 'md:ml-40'
+      className={`flex flex-col gap-5 w-full md:w-[600px] ${
+        position === POSITION.LEFT ? 'md:w-[400px] text-left' : 'md:ml-5'
       }`}
     >
       <h2
@@ -167,21 +169,21 @@ export const EventIdeaRow = ({
       </h2>
       {subTitle && (
         <h3
-          className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
+          className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} max-w-xs`}
         >
           {subTitle}
         </h3>
       )}
       {description && (
         <p
-          className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+          className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop} max-w-xs`}
         >
           {description}
         </p>
       )}
       {descriptionPoints && (
         <ul
-          className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop} list-disc pl-10`}
+          className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop} list-disc pl-10 max-w-xs`}
         >
           {descriptionPoints.map((point, index) => (
             <li
@@ -194,7 +196,7 @@ export const EventIdeaRow = ({
         </ul>
       )}
     </div>
-    <div className="hidden md:block">
+    <div className='hidden md:block'>
       <EllipsesGradientImageCard image={image} position={position} />
     </div>
   </div>
