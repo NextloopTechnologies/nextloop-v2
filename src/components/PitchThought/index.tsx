@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC, useState } from 'react';
-import { FB, GMAIL, GOOGLE, YT, X, INSTAGRAM } from '../../../assets';
 
 import palette from '../../styles/pallette';
+import { FB, GMAIL, GOOGLE, INSTAGRAM,X, YT } from '../../../assets';
 
 const PitchThought: FC = () => {
   const [email, setEmail] = useState('');

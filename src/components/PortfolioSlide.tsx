@@ -1,11 +1,12 @@
 import Image from 'next/image';
 import React, { FC, useState } from 'react';
+
 import {
+  LeftSlide,
   Portfolio1,
   Portfolio2,
   Portfolio3,
   Portfolio4,
-  LeftSlide,
 } from '../../assets/';
 interface PortfolioCardProps {
   image: string;

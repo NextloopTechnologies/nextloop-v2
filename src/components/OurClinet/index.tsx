@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
-import { OurCLient, SWAcademy, BlueBird, Client2 } from '../../../assets';
+
 import CLientCard from './CLientCard';
+import { BlueBird, Client2,OurCLient, SWAcademy } from '../../../assets';
 interface ServiceCardProps {
   heading: string;
   image: string;

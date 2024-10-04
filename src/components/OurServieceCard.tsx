@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
 // import { Services1 } from '../../assets';
 import Image from 'next/image';
+import React, { FC } from 'react';
 
 interface ServiceCardProps {
   heading: string;
