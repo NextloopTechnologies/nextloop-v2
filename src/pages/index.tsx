@@ -3,10 +3,10 @@ import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import React, { useEffect, useState, useRef } from 'react';
 
-import AboutUs from '../components/AboutUs';
-import Career from '../components/Career';
-import ClientReview from '../components/ClientReview';
-import Experience from '../components/Experience';
+// import AboutUs from '../components/AboutUs';
+// import Career from '../components/Career';
+// import ClientReview from '../components/ClientReview';
+// import Experience from '../components/Experience';
 import Intro from '../components/Intro';
 import Layout from '../components/Layout/Layout';
 import Portfolio from '../components/Portfolio';
@@ -52,11 +52,11 @@ export function Section({
   );
 }
 
-const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = ({ data }) => {
+const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
   const [showNextPageButton, setShowNextPageButton] = useState(true);
   const [showToTopButton, setShowToTopButton] = useState(false);
   // const [scrollBelowServices, setScrollBelowServices] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
 
   // const introRef = useRef<HTMLDivElement | null>(null);
   // const whoWeAreRef = useRef<HTMLDivElement | null>(null);
@@ -238,7 +238,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = ({ data }) => {
 
   return (
     <>
-      <Layout divRefs={divRefs} id='connect-with-us'>
+      <Layout divRefs={divRefs?.current} id='connect-with-us'>
         <div
           id='intro'
           ref={(el: any) => (divRefs.current[0] = el)}
@@ -276,7 +276,9 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = ({ data }) => {
         >
           <div className='container mx-auto'>
             {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
-            <Portfolio caseStudies={data!} />
+            <Portfolio
+            // caseStudies={data!}
+            />
           </div>
         </div>
 

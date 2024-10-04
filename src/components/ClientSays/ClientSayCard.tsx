@@ -133,7 +133,7 @@ const ClientSaysCard: FC = () => {
             // width={60}
             // height={60}
             src={RightArrow}
-            alt={'right-arrow'}
+            alt='right-arrow'
             className='w-3 object-cover rotate-180'
           />
         </button>
@@ -147,7 +147,7 @@ const ClientSaysCard: FC = () => {
             // width={60}
             // height={60}
             src={RightArrow}
-            alt={'right-arrow'}
+            alt='right-arrow'
             className='w-3 object-cover'
           />
         </button>

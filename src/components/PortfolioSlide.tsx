@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import {
   Portfolio1,
   Portfolio2,
@@ -7,27 +7,30 @@ import {
   Portfolio4,
   LeftSlide,
 } from '../../assets/';
-
-const IMAGE_DATA: any = [
+interface PortfolioCardProps {
+  image: string;
+  caption: string;
+}
+const IMAGE_DATA: PortfolioCardProps[] = [
   {
-    image: Portfolio1,
+    image: Portfolio1 as unknown as string,
     caption: '1st image caption',
   },
   {
-    image: Portfolio2,
+    image: Portfolio2 as unknown as string,
     caption: '2nd image caption',
   },
   {
-    image: Portfolio3,
+    image: Portfolio3 as unknown as string,
     caption: '3rd image caption',
   },
   {
-    image: Portfolio4,
+    image: Portfolio4 as unknown as string,
     caption: '4th image caption',
   },
 ];
 
-const PortfolioSlide = () => {
+const PortfolioSlide: FC = () => {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   const handleImages = (count: number) => {
@@ -52,8 +55,8 @@ const PortfolioSlide = () => {
       </header>
       <div className='w-full '>
         <Image
-          src={IMAGE_DATA[currentSlide]?.image}
-          alt={'image'}
+          src={IMAGE_DATA[currentSlide]?.image || ''}
+          alt='image'
           className='w-full object-contain'
           // width={'1000'}
           // height={'350'}
@@ -71,7 +74,7 @@ const PortfolioSlide = () => {
         >
           <Image
             src={LeftSlide}
-            alt={'image'}
+            alt='image'
             className='w-full h-full object-cover'
             width={40}
             height={30}
@@ -83,7 +86,7 @@ const PortfolioSlide = () => {
         >
           <Image
             src={LeftSlide}
-            alt={'image'}
+            alt='image'
             className='w-full h-full object-cover rotate-180'
             width={40}
             height={30}
@@ -91,8 +94,9 @@ const PortfolioSlide = () => {
         </button>
       </div>
       <div style={{ textAlign: 'center' }}>
-        {IMAGE_DATA?.map((dot: any, index: any) => (
+        {IMAGE_DATA?.map((_, index) => (
           <span
+            key={index}
             onClick={() => setCurrentSlide(index)}
             style={{ background: index == currentSlide ? '#bbb' : '#fef' }}
             className='dots'

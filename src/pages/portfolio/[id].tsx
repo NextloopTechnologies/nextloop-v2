@@ -1,4 +1,4 @@
-import parse from 'html-react-parser'
+import parse from 'html-react-parser';
 import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 
@@ -8,9 +8,9 @@ import { IPortfolio } from '../../types';
 import supabaseClient from '../../utils/client';
 import portfolioBg from '../../../assets/portfolioBg.png';
 
-const PortfolioID: React.FC<{ data?: IPortfolio, error?: string }> = ({
+const PortfolioID: React.FC<{ data?: IPortfolio; error?: string }> = ({
   data,
-  error
+  error,
 }) => {
   return (
     <Layout>
@@ -31,9 +31,7 @@ const PortfolioID: React.FC<{ data?: IPortfolio, error?: string }> = ({
               width={900}
               height={900}
             />
-            <p>
-              {parse(data.descp!)}
-            </p>
+            {parse(`<h1>${data.descp!}</h1>`)}
           </div>
         ) : (
           <div className='h-screen flex items-center justify-center text-2xl'>
@@ -68,4 +66,3 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     },
   };
 };
-

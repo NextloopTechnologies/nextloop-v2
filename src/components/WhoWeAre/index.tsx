@@ -1,18 +1,18 @@
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import Image from 'next/image';
 import React, { FC, useEffect, useState } from 'react';
 
-import {
-  imageVariants,
-  introHeaderVariants,
-  textVariants,
-} from '../../utils/frameMotionAnimations';
-import useWindowSize from '../../utils/useWindowSize';
-import { Whyus, Whoweare } from '../../../assets';
+// import {
+//   imageVariants,
+//   introHeaderVariants,
+//   textVariants,
+// } from '../../utils/frameMotionAnimations';
+// import useWindowSize from '../../utils/useWindowSize';
+import { Whoweare } from '../../../assets';
 
 const WhoWeAre: FC = () => {
   const [textAnimationCompleted, setTextAnimationCompleted] = useState(false);
-  const { isMobile } = useWindowSize();
+  // const { isMobile } = useWindowSize();
 
   useEffect(() => {
     // Simulate the completion of text animation after a delay

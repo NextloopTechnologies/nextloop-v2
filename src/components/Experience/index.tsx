@@ -1,12 +1,5 @@
-// import {motion } from 'framer-;
-import React, { FC } from 'react';
 
-// import ContactUs from '../ContactUs';
-// import {
-//   introHeaderVariants,
-//   textVariants,
-// } from '../../utils/frameMotionAnimations';
-import useWindowSize from '../../utils/useWindowSize';
+import React, { FC } from 'react';
 
 const Experience: FC = () => {
   const content = [
@@ -23,8 +16,6 @@ const Experience: FC = () => {
       desc: 'We help you to transform your business with top-notch app development in the mobile-centric world.',
     },
   ];
-
-  const { isMobile } = useWindowSize();
 
   return (
     <>

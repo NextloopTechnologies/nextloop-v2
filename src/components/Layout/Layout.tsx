@@ -9,7 +9,7 @@ import useWindowSize from '../../utils/useWindowSize';
 interface LayoutProps {
   children: ReactNode;
   pitchThoughtSectionEnabled?: boolean;
-  divRefs?: any;
+  divRefs?: (HTMLDivElement | null)[];
   id?: string;
 }
 
@@ -47,9 +47,7 @@ const Layout: React.FC<LayoutProps> = ({
         <Section className='min-h-screen bg-[#010103] w-screen'>
           <div
             id={id}
-            ref={(el: any) =>
-              divRefs?.current?.length ? (divRefs.current[8] = el) : null
-            }
+            ref={(el: any) => (divRefs?.length ? (divRefs[8] = el) : null)}
             className='container mx-auto'
           >
             <PitchThought />
@@ -59,9 +57,7 @@ const Layout: React.FC<LayoutProps> = ({
         <div className='sm:min-h-screen bg-[#010103] sm:w-screen'>
           <div
             id={id}
-            ref={(el: any) =>
-              divRefs?.current?.length ? (divRefs.current[8] = el) : null
-            }
+            ref={(el: any) => (divRefs?.length ? (divRefs[8] = el) : null)}
             className='container mx-auto'
           >
             <PitchThought />
