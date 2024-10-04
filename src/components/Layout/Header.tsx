@@ -13,7 +13,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ isSticky }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  // const [showIndustriesDropdown, setShowIndustriesDropdown] = useState(false);
+  const [showIndustriesDropdown, setShowIndustriesDropdown] = useState(false);
   const headerAnimation = useAnimation();
   const router = useRouter();
   const { pathname } = router;
@@ -61,16 +61,16 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
     };
   }, [router]);
 
-  // const industries = [
-  //   { name: 'E-commerce', href: '/domain/ecommerce' },
-  //   { name: 'Events', href: '/domain/events' },
-  //   { name: 'Fin-Tech', href: '/domain/fintech' },
-  //   { name: 'Healthcare', href: '/domain/healthcare' },
-  //   { name: 'Hotel', href: '/domain/hotel' },
-  //   { name: 'Oil And Gas', href: '/domain/oilandgas' },
-  //   { name: 'Restaurant', href: '/domain/restaurant' },
-  //   { name: 'Travel And Hotel', href: '/domain/travelandhotel' },
-  // ];
+  const industries = [
+    { name: 'E-commerce', href: '/domain/ecommerce' },
+    { name: 'Events', href: '/domain/events' },
+    { name: 'Fin-Tech', href: '/domain/fintech' },
+    { name: 'Healthcare', href: '/domain/healthcare' },
+    // { name: 'Hotel', href: '/domain/hotel' },
+    { name: 'Oil And Gas', href: '/domain/oilandgas' },
+    { name: 'Food and Beverages', href: '/domain/foodandbeverages' },
+    { name: 'Travel And Hospitality', href: '/domain/travelandhospitality' },
+  ];
 
   return (
     <>
@@ -99,7 +99,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
             <li className={`${pathname === '/about-us' && 'text-orange-500'}`}>
               <Link href='/about-us'>About us</Link>
             </li>
-            {/* <li
+            <li
               className={`relative ${
                 pathname.startsWith('/domain') && 'text-orange-500'
               }`}
@@ -108,20 +108,20 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
             >
               <div>Industries</div>
               {showIndustriesDropdown && (
-                <ul className='absolute left-0 mt-0 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5'>
+                <ul className='absolute left-0 mt-0 w-40 shadow-lg bg-white ring-1 ring-black ring-opacity-5'>
                   {industries.map((industry) => (
                     <li
                       key={industry.name}
-                      className='text-gray-700 hover:bg-orange-500 hover:text-white rounded-md'
+                      className='text-gray-700 hover:bg-orange-500 hover:text-white text-sm'
                     >
-                      <Link href={industry.href} className='block px-4 py-2'>
+                      <Link href={industry.href} className='block px-3 py-1'>
                         {industry.name}
                       </Link>
                     </li>
                   ))}
                 </ul>
               )}
-            </li> */}
+            </li>
             <li className={`${pathname === '/portfolio' && 'text-orange-500'}`}>
               <Link href='/portfolio'>Portfolio</Link>
             </li>
