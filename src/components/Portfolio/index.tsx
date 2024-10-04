@@ -1,37 +1,37 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import Image from 'next/image';
-import { useRouter } from 'next/router';
-import React, { FC, useState } from 'react';
+// import Image from 'next/image';
+// import { useRouter } from 'next/router';
+import React, { FC } from 'react';
 
-import { IPortfolio } from '../../types';
-import { introHeaderVariants } from '../../utils/frameMotionAnimations';
-import useWindowSize from '../../utils/useWindowSize';
+// import { IPortfolio } from '../../types';
+// import { introHeaderVariants } from '../../utils/frameMotionAnimations';
+// import useWindowSize from '../../utils/useWindowSize';
 import PortfolioSlide from '../PortfolioSlide';
 
-const Portfolio: FC<{ caseStudies: IPortfolio[] }> = ({ caseStudies }) => {
-  const { isMobile } = useWindowSize();
-  const router = useRouter();
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const handleLeftArrowClick = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? caseStudies.length - 1 : prevIndex - 1
-    );
-  };
+const Portfolio: FC = () => {
+  // const { isMobile } = useWindowSize();
+  // const router = useRouter();
+  // const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  // const [scrollPosition, setScrollPosition] = useState(0);
+  // const handleLeftArrowClick = () => {
+  //   setCurrentImageIndex((prevIndex) =>
+  //     prevIndex === 0 ? caseStudies.length - 1 : prevIndex - 1
+  //   );
+  // };
 
-  const handleRightArrowClick = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === caseStudies.length - 1 ? 0 : prevIndex + 1
-    );
-  };
+  // const handleRightArrowClick = () => {
+  //   setCurrentImageIndex((prevIndex) =>
+  //     prevIndex === caseStudies.length - 1 ? 0 : prevIndex + 1
+  //   );
+  // };
 
-  const handleScroll = (direction: string) => {
-    const newScrollPosition =
-      direction === 'left' ? scrollPosition - 1 : scrollPosition + 1;
-    setScrollPosition(newScrollPosition < 0 ? 0 : newScrollPosition);
-    if (direction === 'left') handleLeftArrowClick();
-    else handleRightArrowClick();
-  };
+  // const handleScroll = (direction: string) => {
+  //   const newScrollPosition =
+  //     direction === 'left' ? scrollPosition - 1 : scrollPosition + 1;
+  //   setScrollPosition(newScrollPosition < 0 ? 0 : newScrollPosition);
+  //   if (direction === 'left') handleLeftArrowClick();
+  //   else handleRightArrowClick();
+  // };
 
   return (
     <div className='w-full flex justify-center'>

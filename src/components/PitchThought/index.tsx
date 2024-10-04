@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC, useState } from 'react';
-import { FB, GMAIL, GOOGLE, YT, X, INSTAGRAM } from '../../../assets';
 
 import palette from '../../styles/pallette';
+import { FB, GMAIL, GOOGLE, INSTAGRAM,X, YT } from '../../../assets';
 
 const PitchThought: FC = () => {
   const [email, setEmail] = useState('');
@@ -53,9 +53,7 @@ const PitchThought: FC = () => {
               <ul className='flex gap-x-3 justify-end'>
                 <li>
                   <Link
-                    href={
-                      'https://www.facebook.com/profile.php?id=61556914381569&mibextid=ZbWKwL'
-                    }
+                    href='https://www.facebook.com/profile.php?id=61556914381569&mibextid=ZbWKwL'
                     passHref
                   >
                     <Image
@@ -66,7 +64,7 @@ const PitchThought: FC = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link aria-disabled href={''}>
+                  <Link aria-disabled href=''>
                     <Image
                       src={GMAIL}
                       alt='gmail-icon'
@@ -75,7 +73,7 @@ const PitchThought: FC = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href={'https://g.co/kgs/7LnLSHN'}>
+                  <Link href='https://g.co/kgs/7LnLSHN'>
                     <Image
                       src={GOOGLE}
                       alt='google-icon'
@@ -84,7 +82,7 @@ const PitchThought: FC = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link aria-disabled href={''}>
+                  <Link aria-disabled href=''>
                     <Image
                       src={YT}
                       alt='yt-icon'
@@ -93,7 +91,7 @@ const PitchThought: FC = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href={'https://x.com/Nextloop_'}>
+                  <Link href='https://x.com/Nextloop_'>
                     <Image
                       src={X}
                       alt='x-icon'
@@ -102,11 +100,7 @@ const PitchThought: FC = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href={
-                      'https://www.instagram.com/nextloop_technologies?igsh=MXJ1dzBocGliajBqbg=='
-                    }
-                  >
+                  <Link href='https://www.instagram.com/nextloop_technologies?igsh=MXJ1dzBocGliajBqbg=='>
                     <Image
                       src={INSTAGRAM}
                       alt='insta-icon'

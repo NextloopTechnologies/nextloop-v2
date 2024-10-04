@@ -1,15 +1,19 @@
 import { motion } from 'framer-motion';
 import { GetServerSideProps } from 'next';
-import Head from 'next/head';
 import Image from 'next/image';
 import React, { useEffect, useRef,useState } from 'react';
 
-import AboutUs from '../components/AboutUs';
-import Career from '../components/Career';
-import ClientReview from '../components/ClientReview';
-import Experience from '../components/Experience';
+import Certificate from '../components/Certificate';
+import ClientSays from '../components/ClientSays';
+// import AboutUs from '../components/AboutUs';
+// import Career from '../components/Career';
+// import ClientReview from '../components/ClientReview';
+// import Experience from '../components/Experience';
 import Intro from '../components/Intro';
 import Layout from '../components/Layout/Layout';
+// import ClientSays from '../components/ClientSays';
+import OurCLient from '../components/OurClinet';
+import OurValues from '../components/OurValues';
 import Portfolio from '../components/Portfolio';
 import Services from '../components/ServicesGroup';
 import WhoWeAre from '../components/WhoWeAre';
@@ -17,11 +21,6 @@ import { IPortfolio } from '../types';
 import supabaseClient from '../utils/client';
 import useWindowSize from '../utils/useWindowSize';
 import { DownArrow } from '../../assets';
-import OurValues from '../components/OurValues';
-// import ClientSays from '../components/ClientSays';
-import OurCLient from '../components/OurClinet';
-import ClientSays from '../components/ClientSays';
-import Certificate from '../components/Certificate';
 
 const sectionStyle: React.CSSProperties = {
   minHeight: '100vh',
@@ -53,11 +52,11 @@ export function Section({
   );
 }
 
-const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = ({ data }) => {
+const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
   const [showNextPageButton, setShowNextPageButton] = useState(true);
   const [showToTopButton, setShowToTopButton] = useState(false);
   // const [scrollBelowServices, setScrollBelowServices] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
 
   // const introRef = useRef<HTMLDivElement | null>(null);
   // const whoWeAreRef = useRef<HTMLDivElement | null>(null);
@@ -239,11 +238,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = ({ data }) => {
 
   return (
     <>
-      <Layout divRefs={divRefs} id='connect-with-us'>
-        <Head>
-          <title>NextLoop Technologies | Innovative IT Solutions for Businesses</title>
-          <meta name="description" content="Discover NextLoop Technologies, your partner in cutting-edge IT solutions. We specialize in digital transformation, software development, and managed services, ensuring your business stays ahead in the tech landscape." />
-        </Head>
+      <Layout divRefs={divRefs?.current} id='connect-with-us'>
         <div
           id='intro'
           ref={(el: any) => (divRefs.current[0] = el)}
@@ -281,7 +276,9 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = ({ data }) => {
         >
           <div className='container mx-auto'>
             {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
-            <Portfolio caseStudies={data!} />
+            <Portfolio
+            // caseStudies={data!}
+            />
           </div>
         </div>
 

@@ -1,14 +1,14 @@
+import Image from 'next/image';
 import React, { FC, useState } from 'react';
+
 import {
-  OurCLient,
-  InvertedQoute,
-  RightArrow,
-  SWAcademy,
   BlueBird,
   Client2,
+  InvertedQoute,
+  OurCLient,
+  RightArrow,
+  SWAcademy,
 } from '../../../assets';
-
-import Image from 'next/image';
 
 interface ServiceCardProps {
   heading: string;
@@ -133,7 +133,7 @@ const ClientSaysCard: FC = () => {
             // width={60}
             // height={60}
             src={RightArrow}
-            alt={'right-arrow'}
+            alt='right-arrow'
             className='w-3 object-cover rotate-180'
           />
         </button>
@@ -147,7 +147,7 @@ const ClientSaysCard: FC = () => {
             // width={60}
             // height={60}
             src={RightArrow}
-            alt={'right-arrow'}
+            alt='right-arrow'
             className='w-3 object-cover'
           />
         </button>
