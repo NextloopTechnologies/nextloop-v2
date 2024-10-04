@@ -8,7 +8,7 @@ import {
   textVariants,
 } from '../../utils/frameMotionAnimations';
 import useWindowSize from '../../utils/useWindowSize';
-import { Whyus } from '../../../assets';
+import { Whyus, Whoweare } from '../../../assets';
 
 const WhoWeAre: FC = () => {
   const [textAnimationCompleted, setTextAnimationCompleted] = useState(false);
@@ -26,65 +26,72 @@ const WhoWeAre: FC = () => {
 
   return (
     <>
-      <div className='flex flex-col lg:flex-row items-center overflow-hidden gap-8 lg:gap-0 py-5'>
-        <motion.header
-          initial={isMobile ? 'visible' : 'hide'}
-          whileInView='show'
-          exit='hide'
-          variants={introHeaderVariants}
-          className='flex flex-col lg:flex-row gap-x-10 text-center lg:text-left w-full'
+      <div className='flex flex-col lg:flex-row overflow-hidden lg:gap-5 py-12 sm:py-20 px-12 sm:px-28'>
+        <div
+          // initial={isMobile ? 'visible' : 'hide'}
+          // whileInView='show'
+          // exit='hide'
+          // variants={introHeaderVariants}
+          className='flex  text-center lg:text-left  sm:w-[50%] h-full'
         >
-          <div className='flex flex-col gap-3 lg:pl-20 pl-4 w-full'>
-            <span className='uppercase'>who we are</span>
-            <motion.span
-              initial={isMobile ? 'visible' : 'hide'}
-              animate={textAnimationCompleted ? 'show' : 'hide'}
+          <div className='flex flex-col sm:w-[80%]'>
+            <b className='uppercase lg:text-4xl text-3xl font-bold'>
+              who we <span className='text-orange-400'>are?</span>
+            </b>
+            {/* <span
+              // initial={isMobile ? 'visible' : 'hide'}
+              // animate={textAnimationCompleted ? 'show' : 'hide'}
               className='uppercase lg:text-4xl text-3xl font-bold w-full'
             >
               We are a group of goal focused{' '}
               <b className='text-orange-400'>developers</b> and{' '}
               <b className='text-orange-400'>designers</b> who believe that
               solutions make all the difference.
-            </motion.span>
-            <motion.span
-              initial={isMobile ? 'visible' : 'hide'}
-              animate={textAnimationCompleted ? 'show' : 'hide'}
-              variants={textVariants}
-              className='text-sm lg:text-[14px] w-full pt-8'
+            </span> */}
+            <span
+              // initial={isMobile ? 'visible' : 'hide'}
+              // animate={textAnimationCompleted ? 'show' : 'hide'}
+              // variants={textVariants}
+              className='text-sm lg:text-[15px] tracking-wider w-full mt-10'
             >
-              Nestled in the heart of India, NextLoop Technologies is more than
-              just a company; we're a passionate team on a mission. With each
-              project, we infuse our work with dedication and empathy,
-              understanding that behind every line of code lies a dream, a
-              vision, and a journey.
-              <br />
-              From startups taking their first steps to established enterprises
-              reaching for new heights, we're here to be your partner in growth,
-              innovation, and success. Together, let's turn aspirations into
-              achievements and challenges into triumphs.
-            </motion.span>
+              <b>At NextLoop Technologies</b>, located in the vibrant heart of
+              India, we are a passionate team of expert developers and
+              innovative designers committed to delivering solutions that truly
+              make a difference. We don’t just build software; we craft
+              experiences, infusing every project with meticulous attention to
+              detail and a deep understanding of your unique vision. Whether
+              you’re a startup ready to disrupt the market or an established
+              enterprise aiming for digital transformation, we stand by your
+              side as your strategic partner in innovation and growth. Together,
+              we will transform your bold aspirations into tangible achievements
+              and turn challenges into remarkable successes!
+            </span>
           </div>
-        </motion.header>
-        <motion.header
-          initial={isMobile ? 'visible' : 'hide'}
-          whileInView='show'
-          exit='hide'
-          variants={imageVariants}
-          className='flex w-full h-full pb:10 sm:pb-36'
+        </div>
+        <div
+          // initial={isMobile ? 'visible' : 'hide'}
+          // whileInView='show'
+          // exit='hide'
+          // variants={imageVariants}
+          className='flex sm:w-[50%] h-full'
         >
-          <div className='lg:flex-shrink-0 w-full pt-24'>
-            {textAnimationCompleted && (
-              <motion.span
-                initial={isMobile ? 'visible' : 'hide'}
-                animate='show'
-                variants={imageVariants}
-                className='flex lg:items-end items-center justify-center h-full'
-              >
-                <Image src={Whyus} width={250} height={305} alt='image' />
-              </motion.span>
-            )}
-          </div>
-        </motion.header>
+          {textAnimationCompleted && (
+            <div className='w-[100%] h-[350px] bg-blue-300 rounded-tl-[52px] overflow-hidden rounded-br-[52px]  mt-10'>
+              {/* <div
+              // initial={isMobile ? 'visible' : 'hide'}
+              // animate='show'
+              // variants={imageVariants}
+              // className='bg-blue-300 rounded-tl-[52px] rounded-br-[52px] flex lg:items-end items-center justify-center'
+              > */}
+              <Image
+                src={Whoweare}
+                className='w-full h-full object-cover'
+                alt='image'
+              />
+              {/* </div> */}
+            </div>
+          )}
+        </div>
       </div>
     </>
   );

@@ -1,11 +1,11 @@
-import { motion } from 'framer-motion';
+// import {motion } from 'framer-;
 import React, { FC } from 'react';
 
-import ContactUs from '../ContactUs';
-import {
-  introHeaderVariants,
-  textVariants,
-} from '../../utils/frameMotionAnimations';
+// import ContactUs from '../ContactUs';
+// import {
+//   introHeaderVariants,
+//   textVariants,
+// } from '../../utils/frameMotionAnimations';
 import useWindowSize from '../../utils/useWindowSize';
 
 const Experience: FC = () => {
@@ -29,29 +29,29 @@ const Experience: FC = () => {
   return (
     <>
       <div className='flex justify-center items-center sm:min-h-screen'>
-        <motion.header
-          initial={isMobile ? 'visible' : 'hide'}
-          whileInView='show'
-          exit='hide'
-          variants={introHeaderVariants}
+        <header
+          // initial={isMobile ? 'visible' : 'hide'}
+          // whileInView='show'
+          // exit='hide'
+          // variants={introHeaderVariants}
           className='flex flex-col lg:flex-row gap-10 lg:w-5/6 w-full text-left lg:text-center'
         >
           <div className='flex flex-col h-full gap-y-20 px-2'>
-            <motion.span
-              initial={isMobile ? 'visible' : 'hide'}
-              animate='show'
-              variants={textVariants}
+            <span
+              // initial={isMobile ? 'visible' : 'hide'}
+              // animate='show'
+              // variants={textVariants}
               className='lg:text-6xl text-3xl font-bold flex lg:justify-end justify-center'
             >
               <div className='lg:w-2/3 lg:text-right text-center'>
                 Experience Full Spectrum of{' '}
                 <b className='text-orange-500'>Services</b> we're providing.
               </div>
-            </motion.span>
-            <motion.span
-              initial={isMobile ? 'visible' : 'hide'}
-              animate='show'
-              variants={textVariants}
+            </span>
+            <span
+              // initial={isMobile ? 'visible' : 'hide'}
+              // animate='show'
+              // variants={textVariants}
               className='text-2xl sm:pt-8 flex flex-col lg:flex-row h-full gap-4'
             >
               <div className='flex flex-col justify-center sm:flex-row'>
@@ -81,13 +81,13 @@ const Experience: FC = () => {
                   vision. Desiring more than just a contract - we work
                   diligently to earn lasting partnerships with our clients.
                 </div>
-                <span className='flex justify-center items-center w-full '>
+                {/* <span className='flex justify-center items-center w-full '>
                   <ContactUs />
-                </span>
+                </span> */}
               </div>
-            </motion.span>
+            </span>
           </div>
-        </motion.header>
+        </header>
       </div>
     </>
   );

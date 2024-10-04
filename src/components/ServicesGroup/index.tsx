@@ -1,103 +1,104 @@
-import { motion, Variants } from 'framer-motion';
-import React, { FC, useRef } from 'react';
+import React, { FC } from 'react';
 
-import Coverover from './Coverover'; // Import the Coverover component
-import { textVariants } from '../../utils/frameMotionAnimations';
-import useWindowSize from '../../utils/useWindowSize';
+import OurServieceCard from '../OurServieceCard';
+import {
+  Service1,
+  Service2,
+  Service3,
+  Service4,
+  Service5,
+  Service6,
+  Service7,
+  Service8,
+  Service9,
+  Service10,
+  Service11,
+  Service12,
+} from '../../../assets';
 
-type CoveroverProps = {
-  isModalOpen: boolean;
-  setIsModalOpen: (value: boolean) => void;
-};
+interface ServiceCardProps {
+  heading: string;
+  image: string;
+}
 
-const Services: FC<CoveroverProps> = ({ isModalOpen, setIsModalOpen }) => {
-  const scrollableRef = useRef<HTMLDivElement | null>(null); // Specify the type of scrollableRef
+const SERVICE_DATA: ServiceCardProps[] = [
+  {
+    heading: 'Custom Software Development',
+    image: Service1 as unknown as string,
+  },
+  {
+    heading: 'Web Development',
+    image: Service2 as unknown as string,
+  },
+  {
+    heading: 'MVP Development',
+    image: Service3 as unknown as string,
+  },
+  {
+    heading: 'Cloud Services (DevOps, AWS, GCP, Azure)',
+    image: Service4 as unknown as string,
+  },
+  {
+    heading: 'Mobile Development',
+    image: Service5 as unknown as string,
+  },
+  {
+    heading: 'UI/UX Development',
+    image: Service6 as unknown as string,
+  },
+  {
+    heading: 'Hire Dedicated Team',
+    image: Service7 as unknown as string,
+  },
+  {
+    heading: 'E-commerce Development',
+    image: Service8 as unknown as string,
+  },
+  {
+    heading: 'AI/ML',
+    image: Service9 as unknown as string,
+  },
+  {
+    heading: 'Data Storage and Management',
+    image: Service10 as unknown as string,
+  },
+  {
+    heading: 'Technical Support',
+    image: Service11 as unknown as string,
+  },
+  {
+    heading: 'Technology Training',
+    image: Service12 as unknown as string,
+  },
+];
 
-  const introHeaderVariants: Variants = {
-    hide: {
-      opacity: 0,
-      x: -500,
-    },
-    show: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 2,
-      },
-    },
-  };
-
-  // Function to open the modal
-  // const openModal = () => {
-  //   setIsModalOpen(true);
-  // Disable scrolling in the Services content when the modal is open
-  // if (scrollableRef.current) {
-  //   scrollableRef.current.style.overflowY = 'hidden';
-  // }
-  // };
-
-  // Function to close the modal
-  const closeModal = () => {
-    setIsModalOpen(false);
-    // Re-enable scrolling in the Services content when the modal is closed
-    // if (scrollableRef.current) {
-    //   scrollableRef.current.style.overflowY = 'auto';
-    // }
-  };
-
-  const { isMobile } = useWindowSize();
-
+const Services: FC = () => {
   return (
     <>
-      <div className='flex justify-center items-center sm:min-h-screen overflow-x-hidden flex-col lg:flex-row'>
-        <motion.header
-          initial={isMobile ? 'visible' : 'hide'}
-          whileInView='show'
-          exit='hide'
-          variants={introHeaderVariants}
-          className='flex gap-10 lg:w-4/6 lg:px-10 text-center'
-        >
+      <div className='flex justify-center items-center w-full sm:min-h-screen overflow-x-hidden flex-col'>
+        <header className='flex gap-10 lg:w-4/6 lg:px-10 text-center'>
           <div className='flex flex-col gap-y-3 z-10 px-4'>
-            <span>OUR VALUES</span>
-            <motion.span
-              initial={isMobile ? 'visible' : 'hide'}
-              animate='show'
-              variants={textVariants}
-              className='uppercase lg:text-5xl text-3xl font-bold text-center'
-            >
-              Curious about how we manage to make all this{' '}
-              <b className='text-orange-500'>possible?</b>
-            </motion.span>
-            <motion.span
-              initial={isMobile ? 'visible' : 'hide'}
-              animate='show'
-              variants={textVariants}
-              className='pt-8 text-center flex items-center'
-            >
-              <div className='lg:px-20 text-sm lg:text-[16px]'>
-                Are you curious about our secret behind making all this
-                possible? At the heart of our software solutions lies a
-                dedication to understanding your needs, which drives our
-                approach from concept to creation. Our commitment to delivering
-                excellence shines through at every stage, ensuring we provide
-                results that truly matter to you.
-              </div>
-            </motion.span>
+            <span className='uppercase lg:text-5xl text-3xl font-bold text-center'>
+              OUR <span className='text-orange-500'>Services</span>
+            </span>
+            <span className='lg:px-20 text-sm lg:text-[16px] text-center'>
+              Accelerating digital outcomes through rapid innovation and
+              strategic execution.
+            </span>
           </div>
-        </motion.header>
+        </header>
+        <div className='grid grid-cols-2 sm:grid-cols-6 sm:grid-rows-2 gap-4 p-4 mt-10'>
+          {SERVICE_DATA?.map((data, ind) => {
+            return (
+              <OurServieceCard
+                key={ind}
+                heading={data?.heading}
+                image={data?.image}
+              />
+            );
+          })}
+        </div>
       </div>
-
-      <div
-        ref={scrollableRef}
-        onScroll={(e) => {
-          if (isModalOpen) {
-            e.stopPropagation();
-            e.preventDefault();
-          }
-        }}
-        className='h-96 overflow-y-auto hidden'
-      ></div>
-      <Coverover isOpen={isModalOpen} onClose={closeModal} />
     </>
   );
 };
