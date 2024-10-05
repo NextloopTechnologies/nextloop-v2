@@ -1,11 +1,12 @@
 import React, { FC } from 'react';
+
+import CertificateCard from './CertificateCards';
 import {
   Certificate1,
   Certificate2,
   Certificate3,
   Certificate4,
 } from '../../../assets';
-import CertificateCard from './CertificateCards';
 interface ServiceCardProps {
   image: string;
 }
