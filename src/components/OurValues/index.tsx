@@ -1,7 +1,13 @@
 import React, { FC } from 'react';
 
 import OurValuesCard from './OurValuesCard';
-import { OurValues1, Values1, Values2, Values3 } from '../../../assets';
+import {
+  OurValues1,
+  Values1,
+  Values2,
+  Values3,
+  Values4,
+} from '../../../assets';
 
 interface ServiceCardProps {
   heading: string;
@@ -32,7 +38,7 @@ const OURVALUES_DATA: ServiceCardProps[] = [
   },
   {
     heading: 'Impact',
-    image: Values3 as unknown as string,
+    image: Values4 as unknown as string,
     desc: '"Impact" reflects our commitment to delivering solutions that drive measurable, long-term success, contributing to our clients growth and efficiency in the digital landscape.',
   },
 ];
@@ -42,7 +48,7 @@ const OurValues: FC = () => {
     <>
       <div className='flex justify-center items-center w-full sm:min-h-screen overflow-x-hidden flex-col'>
         <header className='flex gap-10 lg:w-4/6 lg:px-10 text-center'>
-          <div className='w-full flex flex-col justify-center items-center gap-y-3 z-10 px-4'>
+          <div className='w-full flex flex-col justify-center items-center gap-y-3 z-10 px-4 pt-4'>
             <span className='uppercase lg:text-5xl text-3xl font-bold text-center'>
               OUR <span className='text-orange-500'>Values</span>
             </span>

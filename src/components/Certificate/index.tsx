@@ -29,15 +29,15 @@ const OURVALUES_DATA: ServiceCardProps[] = [
 const Certificate: FC = () => {
   return (
     <>
-      <div className='py-2 bg-orange-500 flex justify-center items-center w-full sm:min-h-screen overflow-x-hidden flex-col'>
+      <div className='py-2  flex justify-center items-center w-full sm:min-h-[50vh] overflow-x-hidden flex-col'>
         <header className='flex gap-10 lg:w-4/6 lg:px-10 text-center w-full '>
-          <div className='w-full flex flex-col justify-center items-center gap-y-3 z-10 px-4'>
+          <div className=' w-full flex flex-col justify-center items-center gap-y-3 z-10 px-4'>
             <div className='text-white uppercase lg:text-5xl text-3xl font-bold text-center'>
               <span className='text-white'>Certificates</span>
             </div>
           </div>
         </header>
-        <div className='grid grid-cols-2 sm:grid-cols-4 sm:grid-rows-1 gap-4 p-4 mt-10'>
+        <div className='grid grid-cols-2 sm:grid-cols-4 sm:grid-rows-1 gap-y-10 gap-x-10 sm:gap-x-12 p-4 mt-10'>
           {OURVALUES_DATA?.map((data, ind) => {
             return <CertificateCard key={ind} image={data?.image} />;
           })}

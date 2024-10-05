@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import dayjs from 'dayjs';
-import parse from 'html-react-parser'
+// import dayjs from 'dayjs';
+import parse from 'html-react-parser';
 import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 
@@ -48,7 +48,6 @@ const BlogID: React.FC<{ data?: BlogType; error?: string }> = ({
           <div className='flex flex-col gap-8 w-full'>
             {data.image ? (
               <div className='flex justify-center'>
-
                 <Image
                   src={data?.image?.[0]?.url as string}
                   alt='blog image'
@@ -62,16 +61,15 @@ const BlogID: React.FC<{ data?: BlogType; error?: string }> = ({
             )}
             <span className='font-medium text-4xl '>{data.title}</span>
             <div className='text-lg font-light'>{parse(data.descp)}</div>
-            <span className='text-sm'>
+            {/* <span className='text-sm'>
               {dayjs(data.created_at).format('DD/MMM/YYYY')}
-            </span>
+            </span> */}
           </div>
         ) : (
           <div className='h-screen flex items-center justify-center text-2xl'>
             {error}
           </div>
         )}
-
       </div>
     </Layout>
   );

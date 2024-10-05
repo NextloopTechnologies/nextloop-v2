@@ -6,6 +6,7 @@ import {
   CB1,
   Client2,
   Levram1,
+  Millennialz,
   OurCLient,
   ShowerWealth,
   SWAcademy,
@@ -44,14 +45,18 @@ const OURVALUES_DATA: ServiceCardProps[] = [
     heading: 'Agility',
     image: ShowerWealth as unknown as string,
   },
+  {
+    heading: 'Agility',
+    image: Millennialz as unknown as string,
+  },
 ];
 
 const OurCLients: FC = () => {
   return (
     <>
-      <div className='bg-black flex justify-center items-center w-full sm:min-h-screen overflow-x-hidden flex-col'>
+      <div className='bg-black flex justify-center items-center w-full sm:min-h-[50vh] overflow-x-hidden flex-col'>
         <header className='flex gap-10 lg:w-4/6 lg:px-10 text-center'>
-          <div className='w-full flex flex-col justify-center items-center gap-y-3 z-10 px-4'>
+          <div className='pt-2 w-full flex flex-col justify-center items-center gap-y-3 z-10 px-4'>
             <span className='text-white uppercase lg:text-5xl text-3xl font-bold text-center'>
               OUR <span className='text-orange-500'>Client's</span>
             </span>
@@ -61,7 +66,7 @@ const OurCLients: FC = () => {
             </span>
           </div>
         </header>
-        <div className='grid grid-cols-2 sm:grid-cols-7 sm:grid-rows-1 gap-4 p-4 mt-10'>
+        <div className='grid justify-center items-center grid-cols-2 sm:grid-cols-8 sm:grid-rows-1 gap-4 p-4 mt-10'>
           {OURVALUES_DATA?.map((data, ind: number) => {
             return (
               <CLientCard

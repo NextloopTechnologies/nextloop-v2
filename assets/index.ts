@@ -31,6 +31,7 @@ export { default as SWAcademy } from './shower-wealth-academy.png';
 export { default as ShowerWealth } from './shower-wealth.png';
 export { default as CB1 } from './cb-1.png';
 export { default as Levram1 } from './levram-1.png';
+export { default as Millennialz } from './millennialz.png';
 
 export { default as Levram } from './levram.png';
 export { default as Levram2 } from './levram2.png';

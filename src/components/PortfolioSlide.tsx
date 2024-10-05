@@ -49,11 +49,11 @@ const PortfolioSlide: FC = () => {
   };
   return (
     <div className='min-w-full sm:min-h-screen max-w-full  m-auto relative bg-green-300'>
-      {/* <header className='text-center w-full absolute top-2 '>
-        <span className='uppercase sm:text-3xl text-2xl font-bold text-center'>
+      <header className='text-center w-full absolute top-2 '>
+        <span className='uppercase lg:text-5xl text-3xl font-bold text-center'>
           our <span className='text-orange-500'>portfolio</span>
         </span>
-      </header> */}
+      </header>
       <div className='w-full h-full'>
         <Image
           src={IMAGE_DATA[currentSlide]?.image || ''}
