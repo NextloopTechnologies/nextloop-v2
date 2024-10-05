@@ -1,12 +1,13 @@
-import React, { FC } from 'react';
 // import { Services1 } from '../../assets';
 import Image from 'next/image';
+import React, { FC } from 'react';
 
 interface ServiceCardProps {
   heading: string;
   image: string;
+  desc: string;
 }
-const OurServieceCard: FC<ServiceCardProps> = ({ heading, image }) => {
+const OurServieceCard: FC<ServiceCardProps> = ({ heading, image, desc }) => {
   return (
     <div className='max-w-sm mx-auto bg-card border border-border rounded-sm shadow-lg p-6 flex justify-center items-center flex-col'>
       <div className='mb-4 w-28 h-28'>
@@ -23,11 +24,7 @@ const OurServieceCard: FC<ServiceCardProps> = ({ heading, image }) => {
         <hr className='my-2 border border-1 border-orange-500 text-orange-500' />
       </h2>
 
-      <p className='text-muted-foreground text-[14px] text-center'>
-        It symbolizes our commitment to continuous improvement, adapting to
-        evolving technologies, and pushing boundaries to meet our clients'
-        needs.
-      </p>
+      <p className='text-muted-foreground text-[14px] text-center'>{desc}</p>
     </div>
   );
 };
