@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { GetServerSideProps } from 'next';
 import Image from 'next/image';
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 // import AboutUs from '../components/AboutUs';
 // import Career from '../components/Career';
@@ -254,7 +254,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
           ref={(el: any) => (divRefs.current[1] = el)}
           className='sm:min-h-screen'
         >
-          <div className='container mx-auto '>
+          <div className='container mx-auto min-w-[100vw]'>
             <WhoWeAre />
           </div>
         </div>
@@ -262,9 +262,9 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
         <div
           id='services'
           ref={(el: any) => (divRefs.current[2] = el)}
-          className='sm:min-h-screen'
+          className='sm:min-h-screen '
         >
-          <div className='container mx-auto'>
+          <div className='container mx-auto min-w-[100vw]'>
             <Services />
           </div>
         </div>
@@ -274,7 +274,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
           ref={(el: any) => (divRefs.current[3] = el)}
           className='sm:min-h-screen max-w-[100vw] overflow-hidden'
         >
-          <div className='container mx-auto'>
+          <div className='container mx-auto min-w-[100vw]'>
             {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
             <Portfolio
             // caseStudies={data!}
@@ -285,9 +285,9 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
         <div
           id='our-client'
           ref={(el: any) => (divRefs.current[4] = el)}
-          className='sm:min-h-screen'
+          className='sm:min-h-screen sm:min-w-screen'
         >
-          <div className='container mx-auto'>
+          <div className='container mx-auto min-w-[100vw]'>
             {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
             <OurCLient />
           </div>
@@ -298,7 +298,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
           ref={(el: any) => (divRefs.current[5] = el)}
           className='min-h-screen max-w-[100vw] overflow-hidden'
         >
-          <div className='container mx-auto'>
+          <div className='container mx-auto min-w-[100vw]'>
             {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
             <OurValues />
           </div>
@@ -309,7 +309,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
           ref={(el: any) => (divRefs.current[6] = el)}
           className='sm:min-h-screen max-w-[100vw] overflow-hidden'
         >
-          <div className='container mx-auto'>
+          <div className='container mx-auto min-w-[100vw]'>
             {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
             <ClientSays />
           </div>
@@ -320,7 +320,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
           ref={(el: any) => (divRefs.current[7] = el)}
           className='sm:min-h-screen max-w-[100vw] overflow-hidden'
         >
-          <div className='container mx-auto'>
+          <div className='container mx-auto min-w-[100vw]'>
             {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
             <Certificate />
           </div>

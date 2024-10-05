@@ -1,6 +1,13 @@
 import React, { FC } from 'react';
-import { OurCLient, SWAcademy, BlueBird, Client2 } from '../../../assets';
 import CLientCard from './CLientCard';
+import {
+  BlueBird,
+  CB,
+  Client2,
+  Levram,
+  OurCLient,
+  SWAcademy,
+} from '../../../assets';
 interface ServiceCardProps {
   heading: string;
   image: string;
@@ -25,11 +32,11 @@ const OURVALUES_DATA: ServiceCardProps[] = [
   },
   {
     heading: 'Impact',
-    image: OurCLient as unknown as string,
+    image: Levram as unknown as string,
   },
   {
     heading: 'Customer Centric',
-    image: BlueBird as unknown as string,
+    image: CB as unknown as string,
   },
   {
     heading: 'Agility',
@@ -40,9 +47,9 @@ const OURVALUES_DATA: ServiceCardProps[] = [
 const OurCLients: FC = () => {
   return (
     <>
-      <div className='bg-black flex justify-center items-center w-full sm:min-h-screen overflow-x-hidden flex-col py-2'>
+      <div className='bg-black flex justify-center items-center w-full sm:min-h-screen overflow-x-hidden flex-col'>
         <header className='flex gap-10 lg:w-4/6 lg:px-10 text-center'>
-          <div className='flex flex-col gap-y-3 z-10 px-4'>
+          <div className='w-full flex flex-col justify-center items-center gap-y-3 z-10 px-4'>
             <span className='text-white uppercase lg:text-5xl text-3xl font-bold text-center'>
               OUR <span className='text-orange-500'>Client's</span>
             </span>
