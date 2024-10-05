@@ -3,9 +3,8 @@ import React, { FC, useState } from 'react';
 
 import {
   BlueBird,
-  Client2,
   InvertedQoute,
-  OurCLient,
+  Levram1,
   RightArrow,
   SWAcademy,
 } from '../../../assets';
@@ -14,33 +13,27 @@ interface ServiceCardProps {
   heading: string;
   image: string;
   title: string;
+  desc: string;
 }
 
 const OURVALUES_DATA: ServiceCardProps[] = [
   {
-    heading: 'Persistence',
-    image: OurCLient as unknown as string,
+    heading: 'Manager, Levram Lifesciesnce Private Limited',
+    image: Levram1 as unknown as string,
     title: 'Piyush Agrawal',
+    desc: 'We commend their quick response.',
   },
   {
-    heading: 'Customer Centric',
+    heading: 'Founder, Stamens Software Pvt Ltd',
     image: SWAcademy as unknown as string,
     title: 'Shushil Kumar',
+    desc: 'Their ability to consistently push boundaries and deliver cutting-edge solutions was truly remarkable.',
   },
   {
-    heading: 'Agility',
-    image: Client2 as unknown as string,
-    title: 'Rahul Nayak',
-  },
-  {
-    heading: 'Ideas ',
-    image: OurCLient as unknown as string,
-    title: 'Raj Vardhan',
-  },
-  {
-    heading: 'Impact',
+    heading: 'Director, Shower Wealth Academy',
     image: BlueBird as unknown as string,
-    title: 'Mayank Agrawal',
+    title: 'Ayush Shrivastav',
+    desc: 'Nextloop Technologies LLP distinguishes itself in the realm of IT products and services through a myriad of pivotal factors, including innovative solutions.',
   },
 ];
 
@@ -67,7 +60,7 @@ const ClientSaysCard: FC = () => {
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
             {OURVALUES_DATA.map((card, index) => (
-              <div key={index} className='min-w-full p-10'>
+              <div key={index} className='min-w-full min-h-full p-10'>
                 <div className='bg-white rounded-lg shadow-lg overflow-hidden flex sm:flex-row flex-col justify-center items-center gap-y-4 sm:gap-x-4 px-5 py-5'>
                   {/* <img
                     src={card.image}
@@ -88,7 +81,7 @@ const ClientSaysCard: FC = () => {
                         {card.title}
                       </h2>
                       <p className='text-[10px] whitespace-nowrap'>
-                        Founder, Stamens Software Pvt Ltd
+                        {card?.heading}
                       </p>
                       {/* <p className='text-gray-600 mt-2'>{card.description}</p> */}
                     </div>
@@ -104,10 +97,7 @@ const ClientSaysCard: FC = () => {
                         className=' w-10 object-cover'
                       />{' '}
                     </span>
-                    <p className='text-[12px] p-4'>
-                      "Their ability to consistently push boundaries and deliver
-                      cutting-edge solutions was truly remarkable."
-                    </p>
+                    <p className='text-[12px] p-4 h-[120px]'>{card?.desc}</p>
                     <span className='rotate-90  w-full'>
                       <Image
                         // width={60}
