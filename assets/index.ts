@@ -51,7 +51,7 @@ export { default as ShowerWealth } from './shower-wealth.png';
 export { default as SWAcademy } from './shower-wealth-academy.png';
 export { default as FACEBOOK } from './socialIcons/FACEBOOK.png';
 export { default as LINKIN } from './socialIcons/FACEBOOK.png';
-export { default as GOOGLE } from './socialIcons/google.png';
+export { default as GOOGLE } from './socialIcons/Google.png';
 export { default as INSTAGRAM } from './socialIcons/LINKIN.png';
 export { default as Mail } from './socialIcons/Mail.png';
 export { default as X } from './socialIcons/TWT.png';
