@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import dayjs from 'dayjs';
+// import dayjs from 'dayjs';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
@@ -52,7 +52,7 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
                 {blog.title}
               </span>
               <span className='text-sm mt-2'>
-                {dayjs(blog.created_at).format('DD/MMM/YYYY')}
+                {/* {dayjs(blog.created_at).format('DD/MMM/YYYY')} */}
               </span>
             </div>
           ))}

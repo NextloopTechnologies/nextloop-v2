@@ -242,7 +242,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
         <div
           id='intro'
           ref={(el: any) => (divRefs.current[0] = el)}
-          className='min-h-screen aboutUsBackgroundImage'
+          className='sm:min-h-screen min-h-[50vh] aboutUsBackgroundImage'
         >
           <div className='container'>
             <Intro />
@@ -285,7 +285,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
         <div
           id='our-client'
           ref={(el: any) => (divRefs.current[4] = el)}
-          className='sm:min-h-screen sm:min-w-screen'
+          className='sm:min-h-[50vh] sm:min-w-screen'
         >
           <div className='container mx-auto min-w-[100vw]'>
             {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
@@ -316,9 +316,9 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
         </div>
 
         <div
-          id='our-client-says'
+          id='certificates'
           ref={(el: any) => (divRefs.current[7] = el)}
-          className='min-h-screen aboutUsBackgroundImage'
+          className='min-h-[50vh] certificatesBackgroundImage p-0'
         >
           <div className='container mx-auto min-w-[100vw]'>
             {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}

@@ -12,7 +12,7 @@ const Intro: FC = () => {
   // const { isMobile } = useWindowSize();
 
   return (
-    <div className='relative w-full min-h-screen flex justify-start items-center overflow-x-hidden px-4 sm:px-6 lg:px-8'>
+    <div className='relative w-full min-h-[50vh] sm:min-h-screen flex justify-start items-center overflow-x-hidden px-4 sm:px-6 lg:px-8'>
       <div className='w-[50%] max-w-3xl mx-auto '>
         <header
           // initial={isMobile ? 'visible' : 'hide'}
