@@ -318,7 +318,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
         <div
           id='our-client-says'
           ref={(el: any) => (divRefs.current[7] = el)}
-          className='sm:min-h-screen max-w-[100vw] overflow-hidden'
+          className='min-h-screen aboutUsBackgroundImage'
         >
           <div className='container mx-auto min-w-[100vw]'>
             {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}

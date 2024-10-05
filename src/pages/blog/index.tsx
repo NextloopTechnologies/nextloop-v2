@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import dayjs from 'dayjs';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import Layout from '../../components/Layout/Layout';
@@ -37,8 +38,8 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
               onClick={() => router.push(`/blog/${blog.id}`)}
             >
               {blog.image ? (
-                <img
-                  src={blog.image}
+                <Image
+                  src={blog?.image?.[0]?.url as string}
                   alt='blog image'
                   className='w-[400px] h-[250px] object-contain'
                   height={250}

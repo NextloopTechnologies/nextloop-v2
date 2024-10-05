@@ -2,6 +2,7 @@ import Image, { StaticImageData } from 'next/image';
 import React from 'react';
 
 import { travelandhotelAssets } from '../../../../assets';
+import palette from '../../../styles/pallette';
 import { getStaticImageData } from '../../../utils/helper';
 
 const leftInventoryCardData = [
@@ -68,10 +69,10 @@ const InventoryCard: React.FC<{
 }> = ({ title, icon, bg, align = 'right' }) => {
   return (
     <div
-      className={`w-[450px] flex items-center bg-[${bg}] leading-none py-4 text-white uppercase font-medium text-lg rounded-md mb-3`}
+      className={`w-[450px] flex items-center bg-[${bg}] leading-none py-4 text-white uppercase font-medium text-lg rounded-md mb-3 ml-2`}
     >
       {align === 'left' ? (
-        <div className='flex justify-end w-full pr-3 p-2'>
+        <div className='flex justify-end w-full pr-3 p-2 '>
           <div className='flex items-center'>
             <p className='pr-3'>{title}</p>
             <Image
@@ -101,12 +102,14 @@ const InventoryCard: React.FC<{
 
 const GlobalInventory = () => {
   return (
-    <div className='bg-[#1D1D1D0D] py-[100px]'>
-      <h1 className='text-black text-3xl md:text-5xl lg:text-7xl xl:text-[85px] uppercase font-bold text-center'>
+    <div className='py-[50px] px-10'>
+      <h1
+        className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} text-black uppercase font-bold text-center`}
+      >
         set your business apart with design and great{' '}
         <span className='text-orange-500'>global inventory</span>
       </h1>
-      <div className='flex flex-col items-center justify-center  xl:flex-row mx-2 mt-[100px] gap-4'>
+      <div className='flex flex-col items-center justify-center  xl:flex-row mx-10 mt-[50px] gap-4'>
         <div>
           {leftInventoryCardData.map(({ title, bg, icon }, idx) => (
             <InventoryCard
@@ -119,7 +122,13 @@ const GlobalInventory = () => {
           ))}
         </div>
         <div className='-mt-2'>
-          <Image src={travelandhotelAssets.WhatWeDo2} alt='' width={400} height={420} className='w-[400px] h-[420px]' />
+          <Image
+            src={travelandhotelAssets.WhatWeDo2}
+            alt=''
+            width={400}
+            height={420}
+            className='w-[400px] h-[420px]'
+          />
         </div>
         <div>
           {rightInventoryCardData.map(({ title, bg, icon }, idx) => (

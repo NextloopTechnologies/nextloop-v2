@@ -11,6 +11,7 @@ import ProductServices from '../../../components/Domains/ProductServices';
 import WhyBuild from '../../../components/Domains/WhyBuild';
 import WhyChooseUs from '../../../components/Domains/WhyChooseUs';
 import Layout from '../../../components/Layout/Layout';
+import palette from '../../../styles/pallette';
 import { IFAQ, IWhyChooseUs } from '../../../types';
 import { getStaticImageData } from '../../../utils/helper';
 
@@ -102,7 +103,9 @@ const HealthCare: React.FC = () => {
       <CustomPageHero
         image={getStaticImageData(healthcareAssets.healthCareBg)}
         titleChildren={
-          <h1 className='text-white text-5xl md:text-8xl uppercase font-bold text-center max-w-[1306px]'>
+          <h1
+            className={` text-white uppercase font-bold text-center max-w-[1306px] ${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop}`}
+          >
             <span className='text-orange-500'>healthcare</span> software
             development transforming patient care
           </h1>
@@ -117,29 +120,39 @@ const HealthCare: React.FC = () => {
         colouredTitle='healthcare'
         informationSection={
           <div className='max-w-[737px] flex flex-col justify-center px-5 md:px-0'>
-            <p className='text-sm md:text-lg'>
+            <p
+              className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+            >
               We all know that technology is rapidly changing the healthcare
               industry. From electronic health records (EHRs) to telemedicine,
               technology is being used to improve the quality, efficiency, and
               affordability of healthcare.
             </p>
-            <p className='text-sm md:text-lg'>
+            <p
+              className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+            >
               In fact, the global healthcare software market is expected to
               reach $974.5 billion by 2027. This means that healthcare
               automation is not just a future but is becoming a necessity.
             </p>
-            <p className='text-sm md:text-lg'>
+            <p
+              className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+            >
               Custom Software solutions involve a process in which software is
               specifically designed for a particular healthcare organization.
               They can be used to improve a variety of tasks and processes, such
               as:
             </p>
-            <ul className='list-disc text-sm md:text-lg pl-5 md:pl-10 mt-2 mb-2'>
+            <ul
+              className={`list-disc ${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop} pl-5 md:pl-10 mt-2 mb-2`}
+            >
               {benefits.map((benefit) => (
                 <li key={benefit.id}>{benefit.text}</li>
               ))}
             </ul>
-            <p className='text-sm md:text-lg'>
+            <p
+              className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+            >
               In this blog, you will uncover the reasons why healthcare
               providers should invest in custom software and how their
               investment can improve efficiency, reduce costs, and improve
@@ -155,7 +168,9 @@ const HealthCare: React.FC = () => {
 
       <ProductServices
         title={
-          <h1 className='text-black text-3xl md:text-5xl lg:text-7xl xl:text-[85px] uppercase font-bold text-center max-w-[1306px]'>
+          <h1
+            className={`text-black uppercase font-bold text-center  ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop}`}
+          >
             specialized <span className='text-orange-500'>healthcare</span>{' '}
             services!
           </h1>

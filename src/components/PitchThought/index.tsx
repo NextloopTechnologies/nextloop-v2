@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC, useState } from 'react';
 
+import palette from '../../styles/pallette';
 import { FB, GMAIL, GOOGLE, INSTAGRAM,X, YT } from '../../../assets';
 
 const PitchThought: FC = () => {
@@ -34,12 +35,16 @@ const PitchThought: FC = () => {
               <span className='flex lg:justify-end justify-center'>
                 connect with us
               </span>
-              <span className='uppercase text-6xl font-bold text-right'>
+              <span
+                className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-right`}
+              >
                 PITCH your <b className='text-orange-500'>thoughts</b> here
               </span>
             </div>
 
-            <span className='text-sm lg:text-[14px]'>
+            <span
+              className={`{${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}}`}
+            >
               Send us some details about your project, and feel free to ask
               questions about our process. Our consultants will be with you
               ASAP.
@@ -133,7 +138,9 @@ const PitchThought: FC = () => {
             >
               Send your idea!
             </a>
-            <div className='flex'>
+            <div
+              className={`flex ${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+            >
               101, Kanchan Sagar, 18/1, Near Industry House, Old Palasia,
               Indore, Madhya Pradesh 452001
             </div>

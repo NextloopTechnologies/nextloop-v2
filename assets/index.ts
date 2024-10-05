@@ -1,7 +1,4 @@
 export { default as AboutUsBackground } from './AboutUsBackground.png';
-export { default as BottomBig } from './careers/bottomBig.png';
-export { default as BottomLeft } from './careers/bottomLeft.png';
-export { default as BottomRight } from './careers/bottomRight.png';
 export { default as CompositeLayer_1 } from './CompositeLayer-1.png';
 export { default as CompositeLayer_2 } from './CompositeLayer-2.png';
 export { default as CompositeLayer_3 } from './CompositeLayer-3.png';
@@ -30,7 +27,11 @@ export { default as LeftSlide } from './left-slide.png';
 export { default as OurValues1 } from './our-values-1.png';
 export { default as OurCLient } from './our-client-1.png';
 export { default as BlueBird } from './blue-bird.png';
-export { default as SWAcademy } from './SW-Academy.png';
+export { default as SWAcademy } from './shower-wealth-academy.png';
+export { default as ShowerWealth } from './shower-wealth.png';
+export { default as CB1 } from './cb-1.png';
+export { default as Levram1 } from './levram-1.png';
+
 export { default as Levram } from './levram.png';
 export { default as Levram2 } from './levram2.png';
 

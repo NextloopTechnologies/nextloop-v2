@@ -1,6 +1,7 @@
 import Image, { StaticImageData } from 'next/image';
 import React from 'react';
 
+import palette from '../../../styles/pallette';
 import { IWhyChooseUs } from '../../../types';
 
 type WhyChooseUsProps = {
@@ -9,34 +10,57 @@ type WhyChooseUsProps = {
 
 const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ whyChooseContent }) => {
   return (
-    <div className='min-h-screen flex flex-col bg-[#1D1D1D0D] py-[48px]'>
-      <div className='w-full max-w-[1479px] mx-auto'>
-        <h1 className='text-3xl md:text-8xl uppercase font-bold text-center mb-[40px]'>
-          Why Choose Us
-        </h1>
-        <div className='flex flex-col items-center px-5'>
-          {whyChooseContent.map((content, index) => (
-            <div
-              key={index}
-              className='relative flex flex-col items-center w-full mb-10'
-            >
-              <div className='bg-[#FA8145] p-5 sm:p-10 flex flex-col justify-center h-auto'>
-                <div className='flex justify-center'>
-                  <Image
-                    src={content.image as StaticImageData}
-                    alt='why-choose-us'
-                    height={400}
-                    width={400}
-                    className='h-full w-full object-fill max-w-[200px] sm:max-w-[300px] md:max-w-[400px]'
-                  />
-                </div>
-                <h1 className='text-xl md:text-3xl lg:text-[50px] lg:leading-none font-bold uppercase mb-5 text-center'>
-                  {content.title}
-                </h1>
-                <span className='lg:text-lg text-center'>{content.descp}</span>
-              </div>
-            </div>
-          ))}
+    <div className='w-full max-w-[1479px] mx-auto mb-10'>
+      <h1
+        className={`uppercase font-bold text-center mb-[30px] ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop}`}
+      >
+        Why Choose Us
+      </h1>
+      <div className='relative flex flex-col items-center md:px-5 mb-5 md:mb-0'>
+        <div className='md:absolute md:left-[13%] bg-[#FA8145] sm:pl-[300px] md:pl-[370px] lg:pl-[515px] text-white md:flex md:flex-col md:justify-center lg:h-[480px] z-10'>
+          <div className='md:absolute md:left-[15%] md:self-center md:w-[47%] md:top-[18%] md:transform md:-translate-y-[12%] md:-translate-x-1/2 m-5 md:m-0 '>
+            <Image
+              src={whyChooseContent?.[0]?.image as StaticImageData}
+              alt='why-choose-us'
+              height={400}
+              width={400}
+              className='h-full w-full object-fill rounded-2xl'
+            />
+          </div>
+          <h1
+            className={`lg:leading-none font-bold uppercase mb-5 ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} mx-10 md:mx-5 md:mb-3`}
+          >
+            {whyChooseContent?.[0]?.title}
+          </h1>
+          <div
+            className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} mx-10 md:mx-5 md:mb-3 mb-6`}
+          >
+            {whyChooseContent?.[0]?.descp}
+          </div>
+        </div>
+      </div>
+
+      <div className='relative flex flex-col items-center md:pl-[150px] md:py-[500px] md:px-5'>
+        <div className='md:absolute md:right-[13%] bg-[#1D1D1D] md:pl-[80px] sm:pr-[305px] md:pr-[375px] lg:pr-[520px] text-white md:flex md:flex-col md:justify-center md:h-[480px] mb-6'>
+          <div className='md:absolute md:-right-[8%] md:w-[47%] md:top-[18%] md:transform md:-translate-y-[12%] m-5 md:m-0'>
+            <Image
+              src={whyChooseContent?.[1]?.image as StaticImageData}
+              alt='why-choose-us'
+              height={400}
+              width={400}
+              className='h-full w-full object-fill rounded-2xl'
+            />
+          </div>
+          <h1
+            className={` lg:leading-none font-bold uppercase ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} mx-10 md:mx-5 md:mb-3`}
+          >
+            {whyChooseContent?.[1]?.title}
+          </h1>
+          <div
+            className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} mx-10 md:mx-5 md:mb-3 mb-6`}
+          >
+            {whyChooseContent?.[1]?.descp}
+          </div>
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ import React, { FC, useState } from 'react';
 import {
   BlueBird,
   InvertedQoute,
-  Levram2,
+  Levram1,
   RightArrow,
   SWAcademy,
 } from '../../../assets';
@@ -19,7 +19,7 @@ interface ServiceCardProps {
 const OURVALUES_DATA: ServiceCardProps[] = [
   {
     heading: 'Manager, Levram Lifesciesnce Private Limited',
-    image: Levram2 as unknown as string,
+    image: Levram1 as unknown as string,
     title: 'Piyush Agrawal',
     desc: 'We commend their quick response.',
   },

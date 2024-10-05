@@ -3,10 +3,11 @@ import React, { FC } from 'react';
 import CLientCard from './CLientCard';
 import {
   BlueBird,
-  CB,
+  CB1,
   Client2,
-  Levram,
+  Levram1,
   OurCLient,
+  ShowerWealth,
   SWAcademy,
 } from '../../../assets';
 interface ServiceCardProps {
@@ -33,15 +34,15 @@ const OURVALUES_DATA: ServiceCardProps[] = [
   },
   {
     heading: 'Impact',
-    image: Levram as unknown as string,
+    image: Levram1 as unknown as string,
   },
   {
     heading: 'Customer Centric',
-    image: CB as unknown as string,
+    image: CB1 as unknown as string,
   },
   {
     heading: 'Agility',
-    image: SWAcademy as unknown as string,
+    image: ShowerWealth as unknown as string,
   },
 ];
 
