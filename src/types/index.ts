@@ -1,4 +1,4 @@
-import { StaticImageData } from "next/image";
+import { StaticImageData } from 'next/image';
 
 export interface BlogType {
   id: number;
@@ -44,7 +44,7 @@ export interface IPortfolio {
 export interface IFAQ {
   id: number;
   question: string;
-  answer: string
+  answer: string;
 }
 
 export interface IWhyChooseUs {
@@ -63,4 +63,12 @@ export interface AppliedJob {
   cover_letter: string;
   github_url: string;
   linkedin_url: string;
+}
+export interface EnquiryType {
+  id?: number | null;
+  fullname: string;
+  email: string;
+  contact?: string;
+  subject: string;
+  message?: string;
 }

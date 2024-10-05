@@ -174,7 +174,7 @@ const Ecommerce = () => {
         data={sampleData}
         titleElement={
           <h1
-            className={` ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center max-w-[950px] mx-auto`}
+            className={` ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center md:max-w-[950px] max-w-[350px] mx-auto`}
           >
             One <span className='text-orange-500'>dashboard</span> for total
             business control

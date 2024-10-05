@@ -17,9 +17,9 @@ const WhyBuild = ({
   infoAndImgClassname,
 }: Props) => {
   return (
-    <div className='flex flex-col items-center md:pt-20 pt-10 md:pb-10 gap-[30px] px-10 mb-10'>
+    <div className='flex flex-col items-center md:pt-20 pt-10 md:pb-10 gap-[30px] md:px-20 mb-10'>
       <h1
-        className={`uppercase font-bold text-center max-w-[1479px] ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} px-2`}
+        className={`uppercase font-bold text-center max-w-[1300px] ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} px-10`}
       >
         Why build <br /> a custom software solution for the{' '}
         {colouredTitle && (
@@ -28,7 +28,7 @@ const WhyBuild = ({
       </h1>
 
       <div
-        className={`flex flex-col lg:flex-row gap-[50px] md:gap-[50px] justify-between ${infoAndImgClassname}`}
+        className={`flex flex-col lg:flex-row gap-[10px] md:gap-[50px] justify-between ${infoAndImgClassname}`}
       >
         <Image
           src={image}

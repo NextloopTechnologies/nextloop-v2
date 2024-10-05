@@ -159,24 +159,36 @@ export const EventIdeaRow = ({
   >
     <div
       className={`flex flex-col gap-5 w-full md:w-[600px] ${
-        position === POSITION.LEFT ? 'md:w-[400px] text-left' : 'md:ml-5'
+        position === POSITION.LEFT ? 'md:w-[400px] text-right' : 'md:ml-5'
       }`}
     >
       <h2
-        className={`${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} uppercase font-extrabold`}
+        className={`${palette.fontSize.subtitle.mobile} md:${
+          palette.fontSize.subtitle.desktop
+        } uppercase font-extrabold ${
+          position === POSITION.LEFT ? 'md:ml-[250px] text-left' : 'md:ml-0'
+        }`}
       >
         {title}
       </h2>
       {subTitle && (
         <h3
-          className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} max-w-xs`}
+          className={`${palette.fontSize.description.mobile} md:${
+            palette.fontSize.description.desktop
+          } max-w-xs ${
+            position === POSITION.LEFT ? 'md:ml-[250px] text-left' : 'md:ml-0'
+          }`}
         >
           {subTitle}
         </h3>
       )}
       {description && (
         <p
-          className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop} max-w-xs`}
+          className={`${palette.fontSize.descriptionSmall.mobile} md:${
+            palette.fontSize.descriptionSmall.desktop
+          } max-w-xs ${
+            position === POSITION.LEFT ? 'md:ml-[250px] text-left' : 'md:ml-0'
+          }`}
         >
           {description}
         </p>
