@@ -26,7 +26,7 @@ const WhoWeAre: FC = () => {
 
   return (
     <>
-      <div className='flex flex-col justify-center items-center sm:min-h-screen lg:flex-row overflow-hidden lg:gap-5 py-12 sm:py-20 px-12 sm:px-28'>
+      <div className='flex flex-col lg:flex-row overflow-hidden lg:gap-5 py-12 sm:py-20 px-12 sm:px-28'>
         <div
           // initial={isMobile ? 'visible' : 'hide'}
           // whileInView='show'

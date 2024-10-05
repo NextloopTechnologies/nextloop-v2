@@ -1,39 +1,46 @@
-import Image from 'next/image';
 import React, { FC, useState } from 'react';
-
 import {
-  BlueBird,
+  OurCLient,
   InvertedQoute,
-  Levram2,
   RightArrow,
   SWAcademy,
+  BlueBird,
+  Client2,
 } from '../../../assets';
+
+import Image from 'next/image';
 
 interface ServiceCardProps {
   heading: string;
   image: string;
   title: string;
-  desc: string;
 }
 
 const OURVALUES_DATA: ServiceCardProps[] = [
   {
-    heading: 'Manager, Levram Lifesciesnce Private Limited',
-    image: Levram2 as unknown as string,
+    heading: 'Persistence',
+    image: OurCLient as unknown as string,
     title: 'Piyush Agrawal',
-    desc: 'We commend their quick response.',
   },
   {
-    heading: 'Founder, Stamens Software Pvt Ltd',
+    heading: 'Customer Centric',
     image: SWAcademy as unknown as string,
     title: 'Shushil Kumar',
-    desc: 'Their ability to consistently push boundaries and deliver cutting-edge solutions was truly remarkable.',
   },
   {
-    heading: 'Director, Shower Wealth Academy',
+    heading: 'Agility',
+    image: Client2 as unknown as string,
+    title: 'Rahul Nayak',
+  },
+  {
+    heading: 'Ideas ',
+    image: OurCLient as unknown as string,
+    title: 'Raj Vardhan',
+  },
+  {
+    heading: 'Impact',
     image: BlueBird as unknown as string,
-    title: 'Ayush Shrivastav',
-    desc: 'Nextloop Technologies LLP distinguishes itself in the realm of IT products and services through a myriad of pivotal factors, including innovative solutions.',
+    title: 'Mayank Agrawal',
   },
 ];
 
@@ -60,7 +67,7 @@ const ClientSaysCard: FC = () => {
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
             {OURVALUES_DATA.map((card, index) => (
-              <div key={index} className='min-w-full min-h-full p-10'>
+              <div key={index} className='min-w-full p-10'>
                 <div className='bg-white rounded-lg shadow-lg overflow-hidden flex sm:flex-row flex-col justify-center items-center gap-y-4 sm:gap-x-4 px-5 py-5'>
                   {/* <img
                     src={card.image}
@@ -81,7 +88,7 @@ const ClientSaysCard: FC = () => {
                         {card.title}
                       </h2>
                       <p className='text-[10px] whitespace-nowrap'>
-                        {card?.heading}
+                        Founder, Stamens Software Pvt Ltd
                       </p>
                       {/* <p className='text-gray-600 mt-2'>{card.description}</p> */}
                     </div>
@@ -97,7 +104,10 @@ const ClientSaysCard: FC = () => {
                         className=' w-10 object-cover'
                       />{' '}
                     </span>
-                    <p className='text-[12px] p-4 h-[120px]'>{card?.desc}</p>
+                    <p className='text-[12px] p-4'>
+                      "Their ability to consistently push boundaries and deliver
+                      cutting-edge solutions was truly remarkable."
+                    </p>
                     <span className='rotate-90  w-full'>
                       <Image
                         // width={60}
