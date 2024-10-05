@@ -16,6 +16,10 @@ const palette = {
       mobile: 'text-base',
       desktop: 'text-lg',
     },
+    descriptionMid: {
+      mobile: 'text-sm',
+      desktop: 'text-md',
+    },
     descriptionSmall: {
       mobile: 'text-xs',
       desktop: 'text-sm',

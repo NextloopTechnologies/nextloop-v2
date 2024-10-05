@@ -15,10 +15,6 @@ export { default as ContactArrow } from './ContactArrow.png';
 export { default as ContactUs } from './ContactUs.png';
 export { default as DoubleQuotes } from './DoubleQuotes.png';
 export { default as DownArrow } from './down-arrow.png';
-export { default as FB } from './fb.png';
-export { default as GOOGLE } from './g+.png';
-export { default as GMAIL } from './gmail.png';
-export { default as INSTAGRAM } from './instagram.png';
 export { default as InvertedQoute } from './inverted-qoute.png';
 export { default as LeftSlide } from './left-slide.png';
 export { default as Levram } from './levram.png';
@@ -52,14 +48,18 @@ export { default as Service11 } from './services/11.png';
 export { default as Service12 } from './services/12.png';
 export { default as ShowerWealth } from './shower-wealth.png';
 export { default as SWAcademy } from './shower-wealth-academy.png';
+export { default as FACEBOOK } from './socialIcons/FACEBOOK.png';
+export { default as LINKIN } from './socialIcons/FACEBOOK.png';
+export { default as GOOGLE } from './socialIcons/google.png';
+export { default as INSTAGRAM } from './socialIcons/LINKIN.png';
+export { default as Mail } from './socialIcons/Mail.png';
+export { default as X } from './socialIcons/TWT.png';
 export { default as Values1 } from './values-1.png';
 export { default as Values2 } from './values-2.png';
 export { default as Values3 } from './values-3.png';
 export { default as Values4 } from './values-4.png';
 export { default as Whoweare } from './who-we-are.jpeg';
 export { default as Whyus } from './whyus.png';
-export { default as X } from './x.png';
-export { default as YT } from './yt.png';
 
 export const staticAssests = {
   AboutUsBackground:

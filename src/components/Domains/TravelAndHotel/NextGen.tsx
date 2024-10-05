@@ -30,7 +30,7 @@ const NextGen = () => {
             provide the best suitable travel & hotel web solution.
           </h3>
           <p
-            className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+            className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
           >
             There was once a time when hotels attracted and retained their
             customers by word of mouth and by distributing physical marketing
@@ -42,7 +42,7 @@ const NextGen = () => {
             hotel bookings online.
           </p>
           <p
-            className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+            className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
           >
             The best outcome of this acceleration into the future is that many
             things that used to take a lot of time and investment are now more
@@ -55,7 +55,7 @@ const NextGen = () => {
         </div>
       </div>
       <div className='flex flex-col lg:flex-row gap-[54px] justify-between mx-14 mt-5 '>
-        <div className='text-[#1D1D1D]'>
+        <div className='text-[#1D1D1D] md:mt-10'>
           <h3
             className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} uppercase mb-3`}
           >
@@ -64,7 +64,7 @@ const NextGen = () => {
             practices.
           </h3>
           <p
-            className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+            className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
           >
             There was once a time when hotels attracted and retained their
             customers by word of mouth and by distributing physical marketing
@@ -76,7 +76,7 @@ const NextGen = () => {
             hotel bookings online.
           </p>
           <p
-            className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+            className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
           >
             The best outcome of this acceleration into the future is that many
             things that used to take a lot of time and investment are now more

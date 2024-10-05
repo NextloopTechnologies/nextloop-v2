@@ -61,7 +61,7 @@ const WebDesignCompany: React.FC = () => {
     <div className='py-[100px]'>
       <div className='flex flex-col text-center items-center'>
         <h1
-          className={`text-black uppercase font-bold text-center ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop}`}
+          className={`text-black uppercase font-bold text-center ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} px-10`}
         >
           things to look for in a fintech{' '}
           <span className='text-orange-500'>web design company</span>

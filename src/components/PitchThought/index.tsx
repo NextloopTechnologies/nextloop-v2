@@ -1,10 +1,12 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { FC, useState } from 'react';
 
 import CustomDropdown from '../CustomDropdown';
 import palette from '../../styles/pallette';
 import { EnquiryType } from '../../types';
 import { createInquiryForm } from '../../utils/db';
+import { FACEBOOK, GOOGLE, INSTAGRAM, LINKIN, Mail,X } from '../../../assets';
 import LocationIcon from '../../../assets/getInTouch/LocationIcon.png';
 import MailIcon from '../../../assets/getInTouch/MailIcon.png';
 import PhoneIcon from '../../../assets/getInTouch/PhoneIcon.png';
@@ -188,7 +190,73 @@ const PitchThought: FC = () => {
               questions about our process. Our consultants will be with you
               ASAP.
             </div>
-            <div className='border-b border-orange-500 w-full border-t-4 mb-10 md:mb-0'></div>
+            <div className='border-b border-orange-500 w-full border-t-4 mb-2 md:mb-0'></div>
+            <div>
+              <ul className='flex gap-x-7 mb-10 md:mb-5'>
+                <li>
+                  <Link
+                    href="https://www.facebook.com/profile.php?id=61556914381569&mibextid=ZbWKwL"
+                    passHref
+                  >
+                    <Image
+                      src={FACEBOOK}
+                      alt='fb-icon'
+                      className='w-14 h-14 object-contain'
+                    />
+                  </Link>
+                </li>
+                <li>
+                  <Link href="https://g.co/kgs/7LnLSHN">
+                    <Image
+                      src={GOOGLE}
+                      alt='google-icon'
+                      className='w-14 h-14 object-contain'
+                    />
+                  </Link>
+                </li>
+                <li>
+                  <Link aria-disabled href="">
+                    <Image
+                      src={Mail}
+                      alt='gmail-icon'
+                      className='w-14 h-14 object-contain'
+                    />
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    aria-disabled
+                    href="https://www.instagram.com/nextloop_technologies?igsh=MXJ1dzBocGliajBqbg=="
+                  >
+                    <Image
+                      src={INSTAGRAM}
+                      alt='yt-icon'
+                      className='w-14 h-14 object-contain'
+                    />
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://www.linkedin.com/company/nextloop-technologies-llp"
+                  >
+                    <Image
+                      src={LINKIN}
+                      alt='x-icon'
+                      className='w-14 h-14 object-contain'
+                    />
+                  </Link>
+                </li>
+                <li>
+                  <Link href="https://x.com/Nextloop_">
+                    <Image
+                      src={X}
+                      alt='insta-icon'
+                      className='w-14 h-14 object-contain'
+                    />
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

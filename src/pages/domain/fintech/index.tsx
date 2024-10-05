@@ -54,7 +54,6 @@ const Fintech: React.FC = () => {
   return (
     <Layout>
       <div className='overflow-hidden'>
-        {/* Ensure the main container has no padding/margin */}
         <div>
           <CustomPageHero
             image={getStaticImageData(fintechAssets.fintechBg)}
@@ -76,10 +75,10 @@ const Fintech: React.FC = () => {
             infoAndImgClassname='items-center'
             informationSection={
               <div
-                className={`mx-5 md:mx-10 lg:mx-0 md:max-w-[600px] ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
+                className={`mx-5 md:mx-10 lg:mx-0 md:max-w-[600px] ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} px-10`}
               >
                 <p
-                  className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+                  className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
                 >
                   The fintech industry is booming. Today, most people begin
                   their research and purchase journeys online, so you need a
@@ -87,14 +86,14 @@ const Fintech: React.FC = () => {
                   customers.
                 </p>
                 <p
-                  className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+                  className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
                 >
                   With the increasing popularity of digital banking and
                   financial services, it's more important than ever for fintech
                   companies to get their web design right.
                 </p>
                 <p
-                  className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+                  className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
                 >
                   A well-designed fintech website can enhance the user
                   experience by providing intuitive navigation, clear and
@@ -103,14 +102,14 @@ const Fintech: React.FC = () => {
                   conveying a professional and reliable image of the company.
                 </p>
                 <p
-                  className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+                  className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
                 >
                   On the other hand, a poorly designed website can frustrate
                   users, cause confusion, and ultimately drive them away from
                   your brand.
                 </p>
                 <p
-                  className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+                  className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
                 >
                   In addition to user experience, web design affects a company's
                   search engine optimisation (SEO) and overall online
@@ -119,7 +118,7 @@ const Fintech: React.FC = () => {
                   customers to find and engage with the brand.
                 </p>
                 <p
-                  className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+                  className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
                 >
                   Fintech web design is critical to any financial services
                   company's online presence. Investing in professional and
