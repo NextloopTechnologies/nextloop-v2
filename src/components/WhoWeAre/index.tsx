@@ -26,13 +26,13 @@ const WhoWeAre: FC = () => {
 
   return (
     <>
-      <div className='flex flex-col justify-center items-center sm:min-h-screen lg:flex-row overflow-hidden lg:gap-5 py-12 sm:py-20 px-12 sm:px-28'>
+      <div className='flex flex-col items-center sm:min-h-screen lg:flex-row overflow-hidden lg:gap-5 py-12 sm:py-20 px-6 sm:px-32'>
         <div
           // initial={isMobile ? 'visible' : 'hide'}
           // whileInView='show'
           // exit='hide'
           // variants={introHeaderVariants}
-          className='flex  text-center lg:text-left  sm:w-[50%] h-full'
+          className='flex justify-end text-center lg:text-left  sm:w-[60%] h-full'
         >
           <div className='flex flex-col sm:w-[80%]'>
             <b className='uppercase lg:text-4xl text-3xl font-bold'>
@@ -73,7 +73,7 @@ const WhoWeAre: FC = () => {
           // whileInView='show'
           // exit='hide'
           // variants={imageVariants}
-          className='flex sm:w-[50%] h-full'
+          className='flex sm:w-[60%] h-full'
         >
           {textAnimationCompleted && (
             <div className='w-[100%] h-[350px] bg-blue-300 rounded-tl-[52px] overflow-hidden rounded-br-[52px]  mt-10'>

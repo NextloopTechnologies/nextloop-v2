@@ -21,6 +21,7 @@ export { default as Levram } from './levram.png';
 export { default as Levram1 } from './levram-1.png';
 export { default as Levram2 } from './levram2.png';
 export { default as Lines } from './line.png';
+export { default as Millennialz } from './millennialz.png';
 export { default as Mobile_1 } from './Mobile-1.png';
 export { default as Mobile_2 } from './Mobile-2.png';
 export { default as NextLoopColoredLogo } from './NextLoopColoredLogo.jpeg';

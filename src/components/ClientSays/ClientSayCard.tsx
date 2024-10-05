@@ -20,7 +20,7 @@ const OURVALUES_DATA: ServiceCardProps[] = [
   {
     heading: 'Manager, Levram Lifesciesnce Private Limited',
     image: Levram1 as unknown as string,
-    title: 'Piyush Agrawal',
+    title: 'Brijesh Panchal',
     desc: 'We commend their quick response.',
   },
   {
@@ -53,15 +53,15 @@ const ClientSaysCard: FC = () => {
 
   return (
     <>
-      <div className='relative w-full max-w-sm  sm:max-w-lg mx-auto'>
+      <div className='relative w-full max-w-sm  sm:max-w-[700px] mx-auto'>
         <div className='overflow-hidden'>
           <div
             className='flex transition-transform duration-500 ease-out'
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
             {OURVALUES_DATA.map((card, index) => (
-              <div key={index} className='min-w-full min-h-full p-10'>
-                <div className='bg-white rounded-lg shadow-lg overflow-hidden flex sm:flex-row flex-col justify-center items-center gap-y-4 sm:gap-x-4 px-5 py-5'>
+              <div key={index} className='min-w-full p-10'>
+                <div className='sm:w-[620px] sm:h-[320px] bg-white rounded-lg shadow-lg overflow-hidden flex sm:flex-row flex-col justify-center items-center gap-y-4 sm:gap-x-4 px-5 py-5'>
                   {/* <img
                     src={card.image}
                     alt={card.heading}

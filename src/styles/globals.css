@@ -16,6 +16,30 @@
   overflow: hidden; /* Hide any overflow if the image exceeds the container */
 }
 
+.certificatesBackgroundImage {
+  background-image: url('../../assets/certificates-bg.png');
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat;
+  width: 100%; /* Expand to the full width of the wrapper */
+  height: 100%; /* Cover the full height of the wrapper */
+  background-size: 100% 100%;
+  background-position: 50% 50%;
+}
+
+@media screen and (min-width: 1280px) {
+  .certificatesBackgroundImage {
+    background-image: url('../../assets/certificates-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    background-position: 0% 50%;
+  }
+}
+
 .aboutUsBackgroundImage {
   background-image: url('../../assets/nextloop-landing.png');
   background-size: cover; /* Cover the entire container */
@@ -23,7 +47,21 @@
   background-repeat: no-repeat;
   width: 100%; /* Expand to the full width of the wrapper */
   height: 100%; /* Cover the full height of the wrapper */
+  background-size: 100% 90%;
+  background-position: 10% 50%;
 }
+
+@media screen and (min-width: 1280px) {
+  .aboutUsBackgroundImage {
+    background-image: url('../../assets/nextloop-landing.png');
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat;
+    width: 100%; /* Expand to the full width of the wrapper */
+    height: 100%; /* Cover the full height of the wrapper */
+  }
+}
+
 .linesBackgroundImage {
   background-image: url('../../assets/line.png');
   background-size: cover; /* Cover the entire container */
