@@ -25,8 +25,8 @@ const HexagonBox: React.FC<HexagonBoxProps> = ({
     <div className='relative flex justify-center items-center'>
       <Image
         src={healthcareAssets.polygonImg}
-        height={390}
-        width={390}
+        height={300}
+        width={300}
         alt='ploygon-img'
       />
       <div className='absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8'>

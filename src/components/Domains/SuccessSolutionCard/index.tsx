@@ -21,7 +21,7 @@ const SuccessSolutionCard: React.FC<SuccessSolutionCardProps> = ({
     >
       <Image
         src={image}
-        className='object-cover w-full'
+        className='object-cover w-full h-[300px]'
         quality={100}
         height={400}
         width={400}

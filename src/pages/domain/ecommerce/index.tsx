@@ -150,7 +150,7 @@ const Ecommerce = () => {
         infoAndImgClassname='items-center'
         informationSection={
           <div
-            className={`mx-5 md:mx-10 lg:mx-0 md:max-w-[600px] ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
+            className={`mx-12 md:mx-10 lg:mx-0 md:max-w-[600px] ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
           >
             In this highly competitive eCommerce environment, the struggle to
             acquire customers and keep their interest has made customization

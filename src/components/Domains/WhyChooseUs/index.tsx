@@ -10,7 +10,7 @@ type WhyChooseUsProps = {
 
 const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ whyChooseContent }) => {
   return (
-    <div className='w-full max-w-[1479px] mx-auto mb-10'>
+    <div className='w-full max-w-[1479px] mx-auto mb-10 mt-10'>
       <h1
         className={`uppercase font-bold text-center mb-[30px] ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop}`}
       >

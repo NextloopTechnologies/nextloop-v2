@@ -121,7 +121,7 @@ const HealthCare: React.FC = () => {
         informationSection={
           <div className='max-w-[737px] flex flex-col justify-center px-5 md:px-0'>
             <p
-              className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+              className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
             >
               We all know that technology is rapidly changing the healthcare
               industry. From electronic health records (EHRs) to telemedicine,
@@ -129,14 +129,14 @@ const HealthCare: React.FC = () => {
               affordability of healthcare.
             </p>
             <p
-              className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+              className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
             >
               In fact, the global healthcare software market is expected to
               reach $974.5 billion by 2027. This means that healthcare
               automation is not just a future but is becoming a necessity.
             </p>
             <p
-              className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+              className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
             >
               Custom Software solutions involve a process in which software is
               specifically designed for a particular healthcare organization.
@@ -144,14 +144,14 @@ const HealthCare: React.FC = () => {
               as:
             </p>
             <ul
-              className={`list-disc ${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop} pl-5 md:pl-10 mt-2 mb-2`}
+              className={`list-disc ${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop} pl-5 md:pl-10 mt-2 mb-2`}
             >
               {benefits.map((benefit) => (
                 <li key={benefit.id}>{benefit.text}</li>
               ))}
             </ul>
             <p
-              className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+              className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
             >
               In this blog, you will uncover the reasons why healthcare
               providers should invest in custom software and how their

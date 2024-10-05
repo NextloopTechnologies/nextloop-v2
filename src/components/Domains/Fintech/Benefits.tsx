@@ -65,9 +65,7 @@ const BlackBox: React.FC<BoxProps> = ({ icon, title }) => {
         <div className='absolute -top-8 left-[30px] sm:-top-10 sm:left-[45px] md:-top-12 md:left-[75px] py-2'>
           <Image src={icon} height={32} width={32} alt='black-box-icon' />
         </div>
-        <h3 className='text-center text-xs sm:text-sm md:text-xl mt-3'>
-          {title}
-        </h3>
+        <h3 className='text-center text-xs sm:text-sm md:text-xl '>{title}</h3>
       </div>
     </div>
   );
@@ -97,13 +95,13 @@ const Benefits: React.FC = () => {
           development in our article.
         </p>
       </div>
-      <div className='flex flex-col items-center text-white uppercase font-bold mb-14'>
-        <div className='flex flex-col md:flex-row md:flex-wrap md:justify-center items-center space-y-5 md:space-y-0 md:space-x-5'>
+      <div className='flex flex-col items-center text-white uppercase font-bold md:mb-14 md:gap-1 gap-5'>
+        <div className='flex flex-col md:flex-row md:flex-wrap md:justify-center items-center space-y-5 md:space-y-0 md:space-x-20 gap-5 md:gap-0'>
           {orangeBoxData?.map(({ icon, title }, idx) => (
             <OrangeBox key={idx} title={title} icon={icon} />
           ))}
         </div>
-        <div className='flex flex-col md:flex-row md:flex-wrap md:justify-center items-center space-y-5 md:space-y-0 md:space-x-5 mt-5 md:-mt-8'>
+        <div className='flex flex-col md:flex-row md:flex-wrap md:justify-center items-center space-y-5 md:space-y-0 md:space-x-20 mt-5 md:-mt-8 gap-5 md:gap-0'>
           {blackBoxData?.map(({ icon, title }, idx) => (
             <BlackBox key={idx} title={title} icon={icon} />
           ))}

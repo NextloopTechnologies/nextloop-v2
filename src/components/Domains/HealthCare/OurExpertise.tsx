@@ -12,8 +12,8 @@ const expertiseSuccessData = [
     descp:
       'Embracing the latest in AI and technology innovations, we deliver future-ready healthcare software that sets the standard for patient care and operational success.',
     icon: getStaticImageData(healthcareAssets.arrowIcon),
-    height: 60,
-    width: 60,
+    height: 50, // Reduced size
+    width: 50, // Reduced size
   },
   {
     id: 2,
@@ -21,8 +21,8 @@ const expertiseSuccessData = [
     descp:
       'We prioritize the protection of sensitive data, ensuring our software exceeds the stringent requirements of healthcare regulations, including HIPAA and GDPR, for unmatched cybersecurity and compliance.',
     icon: getStaticImageData(healthcareAssets.trustedIcon),
-    height: 50,
-    width: 50,
+    height: 40, // Reduced size
+    width: 40, // Reduced size
   },
   {
     id: 3,
@@ -30,8 +30,8 @@ const expertiseSuccessData = [
     descp:
       'Our deep understanding of healthcare intricacies ensures solutions are precisely tailored to enhance patient care and provider efficiency.',
     icon: getStaticImageData(healthcareAssets.heartMedicalIcon),
-    height: 62,
-    width: 62,
+    height: 50, // Reduced size
+    width: 50, // Reduced size
   },
 ];
 

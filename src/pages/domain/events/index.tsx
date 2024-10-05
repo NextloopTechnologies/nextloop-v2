@@ -84,11 +84,9 @@ const Events = () => {
         image={getStaticImageData(eventAssets.WhyBuildEventManagement)}
         colouredTitle='Event Management'
         informationSection={
-          <div
-            className={`mx-5 md:mx-10 lg:mx-0 md:max-w-[600px] ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
-          >
+          <div className={`mx-14 md:mx-10 lg:mx-0 md:max-w-[600px] `}>
             <p
-              className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} font-normal gap-5`}
+              className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop} font-normal gap-5`}
             >
               Event planning can be a complex and time-consuming process. From
               coordinating schedules and vendors to managing registrations and
@@ -98,20 +96,22 @@ const Events = () => {
             </p>
 
             <h3
-              className={`${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} uppercase my-5`}
+              className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} uppercase my-2 font-semibold`}
             >
               The Benefits of Event Management Software
             </h3>
 
             <p
-              className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} font-normal`}
+              className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop} font-normal`}
             >
               Event management software offers a wide range of benefits for
               businesses and organizations looking to streamline their event
               planning processes. Some key advantages include:
             </p>
 
-            <ul className='list-disc text-sm md:text-lg pl-5 md:pl-10'>
+            <ul
+              className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop} list-disc pl-5 md:pl-10 mt-2`}
+            >
               {benefits.map((benefit) => (
                 <li key={benefit.id} className='font-medium'>
                   {benefit.title}{' '}

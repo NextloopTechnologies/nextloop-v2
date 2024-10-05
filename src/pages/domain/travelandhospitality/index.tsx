@@ -86,7 +86,7 @@ const TravelAndHospitality = () => {
         image={getStaticImageData(travelandhotelAssets.whyBuildImg)}
         colouredTitle='travel & hotel industry'
         informationSection={
-          <div className='max-w-[737px] flex flex-col justify-center px-5 md:px-0'>
+          <div className='max-w-[737px] flex flex-col justify-center px-14 md:px-0'>
             <p
               className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
             >

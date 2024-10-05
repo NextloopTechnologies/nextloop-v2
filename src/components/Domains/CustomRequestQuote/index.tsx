@@ -14,7 +14,7 @@ const CustomRequestQuote = ({ title }: Props) => {
     <div className='flex flex-col md:flex-row items-center justify-between bg-[#FA8145] py-7 px-20'>
       <div className='flex flex-col gap-8 max-w-4xl'>
         <h2
-          className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-white font-bold leading-none uppercase`}
+          className="text-white font-bold leading-none uppercase md:text-[30px] text-[20px]"
         >
           {title}
         </h2>
@@ -34,9 +34,9 @@ const CustomRequestQuote = ({ title }: Props) => {
 
       <Image
         src={requestQuoteAssets.RequestQuote}
-        className='mt-10 md:mt-0 w-[397px] aspect-square rounded-full'
-        height={500}
-        width={500}
+        className='mt-10 md:mt-0 w-[300px] aspect-square rounded-full'
+        height={400}
+        width={400}
         alt='request'
       />
     </div>
