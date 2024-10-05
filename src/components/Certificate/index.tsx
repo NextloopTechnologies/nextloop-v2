@@ -1,12 +1,11 @@
 import React, { FC } from 'react';
-
-import CertificateCard from './CertificateCards';
 import {
   Certificate1,
   Certificate2,
   Certificate3,
   Certificate4,
 } from '../../../assets';
+import CertificateCard from './CertificateCards';
 interface ServiceCardProps {
   image: string;
 }
@@ -31,7 +30,7 @@ const Certificate: FC = () => {
     <>
       <div className='py-2 bg-orange-500 flex justify-center items-center w-full sm:min-h-screen overflow-x-hidden flex-col'>
         <header className='flex gap-10 lg:w-4/6 lg:px-10 text-center w-full '>
-          <div className='w-full flex flex-col justify-center items-center gap-y-3 z-10 px-4'>
+          <div className='flex flex-col gap-y-3 z-10 px-4 mx-auto'>
             <div className='text-white uppercase lg:text-5xl text-3xl font-bold text-center'>
               <span className='text-white'>Certificates</span>
             </div>
