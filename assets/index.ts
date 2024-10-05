@@ -1,4 +1,12 @@
 export { default as AboutUsBackground } from './AboutUsBackground.png';
+export { default as BlueBird } from './blue-bird.png';
+export { default as CB } from './cb.png';
+export { default as CB1 } from './cb-1.png';
+export { default as Certificate1 } from './certificates/1.png';
+export { default as Certificate2 } from './certificates/2.png';
+export { default as Certificate3 } from './certificates/3.png';
+export { default as Certificate4 } from './certificates/4.png';
+export { default as Client2 } from './client-2.png';
 export { default as CompositeLayer_1 } from './CompositeLayer-1.png';
 export { default as CompositeLayer_2 } from './CompositeLayer-2.png';
 export { default as CompositeLayer_3 } from './CompositeLayer-3.png';
@@ -7,13 +15,51 @@ export { default as ContactArrow } from './ContactArrow.png';
 export { default as ContactUs } from './ContactUs.png';
 export { default as DoubleQuotes } from './DoubleQuotes.png';
 export { default as DownArrow } from './down-arrow.png';
+export { default as FB } from './fb.png';
+export { default as GOOGLE } from './g+.png';
+export { default as GMAIL } from './gmail.png';
+export { default as INSTAGRAM } from './instagram.png';
+export { default as InvertedQoute } from './inverted-qoute.png';
+export { default as LeftSlide } from './left-slide.png';
+export { default as Levram } from './levram.png';
+export { default as Levram1 } from './levram-1.png';
+export { default as Levram2 } from './levram2.png';
 export { default as Lines } from './line.png';
 export { default as Mobile_1 } from './Mobile-1.png';
 export { default as Mobile_2 } from './Mobile-2.png';
 export { default as NextLoopColoredLogo } from './NextLoopColoredLogo.jpeg';
 export { default as NextLoopLogo } from './NextLoopLogo.png';
+export { default as OurCLient } from './our-client-1.png';
+export { default as OurValues1 } from './our-values-1.png';
+export { default as Portfolio1 } from './portfolio-1.png';
+export { default as Portfolio2 } from './portfolio-2.png';
+export { default as Portfolio3 } from './portfolio-3.png';
+export { default as Portfolio4 } from './portfolio-4.png';
+export { default as RightArrow } from './right-arrow.svg';
 export { default as SellEverywhereImage } from './sellEverywhere.png';
+export { default as Services1 } from './services.jpeg';
+export { default as Service1 } from './services/1.png';
+export { default as Service2 } from './services/2.png';
+export { default as Service3 } from './services/3.png';
+export { default as Service4 } from './services/4.png';
+export { default as Service5 } from './services/5.png';
+export { default as Service6 } from './services/6.png';
+export { default as Service7 } from './services/7.png';
+export { default as Service8 } from './services/8.png';
+export { default as Service9 } from './services/9.png';
+export { default as Service10 } from './services/10.png';
+export { default as Service11 } from './services/11.png';
+export { default as Service12 } from './services/12.png';
+export { default as ShowerWealth } from './shower-wealth.png';
+export { default as SWAcademy } from './shower-wealth-academy.png';
+export { default as Values1 } from './values-1.png';
+export { default as Values2 } from './values-2.png';
+export { default as Values3 } from './values-3.png';
+export { default as Values4 } from './values-4.png';
+export { default as Whoweare } from './who-we-are.jpeg';
 export { default as Whyus } from './whyus.png';
+export { default as X } from './x.png';
+export { default as YT } from './yt.png';
 
 export const staticAssests = {
   AboutUsBackground:
@@ -57,18 +103,25 @@ export const staticAssests = {
 };
 
 export const careerAssets = {
-  leftBig: "https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers3.JPG?updatedAt=1725604764050",
-  rightTop: "https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers2.JPG?updatedAt=1725604765462",
-  rightMiddle: "https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers4.JPG?updatedAt=1725604765957",
-  middleBig: "https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers7.jpg?updatedAt=1725617401791",
-  bottomLeft: "https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers5.JPG?updatedAt=1725604767086",
-  bottomRight: "https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers6.png?updatedAt=1725604772798",
-  bottomBig: "https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers1.JPG?updatedAt=1725604762600",
-}
-
+  leftBig:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers3.JPG?updatedAt=1725604764050',
+  rightTop:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers2.JPG?updatedAt=1725604765462',
+  rightMiddle:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers4.JPG?updatedAt=1725604765957',
+  middleBig:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers7.jpg?updatedAt=1725617401791',
+  bottomLeft:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers5.JPG?updatedAt=1725604767086',
+  bottomRight:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers6.png?updatedAt=1725604772798',
+  bottomBig:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers1.JPG?updatedAt=1725604762600',
+};
 
 export const eventAssets = {
-  eventsBg: "https://ik.imagekit.io/nextloop/NextloopWebAssets/eventsBg.png?updatedAt=1719991864313",
+  eventsBg:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/eventsBg.png?updatedAt=1719991864313',
   WhyBuildEventManagement:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/whyBuildEventManagement.png?updatedAt=1719991911128',
   BlackRectangle:
@@ -103,36 +156,56 @@ export const eventAssets = {
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/music.png?updatedAt=1719991868938',
   Seminars:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/seminars.png?updatedAt=1719991899034',
-}
+};
 
 export const oilAndGasAssets = {
-  oilAndGasBg: "https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasBg.png?updatedAt=1719991876162",
-  whyBuildOilAndGas: "https://ik.imagekit.io/nextloop/NextloopWebAssets/whyBuildOilAndGas.png?updatedAt=1719991910985",
+  oilAndGasBg:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasBg.png?updatedAt=1719991876162',
+  whyBuildOilAndGas:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/whyBuildOilAndGas.png?updatedAt=1719991910985',
   MakeItReal:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/makeItReal.png?updatedAt=1719991868833',
   WhyWorkWithUs:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/whyWorkWithUs.png?updatedAt=1719991921077',
-  fixedPriceIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasFixedPriceIcon.png?updatedAt=1719991878989",
-  easyIntegrationIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasIntegrationIcon.png?updatedAt=1719991881913",
-  lifeCycleIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasLifeCycleIcon.png?updatedAt=1719991878862",
-  miningIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasMiningIcon.png?updatedAt=1719991879539",
-  optimiseIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasOptimizeIcon.png?updatedAt=1719991884400",
-  onePlaceIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasPlaceIcon.png?updatedAt=1719991884696",
-  platformIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasPlatformIcon.png?updatedAt=1719991885009",
-  readyIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasReadyIcon.png?updatedAt=1719991885240",
-  complianceKeyImg: "https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasComplianceKey.png?updatedAt=1719991874172",
-  dataSoftwareImg: "https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasDataSoftware.png?updatedAt=1719991879257",
-  employeeSimplifiedImg: "https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasEmployeeSimplified.png?updatedAt=1719991880221",
-  fleetImg: "https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasFleet.png?updatedAt=1719991879261",
-  operationImg: "https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasOperation.png?updatedAt=1719991883914",
-  productionSoftwareImg: "https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasProdSoftware.png?updatedAt=1719991885148",
-  rapidIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/oilandGasOnlineBusinessRapidIcon.png?updatedAt=1719991881769",
-  transparentIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/oilandGasOnlineBusinessTransparentIcon.png?updatedAt=1719991879935",
-  trustedIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/oilandGasOnlineBusinessTrustedIcon.png?updatedAt=1719991882246",
-  visionaryIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/oilandGasOnlineBusinessVisionaryIcon.png?updatedAt=1719991883602",
-  onlineBusinessBg: 'https://ik.imagekit.io/nextloop/NextloopWebAssets/enrollForWebsite.png?updatedAt=1719991861773',
-
-}
+  fixedPriceIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasFixedPriceIcon.png?updatedAt=1719991878989',
+  easyIntegrationIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasIntegrationIcon.png?updatedAt=1719991881913',
+  lifeCycleIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasLifeCycleIcon.png?updatedAt=1719991878862',
+  miningIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasMiningIcon.png?updatedAt=1719991879539',
+  optimiseIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasOptimizeIcon.png?updatedAt=1719991884400',
+  onePlaceIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasPlaceIcon.png?updatedAt=1719991884696',
+  platformIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasPlatformIcon.png?updatedAt=1719991885009',
+  readyIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasReadyIcon.png?updatedAt=1719991885240',
+  complianceKeyImg:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasComplianceKey.png?updatedAt=1719991874172',
+  dataSoftwareImg:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasDataSoftware.png?updatedAt=1719991879257',
+  employeeSimplifiedImg:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasEmployeeSimplified.png?updatedAt=1719991880221',
+  fleetImg:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasFleet.png?updatedAt=1719991879261',
+  operationImg:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasOperation.png?updatedAt=1719991883914',
+  productionSoftwareImg:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/oilAndGasProdSoftware.png?updatedAt=1719991885148',
+  rapidIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/oilandGasOnlineBusinessRapidIcon.png?updatedAt=1719991881769',
+  transparentIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/oilandGasOnlineBusinessTransparentIcon.png?updatedAt=1719991879935',
+  trustedIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/oilandGasOnlineBusinessTrustedIcon.png?updatedAt=1719991882246',
+  visionaryIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/oilandGasOnlineBusinessVisionaryIcon.png?updatedAt=1719991883602',
+  onlineBusinessBg:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/enrollForWebsite.png?updatedAt=1719991861773',
+};
 
 export const restaurantAssets = {
   restaurantBg:
@@ -211,11 +284,16 @@ export const ecommerceAssets = {
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/modernizeIcon.png?updatedAt=1720073536539',
   settingIcon:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/settingIcon.png?updatedAt=1720073539254',
-  globeIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomGlobeIcon.png?updatedAt=1720703266810",
-  desktopIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomDesktopIcon.png?updatedAt=1720703266804",
-  marketIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomMarketIcon.png?updatedAt=1720703266827",
-  bookReaderIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomBookReaderIcon.png?updatedAt=1720703266602",
-  rectangleBg: "https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomRectangle.png?updatedAt=1721040120178",
+  globeIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomGlobeIcon.png?updatedAt=1720703266810',
+  desktopIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomDesktopIcon.png?updatedAt=1720703266804',
+  marketIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomMarketIcon.png?updatedAt=1720703266827',
+  bookReaderIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomBookReaderIcon.png?updatedAt=1720703266602',
+  rectangleBg:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomRectangle.png?updatedAt=1721040120178',
 };
 
 export const fintechAssets = {
@@ -363,8 +441,9 @@ export const travelandhotelAssets = {
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/travelandhotel/trackingIcon.png?updatedAt=1720073406238',
 };
 
-
 export const faqAssets = {
-  faqCrossIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/faqCrossIcon.png?updatedAt=1719991864331",
-  faqPlusIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/faqPlusIcon.png?updatedAt=1719991864540",
-}
+  faqCrossIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/faqCrossIcon.png?updatedAt=1719991864331',
+  faqPlusIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/faqPlusIcon.png?updatedAt=1719991864540',
+};
