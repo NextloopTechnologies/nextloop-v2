@@ -11,6 +11,7 @@ import WhatCanIBuild from '../../../components/Domains/OilAndGas/WhatCanIBuild';
 import WhyBuild from '../../../components/Domains/WhyBuild';
 import WhyWorkWithUs from '../../../components/Domains/WhyWorkWithUs';
 import Layout from '../../../components/Layout/Layout';
+import palette from '../../../styles/pallette';
 import { IFAQ } from '../../../types';
 import { getStaticImageData } from '../../../utils/helper';
 
@@ -41,11 +42,14 @@ const OilAndGas = () => {
       <CustomPageHero
         image={getStaticImageData(oilAndGasAssets.oilAndGasBg)}
         titleChildren={
-          <h1 className='text-white text-5xl md:text-8xl uppercase font-bold text-center max-w-[1306px]'>
+          <h1
+            className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-white uppercase font-bold text-center w-full`}
+          >
             Build <span className='text-orange-500'>oil and gas</span> software
             applications
           </h1>
         }
+        customSubtitleClassname={`xl:w-[51%] ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop}`}
         subtitle='Streamline operations, improve workplace safety, and increase profits with your new web, mobile or desktop app. Oil and gas software solutions don’t need to be complicated. Tell us what you need and we build it. It’s that easy.'
         opacity='opacity-10'
         title=''
@@ -55,11 +59,15 @@ const OilAndGas = () => {
         image={getStaticImageData(oilAndGasAssets.whyBuildOilAndGas)}
         colouredTitle='mining industry'
         informationSection={
-          <div className='max-w-[737px] flex flex-col justify-center px-5 md:px-0'>
-            <h3 className='font-bold text-lg md:text-2xl uppercase my-5'>
+          <div className='max-w-[737px] md:flex md:flex-col justify-center px-5 md:px-0 md:w-full w-[350px]'>
+            <h3
+              className={`${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} uppercase my-5`}
+            >
               Why build a custom software solution for the mining industry?
             </h3>
-            <p className='text-lg font-normal'>
+            <p
+              className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
+            >
               Whether it’s mining or the oil and gas industry... you care about
               performance. Save time and money by creating software that lets
               you more effectively manage your operation. Our no-code solution

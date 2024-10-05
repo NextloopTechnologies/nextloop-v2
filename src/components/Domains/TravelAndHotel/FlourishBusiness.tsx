@@ -45,16 +45,16 @@ const content: { title: string; descp: string; icon: StaticImageData }[] = [
 ];
 
 const FlourishBusiness = () => (
-  <div className='h-full relative bg-[#010103]'>
+  <div className=' relative bg-[#010103]'>
     <h1
       className={` text-white ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center py-14 px-10`}
     >
       flourish your <span className='text-orange-500'>travel & hotel</span>{' '}
       business with nextloop technologies
     </h1>
-    <div className='relative w-full h-full py-10'>
+    <div className='relative w-full'>
       <Image
-        className='absolute inset-0 w-full h-full object-cover z-[1]'
+        className='absolute inset-0 w-full object-cover z-[1]'
         alt='main bg'
         fill
         sizes='100vw'
