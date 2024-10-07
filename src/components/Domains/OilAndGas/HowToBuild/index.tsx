@@ -105,8 +105,8 @@ const SoftwareAppBox: React.FC<SoftwareAppBoxProps> = ({
 
 const HowToBuild = () => {
   return (
-    <div className='flex bg-white px-10'>
-      <div className='flex flex-col pb-2 max-w-[1479px] mx-auto'>
+    <div className='flex bg-white mx-auto max-w-7xl'>
+      <div className='flex flex-col pb-2'>
         <h1
           className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center`}
         >

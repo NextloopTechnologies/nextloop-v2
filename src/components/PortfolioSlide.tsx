@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React, { FC, useState } from 'react';
 
+import palette from '../styles/pallette';
 import {
   LeftSlide,
   Portfolio1,
@@ -48,24 +49,24 @@ const PortfolioSlide: FC = () => {
     });
   };
   return (
-    <div className='min-w-full sm:min-h-screen max-w-full  m-auto relative bg-green-300'>
-      <header className='text-center w-full absolute top-2 '>
-        <span className='uppercase lg:text-5xl text-3xl font-bold text-center'>
-          our <span className='text-orange-500'>portfolio</span>
-        </span>
-      </header>
+    <div className='relative'>
       <div className='w-full h-full'>
         <Image
           src={IMAGE_DATA[currentSlide]?.image || ''}
           alt='image'
           className='w-full h-full object-contain'
-          // width={'1000'}
-          // height={'350'}
         />
       </div>
-      <div className='image-caption absolute bottom-2 text-center w-full'>
+      <header className='text-center w-full absolute md:top-14 top-2'>
+        <span
+          className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center`}
+        >
+          our <span className='text-orange-500'>portfolio</span>
+        </span>
+      </header>
+      <div className='image-caption absolute md:bottom-[50px] bottom-[20px]  text-center w-full'>
         <button className='text-orange-500 text-[14px] outline-none bg-white border border-orange-500 px-5 py-1 rounded-[20px]'>
-          Click on this
+          View Case Study
         </button>
       </div>
       <div>

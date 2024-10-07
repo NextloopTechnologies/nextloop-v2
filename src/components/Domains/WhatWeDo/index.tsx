@@ -29,7 +29,7 @@ const ImageWithHoverInfo: React.FC<ImageWithHoverInfoProps> = ({
         {title}
       </h2>
       <p
-        className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop} text-white`}
+        className={`text-[10px] md:${palette.fontSize.descriptionSmall.desktop} text-white`}
       >
         {description}
       </p>

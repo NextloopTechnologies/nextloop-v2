@@ -42,9 +42,7 @@ const Portfolio: FC = () => {
           </span>
         </div>
         </header> */}
-      <div className='sm:min-h-screen w-screen'>
-        <PortfolioSlide />
-      </div>
+      <PortfolioSlide />
     </div>
   );
 };
