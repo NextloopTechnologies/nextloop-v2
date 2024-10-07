@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import React, { FC, useEffect, useState } from 'react';
 
+import palette from '../../styles/pallette';
 // import {
 //   imageVariants,
 //   introHeaderVariants,
@@ -26,16 +27,18 @@ const WhoWeAre: FC = () => {
 
   return (
     <>
-      <div className='flex flex-col items-center sm:min-h-screen lg:flex-row overflow-hidden lg:gap-5 py-12 sm:py-20 px-6 sm:px-32'>
+      <div className='flex flex-col items-center md:flex-row overflow-hidden py-5 px-6 md:pb-5 pb-16'>
         <div
           // initial={isMobile ? 'visible' : 'hide'}
           // whileInView='show'
           // exit='hide'
           // variants={introHeaderVariants}
-          className='flex justify-end text-center lg:text-left  sm:w-[60%] h-full'
+          className='flex justify-end text-center lg:text-left  sm:w-[60%]'
         >
-          <div className='flex flex-col sm:w-[80%]'>
-            <b className='uppercase lg:text-4xl text-3xl font-bold'>
+          <div className='flex flex-col md:mx-10'>
+            <b
+              className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold`}
+            >
               who we <span className='text-orange-400'>are?</span>
             </b>
             {/* <span
@@ -52,7 +55,7 @@ const WhoWeAre: FC = () => {
               // initial={isMobile ? 'visible' : 'hide'}
               // animate={textAnimationCompleted ? 'show' : 'hide'}
               // variants={textVariants}
-              className='text-sm lg:text-[15px] tracking-wider w-full mt-10'
+              className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}  tracking-wider w-full mt-10`}
             >
               <b>At NextLoop Technologies</b>, located in the vibrant heart of
               India, we are a passionate team of expert developers and
@@ -76,7 +79,7 @@ const WhoWeAre: FC = () => {
           className='flex sm:w-[60%] h-full'
         >
           {textAnimationCompleted && (
-            <div className='w-[100%] h-[350px] bg-blue-300 rounded-tl-[52px] overflow-hidden rounded-br-[52px]  mt-10'>
+            <div className='w-[100%] h-[350px] bg-blue-300 rounded-tl-[52px] overflow-hidden rounded-br-[52px]  mt-10 md:mr-10'>
               {/* <div
               // initial={isMobile ? 'visible' : 'hide'}
               // animate='show'

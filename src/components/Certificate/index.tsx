@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 
 import CertificateCard from './CertificateCards';
+import palette from '../../styles/pallette';
 import {
   Certificate1,
   Certificate2,
@@ -29,10 +30,12 @@ const OURVALUES_DATA: ServiceCardProps[] = [
 const Certificate: FC = () => {
   return (
     <>
-      <div className='py-2  flex justify-center items-center w-full sm:min-h-[50vh] overflow-x-hidden flex-col'>
+      <div className='  flex justify-center items-center w-full overflow-x-hidden flex-col py-20'>
         <header className='flex gap-10 lg:w-4/6 lg:px-10 text-center w-full '>
           <div className=' w-full flex flex-col justify-center items-center gap-y-3 z-10 px-4'>
-            <div className='text-white uppercase lg:text-5xl text-3xl font-bold text-center'>
+            <div
+              className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-white uppercase font-bold text-center`}
+            >
               <span className='text-white'>Certificates</span>
             </div>
           </div>

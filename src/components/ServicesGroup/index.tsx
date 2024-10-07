@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 
 import OurServieceCard from '../OurServieceCard';
+import palette from '../../styles/pallette';
 import {
   Service1,
   Service2,
@@ -75,13 +76,17 @@ const SERVICE_DATA: ServiceCardProps[] = [
 const Services: FC = () => {
   return (
     <>
-      <div className='flex justify-center items-center w-full sm:min-h-screen overflow-x-hidden flex-col'>
+      <div className='flex justify-center items-center w-full sm:min-h-screen overflow-x-hidden flex-col pb-10'>
         <header className='flex gap-10 lg:w-4/6  lg:px-10 text-center'>
           <div className='w-full flex flex-col justify-center items-center gap-y-3 z-10 px-4'>
-            <span className='uppercase lg:text-5xl text-3xl font-bold text-center'>
+            <span
+              className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop}  font-bold text-center uppercase`}
+            >
               OUR <span className='text-orange-500'>Services</span>
             </span>
-            <span className='lg:px-20 text-sm lg:text-[16px] text-center'>
+            <span
+              className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}  text-center`}
+            >
               Accelerating digital outcomes through rapid innovation and
               strategic execution.
             </span>
