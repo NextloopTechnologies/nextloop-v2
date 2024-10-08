@@ -104,6 +104,22 @@ export const staticAssests = {
   Whyus:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/whyus.png?updatedAt=1719991921001',
 };
+export const careerAssets = {
+  leftBig:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers3.JPG?updatedAt=1725604764050',
+  rightTop:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers2.JPG?updatedAt=1725604765462',
+  rightMiddle:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers4.JPG?updatedAt=1725604765957',
+  middleBig:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers7.jpg?updatedAt=1725617401791',
+  bottomLeft:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers5.JPG?updatedAt=1725604767086',
+  bottomRight:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers6.png?updatedAt=1725604772798',
+  bottomBig:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers1.JPG?updatedAt=1725604762600',
+};
 
 export const eventAssets = {
   eventsBg:
