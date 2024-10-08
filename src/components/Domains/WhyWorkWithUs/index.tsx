@@ -43,9 +43,9 @@ type Props = {
 
 const InfoOnImage = ({ description, image, title }: Props) => (
   <div className='rounded-lg relative'>
-    <div className='absolute flex gap-5 flex-col text-white top-8 left-6 z-10 lg:top-20 lg:left-16 right-6'>
+    <div className='absolute flex gap-1 flex-col text-white top-3 left-5 z-10 lg:top-20 lg:left-16 right-6'>
       <h2
-        className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} font-bold`}
+        className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop} font-bold`}
       >
         {title}
       </h2>
@@ -60,9 +60,9 @@ const InfoOnImage = ({ description, image, title }: Props) => (
     <Image
       src={image}
       alt={title}
-      height={300}
-      width={300}
-      className='w-full md:w-[600px] object-fill rounded-lg'
+      height={500}
+      width={500}
+      className='w-full object-contain rounded-lg'
     />
   </div>
 );

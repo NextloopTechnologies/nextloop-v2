@@ -72,7 +72,7 @@ const ImageWithHoverInfo: React.FC<ImageWithHoverInfoProps> = ({
     />
     <div className='absolute bottom-0 flex flex-col items-center text-white mb-4 group-hover:opacity-0 transition-opacity'>
       <h2
-        className={`${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} uppercase font-bold`}
+        className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} uppercase font-bold`}
       >
         {title}
       </h2>

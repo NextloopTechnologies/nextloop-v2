@@ -127,7 +127,7 @@ const HowToBuild = () => {
             a reality.
           </p>
         </div>
-        <div className='grid grid-cols-1 lg:grid-cols-4 gap-3 w-full max-w-7xl mt-[100px]'>
+        <div className='grid grid-cols-1 lg:grid-cols-4 gap-3 w-full max-w-7xl mt-[100px] px-10'>
           {data?.map(({ descp, id, icon, title }) => (
             <SoftwareAppBox key={id} descp={descp} icon={icon} title={title} />
           ))}
