@@ -49,7 +49,7 @@ const PortfolioSlide: FC = () => {
     });
   };
   return (
-    <div className='min-w-full sm:min-h-screen max-w-full  m-auto relative bg-green-300'>
+    <div className='min-w-full sm:min-h-screen max-w-full  m-auto relative'>
       <div className='w-full h-full'>
         <Image
           src={IMAGE_DATA[currentSlide]?.image || ''}
