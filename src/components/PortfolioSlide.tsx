@@ -1,11 +1,13 @@
 import Image from 'next/image';
 import React, { FC, useState } from 'react';
+
+import palette from '../styles/pallette';
 import {
+  LeftSlide,
   Portfolio1,
   Portfolio2,
   Portfolio3,
   Portfolio4,
-  LeftSlide,
 } from '../../assets/';
 interface PortfolioCardProps {
   image: string;
@@ -47,24 +49,24 @@ const PortfolioSlide: FC = () => {
     });
   };
   return (
-    <div className='min-w-full max-w-full  m-auto relative'>
-      <header className='text-center w-full absolute top-2 '>
-        <span className='uppercase sm:text-3xl text-2xl font-bold text-center'>
-          our <span className='text-orange-500'>portfolio</span>
-        </span>
-      </header>
-      <div className='w-full '>
+    <div className='min-w-full sm:min-h-screen max-w-full  m-auto relative bg-green-300'>
+      <div className='w-full h-full'>
         <Image
           src={IMAGE_DATA[currentSlide]?.image || ''}
           alt='image'
-          className='w-full object-contain'
-          // width={'1000'}
-          // height={'350'}
+          className='w-full h-full object-contain'
         />
       </div>
-      <div className='image-caption absolute bottom-2 text-center w-full'>
+      <header className='text-center w-full absolute md:top-14 top-2'>
+        <span
+          className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center`}
+        >
+          our <span className='text-orange-500'>portfolio</span>
+        </span>
+      </header>
+      <div className='image-caption absolute md:bottom-[50px] bottom-[20px]  text-center w-full'>
         <button className='text-orange-500 text-[14px] outline-none bg-white border border-orange-500 px-5 py-1 rounded-[20px]'>
-          Click on this
+          View Case Study
         </button>
       </div>
       <div>

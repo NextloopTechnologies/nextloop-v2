@@ -1,6 +1,7 @@
 import Image, { StaticImageData } from 'next/image';
 
 import { ecommerceAssets, hotelAssets } from '../../../../assets';
+import palette from '../../../styles/pallette';
 
 const sampleData = [
   {
@@ -40,13 +41,28 @@ type Props = {
 type TitleDescCardProps = {
   title: string;
   description?: string;
+  className?: string; // Added className prop
 };
 
-export const TitleDescCard = ({ title, description }: TitleDescCardProps) => (
-  <div className="flex flex-col opacity-85 bg-[#1C1C1D] h-[250px] w-[150px] sm:h-[200px] sm:w-[250px] p-5 md:py-10 md:h-[180px] md:w-[350px] gap-4">
-    <h3 className='text-sm md:text-xl font-medium uppercase'>{title}</h3>
+export const TitleDescCard = ({
+  title,
+  description,
+  className,
+}: TitleDescCardProps) => (
+  <div
+    className={`flex flex-col opacity-85 bg-[#1C1C1D] h-[140px] w-[350px] sm:h-[200px] sm:w-[250px] p-5 md:py-10 md:h-[180px] md:w-[350px] gap-4 rounded-md ${className}`}
+  >
+    <h3
+      className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} uppercase`}
+    >
+      {title}
+    </h3>
     {description && (
-      <p className='text-xs md:text-sm font-normal'>{description}</p>
+      <p
+        className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+      >
+        {description}
+      </p>
     )}
   </div>
 );
@@ -68,7 +84,7 @@ const EnrollForWebsite = ({
         priority
         quality={100}
       />
-      <div className='flex flex-col py-20 md:py-32 gap-10 z-[2] items-center justify-center'>
+      <div className='flex flex-col py-10 md:py-20 gap-5 z-[2] items-center justify-center'>
         {titleElement || (
           <h1 className='text-3xl md:text-7xl uppercase font-bold text-center max-w-[1400px] mx-auto'>
             Enroll for website development to boost your hotel's most{' '}
@@ -76,23 +92,25 @@ const EnrollForWebsite = ({
           </h1>
         )}
 
-        <div className='grid grid-cols-1 xl:grid-cols-2 place-items-center'>
-          <div className='flex  flex-col items-center justify-center xl:ml-24'>
-            <div className='flex gap-2 mb-2'>
+        <div className='grid grid-cols-1 md:grid-cols-2 place-items-center'>
+          <div className='flex  flex-col items-center justify-center'>
+            <div className='flex flex-col gap-3 md:ml-40 mb-3 md:flex-row'>
               {(data || sampleData).slice(0, 2).map((data) => (
                 <TitleDescCard
                   key={data.id}
                   title={data.title}
                   description={data.description}
+                  className='w-80 h-40'
                 />
               ))}
             </div>
-            <div className='flex gap-2 '>
+            <div className='flex flex-col gap-3 md:ml-40 md:flex-row'>
               {(data || sampleData).slice(2, 4).map((data) => (
                 <TitleDescCard
                   key={data.id}
                   title={data.title}
                   description={data.description}
+                  className='w-80 h-40'
                 />
               ))}
             </div>

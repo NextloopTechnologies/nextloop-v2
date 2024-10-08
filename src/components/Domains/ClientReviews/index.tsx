@@ -3,6 +3,7 @@ import Image, { StaticImageData } from 'next/image';
 import { useEffect, useMemo, useState } from 'react';
 
 import { clientReviewsAssets } from '../../../../assets';
+import palette from '../../../styles/pallette';
 import { getStaticImageData } from '../../../utils/helper';
 
 type Data = {
@@ -56,7 +57,7 @@ const ReviewCard = ({ review }: ReviewProps) => (
   <motion.div
     animate='show'
     exit='hide'
-    className='flex flex-col md:flex-row items-center gap-[50px] mx-5 bg-white rounded-[20px] p-10 md:w-[964px] md:pl-[108px] md:pr-14'
+    className='flex flex-col md:flex-row items-center gap-[20px] bg-white rounded-[20px] p-3 md:w-[700px] md:px-8 m-5 md:m-0'
   >
     <div className='flex flex-col items-center gap-6'>
       <Image
@@ -64,11 +65,11 @@ const ReviewCard = ({ review }: ReviewProps) => (
         alt='user'
         height={400}
         width={400}
-        className='w-[100px] md:w-[200px] object-cover'
+        className='w-[100px] md:w-[150px] object-cover md:mt-2 mt-5'
       />
 
       <div className='flex flex-col gap-2 text-center'>
-        <h3 className='text-2xl font-bold'>{review.name}</h3>
+        <h3 className='text-xl font-bold'>{review.name}</h3>
         <h5 className='text-[16px] font-normal'>{review.subTitle}</h5>
       </div>
     </div>
@@ -76,19 +77,21 @@ const ReviewCard = ({ review }: ReviewProps) => (
     <div className='flex flex-col gap-12'>
       <Image
         src={getStaticImageData(clientReviewsAssets.InvertedCommaStartOrange)}
-        className='w-6 h-6 md:w-14 md:h-10'
+        className='w-6 h-6 md:w-8 md:h-6'
         height={50}
         width={50}
         alt='inverted start'
       />
 
-      <p className='font-normal text-[16px] text-[#261F21B2] leading-6 md:ml-[53px] md:w-[471px]'>
+      <p
+        className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop} text-[#261F21B2] leading-2 md:ml-[40px] md:w-[400px]`}
+      >
         {review.description}
       </p>
 
       <Image
         src={getStaticImageData(clientReviewsAssets.InvertedCommaEndOrange)}
-        className='w-6 h-6 md:w-14 md:h-10 ml-auto'
+        className='w-6 h-6 md:w-8 md:h-6 ml-auto'
         height={50}
         width={50}
         alt='inverted start'
@@ -100,7 +103,7 @@ const ReviewCard = ({ review }: ReviewProps) => (
 type Props = {
   title?: string;
   colouredTitle?: string;
-  className?: string; // Added className prop
+  className?: string;
 };
 
 const ClientReviews = ({ colouredTitle, title, className }: Props) => {
@@ -125,11 +128,11 @@ const ClientReviews = ({ colouredTitle, title, className }: Props) => {
 
   return (
     <div
-      className={`bg-[#1D1D1D] pt-[134px] pb-[112px] flex flex-col items-center gap-[90px] ${className}`}
+      className={`bg-[#1D1D1D] pt-[50px] pb-[70px] flex flex-col items-center gap-[50px] ${className}`}
     >
-      {' '}
-      {/* Apply className here */}
-      <h1 className='text-3xl md:text-7xl uppercase md:mx-72 font-bold text-white text-center'>
+      <h1
+        className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase md:mx-10 font-bold text-white text-center`}
+      >
         {!title && !colouredTitle ? (
           <>
             What our <span className='text-orange-500'>clients</span> say
@@ -141,7 +144,7 @@ const ClientReviews = ({ colouredTitle, title, className }: Props) => {
         )}
       </h1>
       <div className='flex flex-col md:flex-row items-center gap-14'>
-        <div className='flex items-center gap-5'>
+        <div className='hidden md:flex items-center md:flex-col'>
           <button
             disabled={index === 0}
             className='arrow_buttons'
@@ -149,31 +152,43 @@ const ClientReviews = ({ colouredTitle, title, className }: Props) => {
           >
             &larr;
           </button>
-          <button
-            disabled={index === sampleData.length - 1}
-            className='md:hidden arrow_buttons'
-            onClick={() => setButtonClicked('right')}
-          >
-            &rarr;
-          </button>
         </div>
 
-        <AnimatePresence mode='wait'>
-          {currentReview && (
-            <motion.div
-              key={currentReview.id}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: buttonClicked === 'left' ? 100 : -100 }}
-              transition={{ duration: 0.5 }}
+        <div className='flex flex-col items-center w-full'>
+          <AnimatePresence mode='wait'>
+            {currentReview && (
+              <motion.div
+                key={currentReview.id}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: buttonClicked === 'left' ? 100 : -100 }}
+                transition={{ duration: 0.5 }}
+              >
+                <ReviewCard review={currentReview} />
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <div className='flex justify-center gap-5 mt-5 md:hidden'>
+            <button
+              disabled={index === 0}
+              className='arrow_buttons'
+              onClick={() => setButtonClicked('left')}
             >
-              <ReviewCard review={currentReview} />
-            </motion.div>
-          )}
-        </AnimatePresence>
+              &larr;
+            </button>
+            <button
+              disabled={index === sampleData.length - 1}
+              className='arrow_buttons'
+              onClick={() => setButtonClicked('right')}
+            >
+              &rarr;
+            </button>
+          </div>
+        </div>
 
         <button
           disabled={index === sampleData.length - 1}
-          className='hidden md:inline-flex arrow_buttons'
+          className='hidden md:inline-flex arrow_buttons px-2'
           onClick={() => setButtonClicked('right')}
         >
           &rarr;

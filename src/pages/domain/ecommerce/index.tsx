@@ -1,14 +1,16 @@
-import { ecommerceAssets } from '../../../../assets';
+import { ecommerceAssets,healthcareAssets } from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import BoostTraffic from '../../../components/Domains/BoostTraffic';
 import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
 import EnrollForWebsite from '../../../components/Domains/EnrollForWebsite';
 import FAQ from '../../../components/Domains/FAQ';
+import ProductServices from '../../../components/Domains/ProductServices';
 import SellEverywhere from '../../../components/Domains/SellEverywhere';
 import WhatWeDo from '../../../components/Domains/WhatWeDo';
 import WhyBuild from '../../../components/Domains/WhyBuild';
 import Layout from '../../../components/Layout/Layout';
+import palette from '../../../styles/pallette';
 import { IFAQ } from '../../../types';
 import { getStaticImageData } from '../../../utils/helper';
 
@@ -87,13 +89,48 @@ const WhatWeDoData = [
   },
 ];
 
+const productServiceContent = [
+  {
+    icon: getStaticImageData(healthcareAssets.settingIcon),
+    title: 'physical products',
+    descp:
+      'Add an extensive catalog of products to your online store with up to 1,000 variants each. Import and export CSV files with products or seamlessly migrate your catalog with the Cart2Cart app.',
+  },
+  {
+    icon: getStaticImageData(healthcareAssets.modernizeIcon),
+    title: 'dropshipping',
+    descp:
+      'Add ready-to-sell products from our dropshipping platform, or third-party apps, and let suppliers take care of fulfillment.',
+  },
+  {
+    icon: getStaticImageData(healthcareAssets.cloudIcon),
+    title: 'print on demand',
+    descp:
+      'Add your designs to hundreds of high-quality products, from t-shirts to headphones and let suppliers ship your custom merchandise directly to customers.',
+  },
+  {
+    icon: getStaticImageData(healthcareAssets.maintenanceIcon),
+    title: 'digital products',
+    descp:
+      'Sell digital products such as music files, ebooks, online courses, images or gift cards.',
+  },
+  {
+    icon: getStaticImageData(healthcareAssets.cloudIcon),
+    title: 'subscriptions',
+    descp:
+      'Easily create and manage recurring products and sell subscriptions to generate a steady revenue stream.',
+  },
+];
+
 const Ecommerce = () => {
   return (
     <Layout>
       <CustomPageHero
         image={getStaticImageData(ecommerceAssets.ECommerceBg)}
         titleChildren={
-          <h1 className='text-white text-3xl md:text-5xl lg:text-8xl uppercase font-bold text-center w-full md:max-w-[1500px]'>
+          <h1
+            className={`text-white ${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} uppercase font-bold text-center w-full md:max-w-[1500px]`}
+          >
             Build an <span className='text-orange-500'>ecommerce website.</span>
             <br />
             Start selling immediately.
@@ -101,18 +138,20 @@ const Ecommerce = () => {
             Grow without limits.
           </h1>
         }
-        customSubtitleClassname='xl:w-[51%]'
+        customSubtitleClassname={`xl:w-[51%] ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop}`}
         subtitle='Get everything you need to build, run and scale your business—on one unified platform.'
-        opacity='opacity-0'
+        opacity='opacity-70'
         title=''
       />
 
       <WhyBuild
         image={getStaticImageData(ecommerceAssets.WhyBuildEcomIndustry)}
-        colouredTitle='Ecommerce Industry?'
+        colouredTitle='Ecommerce Industry'
         infoAndImgClassname='items-center'
         informationSection={
-          <div className='mx-5 md:mx-10 lg:mx-0 md:max-w-[600px] text-lg font-normal'>
+          <div
+            className={`mx-12 md:mx-10 lg:mx-0 md:max-w-[600px] ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
+          >
             In this highly competitive eCommerce environment, the struggle to
             acquire customers and keep their interest has made customization
             indispensable. Users are becoming more demanding and impatient. We
@@ -134,7 +173,9 @@ const Ecommerce = () => {
         imageClassname='w-[450px] h-[450px]'
         data={sampleData}
         titleElement={
-          <h1 className='text-2xl md:text-5xl lg:text-7xl uppercase font-bold text-center max-w-[950px] mx-auto'>
+          <h1
+            className={` ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center md:max-w-[950px] max-w-[350px] mx-auto`}
+          >
             One <span className='text-orange-500'>dashboard</span> for total
             business control
           </h1>
@@ -142,6 +183,19 @@ const Ecommerce = () => {
       />
       <SellEverywhere />
       <BoostTraffic />
+
+      <ProductServices
+        title={
+          <h1
+            className={`text-black ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center max-w-[1306px]`}
+          >
+            sell your <span className='text-orange-500'>own products</span> or
+            find products to sell
+          </h1>
+        }
+        data={productServiceContent}
+      />
+
       <ClientReviews
         title='Real success stories from'
         colouredTitle='Real customer'

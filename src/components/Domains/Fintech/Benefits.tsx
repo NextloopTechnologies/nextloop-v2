@@ -2,6 +2,7 @@ import Image, { StaticImageData } from 'next/image';
 import React from 'react';
 
 import { fintechAssets } from '../../../../assets';
+import palette from '../../../styles/pallette';
 import { getStaticImageData } from '../../../utils/helper';
 
 type BoxProps = {
@@ -45,28 +46,24 @@ const blackBoxData: BoxProps[] = [
 
 const OrangeBox: React.FC<BoxProps> = ({ icon, title }) => {
   return (
-    <div className='relative w-[90px] h-[90px] sm:w-[120px] sm:h-[120px] md:w-[180px] md:h-[180px] bg-[#FA8145] transform rotate-45 flex items-center justify-center rounded'>
+    <div className='relative w-[180px] h-[180px] md:w-[180px] md:h-[180px] bg-[#FA8145] transform rotate-45 flex items-center justify-center rounded'>
       <div className='transform -rotate-45'>
-        <div className='absolute -top-8 left-[30px] sm:-top-10 sm:left-[45px] md:-top-12 md:left-[75px] py-2'>
+        <div className='absolute -top-12 left-[40%] md:-top-12 md:left-[75px] py-2'>
           <Image src={icon} height={32} width={32} alt='orange-box-icon' />
         </div>
-        <h3 className='text-center text-xs sm:text-sm md:text-xl mt-3'>
-          {title}
-        </h3>
+        <h3 className='text-center text-md md:text-xl mt-5'>{title}</h3>
       </div>
     </div>
   );
 };
 const BlackBox: React.FC<BoxProps> = ({ icon, title }) => {
   return (
-    <div className='relative w-[90px] h-[90px] sm:w-[120px] sm:h-[120px] md:w-[180px] md:h-[180px] bg-[#1D1D1D] transform rotate-45 flex items-center justify-center rounded'>
+    <div className='relative w-[180px] h-[180px] md:w-[180px] md:h-[180px] bg-[#1D1D1D] transform rotate-45 flex items-center justify-center rounded'>
       <div className='transform -rotate-45'>
-        <div className='absolute -top-8 left-[30px] sm:-top-10 sm:left-[45px] md:-top-12 md:left-[75px] py-2'>
+        <div className='absolute -top-14 left-[40%] md:-top-12 md:left-[75px]'>
           <Image src={icon} height={32} width={32} alt='black-box-icon' />
         </div>
-        <h3 className='text-center text-xs sm:text-sm md:text-xl mt-3'>
-          {title}
-        </h3>
+        <h3 className='text-center text-sm md:text-xl'>{title}</h3>
       </div>
     </div>
   );
@@ -74,14 +71,16 @@ const BlackBox: React.FC<BoxProps> = ({ icon, title }) => {
 
 const Benefits: React.FC = () => {
   return (
-    <div className='bg-white py-[90px] w-full'>
-      {' '}
-      {/* Added w-full */}
+    <div className='bg-white w-full'>
       <div className='flex flex-col text-center items-center'>
-        <h1 className='text-black text-3xl md:text-5xl lg:text-7xl xl:text-[85px] uppercase font-bold text-center mb-10'>
+        <h1
+          className={`text-black ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center mb-10`}
+        >
           benefits
         </h1>
-        <p className='text-sm md:text-lg xl:mx-[150px] mx-2 mb-24'>
+        <p
+          className={`text-black ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} xl:mx-[150px] mx-10 md:mb-24 mb-10`}
+        >
           In a highly competitive business world, originality and uniqueness
           have become critical factors for successful business development.
           That’s why modern companies are increasingly using only software
@@ -94,17 +93,13 @@ const Benefits: React.FC = () => {
           development in our article.
         </p>
       </div>
-      <div className='flex flex-col items-center text-white uppercase font-bold mb-14'>
-        <div className='flex flex-wrap justify-center space-x-5'>
-          {' '}
-          {/* Added flex-wrap and justify-center */}
+      <div className='flex flex-col items-center text-white uppercase font-bold md:mb-14 md:gap-1 gap-20 py-10'>
+        <div className='flex flex-col md:flex-row md:flex-wrap md:justify-center items-center space-y-20 md:space-y-0 md:space-x-20 gap-5 md:gap-0'>
           {orangeBoxData?.map(({ icon, title }, idx) => (
             <OrangeBox key={idx} title={title} icon={icon} />
           ))}
         </div>
-        <div className='flex flex-wrap justify-center space-x-5 -mt-8'>
-          {' '}
-          {/* Added flex-wrap and justify-center */}
+        <div className='flex flex-col md:flex-row md:flex-wrap md:justify-center items-center space-y-20 md:space-y-0 md:space-x-20 mt-5 md:-mt-8 gap-5 md:gap-0'>
           {blackBoxData?.map(({ icon, title }, idx) => (
             <BlackBox key={idx} title={title} icon={icon} />
           ))}

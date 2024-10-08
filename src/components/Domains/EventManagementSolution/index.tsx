@@ -1,6 +1,7 @@
 import Image, { StaticImageData } from 'next/image';
 
 import { eventAssets } from '../../../../assets';
+import palette from '../../../styles/pallette';
 import { getStaticImageData } from '../../../utils/helper';
 
 const data = [
@@ -94,7 +95,7 @@ export const EllipsesGradientImageCard = ({ image, position }: Props) => (
     <Image
       src={image}
       className={`absolute h-[450px] w-[450px] top-6 ${
-        position === POSITION.LEFT ? '-right-[223px]' : '-left-[223px]'
+        position === POSITION.LEFT ? '-right-[224px]' : '-left-[224px]'
       } object-contain`}
       alt='image'
       height={300}
@@ -133,7 +134,7 @@ export const EllipsesGradientImageCard = ({ image, position }: Props) => (
           ? eventAssets.BlackRectangle
           : eventAssets.OrangeRectangle
       }
-      className='w-[600px] h-[500px]'
+      className='md:w-[600px] h-[500px]'
       alt='BG'
       height={300}
       width={300}
@@ -150,42 +151,80 @@ export const EventIdeaRow = ({
   descriptionPoints,
 }: EventIdeaProps) => (
   <div
-    className={`flex items-center justify-between ${
-      position === POSITION.LEFT && 'flex-row-reverse'
+    className={`flex flex-col mx-10 md:flex-row items-center ${
+      position === POSITION.LEFT
+        ? 'md:justify-between md:flex-row-reverse'
+        : 'md:justify-between'
     }`}
   >
     <div
-      className={`flex flex-col gap-5 w-[550px] ${
-        position === POSITION.LEFT ? 'mr-32' : 'ml-32'
+      className={`flex flex-col gap-5 w-full md:w-[600px] ${
+        position === POSITION.LEFT ? 'md:w-[400px] text-right' : 'md:ml-5'
       }`}
     >
-      <h2 className='text-4xl uppercase font-bold'>{title}</h2>
-      {subTitle && <h3 className='font-medium text-lg'>{subTitle}</h3>}
-      {description && <p className='font-normal text-lg'>{description}</p>}
+      <h2
+        className={`${palette.fontSize.subtitle.mobile} md:${
+          palette.fontSize.subtitle.desktop
+        } uppercase font-extrabold ${
+          position === POSITION.LEFT ? 'md:ml-[250px] text-left' : 'md:ml-0'
+        }`}
+      >
+        {title}
+      </h2>
+      {subTitle && (
+        <h3
+          className={`${palette.fontSize.description.mobile} md:${
+            palette.fontSize.description.desktop
+          } max-w-xs ${
+            position === POSITION.LEFT ? 'md:ml-[250px] text-left' : 'md:ml-0'
+          }`}
+        >
+          {subTitle}
+        </h3>
+      )}
+      {description && (
+        <p
+          className={`${palette.fontSize.descriptionSmall.mobile} md:${
+            palette.fontSize.descriptionSmall.desktop
+          } max-w-xs ${
+            position === POSITION.LEFT ? 'md:ml-[250px] text-left' : 'md:ml-0'
+          }`}
+        >
+          {description}
+        </p>
+      )}
       {descriptionPoints && (
-        <ul className='list-disc text-sm md:text-lg pl-10'>
+        <ul
+          className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop} list-disc pl-10 max-w-xs`}
+        >
           {descriptionPoints.map((point, index) => (
-            <li key={index} className='font-normal text-lg'>
+            <li
+              key={index}
+              className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+            >
               {point}
             </li>
           ))}
         </ul>
       )}
     </div>
-
-    <EllipsesGradientImageCard image={image} position={position} />
+    <div className='hidden md:block'>
+      <EllipsesGradientImageCard image={image} position={position} />
+    </div>
   </div>
 );
 
 const EventManagementSolution = () => {
   return (
-    <div className='flex flex-col py-[122px] mx-auto'>
-      <h1 className='text-3xl md:text-7xl uppercase max-w-[1058px] mx-auto font-bold text-center'>
+    <div className='flex flex-col'>
+      <h1
+        className={`uppercase font-bold text-center ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} w-full`}
+      >
         Your complete event management{' '}
         <span className='text-orange-500'>solution</span>
       </h1>
 
-      <div className='flex flex-col gap-5 mt-14'>
+      <div className='flex flex-col gap-12 mt-7 mb-10'>
         {data.map(
           (
             { description, id, image, subTitle, title, descriptionPoints },

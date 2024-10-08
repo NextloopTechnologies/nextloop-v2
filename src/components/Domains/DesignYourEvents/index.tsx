@@ -1,8 +1,7 @@
 import Image, { StaticImageData } from 'next/image';
 
-import {
-  eventAssets,
-} from '../../../../assets';
+import { eventAssets } from '../../../../assets';
+import palette from '../../../styles/pallette';
 import { getStaticImageData } from '../../../utils/helper';
 
 export type Data = {
@@ -69,13 +68,15 @@ export const Card = ({
       alt={data.title}
     />
     <h3
-      className={`font-medium text-2xl leading-6 uppercase text-center mx-20 ${titleClassname}`}
+      className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} font-medium leading-6 uppercase text-center mx-20 ${titleClassname}`}
     >
       {data.title}
     </h3>
 
     {data.description && (
-      <p className='text-[16px] leading-6 font-normal text-center mx-4'>
+      <p
+        className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}  leading-6 font-normal text-center mx-4`}
+      >
         {data.description}
       </p>
     )}
@@ -84,13 +85,15 @@ export const Card = ({
 
 const DesignYourEvents = () => {
   return (
-    <div className='flex flex-col py-[122px] mx-auto gap-[109px]'>
-      <h1 className='text-3xl md:text-7xl uppercase max-w-[1058px] mx-auto font-bold text-center'>
+    <div className='flex flex-col py-[50px] mx-auto gap-[10px]'>
+      <h1
+        className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center mx-10`}
+      >
         Design your events website the way{' '}
         <span className='text-orange-500'>you want</span>
       </h1>
 
-      <div className='grid gap-20 mx-auto grid-cols-1 lg:grid-cols-3 md:grid-cols-2'>
+      <div className='grid gap-10 mx-auto grid-cols-1 lg:grid-cols-3 md:grid-cols-2'>
         {sampleData.map((data) => (
           <Card key={data.id} data={data} />
         ))}

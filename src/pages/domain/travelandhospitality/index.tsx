@@ -11,6 +11,7 @@ import NextGen from '../../../components/Domains/TravelAndHotel/NextGen';
 import WhatWeDo from '../../../components/Domains/WhatWeDo';
 import WhyBuild from '../../../components/Domains/WhyBuild';
 import Layout from '../../../components/Layout/Layout';
+import palette from '../../../styles/pallette';
 import { IFAQ } from '../../../types';
 import { getStaticImageData } from '../../../utils/helper';
 
@@ -62,13 +63,15 @@ const WhatWeDoData = [
   },
 ];
 
-const HotelAndTravel = () => {
+const TravelAndHospitality = () => {
   return (
     <Layout>
       <CustomPageHero
         image={getStaticImageData(travelandhotelAssets.hotelAndTravelBg)}
         titleChildren={
-          <h1 className='text-white text-5xl md:text-8xl uppercase font-bold text-center max-w-[1306px]'>
+          <h1
+            className={`text-white ${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} uppercase font-bold text-center w-full md:max-w-[1500px]`}
+          >
             uncover new business opportunities with appealing{' '}
             <span className='text-orange-500'>travel & hotel website</span>
             <br /> design & development
@@ -83,27 +86,35 @@ const HotelAndTravel = () => {
         image={getStaticImageData(travelandhotelAssets.whyBuildImg)}
         colouredTitle='travel & hotel industry'
         informationSection={
-          <div className='max-w-[737px] flex flex-col justify-center px-5 md:px-0'>
-            <p className='text-sm md:text-lg'>
+          <div className='max-w-[737px] flex flex-col justify-center px-14 md:px-0'>
+            <p
+              className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
+            >
               There was once a time when hotels attracted and retained their
               customers by word of mouth and by distributing physical marketing
               material to potential guests. While that might have been the most
               effective way to let people know about your brand, it’s no longer
               true.
             </p>
-            <p className='text-sm md:text-lg'>
+            <p
+              className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
+            >
               Digitalisation has grown at a rapid speed across all industries,
               especially travel. In fact, a survey found that in pre-pandemic
               2017, already 88% of people preferred to make their hotel bookings
               online.
             </p>
-            <p className='text-sm md:text-lg'>
+            <p
+              className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
+            >
               The best outcome of this acceleration into the future is that many
               things that used to take a lot of time and investment are now more
               accessible, affordable, and offer ease of use, like building your
               first hotel website.
             </p>
-            <p className='text-sm md:text-lg'>
+            <p
+              className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
+            >
               Gone are the days when you would have to spend a heavy amount of
               money to hire a developer and designer. It’s now as easy as a
               drag-and-drop tool. And if nothing else, a hotel website will tell
@@ -130,4 +141,4 @@ const HotelAndTravel = () => {
   );
 };
 
-export default HotelAndTravel;
+export default TravelAndHospitality;

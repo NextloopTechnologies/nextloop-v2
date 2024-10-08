@@ -35,18 +35,14 @@ const Portfolio: FC = () => {
 
   return (
     <div className='w-full flex justify-center'>
-      <div className='sm:min-h-screen py-2'>
-        {/* <header className='flex gap-10 lg:px-10 text-center'>
-          <div className='flex flex-col gap-y-3 z-10 px-4'>
-            <span className='uppercase lg:text-5xl text-3xl font-bold text-center'>
-              our <span className='text-orange-500'>portfolio</span>
-            </span>
-          </div>
-        </header> */}
-        <div>
-          <PortfolioSlide />
+      {/* <header className='flex gap-10 lg:px-10 text-center'>
+        <div className='flex flex-col gap-y-3 z-10 px-4'>
+          <span className='uppercase lg:text-5xl text-3xl font-bold text-center'>
+            our <span className='text-orange-500'>portfolio</span>
+          </span>
         </div>
-      </div>
+        </header> */}
+      <PortfolioSlide />
     </div>
   );
 };

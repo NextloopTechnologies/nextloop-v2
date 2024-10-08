@@ -2,6 +2,7 @@ import Image, { StaticImageData } from 'next/image';
 import React from 'react';
 
 import { oilAndGasAssets } from '../../../../../assets';
+import palette from '../../../../styles/pallette';
 import { getStaticImageData } from '../../../../utils/helper';
 
 const data = [
@@ -88,24 +89,34 @@ const SoftwareAppBox: React.FC<SoftwareAppBoxProps> = ({
           alt='tools-icon'
         />
       </div>
-      <h3 className='text-[#1D1D1D] text-xl lg:text-2xl font-bold mb-5 mt-[60px] uppercase'>
+      <h3
+        className={`${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} text-[#1D1D1D] font-bold mb-5 mt-[60px] uppercase`}
+      >
         {title}
       </h3>
-      <p className='text-[#1D1D1D] lg:text-lg mb-2'>{descp}</p>
+      <p
+        className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} text-[#1D1D1D] mb-2`}
+      >
+        {descp}
+      </p>
     </div>
   );
 };
 
 const HowToBuild = () => {
   return (
-    <div className='flex bg-white'>
-      <div className='flex flex-col pt-[96px] pb-2 max-w-[1479px] mx-auto'>
-        <h1 className='text-3xl md:text-7xl uppercase font-bold text-center'>
+    <div className='flex bg-white mx-auto max-w-7xl'>
+      <div className='flex flex-col pb-2'>
+        <h1
+          className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center`}
+        >
           How to build
           <br /> an <span className='text-orange-500'>oil and gas </span>
           software app
         </h1>
-        <div className='text-sm mx-10 md:text-lg text-center mt-5'>
+        <div
+          className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} text-center mt-5 md:mx-20 mx-10`}
+        >
           <p>
             Whether it’s mining or the oil and gas industry... you care about
             That’s your choice. Bespoke mining industry software solutions are
@@ -116,7 +127,7 @@ const HowToBuild = () => {
             a reality.
           </p>
         </div>
-        <div className='grid grid-cols-2 lg:grid-cols-4 gap-3 w-full max-w-7xl mt-[120px] m-5'>
+        <div className='grid grid-cols-1 lg:grid-cols-4 gap-3 w-full max-w-7xl mt-[100px]'>
           {data?.map(({ descp, id, icon, title }) => (
             <SoftwareAppBox key={id} descp={descp} icon={icon} title={title} />
           ))}

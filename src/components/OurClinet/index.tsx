@@ -1,6 +1,17 @@
 import React, { FC } from 'react';
-import { OurCLient, SWAcademy, BlueBird, Client2 } from '../../../assets';
+
 import CLientCard from './CLientCard';
+import palette from '../../styles/pallette';
+import {
+  BlueBird,
+  CB1,
+  Client2,
+  Levram1,
+  Millennialz,
+  OurCLient,
+  ShowerWealth,
+  SWAcademy,
+} from '../../../assets';
 interface ServiceCardProps {
   heading: string;
   image: string;
@@ -25,34 +36,42 @@ const OURVALUES_DATA: ServiceCardProps[] = [
   },
   {
     heading: 'Impact',
-    image: OurCLient as unknown as string,
+    image: Levram1 as unknown as string,
   },
   {
     heading: 'Customer Centric',
-    image: BlueBird as unknown as string,
+    image: CB1 as unknown as string,
   },
   {
     heading: 'Agility',
-    image: SWAcademy as unknown as string,
+    image: ShowerWealth as unknown as string,
+  },
+  {
+    heading: 'Agility',
+    image: Millennialz as unknown as string,
   },
 ];
 
 const OurCLients: FC = () => {
   return (
     <>
-      <div className='bg-black flex justify-center items-center w-full sm:min-h-screen overflow-x-hidden flex-col py-2'>
+      <div className='bg-[#1D1D1D] flex justify-center items-center w-full  overflow-x-hidden flex-col md:py-10 md:pb-20 py-10'>
         <header className='flex gap-10 lg:w-4/6 lg:px-10 text-center'>
-          <div className='flex flex-col gap-y-3 z-10 px-4'>
-            <span className='text-white uppercase lg:text-5xl text-3xl font-bold text-center'>
-              OUR <span className='text-orange-500'>Client's</span>
-            </span>
-            <span className='lg:px-20 text-sm lg:text-[16px] text-center'>
+          <div className='pt-2 w-full flex flex-col justify-center items-center gap-y-3 z-10 px-4'>
+            <div
+              className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-white uppercase font-bold text-center`}
+            >
+              OUR <span className='text-orange-500'>Clients</span>
+            </div>
+            <span
+              className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} text-white text-center`}
+            >
               Accelerating digital outcomes through rapid innovation and
               strategic execution.
             </span>
           </div>
         </header>
-        <div className='grid grid-cols-2 sm:grid-cols-7 sm:grid-rows-1 gap-4 p-4 mt-10'>
+        <div className='grid justify-center items-center grid-cols-2 sm:grid-cols-8 sm:grid-rows-1 gap-4 p-4 mt-10'>
           {OURVALUES_DATA?.map((data, ind: number) => {
             return (
               <CLientCard

@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import dayjs from 'dayjs';
+// import dayjs from 'dayjs';
+import parse from 'html-react-parser';
 import { GetServerSideProps } from 'next';
+import Image from 'next/image';
 
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
@@ -8,7 +10,7 @@ import { BlogType } from '../../types';
 import supabaseClient from '../../utils/client';
 import blogsBg from '../../../assets/blogs.png';
 
-const BlogID: React.FC<{ data?: BlogType[]; error?: string }> = ({
+const BlogID: React.FC<{ data?: BlogType; error?: string }> = ({
   data,
   error,
 }) => {
@@ -42,26 +44,32 @@ const BlogID: React.FC<{ data?: BlogType[]; error?: string }> = ({
           and stay ourselves up to date with current market trends.'
       />
       <div className='xl:p-24 lg:p-8 p-4 flex flex-col'>
-        {data?.map((blog) => (
-          <div className='flex flex-col gap-8 w-full' key={blog.id}>
-            {blog.image ? (
-              <img
-                src={blog.image}
-                alt='blog image'
-                className='object-contain'
-                height={400}
-                width={400}
-              />
+        {data ? (
+          <div className='flex flex-col gap-8 w-full'>
+            {data.image ? (
+              <div className='flex justify-center'>
+                <Image
+                  src={data?.image?.[0]?.url as string}
+                  alt='blog image'
+                  className='w-fit object-contain'
+                  height={400}
+                  width={400}
+                />
+              </div>
             ) : (
               <div className='w-full xl:h-[800px] h-[400px] animate-pulse bg-slate-100' />
             )}
-            <span className='font-medium text-4xl '>{blog.title}</span>
-            <div className='text-lg font-light'>{blog.descp}</div>
-            <span className='text-sm'>
-              {dayjs(blog.created_at).format('DD/MMM/YYYY')}
-            </span>
+            <span className='font-medium text-4xl '>{data.title}</span>
+            <div className='text-lg font-light'>{parse(data.descp)}</div>
+            {/* <span className='text-sm'>
+              {dayjs(data.created_at).format('DD/MMM/YYYY')}
+            </span> */}
           </div>
-        ))}
+        ) : (
+          <div className='h-screen flex items-center justify-center text-2xl'>
+            {error}
+          </div>
+        )}
       </div>
     </Layout>
   );
@@ -74,7 +82,8 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const { data, error } = await supabaseClient
     .from('blogs')
     .select('*')
-    .filter('id', 'eq', params?.id);
+    .filter('id', 'eq', params?.id)
+    .single();
 
   if (error) {
     return {
@@ -86,7 +95,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
   return {
     props: {
-      data: data || [],
+      data: data || undefined,
     },
   };
 };

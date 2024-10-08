@@ -1,6 +1,8 @@
 // import { motion } from 'framer-motion';
 import React, { FC } from 'react';
 
+import palette from '../../styles/pallette';
+
 // import ContactUs from '../ContactUs';
 // import {
 //   introHeaderVariants,
@@ -12,35 +14,54 @@ const Intro: FC = () => {
   // const { isMobile } = useWindowSize();
 
   return (
-    <div className='relative w-full min-h-screen flex justify-start items-center overflow-x-hidden px-4 sm:px-6 lg:px-8'>
-      <div className='w-[50%] max-w-3xl mx-auto '>
+    <div className='relative w-full flex justify-start items-center overflow-x-hidden px-4 '>
+      <div className='md:px-10 md:mx-32 md:mt-56 px-16 mt-36'>
         <header
           // initial={isMobile ? 'visible' : 'hide'}
           // whileInView='show'
           // exit='hide'
           // variants={introHeaderVariants}
-          className='text-white text-left w-[40%]'
+          // className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop}`}
+          className='text-white text-left'
         >
-          <div className='flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8'>
+          <div className='flex flex-col sm:flex-row justify-center md:items-center gap-4'>
             <div className='flex flex-col uppercase'>
-              <p className='flex flex-col uppercase text-left text-xs'>made</p>
-              <p className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-6xl font-bold tracking-tighter'>
-                unlock
+              <p
+                className={` ${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop} flex flex-col uppercase text-left`}
+              >
+                made
               </p>
+              <h1
+                className={`${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} font-bold tracking-tighter`}
+              >
+                unlock
+              </h1>
             </div>
             <div className='flex flex-col uppercase'>
               <div className='flex justify-between'>
-                <p className='text-xs'>with</p>
-                <p className='text-xs'>technologies</p>
+                <p
+                  className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+                >
+                  with
+                </p>
+                <p
+                  className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+                >
+                  technologies
+                </p>
               </div>
-              <p className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-6xl font-bold tracking-tighter text-orange-500'>
+              <h1
+                className={`${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} font-bold tracking-tighter text-orange-500`}
+              >
                 innovative
-              </p>
+              </h1>
             </div>
           </div>
-          <p className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-6xl font-bold uppercase tracking-tighter mt-4'>
+          <h1
+            className={`${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} font-bold uppercase tracking-tighter mt-4 md:mx-20`}
+          >
             solutions
-          </p>
+          </h1>
         </header>
 
         <div

@@ -1,14 +1,19 @@
 import { motion } from 'framer-motion';
 import { GetServerSideProps } from 'next';
 import Image from 'next/image';
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef,useState } from 'react';
 
+import Certificate from '../components/Certificate';
+import ClientSays from '../components/ClientSays';
 // import AboutUs from '../components/AboutUs';
 // import Career from '../components/Career';
 // import ClientReview from '../components/ClientReview';
 // import Experience from '../components/Experience';
 import Intro from '../components/Intro';
 import Layout from '../components/Layout/Layout';
+// import ClientSays from '../components/ClientSays';
+import OurCLient from '../components/OurClinet';
+import OurValues from '../components/OurValues';
 import Portfolio from '../components/Portfolio';
 import Services from '../components/ServicesGroup';
 import WhoWeAre from '../components/WhoWeAre';
@@ -16,11 +21,6 @@ import { IPortfolio } from '../types';
 import supabaseClient from '../utils/client';
 import useWindowSize from '../utils/useWindowSize';
 import { DownArrow } from '../../assets';
-import OurValues from '../components/OurValues';
-// import ClientSays from '../components/ClientSays';
-import OurCLient from '../components/OurClinet';
-import ClientSays from '../components/ClientSays';
-import Certificate from '../components/Certificate';
 
 const sectionStyle: React.CSSProperties = {
   minHeight: '100vh',
@@ -242,9 +242,9 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
         <div
           id='intro'
           ref={(el: any) => (divRefs.current[0] = el)}
-          className='min-h-screen aboutUsBackgroundImage'
+          className='sm:min-h-screen min-h-[50vh] aboutUsBackgroundImage'
         >
-          <div className='container'>
+          <div className='container min-w-[100vw]'>
             <Intro />
           </div>
         </div>
@@ -252,7 +252,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
         <div
           id='who-we-are'
           ref={(el: any) => (divRefs.current[1] = el)}
-          className='sm:min-h-screen'
+          className=''
         >
           <div className='container mx-auto '>
             <WhoWeAre />
@@ -285,7 +285,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
         <div
           id='our-client'
           ref={(el: any) => (divRefs.current[4] = el)}
-          className='sm:min-h-screen'
+          className='sm:min-h-[50vh] sm:min-w-screen'
         >
           <div className='container mx-auto'>
             {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
@@ -296,7 +296,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
         <div
           id='our-values'
           ref={(el: any) => (divRefs.current[5] = el)}
-          className='min-h-screen max-w-[100vw] overflow-hidden'
+          className=' max-w-[100vw] overflow-hidden'
         >
           <div className='container mx-auto'>
             {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
@@ -316,9 +316,9 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
         </div>
 
         <div
-          id='our-client-says'
+          id='certificates'
           ref={(el: any) => (divRefs.current[7] = el)}
-          className='sm:min-h-screen max-w-[100vw] overflow-hidden'
+          className='certificatesBackgroundImage p-0'
         >
           <div className='container mx-auto'>
             {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
