@@ -110,13 +110,13 @@ const Events = () => {
             </p>
 
             <ul
-              className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop} list-disc pl-5 md:pl-10 mt-2`}
+              className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop} list-disc mt-2`}
             >
               {benefits.map((benefit) => (
-                <li key={benefit.id} className='font-medium'>
+                <div key={benefit.id} className='font-medium'>
                   {benefit.title}{' '}
                   <span className='font-normal'>{benefit.info}</span>
-                </li>
+                </div>
               ))}
             </ul>
           </div>

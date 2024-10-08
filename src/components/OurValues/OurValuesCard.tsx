@@ -11,9 +11,9 @@ interface ServiceCardProps {
 }
 const OurServieceCard: FC<ServiceCardProps> = ({ heading, image, desc }) => {
   return (
-    <div className=' mx-auto bg-card border border-border rounded-sm shadow-lg p-3 flex justify-start items-start flex-col'>
+    <div className=' mx-auto bg-card border border-border rounded-sm shadow-lg p-3 flex justify-start items-start flex-col pb-10 '>
       <div className=' w-full flex flex-col justify-start items-start'>
-        <div className=' w-20 h-20 mx-auto'>
+        <div className=' w-16 h-16 mx-auto'>
           <Image
             // width={60}
             // height={60}

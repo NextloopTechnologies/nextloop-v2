@@ -254,7 +254,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
           ref={(el: any) => (divRefs.current[1] = el)}
           className=''
         >
-          <div className='container mx-auto min-w-[100vw]'>
+          <div className='container mx-auto min-w-[100vw] md:min-h-[100vh] md:pt-16'>
             <WhoWeAre />
           </div>
         </div>
@@ -262,7 +262,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
         <div
           id='services'
           ref={(el: any) => (divRefs.current[2] = el)}
-          className='sm:min-h-screen '
+          className=' '
         >
           <div className='container mx-auto min-w-[100vw]'>
             <Services />
@@ -307,7 +307,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
         <div
           id='our-client-says'
           ref={(el: any) => (divRefs.current[6] = el)}
-          className='sm:min-h-screen max-w-[100vw] overflow-hidden'
+          className=' max-w-[100vw] overflow-hidden'
         >
           <div className='container mx-auto min-w-[100vw]'>
             {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}

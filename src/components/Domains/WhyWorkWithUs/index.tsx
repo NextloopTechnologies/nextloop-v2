@@ -43,7 +43,7 @@ type Props = {
 
 const InfoOnImage = ({ description, image, title }: Props) => (
   <div className='rounded-lg relative'>
-    <div className='absolute flex gap-5 flex-col text-white top-8 left-6 z-10 lg:top-20 lg:left-16 right-6'>
+    <div className='absolute flex gap-2 flex-col text-white top-5 left-5 z-10 lg:top-20 lg:left-16 right-6'>
       <h2
         className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} font-bold`}
       >

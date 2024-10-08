@@ -55,6 +55,7 @@ export { default as GOOGLE } from './socialIcons/Google.png';
 export { default as INSTAGRAM } from './socialIcons/LINKIN.png';
 export { default as Mail } from './socialIcons/Mail.png';
 export { default as X } from './socialIcons/TWT.png';
+export { default as Stamens } from './Stamens.png';
 export { default as Values1 } from './values-1.png';
 export { default as Values2 } from './values-2.png';
 export { default as Values3 } from './values-3.png';
