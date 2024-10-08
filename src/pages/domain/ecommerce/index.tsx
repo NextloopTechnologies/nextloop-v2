@@ -1,4 +1,4 @@
-import { ecommerceAssets } from '../../../../assets';
+import { ecommerceAssets,healthcareAssets } from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import BoostTraffic from '../../../components/Domains/BoostTraffic';
 import ClientReviews from '../../../components/Domains/ClientReviews';
@@ -91,31 +91,31 @@ const WhatWeDoData = [
 
 const productServiceContent = [
   {
-    icon: getStaticImageData(ecommerceAssets.settingIcon),
+    icon: getStaticImageData(healthcareAssets.settingIcon),
     title: 'physical products',
     descp:
       'Add an extensive catalog of products to your online store with up to 1,000 variants each. Import and export CSV files with products or seamlessly migrate your catalog with the Cart2Cart app.',
   },
   {
-    icon: getStaticImageData(ecommerceAssets.modernizeIcon),
+    icon: getStaticImageData(healthcareAssets.modernizeIcon),
     title: 'dropshipping',
     descp:
       'Add ready-to-sell products from our dropshipping platform, or third-party apps, and let suppliers take care of fulfillment.',
   },
   {
-    icon: getStaticImageData(ecommerceAssets.cloudIcon),
+    icon: getStaticImageData(healthcareAssets.cloudIcon),
     title: 'print on demand',
     descp:
       'Add your designs to hundreds of high-quality products, from t-shirts to headphones and let suppliers ship your custom merchandise directly to customers.',
   },
   {
-    icon: getStaticImageData(ecommerceAssets.maintenanceIcon),
+    icon: getStaticImageData(healthcareAssets.maintenanceIcon),
     title: 'digital products',
     descp:
       'Sell digital products such as music files, ebooks, online courses, images or gift cards.',
   },
   {
-    icon: getStaticImageData(ecommerceAssets.cloudIcon),
+    icon: getStaticImageData(healthcareAssets.cloudIcon),
     title: 'subscriptions',
     descp:
       'Easily create and manage recurring products and sell subscriptions to generate a steady revenue stream.',

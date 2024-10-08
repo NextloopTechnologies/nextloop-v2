@@ -49,7 +49,7 @@ const PortfolioSlide: FC = () => {
     });
   };
   return (
-    <div className='relative'>
+    <div className='min-w-full sm:min-h-screen max-w-full  m-auto relative'>
       <div className='w-full h-full'>
         <Image
           src={IMAGE_DATA[currentSlide]?.image || ''}
@@ -95,7 +95,7 @@ const PortfolioSlide: FC = () => {
           />
         </button>
       </div>
-      {/* <div style={{ textAlign: 'center' }}>
+      <div style={{ textAlign: 'center' }}>
         {IMAGE_DATA?.map((_, index) => (
           <span
             key={index}
@@ -104,7 +104,7 @@ const PortfolioSlide: FC = () => {
             className='dots'
           ></span>
         ))}
-      </div> */}
+      </div>
     </div>
   );
 };

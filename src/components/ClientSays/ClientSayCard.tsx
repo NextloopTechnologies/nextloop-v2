@@ -8,6 +8,7 @@ import {
   RightArrow,
   Stamens,
   SWAcademy,
+  // Client2,
 } from '../../../assets';
 
 interface ServiceCardProps {

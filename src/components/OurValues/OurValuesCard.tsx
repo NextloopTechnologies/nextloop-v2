@@ -7,9 +7,8 @@ import palette from '../../styles/pallette';
 interface ServiceCardProps {
   heading: string;
   image: string;
-  desc: string;
 }
-const OurServieceCard: FC<ServiceCardProps> = ({ heading, image, desc }) => {
+const OurServieceCard: FC<ServiceCardProps> = ({ heading, image }) => {
   return (
     <div className=' mx-auto bg-card border border-border rounded-sm shadow-lg p-3 flex justify-start items-start flex-col pb-10 '>
       <div className=' w-full flex flex-col justify-start items-start'>
@@ -33,7 +32,10 @@ const OurServieceCard: FC<ServiceCardProps> = ({ heading, image, desc }) => {
         <p
           className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop} text-muted-foreground text-center`}
         >
-          {desc}
+          {/* {desc} */}
+          It symbolizes our commitment to continuous improvement, adapting to
+        evolving technologies, and pushing boundaries to meet our clients'
+        needs.
         </p>
       </div>{' '}
     </div>

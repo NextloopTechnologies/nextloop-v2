@@ -244,7 +244,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
           ref={(el: any) => (divRefs.current[0] = el)}
           className='sm:min-h-screen min-h-[50vh] aboutUsBackgroundImage'
         >
-          <div className='container'>
+          <div className='container min-w-[100vw]'>
             <Intro />
           </div>
         </div>

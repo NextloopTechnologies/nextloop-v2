@@ -6,7 +6,7 @@ import {
   Certificate1,
   Certificate2,
   Certificate3,
-  Certificate4,
+  Certificate5,
 } from '../../../assets';
 interface ServiceCardProps {
   image: string;
@@ -23,7 +23,7 @@ const OURVALUES_DATA: ServiceCardProps[] = [
     image: Certificate3 as unknown as string,
   },
   {
-    image: Certificate4 as unknown as string,
+    image: Certificate5 as unknown as string,
   },
 ];
 
