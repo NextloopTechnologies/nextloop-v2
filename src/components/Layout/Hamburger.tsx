@@ -100,7 +100,9 @@ const Hamburger = () => {
                 {industries.map((industry) => (
                   <li
                     key={industry.name}
-                    className='text-gray-700 hover:text-orange-500 opacity-60'
+                    className={`text-gray-700 hover:text-orange-500 opacity-60 ${
+                      pathname === industry.href ? 'text-orange-500' : ''
+                    }`}
                   >
                     <Link href={industry.href} className='block'>
                       {industry.name}
