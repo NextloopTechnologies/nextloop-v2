@@ -4,10 +4,12 @@ import React, { FC, useState } from 'react';
 import palette from '../../styles/pallette';
 import {
   BlueBird,
+  // OurCLient,
   InvertedQoute,
   Levram1,
   RightArrow,
   SWAcademy,
+  // Client2,
 } from '../../../assets';
 
 interface ServiceCardProps {
