@@ -30,6 +30,7 @@ export { default as LeftSlide } from './left-slide.png';
 export { default as OurValues1 } from './our-values-1.png';
 export { default as OurCLient } from './our-client-1.png';
 export { default as BlueBird } from './blue-bird.png';
+// export { default as SWAcademy } from './SW-Academy.png';
 export { default as Client2 } from './client-2.png';
 export { default as Certificate1 } from './certificates/1.png';
 export { default as Certificate2 } from './certificates/2.png';
