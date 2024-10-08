@@ -1,17 +1,16 @@
+import Image from 'next/image';
 import React, { FC, useState } from 'react';
 
 import palette from '../../styles/pallette';
 import {
+  BlueBird,
   // OurCLient,
   InvertedQoute,
   Levram1,
   RightArrow,
   SWAcademy,
-  BlueBird,
   // Client2,
 } from '../../../assets';
-
-import Image from 'next/image';
 
 interface ServiceCardProps {
   heading: string;

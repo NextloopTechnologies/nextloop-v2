@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import CLientCard from './CLientCard';
 import palette from '../../styles/pallette';
 import {

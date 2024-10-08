@@ -1,14 +1,13 @@
 import React, { FC } from 'react';
 
+import CertificateCard from './CertificateCards';
 import palette from '../../styles/pallette';
 import {
   Certificate1,
   Certificate2,
   Certificate3,
-  Certificate4,
   Certificate5,
 } from '../../../assets';
-import CertificateCard from './CertificateCards';
 interface ServiceCardProps {
   image: string;
 }
