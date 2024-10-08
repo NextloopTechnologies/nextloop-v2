@@ -6,9 +6,9 @@ import palette from '../../styles/pallette';
 const ClientSays: FC = () => {
   return (
     <>
-      <div className='py-2 bg-black flex justify-center items-center w-full sm:min-h-screen overflow-x-hidden flex-col'>
+      <div className=' bg-black flex justify-center items-center w-full h-[80vh] overflow-x-hidden flex-col md:pt-5'>
         <header className='flex md:gap-10 lg:w-4/6 lg:px-10 text-center'>
-          <div className='w-full flex flex-col justify-center items-center md:gap-y-3 z-10 px-4'>
+          <div className='w-full flex flex-col justify-center items-center z-10 px-4'>
             <span
               className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-white uppercase  font-bold text-center mt-10 md:mt-0`}
             >

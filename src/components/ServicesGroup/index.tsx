@@ -76,7 +76,7 @@ const SERVICE_DATA: ServiceCardProps[] = [
 const Services: FC = () => {
   return (
     <>
-      <div className='flex justify-center items-center w-full sm:min-h-screen overflow-x-hidden flex-col pb-10'>
+      <div className='flex justify-center items-center w-full overflow-x-hidden flex-col pb-10'>
         <header className='flex gap-10 lg:w-4/6  lg:px-10 text-center'>
           <div className='w-full flex flex-col justify-center items-center gap-y-3 z-10 px-4'>
             <span

@@ -80,8 +80,8 @@ export const TitleDescCard = ({
 
 const BoostTraffic = () => {
   return (
-    <div className='flex h-[230vh] md:h-[130vh]'>
-      <div className='w-full relative flex items-center justify-center text-white'>
+    <div className='flex h-[265vh] md:h-[150vh]'>
+      <div className='w-full relative flex items-center justify-center text-white '>
         <Image
           src={ecommerceAssets.BoostTrafficBg}
           className='absolute h-full w-full object-cover'
@@ -91,10 +91,10 @@ const BoostTraffic = () => {
           priority
           quality={100}
         />
-        <div className='absolute inset-0 bg-black bg-opacity-85 py-10 md:py-25 px-4 md:px-8'>
+        <div className='absolute inset-0 bg-black bg-opacity-85 py-24 md:py-25 px-4 md:px-8'>
           <div className='max-w-7xl mx-auto'>
             <h1
-              className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center mb-10`}
+              className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center mb-16`}
             >
               Boost traffic and revenue with a full{' '}
               <span className='text-orange-500'>marketing suite</span>

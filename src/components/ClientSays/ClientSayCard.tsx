@@ -3,11 +3,10 @@ import React, { FC, useState } from 'react';
 
 import palette from '../../styles/pallette';
 import {
-  BlueBird,
-  // OurCLient,
   InvertedQoute,
   Levram1,
   RightArrow,
+  Stamens,
   SWAcademy,
   // Client2,
 } from '../../../assets';
@@ -34,7 +33,7 @@ const OURVALUES_DATA: ServiceCardProps[] = [
   },
   {
     heading: 'Founder, Stamens Software Pvt Ltd',
-    image: BlueBird as unknown as string,
+    image: Stamens as unknown as string,
     title: 'Shushil Kumar',
     desc: 'Their ability to consistently push boundaries and deliver cutting-edge solutions was truly remarkable.',
   },
@@ -56,7 +55,7 @@ const ClientSaysCard: FC = () => {
 
   return (
     <>
-      <div className='relative w-full max-w-sm  sm:max-w-[700px] mx-auto'>
+      <div className='relative w-full max-w-sm  sm:max-w-[800px] mx-auto'>
         <div className='overflow-hidden'>
           <div
             className='flex transition-transform duration-500 ease-out'
@@ -64,14 +63,14 @@ const ClientSaysCard: FC = () => {
           >
             {OURVALUES_DATA.map((card, index) => (
               <div key={index} className='min-w-full p-10'>
-                <div className='sm:w-[620px] bg-white rounded-lg shadow-lg overflow-hidden flex sm:flex-row flex-col justify-center items-center gap-y-4 sm:gap-x-4 px-5 py-5'>
+                <div className='bg-white rounded-lg shadow-lg overflow-hidden flex sm:flex-row flex-col justify-center items-center gap-y-4 sm:gap-x-4 px-5 py-5 mx-auto sm:w-[80%]'>
                   {/* <img
                     src={card.image}
                     alt={card.heading}
                     className='w-full h-48 object-cover'
                   /> */}
 
-                  <div className='flex flex-col justify-center items-center'>
+                  <div className='flex flex-col justify-center items-center '>
                     <Image
                       // width={60}
                       // height={60}
@@ -79,7 +78,7 @@ const ClientSaysCard: FC = () => {
                       alt={card.heading}
                       className='h-16 w-16 object-contain'
                     />
-                    <div className='text-center mt-3'>
+                    <div className='text-center mt-3 '>
                       <h2
                         className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} font-semibold whitespace-nowrap`}
                       >
@@ -126,7 +125,7 @@ const ClientSaysCard: FC = () => {
         {/* Left Arrow */}
         <button
           onClick={prevSlide}
-          className='absolute top-1/2 left-0 transform -translate-y-1/2 p-2 bg-white text-white rounded-full'
+          className='absolute top-[50%] left-0 transform -translate-y-1/2 p-2 bg-white text-white rounded-full'
         >
           <Image
             // width={60}
@@ -140,7 +139,7 @@ const ClientSaysCard: FC = () => {
         {/* Right Arrow */}
         <button
           onClick={nextSlide}
-          className='absolute top-1/2 right-0 transform -translate-y-1/2 p-2 bg-white text-white rounded-full'
+          className='absolute  top-[50%] right-0 transform -translate-y-1/2 p-2 bg-white text-white rounded-full'
         >
           <Image
             // width={60}

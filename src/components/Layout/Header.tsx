@@ -112,7 +112,11 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
                   {industries.map((industry) => (
                     <li
                       key={industry.name}
-                      className='text-gray-700 hover:bg-orange-500 hover:text-white text-sm'
+                      className={`text-gray-700 hover:bg-orange-500 hover:text-white text-sm ${
+                        pathname === industry.href
+                          ? 'bg-orange-500 text-white'
+                          : ''
+                      }`}
                     >
                       <Link href={industry.href} className='block px-3 py-1'>
                         {industry.name}

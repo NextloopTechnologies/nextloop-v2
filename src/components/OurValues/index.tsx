@@ -41,7 +41,7 @@ const OURVALUES_DATA: ServiceCardProps[] = [
 const OurValues: FC = () => {
   return (
     <>
-      <div className='flex justify-center items-center w-full  overflow-x-hidden flex-col py-5 pb-20 pt-10'>
+      <div className='flex justify-center items-center w-full  overflow-x-hidden flex-col py-5 pb-24 pt-10'>
         <header className='flex gap-10 lg:w-4/6 lg:px-0 text-center'>
           <div className='w-full flex flex-col justify-center items-center gap-y-3 z-10 px-4 pt-4'>
             <span
@@ -57,7 +57,7 @@ const OurValues: FC = () => {
             </span>
           </div>
         </header>
-        <div className='grid grid-cols-1 sm:grid-cols-5 sm:grid-rows-1 gap-4 px-5 mt-10 '>
+        <div className='grid grid-cols-1 sm:grid-cols-5 sm:grid-rows-1 gap-4 px-5 mt-10 mx-10'>
           {OURVALUES_DATA?.map((data, ind) => {
             return (
               <OurValuesCard
