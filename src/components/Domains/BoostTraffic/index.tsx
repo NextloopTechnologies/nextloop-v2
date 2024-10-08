@@ -80,36 +80,34 @@ export const TitleDescCard = ({
 
 const BoostTraffic = () => {
   return (
-    <div className='flex h-[265vh] md:h-[150vh]'>
-      <div className='w-full relative flex items-center justify-center text-white '>
-        <Image
-          src={ecommerceAssets.BoostTrafficBg}
-          className='absolute h-full w-full object-cover'
-          alt='blogs background'
-          fill
-          sizes='100vw'
-          priority
-          quality={100}
-        />
-        <div className='absolute inset-0 bg-black bg-opacity-85 py-24 md:py-25 px-4 md:px-8'>
-          <div className='max-w-7xl mx-auto'>
-            <h1
-              className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center mb-16`}
-            >
-              Boost traffic and revenue with a full{' '}
-              <span className='text-orange-500'>marketing suite</span>
-            </h1>
+    <div className='relative w-full min-h-screen'>
+      <Image
+        src={ecommerceAssets.BoostTrafficBg}
+        className='absolute inset-0 w-full h-full object-cover'
+        alt='blogs background'
+        fill
+        sizes='100vw'
+        priority
+        quality={100}
+      />
+      <div className='relative z-10 w-full min-h-screen bg-black bg-opacity-85 py-12 px-4 md:py-24 md:px-8'>
+        <div className='max-w-7xl mx-auto flex flex-col h-full'>
+          <h1
+            className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center mb-16 text-white`}
+          >
+            Boost traffic and revenue with a full{' '}
+            <span className='text-orange-500'>marketing suite</span>
+          </h1>
 
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
-              {sampleData.map((data) => (
-                <TitleDescCard
-                  key={data.id}
-                  title={data.title}
-                  description={data.description}
-                  percentage={data.percentage}
-                />
-              ))}
-            </div>
+          <div className='flex-grow grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr'>
+            {sampleData.map((data) => (
+              <TitleDescCard
+                key={data.id}
+                title={data.title}
+                description={data.description}
+                percentage={data.percentage}
+              />
+            ))}
           </div>
         </div>
       </div>
