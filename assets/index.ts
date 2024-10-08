@@ -1,12 +1,6 @@
-export { default as AboutUsBackground } from './AboutUsBackground.png';
-export { default as BlueBird } from './blue-bird.png';
-export { default as CB } from './cb.png';
+// export { default as AboutUsBackground } from './AboutUsBackground.png';
+// export { default as CB } from './cb.png';
 export { default as CB1 } from './cb-1.png';
-export { default as Certificate1 } from './certificates/1.png';
-export { default as Certificate2 } from './certificates/2.png';
-export { default as Certificate3 } from './certificates/3.png';
-export { default as Certificate4 } from './certificates/4.png';
-export { default as Client2 } from './client-2.png';
 export { default as CompositeLayer_1 } from './CompositeLayer-1.png';
 export { default as CompositeLayer_2 } from './CompositeLayer-2.png';
 export { default as CompositeLayer_3 } from './CompositeLayer-3.png';
@@ -16,18 +10,15 @@ export { default as ContactUs } from './ContactUs.png';
 export { default as DoubleQuotes } from './DoubleQuotes.png';
 export { default as DownArrow } from './down-arrow.png';
 export { default as InvertedQoute } from './inverted-qoute.png';
-export { default as LeftSlide } from './left-slide.png';
-export { default as Levram } from './levram.png';
+// export { default as Levram } from './levram.png';
 export { default as Levram1 } from './levram-1.png';
-export { default as Levram2 } from './levram2.png';
+// export { default as Levram2 } from './levram2.png';
 export { default as Lines } from './line.png';
 export { default as Millennialz } from './millennialz.png';
 export { default as Mobile_1 } from './Mobile-1.png';
 export { default as Mobile_2 } from './Mobile-2.png';
 export { default as NextLoopColoredLogo } from './NextLoopColoredLogo.jpeg';
 export { default as NextLoopLogo } from './NextLoopLogo.png';
-export { default as OurCLient } from './our-client-1.png';
-export { default as OurValues1 } from './our-values-1.png';
 export { default as Portfolio1 } from './portfolio-1.png';
 export { default as Portfolio2 } from './portfolio-2.png';
 export { default as Portfolio3 } from './portfolio-3.png';
@@ -35,6 +26,16 @@ export { default as Portfolio4 } from './portfolio-4.png';
 export { default as RightArrow } from './right-arrow.svg';
 export { default as SellEverywhereImage } from './sellEverywhere.png';
 export { default as Services1 } from './services.jpeg';
+export { default as LeftSlide } from './left-slide.png';
+export { default as OurValues1 } from './our-values-1.png';
+export { default as OurCLient } from './our-client-1.png';
+export { default as BlueBird } from './blue-bird.png';
+export { default as Client2 } from './client-2.png';
+export { default as Certificate1 } from './certificates/1.png';
+export { default as Certificate2 } from './certificates/2.png';
+export { default as Certificate3 } from './certificates/3.png';
+export { default as Certificate4 } from './certificates/4.png';
+export { default as Certificate5 } from './certificates/5.png';
 export { default as Service1 } from './services/1.png';
 export { default as Service2 } from './services/2.png';
 export { default as Service3 } from './services/3.png';
@@ -101,23 +102,6 @@ export const staticAssests = {
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/sellEverywhere.png?updatedAt=1719991898809',
   Whyus:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/whyus.png?updatedAt=1719991921001',
-};
-
-export const careerAssets = {
-  leftBig:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers3.JPG?updatedAt=1725604764050',
-  rightTop:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers2.JPG?updatedAt=1725604765462',
-  rightMiddle:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers4.JPG?updatedAt=1725604765957',
-  middleBig:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers7.jpg?updatedAt=1725617401791',
-  bottomLeft:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers5.JPG?updatedAt=1725604767086',
-  bottomRight:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers6.png?updatedAt=1725604772798',
-  bottomBig:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers1.JPG?updatedAt=1725604762600',
 };
 
 export const eventAssets = {
@@ -277,24 +261,6 @@ export const ecommerceAssets = {
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/enrollForWebsite.png?updatedAt=1719991861773',
   EnrollForWebsiteBg:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/enrollForWebsite.png?updatedAt=1719991861773',
-  cloudIcon:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/cloudIcon.png?updatedAt=1720073536584',
-  maintenanceIcon:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/maintenanceIcon.png?updatedAt=1720073536602',
-  modernizeIcon:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/modernizeIcon.png?updatedAt=1720073536539',
-  settingIcon:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/settingIcon.png?updatedAt=1720073539254',
-  globeIcon:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomGlobeIcon.png?updatedAt=1720703266810',
-  desktopIcon:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomDesktopIcon.png?updatedAt=1720703266804',
-  marketIcon:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomMarketIcon.png?updatedAt=1720703266827',
-  bookReaderIcon:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomBookReaderIcon.png?updatedAt=1720703266602',
-  rectangleBg:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomRectangle.png?updatedAt=1721040120178',
 };
 
 export const fintechAssets = {
