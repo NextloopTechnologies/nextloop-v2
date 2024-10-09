@@ -4,13 +4,59 @@ import { useRouter } from 'next/router';
 
 import Layout from '../components/Layout/Layout';
 import PageHero from '../components/PageHero';
+import palette from '../styles/pallette';
 import aboutBg from '../../assets/about-us-hero.png';
 import cert1 from '../../assets/certificates/1.png';
 import cert2 from '../../assets/certificates/2.png';
 import cert3 from '../../assets/certificates/3.png';
-import cert4 from '../../assets/certificates/4.png';
+import cert5 from '../../assets/certificates/5.png';
 import bulb from '../../assets/lightbulb.svg';
 import arrow from '../../assets/right-arrow.svg';
+
+export interface Service {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+const servicesData: Service[] = [
+  {
+    icon: cert1.src,
+    title: 'Certified For Quality',
+    description:
+      'It symbolizes our commitment to continuous improvement, adapting to evolving technologies, and pushing boundaries.',
+  },
+  {
+    icon: cert1.src,
+    title: 'Location',
+    description:
+      'It symbolizes our commitment to continuous improvement, adapting to evolving technologies, and pushing boundaries.',
+  },
+  {
+    icon: cert1.src,
+    title: 'Successful Projects',
+    description:
+      'It symbolizes our commitment to continuous improvement, adapting to evolving technologies, and pushing boundaries.',
+  },
+  {
+    icon: cert1.src,
+    title: 'Our Specialism',
+    description:
+      'It symbolizes our commitment to continuous improvement, adapting to evolving technologies, and pushing boundaries.',
+  },
+  {
+    icon: cert1.src,
+    title: 'Certified For Quality',
+    description:
+      'It symbolizes our commitment to continuous improvement, adapting to evolving technologies, and pushing boundaries.',
+  },
+  {
+    icon: cert1.src,
+    title: 'Certified For Quality',
+    description:
+      'It symbolizes our commitment to continuous improvement, adapting to evolving technologies, and pushing boundaries.',
+  },
+];
 
 const arr = [
   {
@@ -63,7 +109,7 @@ const certificateCardArr = [
     sub: 'If you are looking for a complete business solution at a one place in combination with distinctive designs, that is what you can expect from us.',
   },
   {
-    img: cert4,
+    img: cert5,
     title: 'startup india',
     sub: 'If you are looking for a complete business solution at a one place in combination with distinctive designs, that is what you can expect from us.',
   },
@@ -74,31 +120,36 @@ const AboutUsHome = () => {
     <Layout>
       <Head>
         <title>About NextLoop Technologies | Your Trusted IT Partner</title>
-        <meta name="description" content="Learn more about NextLoop Technologies, our mission, and our commitment to delivering exceptional IT solutions. We are dedicated to driving your business success with our expertise." />
+        <meta
+          name='description'
+          content='Learn more about NextLoop Technologies, our mission, and our commitment to delivering exceptional IT solutions. We are dedicated to driving your business success with our expertise.'
+        />
       </Head>
       <PageHero
         image={aboutBg}
         title='us'
         coloredTitle='about'
-        subtitle='Next Loop Technologies was founded in 2020, driven by enthusiasm and the desire to make a difference. What started off as a tiny concept has developed into something more significant, a journey requiring commitment and a strong drive for success. Our goal has always been the same: to support companies in realizing their aspirations and succeeding in the digital sphere.'
+        subtitle="Next Loop Technologies was founded in 2020, driven by enthusiasm and the desire to make a difference. What started off as a tiny concept has developed into something more significant, a journey requiring commitment and a strong drive for success. Our goal has always been the same: to support companies in realizing their aspirations and succeeding in the digital sphere. Our focus is on providing tailored IT solutions that empower companies to embrace digital transformation and unlock new opportunities. From cloud services to blockchain development and custom software solutions, we deliver cutting-edge technologies designed to meet the unique needs of your business."
       />
       <WhyUs />
       <Journey />
-      <AboutUsInAboutUs />
+      {/* <AboutUsInAboutUs /> */}
+      <EndToEnd />
       <Certificates />
     </Layout>
   );
 };
 
 const WhyUs = () => (
-  <div className='min-h-screen flex flex-col justify-center items-center text-center gap-12 p-8 lg:p-0'>
-    <h2 className='font-medium text-2xl uppercase mt-5'>Why us</h2>
-    <p className='font-bold xl:text-6xl md:text-5xl text-3xl  2xl:w-[30%] xl:w-[60%] w-full'>
+  <div className='min-h-screen flex flex-col justify-center items-center text-center gap-12 p-8 lg:p-0 mt-10'>
+    <p
+      className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold uppercase 2xl:w-[30%] xl:w-[60%] w-full`}
+    >
       CURIOUS ABOUT HOW WE MANAGE TO MAKE ALL THIS{' '}
       <span className='text-orange-500'>POSSIBLE?</span>
     </p>
 
-    <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full sm:w-[80%] place-items-center gap-12 p-10'>
+    <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full sm:w-[80%] place-items-center gap-12 px-6'>
       {arr.map((t, i) => (
         <Card {...t} key={i} />
       ))}
@@ -110,8 +161,12 @@ const Journey = () => {
   const router = useRouter();
   return (
     <div className='min-h-screen bg-[#010103] text-white flex flex-col justify-center items-center text-center gap-24 p-8'>
-      <h2 className='font-medium text-2xl uppercase'>ourjourney</h2>
-      <div className='grid xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 grid-cols-1 w-full place-items-center gap-12 xl:px-16'>
+      <h2
+        className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop}  uppercase font-bold mt-10`}
+      >
+        our journey
+      </h2>
+      <div className='grid xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 grid-cols-1 w-full place-items-center gap-10 xl:px-8'>
         {journeyArr.map((t, i) => (
           <JourneyCard {...t} key={i} odd={i % 2 !== 0} />
         ))}
@@ -129,12 +184,13 @@ const Journey = () => {
 };
 
 const Certificates = () => (
-  <div className='min-h-screen aboutUsPageBackgroundImage flex flex-col gap-24 items-center justify-center text-white p-8 lg:p-0'>
-    <h2 className='font-medium text-2xl uppercase'>certificates</h2>
-    <p className='font-bold xl:text-7xl md:text-5xl text-3xl'>
+  <div className='min-h-screen aboutUsPageBackgroundImage flex flex-col gap-24 items-center justify-center text-white p-8 lg:p-0 '>
+    <p
+      className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold md:mt-20 mt-10`}
+    >
       COMMITMENT TO<span className='text-orange-500'> EXCELLENCE</span>
     </p>
-    <div className='grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-2 w-full place-items-center gap-16 sm:px-6'>
+    <div className='grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full place-items-center gap-16 md:px-20 mb-10'>
       {certificateCardArr.map((c, i) => (
         <CertificateCard {...c} key={i} />
       ))}
@@ -147,55 +203,95 @@ const CertificateCard: React.FC<{
   title: string;
   sub: string;
 }> = ({ img, sub, title }) => (
-  <div className='bg-white flex flex-col gap-4 p-4 sm:p-4 text-black items-center w-[180px] sm:w-72 h-full text-center justify-between'>
+  <div className='bg-white flex flex-col gap-4 p-4 sm:p-4 text-black items-center md:w-[250px] sm:w-72 h-full text-center justify-between'>
     <div className='h-2/3'>
       <Image src={img} alt='certificate' height={200} width={200} />
     </div>
-    <p className='uppercase text-[12px] sm:text-xl font-medium'>{title}</p>
-    <p className=''>{sub}</p>
+    <p
+      className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} uppercase`}
+    >
+      {title}
+    </p>
+    <p
+      className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
+    >
+      {sub}
+    </p>
   </div>
 );
 
-const AboutUsInAboutUs = () => (
-  <div className='flex flex-col min-h-screen bg-white justify-center items-center xl:p-24 p-8 md:p-0 gap-24'>
-    <div className='flex flex-col w-full gap-8'>
-      <h2 className='font-medium text-2xl uppercase'>aboutus</h2>
-      <span className='font-bold xl:text-7xl md:text-5xl text-3xl uppercase hidden lg:block'>
-        we are a group of goal <br />
-        <span className='text-orange-500'>developers.</span>
-      </span>
-      <span className='font-bold xl:text-7xl md:text-5xl text-3xl uppercase  lg:hidden'>
-        we are a group of goal
-        <span className='text-orange-500'> developers.</span>
-      </span>
+const EndToEnd = () => {
+  return (
+    <div className='min-h-screen flex flex-col items-center justify-center p-8 mt-10'>
+      <h2
+        className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold text-center mb-10 uppercase`}
+      >
+        Your end-to-end{' '}
+        <span className='text-orange-500'> software development</span> partner
+      </h2>
+      <div className='grid grid-cols-1 md:grid-cols-3 gap-6 w-full'>
+        {servicesData.map((service, index) => (
+          <div
+            key={index}
+            className='bg-white p-4 rounded-lg shadow-md flex flex-col items-center'
+          >
+            <Image
+              src={service.icon}
+              alt={service.title}
+              width={50}
+              height={50}
+            />
+            <h3 className='font-bold text-lg mt-4'>{service.title}</h3>
+            <p className='text-center text-gray-600 mt-2'>
+              {service.description}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
-    <div className='flex xl:w-[45%] md:w-[80%] w-full'>
-      <p className='lg:text-4xl text-2xl lowercase'>
-        Tech enthusiasts, who create{' '}
-        <span className='text-orange-500'>great solutions.</span> We pride
-        ourselves in delivering exceptional services AND EXPERIENCES WITH A
-        FAST, HIGHLY <span className='text-orange-500'>DISCIPLINED TEAM</span>.
-        wE WISH TO HELP OUR CLIENTS WITH CONTINUOUS INNOVATION AND PROGRESS BY
-        BUILDING STRONG AND LASTING
-        <span className='text-orange-500'> PARTNERSHIPS.</span>
-      </p>
-    </div>
-    <div className='flex flex-col gap-8 xl:w-[45%] md:w-[80%] w-full'>
-      <p className=''>
-        Founded in 2020 with a vision of driving the loop towards new age
-        technologies. Next loop has evolved into a thriving enterprise where
-        unique minds shape innovative experiences for millions of users.
-      </p>
-      <p className=''>
-        Born in the heart of the India Indore area, our outreach is global. We
-        are a strong team of researchers, developers and experts of the digital
-        world. Through a progressive and disciplined method our team creates
-        digital transformation solutions with lasting impact.Partner with us to
-        be in an endless loop of innovation and tech.
-      </p>
-    </div>
-  </div>
-);
+  );
+};
+
+// const AboutUsInAboutUs = () => (
+//   <div className='flex flex-col min-h-screen bg-white justify-center items-center xl:p-24 p-8 md:p-0 gap-24'>
+//     <div className='flex flex-col w-full gap-8'>
+//       <h2 className='font-medium text-2xl uppercase'>aboutus</h2>
+//       <span className='font-bold xl:text-7xl md:text-5xl text-3xl uppercase hidden lg:block'>
+//         we are a group of goal <br />
+//         <span className='text-orange-500'>developers.</span>
+//       </span>
+//       <span className='font-bold xl:text-7xl md:text-5xl text-3xl uppercase  lg:hidden'>
+//         we are a group of goal
+//         <span className='text-orange-500'> developers.</span>
+//       </span>
+//     </div>
+//     <div className='flex xl:w-[45%] md:w-[80%] w-full'>
+//       <p className='lg:text-4xl text-2xl lowercase'>
+//         Tech enthusiasts, who create{' '}
+//         <span className='text-orange-500'>great solutions.</span> We pride
+//         ourselves in delivering exceptional services AND EXPERIENCES WITH A
+//         FAST, HIGHLY <span className='text-orange-500'>DISCIPLINED TEAM</span>.
+//         wE WISH TO HELP OUR CLIENTS WITH CONTINUOUS INNOVATION AND PROGRESS BY
+//         BUILDING STRONG AND LASTING
+//         <span className='text-orange-500'> PARTNERSHIPS.</span>
+//       </p>
+//     </div>
+//     <div className='flex flex-col gap-8 xl:w-[45%] md:w-[80%] w-full'>
+//       <p className=''>
+//         Founded in 2020 with a vision of driving the loop towards new age
+//         technologies. Next loop has evolved into a thriving enterprise where
+//         unique minds shape innovative experiences for millions of users.
+//       </p>
+//       <p className=''>
+//         Born in the heart of the India Indore area, our outreach is global. We
+//         are a strong team of researchers, developers and experts of the digital
+//         world. Through a progressive and disciplined method our team creates
+//         digital transformation solutions with lasting impact.Partner with us to
+//         be in an endless loop of innovation and tech.
+//       </p>
+//     </div>
+//   </div>
+// );
 
 const Card: React.FC<{ title: string; sub: string }> = ({ title, sub }) => {
   return (
@@ -209,9 +305,13 @@ const Card: React.FC<{ title: string; sub: string }> = ({ title, sub }) => {
             <div className=''>
               <Image src={arrow} alt='arrow' />
             </div>
-            <span className='font-medium text-xl uppercase'>{title}</span>
+            <span
+              className={`${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} uppercase`}
+            >
+              {title}
+            </span>
           </div>
-          <span className='text-left text-[12px]'>{sub}</span>
+          <span className="text-[12px] md:text-[12px] text-left">{sub}</span>
         </div>
       </div>
     </div>
@@ -224,12 +324,16 @@ const JourneyCard: React.FC<{ title: string; sub: string; odd: boolean }> = ({
   odd,
 }) => {
   return (
-    <div className='xl:w-[450px] xl:h-[450px] flex flex-col items-center relative'>
+    <div className='xl:w-[300px] xl:h-[300px] flex flex-col items-center relative '>
       {!odd ? <SmallOrangeTop /> : <BigOrangeTop />}
-      <div className='absolute flex flex-col xl:w-[550px] md:w-[500px] w-full items-center gap-4 md:px-24 mt-12'>
+      <div className='absolute flex flex-col  md:w-[275px] w-full items-center gap-2 md:px-0 mt-8'>
         <Image src={bulb} alt='bulb' />
-        <h1 className='text-xl font-bold'>{title}</h1>
-        <span className='px-12 text-[10px]'>{sub}</span>
+        <h1
+          className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop} font-bold`}
+        >
+          {title}
+        </h1>
+        <span className=' text-[10px] px-8'>{sub}</span>
       </div>
     </div>
   );
