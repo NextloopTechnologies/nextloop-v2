@@ -1,5 +1,7 @@
 import Image, { StaticImageData } from 'next/image';
 
+import palette from '../styles/pallette';
+
 const PageHero: React.FC<{
   image: StaticImageData;
   title: string;
@@ -24,16 +26,22 @@ const PageHero: React.FC<{
       <div className={`absolute inset-0 bg-black ${opacity}`}></div>
       <div className='flex flex-col gap-8 items-center z-20 px-4 lg:p-0'>
         {coloredTitle ? (
-          <h1 className='font-bold lg:text-9xl text-6xl md:text-6xl uppercase '>
+          <h1
+            className={`${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} font-bold uppercase`}
+          >
             <span className='text-orange-500'>{coloredTitle}</span>
             {title}
           </h1>
         ) : (
-          <h1 className='font-bold lg:text-9xl text-3xl md:text-6xl uppercase '>
+          <h1
+            className={`${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} font-bold uppercase`}
+          >
             {title}
           </h1>
         )}
-        <span className='text-lg lg:text-[16px] xl:w-[50%] md:w-[60%] text-center'>
+        <span
+          className={`${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} md:w-[70%] text-center px-4 md:px-0`}
+        >
           {subtitle}
         </span>
       </div>
