@@ -76,16 +76,19 @@ const PitchThought: FC = () => {
           content='Get in touch with NextLoop Technologies for all your IT service needs. Our team is ready to assist you with innovative solutions and expert support.'
         />
       </Head>
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        className='md:px-20 md:pb-10 md:pt-10 pb-24 pt-10'
+      >
         <h1
-          className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-white uppercase font-bold text-center p-10 pt-14`}
+          className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-white uppercase font-bold text-center p-10`}
         >
           Get in Touch {'  '}
           <span className='text-orange-500'>with Us!</span>
         </h1>
         <div
           id='footer'
-          className='flex lg:flex-row flex-col items-center md:px-0 px-10'
+          className='flex lg:flex-row flex-col items-center px-10'
         >
           <div className='flex gap-x-10 justify-end w-full text-white md:pl-10'>
             <div className='flex flex-col gap-y-4  w-full'>
