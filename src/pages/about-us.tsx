@@ -1,10 +1,20 @@
 import Head from 'next/head';
 import Image, { StaticImageData } from 'next/image';
 import { useRouter } from 'next/router';
+import { useRef } from 'react';
 
 import Layout from '../components/Layout/Layout';
 import PageHero from '../components/PageHero';
 import palette from '../styles/pallette';
+import { AboutNextloopBackground, LeftSlide } from '../../assets';
+import {
+  CustomerService,
+  Illustration,
+  LocationPin,
+  Medal,
+  Shuttle,
+  Trophy,
+} from '../../assets';
 import aboutBg from '../../assets/about-us-hero.png';
 import cert1 from '../../assets/certificates/1.png';
 import cert2 from '../../assets/certificates/2.png';
@@ -21,40 +31,36 @@ export interface Service {
 
 const servicesData: Service[] = [
   {
-    icon: cert1.src,
+    icon: Illustration.src,
     title: 'Certified For Quality',
     description:
-      'It symbolizes our commitment to continuous improvement, adapting to evolving technologies, and pushing boundaries.',
+      'Nextloop Technologies delivers innovative IT solutions across industries.',
   },
   {
-    icon: cert1.src,
+    icon: LocationPin.src,
     title: 'Location',
-    description:
-      'It symbolizes our commitment to continuous improvement, adapting to evolving technologies, and pushing boundaries.',
+    description: 'Headquartered in Indore, with an office in the UK.',
   },
   {
-    icon: cert1.src,
+    icon: Medal.src,
     title: 'Successful Projects',
-    description:
-      'It symbolizes our commitment to continuous improvement, adapting to evolving technologies, and pushing boundaries.',
+    description: 'Globally recognized standards achieved.',
   },
   {
-    icon: cert1.src,
+    icon: Shuttle.src,
     title: 'Our Specialism',
-    description:
-      'It symbolizes our commitment to continuous improvement, adapting to evolving technologies, and pushing boundaries.',
+    description: 'Successfully delivered [X]+ projects globally.',
   },
   {
-    icon: cert1.src,
+    icon: CustomerService.src,
     title: 'Certified For Quality',
     description:
-      'It symbolizes our commitment to continuous improvement, adapting to evolving technologies, and pushing boundaries.',
+      'Specializing in Cloud Solutions, Blockchain, Custom Software, and Digital Transformation.',
   },
   {
-    icon: cert1.src,
+    icon: Trophy.src,
     title: 'Certified For Quality',
-    description:
-      'It symbolizes our commitment to continuous improvement, adapting to evolving technologies, and pushing boundaries.',
+    description: 'Renowned for delivering award-winning IT solutions. ',
   },
 ];
 
@@ -115,6 +121,12 @@ const certificateCardArr = [
   },
 ];
 
+interface CertificateCardProps {
+  img: StaticImageData;
+  title: string;
+  sub: string;
+}
+
 const AboutUsHome = () => {
   return (
     <Layout>
@@ -129,12 +141,13 @@ const AboutUsHome = () => {
         image={aboutBg}
         title='us'
         coloredTitle='about'
-        subtitle="Next Loop Technologies was founded in 2020, driven by enthusiasm and the desire to make a difference. What started off as a tiny concept has developed into something more significant, a journey requiring commitment and a strong drive for success. Our goal has always been the same: to support companies in realizing their aspirations and succeeding in the digital sphere. Our focus is on providing tailored IT solutions that empower companies to embrace digital transformation and unlock new opportunities. From cloud services to blockchain development and custom software solutions, we deliver cutting-edge technologies designed to meet the unique needs of your business."
+        subtitle='Next Loop Technologies was founded in 2020, driven by enthusiasm and the desire to make a difference. What started off as a tiny concept has developed into something more significant, a journey requiring commitment and a strong drive for success. Our goal has always been the same: to support companies in realizing their aspirations and succeeding in the digital sphere. Our focus is on providing tailored IT solutions that empower companies to embrace digital transformation and unlock new opportunities. From cloud services to blockchain development and custom software solutions, we deliver cutting-edge technologies designed to meet the unique needs of your business.'
       />
       <WhyUs />
       <Journey />
       {/* <AboutUsInAboutUs /> */}
       <EndToEnd />
+      <AboutNextLoop />
       <Certificates />
     </Layout>
   );
@@ -183,26 +196,91 @@ const Journey = () => {
   );
 };
 
-const Certificates = () => (
-  <div className='min-h-screen aboutUsPageBackgroundImage flex flex-col gap-24 items-center justify-center text-white p-8 lg:p-0 '>
-    <p
-      className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold md:mt-20 mt-10`}
-    >
-      COMMITMENT TO<span className='text-orange-500'> EXCELLENCE</span>
-    </p>
-    <div className='grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full place-items-center gap-16 md:px-20 mb-10'>
-      {certificateCardArr.map((c, i) => (
-        <CertificateCard {...c} key={i} />
-      ))}
-    </div>
-  </div>
-);
+const Certificates: React.FC = () => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-const CertificateCard: React.FC<{
-  img: StaticImageData;
-  title: string;
-  sub: string;
-}> = ({ img, sub, title }) => (
+  const nextCard = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: scrollContainerRef.current.offsetWidth,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  const prevCard = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: -scrollContainerRef.current.offsetWidth,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  return (
+    <div className='aboutUsPageBackgroundImage flex flex-col gap-24 items-center justify-center text-white p-8 md:pt-20 pt-52'>
+      <p
+        className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold md:mt-20 mt-52`}
+      >
+        COMMITMENT TO<span className='text-orange-500'> EXCELLENCE</span>
+      </p>
+      <div className='w-full'>
+        {/* Desktop View */}
+        <div className='hidden md:grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 w-full place-items-center gap-16 px-20 mb-10'>
+          {certificateCardArr.map((c, i) => (
+            <CertificateCard {...c} key={i} />
+          ))}
+        </div>
+
+        {/* Mobile View */}
+        <div className='md:hidden relative'>
+          <div
+            ref={scrollContainerRef}
+            className='overflow-x-auto scrollbar-hide snap-x snap-mandatory'
+            style={
+              {
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+              } as React.CSSProperties
+            }
+          >
+            <div className='flex'>
+              {certificateCardArr.map((c, i) => (
+                <div key={i} className='flex-shrink-0 w-full px-4 snap-center'>
+                  <CertificateCard {...c} />
+                </div>
+              ))}
+            </div>
+          </div>
+          <button
+            onClick={prevCard}
+            className='absolute -left-6 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full'
+          >
+            <Image src={LeftSlide.src} alt='Previous' width={15} height={15} />
+          </button>
+          <button
+            onClick={nextCard}
+            className='absolute -right-6 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full'
+          >
+            <Image
+              src={LeftSlide.src}
+              alt='Next'
+              width={15}
+              height={15}
+              className='transform rotate-180'
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const CertificateCard: React.FC<CertificateCardProps> = ({
+  img,
+  sub,
+  title,
+}) => (
   <div className='bg-white flex flex-col gap-4 p-4 sm:p-4 text-black items-center md:w-[250px] sm:w-72 h-full text-center justify-between'>
     <div className='h-2/3'>
       <Image src={img} alt='certificate' height={200} width={200} />
@@ -222,27 +300,27 @@ const CertificateCard: React.FC<{
 
 const EndToEnd = () => {
   return (
-    <div className='min-h-screen flex flex-col items-center justify-center p-8 mt-10'>
+    <div className='min-h-screen flex flex-col items-center justify-center p-8 mt-10 md:mb-60 mb-[100%] md:mx-20'>
       <h2
         className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold text-center mb-10 uppercase`}
       >
         Your end-to-end{' '}
         <span className='text-orange-500'> software development</span> partner
       </h2>
-      <div className='grid grid-cols-1 md:grid-cols-3 gap-6 w-full'>
+      <div className='grid grid-cols-1 md:grid-cols-3 gap-4 w-full'>
         {servicesData.map((service, index) => (
           <div
             key={index}
-            className='bg-white p-4 rounded-lg shadow-md flex flex-col items-center'
+            className='bg-white p-3 flex flex-col border items-left pl-8 border-gray-300'
           >
             <Image
               src={service.icon}
               alt={service.title}
-              width={50}
-              height={50}
+              width={40}
+              height={40}
             />
-            <h3 className='font-bold text-lg mt-4'>{service.title}</h3>
-            <p className='text-center text-gray-600 mt-2'>
+            <h3 className='font-bold text-sm mt-4'>{service.title}</h3>
+            <p className='text-left text-gray-600 mt-2 text-xs'>
               {service.description}
             </p>
           </div>
@@ -311,7 +389,7 @@ const Card: React.FC<{ title: string; sub: string }> = ({ title, sub }) => {
               {title}
             </span>
           </div>
-          <span className="text-[12px] md:text-[12px] text-left">{sub}</span>
+          <span className='text-[12px] md:text-[12px] text-left'>{sub}</span>
         </div>
       </div>
     </div>
@@ -405,6 +483,45 @@ const SmallOrangeTop = () => (
       />
     </svg>
   </>
+);
+
+const AboutNextLoop = () => (
+  <div className='absolute md:top-[415%] top-[650%] flex flex-col items-center justify-center bg-[#1F1F1F] py-20 z-10 md:mx-28 px-10 mx-3'>
+    <Image
+      src={AboutNextloopBackground}
+      alt='About Nextloop Background'
+      fill
+      style={{ objectFit: 'cover' }}
+      className='absolute inset-0 z-0'
+    />
+    <div className='relative z-10 text-center text-white'>
+      <h2
+        className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold mb-4`}
+      >
+        ABOUT NEXTLOOP TECHNOLOGIES
+      </h2>
+      <p
+        className={`${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} mb-10`}
+      >
+        Together with our partnership and industry experience, we are creating a
+        robust ecosystem to bring huge business transformations.
+      </p>
+      <div className='grid grid-cols-1 md:grid-cols-3 gap-12 w-full max-w-4xl mx-auto'>
+        <div className='text-center'>
+          <h3 className='text-5xl font-bold text-orange-500'>4+</h3>
+          <p>Years on the market</p>
+        </div>
+        <div className='text-center'>
+          <h3 className='text-5xl font-bold text-orange-500'>50+</h3>
+          <p>Senior-level developers</p>
+        </div>
+        <div className='text-center'>
+          <h3 className='text-5xl font-bold text-orange-500'>10+</h3>
+          <p>Successful projects</p>
+        </div>
+      </div>
+    </div>
+  </div>
 );
 
 export default AboutUsHome;

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { GetServerSideProps } from 'next';
+import Head from 'next/head';
 import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 
@@ -238,6 +239,13 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
 
   return (
     <>
+      <Head>
+        <title>NextLoop Technologies: Leading IT Solutions Provider.</title>
+        <meta
+          name='description'
+          content='Elevate your business with our tailored digital transformation solutions. Discover expert-driven network security & software services that drive growth.'
+        />
+      </Head>
       <Layout divRefs={divRefs?.current} id='connect-with-us'>
         <div
           id='intro'
