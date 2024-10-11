@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React from 'react';
 
 import { restaurantAssets } from '../../../../assets';
@@ -90,68 +91,76 @@ const enrolData = [
 
 const FoodAndBeverages: React.FC = () => {
   return (
-    <Layout>
-      <CustomPageHero
-        image={getStaticImageData(restaurantAssets.restaurantBg)}
-        titleChildren={
-          <h1
-            className={`${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} text-white uppercase font-bold text-center max-w-[1306px]`}
-          >
-            Your <span className='text-orange-500'>restaurant</span>
-            {', '}served online
-          </h1>
-        }
-        subtitle='Grow your business and deliver the online experience your customers expect with this all-in-one business solution.'
-        customSubtitleClassname={`xl:w-[51%] ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop}`}
-        opacity='opacity-10'
-        title=''
-      />
-
-      <WhyBuild
-        image={getStaticImageData(restaurantAssets.WhyBuildRestaurant)}
-        colouredTitle='restaurant'
-        informationSection={
-          <div className='max-w-[737px] mx-5 md:mx-0'>
-            <p
-              className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} mt-5`}
+    <>
+      <Head>
+        <title>Nextloop's Digital Solutions for Food & Beverage</title>
+        <meta
+          name='description'
+          content='Nextloop Technologies offers innovative IT solutions for the food and beverage industry. From supply chain optimization to digital transformation, we deliver tailored tech solutions to enhance efficiency and growth in your business.'
+        />
+      </Head>
+      <Layout>
+        <CustomPageHero
+          image={getStaticImageData(restaurantAssets.restaurantBg)}
+          titleChildren={
+            <h1
+              className={`${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} text-white uppercase font-bold text-center max-w-[1306px]`}
             >
-              One of the most significant industries in many nations, the cafe
-              and restaurant sector is constantly expanding. But in order to
-              handle multitasking effectively, technology must be used across
-              the board. Due to this, we shall examine the benefits of an ERP
-              for restaurants and the related industry in this piece. Some of
-              the main benefits of custom ERP solutions for restaurants are:
-            </p>
+              Your <span className='text-orange-500'>restaurant</span>
+              {', '}served online
+            </h1>
+          }
+          subtitle='Grow your business and deliver the online experience your customers expect with this all-in-one business solution.'
+          customSubtitleClassname={`xl:w-[51%] ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop}`}
+          opacity='opacity-10'
+          title=''
+        />
 
-            <ul className='list-disc text-md pl-10 mt-8'>
-              {benefits.map((benefit) => (
-                <li key={benefit.id} className='font-medium'>
-                  <span className='font-normal'>{benefit.solution}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        }
-      />
+        <WhyBuild
+          image={getStaticImageData(restaurantAssets.WhyBuildRestaurant)}
+          colouredTitle='restaurant'
+          informationSection={
+            <div className='max-w-[737px] mx-5 md:mx-0'>
+              <p
+                className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} mt-5`}
+              >
+                One of the most significant industries in many nations, the cafe
+                and restaurant sector is constantly expanding. But in order to
+                handle multitasking effectively, technology must be used across
+                the board. Due to this, we shall examine the benefits of an ERP
+                for restaurants and the related industry in this piece. Some of
+                the main benefits of custom ERP solutions for restaurants are:
+              </p>
 
-      <WhyChooseUs whyChooseContent={whyChooseContent} />
+              <ul className='list-disc text-md pl-10 mt-8'>
+                {benefits.map((benefit) => (
+                  <li key={benefit.id} className='font-medium'>
+                    <span className='font-normal'>{benefit.solution}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          }
+        />
 
-      <EnrollForWebsite
-        image={getStaticImageData(restaurantAssets.RobustOnline)}
-        imageClassname='w-[450px] h-[450px] mx-auto'
-        data={enrolData}
-        titleElement={
-          <h1
-            className={` ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center max-w-[950px] mx-auto`}
-          >
-            Get a robust online{' '}
-            <span className='text-orange-500'>ordering system</span>
-          </h1>
-        }
-      />
+        <WhyChooseUs whyChooseContent={whyChooseContent} />
 
-      <GrowBusiness />
-      {/* <div className='min-h-screen flex flex-col items-center justify-center text-center py-[112px] mx-auto gap-[109px]'>
+        <EnrollForWebsite
+          image={getStaticImageData(restaurantAssets.RobustOnline)}
+          imageClassname='w-[450px] h-[450px] mx-auto'
+          data={enrolData}
+          titleElement={
+            <h1
+              className={` ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center max-w-[950px] mx-auto`}
+            >
+              Get a robust online{' '}
+              <span className='text-orange-500'>ordering system</span>
+            </h1>
+          }
+        />
+
+        <GrowBusiness />
+        {/* <div className='min-h-screen flex flex-col items-center justify-center text-center py-[112px] mx-auto gap-[109px]'>
         <h1 className='font-bold text-3xl uppercase md:text-6xl lg:text-7xl xl:text-8xl sm:text-4xl w-full mb-[25px]'>
           The tools you need to grow your{' '}
           <span className='text-orange-500'>business</span>
@@ -179,15 +188,16 @@ const FoodAndBeverages: React.FC = () => {
         </div>
       </div> */}
 
-      <ClientReviews
-        title='Real success stories from'
-        colouredTitle='Real customer'
-      />
+        <ClientReviews
+          title='Real success stories from'
+          colouredTitle='Real customer'
+        />
 
-      <FAQ faqsContent={faqsContent} />
+        <FAQ faqsContent={faqsContent} />
 
-      <CustomRequestQuote title='see what your restaurant website could look like' />
-    </Layout>
+        <CustomRequestQuote title='see what your restaurant website could look like' />
+      </Layout>
+    </>
   );
 };
 

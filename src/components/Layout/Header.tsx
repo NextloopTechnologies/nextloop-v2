@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
+import LoaderSvg from '../Loader/loader';
 import { NextLoopColoredLogo } from '../../../assets';
 
 interface HeaderProps {
@@ -75,8 +76,8 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
   return (
     <>
       {isLoading && (
-        <div className='fixed top-0 left-0 w-full h-full flex items-center justify-center bg-white z-50'>
-          <p>Loading...</p>
+        <div className='fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-95 z-50'>
+          <LoaderSvg />
         </div>
       )}
       <nav

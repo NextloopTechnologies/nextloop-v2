@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React from 'react';
 
 import { oilAndGasAssets } from '../../../../assets';
@@ -38,64 +39,75 @@ const faqsContent: IFAQ[] = [
 
 const OilAndGas = () => {
   return (
-    <Layout>
-      <CustomPageHero
-        image={getStaticImageData(oilAndGasAssets.oilAndGasBg)}
-        titleChildren={
-          <h1
-            className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-white uppercase font-bold text-center w-full`}
-          >
-            Build <span className='text-orange-500'>oil and gas</span> software
-            applications
-          </h1>
-        }
-        customSubtitleClassname={`xl:w-[51%] ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop}`}
-        subtitle='Streamline operations, improve workplace safety, and increase profits with your new web, mobile or desktop app. Oil and gas software solutions don’t need to be complicated. Tell us what you need and we build it. It’s that easy.'
-        opacity='opacity-10'
-        title=''
-      />
-
-      <WhyBuild
-        image={getStaticImageData(oilAndGasAssets.whyBuildOilAndGas)}
-        colouredTitle='mining industry'
-        informationSection={
-          <div className='max-w-[737px] md:flex md:flex-col justify-center px-5 md:px-0 md:w-full w-[350px]'>
-            <h3
-              className={`${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} uppercase my-5`}
+    <>
+      <Head>
+        <title>
+          Improve Oil & Gas with IT Solutions from Nextloop Technologies
+        </title>
+        <meta
+          name='description'
+          content='Nextloop Technologies provides cutting-edge IT solutions for the oil and gas industry. Enhance operational efficiency, optimize workflows, and drive digital transformation with our customized technology services for energy companies.'
+        />
+      </Head>
+      <Layout>
+        <CustomPageHero
+          image={getStaticImageData(oilAndGasAssets.oilAndGasBg)}
+          titleChildren={
+            <h1
+              className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-white uppercase font-bold text-center w-full`}
             >
-              Why build a custom software solution for the mining industry?
-            </h3>
-            <p
-              className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
-            >
-              Whether it’s mining or the oil and gas industry... you care about
-              performance. Save time and money by creating software that lets
-              you more effectively manage your operation. Our no-code solution
-              gives you the tech to solve your unique problems. We make the
-              entire process simple, cost-effective, and fast. What can we do
-              for you?
-            </p>
-          </div>
-        }
-      />
+              Build <span className='text-orange-500'>oil and gas</span>{' '}
+              software applications
+            </h1>
+          }
+          customSubtitleClassname={`xl:w-[51%] ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop}`}
+          subtitle='Streamline operations, improve workplace safety, and increase profits with your new web, mobile or desktop app. Oil and gas software solutions don’t need to be complicated. Tell us what you need and we build it. It’s that easy.'
+          opacity='opacity-10'
+          title=''
+        />
 
-      <WhyWorkWithUs />
+        <WhyBuild
+          image={getStaticImageData(oilAndGasAssets.whyBuildOilAndGas)}
+          colouredTitle='mining industry'
+          informationSection={
+            <div className='max-w-[737px] md:flex md:flex-col justify-center px-5 md:px-0 md:w-full w-[350px]'>
+              <h3
+                className={`${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} uppercase my-5`}
+              >
+                Why build a custom software solution for the mining industry?
+              </h3>
+              <p
+                className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
+              >
+                Whether it’s mining or the oil and gas industry... you care
+                about performance. Save time and money by creating software that
+                lets you more effectively manage your operation. Our no-code
+                solution gives you the tech to solve your unique problems. We
+                make the entire process simple, cost-effective, and fast. What
+                can we do for you?
+              </p>
+            </div>
+          }
+        />
 
-      <HowToBuild />
+        <WhyWorkWithUs />
 
-      <WhatCanIBuild />
+        <HowToBuild />
 
-      <TransferYourBusiness />
+        <WhatCanIBuild />
 
-      <FAQ faqsContent={faqsContent} />
+        <TransferYourBusiness />
 
-      <ClientReviews
-        title='Real success stories from'
-        colouredTitle='Real customer'
-      />
+        <FAQ faqsContent={faqsContent} />
 
-      <CustomRequestQuote title='Your complete oil and gas solution' />
-    </Layout>
+        <ClientReviews
+          title='Real success stories from'
+          colouredTitle='Real customer'
+        />
+
+        <CustomRequestQuote title='Your complete oil and gas solution' />
+      </Layout>
+    </>
   );
 };
 

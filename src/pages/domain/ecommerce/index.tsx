@@ -1,4 +1,6 @@
-import { ecommerceAssets,healthcareAssets } from '../../../../assets';
+import Head from 'next/head';
+
+import { ecommerceAssets, healthcareAssets } from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import BoostTraffic from '../../../components/Domains/BoostTraffic';
 import ClientReviews from '../../../components/Domains/ClientReviews';
@@ -124,85 +126,95 @@ const productServiceContent = [
 
 const Ecommerce = () => {
   return (
-    <Layout>
-      <CustomPageHero
-        image={getStaticImageData(ecommerceAssets.ECommerceBg)}
-        titleChildren={
-          <h1
-            className={`text-white ${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} uppercase font-bold text-center w-full md:max-w-[1500px]`}
-          >
-            Build an <span className='text-orange-500'>ecommerce website.</span>
-            <br />
-            Start selling immediately.
-            <br />
-            Grow without limits.
-          </h1>
-        }
-        customSubtitleClassname={`xl:w-[51%] ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop}`}
-        subtitle='Get everything you need to build, run and scale your business—on one unified platform.'
-        opacity='opacity-70'
-        title=''
-      />
+    <>
+      <Head>
+        <title>E-commerce IT Solutions for Your Growing Business</title>
+        <meta
+          name='description'
+          content='Boost your online business with Nextloop Technologies’ e-commerce IT solutions. From custom e-commerce platforms to secure payment integration, we provide innovative, scalable solutions to drive your e-commerce success.'
+        />
+      </Head>
+      <Layout>
+        <CustomPageHero
+          image={getStaticImageData(ecommerceAssets.ECommerceBg)}
+          titleChildren={
+            <h1
+              className={`text-white ${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} uppercase font-bold text-center w-full md:max-w-[1500px]`}
+            >
+              Build an{' '}
+              <span className='text-orange-500'>ecommerce website.</span>
+              <br />
+              Start selling immediately.
+              <br />
+              Grow without limits.
+            </h1>
+          }
+          customSubtitleClassname={`xl:w-[51%] ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop}`}
+          subtitle='Get everything you need to build, run and scale your business—on one unified platform.'
+          opacity='opacity-70'
+          title=''
+        />
 
-      <WhyBuild
-        image={getStaticImageData(ecommerceAssets.WhyBuildEcomIndustry)}
-        colouredTitle='Ecommerce Industry'
-        infoAndImgClassname='items-center'
-        informationSection={
-          <div
-            className={`mx-12 md:mx-10 lg:mx-0 md:max-w-[600px] ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
-          >
-            In this highly competitive eCommerce environment, the struggle to
-            acquire customers and keep their interest has made customization
-            indispensable. Users are becoming more demanding and impatient. We
-            know that setting up your eCommerce business is not an easy job.
-            Based on your business goals and needs, we would like to help you
-            make the right decision from the start. When we talk about eCommerce
-            platforms, there are plenty of choices of already-built software you
-            can choose from, but do you want to get lost in the market and be
-            like everyone else? Follow along to understand why a custom
-            eCommerce solution can be the key ingredient to spike your
-            conversions, strengthen user engagement and offer a flawless user
-            experience.
-          </div>
-        }
-      />
-      <WhatWeDo content={WhatWeDoData} />
-      <EnrollForWebsite
-        image={getStaticImageData(ecommerceAssets.RobustOnline)}
-        imageClassname='w-[450px] h-[450px]'
-        data={sampleData}
-        titleElement={
-          <h1
-            className={` ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center md:max-w-[950px] max-w-[350px] mx-auto`}
-          >
-            One <span className='text-orange-500'>dashboard</span> for total
-            business control
-          </h1>
-        }
-      />
-      <SellEverywhere />
-      <BoostTraffic />
+        <WhyBuild
+          image={getStaticImageData(ecommerceAssets.WhyBuildEcomIndustry)}
+          colouredTitle='Ecommerce Industry'
+          infoAndImgClassname='items-center'
+          informationSection={
+            <div
+              className={`mx-12 md:mx-10 lg:mx-0 md:max-w-[600px] ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
+            >
+              In this highly competitive eCommerce environment, the struggle to
+              acquire customers and keep their interest has made customization
+              indispensable. Users are becoming more demanding and impatient. We
+              know that setting up your eCommerce business is not an easy job.
+              Based on your business goals and needs, we would like to help you
+              make the right decision from the start. When we talk about
+              eCommerce platforms, there are plenty of choices of already-built
+              software you can choose from, but do you want to get lost in the
+              market and be like everyone else? Follow along to understand why a
+              custom eCommerce solution can be the key ingredient to spike your
+              conversions, strengthen user engagement and offer a flawless user
+              experience.
+            </div>
+          }
+        />
+        <WhatWeDo content={WhatWeDoData} />
+        <EnrollForWebsite
+          image={getStaticImageData(ecommerceAssets.RobustOnline)}
+          imageClassname='w-[450px] h-[450px]'
+          data={sampleData}
+          titleElement={
+            <h1
+              className={` ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center md:max-w-[950px] max-w-[350px] mx-auto`}
+            >
+              One <span className='text-orange-500'>dashboard</span> for total
+              business control
+            </h1>
+          }
+        />
+        <SellEverywhere />
+        <BoostTraffic />
 
-      <ProductServices
-        title={
-          <h1
-            className={`text-black ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center max-w-[1306px]`}
-          >
-            sell your <span className='text-orange-500'>own products</span> or
-            find products to sell
-          </h1>
-        }
-        data={productServiceContent}
-      />
+        <ProductServices
+          title={
+            <h1
+              className={`text-black ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center max-w-[1306px]`}
+            >
+              sell your <span className='text-orange-500'>own products</span> or
+              find products to sell
+            </h1>
+          }
+          data={productServiceContent}
+        />
 
-      <ClientReviews
-        title='Real success stories from'
-        colouredTitle='Real customer'
-      />
-      <FAQ faqsContent={faqsContent} />
-      <CustomRequestQuote title='Your complete event management platform' />
-    </Layout>
+        <ClientReviews
+          title='Real success stories from'
+          colouredTitle='Real customer'
+        />
+        <FAQ faqsContent={faqsContent} />
+        <CustomRequestQuote title='Your complete event management platform' />
+      </Layout>
+    </>
   );
 };
 
