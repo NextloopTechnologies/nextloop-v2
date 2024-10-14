@@ -54,11 +54,10 @@ const Layout: React.FC<LayoutProps> = ({
           </div>
         </Section>
       ) : (
-        <div className='sm:min-h-screen bg-[#010103] sm:w-screen'>
+        <div className=' bg-[#010103]'>
           <div
             id={id}
             ref={(el: any) => (divRefs?.length ? (divRefs[8] = el) : null)}
-            className='container mx-auto'
           >
             <PitchThought />
           </div>
