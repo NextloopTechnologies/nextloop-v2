@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { FC, useState } from 'react';
 
 import palette from '../styles/pallette';
@@ -12,23 +13,28 @@ import {
 interface PortfolioCardProps {
   image: string;
   caption: string;
+  link: string;
 }
 const IMAGE_DATA: PortfolioCardProps[] = [
   {
     image: Portfolio1 as unknown as string,
     caption: '1st image caption',
+    link: 'portfolio/4/',
   },
   {
     image: Portfolio2 as unknown as string,
     caption: '2nd image caption',
+    link: 'portfolio/5/',
   },
   {
     image: Portfolio3 as unknown as string,
     caption: '3rd image caption',
+    link: 'portfolio/2/',
   },
   {
     image: Portfolio4 as unknown as string,
     caption: '4th image caption',
+    link: 'portfolio/1/',
   },
 ];
 
@@ -49,7 +55,7 @@ const PortfolioSlide: FC = () => {
     });
   };
   return (
-    <div className='min-w-full sm:min-h-screen max-w-full  m-auto relative'>
+    <div className='min-w-full sm:min-h-screen max-w-full m-auto relative'>
       <div className='w-full h-full'>
         <Image
           src={IMAGE_DATA[currentSlide]?.image || ''}
@@ -65,9 +71,11 @@ const PortfolioSlide: FC = () => {
         </span>
       </header>
       <div className='image-caption absolute md:bottom-[50px] bottom-[20px]  text-center w-full'>
-        <button className='text-orange-500 text-[14px] outline-none bg-white border border-orange-500 px-5 py-1 rounded-[20px]'>
-          View Case Study
-        </button>
+        <Link href={IMAGE_DATA[currentSlide]?.link || '#'} passHref>
+          <button className='text-orange-500 text-[14px] outline-none bg-white border border-orange-500 px-5 py-1 rounded-[20px]'>
+            View Case Study
+          </button>
+        </Link>
       </div>
       <div>
         <button

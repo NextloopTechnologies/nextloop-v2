@@ -73,6 +73,21 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
     { name: 'Travel And Hospitality', href: '/domain/travelandhospitality' },
   ];
 
+  const handleRequestQuote = () => {
+    const footer = document.getElementById('footer');
+    if (footer) {
+      const headerOffset = isSticky ? 250 : 0; // Adjust this value based on your header height
+      const elementPosition =
+        footer.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   return (
     <>
       {isLoading && (
@@ -141,7 +156,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
             </li>
             <li>
               <button
-                onClick={() => router.push('#footer')}
+                onClick={handleRequestQuote}
                 className='bg-orange-500 ml-10 text-white px-5 py-3 rounded-full'
               >
                 Request quote &#10230;

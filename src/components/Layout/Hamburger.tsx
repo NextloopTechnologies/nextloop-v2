@@ -52,6 +52,23 @@ const Hamburger = () => {
     });
   };
 
+  const handleRequestQuote = () => {
+    const footer = document.getElementById('footer');
+    if (footer) {
+      const headerOffset = 100;
+      const elementPosition =
+        footer.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+
+      setIsOpen(false);
+    }
+  };
+
   return (
     <>
       {isLoading && (
@@ -158,9 +175,7 @@ const Hamburger = () => {
           </li>
           <li className='w-full mt-4'>
             <button
-              onClick={() => {
-                handleNavigation('#footer');
-              }}
+              onClick={handleRequestQuote}
               className='w-full bg-orange-500 text-white px-5 py-3 rounded-full'
             >
               Request quote &#10230;
