@@ -154,7 +154,7 @@ const AboutUsHome = () => {
 };
 
 const WhyUs = () => (
-  <div className='min-h-screen flex flex-col justify-center items-center text-center gap-12 p-8 lg:p-0 mt-10'>
+  <div className=' flex flex-col justify-center items-center text-center gap-12 p-8 py-20'>
     <p
       className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold uppercase 2xl:w-[30%] xl:w-[60%] w-full`}
     >
@@ -218,9 +218,9 @@ const Certificates: React.FC = () => {
   };
 
   return (
-    <div className='aboutUsPageBackgroundImage flex flex-col gap-24 items-center justify-center text-white p-8 md:pt-20 pt-52'>
+    <div className='aboutUsPageBackgroundImage flex flex-col gap-24 items-center justify-center text-white p-8 md:pt-20 pt-44'>
       <p
-        className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold md:mt-20 mt-52`}
+        className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold md:mt-20`}
       >
         COMMITMENT TO<span className='text-orange-500'> EXCELLENCE</span>
       </p>
@@ -300,7 +300,7 @@ const CertificateCard: React.FC<CertificateCardProps> = ({
 
 const EndToEnd = () => {
   return (
-    <div className='min-h-screen flex flex-col items-center justify-center p-8 mt-10 md:mb-60 mb-[100%] md:mx-20'>
+    <div className='flex flex-col items-center justify-center p-8 md:mt-5 md:mx-20 py-28'>
       <h2
         className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold text-center mb-10 uppercase`}
       >
@@ -486,15 +486,16 @@ const SmallOrangeTop = () => (
 );
 
 const AboutNextLoop = () => (
-  <div className='absolute md:top-[415%] top-[650%] flex flex-col items-center justify-center bg-[#1F1F1F] py-20 z-10 md:mx-28 px-10 mx-3'>
-    <Image
-      src={AboutNextloopBackground}
-      alt='About Nextloop Background'
-      fill
-      style={{ objectFit: 'cover' }}
-      className='absolute inset-0 z-0'
-    />
-    <div className='relative z-10 text-center text-white'>
+  <div className='relative z-20 flex flex-col items-center justify-center bg-[#1F1F1F] py-20 md:mx-28 mx-3 mb-[-100px]'>
+    <div className='absolute inset-0 z-0 overflow-hidden'>
+      <Image
+        src={AboutNextloopBackground}
+        alt='About Nextloop Background'
+        fill
+        style={{ objectFit: 'cover' }}
+      />
+    </div>
+    <div className='relative z-10 text-center text-white w-full max-w-4xl'>
       <h2
         className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold mb-4`}
       >
@@ -506,7 +507,7 @@ const AboutNextLoop = () => (
         Together with our partnership and industry experience, we are creating a
         robust ecosystem to bring huge business transformations.
       </p>
-      <div className='grid grid-cols-1 md:grid-cols-3 gap-12 w-full max-w-4xl mx-auto'>
+      <div className='grid grid-cols-1 md:grid-cols-3 gap-12 w-full mx-auto'>
         <div className='text-center'>
           <h3 className='text-5xl font-bold text-orange-500'>4+</h3>
           <p>Years on the market</p>
