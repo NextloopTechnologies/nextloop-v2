@@ -1,8 +1,12 @@
 import React from 'react';
 
 import { healthcareAssets } from '../../../../assets';
+import {
+  healthCareWhyChooseUs1,
+  healthCareWhyChooseUs2,
+} from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
-import ClientReviews from '../../../components/Domains/ClientReviews';
+// import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
 import FAQ from '../../../components/Domains/FAQ';
 import OurExpertise from '../../../components/Domains/HealthCare/OurExpertise';
@@ -60,13 +64,13 @@ const whyChooseContent: IWhyChooseUs[] = [
     title: 'Accept payments from anywhere with POS integrations',
     descp:
       'Streamline your operations by syncing menus and orders with advanced point of sale solutions—right on your dashboard.',
-    image: getStaticImageData(healthcareAssets.whyChooseUsImg),
+    image: healthCareWhyChooseUs1,
   },
   {
     title: 'Up your service with real-time data',
     descp:
       'Use analytics to get to know your customers and increase sales, then tailor their online experience to fit their needs.',
-    image: getStaticImageData(healthcareAssets.whyChooseUsImg),
+    image: healthCareWhyChooseUs2,
   },
 ];
 
@@ -180,7 +184,7 @@ const HealthCare: React.FC = () => {
 
       <SuccessStories />
 
-      <ClientReviews />
+      {/* <ClientReviews /> */}
 
       <FAQ faqsContent={faqsContent} />
 

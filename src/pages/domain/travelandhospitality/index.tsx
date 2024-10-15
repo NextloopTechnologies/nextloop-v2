@@ -3,7 +3,7 @@ import React from 'react';
 
 import { travelandhotelAssets } from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
-import ClientReviews from '../../../components/Domains/ClientReviews';
+// import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
 import FAQ from '../../../components/Domains/FAQ';
 import FlourishBusiness from '../../../components/Domains/TravelAndHotel/FlourishBusiness';
@@ -141,7 +141,7 @@ const TravelAndHospitality = () => {
 
         <GlobalInventory />
 
-        <ClientReviews />
+        {/* <ClientReviews /> */}
 
         <FAQ faqsContent={faqsContent} />
 
