@@ -61,15 +61,15 @@ const faqsContent: IFAQ[] = [
 
 const whyChooseContent: IWhyChooseUs[] = [
   {
-    title: 'Accept payments from anywhere with POS integrations',
+    title: 'Customized Healthcare Solutions',
     descp:
-      'Streamline your operations by syncing menus and orders with advanced point of sale solutions—right on your dashboard.',
+      ' Our software is made to specifically address the requirements of healthcare professionals, guaranteeing effective patient care, streamlined processes, and smooth adherence to legal requirements such as HIPAA.',
     image: healthCareWhyChooseUs1,
   },
   {
-    title: 'Up your service with real-time data',
+    title: 'Innovative Technology with Round-the-Clock Assistance',
     descp:
-      'Use analytics to get to know your customers and increase sales, then tailor their online experience to fit their needs.',
+      'We use cloud-based technologies, IoT, and AI to improve operational effectiveness and care delivery. As your healthcare demands expand, our round-the-clock assistance guarantees scalability and uninterrupted service.',
     image: healthCareWhyChooseUs2,
   },
 ];

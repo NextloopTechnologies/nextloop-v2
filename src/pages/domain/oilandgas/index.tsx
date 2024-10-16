@@ -54,7 +54,7 @@ const OilAndGas = () => {
           image={getStaticImageData(oilAndGasAssets.oilAndGasBg)}
           titleChildren={
             <h1
-              className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-white uppercase font-bold text-center w-full`}
+              className={`${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} text-white uppercase font-bold text-center w-full`}
             >
               Build <span className='text-orange-500'>oil and gas</span>{' '}
               software applications

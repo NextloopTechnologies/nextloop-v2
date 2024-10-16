@@ -119,9 +119,9 @@ const GlobalInventory = () => {
           <Image
             src={GlobalInventoryImage.src}
             alt=''
-            width={400}
-            height={420}
-            className='w-[600px] h-[400px]'
+            width={500}
+            height={500}
+            className='w-full h-full'
           />
         </div>
         <div className='w-full md:w-auto'>
