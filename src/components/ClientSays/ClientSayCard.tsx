@@ -23,7 +23,7 @@ const OURVALUES_DATA: ServiceCardProps[] = [
     heading: 'Manager, Levram Lifesciesnce Private Limited',
     image: Levram1 as unknown as string,
     title: 'Brijesh Panchal',
-    desc: 'We commend their quick response.',
+    desc: "Nextloop Technologies LLP delivered the project on time, meeting the client's expectations. They communicated frequently and promptly via email, ensuring an effective workflow. ",
   },
   {
     heading: 'Director, Shower Wealth Academy',

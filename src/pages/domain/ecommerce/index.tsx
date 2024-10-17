@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { ecommerceAssets, healthcareAssets } from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import BoostTraffic from '../../../components/Domains/BoostTraffic';
-import ClientReviews from '../../../components/Domains/ClientReviews';
+// import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
 import EnrollForWebsite from '../../../components/Domains/EnrollForWebsite';
 import FAQ from '../../../components/Domains/FAQ';
@@ -207,10 +207,10 @@ const Ecommerce = () => {
           data={productServiceContent}
         />
 
-        <ClientReviews
+        {/* <ClientReviews
           title='Real success stories from'
           colouredTitle='Real customer'
-        />
+        /> */}
         <FAQ faqsContent={faqsContent} />
         <CustomRequestQuote title='Your complete event management platform' />
       </Layout>
