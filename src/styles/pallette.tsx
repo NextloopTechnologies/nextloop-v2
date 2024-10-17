@@ -6,7 +6,7 @@ const palette = {
     },
     heading2: {
       mobile: 'text-xl',
-      desktop: 'text-3xl',
+      desktop: 'text-4xl',
     },
     subtitle: {
       mobile: 'text-lg',
