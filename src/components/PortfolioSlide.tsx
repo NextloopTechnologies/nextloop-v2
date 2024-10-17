@@ -19,22 +19,22 @@ const IMAGE_DATA: PortfolioCardProps[] = [
   {
     image: Portfolio1 as unknown as string,
     caption: '1st image caption',
-    link: 'portfolio/4/',
+    link: 'portfolio/4/?scrollToHeader=true',
   },
   {
     image: Portfolio2 as unknown as string,
     caption: '2nd image caption',
-    link: 'portfolio/5/',
+    link: 'portfolio/5/?scrollToHeader=true',
   },
   {
     image: Portfolio3 as unknown as string,
     caption: '3rd image caption',
-    link: 'portfolio/2/',
+    link: 'portfolio/2/?scrollToHeader=true',
   },
   {
     image: Portfolio4 as unknown as string,
     caption: '4th image caption',
-    link: 'portfolio/1/',
+    link: 'portfolio/1/?scrollToHeader=true',
   },
 ];
 
@@ -80,7 +80,7 @@ const PortfolioSlide: FC = () => {
       <div>
         <button
           onClick={() => handleImages(-1)}
-          className='prev absolute top-[50%] mt-auto pl-5'
+          className='prev absolute top-[50%] mt-auto pl-5 transition-transform transform hover:scale-110 active:scale-95'
         >
           <Image
             src={LeftSlide}
@@ -92,7 +92,7 @@ const PortfolioSlide: FC = () => {
         </button>
         <button
           onClick={() => handleImages(1)}
-          className='next absolute top-[50%] right-0 mt-auto pr-5'
+          className='next absolute top-[50%] right-0 mt-auto pr-5 transition-transform transform hover:scale-110 active:scale-95'
         >
           <Image
             src={LeftSlide}

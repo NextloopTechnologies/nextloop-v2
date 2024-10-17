@@ -156,7 +156,7 @@ const AboutUsHome = () => {
 const WhyUs = () => (
   <div className=' flex flex-col justify-center items-center text-center gap-12 p-8 py-20'>
     <p
-      className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold uppercase 2xl:w-[30%] xl:w-[60%] w-full`}
+      className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold uppercase w-full`}
     >
       CURIOUS ABOUT HOW WE MANAGE TO MAKE ALL THIS{' '}
       <span className='text-orange-500'>POSSIBLE?</span>
@@ -384,12 +384,12 @@ const Card: React.FC<{ title: string; sub: string }> = ({ title, sub }) => {
               <Image src={arrow} alt='arrow' />
             </div>
             <span
-              className={`${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} uppercase`}
+              className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} uppercase font-semibold`}
             >
               {title}
             </span>
           </div>
-          <span className='text-[12px] md:text-[12px] text-left'>{sub}</span>
+          <span className='text-[11px] md:text-[11px] text-left'>{sub}</span>
         </div>
       </div>
     </div>
