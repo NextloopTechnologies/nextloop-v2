@@ -23,10 +23,11 @@ const ServiceBox: React.FC<ServiceBoxProps> = ({ title, descp, icon }) => {
       <div className='absolute left-[-70px] top-1/2 transform -translate-y-1/2 ml-3'>
         <Image
           src={icon}
-          height={110}
-          width={110}
+          height={100}
+          width={100}
           quality={100}
           alt='tools-icon'
+          className='p-6 bg-[#FA8145] rounded-md'
         />
       </div>
       <div className='pl-14 py-8 mx-2'>
