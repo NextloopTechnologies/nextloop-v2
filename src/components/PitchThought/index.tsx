@@ -224,7 +224,11 @@ const PitchThought: FC = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link aria-disabled href=''>
+                    <Link
+                      aria-disabled
+                      href='mailto:info@nextlooptechnologies.com'
+                      aria-label='Send Email'
+                    >
                       <Image
                         src={Mail}
                         alt='gmail-icon'

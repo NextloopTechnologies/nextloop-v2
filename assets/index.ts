@@ -46,7 +46,7 @@ export { default as Shuttle } from './endToEnd/shuttle.png';
 export { default as Trophy } from './endToEnd/trophy.png';
 export { default as GlobalInventoryImage } from './GlobalInventoryImg.png';
 export { default as digitalProducts } from './healthcareAssets/digitalProducts.png';
-export { default as dropshipping } from './healthcareAssets/dropshipping.png';
+export { default as dropshipping } from './healthcareAssets/dropShipping.png';
 export { default as physicalProducts } from './healthcareAssets/physicalProducts.png';
 export { default as printOnDemand } from './healthcareAssets/printOnDemand.png';
 export { default as subscriptions } from './healthcareAssets/subscriptions.png';
