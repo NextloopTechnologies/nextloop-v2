@@ -13,28 +13,39 @@ import {
 interface ServiceCardProps {
   heading: string;
   image: string;
+  description: string;
 }
 
 const OURVALUES_DATA: ServiceCardProps[] = [
   {
     heading: 'Persistence',
     image: OurValues1 as unknown as string,
+    description:
+      "It symbolizes our commitment to continuous improvement, adapting to evolving technologies, and pushing boundaries to meet our clients' needs.",
   },
   {
     heading: 'Customer Centric',
     image: Values1 as unknown as string,
+    description:
+      'Our success is driven by our clients’ success, and we strive to exceed expectations through services and solutions that enhance their experience and drive growth.',
   },
   {
     heading: 'Agility',
     image: Values2 as unknown as string,
+    description:
+      'At Nextloop Technologies, agility is our ability to swiftly adapt to changing technologies and client needs, delivering innovative solutions to keep our clients ahead in a dynamic digital landscape.',
   },
   {
     heading: 'Ideas ',
     image: Values3 as unknown as string,
+    description:
+      'Ideas fuel our innovation, driving creative solutions and impactful results that keep our clients ahead in the digital world.',
   },
   {
     heading: 'Impact',
     image: Values4 as unknown as string,
+    description:
+      "Impact reflects our commitment to delivering solutions that drive measurable, long-term success, contributing to our clients' growth and efficiency in the digital landscape.",
   },
 ];
 
@@ -64,6 +75,7 @@ const OurValues: FC = () => {
                 key={ind}
                 heading={data?.heading}
                 image={data?.image}
+                description={data?.description}
               />
             );
           })}

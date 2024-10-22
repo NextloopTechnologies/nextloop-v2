@@ -59,9 +59,7 @@ const ProjectCard: React.FC<{ proj: IPortfolio }> = ({
       />
 
       <div className='absolute bg-white w-[80%] xl:px-16 py-8 flex flex-col items-center gap-4 -bottom-16 shadow-lg text-center'>
-        <p className='font-medium xl:text-4xl lg:text-2xl text-xl bg-red-500'>
-          {title}
-        </p>
+        <p className='font-medium xl:text-4xl lg:text-2xl text-xl'>{title}</p>
       </div>
     </div>
   );
