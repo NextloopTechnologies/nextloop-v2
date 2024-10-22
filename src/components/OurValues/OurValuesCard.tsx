@@ -7,12 +7,18 @@ import palette from '../../styles/pallette';
 interface ServiceCardProps {
   heading: string;
   image: string;
+  description: string;
 }
-const OurServieceCard: FC<ServiceCardProps> = ({ heading, image }) => {
+
+const OurServieceCard: FC<ServiceCardProps> = ({
+  heading,
+  image,
+  description,
+}) => {
   return (
-    <div className=' mx-auto bg-card border border-border rounded-sm shadow-lg p-3 flex justify-start items-start flex-col pb-10 '>
-      <div className=' w-full flex flex-col justify-start items-start'>
-        <div className=' w-16 h-16 mx-auto'>
+    <div className='mx-auto bg-card border border-border rounded-sm shadow-lg p-3 flex justify-start items-start flex-col pb-10'>
+      <div className='w-full flex flex-col justify-start items-start'>
+        <div className='w-16 h-16 mx-auto'>
           <Image
             // width={60}
             // height={60}
@@ -28,16 +34,13 @@ const OurServieceCard: FC<ServiceCardProps> = ({ heading, image }) => {
           <hr className='my-2 border border-1 border-orange-500 text-orange-500' />
         </h2>
       </div>
-      <div className=''>
+      <div>
         <p
           className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop} text-muted-foreground text-center`}
         >
-          {/* {desc} */}
-          It symbolizes our commitment to continuous improvement, adapting to
-        evolving technologies, and pushing boundaries to meet our clients'
-        needs.
+          {description}
         </p>
-      </div>{' '}
+      </div>
     </div>
   );
 };
