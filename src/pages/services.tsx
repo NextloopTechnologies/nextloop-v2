@@ -43,16 +43,16 @@ const cards: { title: string; desc: string }[] = [
     desc: 'Artificial Intelligence (AI) and Machine Learning (ML) are revolutionizing businesses. We can help you unlock the power of these technologies to gain valuable insights from your data, automate repetitive tasks, and drive innovation across your organization.',
   },
   {
-    title: 'Data Storage and Management',
-    desc: "Data is the new gold, but it's only valuable if you can access and utilize it effectively. We offer secure, scalable, and efficient data storage and management solutions. We'll help you harness the full potential of your data assets, empowering data-driven decision making and unlocking new opportunities.",
+    title: 'Quality Assurance',
+    desc: 'We offer complete Quality Assurance (QA) solutions to guarantee that your systems and software are up to par. Our exacting methodology, which emphasizes accuracy, efficiency, and dependability, enables you to produce flawless products that go above and beyond.',
   },
   {
     title: 'Technical Support',
     desc: "Peace of mind is priceless. Our reliable technical support services ensure that your website or application runs smoothly, uninterrupted. We'll be there to promptly address any technical issues that may arise, keeping your online presence running optimally.",
   },
   {
-    title: 'Technology Training',
-    desc: "Empower your team to excel in today's digital landscape! We offer customized training programs tailored to your specific technology needs.  Whether you need training on a new development framework or want to upskill your team on cloud technologies, we can provide the knowledge and skills they need to thrive.",
+    title: 'Digital Marketing Services',
+    desc: "Take your brand to the next level with Nextloop's data-driven digital marketing solutions. Through SEO, advertisements, and social media interaction, we combine strategy, technology, and creativity to increase traffic, lead generation, and conversions.",
   },
 ];
 

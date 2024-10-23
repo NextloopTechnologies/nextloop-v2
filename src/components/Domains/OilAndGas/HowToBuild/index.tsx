@@ -118,13 +118,10 @@ const HowToBuild = () => {
           className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} text-center mt-5 md:mx-20 mx-10`}
         >
           <p>
-            Whether it’s mining or the oil and gas industry... you care about
-            That’s your choice. Bespoke mining industry software solutions are
-            created to meet your needs. Maybe an iOS or Android app for
-            monitoring production data in real-time? Perhaps modelling software
-            for macOS or Windows? Maybe even a website or Progressive Web App
-            (PWA) for staff to view and manage their rosters. We make your idea
-            a reality.
+            Utilize Nextloop's experience to create unique cloud, IoT, and AI
+            solutions for effective asset management and real-time monitoring.
+            Our domain experts guarantee smooth system integration, adherence to
+            regulations, and scalability that is ready for the future.
           </p>
         </div>
         <div className='grid grid-cols-1 lg:grid-cols-4 gap-3 w-full max-w-7xl mt-[100px] px-10'>

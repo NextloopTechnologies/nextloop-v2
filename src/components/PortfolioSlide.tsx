@@ -65,7 +65,7 @@ const PortfolioSlide: FC = () => {
       </div>
       <header className='text-center w-full absolute md:top-14 top-2'>
         <span
-          className={`${palette.fontSize.heading2.mobile} md:text-4xl 2xl:text-6xl uppercase font-bold text-center`}
+          className={`${palette.fontSize.heading2.mobile} md:text-4xl 2xl:text-4xl uppercase font-bold text-center`}
         >
           our <span className='text-orange-500'>portfolio</span>
         </span>
