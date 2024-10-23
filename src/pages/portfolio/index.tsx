@@ -24,8 +24,8 @@ const Portfolio: React.FC<{ data?: IPortfolio[]; error?: string }> = ({
       />
       {data?.length ? (
         <div className='grid xl:grid-cols-2 grid-cols-1 gap-24 xl:p-24 md:p-8 p-4 place-items-center mb-16 xl:mb-0'>
-          {data.map((portfolio: IPortfolio) => (
-            <ProjectCard proj={portfolio} key={portfolio.id} />
+          {data.map((portfolio: IPortfolio, index: number) => (
+            <ProjectCard proj={portfolio} key={portfolio.id} index={index} />
           ))}
         </div>
       ) : (
@@ -39,8 +39,9 @@ const Portfolio: React.FC<{ data?: IPortfolio[]; error?: string }> = ({
 
 export default Portfolio;
 
-const ProjectCard: React.FC<{ proj: IPortfolio }> = ({
+const ProjectCard: React.FC<{ proj: IPortfolio; index: number }> = ({
   proj: { title, image, id },
+  index,
 }) => {
   const router = useRouter();
   return (
@@ -51,8 +52,8 @@ const ProjectCard: React.FC<{ proj: IPortfolio }> = ({
       }}
     >
       <Image
-        src={image?.[0]?.url as string}
-        alt='portfolio-image'
+        src={`/portfolio/${index}.png`}
+        alt={`portfolio-image-${index}`}
         className='object-contain max-h-[650px]'
         width={650}
         height={650}

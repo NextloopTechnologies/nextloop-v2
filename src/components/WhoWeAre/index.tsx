@@ -37,7 +37,7 @@ const WhoWeAre: FC = () => {
         >
           <div className='flex flex-col md:mx-20'>
             <b
-              className={`${palette.fontSize.heading2.mobile}  md:text-4xl 2xl:text-6xl uppercase font-bold`}
+              className={`${palette.fontSize.heading2.mobile}  md:text-4xl 2xl:text-4xl uppercase font-bold`}
             >
               who we <span className='text-orange-400'>are?</span>
             </b>

@@ -1,5 +1,5 @@
 import parse from 'html-react-parser';
-import { GetServerSideProps } from 'next';
+// import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useEffect, useRef } from 'react';
