@@ -78,7 +78,7 @@ const PitchThought: FC = () => {
       </Head>
       <form onSubmit={handleSubmit} className='md:px-20 md:pb-5 md:pt-10 pb-24'>
         <h1
-          className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-white uppercase font-bold text-center p-10`}
+          className={`${palette.fontSize.heading2.mobile} md:text-4xl 2xl:text-6xl text-white uppercase font-bold text-center p-10`}
         >
           Get in Touch {'  '}
           <span className='text-orange-500'>with Us!</span>
