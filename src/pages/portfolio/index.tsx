@@ -40,7 +40,7 @@ const Portfolio: React.FC<{ data?: IPortfolio[]; error?: string }> = ({
 export default Portfolio;
 
 const ProjectCard: React.FC<{ proj: IPortfolio; index: number }> = ({
-  proj: { title, image, id },
+  proj: { title, id },
   index,
 }) => {
   const router = useRouter();
