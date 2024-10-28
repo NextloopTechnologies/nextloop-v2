@@ -262,7 +262,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
           ref={(el: any) => (divRefs.current[1] = el)}
           className=''
         >
-          <div className='container mx-auto min-w-[100vw] md:min-h-[100vh] md:pt-16'>
+          <div className='md:my-20 md:mb-40 md:mx-22'>
             <WhoWeAre />
           </div>
         </div>
@@ -270,7 +270,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
         <div
           id='services'
           ref={(el: any) => (divRefs.current[2] = el)}
-          className=' '
+          className='md:mb-20 '
         >
           <div className='container mx-auto min-w-[100vw]'>
             <Services />

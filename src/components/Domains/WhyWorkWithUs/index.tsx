@@ -72,7 +72,7 @@ const WhyWorkWithUs = () => {
     <div className='flex'>
       <div className='flex flex-col pt-[50px] pb-[122px] max-w-[1479px] mx-auto'>
         <h1
-          className={`${palette.fontSize.heading2} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center`}
+          className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center`}
         >
           Why <span className='text-orange-500'>Work</span> With Us
         </h1>

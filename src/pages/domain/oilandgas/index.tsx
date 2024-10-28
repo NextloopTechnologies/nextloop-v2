@@ -3,7 +3,7 @@ import React from 'react';
 
 import { oilAndGasAssets } from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
-import ClientReviews from '../../../components/Domains/ClientReviews';
+// import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
 import FAQ from '../../../components/Domains/FAQ';
 import HowToBuild from '../../../components/Domains/OilAndGas/HowToBuild';
@@ -54,7 +54,7 @@ const OilAndGas = () => {
           image={getStaticImageData(oilAndGasAssets.oilAndGasBg)}
           titleChildren={
             <h1
-              className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-white uppercase font-bold text-center w-full`}
+              className={`${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} text-white uppercase font-bold text-center w-full`}
             >
               Build <span className='text-orange-500'>oil and gas</span>{' '}
               software applications
@@ -71,11 +71,11 @@ const OilAndGas = () => {
           colouredTitle='mining industry'
           informationSection={
             <div className='max-w-[737px] md:flex md:flex-col justify-center px-5 md:px-0 md:w-full w-[350px]'>
-              <h3
+              {/* <h3
                 className={`${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} uppercase my-5`}
               >
                 Why build a custom software solution for the mining industry?
-              </h3>
+              </h3> */}
               <p
                 className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
               >
@@ -100,10 +100,10 @@ const OilAndGas = () => {
 
         <FAQ faqsContent={faqsContent} />
 
-        <ClientReviews
+        {/* <ClientReviews
           title='Real success stories from'
           colouredTitle='Real customer'
-        />
+        /> */}
 
         <CustomRequestQuote title='Your complete oil and gas solution' />
       </Layout>

@@ -1,9 +1,13 @@
 import Head from 'next/head';
 import React from 'react';
 
-import { restaurantAssets } from '../../../../assets';
+import {
+  healthCareWhyChooseUs1,
+  healthCareWhyChooseUs2,
+  restaurantAssets,
+} from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
-import ClientReviews from '../../../components/Domains/ClientReviews';
+// import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
 import EnrollForWebsite from '../../../components/Domains/EnrollForWebsite';
 import FAQ from '../../../components/Domains/FAQ';
@@ -57,16 +61,16 @@ const faqsContent: IFAQ[] = [
 
 const whyChooseContent: IWhyChooseUs[] = [
   {
-    title: 'Accept payments from anywhere with POS integrations',
+    title: 'Customized Solutions for F&B Operations',
     descp:
-      'Streamline your operations by syncing menus and orders with advanced point of sale solutions—right on your dashboard.',
-    image: getStaticImageData(restaurantAssets.whyChooseUsImg),
+      'Our software ensures adherence to food safety regulations such as FDA and HACCP while streamlining production, inventory, and quality control for seamless, effective operations.',
+    image: healthCareWhyChooseUs1,
   },
   {
-    title: 'Up your service with real-time data',
+    title: 'Growth Driven by Technology with Round-the-Clock Assistance',
     descp:
-      'Use analytics to get to know your customers and increase sales, then tailor their online experience to fit their needs.',
-    image: getStaticImageData(restaurantAssets.whyChooseUsImg),
+      'Utilize cutting-edge technologies like IoT and predictive analytics to reduce waste and optimize supply chains. As your company grows, our committed support staff guarantees scalability and continuous servicing.',
+    image: healthCareWhyChooseUs2,
   },
 ];
 
@@ -188,10 +192,10 @@ const FoodAndBeverages: React.FC = () => {
         </div>
       </div> */}
 
-        <ClientReviews
+        {/* <ClientReviews
           title='Real success stories from'
           colouredTitle='Real customer'
-        />
+        /> */}
 
         <FAQ faqsContent={faqsContent} />
 

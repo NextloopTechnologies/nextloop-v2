@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
+import palette from '../../styles/pallette';
 import { BlogType } from '../../types';
 import supabaseClient from '../../utils/client';
 import blogsBg from '../../../assets/blogs.png';
@@ -48,7 +49,9 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
               ) : (
                 <div className='lg:w-[400px] h-[400px] animate-pulse bg-slate-100' />
               )}
-              <span className='font-medium md:text-4xl text-2xl'>
+              <span
+                className={`${palette.fontSize.subtitle.mobile} ,md:${palette.fontSize.subtitle.desktop} font-bold`}
+              >
                 {blog.title}
               </span>
               <span className='text-sm mt-2'>

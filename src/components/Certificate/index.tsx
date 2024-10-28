@@ -34,7 +34,7 @@ const Certificate: FC = () => {
         <header className='flex gap-10 lg:w-4/6 lg:px-10 text-center w-full '>
           <div className=' w-full flex flex-col justify-center items-center gap-y-3 z-10 px-4'>
             <div
-              className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-white uppercase font-bold text-center`}
+              className={`${palette.fontSize.heading2.mobile} md:text-4xl 2xl:text-4xl text-white uppercase font-bold text-center`}
             >
               <span className='text-white'>Certificates</span>
             </div>

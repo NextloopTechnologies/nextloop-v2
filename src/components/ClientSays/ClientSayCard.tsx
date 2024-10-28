@@ -23,7 +23,7 @@ const OURVALUES_DATA: ServiceCardProps[] = [
     heading: 'Manager, Levram Lifesciesnce Private Limited',
     image: Levram1 as unknown as string,
     title: 'Brijesh Panchal',
-    desc: 'We commend their quick response.',
+    desc: "Nextloop Technologies LLP delivered the project on time, meeting the client's expectations. They communicated frequently and promptly via email, ensuring an effective workflow. ",
   },
   {
     heading: 'Director, Shower Wealth Academy',
@@ -62,15 +62,15 @@ const ClientSaysCard: FC = () => {
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
             {OURVALUES_DATA.map((card, index) => (
-              <div key={index} className='min-w-full p-10'>
-                <div className='bg-white rounded-lg shadow-lg overflow-hidden flex sm:flex-row flex-col justify-center items-center gap-y-4 sm:gap-x-4 px-5 py-5 mx-auto sm:w-[80%]'>
+              <div key={index} className='min-w-full p-10 '>
+                <div className='bg-white rounded-lg shadow-lg overflow-hidden flex sm:flex-row flex-col justify-center items-center gap-y-4 sm:gap-x-4 px-5 py-5 mx-auto sm:w-[80%] h-[100%]'>
                   {/* <img
                     src={card.image}
                     alt={card.heading}
                     className='w-full h-48 object-cover'
                   /> */}
 
-                  <div className='flex flex-col justify-center items-center '>
+                  <div className='flex flex-col justify-center items-center'>
                     <Image
                       // width={60}
                       // height={60}

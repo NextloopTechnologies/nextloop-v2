@@ -63,7 +63,7 @@ const data = [
   },
   {
     id: 7,
-    title: 'Manage the day of your event with the our website',
+    title: 'Manage the day of your event with our website',
     subTitle: 'Mobile ticketing app | Walk-in ticket sales',
     description:
       'Smoothly manage your event onsite with the Wix Owner app. Run a clean door by checking in guests, scanning tickets, selling tickets at the door, managing your guest list and more. Open a live event discussion feed that you and your attendees can use to share and discuss content.',
@@ -166,7 +166,9 @@ export const EventIdeaRow = ({
         className={`${palette.fontSize.subtitle.mobile} md:${
           palette.fontSize.subtitle.desktop
         } uppercase font-extrabold ${
-          position === POSITION.LEFT ? 'md:ml-[250px] text-left' : 'md:ml-0'
+          position === POSITION.LEFT
+            ? 'md:ml-[250px] text-left'
+            : 'md:ml-0 w-[60%]'
         }`}
       >
         {title}
@@ -184,8 +186,8 @@ export const EventIdeaRow = ({
       )}
       {description && (
         <p
-          className={`${palette.fontSize.descriptionSmall.mobile} md:${
-            palette.fontSize.descriptionSmall.desktop
+          className={`${palette.fontSize.descriptionMid.mobile} md:${
+            palette.fontSize.descriptionMid.desktop
           } max-w-xs ${
             position === POSITION.LEFT ? 'md:ml-[250px] text-left' : 'md:ml-0'
           }`}
@@ -195,12 +197,12 @@ export const EventIdeaRow = ({
       )}
       {descriptionPoints && (
         <ul
-          className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop} list-disc pl-10 max-w-xs`}
+          className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop} list-disc pl-10 max-w-xs`}
         >
           {descriptionPoints.map((point, index) => (
             <li
               key={index}
-              className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+              className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
             >
               {point}
             </li>

@@ -1,6 +1,8 @@
 import parse from 'html-react-parser';
 import { GetServerSideProps } from 'next';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { useEffect, useRef } from 'react';
 
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
@@ -12,6 +14,15 @@ const PortfolioID: React.FC<{ data?: IPortfolio; error?: string }> = ({
   data,
   error,
 }) => {
+  const titleRef = useRef<HTMLHeadingElement | null>(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (router.query.scrollToHeader && titleRef.current) {
+      titleRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [router.query.scrollToHeader]);
+
   return (
     <Layout>
       <PageHero
@@ -23,7 +34,9 @@ const PortfolioID: React.FC<{ data?: IPortfolio; error?: string }> = ({
       <div className='xl:p-24 lg:p-8 p-4 flex flex-col'>
         {data ? (
           <div className='flex flex-col w-full min-h-screen items-center justify-center'>
-            <h1 className='font-bold text-4xl mt-5 mb-14'>{data.title}</h1>
+            <h1 ref={titleRef} className='font-bold text-4xl mt-5 mb-14'>
+              {data.title}
+            </h1>
             <Image
               src={data?.image?.[0]?.url as string}
               alt='portfolio-image'

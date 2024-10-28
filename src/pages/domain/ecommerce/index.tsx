@@ -1,9 +1,16 @@
 import Head from 'next/head';
 
-import { ecommerceAssets, healthcareAssets } from '../../../../assets';
+import {
+  digitalProducts,
+  dropshipping,
+  ecommerceAssets,
+  physicalProducts,
+  printOnDemand,
+  subscriptions,
+} from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
 import BoostTraffic from '../../../components/Domains/BoostTraffic';
-import ClientReviews from '../../../components/Domains/ClientReviews';
+// import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
 import EnrollForWebsite from '../../../components/Domains/EnrollForWebsite';
 import FAQ from '../../../components/Domains/FAQ';
@@ -93,31 +100,31 @@ const WhatWeDoData = [
 
 const productServiceContent = [
   {
-    icon: getStaticImageData(healthcareAssets.settingIcon),
+    icon: physicalProducts,
     title: 'physical products',
     descp:
       'Add an extensive catalog of products to your online store with up to 1,000 variants each. Import and export CSV files with products or seamlessly migrate your catalog with the Cart2Cart app.',
   },
   {
-    icon: getStaticImageData(healthcareAssets.modernizeIcon),
+    icon: dropshipping,
     title: 'dropshipping',
     descp:
       'Add ready-to-sell products from our dropshipping platform, or third-party apps, and let suppliers take care of fulfillment.',
   },
   {
-    icon: getStaticImageData(healthcareAssets.cloudIcon),
+    icon: printOnDemand,
     title: 'print on demand',
     descp:
       'Add your designs to hundreds of high-quality products, from t-shirts to headphones and let suppliers ship your custom merchandise directly to customers.',
   },
   {
-    icon: getStaticImageData(healthcareAssets.maintenanceIcon),
+    icon: digitalProducts,
     title: 'digital products',
     descp:
       'Sell digital products such as music files, ebooks, online courses, images or gift cards.',
   },
   {
-    icon: getStaticImageData(healthcareAssets.cloudIcon),
+    icon: subscriptions,
     title: 'subscriptions',
     descp:
       'Easily create and manage recurring products and sell subscriptions to generate a steady revenue stream.',
@@ -207,10 +214,10 @@ const Ecommerce = () => {
           data={productServiceContent}
         />
 
-        <ClientReviews
+        {/* <ClientReviews
           title='Real success stories from'
           colouredTitle='Real customer'
-        />
+        /> */}
         <FAQ faqsContent={faqsContent} />
         <CustomRequestQuote title='Your complete event management platform' />
       </Layout>

@@ -2,6 +2,7 @@ import Image, { StaticImageData } from 'next/image';
 import React from 'react';
 
 import { travelandhotelAssets } from '../../../../assets';
+import { GlobalInventoryImage } from '../../../../assets';
 import palette from '../../../styles/pallette';
 import { getStaticImageData } from '../../../utils/helper';
 
@@ -116,11 +117,11 @@ const GlobalInventory = () => {
         </div>
         <div className='hidden md:block -mt-2'>
           <Image
-            src={travelandhotelAssets.WhatWeDo2}
+            src={GlobalInventoryImage.src}
             alt=''
-            width={400}
-            height={420}
-            className='w-[400px] h-[420px]'
+            width={500}
+            height={500}
+            className='w-full h-full'
           />
         </div>
         <div className='w-full md:w-auto'>

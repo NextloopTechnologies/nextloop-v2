@@ -3,7 +3,7 @@ import React from 'react';
 
 import { fintechAssets } from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
-import ClientReviews from '../../../components/Domains/ClientReviews';
+// import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
 import FAQ from '../../../components/Domains/FAQ';
 import Benefits from '../../../components/Domains/Fintech/Benefits';
@@ -140,7 +140,7 @@ const Fintech: React.FC = () => {
             <WhyChooseUs whyChooseContent={whyChooseContent} />
             <Benefits />
             <WebDesignCompany />
-            <ClientReviews />
+            {/* <ClientReviews /> */}
             <FAQ faqsContent={faqsContent} />
             <CustomRequestQuote title='ready to grow your fintech business with new website' />
           </div>
