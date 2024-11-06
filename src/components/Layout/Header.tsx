@@ -124,11 +124,11 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
             >
               <div>Industries</div>
               {showIndustriesDropdown && (
-                <ul className='absolute left-0 mt-0 w-40 shadow-lg bg-white ring-1 ring-black ring-opacity-5'>
+                <ul className='absolute left-0 mt-0 w-48 rounded-2xl rounded-tl-none shadow-lg bg-black ring-1 ring-black ring-opacity-5 py-2 pr-2 border border-orange-500 space-y-3'>
                   {industries.map((industry) => (
                     <li
                       key={industry.name}
-                      className={`text-gray-700 hover:bg-orange-500 hover:text-white text-sm ${
+                      className={` hover:bg-orange-500 text-white text-sm rounded-sm ${
                         pathname === industry.href
                           ? 'bg-orange-500 text-white'
                           : ''
@@ -159,7 +159,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
                 onClick={handleRequestQuote}
                 className='bg-orange-500 ml-10 text-white px-5 py-3 rounded-full'
               >
-                Request quote &#10230;
+                Contact Us &#10230;
               </button>
             </li>
           </ul>
