@@ -178,7 +178,7 @@ const Hamburger = () => {
               onClick={handleRequestQuote}
               className='w-full bg-orange-500 text-white px-5 py-3 rounded-full'
             >
-              Request quote &#10230;
+              Contact Us &#10230;
             </button>
           </li>
         </ul>

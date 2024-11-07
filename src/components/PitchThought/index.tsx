@@ -70,7 +70,7 @@ const PitchThought: FC = () => {
   return (
     <>
       <Head>
-        <title>Contact NextLoop Technologies | Let's Connect</title>
+        <title>NextLoop Technologies | Let's Connect</title>
         <meta
           name='description'
           content='Get in touch with NextLoop Technologies for all your IT service needs. Our team is ready to assist you with innovative solutions and expert support.'
