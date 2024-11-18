@@ -140,7 +140,7 @@ const AboutUsHome = () => {
       <PageHero
         image={aboutBg}
         title='us'
-        coloredTitle='about'
+        coloredTitle='about '
         subtitle='Next Loop Technologies was founded in 2020, driven by enthusiasm and the desire to make a difference. What started off as a tiny concept has developed into something more significant, a journey requiring commitment and a strong drive for success. Our goal has always been the same: to support companies in realizing their aspirations and succeeding in the digital sphere. Our focus is on providing tailored IT solutions that empower companies to embrace digital transformation and unlock new opportunities. From cloud services to blockchain development and custom software solutions, we deliver cutting-edge technologies designed to meet the unique needs of your business.'
       />
       <WhyUs />
@@ -189,7 +189,7 @@ const Journey = () => {
           onClick={() => router.push('#footer')}
           className='bg-transparent border border-white text-white px-5 py-3 rounded-full'
         >
-          Request quote &#10230;
+          Contact Us &#10230;
         </button>
       </div>
     </div>
@@ -509,15 +509,15 @@ const AboutNextLoop = () => (
       </p>
       <div className='grid grid-cols-1 md:grid-cols-3 gap-12 w-full mx-auto'>
         <div className='text-center'>
-          <h3 className='text-5xl font-bold text-orange-500'>4+</h3>
+          <h3 className='text-5xl font-bold text-orange-500'>5+</h3>
           <p>Years on the market</p>
         </div>
         <div className='text-center'>
-          <h3 className='text-5xl font-bold text-orange-500'>50+</h3>
+          <h3 className='text-5xl font-bold text-orange-500'>80+</h3>
           <p>Senior-level developers</p>
         </div>
         <div className='text-center'>
-          <h3 className='text-5xl font-bold text-orange-500'>10+</h3>
+          <h3 className='text-5xl font-bold text-orange-500'>30+</h3>
           <p>Successful projects</p>
         </div>
       </div>

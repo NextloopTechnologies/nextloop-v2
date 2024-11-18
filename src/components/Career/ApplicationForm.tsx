@@ -12,6 +12,7 @@ const ApplicationForm: React.FC<{ jobId: number }> = ({
 }) => {
   const [initialValues, setInitialValues] = useState<AppliedJob>(AppliedJobDefaultFormValues);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isUploading, setIsUploading] = useState<boolean>(false);
   const [feedback, setFeedback] = useState<string>('');
   const [isError, setIsError] = useState<string>('');
   const resumeFileInputRef = useRef<HTMLInputElement>(null)
@@ -26,23 +27,33 @@ const ApplicationForm: React.FC<{ jobId: number }> = ({
     if (e.target.files && e.target.files[0]) {
       formData.append('file', e.target.files[0])
       try {
+        setIsUploading(true)
         const response = await uploadResume(formData);
+
         if (response.data && Object.keys(response.data).length) {
-          initialValues.resume_id = response.data.fileId
-          initialValues.resume_url = response.data.url
+          const { fileId, url } = response.data
+          setInitialValues((prevValues) => ({
+            ...prevValues,
+            resume_id: fileId,
+            resume_url: url,
+          }));
         }
       } catch (error) {
-        console.log("Resume API error", error);
+        setIsError("Failed to upload resume. Please try again.");
+      } finally {
+        setIsUploading(false);
       }
     }
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     try {
       setIsLoading(true);
 
       const payload: AppliedJob = { ...initialValues, job_id: jobId }
+
       const { success } = await createAppliedJob(payload);
 
       if (!success) return setIsError('We are currently facing some technical issue, Try later!')
@@ -125,6 +136,19 @@ const ApplicationForm: React.FC<{ jobId: number }> = ({
       </div>
       <div className="mb-4">
         <label className="form-label mb-2">
+          <span className='text-red-500'>*</span> LinkedIn:
+          <input
+            type="text"
+            name="linkedin_url"
+            value={initialValues.linkedin_url}
+            onChange={handleChange}
+            required
+            className="mt-1 p-3 form-input"
+          />
+        </label>
+      </div>
+      <div className="mb-4">
+        <label className="form-label mb-2">
           Cover Letter:
           <textarea
             name="cover_letter"
@@ -147,22 +171,13 @@ const ApplicationForm: React.FC<{ jobId: number }> = ({
           />
         </label>
       </div>
-      <div className="mb-4">
-        <label className="form-label mb-2">
-          LinkedIn:
-          <input
-            type="text"
-            name="linkedin_url"
-            value={initialValues.linkedin_url}
-            onChange={handleChange}
-            className="mt-1 p-3 form-input"
-          />
-        </label>
-      </div>
       <button
         type="submit"
-        disabled={isLoading}
-        className="w-full bg-orange-500 text-white py-2 px-4 rounded-md hover:bg-orange-600 transition duration-200"
+        disabled={isLoading || isUploading}
+        className={`w-full py-2 px-4 rounded-md ${isLoading || isUploading
+          ? 'bg-gray-400 cursor-not-allowed'
+          : 'bg-orange-500 hover:bg-orange-600 text-white transition duration-200'
+          }`}
       >
         {isLoading ? 'Submitting...' : 'Submit Application'}
       </button>

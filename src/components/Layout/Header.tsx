@@ -9,9 +9,10 @@ import { NextLoopColoredLogo } from '../../../assets';
 
 interface HeaderProps {
   isSticky: boolean;
+  headerColor?: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ isSticky }) => {
+const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [showIndustriesDropdown, setShowIndustriesDropdown] = useState(false);
@@ -42,7 +43,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
         duration: 0.5,
       },
     });
-  }, [isScrolled, isSticky, headerAnimation]);
+  }, [isScrolled, isSticky, headerAnimation, headerColor]);
 
   useEffect(() => {
     const handleStart = () => {
@@ -76,7 +77,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
   const handleRequestQuote = () => {
     const footer = document.getElementById('footer');
     if (footer) {
-      const headerOffset = isSticky ? 250 : 0; // Adjust this value based on your header height
+      const headerOffset = isSticky ? 250 : 0;
       const elementPosition =
         footer.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = elementPosition - headerOffset;
@@ -97,7 +98,9 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
       )}
       <nav
         className={`px-10 fixed transition-all duration-300 ease-in-out top-0 left-0 w-full z-30 ${
-          isSticky ? 'bg-white text-black shadow-md' : 'text-white'
+          isSticky
+            ? 'bg-white text-black shadow-md'
+            : headerColor ?? 'text-white'
         }`}
       >
         <div className='flex justify-between'>
@@ -124,11 +127,11 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
             >
               <div>Industries</div>
               {showIndustriesDropdown && (
-                <ul className='absolute left-0 mt-0 w-40 shadow-lg bg-white ring-1 ring-black ring-opacity-5'>
+                <ul className='absolute left-0 mt-0 w-48 rounded-2xl rounded-tl-none shadow-lg bg-black ring-1 ring-black ring-opacity-5 py-2 pr-2 border border-orange-500 space-y-3'>
                   {industries.map((industry) => (
                     <li
                       key={industry.name}
-                      className={`text-gray-700 hover:bg-orange-500 hover:text-white text-sm ${
+                      className={` hover:bg-orange-500 text-white text-sm rounded-sm ${
                         pathname === industry.href
                           ? 'bg-orange-500 text-white'
                           : ''
@@ -159,7 +162,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
                 onClick={handleRequestQuote}
                 className='bg-orange-500 ml-10 text-white px-5 py-3 rounded-full'
               >
-                Request quote &#10230;
+                Contact Us &#10230;
               </button>
             </li>
           </ul>
