@@ -9,9 +9,10 @@ import { NextLoopColoredLogo } from '../../../assets';
 
 interface HeaderProps {
   isSticky: boolean;
+  headerColor?: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ isSticky }) => {
+const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [showIndustriesDropdown, setShowIndustriesDropdown] = useState(false);
@@ -42,7 +43,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
         duration: 0.5,
       },
     });
-  }, [isScrolled, isSticky, headerAnimation]);
+  }, [isScrolled, isSticky, headerAnimation, headerColor]);
 
   useEffect(() => {
     const handleStart = () => {
@@ -76,7 +77,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
   const handleRequestQuote = () => {
     const footer = document.getElementById('footer');
     if (footer) {
-      const headerOffset = isSticky ? 250 : 0; // Adjust this value based on your header height
+      const headerOffset = isSticky ? 250 : 0;
       const elementPosition =
         footer.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = elementPosition - headerOffset;
@@ -97,7 +98,9 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
       )}
       <nav
         className={`px-10 fixed transition-all duration-300 ease-in-out top-0 left-0 w-full z-30 ${
-          isSticky ? 'bg-white text-black shadow-md' : 'text-white'
+          isSticky
+            ? 'bg-white text-black shadow-md'
+            : headerColor ?? 'text-white'
         }`}
       >
         <div className='flex justify-between'>
