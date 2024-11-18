@@ -52,7 +52,10 @@ export const Modal: React.FC<ModalProps> = ({
             />
             <p className='text-lg mb-4 text-black'>{successMessage}</p>
             <button
-              onClick={onClose}
+              onClick={() => {
+                onClose();
+                window.location.href = '/';
+              }}
               className='bg-[#13326C] text-white px-6 py-2 rounded-md font-semibold 
                 hover:bg-opacity-90 transition-colors'
             >
@@ -61,22 +64,39 @@ export const Modal: React.FC<ModalProps> = ({
           </div>
         ) : (
           selectedOffer && (
-            <div className='flex flex-col min-h-[320px]'>
-              <div className='flex flex-col items-center flex-grow'>
-                <img
-                  src={selectedOffer.icon.src}
-                  alt={selectedOffer.title}
-                  className='mb-4 w-16 sm:w-20 lg:w-24 h-16 sm:h-20 lg:h-24 object-contain'
-                />
-                <h2 className='text-xl sm:text-2xl font-bold mb-2 text-center'>
+            <div className='flex flex-col min-h-[280px]'>
+              <div className='flex flex-col  flex-grow'>
+                <div className='flex mb-2'>
+                  <img
+                    src={selectedOffer.icon.src}
+                    alt={selectedOffer.title}
+                    className='mr-2 w-16 sm:w-20 lg:w-24 h-16 sm:h-20 lg:h-24 object-contain'
+                  />
+                </div>
+                <h2 className='text-xl sm:text-2xl font-bold mb-4'>
                   {selectedOffer.title}
                 </h2>
-                <div className='w-full h-0.5 bg-white mb-4'></div>
+                <div className='w-full h-0.5 bg-white mb-2'></div>
               </div>
               <div className='mt-auto'>
                 <p className='text-base sm:text-lg mb-6 text-center'>
                   {selectedOffer.description}
                 </p>
+
+                <div className='text-xs sm:text-sm px-2 mb-4'>
+                  <h3 className='font-bold'>Terms and Conditions</h3>
+                  <ol className='list-decimal list-inside space-y-1'>
+                    <li>This Offer is available to new clients only</li>
+                    <li>
+                      The Offer is applicable to custom software development
+                      projects with a minimum project value of ₹50,000.
+                    </li>
+                    <li>
+                      The Offer cannot be combined with any other discounts,
+                      promotions, or special offers.
+                    </li>
+                  </ol>
+                </div>
                 {error && (
                   <p className='text-red-300 text-sm mb-4 text-center'>
                     {error}

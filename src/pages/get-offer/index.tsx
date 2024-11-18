@@ -146,23 +146,6 @@ const OffersPage = () => {
                 </div>
               </form>
             </div>
-
-            <div className='mt-6 text-left text-xs sm:text-sm text-gray-600 px-4 sm:px-5 mb-8'>
-              <h3 className='font-bold'>Terms and Conditions</h3>
-              <ol className='list-decimal list-inside space-y-1'>
-                <li>
-                  Offers are valid only for Bengaluru Tech Summit attendees.
-                </li>
-                <li>
-                  Offer is non-transferable and cannot be combined with other
-                  promotions.
-                </li>
-                <li>
-                  Nextloop Technologies reserves the right to modify or cancel
-                  the offer at any time.
-                </li>
-              </ol>
-            </div>
           </div>
         </div>
       </div>

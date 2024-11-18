@@ -117,13 +117,13 @@ const SpecialOffers: React.FC = () => {
 
   return (
     <Layout headerColor='bg-[#022435] text-white' showFooter={false}>
-      <div className='min-h-screen w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pt-20 sm:pt-24 lg:pt-28'>
-        <h1 className='text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-6 sm:mb-8 lg:mb-10 text-gray-800'>
+      <div className='min-h-screen w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pt-20 sm:pt-24 lg:pt-22'>
+        <h1 className='text-xl sm:text-2xl lg:text-3xl font-bold text-center mb-2 lg:mb-3 text-gray-800'>
           SPECIAL OFFERS
         </h1>
 
         <div
-          className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-6 lg:gap-8 
+          className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-2 lg:gap-4 
 
           px-6 sm:px-4 lg:px-8 mb-10 max-w-sm sm:max-w-none mx-auto'
         >
