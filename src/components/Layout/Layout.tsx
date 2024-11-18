@@ -11,6 +11,8 @@ interface LayoutProps {
   pitchThoughtSectionEnabled?: boolean;
   divRefs?: (HTMLDivElement | null)[];
   id?: string;
+  headerColor?: string;
+  showFooter?: boolean;
 }
 
 const Layout: React.FC<LayoutProps> = ({
@@ -18,6 +20,8 @@ const Layout: React.FC<LayoutProps> = ({
   pitchThoughtSectionEnabled,
   divRefs,
   id,
+  headerColor,
+  showFooter = true,
 }) => {
   const [isSticky, setIsSticky] = useState(false);
   useEffect(() => {
@@ -41,7 +45,11 @@ const Layout: React.FC<LayoutProps> = ({
   return (
     <>
       {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
-      {width! > 1023 ? <Header isSticky={isSticky} /> : <Hamburger />}
+      {width! > 1023 ? (
+        <Header isSticky={isSticky} headerColor={headerColor} />
+      ) : (
+        <Hamburger />
+      )}
       <div className='z-10'>{children}</div>
       {pitchThoughtSectionEnabled ? (
         <Section className='min-h-screen bg-[#010103] w-screen'>
@@ -59,7 +67,7 @@ const Layout: React.FC<LayoutProps> = ({
             id={id}
             ref={(el: any) => (divRefs?.length ? (divRefs[8] = el) : null)}
           >
-            <PitchThought />
+            {showFooter && <PitchThought />}
           </div>
         </div>
       )}
