@@ -8,7 +8,7 @@ interface FormData {
   name: string;
   email: string;
   phone: string;
-  company?: string;
+  company_name?: string;
 }
 
 const OffersPage = () => {
@@ -17,7 +17,7 @@ const OffersPage = () => {
     name: '',
     email: '',
     phone: '',
-    company: '',
+    company_name: '',
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -37,15 +37,18 @@ const OffersPage = () => {
 
     try {
       const response = await createOfferApplications({
-        offer_id: 0,
         name: formData.name,
         email: formData.email,
         mobile: formData.phone,
+        company_name: formData.company_name,
       });
 
-      if (response.success && response.data?.[0]?.customer_id) {
+      if (response.success && response.data?.[0]?.id) {
+        const applicationDetailString = JSON.stringify(response.data[0]);
         router.push(
-          `/offers/special-offers?customer_id=${response.data[0].customer_id}`
+          `/get-offer/specialoffers?application_detail=${encodeURIComponent(
+            applicationDetailString
+          )}`
         );
       } else {
         setError('Failed to process your request. Please try again.');
@@ -125,8 +128,8 @@ const OffersPage = () => {
 
                 <input
                   type='text'
-                  name='company'
-                  value={formData.company}
+                  name='company_name'
+                  value={formData.company_name}
                   onChange={handleChange}
                   placeholder='Company Name (Optional)'
                   className='w-full px-4 py-2 sm:py-1 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500'

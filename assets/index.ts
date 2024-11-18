@@ -56,6 +56,7 @@ export { default as offerIconCustomSoftwareDevelopment } from './offers/icons/cu
 export { default as offerIconDigitalMarketing } from './offers/icons/digitalMarketing.png';
 export { default as offerIconProductSubscription } from './offers/icons/productSubscription.png';
 export { default as offerIconStaffAugmentation } from './offers/icons/staffAugmentation.png';
+export { default as offerIconSuccessTick } from './offers/icons/successTick.png';
 export { default as offersLogo } from './offers/logo.png';
 export { default as offerPageBg } from './offers/offerPageBg.png';
 export { default as Service1 } from './services/1.png';
