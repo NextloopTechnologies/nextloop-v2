@@ -23,7 +23,6 @@ export const Modal: React.FC<ModalProps> = ({
   successMessage,
 }) => {
   if (!isOpen) return null;
-  console.log('selectedOffer', selectedOffer);
   return (
     <div className='fixed inset-0 z-50 flex items-center justify-center p-4'>
       <div
