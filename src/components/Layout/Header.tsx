@@ -160,9 +160,9 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
             <li>
               <button
                 onClick={handleRequestQuote}
-                className='bg-orange-500 ml-10 text-white px-5 py-3 rounded-full'
+                className='bg-orange-500 ml-10 text-white px-5 py-3 rounded-full flex items-center justify-center'
               >
-                Contact Us &#10230;
+                Contact Us <span className='ml-2'>&#10230;</span>
               </button>
             </li>
           </ul>
