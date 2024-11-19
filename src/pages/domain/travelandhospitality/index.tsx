@@ -40,27 +40,27 @@ const faqsContent: IFAQ[] = [
 const WhatWeDoData = [
   {
     image: getStaticImageData(travelandhotelAssets.WhatWeDo1),
-    title: 'Mobile Responsive',
+    title: 'Digital Loan Origination Systems',
     description:
-      'A responsive website get used to the device of each unique visitor, whether desktop, smartphone or  tablet. A responsive website dynamically re-sizes its content and imagery for a variety of different screen size to ensure the website is effective and easy to use on any device. Whether your company is large and established, or just starting. Nextloop can build a website that gets noticed. With our enhanced web design & development for Travel and Hotel, your online visitor enjoys the same experience. ',
+      'Streamline your lending process with our cutting-edge Digital Loan Origination System (LOS). From application to disbursement, we automate every step, ensuring faster approvals, reduced paperwork, and enhanced customer experience. Empower your financial institution to serve clients more efficiently.',
   },
   {
     image: getStaticImageData(travelandhotelAssets.WhatWeDo2),
-    title: 'Mobile Responsive',
+    title: 'Secure Payment Gateways',
     description:
-      'A responsive website get used to the device of each unique visitor, whether desktop, smartphone or  tablet. A responsive website dynamically re-sizes its content and imagery for a variety of different screen size to ensure the website is effective and easy to use on any device. Whether your company is large and established, or just starting. Nextloop can build a website that gets noticed. With our enhanced web design & development for Travel and Hotel, your online visitor enjoys the same experience. ',
+      "Boost your transaction capabilities with our Secure Payment Gateway Solutions. We offer seamless integration, robust encryption, and fraud detection systems to ensure safe, swift, and reliable digital payments, enhancing your customers' trust and satisfaction.",
   },
   {
     image: getStaticImageData(travelandhotelAssets.WhatWeDo3),
-    title: 'Mobile Responsive',
+    title: 'AI-Driven Financial Analytics',
     description:
-      'A responsive website get used to the device of each unique visitor, whether desktop, smartphone or  tablet. A responsive website dynamically re-sizes its content and imagery for a variety of different screen size to ensure the website is effective and easy to use on any device. Whether your company is large and established, or just starting. Nextloop can build a website that gets noticed. With our enhanced web design & development for Travel and Hotel, your online visitor enjoys the same experience. ',
+      'Unlock deeper insights with our AI-Driven Financial Analytics solutions. We harness big data and machine learning to provide actionable intelligence, helping you make informed decisions, optimize operations, and drive growth in your financial services',
   },
   {
     image: getStaticImageData(travelandhotelAssets.WhatWeDo4),
-    title: 'Mobile Responsive',
+    title: 'Custom Fintech Software Development',
     description:
-      'A responsive website get used to the device of each unique visitor, whether desktop, smartphone or  tablet. A responsive website dynamically re-sizes its content and imagery for a variety of different screen size to ensure the website is effective and easy to use on any device. Whether your company is large and established, or just starting. Nextloop can build a website that gets noticed. With our enhanced web design & development for Travel and Hotel, your online visitor enjoys the same experience. ',
+      "Transform your ideas into reality with our Custom Fintech Software Development services. Whether it's mobile banking apps, wealth management platforms, or blockchain solutions, we tailor our expertise to fit your unique business needs, delivering innovative and scalable FinTech products.",
   },
 ];
 
