@@ -19,7 +19,7 @@ export const OfferCard: React.FC<OfferCardProps> = ({
     <div
       className='bg-gradient-to-l from-[#13326C] to-[#0082B1] text-white px-4 sm:p-6 lg:px-4 rounded-lg 
         hover:shadow-lg transition-all duration-300 cursor-pointer transform hover:-translate-y-1
-        h-[210px]  flex flex-col justify-between'
+        h-auto py-5'
       onClick={onClick}
     >
       <div className='flex flex-col'>
@@ -32,7 +32,7 @@ export const OfferCard: React.FC<OfferCardProps> = ({
           {title}
         </span>
       </div>
-      <p className='text-sm sm:text-base lg:text-md'>{description}</p>
+      <p className='text-sm sm:text-base lg:text-md mt-2'>{description}</p>
     </div>
   );
 };
