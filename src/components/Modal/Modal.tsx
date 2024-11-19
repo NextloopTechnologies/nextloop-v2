@@ -95,6 +95,9 @@ export const Modal: React.FC<ModalProps> = ({
                       The Offer cannot be combined with any other discounts,
                       promotions, or special offers.
                     </li>
+                    {selectedOffer?.['t&c_point']?.map((item) => (
+                      <li>{item}</li>
+                    ))}
                   </ol>
                 </div>
                 {error && (
