@@ -126,7 +126,7 @@ export interface DBOffer {
   icon: {
     src: string;
   };
-  't&c_point': [];
+  't&c_points': [];
 }
 
 export interface OfferApplicationType {

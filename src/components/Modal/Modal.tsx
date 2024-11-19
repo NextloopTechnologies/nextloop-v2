@@ -23,7 +23,7 @@ export const Modal: React.FC<ModalProps> = ({
   successMessage,
 }) => {
   if (!isOpen) return null;
-
+  console.log('selectedOffer', selectedOffer);
   return (
     <div className='fixed inset-0 z-50 flex items-center justify-center p-4'>
       <div
@@ -86,16 +86,7 @@ export const Modal: React.FC<ModalProps> = ({
                 <div className='text-xs sm:text-sm px-2 mb-4'>
                   <h3 className='font-bold'>Terms and Conditions</h3>
                   <ol className='list-decimal list-inside space-y-1'>
-                    <li>This Offer is available to new clients only</li>
-                    <li>
-                      The Offer is applicable to custom software development
-                      projects with a minimum project value of ₹50,000.
-                    </li>
-                    <li>
-                      The Offer cannot be combined with any other discounts,
-                      promotions, or special offers.
-                    </li>
-                    {selectedOffer?.['t&c_point']?.map((item) => (
+                    {selectedOffer?.['t&c_points']?.map((item) => (
                       <li>{item}</li>
                     ))}
                   </ol>

@@ -38,7 +38,6 @@ const SpecialOffers: React.FC = () => {
               return {
                 ...offer,
                 icon: localOffer?.icon || { src: '' },
-                tc_details:offer?.["t&c_point"]
               };
             });
             setOffers(offersWithIcons);
