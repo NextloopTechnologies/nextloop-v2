@@ -85,8 +85,8 @@ export const Modal: React.FC<ModalProps> = ({
                 <div className='text-xs sm:text-sm px-2 mb-4'>
                   <h3 className='font-bold'>Terms and Conditions</h3>
                   <ol className='list-decimal list-inside space-y-1'>
-                    {selectedOffer?.['t&c_points']?.map((item) => (
-                      <li>{item}</li>
+                    {selectedOffer?.['t&c_points']?.map((item, index) => (
+                      <li key={index}>{item}</li>
                     ))}
                   </ol>
                 </div>
