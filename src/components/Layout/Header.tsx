@@ -152,10 +152,10 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
               <Link href='/services'>Services</Link>
             </li>
             <li className={`${pathname === '/career' && 'text-orange-500'}`}>
-              <Link href='/career'>Career</Link>
+              <Link href='/career'>Careers</Link>
             </li>
             <li className={`${pathname === '/blog' && 'text-orange-500'}`}>
-              <Link href='/blog'>Blog</Link>
+              <Link href='/blog'>Blogs</Link>
             </li>
             <li>
               <button
