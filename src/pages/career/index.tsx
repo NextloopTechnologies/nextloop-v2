@@ -92,7 +92,8 @@ const WhyUs = () => (
         {/* Middle */}
         <Image
           src={careerAssets.middleBig}
-          height={400} width={400}
+          height={400}
+          width={400}
           alt='career-image'
           className='object-cover w-full h-[250px]'
         />
@@ -100,10 +101,20 @@ const WhyUs = () => (
         {/* Bottom 1 */}
         <div className='flex items-center gap-4'>
           <div>
-            <Image src={careerAssets.bottomLeft} height={400} width={400} alt='career-image' />
+            <Image
+              src={careerAssets.bottomLeft}
+              height={400}
+              width={400}
+              alt='career-image'
+            />
           </div>
           <div>
-            <Image src={careerAssets.bottomRight} height={400} width={400} alt='career-image' />
+            <Image
+              src={careerAssets.bottomRight}
+              height={400}
+              width={400}
+              alt='career-image'
+            />
           </div>
         </div>
 
@@ -190,7 +201,7 @@ const Jobs: React.FC<{ jobs?: Job[]; error?: string }> = ({ error, jobs }) => (
         {error}
       </div>
     ) : (
-      <div className='grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full place-items-center sm:gap-12 gap-10'>
+      <div className='grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full place-items-center sm:gap-6 gap-6 p-2'>
         {jobs?.map((j) => (
           <JobCard job={j} key={j.id} />
         ))}
@@ -204,10 +215,10 @@ const JobCard: React.FC<{ job: Job }> = ({
 }) => {
   const router = useRouter();
   return (
-    <div className='px-8 py-12 bg-white text-black sm:min-w-[350px] min-w-full flex flex-col gap-4'>
+    <div className='px-8 py-12 bg-white text-black sm:w-[350px] min-w-full flex flex-col gap-4'>
       <div className='flex justify-between items-end'>
         <div className='flex flex-col gap-4'>
-          <p className='font-medium text-xl'>{title}</p>
+          <p className='font-medium text-[18px]'>{title}</p>
           <p className=''>{job_type}</p>
         </div>
         <div className='flex gap-2'>
@@ -234,7 +245,7 @@ export async function getServerSideProps() {
   const { data: jobs, error } = await supabaseClient
     .from('jobs')
     .select('*')
-    .filter('visibility', 'eq', true)
+    .filter('visibility', 'eq', true);
 
   if (error) {
     return {
