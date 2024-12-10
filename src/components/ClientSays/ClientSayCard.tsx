@@ -1,46 +1,41 @@
-import React, { FC, useState } from 'react';
-import {
-  OurCLient,
-  InvertedQoute,
-  RightArrow,
-  SWAcademy,
-  BlueBird,
-  Client2,
-} from '../../../assets';
-
 import Image from 'next/image';
+import React, { FC, useState } from 'react';
+
+import palette from '../../styles/pallette';
+import {
+  InvertedQoute,
+  Levram1,
+  RightArrow,
+  Stamens,
+  SWAcademy,
+  // Client2,
+} from '../../../assets';
 
 interface ServiceCardProps {
   heading: string;
   image: string;
   title: string;
+  desc: string;
 }
 
 const OURVALUES_DATA: ServiceCardProps[] = [
   {
-    heading: 'Persistence',
-    image: OurCLient as unknown as string,
-    title: 'Piyush Agrawal',
+    heading: 'Manager, Levram Lifesciesnce Private Limited',
+    image: Levram1 as unknown as string,
+    title: 'Brijesh Panchal',
+    desc: "Nextloop Technologies LLP delivered the project on time, meeting the client's expectations. They communicated frequently and promptly via email, ensuring an effective workflow. ",
   },
   {
-    heading: 'Customer Centric',
+    heading: 'Director, Shower Wealth Academy',
     image: SWAcademy as unknown as string,
+    title: 'Ayush Shrivastav',
+    desc: 'Nextloop Technologies LLP distinguishes itself in the realm of IT products and services through a myriad of pivotal factors, including innovative solutions.',
+  },
+  {
+    heading: 'Founder, Stamens Software Pvt Ltd',
+    image: Stamens as unknown as string,
     title: 'Shushil Kumar',
-  },
-  {
-    heading: 'Agility',
-    image: Client2 as unknown as string,
-    title: 'Rahul Nayak',
-  },
-  {
-    heading: 'Ideas ',
-    image: OurCLient as unknown as string,
-    title: 'Raj Vardhan',
-  },
-  {
-    heading: 'Impact',
-    image: BlueBird as unknown as string,
-    title: 'Mayank Agrawal',
+    desc: 'Their ability to consistently push boundaries and deliver cutting-edge solutions was truly remarkable.',
   },
 ];
 
@@ -60,15 +55,15 @@ const ClientSaysCard: FC = () => {
 
   return (
     <>
-      <div className='relative w-full max-w-sm  sm:max-w-lg mx-auto'>
+      <div className='relative w-full max-w-sm  sm:max-w-[800px] mx-auto'>
         <div className='overflow-hidden'>
           <div
             className='flex transition-transform duration-500 ease-out'
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
             {OURVALUES_DATA.map((card, index) => (
-              <div key={index} className='min-w-full p-10'>
-                <div className='bg-white rounded-lg shadow-lg overflow-hidden flex sm:flex-row flex-col justify-center items-center gap-y-4 sm:gap-x-4 px-5 py-5'>
+              <div key={index} className='min-w-full p-10 '>
+                <div className='bg-white rounded-lg shadow-lg overflow-hidden flex sm:flex-row flex-col justify-center items-center gap-y-4 sm:gap-x-4 px-5 py-5 mx-auto sm:w-[80%] h-[100%]'>
                   {/* <img
                     src={card.image}
                     alt={card.heading}
@@ -83,39 +78,42 @@ const ClientSaysCard: FC = () => {
                       alt={card.heading}
                       className='h-16 w-16 object-contain'
                     />
-                    <div className='text-center mt-3'>
-                      <h2 className='text-[14px] font-semibold whitespace-nowrap'>
+                    <div className='text-center mt-3 '>
+                      <h2
+                        className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} font-semibold whitespace-nowrap`}
+                      >
                         {card.title}
                       </h2>
-                      <p className='text-[10px] whitespace-nowrap'>
-                        Founder, Stamens Software Pvt Ltd
+                      <p
+                        className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop} whitespace-nowrap`}
+                      >
+                        {card?.heading}
                       </p>
                       {/* <p className='text-gray-600 mt-2'>{card.description}</p> */}
                     </div>
                   </div>
 
-                  <div className='w-full'>
-                    <span>
+                  <div className='w-full flex flex-col justify-between items-center'>
+                    <span className='self-start'>
                       <Image
-                        // width={60}
-                        // height={60}
                         src={InvertedQoute}
                         alt={card.heading}
-                        className=' w-10 object-cover'
-                      />{' '}
+                        className='w-10 object-cover'
+                      />
                     </span>
-                    <p className='text-[12px] p-4'>
-                      "Their ability to consistently push boundaries and deliver
-                      cutting-edge solutions was truly remarkable."
+
+                    <p
+                      className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop} p-4 text-center`}
+                    >
+                      {card?.desc}
                     </p>
-                    <span className='rotate-90  w-full'>
+
+                    <span className='self-end'>
                       <Image
-                        // width={60}
-                        // height={60}
                         src={InvertedQoute}
                         alt={card.heading}
-                        className='w-10 object-cover rotate-180 ml-auto'
-                      />{' '}
+                        className='w-10 object-cover rotate-180'
+                      />
                     </span>
                   </div>
                 </div>
@@ -127,7 +125,7 @@ const ClientSaysCard: FC = () => {
         {/* Left Arrow */}
         <button
           onClick={prevSlide}
-          className='absolute top-1/2 left-0 transform -translate-y-1/2 p-2 bg-white text-white rounded-full'
+          className='absolute top-[50%] left-0 transform -translate-y-1/2 p-2 bg-white text-white rounded-full'
         >
           <Image
             // width={60}
@@ -141,7 +139,7 @@ const ClientSaysCard: FC = () => {
         {/* Right Arrow */}
         <button
           onClick={nextSlide}
-          className='absolute top-1/2 right-0 transform -translate-y-1/2 p-2 bg-white text-white rounded-full'
+          className='absolute  top-[50%] right-0 transform -translate-y-1/2 p-2 bg-white text-white rounded-full'
         >
           <Image
             // width={60}

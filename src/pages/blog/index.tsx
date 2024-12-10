@@ -1,9 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
-import dayjs from 'dayjs';
+// import dayjs from 'dayjs';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
+import palette from '../../styles/pallette';
 import { BlogType } from '../../types';
 import supabaseClient from '../../utils/client';
 import blogsBg from '../../../assets/blogs.png';
@@ -37,8 +39,8 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
               onClick={() => router.push(`/blog/${blog.id}`)}
             >
               {blog.image ? (
-                <img
-                  src={blog.image}
+                <Image
+                  src={blog?.image?.[0]?.url as string}
                   alt='blog image'
                   className='w-[400px] h-[250px] object-contain'
                   height={250}
@@ -47,11 +49,13 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
               ) : (
                 <div className='lg:w-[400px] h-[400px] animate-pulse bg-slate-100' />
               )}
-              <span className='font-medium md:text-4xl text-2xl'>
+              <span
+                className={`${palette.fontSize.subtitle.mobile} ,md:${palette.fontSize.subtitle.desktop} font-bold`}
+              >
                 {blog.title}
               </span>
               <span className='text-sm mt-2'>
-                {dayjs(blog.created_at).format('DD/MMM/YYYY')}
+                {/* {dayjs(blog.created_at).format('DD/MMM/YYYY')} */}
               </span>
             </div>
           ))}

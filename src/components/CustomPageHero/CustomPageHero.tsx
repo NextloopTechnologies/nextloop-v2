@@ -28,7 +28,7 @@ const CustomPageHero = ({
   return (
     <div className={`flex ${className}`}>
       {titleChildren ? (
-        <div className='md:w-full h-[50vh] md:h-screen relative flex items-center justify-center text-white'>
+        <div className='w-full md:w-full h-[50vh] md:h-screen relative flex items-center justify-center text-white'>
           <Image
             src={image}
             className='absolute h-full w-full object-cover'

@@ -59,7 +59,7 @@ export const TitleDescCard = ({
   description,
   percentage,
 }: TitleDescCardProps) => (
-  <div className='bg-[#1A0E0A] justify-center text-center flex flex-col items-center gap-5 mx-auto w-[370px] md:w-[475px] h-[300px]'>
+  <div className='bg-[#1A0E0A] justify-center text-center flex flex-col items-center gap-5 w-full h-[300px] p-4'>
     <h4
       className={`${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} font-bold uppercase text-white`}
     >
@@ -70,9 +70,8 @@ export const TitleDescCard = ({
     >
       {percentage}
     </h1>
-
     <p
-      className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} mx-5 text-[#BAB7B5] font-normal`}
+      className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} text-[#BAB7B5] font-normal`}
     >
       {description}
     </p>
@@ -81,31 +80,35 @@ export const TitleDescCard = ({
 
 const BoostTraffic = () => {
   return (
-    <div className='h-full bg-[#010103] relative flex items-center justify-center text-white'>
+    <div className='relative w-full min-h-screen'>
       <Image
         src={ecommerceAssets.BoostTrafficBg}
-        className='absolute h-full w-full object-cover z-[1]'
+        className='absolute inset-0 w-full h-full object-cover'
         alt='blogs background'
         fill
         sizes='100vw'
         priority
         quality={100}
       />
-      <div className='flex flex-col items-center py-20 md:py-32 gap-10 z-[2]'>
-        <h1 className='text-3xl md:text-7xl uppercase font-bold text-center max-w-[1200px] mx-auto'>
-          Boost traffic and revenue with a full{' '}
-          <span className='text-orange-500'>marketing suite</span>
-        </h1>
+      <div className='relative z-10 w-full min-h-screen bg-black bg-opacity-85 py-12 px-4 md:py-24 md:px-8'>
+        <div className='max-w-7xl mx-auto flex flex-col h-full'>
+          <h1
+            className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center mb-16 text-white`}
+          >
+            Boost traffic and revenue with a full{' '}
+            <span className='text-orange-500'>marketing suite</span>
+          </h1>
 
-        <div className='flex flex-wrap mt-10 gap-8 max-w-[1500px] mx-auto'>
-          {sampleData.map((data) => (
-            <TitleDescCard
-              key={data.id}
-              title={data.title}
-              description={data.description}
-              percentage={data.percentage}
-            />
-          ))}
+          <div className='flex-grow grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr'>
+            {sampleData.map((data) => (
+              <TitleDescCard
+                key={data.id}
+                title={data.title}
+                description={data.description}
+                percentage={data.percentage}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
+import LoaderSvg from '../Loader/loader';
 import { NextLoopColoredLogo } from '../../../assets';
 import navIcon from '../../../public/hamburger.svg';
 
@@ -28,31 +28,61 @@ const Hamburger = () => {
   const router = useRouter();
   const { pathname } = router;
   const [showIndustriesDropdown, setShowIndustriesDropdown] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const industries = [
     { name: 'E-commerce', href: '/domain/ecommerce' },
     { name: 'Events', href: '/domain/events' },
     { name: 'Fin-Tech', href: '/domain/fintech' },
     { name: 'Healthcare', href: '/domain/healthcare' },
-    { name: 'Hotel', href: '/domain/hotel' },
     { name: 'Oil And Gas', href: '/domain/oilandgas' },
-    { name: 'Restaurant', href: '/domain/restaurant' },
-    { name: 'Travel And Hotel', href: '/domain/travelandhotel' },
+    { name: 'Food and Beverages', href: '/domain/foodandbeverages' },
+    { name: 'Travel And Hospitality', href: '/domain/travelandhospitality' },
   ];
 
   const toggleIndustriesDropdown = () => {
     setShowIndustriesDropdown(!showIndustriesDropdown);
   };
 
+  const handleNavigation = (href: string) => {
+    setIsLoading(true);
+    router.push(href).then(() => {
+      setIsLoading(false);
+      setIsOpen(false);
+    });
+  };
+
+  const handleRequestQuote = () => {
+    const footer = document.getElementById('footer');
+    if (footer) {
+      const headerOffset = 100;
+      const elementPosition =
+        footer.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+
+      setIsOpen(false);
+    }
+  };
+
   return (
     <>
+      {isLoading && (
+        <div className='fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-95 z-50'>
+          <LoaderSvg />
+        </div>
+      )}
       <div className='relative flex justify-between px-4'>
         <Image
           src={NextLoopColoredLogo}
           width={80}
           height={60}
           alt='NextLoop'
-          onClick={() => router.push('/')}
+          onClick={() => handleNavigation('/')}
         />
         <Image
           src={navIcon}
@@ -60,12 +90,6 @@ const Hamburger = () => {
           onClick={() => setIsOpen((t) => !t)}
         />
       </div>
-      <div
-        onClick={() => setIsOpen(false)}
-        className={`z-[99] ${
-          isOpen ? 'w-screen h-screen' : 'w-0 h-0'
-        } fixed top-0 bg-black opacity-0`}
-      ></div>
       <motion.div
         className='fixed top-0 left-0 w-3/4 h-full bg-white z-[999] overflow-y-auto'
         initial={{ x: '-100%' }}
@@ -74,14 +98,16 @@ const Hamburger = () => {
       >
         <ul className='flex flex-col items-start py-16 px-6 gap-6 h-full'>
           <li className={`w-full ${pathname === '/' ? 'text-orange-500' : ''}`}>
-            <Link href='/'>Home</Link>
+            <button onClick={() => handleNavigation('/')}>Home</button>
           </li>
           <li
             className={`w-full ${
               pathname === '/about-us' ? 'text-orange-500' : ''
             }`}
           >
-            <Link href='/about-us'>About us</Link>
+            <button onClick={() => handleNavigation('/about-us')}>
+              About us
+            </button>
           </li>
           <li
             className={`w-full ${
@@ -100,11 +126,16 @@ const Hamburger = () => {
                 {industries.map((industry) => (
                   <li
                     key={industry.name}
-                    className='text-gray-700 hover:text-orange-500 opacity-60'
+                    className={`text-gray-700 hover:text-orange-500 opacity-60 ${
+                      pathname === industry.href ? 'text-orange-500' : ''
+                    }`}
                   >
-                    <Link href={industry.href} className='block'>
+                    <button
+                      onClick={() => handleNavigation(industry.href)}
+                      className='block'
+                    >
                       {industry.name}
-                    </Link>
+                    </button>
                   </li>
                 ))}
               </ul>
@@ -115,38 +146,39 @@ const Hamburger = () => {
               pathname === '/portfolio' ? 'text-orange-500' : ''
             }`}
           >
-            <Link href='/portfolio'>Portfolio</Link>
+            <button onClick={() => handleNavigation('/portfolio')}>
+              Portfolio
+            </button>
           </li>
           <li
             className={`w-full ${
               pathname === '/services' ? 'text-orange-500' : ''
             }`}
           >
-            <Link href='/services'>Services</Link>
+            <button onClick={() => handleNavigation('/services')}>
+              Services
+            </button>
           </li>
           <li
             className={`w-full ${
               pathname === '/career' ? 'text-orange-500' : ''
             }`}
           >
-            <Link href='/career'>Career</Link>
+            <button onClick={() => handleNavigation('/career')}>Careers</button>
           </li>
           <li
             className={`w-full ${
               pathname === '/blog' ? 'text-orange-500' : ''
             }`}
           >
-            <Link href='/blog'>Blog</Link>
+            <button onClick={() => handleNavigation('/blog')}>Blogs</button>
           </li>
           <li className='w-full mt-4'>
             <button
-              onClick={() => {
-                router.push('#footer');
-                setIsOpen(false);
-              }}
+              onClick={handleRequestQuote}
               className='w-full bg-orange-500 text-white px-5 py-3 rounded-full'
             >
-              Request quote &#10230;
+              Contact Us &#10230;
             </button>
           </li>
         </ul>

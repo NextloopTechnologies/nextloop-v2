@@ -1,7 +1,6 @@
-export { default as AboutUsBackground } from './AboutUsBackground.png';
-export { default as BottomBig } from './careers/bottomBig.png';
-export { default as BottomLeft } from './careers/bottomLeft.png';
-export { default as BottomRight } from './careers/bottomRight.png';
+// export { default as AboutUsBackground } from './AboutUsBackground.png';
+// export { default as CB } from './cb.png';
+export { default as CB1 } from './cb-1.png';
 export { default as CompositeLayer_1 } from './CompositeLayer-1.png';
 export { default as CompositeLayer_2 } from './CompositeLayer-2.png';
 export { default as CompositeLayer_3 } from './CompositeLayer-3.png';
@@ -9,61 +8,84 @@ export { default as CompositeLayer_4 } from './CompositeLayer-4.png';
 export { default as ContactArrow } from './ContactArrow.png';
 export { default as ContactUs } from './ContactUs.png';
 export { default as DoubleQuotes } from './DoubleQuotes.png';
-export { default as InvertedQoute } from './inverted-qoute.png';
-export { default as RightArrow } from './right-arrow.svg';
-
 export { default as DownArrow } from './down-arrow.png';
+export { default as InvertedQoute } from './inverted-qoute.png';
+// export { default as Levram } from './levram.png';
+export { default as Levram1 } from './levram-1.png';
+// export { default as Levram2 } from './levram2.png';
+export { default as BlueBird } from './blue-bird.png';
+export { default as LeftSlide } from './left-slide.png';
 export { default as Lines } from './line.png';
+export { default as Millennialz } from './millennialz.png';
 export { default as Mobile_1 } from './Mobile-1.png';
 export { default as Mobile_2 } from './Mobile-2.png';
 export { default as NextLoopColoredLogo } from './NextLoopColoredLogo.jpeg';
 export { default as NextLoopLogo } from './NextLoopLogo.png';
-export { default as SellEverywhereImage } from './sellEverywhere.png';
-export { default as Whyus } from './whyus.png';
-export { default as Whoweare } from './who-we-are.jpeg';
-export { default as Services1 } from './services.jpeg';
+export { default as OurCLient } from './our-client-1.png';
+export { default as OurValues1 } from './our-values-1.png';
 export { default as Portfolio1 } from './portfolio-1.png';
 export { default as Portfolio2 } from './portfolio-2.png';
 export { default as Portfolio3 } from './portfolio-3.png';
 export { default as Portfolio4 } from './portfolio-4.png';
-export { default as LeftSlide } from './left-slide.png';
-export { default as OurValues1 } from './our-values-1.png';
-export { default as OurCLient } from './our-client-1.png';
-export { default as BlueBird } from './blue-bird.png';
-export { default as SWAcademy } from './SW-Academy.png';
-export { default as Client2 } from './client-2.png';
+export { default as RightArrow } from './right-arrow.svg';
+export { default as SellEverywhereImage } from './sellEverywhere.png';
+export { default as Services1 } from './services.jpeg';
+// export { default as SWAcademy } from './SW-Academy.png';
+export { default as AboutNextloopBackground } from './AboutNextloopBackground.png';
 export { default as Certificate1 } from './certificates/1.png';
 export { default as Certificate2 } from './certificates/2.png';
 export { default as Certificate3 } from './certificates/3.png';
 export { default as Certificate4 } from './certificates/4.png';
-
+export { default as Certificate5 } from './certificates/5.png';
+export { default as Client2 } from './client-2.png';
+export { default as CustomerService } from './endToEnd/customer-service.png';
+export { default as Illustration } from './endToEnd/Illustration.png';
+export { default as LocationPin } from './endToEnd/location-pin.png';
+export { default as Medal } from './endToEnd/medal.png';
+export { default as Shuttle } from './endToEnd/shuttle.png';
+export { default as Trophy } from './endToEnd/trophy.png';
+export { default as GlobalInventoryImage } from './GlobalInventoryImg.png';
+export { default as digitalProducts } from './healthcareAssets/digitalProducts.png';
+export { default as dropshipping } from './healthcareAssets/dropShipping.png';
+export { default as physicalProducts } from './healthcareAssets/physicalProducts.png';
+export { default as printOnDemand } from './healthcareAssets/printOnDemand.png';
+export { default as subscriptions } from './healthcareAssets/subscriptions.png';
+export { default as healthCareWhyChooseUs1 } from './healthCareWhyChooseUs1.jpeg';
+export { default as healthCareWhyChooseUs2 } from './healthCareWhyChooseUs2.jpeg';
+export { default as offerIconCustomSoftwareDevelopment } from './offers/icons/customSoftwareDevelopment.png';
+export { default as offerIconDigitalMarketing } from './offers/icons/digitalMarketing.png';
+export { default as offerIconProductSubscription } from './offers/icons/productSubscription.png';
+export { default as offerIconStaffAugmentation } from './offers/icons/staffAugmentation.png';
+export { default as offerIconSuccessTick } from './offers/icons/successTick.png';
+export { default as offersLogo } from './offers/logo.png';
+export { default as offerPageBg } from './offers/offerPageBg.png';
+export { default as Service1 } from './services/1.png';
+export { default as Service2 } from './services/2.png';
+export { default as Service3 } from './services/3.png';
+export { default as Service4 } from './services/4.png';
+export { default as Service5 } from './services/5.png';
+export { default as Service6 } from './services/6.png';
+export { default as Service7 } from './services/7.png';
+export { default as Service8 } from './services/8.png';
+export { default as Service9 } from './services/9.png';
+export { default as Service10 } from './services/10.png';
+export { default as Service11 } from './services/11.png';
+export { default as Service12 } from './services/12.png';
+export { default as ShowerWealth } from './shower-wealth.png';
+export { default as SWAcademy } from './shower-wealth-academy.png';
+export { default as FACEBOOK } from './socialIcons/FACEBOOK.png';
+export { default as GOOGLE } from './socialIcons/Google.png';
+export { default as INSTAGRAM } from './socialIcons/INSTAGRAM.png';
+export { default as LINKIN } from './socialIcons/LINKIN.png';
+export { default as Mail } from './socialIcons/Mail.png';
+export { default as X } from './socialIcons/TWT.png';
+export { default as Stamens } from './Stamens.png';
 export { default as Values1 } from './values-1.png';
 export { default as Values2 } from './values-2.png';
 export { default as Values3 } from './values-3.png';
 export { default as Values4 } from './values-4.png';
-
-export { default as Service1 } from './services/1.png';
-export { default as Service2 } from './services/2.png';
-export { default as Service3 } from './services/3.png';
-
-export { default as Service4 } from './services/4.png';
-export { default as Service5 } from './services/5.png';
-export { default as Service6 } from './services/6.png';
-
-export { default as Service7 } from './services/7.png';
-export { default as Service8 } from './services/8.png';
-export { default as Service9 } from './services/9.png';
-
-export { default as Service10 } from './services/10.png';
-export { default as Service11 } from './services/11.png';
-export { default as Service12 } from './services/12.png';
-
-export { default as FB } from './fb.png';
-export { default as GMAIL } from './gmail.png';
-export { default as GOOGLE } from './g+.png';
-export { default as YT } from './yt.png';
-export { default as X } from './x.png';
-export { default as INSTAGRAM } from './instagram.png';
+export { default as Whoweare } from './who-we-are.jpeg';
+export { default as Whyus } from './whyus.png';
 
 export const staticAssests = {
   AboutUsBackground:
@@ -104,6 +126,22 @@ export const staticAssests = {
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/sellEverywhere.png?updatedAt=1719991898809',
   Whyus:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/whyus.png?updatedAt=1719991921001',
+};
+export const careerAssets = {
+  leftBig:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers3.JPG?updatedAt=1725604764050',
+  rightTop:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers2.JPG?updatedAt=1725604765462',
+  rightMiddle:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers4.JPG?updatedAt=1725604765957',
+  middleBig:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers7.jpg?updatedAt=1725617401791',
+  bottomLeft:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers5.JPG?updatedAt=1725604767086',
+  bottomRight:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers6.png?updatedAt=1725604772798',
+  bottomBig:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers1.JPG?updatedAt=1725604762600',
 };
 
 export const eventAssets = {

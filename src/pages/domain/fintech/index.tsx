@@ -1,8 +1,9 @@
+import Head from 'next/head';
 import React from 'react';
 
 import { fintechAssets } from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
-import ClientReviews from '../../../components/Domains/ClientReviews';
+// import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
 import FAQ from '../../../components/Domains/FAQ';
 import Benefits from '../../../components/Domains/Fintech/Benefits';
@@ -10,6 +11,7 @@ import WebDesignCompany from '../../../components/Domains/Fintech/WebDesignCompa
 import WhyBuild from '../../../components/Domains/WhyBuild';
 import WhyChooseUs from '../../../components/Domains/WhyChooseUs';
 import Layout from '../../../components/Layout/Layout';
+import palette from '../../../styles/pallette';
 import { IFAQ, IWhyChooseUs } from '../../../types';
 import { getStaticImageData } from '../../../utils/helper';
 
@@ -51,75 +53,100 @@ const whyChooseContent: IWhyChooseUs[] = [
 
 const Fintech: React.FC = () => {
   return (
-    <Layout>
-      <CustomPageHero
-        image={getStaticImageData(fintechAssets.fintechBg)}
-        titleChildren={
-          <h1 className='text-white text-5xl md:text-8xl uppercase font-bold text-center max-w-[1306px]'>
-            <span className='text-orange-500'>fintech</span>
-            <br /> website design
-          </h1>
-        }
-        subtitle=''
-        opacity='opacity-10'
-        title=''
-      />
-
-      <WhyBuild
-        image={getStaticImageData(fintechAssets.whyBuildImg)}
-        colouredTitle='fintech industry'
-        informationSection={
-          <div className='max-w-[737px] flex flex-col justify-center px-5 md:px-0'>
-            <p className='text-sm md:text-lg'>
-              The fintech industry is booming. Today, most people begin their
-              research and purchase journeys online, so you need a website that
-              meets the expectations of your potential customers.
-            </p>
-            <p className='text-sm md:text-lg'>
-              With the increasing popularity of digital banking and financial
-              services, it's more important than ever for fintech companies to
-              get their web design right.
-            </p>
-            <p className='text-sm md:text-lg'>
-              A well-designed fintech website can enhance the user experience by
-              providing intuitive navigation, clear and concise information, and
-              easy access to essential tools and features. It can also help
-              establish trust with users by conveying a professional and
-              reliable image of the company.
-            </p>
-            <p className='text-sm md:text-lg'>
-              On the other hand, a poorly designed website can frustrate users,
-              cause confusion, and ultimately drive them away from your brand.
-            </p>
-            <p className='text-sm md:text-lg'>
-              In addition to user experience, web design affects a company's
-              search engine optimisation (SEO) and overall online visibility. A
-              website optimised for search engines will rank higher in search
-              results, making it easier for potential customers to find and
-              engage with the brand.
-            </p>
-            <p className='text-sm md:text-lg'>
-              Fintech web design is critical to any financial services company's
-              online presence. Investing in professional and user-friendly web
-              design can help your business stand out from the competition ,
-              build trust
-            </p>
+    <>
+      <Head>
+        <title>Nextloop's Fintech Solutions for Smart Financial Services</title>
+        <meta
+          name='description'
+          content='Discover cutting-edge fintech solutions at Nextloop Technologies. From secure digital payments to custom financial software, we drive innovation in the financial sector—partner with us for tailored fintech services that accelerate your business growth.'
+        />
+      </Head>
+      <Layout>
+        <div className='overflow-hidden'>
+          <div>
+            <CustomPageHero
+              image={getStaticImageData(fintechAssets.fintechBg)}
+              titleChildren={
+                <h1
+                  className={`text-white ${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} uppercase font-bold text-center w-full md:max-w-[1500px]`}
+                >
+                  <span className='text-orange-500'>fintech</span>
+                  <br /> website design
+                </h1>
+              }
+              subtitle=''
+              opacity='opacity-10'
+              title=''
+            />
+            <WhyBuild
+              image={getStaticImageData(fintechAssets.whyBuildImg)}
+              colouredTitle='fintech industry'
+              infoAndImgClassname='items-center'
+              informationSection={
+                <div
+                  className={`mx-5 md:mx-10 lg:mx-0 md:max-w-[600px] ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} px-10`}
+                >
+                  <p
+                    className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
+                  >
+                    The fintech industry is booming. Today, most people begin
+                    their research and purchase journeys online, so you need a
+                    website that meets the expectations of your potential
+                    customers.
+                  </p>
+                  <p
+                    className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
+                  >
+                    With the increasing popularity of digital banking and
+                    financial services, it's more important than ever for
+                    fintech companies to get their web design right.
+                  </p>
+                  <p
+                    className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
+                  >
+                    A well-designed fintech website can enhance the user
+                    experience by providing intuitive navigation, clear and
+                    concise information, and easy access to essential tools and
+                    features. It can also help establish trust with users by
+                    conveying a professional and reliable image of the company.
+                  </p>
+                  <p
+                    className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
+                  >
+                    On the other hand, a poorly designed website can frustrate
+                    users, cause confusion, and ultimately drive them away from
+                    your brand.
+                  </p>
+                  <p
+                    className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
+                  >
+                    In addition to user experience, web design affects a
+                    company's search engine optimisation (SEO) and overall
+                    online visibility. A website optimised for search engines
+                    will rank higher in search results, making it easier for
+                    potential customers to find and engage with the brand.
+                  </p>
+                  <p
+                    className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
+                  >
+                    Fintech web design is critical to any financial services
+                    company's online presence. Investing in professional and
+                    user-friendly web design can help your business stand out
+                    from the competition , build trust
+                  </p>
+                </div>
+              }
+            />
+            <WhyChooseUs whyChooseContent={whyChooseContent} />
+            <Benefits />
+            <WebDesignCompany />
+            {/* <ClientReviews /> */}
+            <FAQ faqsContent={faqsContent} />
+            <CustomRequestQuote title='ready to grow your fintech business with new website' />
           </div>
-        }
-      />
-
-      <WhyChooseUs whyChooseContent={whyChooseContent} />
-
-      <Benefits />
-
-      <WebDesignCompany />
-
-      <ClientReviews />
-
-      <FAQ faqsContent={faqsContent} />
-
-      <CustomRequestQuote title='ready to grow your fintech business with new website' />
-    </Layout>
+        </div>
+      </Layout>
+    </>
   );
 };
 

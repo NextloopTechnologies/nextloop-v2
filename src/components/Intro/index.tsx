@@ -1,69 +1,66 @@
-// import { motion } from 'framer-motion';
-import React, { FC } from 'react';
+import React from 'react';
 
-// import ContactUs from '../ContactUs';
-// import {
-//   introHeaderVariants,
-//   introRightHeaderVariants,
-// } from '../../utils/frameMotionAnimations';
-// import useWindowSize from '../../utils/useWindowSize';
+import palette from '../../styles/pallette';
 
-const Intro: FC = () => {
-  // const { isMobile } = useWindowSize();
-
+const Intro = () => {
   return (
-    <div className='relative w-full min-h-screen flex justify-start items-center overflow-x-hidden px-4 sm:px-6 lg:px-8'>
-      <div className='w-[50%] max-w-3xl mx-auto '>
-        <header
-          // initial={isMobile ? 'visible' : 'hide'}
-          // whileInView='show'
-          // exit='hide'
-          // variants={introHeaderVariants}
-          className='text-white text-left w-[40%]'
-        >
-          <div className='flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8'>
+    <div className='relative w-full flex justify-start items-center overflow-x-hidden px-4'>
+      <div className='px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 2xl:px-20 mx-4 sm:mx-8 md:mx-32 lg:mx-40 mt-36 md:mt-64 lg:mt-72'>
+        <header className='text-white text-left'>
+          <div className='flex flex-col md:flex-row justify-center md:items-start gap-1'>
             <div className='flex flex-col uppercase'>
-              <p className='flex flex-col uppercase text-left text-xs'>made</p>
-              <p className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-6xl font-bold tracking-tighter'>
+              <div className='flex justify-between md:justify-start md:flex-col'>
+                <p
+                  className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop} mr-1`}
+                >
+                  made
+                </p>
+                <p
+                  className={`${palette.fontSize.descriptionSmall.mobile} md:hidden mr-1`}
+                >
+                  with
+                </p>
+                <p
+                  className={`${palette.fontSize.descriptionSmall.mobile} md:hidden mr-1`}
+                >
+                  technologies
+                </p>
+              </div>
+              <h1
+                className={`${palette.fontSize.heading1.mobile} md:text-6xl font-bold tracking-tighter mt-2 md:mt-1 md:mr-4`}
+              >
                 unlock
-              </p>
+              </h1>
             </div>
             <div className='flex flex-col uppercase'>
-              <div className='flex justify-between'>
-                <p className='text-xs'>with</p>
-                <p className='text-xs'>technologies</p>
+              <div className='hidden md:flex md:justify-between'>
+                <p className={`${palette.fontSize.descriptionSmall.desktop}`}>
+                  with
+                </p>
+                <p
+                  className={`${palette.fontSize.descriptionSmall.desktop} ml-2`}
+                >
+                  technologies
+                </p>
               </div>
-              <p className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-6xl font-bold tracking-tighter text-orange-500'>
+              <h1
+                className={`${palette.fontSize.heading1.mobile} md:text-6xl font-bold tracking-tighter text-orange-500`}
+              >
                 innovative
-              </p>
+              </h1>
             </div>
           </div>
-          <p className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-6xl font-bold uppercase tracking-tighter mt-4'>
+          <h1
+            className={`${palette.fontSize.heading1.mobile} md:text-6xl font-bold uppercase tracking-tighter mt-1 md:mx-20`}
+          >
             solutions
-          </p>
+          </h1>
         </header>
 
-        <div
-          // initial={isMobile ? 'visible' : 'hide'}
-          // whileInView='show'
-          // exit='hide'
-          // variants={introRightHeaderVariants}
-          className='mt-8 sm:mt-12'
-        >
-          {/* <p className='text-sm sm:text-base lg:text-lg text-white text-center max-w-3xl mx-auto'>
-            If you are looking for a complete business solution at a one place
-            in combination with distinctive designs, that is what you can expect
-            from us. To stimulate the growth of your company, we focus on
-            various services, although we do not limit ourselves to this. We
-            keep learning and stay ourselves up to date with current market
-            trends.
-          </p> */}
+        <div className='mt-8 sm:mt-12'>
+          {/* Content for the div below the header */}
         </div>
       </div>
-
-      {/* <div className='mt-12 sm:absolute sm:left-8 sm:bottom-8'>
-        <ContactUs />
-      </div> */}
     </div>
   );
 };

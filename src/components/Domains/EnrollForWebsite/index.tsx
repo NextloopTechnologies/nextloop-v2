@@ -50,10 +50,10 @@ export const TitleDescCard = ({
   className,
 }: TitleDescCardProps) => (
   <div
-    className={`flex flex-col opacity-85 bg-[#1C1C1D] h-[250px] w-[150px] sm:h-[200px] sm:w-[250px] p-5 md:py-10 md:h-[180px] md:w-[350px] gap-4 rounded-md ${className}`}
+    className={`flex flex-col opacity-85 bg-[#1C1C1D] h-[140px] w-[350px] sm:h-[200px] sm:w-[250px] p-5 md:py-10 md:h-[180px] md:w-[350px] gap-4 rounded-md ${className}`}
   >
     <h3
-      className={`${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} uppercase`}
+      className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} uppercase`}
     >
       {title}
     </h3>
@@ -93,8 +93,8 @@ const EnrollForWebsite = ({
         )}
 
         <div className='grid grid-cols-1 md:grid-cols-2 place-items-center'>
-          <div className='flex  flex-col items-center justify-center '>
-            <div className='flex flex-col gap-3 mb-3 md:flex-row'>
+          <div className='flex  flex-col items-center justify-center'>
+            <div className='flex flex-col gap-3 md:ml-40 mb-3 md:flex-row'>
               {(data || sampleData).slice(0, 2).map((data) => (
                 <TitleDescCard
                   key={data.id}
@@ -104,7 +104,7 @@ const EnrollForWebsite = ({
                 />
               ))}
             </div>
-            <div className='flex flex-col gap-3 md:flex-row'>
+            <div className='flex flex-col gap-3 md:ml-40 md:flex-row'>
               {(data || sampleData).slice(2, 4).map((data) => (
                 <TitleDescCard
                   key={data.id}

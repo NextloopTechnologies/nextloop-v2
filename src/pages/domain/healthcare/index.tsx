@@ -1,8 +1,12 @@
 import React from 'react';
 
 import { healthcareAssets } from '../../../../assets';
+import {
+  healthCareWhyChooseUs1,
+  healthCareWhyChooseUs2,
+} from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
-import ClientReviews from '../../../components/Domains/ClientReviews';
+// import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
 import FAQ from '../../../components/Domains/FAQ';
 import OurExpertise from '../../../components/Domains/HealthCare/OurExpertise';
@@ -11,6 +15,7 @@ import ProductServices from '../../../components/Domains/ProductServices';
 import WhyBuild from '../../../components/Domains/WhyBuild';
 import WhyChooseUs from '../../../components/Domains/WhyChooseUs';
 import Layout from '../../../components/Layout/Layout';
+import palette from '../../../styles/pallette';
 import { IFAQ, IWhyChooseUs } from '../../../types';
 import { getStaticImageData } from '../../../utils/helper';
 
@@ -56,16 +61,16 @@ const faqsContent: IFAQ[] = [
 
 const whyChooseContent: IWhyChooseUs[] = [
   {
-    title: 'Accept payments from anywhere with POS integrations',
+    title: 'Customized Healthcare Solutions',
     descp:
-      'Streamline your operations by syncing menus and orders with advanced point of sale solutions—right on your dashboard.',
-    image: getStaticImageData(healthcareAssets.whyChooseUsImg),
+      ' Our software is made to specifically address the requirements of healthcare professionals, guaranteeing effective patient care, streamlined processes, and smooth adherence to legal requirements such as HIPAA.',
+    image: healthCareWhyChooseUs1,
   },
   {
-    title: 'Up your service with real-time data',
+    title: 'Innovative Technology with Round-the-Clock Assistance',
     descp:
-      'Use analytics to get to know your customers and increase sales, then tailor their online experience to fit their needs.',
-    image: getStaticImageData(healthcareAssets.whyChooseUsImg),
+      'We use cloud-based technologies, IoT, and AI to improve operational effectiveness and care delivery. As your healthcare demands expand, our round-the-clock assistance guarantees scalability and uninterrupted service.',
+    image: healthCareWhyChooseUs2,
   },
 ];
 
@@ -102,7 +107,9 @@ const HealthCare: React.FC = () => {
       <CustomPageHero
         image={getStaticImageData(healthcareAssets.healthCareBg)}
         titleChildren={
-          <h1 className='text-white text-5xl md:text-8xl uppercase font-bold text-center max-w-[1306px]'>
+          <h1
+            className={` text-white uppercase font-bold text-center max-w-[1306px] ${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop}`}
+          >
             <span className='text-orange-500'>healthcare</span> software
             development transforming patient care
           </h1>
@@ -117,29 +124,39 @@ const HealthCare: React.FC = () => {
         colouredTitle='healthcare'
         informationSection={
           <div className='max-w-[737px] flex flex-col justify-center px-5 md:px-0'>
-            <p className='text-sm md:text-lg'>
+            <p
+              className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
+            >
               We all know that technology is rapidly changing the healthcare
               industry. From electronic health records (EHRs) to telemedicine,
               technology is being used to improve the quality, efficiency, and
               affordability of healthcare.
             </p>
-            <p className='text-sm md:text-lg'>
+            <p
+              className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
+            >
               In fact, the global healthcare software market is expected to
               reach $974.5 billion by 2027. This means that healthcare
               automation is not just a future but is becoming a necessity.
             </p>
-            <p className='text-sm md:text-lg'>
+            <p
+              className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
+            >
               Custom Software solutions involve a process in which software is
               specifically designed for a particular healthcare organization.
               They can be used to improve a variety of tasks and processes, such
               as:
             </p>
-            <ul className='list-disc text-sm md:text-lg pl-5 md:pl-10 mt-2 mb-2'>
+            <ul
+              className={`list-disc ${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop} pl-5 md:pl-10 mt-2 mb-2`}
+            >
               {benefits.map((benefit) => (
                 <li key={benefit.id}>{benefit.text}</li>
               ))}
             </ul>
-            <p className='text-sm md:text-lg'>
+            <p
+              className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
+            >
               In this blog, you will uncover the reasons why healthcare
               providers should invest in custom software and how their
               investment can improve efficiency, reduce costs, and improve
@@ -155,7 +172,9 @@ const HealthCare: React.FC = () => {
 
       <ProductServices
         title={
-          <h1 className='text-black text-3xl md:text-5xl lg:text-7xl xl:text-[85px] uppercase font-bold text-center max-w-[1306px]'>
+          <h1
+            className={`text-black uppercase font-bold text-center  ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop}`}
+          >
             specialized <span className='text-orange-500'>healthcare</span>{' '}
             services!
           </h1>
@@ -165,7 +184,7 @@ const HealthCare: React.FC = () => {
 
       <SuccessStories />
 
-      <ClientReviews />
+      {/* <ClientReviews /> */}
 
       <FAQ faqsContent={faqsContent} />
 
