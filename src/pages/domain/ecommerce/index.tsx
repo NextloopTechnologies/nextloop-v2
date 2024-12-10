@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic';
 import Head from 'next/head';
 
 import {
@@ -9,46 +8,20 @@ import {
   printOnDemand,
   subscriptions,
 } from '../../../../assets';
+import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
+import BoostTraffic from '../../../components/Domains/BoostTraffic';
 // import ClientReviews from '../../../components/Domains/ClientReviews';
-const Layout = dynamic(() => import('../../../components/Layout/Layout'));
+import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
+import EnrollForWebsite from '../../../components/Domains/EnrollForWebsite';
+import FAQ from '../../../components/Domains/FAQ';
+import ProductServices from '../../../components/Domains/ProductServices';
+import SellEverywhere from '../../../components/Domains/SellEverywhere';
+import WhatWeDo from '../../../components/Domains/WhatWeDo';
+import WhyBuild from '../../../components/Domains/WhyBuild';
+import Layout from '../../../components/Layout/Layout';
 import palette from '../../../styles/pallette';
 import { IFAQ } from '../../../types';
 import { getStaticImageData } from '../../../utils/helper';
-
-const BoostTraffic = dynamic(
-  () => import('../../../components/Domains/BoostTraffic'),
-  { ssr: false }
-);
-const CustomRequestQuote = dynamic(
-  () => import('../../../components/Domains/CustomRequestQuote'),
-  { ssr: false }
-);
-const EnrollForWebsite = dynamic(
-  () => import('../../../components/Domains/EnrollForWebsite'),
-  { ssr: false }
-);
-const FAQ = dynamic(() => import('../../../components/Domains/FAQ'), {
-  ssr: false,
-});
-const ProductServices = dynamic(
-  () => import('../../../components/Domains/ProductServices'),
-  { ssr: false }
-);
-const SellEverywhere = dynamic(
-  () => import('../../../components/Domains/SellEverywhere'),
-  { ssr: false }
-);
-const WhatWeDo = dynamic(() => import('../../../components/Domains/WhatWeDo'), {
-  ssr: false,
-});
-const WhyBuild = dynamic(() => import('../../../components/Domains/WhyBuild'), {
-  ssr: false,
-});
-
-const CustomPageHero = dynamic(
-  () => import('../../../components/CustomPageHero/CustomPageHero'),
-  { ssr: false }
-);
 
 const sampleData = [
   {
