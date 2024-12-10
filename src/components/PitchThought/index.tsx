@@ -7,10 +7,11 @@ import CustomDropdown from '../CustomDropdown';
 import palette from '../../styles/pallette';
 import { EnquiryType } from '../../types';
 import { createInquiryForm } from '../../utils/db';
-import { FACEBOOK, GOOGLE, INSTAGRAM, LINKIN, Mail, X } from '../../../assets';
+import { FACEBOOK, GOOGLE, INSTAGRAM, LINKIN, Mail } from '../../../assets';
 import LocationIcon from '../../../assets/getInTouch/LocationIcon.png';
 import MailIcon from '../../../assets/getInTouch/MailIcon.png';
 import PhoneIcon from '../../../assets/getInTouch/PhoneIcon.png';
+import TwitterIcon from '../../../assets/getInTouch/twitterIcon.png';
 
 const PitchThought: FC = () => {
   const [email, setEmail] = useState('');
@@ -20,7 +21,8 @@ const PitchThought: FC = () => {
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-
+  const location =
+    '101, Kanchan Sagar, 18/1, Near Industry House, Old Palasia, Indore, Madhya Pradesh 452001';
   const handleEmailChange = (e: {
     target: { value: React.SetStateAction<string> };
   }) => {
@@ -58,7 +60,7 @@ const PitchThought: FC = () => {
         message,
       };
       const { success } = await createInquiryForm(payload);
-      console.log('success', success);
+      // console.log('success', success);
       if (success) {
         setSuccessMessage('Your message has been sent successfully!');
       }
@@ -159,7 +161,9 @@ const PitchThought: FC = () => {
                 <div
                   className={`flex ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
                 >
-                  info@nextlooptechnologies.com
+                  <a href='mailto:info@nextlooptechnologies.com'>
+                    info@nextlooptechnologies.com
+                  </a>
                 </div>
               </div>
               <div className='flex items-center'>
@@ -173,8 +177,16 @@ const PitchThought: FC = () => {
                 <div
                   className={`flex ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
                 >
-                  101, Kanchan Sagar, 18/1, Near Industry House, Old Palasia,
-                  Indore, Madhya Pradesh 452001
+                  <a
+                    href={`https://www.google.com/maps?q=${encodeURIComponent(
+                      location
+                    )}`}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    // style={{ color: 'blue', textDecoration: 'underline' }}
+                  >
+                    {location}
+                  </a>
                 </div>
               </div>
               <div className='flex items-center'>
@@ -186,9 +198,10 @@ const PitchThought: FC = () => {
                   className='mr-4'
                 />
                 <div
-                  className={`flex ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
+                  className={`flex gap-x-1 ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
                 >
-                  +91-6351 673 645
+                  <a href='tel:+918103542991'>+918103542991</a>,
+                  <a href='tel:+919893954683'>+919893954683</a>
                 </div>
               </div>
 
@@ -260,7 +273,7 @@ const PitchThought: FC = () => {
                   <li>
                     <Link href='https://x.com/Nextloop_'>
                       <Image
-                        src={X}
+                        src={TwitterIcon}
                         alt='insta-icon'
                         className='w-14 h-14 object-contain'
                       />
