@@ -13,8 +13,6 @@ import MailIcon from '../../../assets/getInTouch/MailIcon.png';
 import PhoneIcon from '../../../assets/getInTouch/PhoneIcon.png';
 import TwitterIcon from '../../../assets/getInTouch/twitterIcon.png';
 
-import palette from '../../styles/pallette';
-
 const PitchThought: FC = () => {
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');

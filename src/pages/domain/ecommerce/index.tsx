@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
 
 import {
@@ -8,20 +9,46 @@ import {
   printOnDemand,
   subscriptions,
 } from '../../../../assets';
-import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
-import BoostTraffic from '../../../components/Domains/BoostTraffic';
 // import ClientReviews from '../../../components/Domains/ClientReviews';
-import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
-import EnrollForWebsite from '../../../components/Domains/EnrollForWebsite';
-import FAQ from '../../../components/Domains/FAQ';
-import ProductServices from '../../../components/Domains/ProductServices';
-import SellEverywhere from '../../../components/Domains/SellEverywhere';
-import WhatWeDo from '../../../components/Domains/WhatWeDo';
-import WhyBuild from '../../../components/Domains/WhyBuild';
-import Layout from '../../../components/Layout/Layout';
+const Layout = dynamic(() => import('../../../components/Layout/Layout'));
 import palette from '../../../styles/pallette';
 import { IFAQ } from '../../../types';
 import { getStaticImageData } from '../../../utils/helper';
+
+const BoostTraffic = dynamic(
+  () => import('../../../components/Domains/BoostTraffic'),
+  { ssr: false }
+);
+const CustomRequestQuote = dynamic(
+  () => import('../../../components/Domains/CustomRequestQuote'),
+  { ssr: false }
+);
+const EnrollForWebsite = dynamic(
+  () => import('../../../components/Domains/EnrollForWebsite'),
+  { ssr: false }
+);
+const FAQ = dynamic(() => import('../../../components/Domains/FAQ'), {
+  ssr: false,
+});
+const ProductServices = dynamic(
+  () => import('../../../components/Domains/ProductServices'),
+  { ssr: false }
+);
+const SellEverywhere = dynamic(
+  () => import('../../../components/Domains/SellEverywhere'),
+  { ssr: false }
+);
+const WhatWeDo = dynamic(() => import('../../../components/Domains/WhatWeDo'), {
+  ssr: false,
+});
+const WhyBuild = dynamic(() => import('../../../components/Domains/WhyBuild'), {
+  ssr: false,
+});
+
+const CustomPageHero = dynamic(
+  () => import('../../../components/CustomPageHero/CustomPageHero'),
+  { ssr: false }
+);
 
 const sampleData = [
   {
@@ -130,35 +157,6 @@ const productServiceContent = [
       'Easily create and manage recurring products and sell subscriptions to generate a steady revenue stream.',
   },
 ];
-
-const productServiceContent = [
-  {
-    icon: getStaticImageData(ecommerceAssets.settingIcon),
-    title: "physical products",
-    descp: "Add an extensive catalog of products to your online store with up to 1,000 variants each. Import and export CSV files with products or seamlessly migrate your catalog with the Cart2Cart app."
-  },
-  {
-    icon: getStaticImageData(ecommerceAssets.modernizeIcon),
-    title: "dropshipping",
-    descp: "Add ready-to-sell products from our dropshipping platform, or third-party apps, and let suppliers take care of fulfillment."
-  },
-  {
-    icon: getStaticImageData(ecommerceAssets.cloudIcon),
-    title: "print on demand",
-    descp: "Add your designs to hundreds of high-quality products, from t-shirts to headphones and let suppliers ship your custom merchandise directly to customers."
-  },
-  {
-    icon: getStaticImageData(ecommerceAssets.maintenanceIcon),
-    title: "digital products",
-    descp: "Sell digital products such as music files, ebooks, online courses, images or gift cards."
-  },
-  {
-    icon: getStaticImageData(ecommerceAssets.cloudIcon),
-    title: "subscriptions",
-    descp: "Easily create and manage recurring products and sell subscriptions to generate a steady revenue stream."
-  },
-]
-
 
 const Ecommerce = () => {
   return (

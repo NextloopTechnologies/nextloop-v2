@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        "olg": "1100px"
-      }
+        olg: '1100px',
+      },
     },
   },
   plugins: [],

@@ -2,6 +2,19 @@
 import { Head, Html, Main, NextScript } from 'next/document';
 
 export default function Document() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Nextloop Technologies',
+    url: 'https://www.nextlooptechnologies.com/',
+    logo: 'https://www.nextlooptechnologies.com/static/logo.jpeg', // Replace with static logo URL
+    sameAs: [
+      'https://www.facebook.com/profile.php?id=61556914381569',
+      'https://x.com/Nextloop_',
+      'https://www.instagram.com/nextloop_technologies',
+      'https://www.linkedin.com/company/nextloop-technologies-llp',
+    ],
+  };
   return (
     <Html lang='en'>
       <Head>
@@ -15,6 +28,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-TPBJB3VM');
   `,
           }}
+        />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </Head>
       <body>
