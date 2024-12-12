@@ -79,12 +79,12 @@ const PitchThought: FC = () => {
         />
       </Head>
       <form onSubmit={handleSubmit} className='md:px-20 md:pb-5 md:pt-10 pb-24'>
-        <h1
+        <h2
           className={`${palette.fontSize.heading2.mobile} md:text-4xl 2xl:text-4xl text-white uppercase font-bold text-center p-10`}
         >
           Get in Touch {'  '}
           <span className='text-orange-500'>with Us!</span>
-        </h1>
+        </h2>
         <div
           id='footer'
           className='flex lg:flex-row flex-col items-center px-10'

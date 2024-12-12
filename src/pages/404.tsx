@@ -1,6 +1,9 @@
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 
-import Layout from '../components/Layout/Layout';
+const Layout = dynamic(() => import('../components/Layout/Layout'), {
+  ssr: false,
+});
 
 export default function Custom404() {
   return (
@@ -21,7 +24,7 @@ export default function Custom404() {
               Back to Home
             </Link>
             <Link
-              href='/about'
+              href='/about-us'
               className='px-6 py-3 bg-gray-200 text-gray-800 rounded-lg shadow hover:bg-gray-300'
             >
               About Us
@@ -31,12 +34,6 @@ export default function Custom404() {
               className='px-6 py-3 bg-gray-200 text-gray-800 rounded-lg shadow hover:bg-gray-300'
             >
               Blog
-            </Link>
-            <Link
-              href='/contact'
-              className='px-6 py-3 bg-gray-200 text-gray-800 rounded-lg shadow hover:bg-gray-300'
-            >
-              Contact Us
             </Link>
           </div>
         </div>

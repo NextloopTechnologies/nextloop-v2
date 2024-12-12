@@ -1,4 +1,5 @@
 User-agent: *
-Disallow:
-
-Sitemap: https://www.nextlooptechnologies.com/sitemap.xml
+Disallow: 
+Disallow: /404
+Disallow: /portfolio
+Sitemap: https://www.nextlooptechnologies.com/
