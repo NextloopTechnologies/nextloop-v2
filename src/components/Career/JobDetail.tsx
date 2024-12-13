@@ -17,7 +17,7 @@ const JobDetails: React.FC<{ job: Job }> = ({
     descp,
     job_mode,
     job_type,
-    package: money,
+    // package: money,
     responsibilities,
     qualifications,
     skills,
