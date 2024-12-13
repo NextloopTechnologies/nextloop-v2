@@ -7,7 +7,7 @@ export default function Document() {
     '@type': 'Organization',
     name: 'Nextloop Technologies',
     url: 'https://www.nextlooptechnologies.com/',
-    logo: 'https://www.nextlooptechnologies.com/static/logo.jpeg', // Replace with static logo URL
+    logo: 'https://www.nextlooptechnologies.com/static/logo.jpeg',
     sameAs: [
       'https://www.facebook.com/profile.php?id=61556914381569',
       'https://x.com/Nextloop_',
@@ -19,16 +19,19 @@ export default function Document() {
     <Html lang='en'>
       <Head>
         <script
+          async
+          src='https://www.googletagmanager.com/gtag/js?id=G-Y1VSVNV5D3'
+        ></script>
+        <script
           dangerouslySetInnerHTML={{
             __html: `
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TPBJB3VM');
-  `,
+              window.dataLayer = window.dataLayer || [];
+              function gtag() { window.dataLayer.push(arguments); }
+              gtag('js', new Date());
+              gtag('config', 'G-Y1VSVNV5D3');
+            `,
           }}
-        />
+        ></script>
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -39,7 +42,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <noscript
           dangerouslySetInnerHTML={{
             __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TPBJB3VM"
-height="0" width="0" style="display:none;visibility:hidden">`,
+              height="0" width="0" style="display:none;visibility:hidden">`,
           }}
         />
         <Main />
