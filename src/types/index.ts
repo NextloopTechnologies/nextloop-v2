@@ -98,6 +98,8 @@ export interface AppliedJob {
   github_url: string;
 
   linkedin_url: string;
+
+  experience?: string;
 }
 
 export interface EnquiryType {
