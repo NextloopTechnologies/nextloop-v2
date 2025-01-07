@@ -37,6 +37,10 @@ export default function Document() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <link rel='canonical' href='https://www.nextlooptechnologies.com/' />
+        <meta
+          name='google-site-verification'
+          content='1ZvPKSWx3wAqnYNwsBJFWw-0JipRSjhH68LI0Gxs8J4'
+        />
       </Head>
       <body>
         <noscript
