@@ -19,7 +19,7 @@ const ApplicationForm: React.FC<{ jobId: number }> = ({ jobId }) => {
   const formData = new FormData();
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setInitialValues({ ...initialValues, [name]: value });
@@ -180,16 +180,19 @@ const ApplicationForm: React.FC<{ jobId: number }> = ({ jobId }) => {
       </div>
       <div className='mb-4'>
         <label className='form-label mb-2'>
-          <span className='text-red-500'>*</span> Experience (in years):
-          <input
-            type='number'
+          <span className='text-red-500'>*</span> Experience:
+          <select
             name='experience'
             value={initialValues.experience}
             onChange={handleChange}
             required
-            min={0}
             className='mt-1 p-3 form-input'
-          />
+          >
+            <option value='0-1'>0-1 years</option>
+            <option value='1-3'>1-3 years</option>
+            <option value='3-5'>3-5 years</option>
+            <option value='5+'>5+ years</option>
+          </select>
         </label>
       </div>
       <button
