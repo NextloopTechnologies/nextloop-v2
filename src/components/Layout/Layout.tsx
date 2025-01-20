@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React, { ReactNode, useEffect, useState } from 'react';
 
 import Hamburger from './Hamburger';
@@ -43,8 +44,14 @@ const Layout: React.FC<LayoutProps> = ({
   const { width } = useWindowSize();
 
   return (
-    <>
+    <div>
       {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
+      <Head>
+        <meta
+          name='google-site-verification'
+          content='1ZvPKSWx3wAqnYNwsBJFWw-0JipRSjhH68LI0Gxs8J4'
+        />
+      </Head>
       {width! > 1023 ? (
         <Header isSticky={isSticky} headerColor={headerColor} />
       ) : (
@@ -71,7 +78,7 @@ const Layout: React.FC<LayoutProps> = ({
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

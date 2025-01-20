@@ -60,12 +60,10 @@ const Services = () => {
   return (
     <Layout>
       <Head>
-        <title>
-          IT Services | NextLoop Technologies - Transforming Businesses
-        </title>
+        <title>NextLoop Technologies | Our Services</title>
         <meta
           name='description'
-          content='Explore our range of IT services at NextLoop Technologies, from cloud computing and cybersecurity to software development. We empower businesses with innovative tech solutions tailored to their needs.'
+          content='Elevate your business with NextLoop Technologies. Our diverse range of services is crafted to optimize performance and foster sustainable growth.'
         />
       </Head>
       <PageHero
@@ -86,9 +84,9 @@ const Services = () => {
               height={140}
               width={140}
             />
-            <h1 className='font-medium lg:text-4xl text-2xl w-4/5'>
+            <h2 className='font-medium lg:text-4xl text-2xl w-4/5'>
               {card.title}
-            </h1>
+            </h2>
             <p className=''>{card.desc}</p>
           </div>
         ))}
