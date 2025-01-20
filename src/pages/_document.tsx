@@ -15,6 +15,7 @@ export default function Document() {
       'https://www.linkedin.com/company/nextloop-technologies-llp',
     ],
   };
+
   return (
     <Html lang='en'>
       <Head>
@@ -40,7 +41,7 @@ export default function Document() {
         <meta
           name='google-site-verification'
           content='1ZvPKSWx3wAqnYNwsBJFWw-0JipRSjhH68LI0Gxs8J4'
-        />
+        ></meta>
       </Head>
       <body>
         <noscript
