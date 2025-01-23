@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
@@ -15,6 +16,13 @@ const CareersPage: React.FC<{ jobs?: Job[]; error?: string }> = ({
 }) => {
   return (
     <Layout>
+      <Head>
+        <title>NextLoop Technologies | Careers</title>
+        <meta
+          name='description'
+          content='Advance your career at NextLoop Technologies. Be part of a forward-thinking team that values creativity and professional development in technology.'
+        />
+      </Head>
       <PageHero
         image={careerBg}
         subtitle='If you are looking for a complete business solution at a one place in combination with distinctive designs, that is what you can expect from us. To stimulate the growth of your company, we focus on various services, although we do not limit ourselves to this. We keep  learning and stay ourselves up to date with current market trends.'

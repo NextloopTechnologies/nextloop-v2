@@ -39,11 +39,11 @@ export { default as Certificate4 } from './certificates/4.png';
 export { default as Certificate5 } from './certificates/5.png';
 export { default as Client2 } from './client-2.png';
 export { default as CustomerService } from './endToEnd/customer-service.png';
-export { default as Illustration } from './endToEnd/Illustration.png';
 export { default as LocationPin } from './endToEnd/location-pin.png';
 export { default as Medal } from './endToEnd/medal.png';
 export { default as Shuttle } from './endToEnd/shuttle.png';
 export { default as Trophy } from './endToEnd/trophy.png';
+export { default as FoundedIcon } from './FoundedIcon.png';
 export { default as GlobalInventoryImage } from './GlobalInventoryImg.png';
 export { default as digitalProducts } from './healthcareAssets/digitalProducts.png';
 export { default as dropshipping } from './healthcareAssets/dropShipping.png';
@@ -309,10 +309,14 @@ export const ecommerceAssets = {
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/modernizeIcon.png?updatedAt=1720073536539',
   settingIcon:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/settingIcon.png?updatedAt=1720073539254',
-  globeIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomGlobeIcon.png?updatedAt=1720703266810",
-  desktopIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomDesktopIcon.png?updatedAt=1720703266804",
-  marketIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomMarketIcon.png?updatedAt=1720703266827",
-  bookReaderIcon: "https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomBookReaderIcon.png?updatedAt=1720703266602"
+  globeIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomGlobeIcon.png?updatedAt=1720703266810',
+  desktopIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomDesktopIcon.png?updatedAt=1720703266804',
+  marketIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomMarketIcon.png?updatedAt=1720703266827',
+  bookReaderIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomBookReaderIcon.png?updatedAt=1720703266602',
 };
 
 export const fintechAssets = {

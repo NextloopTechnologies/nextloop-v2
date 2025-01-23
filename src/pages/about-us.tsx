@@ -9,12 +9,12 @@ import palette from '../styles/pallette';
 import { AboutNextloopBackground, LeftSlide } from '../../assets';
 import {
   CustomerService,
-  Illustration,
   LocationPin,
   Medal,
   Shuttle,
   Trophy,
 } from '../../assets';
+import { FoundedIcon } from '../../assets';
 import aboutBg from '../../assets/about-us-hero.png';
 import cert1 from '../../assets/certificates/1.png';
 import cert2 from '../../assets/certificates/2.png';
@@ -31,8 +31,8 @@ export interface Service {
 
 const servicesData: Service[] = [
   {
-    icon: Illustration.src,
-    title: 'Certified For Quality',
+    icon: FoundedIcon.src,
+    title: 'Founded in 2020',
     description:
       'Nextloop Technologies delivers innovative IT solutions across industries.',
   },
@@ -43,23 +43,23 @@ const servicesData: Service[] = [
   },
   {
     icon: Medal.src,
-    title: 'Successful Projects',
+    title: 'Certifications',
     description: 'Globally recognized standards achieved.',
   },
   {
     icon: Shuttle.src,
-    title: 'Our Specialism',
-    description: 'Successfully delivered [X]+ projects globally.',
+    title: 'Projects Completed',
+    description: 'Successfully delivered 30+ projects globally.',
   },
   {
     icon: CustomerService.src,
-    title: 'Certified For Quality',
+    title: 'Expertise',
     description:
       'Specializing in Cloud Solutions, Blockchain, Custom Software, and Digital Transformation.',
   },
   {
     icon: Trophy.src,
-    title: 'Certified For Quality',
+    title: 'Recognition',
     description: 'Renowned for delivering award-winning IT solutions. ',
   },
 ];
@@ -131,16 +131,16 @@ const AboutUsHome = () => {
   return (
     <Layout>
       <Head>
-        <title>About NextLoop Technologies | Your Trusted IT Partner</title>
+        <title>NextLoop Technologies | About Us</title>
         <meta
           name='description'
-          content='Learn more about NextLoop Technologies, our mission, and our commitment to delivering exceptional IT solutions. We are dedicated to driving your business success with our expertise.'
+          content='At NextLoop Technologies, we are committed to driving innovation. Learn about our core values and how we aim to revolutionize the tech landscape.'
         />
       </Head>
       <PageHero
         image={aboutBg}
-        title='us'
         coloredTitle='about '
+        title='us'
         subtitle='Next Loop Technologies was founded in 2020, driven by enthusiasm and the desire to make a difference. What started off as a tiny concept has developed into something more significant, a journey requiring commitment and a strong drive for success. Our goal has always been the same: to support companies in realizing their aspirations and succeeding in the digital sphere. Our focus is on providing tailored IT solutions that empower companies to embrace digital transformation and unlock new opportunities. From cloud services to blockchain development and custom software solutions, we deliver cutting-edge technologies designed to meet the unique needs of your business.'
       />
       <WhyUs />
@@ -406,11 +406,11 @@ const JourneyCard: React.FC<{ title: string; sub: string; odd: boolean }> = ({
       {!odd ? <SmallOrangeTop /> : <BigOrangeTop />}
       <div className='absolute flex flex-col  md:w-[275px] w-full items-center gap-2 md:px-0 mt-8'>
         <Image src={bulb} alt='bulb' />
-        <h1
+        <h3
           className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop} font-bold`}
         >
           {title}
-        </h1>
+        </h3>
         <span className=' text-[10px] px-8'>{sub}</span>
       </div>
     </div>
