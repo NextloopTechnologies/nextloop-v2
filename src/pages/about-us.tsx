@@ -9,12 +9,12 @@ import palette from '../styles/pallette';
 import { AboutNextloopBackground, LeftSlide } from '../../assets';
 import {
   CustomerService,
-  Illustration,
   LocationPin,
   Medal,
   Shuttle,
   Trophy,
 } from '../../assets';
+import { FoundedIcon } from '../../assets';
 import aboutBg from '../../assets/about-us-hero.png';
 import cert1 from '../../assets/certificates/1.png';
 import cert2 from '../../assets/certificates/2.png';
@@ -31,8 +31,8 @@ export interface Service {
 
 const servicesData: Service[] = [
   {
-    icon: Illustration.src,
-    title: 'Certified For Quality',
+    icon: FoundedIcon.src,
+    title: 'Founded in 2020',
     description:
       'Nextloop Technologies delivers innovative IT solutions across industries.',
   },
@@ -43,23 +43,23 @@ const servicesData: Service[] = [
   },
   {
     icon: Medal.src,
-    title: 'Successful Projects',
+    title: 'Certifications',
     description: 'Globally recognized standards achieved.',
   },
   {
     icon: Shuttle.src,
-    title: 'Our Specialism',
-    description: 'Successfully delivered [X]+ projects globally.',
+    title: 'Projects Completed',
+    description: 'Successfully delivered 30+ projects globally.',
   },
   {
     icon: CustomerService.src,
-    title: 'Certified For Quality',
+    title: 'Expertise',
     description:
       'Specializing in Cloud Solutions, Blockchain, Custom Software, and Digital Transformation.',
   },
   {
     icon: Trophy.src,
-    title: 'Certified For Quality',
+    title: 'Recognition',
     description: 'Renowned for delivering award-winning IT solutions. ',
   },
 ];
