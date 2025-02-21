@@ -19,6 +19,7 @@ export default function Document() {
   return (
     <Html lang='en'>
       <Head>
+        {/* Google Tag Manager */}
         <script
           async
           src='https://www.googletagmanager.com/gtag/js?id=G-Y1VSVNV5D3'
@@ -32,32 +33,57 @@ export default function Document() {
               gtag('config', 'G-Y1VSVNV5D3');
             `,
           }}
-        ></script>
+        />
+
+        {/* JSON-LD Structured Data */}
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+
+        {/* Canonical Link */}
         <link rel='canonical' href='https://www.nextlooptechnologies.com/' />
+
+        {/* Google Site Verification */}
         <meta
           name='google-site-verification'
           content='1ZvPKSWx3wAqnYNwsBJFWw-0JipRSjhH68LI0Gxs8J4'
-        ></meta>
-        <script>
-          {`function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");
-          o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,
-          o.onload=function(){window.trackingFunctions.onLoad({appId:"6799e3966d69e201b08953e1"})},
-          document.head.appendChild(o)}initApollo();`}
-        </script>
+        />
       </Head>
       <body>
+        {/* GTM NoScript Fallback */}
         <noscript
           dangerouslySetInnerHTML={{
             __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TPBJB3VM"
-              height="0" width="0" style="display:none;visibility:hidden">`,
+              height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
           }}
         />
+
+        {/* Main Content */}
         <Main />
         <NextScript />
+
+        {/* Apollo Tracker */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              function initApollo() {
+                var n = Math.random().toString(36).substring(7);
+                var o = document.createElement("script");
+                o.src = "https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=" + n;
+                o.async = true;
+                o.defer = true;
+                o.onload = function() {
+                  if (window.trackingFunctions) {
+                    window.trackingFunctions.onLoad({ appId: "6799e3966d69e201b08953e1" });
+                  }
+                };
+                document.head.appendChild(o);
+              }
+              window.addEventListener("load", initApollo);
+            `,
+          }}
+        />
       </body>
     </Html>
   );
