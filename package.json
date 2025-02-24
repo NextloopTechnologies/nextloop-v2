@@ -23,7 +23,8 @@
     "next": "13.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sweetalert2": "^11.14.5"
+    "sweetalert2": "^11.14.5",
+    "swiper": "^11.2.4"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^13.1.1",
