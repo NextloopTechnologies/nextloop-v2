@@ -32,7 +32,7 @@ const Slider: React.FC<SliderProps> = ({
   const nextRef = useRef(null);
 
   return (
-    <div className={`slider-container ${className} py-10 px-5 relative`}>
+    <div className={`slider-container ${className} py-20 px-5 relative`}>
       {header}
 
       {showArrows && (
