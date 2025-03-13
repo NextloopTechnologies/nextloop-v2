@@ -32,7 +32,7 @@ const Slider: React.FC<SliderProps> = ({
   const nextRef = useRef(null);
 
   return (
-    <div className={`slider-container ${className} py-10 px-5 relative`}>
+    <div className={`slider-container ${className} py-20 px-5 relative`}>
       {header}
 
       {showArrows && (
@@ -82,7 +82,7 @@ const Slider: React.FC<SliderProps> = ({
         }}
         {...swiperParams}
       >
-        {slides.map((slide, index) => (
+        {slides?.map((slide, index) => (
           <SwiperSlide key={index} className='mb-10'>
             <div className='transition-transform duration-300 ease-in-out scale-100 hover:scale-105'>
               {slide}

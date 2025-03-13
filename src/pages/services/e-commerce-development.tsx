@@ -5,8 +5,8 @@ import 'swiper/css/pagination';
 import ServicePage from './BaseServicePages';
 import { servicesSubPagesData } from '../../utils/staticTextImgData';
 
-const WebDevelopment = () => {
-  return <ServicePage {...servicesSubPagesData?.webDevelopment} />;
+const ECommerceDevelopment = () => {
+  return <ServicePage {...servicesSubPagesData?.ecommerceDevelopment} />;
 };
 
-export default WebDevelopment;
+export default ECommerceDevelopment;

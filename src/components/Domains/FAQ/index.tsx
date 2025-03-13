@@ -17,7 +17,7 @@ const FAQ: React.FC<AccordionProps> = ({ faqsContent }) => {
   };
 
   return (
-    <div className='flex flex-col items-center pt-5 mx-auto mb-5'>
+    <div className='flex flex-col items-center py-20 mx-auto mb-5'>
       <h1
         className={`${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} font-bold`}
       >

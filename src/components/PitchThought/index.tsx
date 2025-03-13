@@ -252,11 +252,11 @@ const PitchThought: FC = () => {
                   <li>
                     <Link
                       aria-disabled
-                      href='https://www.instagram.com/nextloop_technologies?igsh=MXJ1dzBocGliajBqbg=='
+                      href='https://www.instagram.com/nextloop.technologies/'
                     >
                       <Image
                         src={INSTAGRAM}
-                        alt='yt-icon'
+                        alt='instagram-icon'
                         className='w-14 h-14 object-contain'
                       />
                     </Link>
