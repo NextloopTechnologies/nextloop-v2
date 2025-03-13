@@ -109,14 +109,14 @@ const ServicePage: React.FC<ServicePageProps> = ({
   return (
     <Layout>
       <Head>
-        <title>{metaData.pageMetaTitle}</title>
-        <meta name='description' content={metaData.pageMetaDescription} />
+        <title>{metaData?.pageMetaTitle}</title>
+        <meta name='description' content={metaData?.pageMetaDescription} />
       </Head>
       <PageHero
         image={heroImage}
-        coloredTitle={heroSectionData.coloredTitle}
-        title={heroSectionData.title}
-        subtitle={heroSectionData.subtitle}
+        coloredTitle={heroSectionData?.coloredTitle}
+        title={heroSectionData?.title}
+        subtitle={heroSectionData?.subtitle}
         opacity='opacity-80'
       />
       <IconTextBoxZebra data={expertiseData} />

@@ -18,7 +18,7 @@ interface TechStackProps {
 
 const TechStack: React.FC<TechStackProps> = ({ techStackData }) => {
   const [activeTab, setActiveTab] = useState<string>(
-    techStackData.length > 0 ? techStackData[0]?.title ?? '' : ''
+    techStackData?.length > 0 ? techStackData[0]?.title ?? '' : ''
   );
 
   return (
@@ -31,7 +31,7 @@ const TechStack: React.FC<TechStackProps> = ({ techStackData }) => {
         technologies.
       </p>
       <div className='flex justify-center mt-6 border-b border-gray-600'>
-        {techStackData.map((category) => (
+        {techStackData?.map((category) => (
           <button
             key={category.title}
             className={`px-4 py-2 text-lg font-medium ${
@@ -39,15 +39,15 @@ const TechStack: React.FC<TechStackProps> = ({ techStackData }) => {
                 ? 'text-orange-500 border-b-2 border-orange-500'
                 : 'text-gray-400'
             }`}
-            onClick={() => setActiveTab(category.title)}
+            onClick={() => setActiveTab(category?.title)}
           >
-            {category.title}
+            {category?.title}
           </button>
         ))}
       </div>
       <div className='flex flex-wrap justify-center gap-6 mt-10'>
         {techStackData
-          .find((category) => category.title === activeTab)
+          ?.find((category) => category.title === activeTab)
           ?.items?.map((item) => (
             <div
               key={item.name}
