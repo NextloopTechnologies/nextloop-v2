@@ -1,4 +1,3 @@
-
 import { GetServerSideProps } from 'next';
 import React from 'react';
 
@@ -13,7 +12,6 @@ const CareerID: React.FC<{ data?: Job[]; error?: string }> = ({
   data,
   error,
 }) => {
-
   if (error)
     return (
       <Layout>
@@ -30,6 +28,11 @@ const CareerID: React.FC<{ data?: Job[]; error?: string }> = ({
 
   return (
     <Layout>
+      <title>NextLoop Technologies | Careers</title>
+      <meta
+        name='description'
+        content='Advance your career at NextLoop Technologies. Be part of a forward-thinking team that values creativity and professional development in technology.'
+      />
       <PageHero
         image={careerBg}
         title='careers'

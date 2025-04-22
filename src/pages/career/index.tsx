@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -9,6 +10,20 @@ import supabaseClient from '../../utils/client';
 import { careerAssets } from '../../../assets';
 import careerBg from '../../../assets/careerBg.png';
 import location from '../../../assets/location.svg';
+
+export const metadata: Metadata = {
+  title: 'My Website',
+  description: 'Welcome to my website',
+  openGraph: {
+    title: 'My Website',
+    description: 'Welcome to my website',
+    images: [
+      {
+        url: 'https://mywebsite.com/og-image.jpg',
+      },
+    ],
+  },
+};
 
 const CareersPage: React.FC<{ jobs?: Job[]; error?: string }> = ({
   jobs,
