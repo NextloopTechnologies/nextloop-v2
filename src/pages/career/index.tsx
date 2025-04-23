@@ -10,6 +10,7 @@ import { careerAssets } from '../../../assets';
 import careerBg from '../../../assets/careerBg.png';
 import location from '../../../assets/location.svg';
 
+
 const CareersPage: React.FC<{ jobs?: Job[]; error?: string }> = ({
   jobs,
   error,
