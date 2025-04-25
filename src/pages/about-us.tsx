@@ -101,23 +101,23 @@ const journeyArr = [
 const certificateCardArr = [
   {
     img: cert1,
-    title: 'iso certificate',
-    sub: 'If you are looking for a complete business solution at a one place in combination with distinctive designs, that is what you can expect from us.',
+    title: 'ISO 9001:2015 Certified',
+    sub: 'We are ISO 9001:2015 certified, which means our processes meet global standards for delivering quality and customer satisfaction.',
   },
   {
     img: cert2,
-    title: 'iso certificate',
-    sub: 'If you are looking for a complete business solution at a one place in combination with distinctive designs, that is what you can expect from us.',
+    title: 'ISO 27001:2013 Certified',
+    sub: 'We are ISO 27001:2013 certified, ensuring your data is protected with the highest level of information security management.',
   },
   {
     img: cert3,
-    title: 'cmmi level 3',
-    sub: 'If you are looking for a complete business solution at a one place in combination with distinctive designs, that is what you can expect from us.',
+    title: 'CMMI Level 3 Certified',
+    sub: 'We are proudly CMMI Level 3 certified, which reflects our commitment to delivering consistent, reliable, and high-quality software development practices.',
   },
   {
     img: cert5,
-    title: 'startup india',
-    sub: 'If you are looking for a complete business solution at a one place in combination with distinctive designs, that is what you can expect from us.',
+    title: 'DesignRush Verified Agency 2024',
+    sub: 'We are a DesignRush Verified Agency for 2024 — a mark of trust, creativity, and professional excellence in the digital service space.',
   },
 ];
 

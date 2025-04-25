@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC, useState } from 'react';
@@ -71,13 +70,13 @@ const PitchThought: FC = () => {
 
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>NextLoop Technologies | Let's Connect</title>
         <meta
           name='description'
           content='Get in touch with NextLoop Technologies for all your IT service needs. Our team is ready to assist you with innovative solutions and expert support.'
         />
-      </Head>
+      </Head> */}
       <form onSubmit={handleSubmit} className='md:px-20 md:pb-5 md:pt-10 pb-24'>
         <h2
           className={`${palette.fontSize.heading2.mobile} md:text-4xl 2xl:text-4xl text-white uppercase font-bold text-center p-10`}
