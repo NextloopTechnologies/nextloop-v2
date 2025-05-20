@@ -215,7 +215,7 @@ export const servicesWhyChooseUsData = [
 export const servicesAreaOfExpertiseData = {
   mainHeader: 'OUR AREAS OF EXPERTISE',
   mainDescription:
-    "At NextLoop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
+    "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
   items: [
     {
       image: carouselImg,
@@ -301,16 +301,16 @@ export const bottomStepsWebDevelopment: StepProps[] = [
 export const servicesSubPagesData = {
   customSoftwareDevelopment: {
     metaData: {
-      pageMetaTitle: 'NextLoop Technologies | Custom Software Development',
+      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
       pageMetaDescription:
-        'NextLoop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
       coloredTitle: 'CUSTOM SOFTWARE ',
       title: 'DEVELOPMENT',
       subtitle:
-        'NextLoop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
     },
     expertiseData: {
       headingData: {
@@ -601,7 +601,7 @@ export const servicesSubPagesData = {
     areaOfExpertiseData: {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
-        "At NextLoop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
+        "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
       items: [
         {
           image: carouselImg,
@@ -632,9 +632,9 @@ export const servicesSubPagesData = {
   },
   webDevelopment: {
     metaData: {
-      pageMetaTitle: 'NextLoop Technologies | Custom Software Development',
+      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
       pageMetaDescription:
-        'NextLoop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
@@ -940,7 +940,7 @@ export const servicesSubPagesData = {
     areaOfExpertiseData: {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
-        "At NextLoop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
+        "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
       items: [
         {
           image: carouselImg,
@@ -971,23 +971,23 @@ export const servicesSubPagesData = {
   },
   cloudServices: {
     metaData: {
-      pageMetaTitle: 'NextLoop Technologies | Custom Software Development',
+      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
       pageMetaDescription:
-        'NextLoop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
       coloredTitle: 'CLOUD ',
       title: 'SERVICES',
       subtitle:
-        "At NextLoop Technologies, we offer comprehensive cloud services that empower your business to scale, innovate, and thrive. Whether you're migrating to the cloud, optimizing your cloud infrastructure, or developing cloud-based applications, we provide end-to-end solutions tailored to your unique needs.",
+        "At Nextloop Technologies, we offer comprehensive cloud services that empower your business to scale, innovate, and thrive. Whether you're migrating to the cloud, optimizing your cloud infrastructure, or developing cloud-based applications, we provide end-to-end solutions tailored to your unique needs.",
     },
     expertiseData: {
       headingData: {
         coloredHeading: 'OUR EXPERTISE IN ',
         heading: 'CLOUD SERVICES',
         description:
-          'We specialize in delivering high-performance, scalable, and secure cloud solutions across industries. With NextLoop Technologies, you can rely on our expertise to drive growth and efficiency in your business.',
+          'We specialize in delivering high-performance, scalable, and secure cloud solutions across industries. With Nextloop Technologies, you can rely on our expertise to drive growth and efficiency in your business.',
       },
       items: [
         {
@@ -1233,7 +1233,7 @@ export const servicesSubPagesData = {
     areaOfExpertiseData: {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
-        "At NextLoop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
+        "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
       items: [
         {
           image: carouselImg,
@@ -1296,9 +1296,9 @@ export const servicesSubPagesData = {
   },
   mobileAppDevelopment: {
     metaData: {
-      pageMetaTitle: 'NextLoop Technologies | Custom Software Development',
+      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
       pageMetaDescription:
-        'NextLoop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
@@ -1312,7 +1312,7 @@ export const servicesSubPagesData = {
         coloredHeading: 'OUR EXPERTISE IN ',
         heading: 'MOBILE APP DEVELOPMENT',
         description:
-          'We specialize in delivering high-performance, scalable, and secure cloud solutions across industries. With NextLoop Technologies, you can rely on our expertise to drive growth and efficiency in your business.',
+          'We specialize in delivering high-performance, scalable, and secure cloud solutions across industries. With Nextloop Technologies, you can rely on our expertise to drive growth and efficiency in your business.',
       },
       items: [
         {
@@ -1576,7 +1576,7 @@ export const servicesSubPagesData = {
     areaOfExpertiseData: {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
-        "At NextLoop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
+        "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
       items: [
         {
           image: carouselImg,
@@ -1633,9 +1633,9 @@ export const servicesSubPagesData = {
   },
   aimlSolutions: {
     metaData: {
-      pageMetaTitle: 'NextLoop Technologies | Custom Software Development',
+      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
       pageMetaDescription:
-        'NextLoop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
@@ -1910,7 +1910,7 @@ export const servicesSubPagesData = {
     areaOfExpertiseData: {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
-        "At NextLoop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
+        "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
       items: [
         {
           image: carouselImg,
@@ -1974,9 +1974,9 @@ export const servicesSubPagesData = {
   },
   ecommerceDevelopment: {
     metaData: {
-      pageMetaTitle: 'NextLoop Technologies | Custom Software Development',
+      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
       pageMetaDescription:
-        'NextLoop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
@@ -2226,7 +2226,7 @@ export const servicesSubPagesData = {
     areaOfExpertiseData: {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
-        "At NextLoop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
+        "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
       items: [
         {
           image: carouselImg,
@@ -2289,9 +2289,9 @@ export const servicesSubPagesData = {
   },
   digitalMarketingServices: {
     metaData: {
-      pageMetaTitle: 'NextLoop Technologies | Custom Software Development',
+      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
       pageMetaDescription:
-        'NextLoop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
@@ -2541,7 +2541,7 @@ export const servicesSubPagesData = {
     areaOfExpertiseData: {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
-        "At NextLoop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
+        "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
       items: [
         {
           image: carouselImg,
@@ -2599,9 +2599,9 @@ export const servicesSubPagesData = {
   },
   mvpDevelopment: {
     metaData: {
-      pageMetaTitle: 'NextLoop Technologies | Custom Software Development',
+      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
       pageMetaDescription:
-        'NextLoop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
@@ -2848,7 +2848,7 @@ export const servicesSubPagesData = {
     areaOfExpertiseData: {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
-        "At NextLoop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
+        "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
       items: [
         {
           image: carouselImg,

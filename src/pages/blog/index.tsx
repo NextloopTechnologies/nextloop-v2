@@ -19,10 +19,10 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
   return (
     <Layout>
       <Head>
-        <title>NextLoop Technologies | Blogs</title>
+        <title>Nextloop Technologies | Blogs</title>
         <meta
           name='description'
-          content='Stay updated with NextLoop Technologies blog, featuring expert insights and articles on the latest technology trends to empower your digital transformation.'
+          content='Stay updated with Nextloop Technologies blog, featuring expert insights and articles on the latest technology trends to empower your digital transformation.'
         />
       </Head>
       <PageHero

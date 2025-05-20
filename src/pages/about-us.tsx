@@ -67,7 +67,7 @@ const servicesData: Service[] = [
 const arr = [
   {
     title: 'our mission',
-    sub: "At Next Loop Technologies, our mission is simple yet profound - to be the catalyst for your success. We're passionate about partnering with businesses like yours to bridge the gap between idea and execution. Our team of skilled developers, designers, and strategists bring their expertise and dedication to every project, ensuring a seamless and collaborative experience. Every project is an opportunity to make a meaningful impact, to transform challenges into triumphs, and to forge partnerships built on trust and collaboration.",
+    sub: "At Nextloop Technologies, our mission is simple yet profound - to be the catalyst for your success. We're passionate about partnering with businesses like yours to bridge the gap between idea and execution. Our team of skilled developers, designers, and strategists bring their expertise and dedication to every project, ensuring a seamless and collaborative experience. Every project is an opportunity to make a meaningful impact, to transform challenges into triumphs, and to forge partnerships built on trust and collaboration.",
   },
   {
     title: 'our vision',
@@ -131,17 +131,17 @@ const AboutUsHome = () => {
   return (
     <Layout>
       <Head>
-        <title>NextLoop Technologies | About Us</title>
+        <title>Nextloop Technologies | About Us</title>
         <meta
           name='description'
-          content='At NextLoop Technologies, we are committed to driving innovation. Learn about our core values and how we aim to revolutionize the tech landscape.'
+          content='At Nextloop Technologies, we are committed to driving innovation. Learn about our core values and how we aim to revolutionize the tech landscape.'
         />
       </Head>
       <PageHero
         image={aboutBg}
         coloredTitle='about '
         title='us'
-        subtitle='Next Loop Technologies was founded in 2020, driven by enthusiasm and the desire to make a difference. What started off as a tiny concept has developed into something more significant, a journey requiring commitment and a strong drive for success. Our goal has always been the same: to support companies in realizing their aspirations and succeeding in the digital sphere. Our focus is on providing tailored IT solutions that empower companies to embrace digital transformation and unlock new opportunities. From cloud services to blockchain development and custom software solutions, we deliver cutting-edge technologies designed to meet the unique needs of your business.'
+        subtitle='Nextloop Technologies was founded in 2020, driven by enthusiasm and the desire to make a difference. What started off as a tiny concept has developed into something more significant, a journey requiring commitment and a strong drive for success. Our goal has always been the same: to support companies in realizing their aspirations and succeeding in the digital sphere. Our focus is on providing tailored IT solutions that empower companies to embrace digital transformation and unlock new opportunities. From cloud services to blockchain development and custom software solutions, we deliver cutting-edge technologies designed to meet the unique needs of your business.'
       />
       <WhyUs />
       <Journey />
