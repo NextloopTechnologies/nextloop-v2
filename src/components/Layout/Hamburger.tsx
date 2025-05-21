@@ -81,7 +81,7 @@ const Hamburger = () => {
           src={NextLoopColoredLogo}
           width={80}
           height={60}
-          alt='NextLoop'
+          alt='Nextloop'
           onClick={() => handleNavigation('/')}
         />
         <Image

@@ -71,10 +71,10 @@ const PitchThought: FC = () => {
   return (
     <>
       {/* <Head>
-        <title>NextLoop Technologies | Let's Connect</title>
+        <title>Nextloop Technologies | Let's Connect</title>
         <meta
           name='description'
-          content='Get in touch with NextLoop Technologies for all your IT service needs. Our team is ready to assist you with innovative solutions and expert support.'
+          content='Get in touch with Nextloop Technologies for all your IT service needs. Our team is ready to assist you with innovative solutions and expert support.'
         />
       </Head> */}
       <form onSubmit={handleSubmit} className='md:px-20 md:pb-5 md:pt-10 pb-24'>

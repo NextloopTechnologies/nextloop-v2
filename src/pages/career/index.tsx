@@ -10,7 +10,6 @@ import { careerAssets } from '../../../assets';
 import careerBg from '../../../assets/careerBg.png';
 import location from '../../../assets/location.svg';
 
-
 const CareersPage: React.FC<{ jobs?: Job[]; error?: string }> = ({
   jobs,
   error,
@@ -18,10 +17,10 @@ const CareersPage: React.FC<{ jobs?: Job[]; error?: string }> = ({
   return (
     <Layout>
       <Head>
-        <title>NextLoop Technologies | Careers</title>
+        <title>Nextloop Technologies | Careers</title>
         <meta
           name='description'
-          content='Advance your career at NextLoop Technologies. Be part of a forward-thinking team that values creativity and professional development in technology.'
+          content='Advance your career at Nextloop Technologies. Be part of a forward-thinking team that values creativity and professional development in technology.'
         />
       </Head>
       <PageHero

@@ -19,7 +19,7 @@ const cardData = [
     title: 'Founder, Stemens Software Pvt. Ltd.',
     quote: (
       <span>
-        I have been associated with NextLoop for a while now, and I can say with
+        I have been associated with Nextloop for a while now, and I can say with
         confidence that they are the real deal.
       </span>
     ),
@@ -29,7 +29,7 @@ const cardData = [
     title: 'CEO, Bright Hustle',
     quote: (
       <span>
-        Working with NextLoop Technologies has been a game-changer for my
+        Working with Nextloop Technologies has been a game-changer for my
         business. They have helped me to improve employee productivity, and
         enhance my overall software process.
       </span>
@@ -40,7 +40,7 @@ const cardData = [
     title: 'CEO, Chawla Bearings',
     quote: (
       <span>
-        I've been utilizing NextLoop's services for some time, and without a
+        I've been utilizing Nextloop's services for some time, and without a
         doubt, they excel in their field. They have helped me streamline my CRM
         processes, reduce costs, and improve employee engagement.
       </span>
@@ -188,18 +188,20 @@ const CardSlider = () => {
             <div className='flex justify-center absolute gap-x-4 bottom-10 left-[40%] lg:hidden items-end'>
               <button
                 onClick={prevCard}
-                className={`text-2xl hover:bg-gray-100 cursor-pointer border w-10 h-10 rounded-full flex items-center justify-center text-center ${currentCard === 0 ? 'opacity-50 cursor-not-allowed' : ''
-                  }`}
+                className={`text-2xl hover:bg-gray-100 cursor-pointer border w-10 h-10 rounded-full flex items-center justify-center text-center ${
+                  currentCard === 0 ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
                 disabled={currentCard === 0}
               >
                 &larr;
               </button>
               <button
                 onClick={nextCard}
-                className={`text-2xl border hover:bg-gray-100 cursor-pointer w-10 h-10 rounded-full flex items-center justify-center text-center ${currentCard === cardData.length - 1
+                className={`text-2xl border hover:bg-gray-100 cursor-pointer w-10 h-10 rounded-full flex items-center justify-center text-center ${
+                  currentCard === cardData.length - 1
                     ? 'opacity-50 cursor-not-allowed'
                     : ''
-                  }`}
+                }`}
                 disabled={currentCard === cardData.length - 1}
               >
                 &rarr;
@@ -212,18 +214,20 @@ const CardSlider = () => {
       <div className='hidden lg:inline-flex absolute gap-x-4 bottom-20 right-20 lg:pr-10'>
         <button
           onClick={prevCard}
-          className={`text-2xl hover:bg-gray-100 cursor-pointer border w-10 h-10 rounded-full flex items-center justify-center text-center ${currentCard === 0 ? 'opacity-50 cursor-not-allowed' : ''
-            }`}
+          className={`text-2xl hover:bg-gray-100 cursor-pointer border w-10 h-10 rounded-full flex items-center justify-center text-center ${
+            currentCard === 0 ? 'opacity-50 cursor-not-allowed' : ''
+          }`}
           disabled={currentCard === 0}
         >
           &larr;
         </button>
         <button
           onClick={nextCard}
-          className={`text-2xl border hover:bg-gray-100 cursor-pointer w-10 h-10 rounded-full flex items-center justify-center text-center ${currentCard === cardData.length - 1
+          className={`text-2xl border hover:bg-gray-100 cursor-pointer w-10 h-10 rounded-full flex items-center justify-center text-center ${
+            currentCard === cardData.length - 1
               ? 'opacity-50 cursor-not-allowed'
               : ''
-            }`}
+          }`}
           disabled={currentCard === cardData.length - 1}
         >
           &rarr;
