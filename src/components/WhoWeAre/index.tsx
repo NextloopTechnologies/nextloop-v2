@@ -57,7 +57,7 @@ const WhoWeAre: FC = () => {
               // variants={textVariants}
               className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}  tracking-wider w-full mt-10`}
             >
-              <b>At NextLoop Technologies</b>, located in the vibrant heart of
+              <b>At Nextloop Technologies</b>, located in the vibrant heart of
               India, we are a passionate team of expert developers and
               innovative designers committed to delivering solutions that truly
               make a difference. We don’t just build software; we craft
