@@ -9,9 +9,10 @@ import { NextLoopColoredLogo } from '../../../assets';
 
 interface HeaderProps {
   isSticky: boolean;
+  headerColor?: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ isSticky }) => {
+const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [showIndustriesDropdown, setShowIndustriesDropdown] = useState(false);
@@ -42,7 +43,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
         duration: 0.5,
       },
     });
-  }, [isScrolled, isSticky, headerAnimation]);
+  }, [isScrolled, isSticky, headerAnimation, headerColor]);
 
   useEffect(() => {
     const handleStart = () => {
@@ -73,20 +74,20 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
     { name: 'Travel And Hospitality', href: '/domain/travelandhospitality' },
   ];
 
-  const handleRequestQuote = () => {
-    const footer = document.getElementById('footer');
-    if (footer) {
-      const headerOffset = isSticky ? 250 : 0; // Adjust this value based on your header height
-      const elementPosition =
-        footer.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - headerOffset;
+  // const handleRequestQuote = () => {
+  //   const footer = document.getElementById('footer');
+  //   if (footer) {
+  //     const headerOffset = isSticky ? 250 : 0;
+  //     const elementPosition =
+  //       footer.getBoundingClientRect().top + window.scrollY;
+  //     const offsetPosition = elementPosition - headerOffset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
-    }
-  };
+  //     window.scrollTo({
+  //       top: offsetPosition,
+  //       behavior: 'smooth',
+  //     });
+  //   }
+  // };
 
   return (
     <>
@@ -97,7 +98,9 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
       )}
       <nav
         className={`px-10 fixed transition-all duration-300 ease-in-out top-0 left-0 w-full z-30 ${
-          isSticky ? 'bg-white text-black shadow-md' : 'text-white'
+          isSticky
+            ? 'bg-white text-black shadow-md'
+            : headerColor ?? 'text-white'
         }`}
       >
         <div className='flex justify-between'>
@@ -122,7 +125,13 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
               onMouseEnter={() => setShowIndustriesDropdown(true)}
               onMouseLeave={() => setShowIndustriesDropdown(false)}
             >
-              <div>Industries</div>
+              <div
+                className='cursor-pointer'
+                role='button'
+                aria-haspopup='true'
+              >
+                Industries
+              </div>
               {showIndustriesDropdown && (
                 <ul className='absolute left-0 mt-0 w-48 rounded-2xl rounded-tl-none shadow-lg bg-black ring-1 ring-black ring-opacity-5 py-2 pr-2 border border-orange-500 space-y-3'>
                   {industries.map((industry) => (
@@ -149,18 +158,19 @@ const Header: React.FC<HeaderProps> = ({ isSticky }) => {
               <Link href='/services'>Services</Link>
             </li>
             <li className={`${pathname === '/career' && 'text-orange-500'}`}>
-              <Link href='/career'>Career</Link>
+              <Link href='/career'>Careers</Link>
             </li>
             <li className={`${pathname === '/blog' && 'text-orange-500'}`}>
-              <Link href='/blog'>Blog</Link>
+              <Link href='/blog'>Blogs</Link>
             </li>
             <li>
-              <button
-                onClick={handleRequestQuote}
-                className='bg-orange-500 ml-10 text-white px-5 py-3 rounded-full'
+              <Link
+                // onClick={handleRequestQuote}
+                className='bg-orange-500 ml-10 text-white px-5 py-3 rounded-full flex items-center justify-center'
+                href="/contact-us"
               >
-                Contact Us &#10230;
-              </button>
+                Contact Us <span className='ml-2'>&#10230;</span>
+              </Link>
             </li>
           </ul>
         </div>

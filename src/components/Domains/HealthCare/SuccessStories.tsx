@@ -8,27 +8,27 @@ import { getStaticImageData } from '../../../utils/helper';
 const successSolutionContent = [
   {
     image: getStaticImageData(healthcareAssets.solutionManagement),
-    title: '340B Management solution',
+    title: 'Telemedicine Platform for Remote Consultations',
     descp:
-      'This case study reflects our dedication to reshaping the landscape of 340B drug pricing programs. By addressing the intricate challenges of data management, pricing accuracy, and regulatory adherence, we have redefined what it means to deliver comprehensive healthcare solutions. Our initiative not only exemplifies AnAr’s prowess in leveraging advanced technology but also our commitment to enhancing the operational efficiencies of healthcare providers.',
+      'Our developers can build a secure Telemedicine Platform that enables healthcare providers to offer remote consultations seamlessly. Features include real-time video calls, digital prescriptions, and comprehensive patient management, helping you boost patient engagement by up to 40% and expand access to healthcare services.',
   },
   {
     image: getStaticImageData(healthcareAssets.saasPortal),
-    title: 'saas portal for medical practitioners',
+    title: 'AI-Powered Diagnostic Tool',
     descp:
-      'This case study illustrates our comprehensive approach to developing a tailored SaaS platform, which addresses the multifaceted challenges faced by today’s healthcare practitioners. Our partnership with a leading healthcare product company has been instrumental in constructing a solution that not only meets but exceeds the complex demands of the medical industry. This collaboration aimed to produce a tool that enhances operational efficiency, secures patient data, and simplifies the user experience for both practitioners and patients.',
+      'Leverage our expertise to develop an AI-powered diagnostic Tool that automates the analysis of medical imaging data. Our solutions can help reduce diagnostic time by 30%, allowing healthcare professionals to deliver faster, more accurate diagnoses and significantly improve patient outcomes.',
   },
   {
     image: getStaticImageData(healthcareAssets.clinicTreatment),
-    title: 'fertility clinic treatment modernization',
+    title: 'Integrated Patient Management System',
     descp:
-      'This case study spotlights the challenges of outdated technologies and the triumphs through strategic modernization, underscoring AnAr’s expertise in navigating and revitalizing healthcare tech landscapes. Our journey with the healthcare client revolved around replacing the obsolete Silverlight technology, which limited user experience and hindered market expansion. By transitioning to a modern tech stack including Angular 16 and .Net Core 7, we revolutionized both front-end user interfaces and back-end functionality. ',
+      'Our team can design an Integrated Patient Management System tailored to streamline appointment scheduling, electronic health records (EHR), and billing processes. This can lead to a 50% increase in administrative efficiency, freeing up healthcare staff to focus on delivering quality patient care.',
   },
   {
     image: getStaticImageData(healthcareAssets.healthAndFitness),
-    title: 'integrated health and fitness management',
+    title: 'Healthcare Data Analytics Platform',
     descp:
-      'Our comprehensive solution caters to the needs of nutritionists and fitness trainers, facilitating a seamless integration of nutrition plans, workout schedules, and client interactions. This case study highlights our journey in creating an all-encompassing wellness tool, showcasing our technical expertise, ethical commitment, and dedication to delivering user-centric solutions.',
+      'Partner with us to build a robust Healthcare Data Analytics Platform that leverages big data for actionable insights. Our solutions can optimize patient data analysis, reduce readmission rates by 20%, and empower healthcare organizations with better decision-making capabilities in patient care and resource management.',
   },
 ];
 
@@ -38,8 +38,8 @@ const SuccessStories: React.FC = () => {
       <h1
         className={`text-black uppercase font-bold text-center ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} mb-4 uppercase`}
       >
-        success stories in{' '}
-        <span className='text-orange-500'>healthcare solutions</span>
+        What Our Developers{' '}
+        <span className='text-orange-500'>Can Create for You</span>
       </h1>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-5 mt-[20px] md:p-20 p-10'>
         {successSolutionContent?.map(

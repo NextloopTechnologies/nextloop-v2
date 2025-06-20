@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 // import dayjs from 'dayjs';
+import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
@@ -17,6 +18,13 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
   const router = useRouter();
   return (
     <Layout>
+      <Head>
+        <title>Nextloop Technologies | Blogs</title>
+        <meta
+          name='description'
+          content='Stay updated with Nextloop Technologies blog, featuring expert insights and articles on the latest technology trends to empower your digital transformation.'
+        />
+      </Head>
       <PageHero
         image={blogsBg}
         title='blogs'

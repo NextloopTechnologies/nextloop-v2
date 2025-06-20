@@ -37,6 +37,33 @@ const faqsContent: IFAQ[] = [
   },
 ];
 
+const customData = [
+  {
+    id: 1,
+    title: 'Industry-Specific Expertise',
+    description:
+      'Our developers have in-depth knowledge of the Oil & Gas industry, ensuring that we deliver tailored solutions that address the unique challenges of your operations. From resource management to safety protocols, we understand the sector’s complexities and craft solutions to optimize performance.',
+  },
+  {
+    id: 2,
+    title: 'Cutting-Edge Technology Integration',
+    description:
+      'We leverage the latest technologies, such as IoT, AI, and data analytics, to provide real-time monitoring, predictive maintenance, and enhanced decision-making for Oil & Gas operations. Our solutions help you stay ahead of the curve, improving operational efficiency and reducing downtime.',
+  },
+  {
+    id: 3,
+    title: 'Custom Software Solutions',
+    description:
+      "We specialize in building custom software solutions designed specifically for the Oil & Gas sector. Whether it's a comprehensive asset management system, pipeline monitoring software, or regulatory compliance tools, our solutions are scalable, secure, and tailored to your needs.",
+  },
+  {
+    id: 4,
+    title: 'Proven Track Record in Oil & Gas Projects',
+    description:
+      'With a proven history of successful Oil & Gas projects, we have consistently delivered impactful solutions that enhance productivity, improve safety, and optimize supply chain management. Partner with us to experience a smooth, reliable, and future-ready transformation of your operations.',
+  },
+];
+
 const OilAndGas = () => {
   return (
     <>
@@ -90,7 +117,7 @@ const OilAndGas = () => {
           }
         />
 
-        <WhyWorkWithUs />
+        <WhyWorkWithUs data={customData} />
 
         <HowToBuild />
 

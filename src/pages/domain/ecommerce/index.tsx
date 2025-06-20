@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
 
 import {
@@ -8,20 +9,46 @@ import {
   printOnDemand,
   subscriptions,
 } from '../../../../assets';
-import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
-import BoostTraffic from '../../../components/Domains/BoostTraffic';
 // import ClientReviews from '../../../components/Domains/ClientReviews';
-import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
-import EnrollForWebsite from '../../../components/Domains/EnrollForWebsite';
-import FAQ from '../../../components/Domains/FAQ';
-import ProductServices from '../../../components/Domains/ProductServices';
-import SellEverywhere from '../../../components/Domains/SellEverywhere';
-import WhatWeDo from '../../../components/Domains/WhatWeDo';
-import WhyBuild from '../../../components/Domains/WhyBuild';
-import Layout from '../../../components/Layout/Layout';
+const Layout = dynamic(() => import('../../../components/Layout/Layout'));
 import palette from '../../../styles/pallette';
 import { IFAQ } from '../../../types';
 import { getStaticImageData } from '../../../utils/helper';
+
+const BoostTraffic = dynamic(
+  () => import('../../../components/Domains/BoostTraffic'),
+  { ssr: false }
+);
+const CustomRequestQuote = dynamic(
+  () => import('../../../components/Domains/CustomRequestQuote'),
+  { ssr: false }
+);
+const EnrollForWebsite = dynamic(
+  () => import('../../../components/Domains/EnrollForWebsite'),
+  { ssr: false }
+);
+const FAQ = dynamic(() => import('../../../components/Domains/FAQ'), {
+  ssr: false,
+});
+const ProductServices = dynamic(
+  () => import('../../../components/Domains/ProductServices'),
+  { ssr: false }
+);
+const SellEverywhere = dynamic(
+  () => import('../../../components/Domains/SellEverywhere'),
+  { ssr: false }
+);
+const WhatWeDo = dynamic(() => import('../../../components/Domains/WhatWeDo'), {
+  ssr: false,
+});
+const WhyBuild = dynamic(() => import('../../../components/Domains/WhyBuild'), {
+  ssr: false,
+});
+
+const CustomPageHero = dynamic(
+  () => import('../../../components/CustomPageHero/CustomPageHero'),
+  { ssr: false }
+);
 
 const sampleData = [
   {
@@ -74,27 +101,27 @@ const faqsContent: IFAQ[] = [
 const WhatWeDoData = [
   {
     image: getStaticImageData(ecommerceAssets.WhatWeDo1),
-    title: 'Mobile Responsive',
+    title: 'Customized Solutions for E-Commerce',
     description:
-      'A responsive website adapts to any device—desktop, smartphone, or tablet—by dynamically resizing content and images for optimal usability. Whether your company is large or just starting, Nextloop can build a website that stands out. Our enhanced web design for Travel and Hotel ensures a seamless experience for all online visitors.',
+      'We create platforms that are specifically matched to your brand identity, ensuring smooth operation, customized user interfaces, and features that are maximized for engagement, client retention, and business expansion.',
   },
   {
     image: getStaticImageData(ecommerceAssets.WhatWeDo2),
-    title: 'Mobile Responsive',
+    title: 'Integration of Advanced Technology',
     description:
-      'A responsive website adapts to any device—desktop, smartphone, or tablet—by dynamically resizing content and images for optimal usability. Whether your company is large or just starting, Nextloop can build a website that stands out. Our enhanced web design for Travel and Hotel ensures a seamless experience for all online visitors.',
+      'We include cutting-edge technology, such as chatbots driven by AI for customized support, real-time inventory sync for productivity, and smooth third-party interfaces to improve functionality and optimize platform operations.',
   },
   {
     image: getStaticImageData(ecommerceAssets.WhatWeDo3),
-    title: 'Mobile Responsive',
+    title: 'Scalability & Growth Support',
     description:
-      'A responsive website adapts to any device—desktop, smartphone, or tablet—by dynamically resizing content and images for optimal usability. Whether your company is large or just starting, Nextloop can build a website that stands out. Our enhanced web design for Travel and Hotel ensures a seamless experience for all online visitors.',
+      'We provide scalable systems with cloud infrastructure to handle growing traffic, new features, and market demands, ensuring smooth performance and adaptability for long-term business expansion.',
   },
   {
     image: getStaticImageData(ecommerceAssets.WhatWeDo4),
-    title: 'Mobile Responsive',
+    title: 'Secure & Reliable Systems',
     description:
-      'A responsive website adapts to any device—desktop, smartphone, or tablet—by dynamically resizing content and images for optimal usability. Whether your company is large or just starting, Nextloop can build a website that stands out. Our enhanced web design for Travel and Hotel ensures a seamless experience for all online visitors.',
+      'To prevent attacks on your e-commerce platform and ensure regular business operations, we use robust system design along with advanced cybersecurity solutions like encryption, firewalls, and secure payment gateways.',
   },
 ];
 

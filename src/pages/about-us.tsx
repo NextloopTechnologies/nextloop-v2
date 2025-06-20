@@ -9,12 +9,12 @@ import palette from '../styles/pallette';
 import { AboutNextloopBackground, LeftSlide } from '../../assets';
 import {
   CustomerService,
-  Illustration,
   LocationPin,
   Medal,
   Shuttle,
   Trophy,
 } from '../../assets';
+import { FoundedIcon } from '../../assets';
 import aboutBg from '../../assets/about-us-hero.png';
 import cert1 from '../../assets/certificates/1.png';
 import cert2 from '../../assets/certificates/2.png';
@@ -31,8 +31,8 @@ export interface Service {
 
 const servicesData: Service[] = [
   {
-    icon: Illustration.src,
-    title: 'Certified For Quality',
+    icon: FoundedIcon.src,
+    title: 'Founded in 2020',
     description:
       'Nextloop Technologies delivers innovative IT solutions across industries.',
   },
@@ -43,23 +43,23 @@ const servicesData: Service[] = [
   },
   {
     icon: Medal.src,
-    title: 'Successful Projects',
+    title: 'Certifications',
     description: 'Globally recognized standards achieved.',
   },
   {
     icon: Shuttle.src,
-    title: 'Our Specialism',
-    description: 'Successfully delivered [X]+ projects globally.',
+    title: 'Projects Completed',
+    description: 'Successfully delivered 30+ projects globally.',
   },
   {
     icon: CustomerService.src,
-    title: 'Certified For Quality',
+    title: 'Expertise',
     description:
       'Specializing in Cloud Solutions, Blockchain, Custom Software, and Digital Transformation.',
   },
   {
     icon: Trophy.src,
-    title: 'Certified For Quality',
+    title: 'Recognition',
     description: 'Renowned for delivering award-winning IT solutions. ',
   },
 ];
@@ -67,7 +67,7 @@ const servicesData: Service[] = [
 const arr = [
   {
     title: 'our mission',
-    sub: "At Next Loop Technologies, our mission is simple yet profound - to be the catalyst for your success. We're passionate about partnering with businesses like yours to bridge the gap between idea and execution. Our team of skilled developers, designers, and strategists bring their expertise and dedication to every project, ensuring a seamless and collaborative experience. Every project is an opportunity to make a meaningful impact, to transform challenges into triumphs, and to forge partnerships built on trust and collaboration.",
+    sub: "At Nextloop Technologies, our mission is simple yet profound - to be the catalyst for your success. We're passionate about partnering with businesses like yours to bridge the gap between idea and execution. Our team of skilled developers, designers, and strategists bring their expertise and dedication to every project, ensuring a seamless and collaborative experience. Every project is an opportunity to make a meaningful impact, to transform challenges into triumphs, and to forge partnerships built on trust and collaboration.",
   },
   {
     title: 'our vision',
@@ -101,23 +101,23 @@ const journeyArr = [
 const certificateCardArr = [
   {
     img: cert1,
-    title: 'iso certificate',
-    sub: 'If you are looking for a complete business solution at a one place in combination with distinctive designs, that is what you can expect from us.',
+    title: 'ISO 9001:2015 Certified',
+    sub: 'We are ISO 9001:2015 certified, which means our processes meet global standards for delivering quality and customer satisfaction.',
   },
   {
     img: cert2,
-    title: 'iso certificate',
-    sub: 'If you are looking for a complete business solution at a one place in combination with distinctive designs, that is what you can expect from us.',
+    title: 'ISO 27001:2013 Certified',
+    sub: 'We are ISO 27001:2013 certified, ensuring your data is protected with the highest level of information security management.',
   },
   {
     img: cert3,
-    title: 'cmmi level 3',
-    sub: 'If you are looking for a complete business solution at a one place in combination with distinctive designs, that is what you can expect from us.',
+    title: 'CMMI Level 3 Certified',
+    sub: 'We are proudly CMMI Level 3 certified, which reflects our commitment to delivering consistent, reliable, and high-quality software development practices.',
   },
   {
     img: cert5,
-    title: 'startup india',
-    sub: 'If you are looking for a complete business solution at a one place in combination with distinctive designs, that is what you can expect from us.',
+    title: 'DesignRush Verified Agency 2024',
+    sub: 'We are a DesignRush Verified Agency for 2024 — a mark of trust, creativity, and professional excellence in the digital service space.',
   },
 ];
 
@@ -131,17 +131,17 @@ const AboutUsHome = () => {
   return (
     <Layout>
       <Head>
-        <title>About NextLoop Technologies | Your Trusted IT Partner</title>
+        <title>Nextloop Technologies | About Us</title>
         <meta
           name='description'
-          content='Learn more about NextLoop Technologies, our mission, and our commitment to delivering exceptional IT solutions. We are dedicated to driving your business success with our expertise.'
+          content='At Nextloop Technologies, we are committed to driving innovation. Learn about our core values and how we aim to revolutionize the tech landscape.'
         />
       </Head>
       <PageHero
         image={aboutBg}
-        title='us'
         coloredTitle='about '
-        subtitle='Next Loop Technologies was founded in 2020, driven by enthusiasm and the desire to make a difference. What started off as a tiny concept has developed into something more significant, a journey requiring commitment and a strong drive for success. Our goal has always been the same: to support companies in realizing their aspirations and succeeding in the digital sphere. Our focus is on providing tailored IT solutions that empower companies to embrace digital transformation and unlock new opportunities. From cloud services to blockchain development and custom software solutions, we deliver cutting-edge technologies designed to meet the unique needs of your business.'
+        title='us'
+        subtitle='Nextloop Technologies was founded in 2020, driven by enthusiasm and the desire to make a difference. What started off as a tiny concept has developed into something more significant, a journey requiring commitment and a strong drive for success. Our goal has always been the same: to support companies in realizing their aspirations and succeeding in the digital sphere. Our focus is on providing tailored IT solutions that empower companies to embrace digital transformation and unlock new opportunities. From cloud services to blockchain development and custom software solutions, we deliver cutting-edge technologies designed to meet the unique needs of your business.'
       />
       <WhyUs />
       <Journey />
@@ -406,11 +406,11 @@ const JourneyCard: React.FC<{ title: string; sub: string; odd: boolean }> = ({
       {!odd ? <SmallOrangeTop /> : <BigOrangeTop />}
       <div className='absolute flex flex-col  md:w-[275px] w-full items-center gap-2 md:px-0 mt-8'>
         <Image src={bulb} alt='bulb' />
-        <h1
+        <h3
           className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop} font-bold`}
         >
           {title}
-        </h1>
+        </h3>
         <span className=' text-[10px] px-8'>{sub}</span>
       </div>
     </div>

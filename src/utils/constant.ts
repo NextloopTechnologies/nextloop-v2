@@ -7,5 +7,6 @@ export const AppliedJobDefaultFormValues = {
   resume_id: '',
   cover_letter: '',
   github_url: '',
-  linkedin_url: ''
-}
+  linkedin_url: '',
+  experience: '',
+};

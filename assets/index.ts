@@ -39,11 +39,11 @@ export { default as Certificate4 } from './certificates/4.png';
 export { default as Certificate5 } from './certificates/5.png';
 export { default as Client2 } from './client-2.png';
 export { default as CustomerService } from './endToEnd/customer-service.png';
-export { default as Illustration } from './endToEnd/Illustration.png';
 export { default as LocationPin } from './endToEnd/location-pin.png';
 export { default as Medal } from './endToEnd/medal.png';
 export { default as Shuttle } from './endToEnd/shuttle.png';
 export { default as Trophy } from './endToEnd/trophy.png';
+export { default as FoundedIcon } from './FoundedIcon.png';
 export { default as GlobalInventoryImage } from './GlobalInventoryImg.png';
 export { default as digitalProducts } from './healthcareAssets/digitalProducts.png';
 export { default as dropshipping } from './healthcareAssets/dropShipping.png';
@@ -52,6 +52,13 @@ export { default as printOnDemand } from './healthcareAssets/printOnDemand.png';
 export { default as subscriptions } from './healthcareAssets/subscriptions.png';
 export { default as healthCareWhyChooseUs1 } from './healthCareWhyChooseUs1.jpeg';
 export { default as healthCareWhyChooseUs2 } from './healthCareWhyChooseUs2.jpeg';
+export { default as offerIconCustomSoftwareDevelopment } from './offers/icons/customSoftwareDevelopment.png';
+export { default as offerIconDigitalMarketing } from './offers/icons/digitalMarketing.png';
+export { default as offerIconProductSubscription } from './offers/icons/productSubscription.png';
+export { default as offerIconStaffAugmentation } from './offers/icons/staffAugmentation.png';
+export { default as offerIconSuccessTick } from './offers/icons/successTick.png';
+export { default as offersLogo } from './offers/logo.png';
+export { default as offerPageBg } from './offers/offerPageBg.png';
 export { default as Service1 } from './services/1.png';
 export { default as Service2 } from './services/2.png';
 export { default as Service3 } from './services/3.png';
@@ -294,6 +301,22 @@ export const ecommerceAssets = {
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/enrollForWebsite.png?updatedAt=1719991861773',
   EnrollForWebsiteBg:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/enrollForWebsite.png?updatedAt=1719991861773',
+  cloudIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/cloudIcon.png?updatedAt=1720073536584',
+  maintenanceIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/maintenanceIcon.png?updatedAt=1720073536602',
+  modernizeIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/modernizeIcon.png?updatedAt=1720073536539',
+  settingIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/healthcare/settingIcon.png?updatedAt=1720073539254',
+  globeIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomGlobeIcon.png?updatedAt=1720703266810',
+  desktopIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomDesktopIcon.png?updatedAt=1720703266804',
+  marketIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomMarketIcon.png?updatedAt=1720703266827',
+  bookReaderIcon:
+    'https://ik.imagekit.io/nextloop/NextloopWebAssets/ecomBookReaderIcon.png?updatedAt=1720703266602',
 };
 
 export const fintechAssets = {

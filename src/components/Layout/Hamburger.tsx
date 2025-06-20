@@ -81,7 +81,7 @@ const Hamburger = () => {
           src={NextLoopColoredLogo}
           width={80}
           height={60}
-          alt='NextLoop'
+          alt='Nextloop'
           onClick={() => handleNavigation('/')}
         />
         <Image
@@ -164,14 +164,14 @@ const Hamburger = () => {
               pathname === '/career' ? 'text-orange-500' : ''
             }`}
           >
-            <button onClick={() => handleNavigation('/career')}>Career</button>
+            <button onClick={() => handleNavigation('/career')}>Careers</button>
           </li>
           <li
             className={`w-full ${
               pathname === '/blog' ? 'text-orange-500' : ''
             }`}
           >
-            <button onClick={() => handleNavigation('/blog')}>Blog</button>
+            <button onClick={() => handleNavigation('/blog')}>Blogs</button>
           </li>
           <li className='w-full mt-4'>
             <button

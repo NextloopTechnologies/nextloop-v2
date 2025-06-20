@@ -240,10 +240,12 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
   return (
     <>
       <Head>
-        <title>NextLoop Technologies: Leading IT Solutions Provider.</title>
+        <title>
+          Nextloop Technologies | Best Software Development Company In India
+        </title>
         <meta
           name='description'
-          content='Elevate your business with our tailored digital transformation solutions. Discover expert-driven network security & software services that drive growth.'
+          content='Nextloop Technologies offers cutting-edge software development services tailored to your business needs. Elevate your digital presence with our expertise.'
         />
       </Head>
       <Layout divRefs={divRefs?.current} id='connect-with-us'>

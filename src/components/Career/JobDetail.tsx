@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import dayjs from 'dayjs';
 import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
@@ -7,7 +7,6 @@ import ApplicationForm from '../../components/Career/ApplicationForm';
 import { Job } from '../../types';
 import locationIcon from '../../../assets/location.svg';
 import wallet from '../../../assets/wallet.svg';
-
 
 const JobDetails: React.FC<{ job: Job }> = ({
   job: {
@@ -18,14 +17,15 @@ const JobDetails: React.FC<{ job: Job }> = ({
     descp,
     job_mode,
     job_type,
-    package: money,
+    // package: money,
     responsibilities,
     qualifications,
     skills,
   },
 }) => {
   const [showForm, setShowForm] = useState<boolean>(false);
-  const [isApplyJobButtonDisable, setIsApplyJobButtonDisable] = useState<boolean>(false);
+  const [isApplyJobButtonDisable, setIsApplyJobButtonDisable] =
+    useState<boolean>(false);
   const formRef = useRef<HTMLDivElement>(null);
 
   const handleApplyClick = () => {
@@ -104,7 +104,7 @@ const JobDetails: React.FC<{ job: Job }> = ({
             <div className=''>
               <Image src={wallet} alt='wallet' />
             </div>
-            <p className='text-lg font-bold'>{money}</p>
+            {/* <p className='text-lg font-bold'>{money}</p> */}
           </div>
           <button
             className='flex rounded-3xl px-6 disabled:bg-gray-400 disabled:cursor-not-allowed bg-orange-500 text-white py-1 text-lg justify-center'

@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React, { ReactNode, useEffect, useState } from 'react';
 
 import Hamburger from './Hamburger';
@@ -11,6 +12,8 @@ interface LayoutProps {
   pitchThoughtSectionEnabled?: boolean;
   divRefs?: (HTMLDivElement | null)[];
   id?: string;
+  headerColor?: string;
+  showFooter?: boolean;
 }
 
 const Layout: React.FC<LayoutProps> = ({
@@ -18,6 +21,8 @@ const Layout: React.FC<LayoutProps> = ({
   pitchThoughtSectionEnabled,
   divRefs,
   id,
+  headerColor,
+  showFooter = true,
 }) => {
   const [isSticky, setIsSticky] = useState(false);
   useEffect(() => {
@@ -39,9 +44,19 @@ const Layout: React.FC<LayoutProps> = ({
   const { width } = useWindowSize();
 
   return (
-    <>
+    <div>
       {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
-      {width! > 1023 ? <Header isSticky={isSticky} /> : <Hamburger />}
+      <Head>
+        <meta
+          name='google-site-verification'
+          content='1ZvPKSWx3wAqnYNwsBJFWw-0JipRSjhH68LI0Gxs8J4'
+        />
+      </Head>
+      {width! > 1023 ? (
+        <Header isSticky={isSticky} headerColor={headerColor} />
+      ) : (
+        <Hamburger />
+      )}
       <div className='z-10'>{children}</div>
       {pitchThoughtSectionEnabled ? (
         <Section className='min-h-screen bg-[#010103] w-screen'>
@@ -59,11 +74,11 @@ const Layout: React.FC<LayoutProps> = ({
             id={id}
             ref={(el: any) => (divRefs?.length ? (divRefs[8] = el) : null)}
           >
-            <PitchThought />
+            {showFooter && <PitchThought />}
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
