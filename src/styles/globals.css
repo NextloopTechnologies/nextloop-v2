@@ -152,3 +152,11 @@ section {
     @apply block w-full border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 !important;
   }
 }
+
+.ql-editor img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
