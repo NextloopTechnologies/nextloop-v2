@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-// import dayjs from 'dayjs';
-import parse from 'html-react-parser';
+
 import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 
+import 'react-quill/dist/quill.snow.css';
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
 import { BlogType } from '../../types';
@@ -60,7 +60,12 @@ const BlogID: React.FC<{ data?: BlogType; error?: string }> = ({
               <div className='w-full xl:h-[800px] h-[400px] animate-pulse bg-slate-100' />
             )}
             <span className='font-medium text-4xl '>{data.title}</span>
-            <div className='text-lg font-light'>{parse(data.descp)}</div>
+            <div className="ql-snow">
+              <div
+                className="ql-editor"
+                dangerouslySetInnerHTML={{ __html: data.descp }}
+              />
+            </div>
             {/* <span className='text-sm'>
               {dayjs(data.created_at).format('DD/MMM/YYYY')}
             </span> */}

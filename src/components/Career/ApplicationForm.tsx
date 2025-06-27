@@ -27,7 +27,9 @@ const ApplicationForm: React.FC<{ jobId: number }> = ({ jobId }) => {
 
   const handleFileChange = async (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      formData.append('file', e.target.files[0]);
+      formData.append('file', e.target.files[0])
+      formData.append('folder', 'AdminNextloop/Resumes')
+
       try {
         setIsUploading(true);
         const response = await uploadResume(formData);
