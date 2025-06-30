@@ -89,7 +89,7 @@ const PitchThought: FC = () => {
           className='flex lg:flex-row flex-col items-center px-10'
         >
           <div className='flex gap-x-10 justify-end w-full text-white md:pl-10'>
-            <div className='flex flex-col gap-y-4  w-full'>
+            <div className='flex flex-col gap-y-4  w-full pb-5'>
               <div className='relative flex space-x-4'>
                 <input
                   type='text'
@@ -182,7 +182,7 @@ const PitchThought: FC = () => {
                     )}`}
                     target='_blank'
                     rel='noopener noreferrer'
-                    // style={{ color: 'blue', textDecoration: 'underline' }}
+                  // style={{ color: 'blue', textDecoration: 'underline' }}
                   >
                     {location}
                   </a>
@@ -284,6 +284,17 @@ const PitchThought: FC = () => {
           </div>
         </div>
       </form>
+      <div
+        className={`flex flex-col text-center sm:flex-row sm:justify-between border-t border-gray-500 w-full p-5 text-white ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
+      >
+        <p>
+          © {new Date().getFullYear()} Nextloop Technologies ― All Rights
+          Reserved.
+        </p>
+        <p>
+          <Link href={"/privacy"}>Privacy Policy</Link>
+        </p>
+      </div>
     </>
   );
 };
