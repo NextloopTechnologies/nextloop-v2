@@ -22,7 +22,7 @@ export default function Document() {
         {/* Google Tag Manager */}
         <script
           async
-          src='https://www.googletagmanager.com/gtag/js?id=G-Y1VSVNV5D3'
+          src='https://www.googletagmanager.com/gtag/js?id=G-ZZGFLK3MRW'
         ></script>
         <script
           dangerouslySetInnerHTML={{
@@ -30,7 +30,7 @@ export default function Document() {
               window.dataLayer = window.dataLayer || [];
               function gtag() { window.dataLayer.push(arguments); }
               gtag('js', new Date());
-              gtag('config', 'G-Y1VSVNV5D3');
+              gtag('config', 'G-ZZGFLK3MRW');
             `,
           }}
         />
@@ -47,14 +47,14 @@ export default function Document() {
         {/* Google Site Verification */}
         <meta
           name='google-site-verification'
-          content='1ZvPKSWx3wAqnYNwsBJFWw-0JipRSjhH68LI0Gxs8J4'
+          content='rSkhwwyngCBXY24oCD9ERrGDGzkIFubisOa3k-JDjWs'
         />
       </Head>
       <body>
         {/* GTM NoScript Fallback */}
         <noscript
           dangerouslySetInnerHTML={{
-            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TPBJB3VM"
+            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=G-ZZGFLK3MRW"
               height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
           }}
         />

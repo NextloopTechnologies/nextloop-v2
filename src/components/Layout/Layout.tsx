@@ -49,7 +49,7 @@ const Layout: React.FC<LayoutProps> = ({
       <Head>
         <meta
           name='google-site-verification'
-          content='1ZvPKSWx3wAqnYNwsBJFWw-0JipRSjhH68LI0Gxs8J4'
+          content='rSkhwwyngCBXY24oCD9ERrGDGzkIFubisOa3k-JDjWs'
         />
       </Head>
       {width! > 1023 ? (
