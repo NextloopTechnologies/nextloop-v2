@@ -12,6 +12,10 @@ const palette = {
       mobile: 'text-lg',
       desktop: 'text-xl',
     },
+    subtitleLarge: {
+      mobile: 'text-xl',
+      desktop: 'text-3xl',
+    },
     description: {
       mobile: 'text-base',
       desktop: 'text-lg',

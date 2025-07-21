@@ -10,7 +10,6 @@ import {
 import { StepProps } from '../components/DiamondGridBoxes';
 import { IFAQ } from '../types';
 import blogImg from '../../assets/blog/blogImg.png';
-import carouselImg from '../../assets/carouselImg.png';
 import buildingIcon from '../../assets/services/buildingIcon.png';
 import desktopCloud from '../../assets/services/desktopCloud.png';
 import documentIcon from '../../assets/services/documentIcon.png';
@@ -66,6 +65,8 @@ import PSIcon from '../../assets/techstackIcons/uiux/PSIcon.png';
 import seekIcon from '../../assets/techstackIcons/uiux/seekIcon.png';
 import webflowIcon from '../../assets/techstackIcons/uiux/webflowIcon.png';
 import XDIcon from '../../assets/techstackIcons/uiux/XDIcon.png';
+import { ecommerceAssets, eventAssets, fintechAssets, healthcareAssets } from '../../assets';
+import { getStaticImageData } from './helper';
 
 export const faqsContent: IFAQ[] = [
   {
@@ -212,36 +213,38 @@ export const servicesWhyChooseUsData = [
   },
 ];
 
+const staticServices = [
+  {
+    image: getStaticImageData(ecommerceAssets.ECommerceBg),
+    title: 'E-COMMERCE WEBSITE.',
+    description: 'Start selling immediately, without limits.',
+    link: '/expertise/ecommerce',
+  },
+  {
+    image: getStaticImageData(eventAssets.eventsBg),
+    title: 'CREATE A PROFESSIONAL EVENT WEBSITE',
+    description: '',
+    link: '/expertise/event',
+  },
+  {
+    image: getStaticImageData(fintechAssets.fintechBg),
+    title: 'FINTECH WEBSITE DESIGN',
+    description: '',
+    link: '/expertise/fintech',
+  },
+  {
+    image: getStaticImageData(healthcareAssets.healthCareBg),
+    title: 'HEALTHCARE SOFTWARE DEVELOPMENT',
+    description: 'Transforming patient care.',
+    link: '/expertise/healthcare',
+  },
+]
+
 export const servicesAreaOfExpertiseData = {
   mainHeader: 'OUR AREAS OF EXPERTISE',
   mainDescription:
     "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
-  items: [
-    {
-      image: carouselImg,
-      title: 'E-COMMERCE WEBSITE.',
-      description: 'Start selling immediately, without limits.',
-      link: '/expertise/ecommerce',
-    },
-    {
-      image: carouselImg,
-      title: 'CREATE A PROFESSIONAL EVENT WEBSITE',
-      description: '',
-      link: '/expertise/event',
-    },
-    {
-      image: carouselImg,
-      title: 'FINTECH WEBSITE DESIGN',
-      description: '',
-      link: '/expertise/fintech',
-    },
-    {
-      image: carouselImg,
-      title: 'HEALTHCARE SOFTWARE DEVELOPMENT',
-      description: 'Transforming patient care.',
-      link: '/expertise/healthcare',
-    },
-  ],
+  items: staticServices,
 };
 
 export const topStepsWebDevelopment: StepProps[] = [
@@ -602,32 +605,7 @@ export const servicesSubPagesData = {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
         "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
-      items: [
-        {
-          image: carouselImg,
-          title: 'E-COMMERCE WEBSITE.',
-          description: 'Start selling immediately, without limits.',
-          link: '/expertise/ecommerce',
-        },
-        {
-          image: carouselImg,
-          title: 'CREATE A PROFESSIONAL EVENT WEBSITE',
-          description: '',
-          link: '/expertise/event',
-        },
-        {
-          image: carouselImg,
-          title: 'FINTECH WEBSITE DESIGN',
-          description: '',
-          link: '/expertise/fintech',
-        },
-        {
-          image: carouselImg,
-          title: 'HEALTHCARE SOFTWARE DEVELOPMENT',
-          description: 'Transforming patient care.',
-          link: '/expertise/healthcare',
-        },
-      ],
+      items: staticServices,
     },
   },
   webDevelopment: {
@@ -941,32 +919,7 @@ export const servicesSubPagesData = {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
         "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
-      items: [
-        {
-          image: carouselImg,
-          title: 'E-COMMERCE WEBSITE.',
-          description: 'Start selling immediately, without limits.',
-          link: '/expertise/ecommerce',
-        },
-        {
-          image: carouselImg,
-          title: 'CREATE A PROFESSIONAL EVENT WEBSITE',
-          description: '',
-          link: '/expertise/event',
-        },
-        {
-          image: carouselImg,
-          title: 'FINTECH WEBSITE DESIGN',
-          description: '',
-          link: '/expertise/fintech',
-        },
-        {
-          image: carouselImg,
-          title: 'HEALTHCARE SOFTWARE DEVELOPMENT',
-          description: 'Transforming patient care.',
-          link: '/expertise/healthcare',
-        },
-      ],
+      items: staticServices,
     },
   },
   cloudServices: {
@@ -1234,32 +1187,7 @@ export const servicesSubPagesData = {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
         "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
-      items: [
-        {
-          image: carouselImg,
-          title: 'E-COMMERCE WEBSITE.',
-          description: 'Start selling immediately, without limits.',
-          link: '/expertise/ecommerce',
-        },
-        {
-          image: carouselImg,
-          title: 'CREATE A PROFESSIONAL EVENT WEBSITE',
-          description: '',
-          link: '/expertise/event',
-        },
-        {
-          image: carouselImg,
-          title: 'FINTECH WEBSITE DESIGN',
-          description: '',
-          link: '/expertise/fintech',
-        },
-        {
-          image: carouselImg,
-          title: 'HEALTHCARE SOFTWARE DEVELOPMENT',
-          description: 'Transforming patient care.',
-          link: '/expertise/healthcare',
-        },
-      ],
+      items: staticServices,
     },
     faqsContent: [
       {
@@ -1577,32 +1505,7 @@ export const servicesSubPagesData = {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
         "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
-      items: [
-        {
-          image: carouselImg,
-          title: 'E-COMMERCE WEBSITE.',
-          description: 'Start selling immediately, without limits.',
-          link: '/expertise/ecommerce',
-        },
-        {
-          image: carouselImg,
-          title: 'CREATE A PROFESSIONAL EVENT WEBSITE',
-          description: '',
-          link: '/expertise/event',
-        },
-        {
-          image: carouselImg,
-          title: 'FINTECH WEBSITE DESIGN',
-          description: '',
-          link: '/expertise/fintech',
-        },
-        {
-          image: carouselImg,
-          title: 'HEALTHCARE SOFTWARE DEVELOPMENT',
-          description: 'Transforming patient care.',
-          link: '/expertise/healthcare',
-        },
-      ],
+      items: staticServices,
     },
     faqsContent: [
       {
@@ -1911,32 +1814,7 @@ export const servicesSubPagesData = {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
         "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
-      items: [
-        {
-          image: carouselImg,
-          title: 'E-COMMERCE WEBSITE.',
-          description: 'Start selling immediately, without limits.',
-          link: '/expertise/ecommerce',
-        },
-        {
-          image: carouselImg,
-          title: 'CREATE A PROFESSIONAL EVENT WEBSITE',
-          description: '',
-          link: '/expertise/event',
-        },
-        {
-          image: carouselImg,
-          title: 'FINTECH WEBSITE DESIGN',
-          description: '',
-          link: '/expertise/fintech',
-        },
-        {
-          image: carouselImg,
-          title: 'HEALTHCARE SOFTWARE DEVELOPMENT',
-          description: 'Transforming patient care.',
-          link: '/expertise/healthcare',
-        },
-      ],
+      items: staticServices,
     },
     faqsContent: [
       {
@@ -2227,32 +2105,7 @@ export const servicesSubPagesData = {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
         "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
-      items: [
-        {
-          image: carouselImg,
-          title: 'E-COMMERCE WEBSITE.',
-          description: 'Start selling immediately, without limits.',
-          link: '/expertise/ecommerce',
-        },
-        {
-          image: carouselImg,
-          title: 'CREATE A PROFESSIONAL EVENT WEBSITE',
-          description: '',
-          link: '/expertise/event',
-        },
-        {
-          image: carouselImg,
-          title: 'FINTECH WEBSITE DESIGN',
-          description: '',
-          link: '/expertise/fintech',
-        },
-        {
-          image: carouselImg,
-          title: 'HEALTHCARE SOFTWARE DEVELOPMENT',
-          description: 'Transforming patient care.',
-          link: '/expertise/healthcare',
-        },
-      ],
+      items: staticServices,
     },
     faqsContent: [
       {
@@ -2542,32 +2395,7 @@ export const servicesSubPagesData = {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
         "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
-      items: [
-        {
-          image: carouselImg,
-          title: 'E-COMMERCE WEBSITE.',
-          description: 'Start selling immediately, without limits.',
-          link: '/expertise/ecommerce',
-        },
-        {
-          image: carouselImg,
-          title: 'CREATE A PROFESSIONAL EVENT WEBSITE',
-          description: '',
-          link: '/expertise/event',
-        },
-        {
-          image: carouselImg,
-          title: 'FINTECH WEBSITE DESIGN',
-          description: '',
-          link: '/expertise/fintech',
-        },
-        {
-          image: carouselImg,
-          title: 'HEALTHCARE SOFTWARE DEVELOPMENT',
-          description: 'Transforming patient care.',
-          link: '/expertise/healthcare',
-        },
-      ],
+      items: staticServices,
     },
     faqsContent: [
       {
@@ -2849,32 +2677,7 @@ export const servicesSubPagesData = {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
         "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
-      items: [
-        {
-          image: carouselImg,
-          title: 'E-COMMERCE WEBSITE.',
-          description: 'Start selling immediately, without limits.',
-          link: '/expertise/ecommerce',
-        },
-        {
-          image: carouselImg,
-          title: 'CREATE A PROFESSIONAL EVENT WEBSITE',
-          description: '',
-          link: '/expertise/event',
-        },
-        {
-          image: carouselImg,
-          title: 'FINTECH WEBSITE DESIGN',
-          description: '',
-          link: '/expertise/fintech',
-        },
-        {
-          image: carouselImg,
-          title: 'HEALTHCARE SOFTWARE DEVELOPMENT',
-          description: 'Transforming patient care.',
-          link: '/expertise/healthcare',
-        },
-      ],
+      items: staticServices,
     },
     faqsContent: [
       {
