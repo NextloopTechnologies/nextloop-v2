@@ -55,10 +55,10 @@ const Fintech: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Nextloop's Fintech Solutions for Smart Financial Services</title>
+        <title>Fintech Website Design & Software Development | Nextloop</title>
         <meta
           name='description'
-          content='Discover cutting-edge fintech solutions at Nextloop Technologies. From secure digital payments to custom financial software, we drive innovation in the financial sector—partner with us for tailored fintech services that accelerate your business growth.'
+          content='Build secure, user-friendly fintech websites: designing & software with Nextloop Expert solutions blending compliance, branding, SEO & advanced fintech tools'
         />
       </Head>
       <Layout>

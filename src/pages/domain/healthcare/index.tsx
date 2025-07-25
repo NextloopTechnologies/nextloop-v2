@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React from 'react';
 
 import { healthcareAssets } from '../../../../assets';
@@ -103,93 +104,102 @@ const productServiceContent = [
 
 const HealthCare: React.FC = () => {
   return (
-    <Layout>
-      <CustomPageHero
-        image={getStaticImageData(healthcareAssets.healthCareBg)}
-        titleChildren={
-          <h1
-            className={` text-white uppercase font-bold text-center max-w-[1306px] ${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop}`}
-          >
-            <span className='text-orange-500'>healthcare</span> software
-            development transforming patient care
-          </h1>
-        }
-        subtitle=''
-        opacity='opacity-10'
-        title=''
-      />
-
-      <WhyBuild
-        image={getStaticImageData(healthcareAssets.whyBuildImg)}
-        colouredTitle='healthcare'
-        informationSection={
-          <div className='max-w-[737px] flex flex-col justify-center px-5 md:px-0'>
-            <p
-              className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
+    <>
+      <Head>
+        <title>Healthcare Software Development & AI Solutions | Nextloop</title>
+        <meta
+          name='description'
+          content='Nextloop delivers secure, AI-driven healthcare software with custom telemedicine, diagnostics, data analytics & compliant platforms to enhance patient care'
+        />
+      </Head>
+      <Layout>
+        <CustomPageHero
+          image={getStaticImageData(healthcareAssets.healthCareBg)}
+          titleChildren={
+            <h1
+              className={` text-white uppercase font-bold text-center max-w-[1306px] ${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop}`}
             >
-              We all know that technology is rapidly changing the healthcare
-              industry. From electronic health records (EHRs) to telemedicine,
-              technology is being used to improve the quality, efficiency, and
-              affordability of healthcare.
-            </p>
-            <p
-              className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
+              <span className='text-orange-500'>healthcare</span> software
+              development transforming patient care
+            </h1>
+          }
+          subtitle=''
+          opacity='opacity-10'
+          title=''
+        />
+
+        <WhyBuild
+          image={getStaticImageData(healthcareAssets.whyBuildImg)}
+          colouredTitle='healthcare'
+          informationSection={
+            <div className='max-w-[737px] flex flex-col justify-center px-5 md:px-0'>
+              <p
+                className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
+              >
+                We all know that technology is rapidly changing the healthcare
+                industry. From electronic health records (EHRs) to telemedicine,
+                technology is being used to improve the quality, efficiency, and
+                affordability of healthcare.
+              </p>
+              <p
+                className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
+              >
+                In fact, the global healthcare software market is expected to
+                reach $974.5 billion by 2027. This means that healthcare
+                automation is not just a future but is becoming a necessity.
+              </p>
+              <p
+                className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
+              >
+                Custom Software solutions involve a process in which software is
+                specifically designed for a particular healthcare organization.
+                They can be used to improve a variety of tasks and processes,
+                such as:
+              </p>
+              <ul
+                className={`list-disc ${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop} pl-5 md:pl-10 mt-2 mb-2`}
+              >
+                {benefits.map((benefit) => (
+                  <li key={benefit.id}>{benefit.text}</li>
+                ))}
+              </ul>
+              <p
+                className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
+              >
+                In this blog, you will uncover the reasons why healthcare
+                providers should invest in custom software and how their
+                investment can improve efficiency, reduce costs, and improve
+                patient care.
+              </p>
+            </div>
+          }
+        />
+
+        <WhyChooseUs whyChooseContent={whyChooseContent} />
+
+        <OurExpertise />
+
+        <ProductServices
+          title={
+            <h1
+              className={`text-black uppercase font-bold text-center  ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop}`}
             >
-              In fact, the global healthcare software market is expected to
-              reach $974.5 billion by 2027. This means that healthcare
-              automation is not just a future but is becoming a necessity.
-            </p>
-            <p
-              className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
-            >
-              Custom Software solutions involve a process in which software is
-              specifically designed for a particular healthcare organization.
-              They can be used to improve a variety of tasks and processes, such
-              as:
-            </p>
-            <ul
-              className={`list-disc ${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop} pl-5 md:pl-10 mt-2 mb-2`}
-            >
-              {benefits.map((benefit) => (
-                <li key={benefit.id}>{benefit.text}</li>
-              ))}
-            </ul>
-            <p
-              className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
-            >
-              In this blog, you will uncover the reasons why healthcare
-              providers should invest in custom software and how their
-              investment can improve efficiency, reduce costs, and improve
-              patient care.
-            </p>
-          </div>
-        }
-      />
+              specialized <span className='text-orange-500'>healthcare</span>{' '}
+              services!
+            </h1>
+          }
+          data={productServiceContent}
+        />
 
-      <WhyChooseUs whyChooseContent={whyChooseContent} />
+        <SuccessStories />
 
-      <OurExpertise />
+        {/* <ClientReviews /> */}
 
-      <ProductServices
-        title={
-          <h1
-            className={`text-black uppercase font-bold text-center  ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop}`}
-          >
-            specialized <span className='text-orange-500'>healthcare</span>{' '}
-            services!
-          </h1>
-        }
-        data={productServiceContent}
-      />
+        <FAQ faqsContent={faqsContent} />
 
-      <SuccessStories />
-
-      {/* <ClientReviews /> */}
-
-      <FAQ faqsContent={faqsContent} />
-
-      <CustomRequestQuote title='see what your healthcare website could look like' />
-    </Layout>
+        <CustomRequestQuote title='see what your healthcare website could look like' />
+      </Layout>
+    </>
   );
 };
 

@@ -69,9 +69,9 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
     { name: 'Fin-Tech', href: '/domain/fintech' },
     { name: 'Healthcare', href: '/domain/healthcare' },
     // { name: 'Hotel', href: '/domain/hotel' },
-    { name: 'Oil And Gas', href: '/domain/oilandgas' },
-    { name: 'Food and Beverages', href: '/domain/foodandbeverages' },
-    { name: 'Travel And Hospitality', href: '/domain/travelandhospitality' },
+    { name: 'Oil And Gas', href: '/domain/oil-and-gas' },
+    { name: 'Food and Beverages', href: '/domain/food-and-beverages' },
+    { name: 'Travel And Hospitality', href: '/domain/travel-and-hospitality' },
   ];
 
   // const handleRequestQuote = () => {
@@ -167,7 +167,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
               <Link
                 // onClick={handleRequestQuote}
                 className='bg-orange-500 ml-10 text-white px-5 py-3 rounded-full flex items-center justify-center'
-                href="/contact-us"
+                href='/contact-us'
               >
                 Contact Us <span className='ml-2'>&#10230;</span>
               </Link>

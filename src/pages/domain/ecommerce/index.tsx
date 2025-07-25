@@ -162,10 +162,10 @@ const Ecommerce = () => {
   return (
     <>
       <Head>
-        <title>E-commerce IT Solutions for Your Growing Business</title>
+        <title>E-commerce Development Services | Nextloop Technologies</title>
         <meta
           name='description'
-          content='Boost your online business with Nextloop Technologies’ e-commerce IT solutions. From custom e-commerce platforms to secure payment integration, we provide innovative, scalable solutions to drive your e-commerce success.'
+          content='Turn your online store into a sales powerhouse with Nextloop’s customised e-commerce development, secure tech, payment integration & scalable digital solutions'
         />
       </Head>
       <Layout>
