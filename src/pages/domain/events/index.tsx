@@ -68,10 +68,12 @@ const Events = () => {
   return (
     <>
       <Head>
-        <title>Nextloop: Simple IT Solutions for Event Transformation</title>
+        <title>
+          Event Management Software & Websites | Nextloop Technologies
+        </title>
         <meta
           name='description'
-          content="Transform your event management with Nextloop Technologies' digital solutions. From ticketing systems to real-time analytics, we offer innovative IT services to enhance event planning, execution, and customer engagement."
+          content='Create, promote & manage virtual, hybrid, in-person events with Nextloop’s secure ticketing, real-time updates, marketing tools & scalable event solutions'
         />
       </Head>
       <Layout>

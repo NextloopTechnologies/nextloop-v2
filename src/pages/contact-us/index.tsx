@@ -73,10 +73,12 @@ const PitchThought: FC = () => {
   return (
     <>
       <Head>
-        <title>Nextloop Technologies | Let's Connect</title>
+        <title>
+          Contact Nextloop | Get in Touch for Innovative IT Solutions
+        </title>
         <meta
           name='description'
-          content='Get in touch with Nextloop Technologies for all your IT service needs. Our team is ready to assist you with innovative solutions and expert support.'
+          content='Contact Nextloop Technologies for expert IT services, MVP & mobile development, UI/UX, digital marketing, C2H & other customized solutions to grow your business'
         />
       </Head>
       <Layout headerColor='bg-white' showFooter={false}>

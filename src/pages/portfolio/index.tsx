@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { GetServerSideProps } from 'next';
+import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
@@ -16,6 +17,15 @@ const Portfolio: React.FC<{ data?: IPortfolio[]; error?: string }> = ({
 }) => {
   return (
     <Layout>
+      <Head>
+        <title>
+          Customised IT solutions across Industries | Nextloop Portfolio
+        </title>
+        <meta
+          name='description'
+          content='Discover Nextloop’s portfolio of custom software, web development & cloud solutions delivering digital transformation for diverse industries & clients worldwide'
+        />
+      </Head>
       <PageHero
         image={portfolioBg}
         title='portfolio'

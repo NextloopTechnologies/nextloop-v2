@@ -241,11 +241,11 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
     <>
       <Head>
         <title>
-          Nextloop Technologies | Best Software Development Company In India
+          Custom Software, IT & Digital Solutions | Nextloop Technologies{' '}
         </title>
         <meta
           name='description'
-          content='Nextloop Technologies offers cutting-edge software development services tailored to your business needs. Elevate your digital presence with our expertise.'
+          content='Nextloop Technologies delivers custom software, IT consulting, web & mobile app dev, cloud services, AI/ML & digital marketing personalised for your business'
         />
       </Head>
       <Layout divRefs={divRefs?.current} id='connect-with-us'>

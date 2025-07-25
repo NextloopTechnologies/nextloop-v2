@@ -17,10 +17,10 @@ const CareersPage: React.FC<{ jobs?: Job[]; error?: string }> = ({
   return (
     <Layout>
       <Head>
-        <title>Nextloop Technologies | Careers</title>
+        <title>Careers at Nextloop | IT Jobs, Growth Opp. & Innovation</title>
         <meta
           name='description'
-          content='Advance your career at Nextloop Technologies. Be part of a forward-thinking team that values creativity and professional development in technology.'
+          content='Join Nextloop Technologies for dynamic IT careers: grow with flexible hybrid work, competitive pay, software dev cloud AI/ML -mentorship in collaborative culture'
         />
       </Head>
       <PageHero
