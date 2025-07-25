@@ -97,10 +97,12 @@ const FoodAndBeverages: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Nextloop's Digital Solutions for Food & Beverage</title>
+        <title>
+          Food & Beverage Software Solutions | Nextloop Technologies{' '}
+        </title>
         <meta
           name='description'
-          content='Nextloop Technologies offers innovative IT solutions for the food and beverage industry. From supply chain optimization to digital transformation, we deliver tailored tech solutions to enhance efficiency and growth in your business.'
+          content='Nextloop builds custom digital platforms for food businesses—POS, online ordering, inventory, delivery, analytics tools for cloud kitchens & restaurants'
         />
       </Head>
       <Layout>

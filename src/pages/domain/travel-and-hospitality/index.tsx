@@ -68,10 +68,10 @@ const TravelAndHospitality = () => {
   return (
     <>
       <Head>
-        <title>Efficient IT Solutions for Travel and Hospitality</title>
+        <title>Hotel Website & Booking Software | Nextloop Technologies</title>
         <meta
           name='description'
-          content='Nextloop Technologies delivers innovative IT solutions for the travel and hospitality industry. Enhance guest experiences, streamline operations, and drive digital transformation with our tailored technology services.'
+          content='Nextloop builds mobile & user-friendly hotel websites with online booking, AI chatbots, customer engagement, secure payment gateways and digital marketing tools'
         />
       </Head>
       <Layout>

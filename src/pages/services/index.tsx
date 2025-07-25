@@ -73,10 +73,13 @@ const Services = () => {
   return (
     <Layout>
       <Head>
-        <title>Nextloop Technologies | Our Services</title>
+        <title>
+          {' '}
+          Enterprise Software, Cloud, AI & Digital Services | Nextloop{' '}
+        </title>
         <meta
           name='description'
-          content='Elevate your business with Nextloop Technologies. Our diverse range of services is crafted to optimize performance and foster sustainable growth.'
+          content='Unlock scalable IT services with Nextloop: software development, app engineering, cloud, AI/ML, digital marketing, e-comm dev, tech consulting & many more'
         />
       </Head>
       <PageHero
