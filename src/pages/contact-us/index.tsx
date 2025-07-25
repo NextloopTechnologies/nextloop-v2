@@ -14,12 +14,18 @@ import MailIcon from '../../../assets/getInTouch/MailIcon.png';
 import PhoneIcon from '../../../assets/getInTouch/PhoneIcon.png';
 import TwitterIcon from '../../../assets/getInTouch/twitterIcon.png';
 
-const PitchThought: FC = () => {
+interface OptionType {
+  label: string;
+  value: string;
+}
+
+const ContactForm: FC = () => {
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
+  const [subject, setSubject] = useState<OptionType | null>(null);
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const location =
@@ -30,25 +36,32 @@ const PitchThought: FC = () => {
     setEmail(e.target.value);
   };
 
-  const handleSubmit = async (e: any) => {
+  const validateForm = () => {
+    if (!firstName) return 'First name is required.';
+    if (!lastName) return 'Last name is required.';
+    if (!subject) return 'Subject is required.';
+    if (!email) return 'Email is required.';
+    if (!message) return 'Message is required.';
+    return '';
+  };
+
+  const resetForm = () => {
+    setFirstName('');
+    setLastName('');
+    setEmail('');
+    setPhone('');
+    setMessage('');
+    setSubject(null);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     setSuccessMessage('');
 
-    if (!firstName) {
-      setError('First name is required.');
-      return;
-    }
-    if (!lastName) {
-      setError('Last name is required.');
-      return;
-    }
-    if (!email) {
-      setError('Email is required.');
-      return;
-    }
-    if (!message) {
-      setError('Message is required.');
+    const validationError = validateForm();
+    if (validationError) {
+      setError(validationError);
       return;
     }
 
@@ -57,15 +70,22 @@ const PitchThought: FC = () => {
         fullname: `${firstName} ${lastName}`,
         email,
         contact: phone,
-        subject: 'development',
+        subject: subject?.value || 'development',
         message,
       };
       const { success } = await createInquiryForm(payload);
-      // console.log('success', success);
+
       if (success) {
         setSuccessMessage('Your message has been sent successfully!');
+        resetForm();
+        // Clear success message after 3 seconds
+        setTimeout(() => {
+          setSuccessMessage('');
+        }, 3000);
       }
-    } catch (error) {
+      else
+        setError('Something went wrong. Please try again.');
+    } catch {
       setError('An error occurred while submitting the form.');
     }
   };
@@ -96,7 +116,18 @@ const PitchThought: FC = () => {
                   Get in Touch {'  '}
                   <span className='text-orange-500'>with Us!</span>
                 </h2>
-                <div className='bg-[#767676] w-full h-40 rounded-lg'></div>
+                <div className="w-full h-40 rounded-lg overflow-hidden">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.9360155863986!2d75.8852473!3d22.7282604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962e39ac69c135d%3A0xe95bb5f20aa420ac!2sNextloop%20Technologies%20LLP!5e0!3m2!1sen!2sin!4v1653091257496!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    aria-label="Interactive Google Map"
+                  ></iframe>
+                </div>
                 <div className='flex items-center'>
                   <Image
                     src={MailIcon}
@@ -229,7 +260,7 @@ const PitchThought: FC = () => {
                 </div>
               </div>
             </div>
-            <div className='flex gap-x-10 justify-end w-full text-white md:pl-10 bg-white p-10 rounded-3xl shadow-2xl md:mt-20'>
+            <div className='flex gap-x-10 justify-end w-full text-black md:pl-10 bg-white p-10 rounded-3xl shadow-2xl md:mt-20'>
               <div className='flex flex-col gap-y-4  w-full'>
                 <div className='relative flex space-x-4'>
                   <input
@@ -265,7 +296,10 @@ const PitchThought: FC = () => {
                     className='border-b border-gray-400 w-full h-10 bg-transparent focus:outline-none focus:border-gray-600 transition-all duration-300'
                   />
                 </div>
-                <CustomDropdown />
+                <CustomDropdown
+                  selected={subject}
+                  onChange={(option) => setSubject(option)}
+                />
                 <div className='relative'>
                   <div className='mb-2 text-gray-400'>Message *</div>
                   <textarea
@@ -281,7 +315,7 @@ const PitchThought: FC = () => {
                 )}
                 <button
                   type='submit'
-                  className='flex justify-center items-center py-4 bg-orange-500 text-black rounded-full font-medium cursor-pointer'
+                  className='flex justify-center items-center py-4 bg-orange-500 text-white rounded-full font-medium cursor-pointer'
                 >
                   Submit Now
                 </button>
@@ -294,4 +328,4 @@ const PitchThought: FC = () => {
   );
 };
 
-export default PitchThought;
+export default ContactForm;

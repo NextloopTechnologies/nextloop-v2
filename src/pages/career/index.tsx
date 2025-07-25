@@ -160,34 +160,34 @@ const WhyUs = () => (
 
           <p>Here's what makes Nextloop Technologies special:</p>
         </div>
-        <p className='text-lg lg:w-2/3 w-full'>
+        <p className='text-lg lg:w-11/12 w-full'>
           <b>Flexibility you crave: </b>We offer a hybrid work policy, giving
           you the freedom to choose where you do your best work while
           maintaining a healthy work-life balance.
         </p>
-        <p className='text-lg lg:w-2/3 w-full'>
+        <p className='text-lg lg:w-11/12 w-full'>
           <b>Stability you deserve: </b>We believe in job security and offer
           competitive salaries and a comprehensive benefits package to support
           your well-being.
         </p>
-        <p className='text-lg lg:w-2/3 w-full'>
+        <p className='text-lg lg:w-11/12 w-full'>
           <b>Growth that excites you: </b>We're committed to your development.
           Regular performance reviews, mentorship opportunities, and access to
           cutting-edge technologies help you reach your full potential.
         </p>
-        <p className='text-lg lg:w-2/3 w-full'>
+        <p className='text-lg lg:w-11/12 w-full'>
           <b>Impact that inspires you: </b>Collaborate with a global clientele,
           tackle real-world challenges, and see your work make a difference on a
           grand scale. If you're searching for a company where your abilities
           are acknowledged and your potential is endless. Come along with us,
           and let's do something incredible together
         </p>
-        {/* <p className='text-lg lg:w-2/3 w-full'>
+        {/* <p className='text-lg lg:w-11/12 w-full'>
           <b>Promotions/Appraisals:</b> Resources company based in Germany, is
           searching for a motivated UI/UX Design Intern to join our esteemed
           client.
         </p>
-        <p className='text-lg lg:w-2/3 w-full'>
+        <p className='text-lg lg:w-11/12 w-full'>
           <b>Carrier opportunities:</b> Resources company based in Germany, is
           searching for a motivated UI/UX Design Intern to join our esteemed
           client. This remote position offers an extraordinary chance for
