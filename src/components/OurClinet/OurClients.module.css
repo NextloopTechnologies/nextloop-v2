@@ -1,0 +1,37 @@
+.clientSwiper :global(.swiper-wrapper) {
+  transition-timing-function: linear !important; /* ⬅️ Ensures smooth marquee */
+}
+
+.swiperSlide {
+  width: auto;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  transition: transform 0.3s ease;
+}
+
+.swiperSlide:hover {
+  transform: translateY(-5px);
+}
+
+.fadeLeft,
+.fadeRight {
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.fadeLeft {
+  left: 0;
+  background: linear-gradient(to right, #1D1D1D 0%, transparent 100%);
+}
+
+.fadeRight {
+  right: 0;
+  background: linear-gradient(to left, #1D1D1D 0%, transparent 100%);
+}
