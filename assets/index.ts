@@ -86,6 +86,15 @@ export { default as Values3 } from './values-3.png';
 export { default as Values4 } from './values-4.png';
 export { default as Whoweare } from './who-we-are.jpeg';
 export { default as Whyus } from './whyus.png';
+export { default as FinsenLogo } from './finsen-logo.png';
+export { default as LarishaLogo } from './larisha-logo.png';
+export { default as ItfLogo } from './itf-logo.png';
+export { default as JhanaLogo } from './jhana-logo.png';
+export { default as EwaLogo } from './ewa-logo.png';
+export { default as AtzeanLogo } from './atzean-logo.png';
+export { default as ArthnextLogo } from './arthnext-logo.png';
+export { default as BrainInventory } from './brain-inventory.png';
+
 
 export const staticAssests = {
   AboutUsBackground:

@@ -555,26 +555,6 @@ export const servicesSubPagesData = {
         icon: eyeIcon,
       },
     ],
-    blogData: [
-      {
-        id: 1,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 2,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 3,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-    ],
     faqsContent: [
       {
         id: 1,
@@ -861,26 +841,6 @@ export const servicesSubPagesData = {
         icon: eyeIcon,
       },
     ],
-    blogData: [
-      {
-        id: 1,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 2,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 3,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-    ],
     faqsContent: [
       {
         id: 1,
@@ -1162,27 +1122,6 @@ export const servicesSubPagesData = {
         icon: eyeIcon,
       },
     ],
-    blogData: [
-      {
-        id: 1,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 2,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 3,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-    ],
-
     areaOfExpertiseData: {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
@@ -1480,27 +1419,6 @@ export const servicesSubPagesData = {
         icon: eyeIcon,
       },
     ],
-    blogData: [
-      {
-        id: 1,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 2,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 3,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-    ],
-
     areaOfExpertiseData: {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
@@ -1789,27 +1707,6 @@ export const servicesSubPagesData = {
         icon: eyeIcon,
       },
     ],
-    blogData: [
-      {
-        id: 1,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 2,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 3,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-    ],
-
     areaOfExpertiseData: {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
@@ -2080,27 +1977,6 @@ export const servicesSubPagesData = {
         icon: eyeIcon,
       },
     ],
-    blogData: [
-      {
-        id: 1,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 2,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 3,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-    ],
-
     areaOfExpertiseData: {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
@@ -2370,27 +2246,6 @@ export const servicesSubPagesData = {
         icon: eyeIcon,
       },
     ],
-    blogData: [
-      {
-        id: 1,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 2,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 3,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-    ],
-
     areaOfExpertiseData: {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
@@ -2652,27 +2507,6 @@ export const servicesSubPagesData = {
         icon: eyeIcon,
       },
     ],
-    blogData: [
-      {
-        id: 1,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 2,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 3,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-    ],
-
     areaOfExpertiseData: {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
