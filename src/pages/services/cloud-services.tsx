@@ -4,8 +4,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import ServicePage from './BaseServicePages';
-import { servicesSubPagesData } from '../../utils/staticTextImgData';
 import { fetchLatestBlogs } from '../../utils/fetchBlogdata';
+import { servicesSubPagesData } from '../../utils/staticTextImgData';
 
 interface BlogData {
   id: number;

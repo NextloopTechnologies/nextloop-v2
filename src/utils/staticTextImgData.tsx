@@ -7,8 +7,10 @@ import {
   Settings,
 } from 'lucide-react';
 
+import { getStaticImageData } from './helper';
 import { StepProps } from '../components/DiamondGridBoxes';
 import { IFAQ } from '../types';
+import { ecommerceAssets, eventAssets, fintechAssets, healthcareAssets } from '../../assets';
 import blogImg from '../../assets/blog/blogImg.png';
 import buildingIcon from '../../assets/services/buildingIcon.png';
 import desktopCloud from '../../assets/services/desktopCloud.png';
@@ -65,8 +67,6 @@ import PSIcon from '../../assets/techstackIcons/uiux/PSIcon.png';
 import seekIcon from '../../assets/techstackIcons/uiux/seekIcon.png';
 import webflowIcon from '../../assets/techstackIcons/uiux/webflowIcon.png';
 import XDIcon from '../../assets/techstackIcons/uiux/XDIcon.png';
-import { ecommerceAssets, eventAssets, fintechAssets, healthcareAssets } from '../../assets';
-import { getStaticImageData } from './helper';
 
 export const faqsContent: IFAQ[] = [
   {

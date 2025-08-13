@@ -13,7 +13,7 @@ export const uploadResume = async (resumeFile: FormData) => {
     if (!success) throw new Error("Failed to upload!")
     return { data, success }
   } catch (error) {
-    console.log("UPLOAD_ERROR", error)
+    console.error("UPLOAD_ERROR", error)
     return { error, success: false }
   }
 }

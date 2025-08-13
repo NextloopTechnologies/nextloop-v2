@@ -18,7 +18,7 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({ selected, onChange }) =
   useEffect(() => {
     if (selected !== selectedOption)
       setSelectedOption(selected ?? null);
-  }, [selected]);
+  }, [selected, selectedOption]);
 
   // Effect to handle clicks outside of the dropdown
   useEffect(() => {

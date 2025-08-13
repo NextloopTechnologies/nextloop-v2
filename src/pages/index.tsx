@@ -119,7 +119,10 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
 
   const [visibleDiv, setVisibleDiv] = useState<string | null>(null);
   const divRefs = useRef<(HTMLDivElement | null)[]>([]);
+
   useEffect(() => {
+    const currentDivs = [...divRefs.current];
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -128,25 +131,20 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
           }
         });
       },
-      {
-        root: null, // Use the viewport as the container
-        threshold: 0.1, // Adjust threshold as needed
-      }
+      { root: null, threshold: 0.1 }
     );
 
-    divRefs.current.forEach((div) => {
+    currentDivs.forEach((div) => {
       if (div) observer.observe(div);
     });
 
     return () => {
-      divRefs.current.forEach((div) => {
+      currentDivs.forEach((div) => {
         if (div) observer.unobserve(div);
       });
     };
   }, []);
 
-  // useEffect(() => {
-  //   const handleScroll = (e: WheelEvent) => {
   //     const scrollY = window.scrollY;
   //     const windowHeight = window.innerHeight;
   //     const introOffset = introRef.current!.offsetTop;
@@ -237,6 +235,10 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
     }
   };
 
+  const setDivRef = (index: number) => (el: HTMLDivElement | null) => {
+    divRefs.current[index] = el;
+  };
+
   return (
     <>
       <Head>
@@ -251,7 +253,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
       <Layout divRefs={divRefs?.current} id='connect-with-us'>
         <div
           id='intro'
-          ref={(el: any) => (divRefs.current[0] = el)}
+          ref={setDivRef(0)}
           className='sm:min-h-screen min-h-[50vh] aboutUsBackgroundImage'
         >
           <div className='container min-w-[100vw]'>
@@ -261,7 +263,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
 
         <div
           id='who-we-are'
-          ref={(el: any) => (divRefs.current[1] = el)}
+          ref={setDivRef(1)}
           className=''
         >
           <div className='md:my-20 md:mb-40 md:mx-22'>
@@ -271,7 +273,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
 
         <div
           id='services'
-          ref={(el: any) => (divRefs.current[2] = el)}
+          ref={setDivRef(2)}
           className='md:mb-20 '
         >
           <div className='container mx-auto min-w-[100vw]'>
@@ -281,7 +283,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
 
         <div
           id='portfolio'
-          ref={(el: any) => (divRefs.current[3] = el)}
+          ref={setDivRef(3)}
           className='sm:min-h-max max-w-[100vw] overflow-hidden'
         >
           <div className='container mx-auto min-w-[100vw]'>
@@ -294,7 +296,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
 
         <div
           id='our-client'
-          ref={(el: any) => (divRefs.current[4] = el)}
+          ref={setDivRef(4)}
           className='sm:min-h-[50vh] sm:min-w-screen'
         >
           <div className='container mx-auto min-w-[100vw]'>
@@ -305,7 +307,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
 
         <div
           id='our-values'
-          ref={(el: any) => (divRefs.current[5] = el)}
+          ref={setDivRef(5)}
           className=' max-w-[100vw] overflow-hidden'
         >
           <div className='container mx-auto min-w-[100vw]'>
@@ -316,7 +318,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
 
         <div
           id='our-client-says'
-          ref={(el: any) => (divRefs.current[6] = el)}
+          ref={setDivRef(6)}
           className=' max-w-[100vw] overflow-hidden'
         >
           <div className='container mx-auto min-w-[100vw]'>
@@ -327,7 +329,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
 
         <div
           id='certificates'
-          ref={(el: any) => (divRefs.current[7] = el)}
+          ref={setDivRef(7)}
           className='certificatesBackgroundImage p-0'
         >
           <div className='container mx-auto min-w-[100vw]'>

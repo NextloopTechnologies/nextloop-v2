@@ -50,7 +50,7 @@ interface BlogData {
   id: number;
   title: string;
   descp: string;
-  image: any;
+  image: { url: string; fileId: string }[];
 }
 
 interface FAQData {

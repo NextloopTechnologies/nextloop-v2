@@ -44,7 +44,7 @@ const PortfolioID: React.FC<{ data?: IPortfolio; error?: string }> = ({
               width={900}
               height={900}
             />
-            {parse(`<h1>${data.descp!}</h1>`)}
+            {data.descp && parse(`<h1>${data.descp}</h1>`)}
           </div>
         ) : (
           <div className='h-screen flex items-center justify-center text-2xl'>
