@@ -1,29 +1,30 @@
 import React, { FC } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+
+import styles from './OurClients.module.css';
+
 import CLientCard from './CLientCard';
 import palette from '../../styles/pallette';
 import {
+  ArthnextLogo,
+  AtzeanLogo,
   BlueBird,
+  BrainInventory,
   CB1,
   Client2,
+  EwaLogo,
+  FinsenLogo,
+  ItfLogo,
+  JhanaLogo,
+  LarishaLogo,
   Levram1,
   Millennialz,
   OurCLient,
   ShowerWealth,
   SWAcademy,
-  FinsenLogo,
-  BrainInventory,
-  LarishaLogo,
-  ItfLogo,
-  JhanaLogo,
-  EwaLogo,
-  AtzeanLogo,
-  ArthnextLogo,
 } from '../../../assets';
-
-import 'swiper/css';
-import styles from './OurClients.module.css';
 
 interface ServiceCardProps {
   heading: string;

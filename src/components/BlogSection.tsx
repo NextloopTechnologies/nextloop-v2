@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import React from 'react';
 import { useRouter } from 'next/router';
+import React from 'react';
 
 // Strip HTML tags from a string
 const stripHtml = (html: string): string => {
@@ -11,8 +11,8 @@ const stripHtml = (html: string): string => {
 interface BlogItem {
   id: number;
   title: string;
-  descp: string; // HTML string
-  image: { url: string; fileId: string }[]; // Array of image objects
+  descp: string;
+  image: { url: string; fileId: string }[];
 }
 
 interface BlogSectionProps {

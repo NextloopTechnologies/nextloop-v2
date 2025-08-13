@@ -52,17 +52,20 @@ const Layout: React.FC<LayoutProps> = ({
           content='rSkhwwyngCBXY24oCD9ERrGDGzkIFubisOa3k-JDjWs'
         />
       </Head>
-      {width! > 1023 ? (
+      {width && width > 1023 ? (
         <Header isSticky={isSticky} headerColor={headerColor} />
       ) : (
         <Hamburger />
       )}
+
       <div className='z-10'>{children}</div>
       {pitchThoughtSectionEnabled ? (
         <Section className='min-h-screen bg-[#010103] w-screen'>
           <div
             id={id}
-            ref={(el: any) => (divRefs?.length ? (divRefs[8] = el) : null)}
+            ref={(el: HTMLDivElement | null) => {
+              if (divRefs?.length) divRefs[8] = el;
+            }}
             className='container mx-auto'
           >
             <PitchThought />
@@ -72,7 +75,9 @@ const Layout: React.FC<LayoutProps> = ({
         <div className=' bg-[#010103]'>
           <div
             id={id}
-            ref={(el: any) => (divRefs?.length ? (divRefs[8] = el) : null)}
+            ref={(el: HTMLDivElement | null) => {
+              if (divRefs?.length) divRefs[8] = el;
+            }}
           >
             {showFooter && <PitchThought />}
           </div>

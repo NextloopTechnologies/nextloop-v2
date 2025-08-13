@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React, { useEffect } from 'react';
 import Swal from 'sweetalert2';
 
@@ -61,9 +62,8 @@ export const Modal: React.FC<ModalProps> = ({
       />
 
       <div
-        className={`relative z-50 ${
-          !successMessage ? 'bg-gradient-to-l from-[#13326C] to-[#0082B1]' : ''
-        } text-white 
+        className={`relative z-50 ${!successMessage ? 'bg-gradient-to-l from-[#13326C] to-[#0082B1]' : ''
+          } text-white 
           p-4 sm:p-6 lg:p-8 rounded-lg w-full max-w-[62%] sm:max-w-[220px] lg:max-w-[520px] 
           transform transition-all duration-300 ease-in-out mx-auto`}
         style={{
@@ -75,10 +75,11 @@ export const Modal: React.FC<ModalProps> = ({
           <div className='flex flex-col'>
             <div className='flex flex-col flex-grow'>
               <div className='flex mb-2'>
-                <img
+                <Image
                   src={selectedOffer.icon.src}
                   alt={selectedOffer.title}
                   className='mr-2 w-16 sm:w-20 lg:w-24 h-16 sm:h-20 lg:h-24 object-contain'
+                  fill
                 />
               </div>
               <h2 className='text-xl sm:text-2xl font-bold mb-4'>

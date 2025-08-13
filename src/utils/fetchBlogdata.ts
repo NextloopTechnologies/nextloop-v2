@@ -5,7 +5,7 @@ interface BlogData {
   descp: string;
   image: any;
 }
-export async function fetchLatestBlogs(limit: number = 3): Promise<BlogData[]> {
+export async function fetchLatestBlogs(limit = 3): Promise<BlogData[]> {
   const { data, error } = await supabaseClient
     .from('blogs')
     .select('*')
