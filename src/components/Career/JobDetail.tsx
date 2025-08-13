@@ -6,7 +6,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import ApplicationForm from '../../components/Career/ApplicationForm';
 import { Job } from '../../types';
 import locationIcon from '../../../assets/location.svg';
-import wallet from '../../../assets/wallet.svg';
+// import wallet from '../../../assets/wallet.svg';
 
 const JobDetails: React.FC<{ job: Job }> = ({
   job: {
@@ -34,10 +34,17 @@ const JobDetails: React.FC<{ job: Job }> = ({
 
   useEffect(() => {
     if (showForm && formRef.current) {
-      formRef.current.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        const offset = formRef.current?.offsetTop || 0;
+        window.scrollTo({
+          top: offset - 100,
+          behavior: 'smooth',
+        });
+      }, 100);
+
       setIsApplyJobButtonDisable(true);
     }
-  }, [showForm, formRef.current]);
+  }, [showForm]);
 
   return (
     <div className='flex flex-col gap-8'>
@@ -100,12 +107,12 @@ const JobDetails: React.FC<{ job: Job }> = ({
               {location}, {job_mode} | {job_type}
             </p>
           </div>
-          <div className='flex gap-2 items-center'>
+          {/* <div className='flex gap-2 items-center'>
             <div className=''>
               <Image src={wallet} alt='wallet' />
             </div>
-            {/* <p className='text-lg font-bold'>{money}</p> */}
-          </div>
+             <p className='text-lg font-bold'>{money}</p>
+          </div> */}
           <button
             className='flex rounded-3xl px-6 disabled:bg-gray-400 disabled:cursor-not-allowed bg-orange-500 text-white py-1 text-lg justify-center'
             onClick={handleApplyClick}
