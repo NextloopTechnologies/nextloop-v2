@@ -315,7 +315,7 @@ const PitchThought: FC = () => {
           Reserved.
         </p>
         <p>
-          <Link href={"/privacy"}>Privacy Policy</Link>
+          <Link href="/privacy">Privacy Policy</Link>
         </p>
       </div>
     </>

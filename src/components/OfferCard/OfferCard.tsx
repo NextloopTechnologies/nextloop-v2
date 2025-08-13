@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 export interface OfferCardProps {
@@ -23,9 +24,10 @@ export const OfferCard: React.FC<OfferCardProps> = ({
       onClick={onClick}
     >
       <div className='flex flex-col'>
-        <img
+        <Image
           src={icon.src}
           alt={title}
+          fill
           className='w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 object-contain'
         />
         <span className='font-bold block border-b-2 pb-2 border-white text-lg sm:text-xl w-full text-left'>
