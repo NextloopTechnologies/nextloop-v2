@@ -94,36 +94,32 @@ export const EllipsesGradientImageCard = ({ image, position }: Props) => (
   <div className='relative'>
     <Image
       src={image}
-      className={`absolute h-[450px] w-[450px] top-6 ${
-        position === POSITION.LEFT ? '-right-[224px]' : '-left-[224px]'
-      } object-contain`}
+      className={`absolute h-[450px] w-[450px] top-6 ${position === POSITION.LEFT ? '-right-[224px]' : '-left-[224px]'
+        } object-contain`}
       alt='image'
       height={300}
       width={300}
     />
     <Image
       src={eventAssets.GrayEllipse}
-      className={`absolute w-24 h-24 ${
-        position === POSITION.LEFT ? 'left-16' : 'right-16'
-      } top-10`}
+      className={`absolute w-24 h-24 ${position === POSITION.LEFT ? 'left-16' : 'right-16'
+        } top-10`}
       alt='ellipse'
       height={300}
       width={300}
     />
     <Image
       src={eventAssets.GrayEllipse}
-      className={`absolute w-16 h-16 ${
-        position === POSITION.LEFT ? 'left-80' : 'right-80'
-      } top-32`}
+      className={`absolute w-16 h-16 ${position === POSITION.LEFT ? 'left-80' : 'right-80'
+        } top-32`}
       alt='ellipse'
       height={300}
       width={300}
     />
     <Image
       src={eventAssets.GrayEllipse}
-      className={`absolute w-24 h-24 ${
-        position === POSITION.LEFT ? 'left-16' : 'right-16'
-      } bottom-20`}
+      className={`absolute w-24 h-24 ${position === POSITION.LEFT ? 'left-16' : 'right-16'
+        } bottom-20`}
       alt='ellipse'
       height={300}
       width={300}
@@ -151,58 +147,50 @@ export const EventIdeaRow = ({
   descriptionPoints,
 }: EventIdeaProps) => (
   <div
-    className={`flex flex-col mx-10 md:flex-row items-center ${
-      position === POSITION.LEFT
-        ? 'md:justify-between md:flex-row-reverse'
-        : 'md:justify-between'
-    }`}
+    className={`flex flex-col mx-10 md:flex-row items-center ${position === POSITION.LEFT
+      ? 'md:justify-between md:flex-row-reverse'
+      : 'md:justify-between'
+      }`}
   >
     <div
-      className={`flex flex-col gap-5 w-full md:w-[600px] ${
-        position === POSITION.LEFT ? 'md:w-[400px] text-right' : 'md:ml-5'
-      }`}
+      className={`flex flex-col gap-5 w-full md:w-[600px] ${position === POSITION.LEFT ? 'md:w-[400px] text-right' : 'md:ml-5'
+        }`}
     >
       <h2
-        className={`${palette.fontSize.subtitle.mobile} md:${
-          palette.fontSize.subtitle.desktop
-        } uppercase font-extrabold ${
-          position === POSITION.LEFT
+        className={`${palette.fontSize.subtitleLarge.mobile} md:${palette.fontSize.subtitleLarge.desktop
+          } uppercase font-extrabold ${position === POSITION.LEFT
             ? 'md:ml-[250px] text-left'
             : 'md:ml-0 w-[60%]'
-        }`}
+          }`}
       >
         {title}
       </h2>
       {subTitle && (
         <h3
-          className={`${palette.fontSize.description.mobile} md:${
-            palette.fontSize.description.desktop
-          } max-w-xs ${
-            position === POSITION.LEFT ? 'md:ml-[250px] text-left' : 'md:ml-0'
-          }`}
+          className={`${palette.fontSize.subtitle.mobile} md:${palette.fontSize.description.desktop
+            } max-w-xs ${position === POSITION.LEFT ? 'md:ml-[250px] text-left' : 'md:ml-0'
+            }`}
         >
           {subTitle}
         </h3>
       )}
       {description && (
         <p
-          className={`${palette.fontSize.descriptionMid.mobile} md:${
-            palette.fontSize.descriptionMid.desktop
-          } max-w-xs ${
-            position === POSITION.LEFT ? 'md:ml-[250px] text-left' : 'md:ml-0'
-          }`}
+          className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop
+            } max-w-xs ${position === POSITION.LEFT ? 'md:ml-[250px] text-left' : 'md:ml-0'
+            }`}
         >
           {description}
         </p>
       )}
       {descriptionPoints && (
         <ul
-          className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop} list-disc pl-10 max-w-xs`}
+          className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} list-disc pl-10 max-w-xs`}
         >
           {descriptionPoints.map((point, index) => (
             <li
               key={index}
-              className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
+              className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
             >
               {point}
             </li>

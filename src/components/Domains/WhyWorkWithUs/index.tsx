@@ -45,8 +45,13 @@ type DataItem = {
 type Props = {
   data?: DataItem[];
 };
+type InfoOnImageProps = {
+  description: string;
+  image: StaticImageData | string | undefined;
+  title: string;
+};
 
-const InfoOnImage = ({ description, image, title }: any) => (
+const InfoOnImage = ({ description, image, title }: InfoOnImageProps) => (
   <div className='rounded-lg relative'>
     <div className='absolute flex gap-1 flex-col text-white top-3 left-5 z-10 lg:top-20 lg:left-16 right-6'>
       <h2
@@ -62,13 +67,13 @@ const InfoOnImage = ({ description, image, title }: any) => (
       </p>
     </div>
 
-    <Image
+    {image && <Image
       src={image}
       alt={title}
       height={500}
       width={500}
       className='w-full object-contain rounded-lg'
-    />
+    />}
   </div>
 );
 
@@ -76,17 +81,17 @@ const WhyWorkWithUs = ({ data = [] }: Props) => {
   const finalData =
     data.length > 0
       ? data
-          .map((item) =>
-            typeof item === 'object' && item !== null
-              ? {
-                  ...item,
-                  image:
-                    item?.image ||
-                    sampleData.find((sample) => sample.id === item.id)?.image,
-                }
-              : null
-          )
-          .filter((item) => item !== null)
+        .map((item) =>
+          typeof item === 'object' && item !== null
+            ? {
+              ...item,
+              image:
+                item?.image ||
+                sampleData.find((sample) => sample.id === item.id)?.image,
+            }
+            : null
+        )
+        .filter((item) => item !== null)
       : sampleData;
 
   return (

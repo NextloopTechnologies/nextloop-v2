@@ -3,8 +3,8 @@ import Head from 'next/head';
 
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
-import privacyBg from '../../../assets/blogs.png';
 import PrivacyPolicy from '../../components/PrivacyPolicy';
+import privacyBg from '../../../assets/blogs.png';
 
 const PrivacyPage = () => {
   return (

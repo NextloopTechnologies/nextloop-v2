@@ -7,10 +7,11 @@ import {
   Settings,
 } from 'lucide-react';
 
+import { getStaticImageData } from './helper';
 import { StepProps } from '../components/DiamondGridBoxes';
 import { IFAQ } from '../types';
+import { ecommerceAssets, eventAssets, fintechAssets, healthcareAssets } from '../../assets';
 import blogImg from '../../assets/blog/blogImg.png';
-import carouselImg from '../../assets/carouselImg.png';
 import buildingIcon from '../../assets/services/buildingIcon.png';
 import desktopCloud from '../../assets/services/desktopCloud.png';
 import documentIcon from '../../assets/services/documentIcon.png';
@@ -212,36 +213,38 @@ export const servicesWhyChooseUsData = [
   },
 ];
 
+const staticServices = [
+  {
+    image: getStaticImageData(ecommerceAssets.ECommerceBg),
+    title: 'E-COMMERCE WEBSITE.',
+    description: 'Start selling immediately, without limits.',
+    link: '/expertise/ecommerce',
+  },
+  {
+    image: getStaticImageData(eventAssets.eventsBg),
+    title: 'CREATE A PROFESSIONAL EVENT WEBSITE',
+    description: '',
+    link: '/expertise/event',
+  },
+  {
+    image: getStaticImageData(fintechAssets.fintechBg),
+    title: 'FINTECH WEBSITE DESIGN',
+    description: '',
+    link: '/expertise/fintech',
+  },
+  {
+    image: getStaticImageData(healthcareAssets.healthCareBg),
+    title: 'HEALTHCARE SOFTWARE DEVELOPMENT',
+    description: 'Transforming patient care.',
+    link: '/expertise/healthcare',
+  },
+]
+
 export const servicesAreaOfExpertiseData = {
   mainHeader: 'OUR AREAS OF EXPERTISE',
   mainDescription:
     "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
-  items: [
-    {
-      image: carouselImg,
-      title: 'E-COMMERCE WEBSITE.',
-      description: 'Start selling immediately, without limits.',
-      link: '/expertise/ecommerce',
-    },
-    {
-      image: carouselImg,
-      title: 'CREATE A PROFESSIONAL EVENT WEBSITE',
-      description: '',
-      link: '/expertise/event',
-    },
-    {
-      image: carouselImg,
-      title: 'FINTECH WEBSITE DESIGN',
-      description: '',
-      link: '/expertise/fintech',
-    },
-    {
-      image: carouselImg,
-      title: 'HEALTHCARE SOFTWARE DEVELOPMENT',
-      description: 'Transforming patient care.',
-      link: '/expertise/healthcare',
-    },
-  ],
+  items: staticServices,
 };
 
 export const topStepsWebDevelopment: StepProps[] = [
@@ -552,26 +555,6 @@ export const servicesSubPagesData = {
         icon: eyeIcon,
       },
     ],
-    blogData: [
-      {
-        id: 1,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 2,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 3,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-    ],
     faqsContent: [
       {
         id: 1,
@@ -602,32 +585,7 @@ export const servicesSubPagesData = {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
         "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
-      items: [
-        {
-          image: carouselImg,
-          title: 'E-COMMERCE WEBSITE.',
-          description: 'Start selling immediately, without limits.',
-          link: '/expertise/ecommerce',
-        },
-        {
-          image: carouselImg,
-          title: 'CREATE A PROFESSIONAL EVENT WEBSITE',
-          description: '',
-          link: '/expertise/event',
-        },
-        {
-          image: carouselImg,
-          title: 'FINTECH WEBSITE DESIGN',
-          description: '',
-          link: '/expertise/fintech',
-        },
-        {
-          image: carouselImg,
-          title: 'HEALTHCARE SOFTWARE DEVELOPMENT',
-          description: 'Transforming patient care.',
-          link: '/expertise/healthcare',
-        },
-      ],
+      items: staticServices,
     },
   },
   webDevelopment: {
@@ -883,26 +841,6 @@ export const servicesSubPagesData = {
         icon: eyeIcon,
       },
     ],
-    blogData: [
-      {
-        id: 1,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 2,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 3,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-    ],
     faqsContent: [
       {
         id: 1,
@@ -941,32 +879,7 @@ export const servicesSubPagesData = {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
         "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
-      items: [
-        {
-          image: carouselImg,
-          title: 'E-COMMERCE WEBSITE.',
-          description: 'Start selling immediately, without limits.',
-          link: '/expertise/ecommerce',
-        },
-        {
-          image: carouselImg,
-          title: 'CREATE A PROFESSIONAL EVENT WEBSITE',
-          description: '',
-          link: '/expertise/event',
-        },
-        {
-          image: carouselImg,
-          title: 'FINTECH WEBSITE DESIGN',
-          description: '',
-          link: '/expertise/fintech',
-        },
-        {
-          image: carouselImg,
-          title: 'HEALTHCARE SOFTWARE DEVELOPMENT',
-          description: 'Transforming patient care.',
-          link: '/expertise/healthcare',
-        },
-      ],
+      items: staticServices,
     },
   },
   cloudServices: {
@@ -1209,57 +1122,11 @@ export const servicesSubPagesData = {
         icon: eyeIcon,
       },
     ],
-    blogData: [
-      {
-        id: 1,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 2,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 3,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-    ],
-
     areaOfExpertiseData: {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
         "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
-      items: [
-        {
-          image: carouselImg,
-          title: 'E-COMMERCE WEBSITE.',
-          description: 'Start selling immediately, without limits.',
-          link: '/expertise/ecommerce',
-        },
-        {
-          image: carouselImg,
-          title: 'CREATE A PROFESSIONAL EVENT WEBSITE',
-          description: '',
-          link: '/expertise/event',
-        },
-        {
-          image: carouselImg,
-          title: 'FINTECH WEBSITE DESIGN',
-          description: '',
-          link: '/expertise/fintech',
-        },
-        {
-          image: carouselImg,
-          title: 'HEALTHCARE SOFTWARE DEVELOPMENT',
-          description: 'Transforming patient care.',
-          link: '/expertise/healthcare',
-        },
-      ],
+      items: staticServices,
     },
     faqsContent: [
       {
@@ -1552,57 +1419,11 @@ export const servicesSubPagesData = {
         icon: eyeIcon,
       },
     ],
-    blogData: [
-      {
-        id: 1,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 2,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 3,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-    ],
-
     areaOfExpertiseData: {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
         "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
-      items: [
-        {
-          image: carouselImg,
-          title: 'E-COMMERCE WEBSITE.',
-          description: 'Start selling immediately, without limits.',
-          link: '/expertise/ecommerce',
-        },
-        {
-          image: carouselImg,
-          title: 'CREATE A PROFESSIONAL EVENT WEBSITE',
-          description: '',
-          link: '/expertise/event',
-        },
-        {
-          image: carouselImg,
-          title: 'FINTECH WEBSITE DESIGN',
-          description: '',
-          link: '/expertise/fintech',
-        },
-        {
-          image: carouselImg,
-          title: 'HEALTHCARE SOFTWARE DEVELOPMENT',
-          description: 'Transforming patient care.',
-          link: '/expertise/healthcare',
-        },
-      ],
+      items: staticServices,
     },
     faqsContent: [
       {
@@ -1886,57 +1707,11 @@ export const servicesSubPagesData = {
         icon: eyeIcon,
       },
     ],
-    blogData: [
-      {
-        id: 1,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 2,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 3,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-    ],
-
     areaOfExpertiseData: {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
         "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
-      items: [
-        {
-          image: carouselImg,
-          title: 'E-COMMERCE WEBSITE.',
-          description: 'Start selling immediately, without limits.',
-          link: '/expertise/ecommerce',
-        },
-        {
-          image: carouselImg,
-          title: 'CREATE A PROFESSIONAL EVENT WEBSITE',
-          description: '',
-          link: '/expertise/event',
-        },
-        {
-          image: carouselImg,
-          title: 'FINTECH WEBSITE DESIGN',
-          description: '',
-          link: '/expertise/fintech',
-        },
-        {
-          image: carouselImg,
-          title: 'HEALTHCARE SOFTWARE DEVELOPMENT',
-          description: 'Transforming patient care.',
-          link: '/expertise/healthcare',
-        },
-      ],
+      items: staticServices,
     },
     faqsContent: [
       {
@@ -2202,57 +1977,11 @@ export const servicesSubPagesData = {
         icon: eyeIcon,
       },
     ],
-    blogData: [
-      {
-        id: 1,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 2,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 3,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-    ],
-
     areaOfExpertiseData: {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
         "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
-      items: [
-        {
-          image: carouselImg,
-          title: 'E-COMMERCE WEBSITE.',
-          description: 'Start selling immediately, without limits.',
-          link: '/expertise/ecommerce',
-        },
-        {
-          image: carouselImg,
-          title: 'CREATE A PROFESSIONAL EVENT WEBSITE',
-          description: '',
-          link: '/expertise/event',
-        },
-        {
-          image: carouselImg,
-          title: 'FINTECH WEBSITE DESIGN',
-          description: '',
-          link: '/expertise/fintech',
-        },
-        {
-          image: carouselImg,
-          title: 'HEALTHCARE SOFTWARE DEVELOPMENT',
-          description: 'Transforming patient care.',
-          link: '/expertise/healthcare',
-        },
-      ],
+      items: staticServices,
     },
     faqsContent: [
       {
@@ -2517,57 +2246,11 @@ export const servicesSubPagesData = {
         icon: eyeIcon,
       },
     ],
-    blogData: [
-      {
-        id: 1,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 2,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 3,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-    ],
-
     areaOfExpertiseData: {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
         "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
-      items: [
-        {
-          image: carouselImg,
-          title: 'E-COMMERCE WEBSITE.',
-          description: 'Start selling immediately, without limits.',
-          link: '/expertise/ecommerce',
-        },
-        {
-          image: carouselImg,
-          title: 'CREATE A PROFESSIONAL EVENT WEBSITE',
-          description: '',
-          link: '/expertise/event',
-        },
-        {
-          image: carouselImg,
-          title: 'FINTECH WEBSITE DESIGN',
-          description: '',
-          link: '/expertise/fintech',
-        },
-        {
-          image: carouselImg,
-          title: 'HEALTHCARE SOFTWARE DEVELOPMENT',
-          description: 'Transforming patient care.',
-          link: '/expertise/healthcare',
-        },
-      ],
+      items: staticServices,
     },
     faqsContent: [
       {
@@ -2824,57 +2507,11 @@ export const servicesSubPagesData = {
         icon: eyeIcon,
       },
     ],
-    blogData: [
-      {
-        id: 1,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 2,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-      {
-        id: 3,
-        title: 'Industry Knowledge and Research Capabilities',
-        description: `Fintech is a unique industry. Therefore, your website must be built according to sector standards, client needs, and company requirements. To do this, it's crucial you hire a web design team with industry-relevant experience and in-depth research capabilities.`,
-        image: blogImg,
-      },
-    ],
-
     areaOfExpertiseData: {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
         "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
-      items: [
-        {
-          image: carouselImg,
-          title: 'E-COMMERCE WEBSITE.',
-          description: 'Start selling immediately, without limits.',
-          link: '/expertise/ecommerce',
-        },
-        {
-          image: carouselImg,
-          title: 'CREATE A PROFESSIONAL EVENT WEBSITE',
-          description: '',
-          link: '/expertise/event',
-        },
-        {
-          image: carouselImg,
-          title: 'FINTECH WEBSITE DESIGN',
-          description: '',
-          link: '/expertise/fintech',
-        },
-        {
-          image: carouselImg,
-          title: 'HEALTHCARE SOFTWARE DEVELOPMENT',
-          description: 'Transforming patient care.',
-          link: '/expertise/healthcare',
-        },
-      ],
+      items: staticServices,
     },
     faqsContent: [
       {

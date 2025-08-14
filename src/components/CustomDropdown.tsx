@@ -1,14 +1,24 @@
-import React, { useEffect,useRef, useState } from 'react'; // Added useRef and useEffect
+import React, { useEffect, useRef, useState } from 'react'; // Added useRef and useEffect
 
 interface OptionType {
   label: string;
   value: string; // or whatever type your value is
 }
 
-const CustomDropdown = () => {
+interface CustomDropdownProps {
+  selected?: OptionType | null;
+  onChange?: (option: OptionType) => void;
+}
+
+const CustomDropdown: React.FC<CustomDropdownProps> = ({ selected, onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<OptionType | null>(null); // Define OptionType appropriately
   const dropdownRef = useRef<HTMLDivElement | null>(null); // Create a ref for the dropdown
+
+  useEffect(() => {
+    if (selected !== selectedOption)
+      setSelectedOption(selected ?? null);
+  }, [selected, selectedOption]);
 
   // Effect to handle clicks outside of the dropdown
   useEffect(() => {
@@ -22,12 +32,10 @@ const CustomDropdown = () => {
     };
 
     document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [dropdownRef]);
 
-  const options = [
+  const options: OptionType[] = [
     { value: 'general', label: 'General Enquiry' },
     { value: 'technical', label: 'Technical Support' },
     { value: 'partnership', label: 'Partnership Opportunity' },
@@ -36,16 +44,17 @@ const CustomDropdown = () => {
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 
-  const handleOptionClick = (option: any) => {
+  const handleOptionClick = (option: OptionType) => {
     setSelectedOption(option);
     setIsOpen(false);
+    onChange?.(option);
   };
 
   return (
     <div className='relative' ref={dropdownRef}>
       <button
         onClick={toggleDropdown}
-        className='border-b border-gray-400 w-full h-10 bg-transparent focus:outline-none focus:border-gray-400 transition-all duration-300 text-left text-gray-400'
+        className='border-b border-gray-400 w-full h-10 bg-transparent focus:outline-none focus:border-gray-400 transition-all duration-300 text-left text-black'
       >
         {selectedOption ? selectedOption.label : 'Please Select Subject'}
         <svg

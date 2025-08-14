@@ -131,10 +131,12 @@ const AboutUsHome = () => {
   return (
     <Layout>
       <Head>
-        <title>Nextloop Technologies | About Us</title>
+        <title>
+          Innovative IT Solutions & Industry Expertise | About Nextloop
+        </title>
         <meta
           name='description'
-          content='At Nextloop Technologies, we are committed to driving innovation. Learn about our core values and how we aim to revolutionize the tech landscape.'
+          content='Nextloop Technologies — ISO & CMMI certified IT experts delivering award-winning custom software, cloud, blockchain, digital transformation since 2020'
         />
       </Head>
       <PageHero

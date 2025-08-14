@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 
@@ -73,9 +74,10 @@ const OffersPage = () => {
 
       <div className='relative z-10 flex-1 flex flex-col'>
         <div className='p-4 md:p-6 lg:p-8'>
-          <img
+          <Image
             src={offersLogo.src}
             alt='Offers Logo'
+            fill
             className='w-24 md:w-32 h-auto'
           />
         </div>

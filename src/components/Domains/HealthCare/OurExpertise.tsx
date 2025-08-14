@@ -45,7 +45,7 @@ const OurExpertise = () => {
           OUR EXPERTISE YOUR <span className='text-orange-500'>SUCCESS!</span>
         </h1>
         <p
-          className={`xl:mx-[150px] mx-10 ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
+          className={`xl:mx-[150px] mx-10 ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop}`}
         >
           At Nextloop Technologies, we harness our extensive expertise in the
           healthcare sector alongside our mastery of advanced technological

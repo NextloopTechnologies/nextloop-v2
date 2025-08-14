@@ -4,7 +4,7 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  plugins: ['@typescript-eslint', 'simple-import-sort', 'unused-imports'],
+  plugins: [ '@typescript-eslint', 'simple-import-sort', 'unused-imports' ],
   extends: [
     'eslint:recommended',
     'next',
@@ -14,7 +14,8 @@ module.exports = {
   ],
   rules: {
     'no-unused-vars': 'off',
-    'no-console': 'warn',
+    'no-console': [ 'warn', { allow: [ 'error' ] } ],
+    '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'react/no-unescaped-entities': 'off',
 
@@ -45,19 +46,19 @@ module.exports = {
       {
         groups: [
           // ext library & side effect imports
-          ['^@?\\w', '^\\u0000'],
+          [ '^@?\\w', '^\\u0000' ],
           // {s}css files
-          ['^.+\\.s?css$'],
+          [ '^.+\\.s?css$' ],
           // Lib and hooks
-          ['^@/lib', '^@/hooks'],
+          [ '^@/lib', '^@/hooks' ],
           // static data
-          ['^@/data'],
+          [ '^@/data' ],
           // components
-          ['^@/components', '^@/container'],
+          [ '^@/components', '^@/container' ],
           // zustand store
-          ['^@/store'],
+          [ '^@/store' ],
           // Other imports
-          ['^@/'],
+          [ '^@/' ],
           // relative paths up until 3 level
           [
             '^\\./?$',
@@ -69,9 +70,9 @@ module.exports = {
             '^\\.\\./\\.\\./\\.\\./?$',
             '^\\.\\./\\.\\./\\.\\.(?!/?$)',
           ],
-          ['^@/types'],
+          [ '^@/types' ],
           // other that didnt fit in
-          ['^'],
+          [ '^' ],
         ],
       },
     ],

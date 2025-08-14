@@ -4,6 +4,7 @@ import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 
 import 'react-quill/dist/quill.snow.css';
+
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
 import { BlogType } from '../../types';

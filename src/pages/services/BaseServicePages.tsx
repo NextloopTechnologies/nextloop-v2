@@ -49,8 +49,8 @@ interface WhyChooseUsData {
 interface BlogData {
   id: number;
   title: string;
-  description: string;
-  image: StaticImageData;
+  descp: string;
+  image: { url: string; fileId: string }[];
 }
 
 interface FAQData {
