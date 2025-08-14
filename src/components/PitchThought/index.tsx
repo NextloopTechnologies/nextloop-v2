@@ -11,6 +11,7 @@ import LocationIcon from '../../../assets/getInTouch/LocationIcon.png';
 import MailIcon from '../../../assets/getInTouch/MailIcon.png';
 import PhoneIcon from '../../../assets/getInTouch/PhoneIcon.png';
 import TwitterIcon from '../../../assets/getInTouch/twitterIcon.png';
+import { Dot } from 'lucide-react';
 
 const PitchThought: FC = () => {
   const [email, setEmail] = useState('');
@@ -291,8 +292,10 @@ const PitchThought: FC = () => {
           © {new Date().getFullYear()} Nextloop Technologies ― All Rights
           Reserved.
         </p>
-        <p>
-          <Link href={"/privacy"}>Privacy Policy</Link>
+        <p className='flex justify-center items-center mt-2 sm:mt-0'>
+          <Link href="/cookies-policy">Cookie Policy</Link>
+          <span><Dot className='w-8 h-8 my-auto'></Dot></span>
+          <Link href="/privacy">Privacy Policy</Link>
         </p>
       </div>
     </>
