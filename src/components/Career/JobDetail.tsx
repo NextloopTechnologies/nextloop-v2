@@ -13,8 +13,7 @@ const JobDetails: React.FC<{ job: Job }> = ({
     id,
     title,
     location,
-    // created_at,
-    updated_at,
+    created_at,
     descp,
     job_mode,
     job_type,
@@ -52,7 +51,7 @@ const JobDetails: React.FC<{ job: Job }> = ({
       <div className='flex flex-col gap-4'>
         <h1 className='xl:text-7xl md:text-5xl text-3xl font-bold'>{title}</h1>
         <p className='text-lg'>
-          {location} | {dayjs(updated_at).format('DD/MMM/YYYY')}
+          {location} | {dayjs(created_at).format('DD/MMM/YYYY')}
         </p>
       </div>
       <div className='flex flex-col gap-4'>
