@@ -245,6 +245,7 @@ const PitchThought: FC = () => {
                       <Image
                         src={staticAssests.socials.facebook}
                         alt='fb-icon'
+                        width={60} height={60}
                         className='w-14 h-14 object-contain'
                       />
                     </Link>
@@ -254,6 +255,7 @@ const PitchThought: FC = () => {
                       <Image
                         src={staticAssests.socials.google}
                         alt='google-icon'
+                        width={60} height={60}
                         className='w-14 h-14 object-contain'
                       />
                     </Link>
@@ -267,6 +269,7 @@ const PitchThought: FC = () => {
                       <Image
                         src={staticAssests.socials.mail}
                         alt='gmail-icon'
+                        width={60} height={60}
                         className='w-14 h-14 object-contain'
                       />
                     </Link>
@@ -279,6 +282,7 @@ const PitchThought: FC = () => {
                       <Image
                         src={staticAssests.socials.instagram}
                         alt='instagram-icon'
+                        width={60} height={60}
                         className='w-14 h-14 object-contain'
                       />
                     </Link>
@@ -288,6 +292,7 @@ const PitchThought: FC = () => {
                       <Image
                         src={staticAssests.socials.linkedin}
                         alt='x-icon'
+                        width={60} height={60}
                         className='w-14 h-14 object-contain'
                       />
                     </Link>
@@ -297,6 +302,7 @@ const PitchThought: FC = () => {
                       <Image
                         src={staticAssests.socials.x}
                         alt='insta-icon'
+                        width={60} height={60}
                         className='w-14 h-14 object-contain'
                       />
                     </Link>

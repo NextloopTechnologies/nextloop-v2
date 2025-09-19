@@ -14,51 +14,51 @@ interface ServiceCardProps {
 const SERVICE_DATA: ServiceCardProps[] = [
   {
     heading: 'Custom Software Development',
-    image: staticAssests.general.Service1 as unknown as string,
+    image: staticAssests.services.s1 as unknown as string,
   },
   {
     heading: 'Web Development',
-    image: staticAssests.general.Service2 as unknown as string,
+    image: staticAssests.services.s2 as unknown as string,
   },
   {
     heading: 'MVP Development',
-    image: staticAssests.general.Service3 as unknown as string,
+    image: staticAssests.services.s3 as unknown as string,
   },
   {
     heading: 'Cloud Services (DevOps, AWS, GCP, Azure)',
-    image: staticAssests.general.Service4 as unknown as string,
+    image: staticAssests.services.s4 as unknown as string,
   },
   {
     heading: 'Mobile Development',
-    image: staticAssests.general.Service5 as unknown as string,
+    image: staticAssests.services.s5 as unknown as string,
   },
   {
     heading: 'UI/UX Development',
-    image: staticAssests.general.Service6 as unknown as string,
+    image: staticAssests.services.s6 as unknown as string,
   },
   {
     heading: 'Hire Dedicated Team',
-    image: staticAssests.general.Service7 as unknown as string,
+    image: staticAssests.services.s7 as unknown as string,
   },
   {
     heading: 'E-commerce Development',
-    image: staticAssests.general.Service8 as unknown as string,
+    image: staticAssests.services.s8 as unknown as string,
   },
   {
     heading: 'AI/ML',
-    image: staticAssests.general.Service9 as unknown as string,
+    image: staticAssests.services.s9 as unknown as string,
   },
   {
     heading: 'Data Storage and Management',
-    image: staticAssests.general.Service10 as unknown as string,
+    image: staticAssests.services.s10 as unknown as string,
   },
   {
     heading: 'Technical Support',
-    image: staticAssests.general.Service11 as unknown as string,
+    image: staticAssests.services.s11 as unknown as string,
   },
   {
     heading: 'Technology Training',
-    image: staticAssests.general.Service12 as unknown as string,
+    image: staticAssests.services.s12 as unknown as string,
   },
 ];
 

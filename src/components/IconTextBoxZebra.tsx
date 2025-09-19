@@ -20,9 +20,8 @@ const IconTextBoxZebra: React.FC<IconTextBoxZebraProps> = ({ data }) => {
         {data?.items?.map((item) => (
           <div
             key={item?.id}
-            className={`flex items-center p-6 rounded-lg shadow-md ${
-              item?.dark ? 'bg-black text-white' : 'bg-white text-black border'
-            }`}
+            className={`flex items-center p-6 rounded-lg shadow-md ${item?.dark ? 'bg-black text-white' : 'bg-white text-black border'
+              }`}
           >
             <div className='w-13 h-13 relative mr-4'>
               <Image src={item?.image} alt={item?.title} />

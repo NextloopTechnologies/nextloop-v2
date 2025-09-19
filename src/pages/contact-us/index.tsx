@@ -199,6 +199,7 @@ const ContactForm: FC = () => {
                       >
                         <Image
                           src={staticAssests.socials.facebook}
+                          width={60} height={60}
                           alt='fb-icon'
                           className='w-14 h-14 object-contain'
                         />
@@ -208,6 +209,7 @@ const ContactForm: FC = () => {
                       <Link href='https://g.co/kgs/7LnLSHN'>
                         <Image
                           src={staticAssests.socials.google}
+                          width={60} height={60}
                           alt='google-icon'
                           className='w-14 h-14 object-contain'
                         />
@@ -221,6 +223,7 @@ const ContactForm: FC = () => {
                       >
                         <Image
                           src={staticAssests.socials.mail}
+                          width={60} height={60}
                           alt='gmail-icon'
                           className='w-14 h-14 object-contain'
                         />
@@ -233,6 +236,7 @@ const ContactForm: FC = () => {
                       >
                         <Image
                           src={staticAssests.socials.instagram}
+                          width={60} height={60}
                           alt='instagram-icon'
                           className='w-14 h-14 object-contain'
                         />
@@ -242,6 +246,7 @@ const ContactForm: FC = () => {
                       <Link href='https://www.linkedin.com/company/nextloop-technologies-llp'>
                         <Image
                           src={staticAssests.socials.linkedin}
+                          width={60} height={60}
                           alt='linkedin-icon'
                           className='w-14 h-14 object-contain'
                         />
@@ -251,6 +256,7 @@ const ContactForm: FC = () => {
                       <Link href='https://x.com/Nextloop_'>
                         <Image
                           src={staticAssests.socials.x}
+                          width={60} height={60}
                           alt='x-icon'
                           className='w-14 h-14 object-contain'
                         />

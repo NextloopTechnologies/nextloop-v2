@@ -52,48 +52,6 @@ export { default as printOnDemand } from './healthcareAssets/printOnDemand.png';
 export { default as subscriptions } from './healthcareAssets/subscriptions.png';
 export { default as healthCareWhyChooseUs1 } from './healthCareWhyChooseUs1.jpeg';
 export { default as healthCareWhyChooseUs2 } from './healthCareWhyChooseUs2.jpeg';
-// export { default as offerIconCustomSoftwareDevelopment } from './offers/icons/customSoftwareDevelopment.png';
-// export { default as offerIconDigitalMarketing } from './offers/icons/digitalMarketing.png';
-// export { default as offerIconProductSubscription } from './offers/icons/productSubscription.png';
-// export { default as offerIconStaffAugmentation } from './offers/icons/staffAugmentation.png';
-// export { default as offerIconSuccessTick } from './offers/icons/successTick.png';
-// export { default as offersLogo } from './offers/logo.png';
-// export { default as offerPageBg } from './offers/offerPageBg.png';
-// export { default as Service1 } from './services/1.png';
-// export { default as Service2 } from './services/2.png';
-// export { default as Service3 } from './services/3.png';
-// export { default as Service4 } from './services/4.png';
-// export { default as Service5 } from './services/5.png';
-// export { default as Service6 } from './services/6.png';
-// export { default as Service7 } from './services/7.png';
-// export { default as Service8 } from './services/8.png';
-// export { default as Service9 } from './services/9.png';
-// export { default as Service10 } from './services/10.png';
-// export { default as Service11 } from './services/11.png';
-// export { default as Service12 } from './services/12.png';
-// export { default as ShowerWealth } from './shower-wealth.png';
-// export { default as SWAcademy } from './shower-wealth-academy.png';
-// export { default as FACEBOOK } from './socialIcons/FACEBOOK.png';
-// export { default as GOOGLE } from './socialIcons/Google.png';
-// export { default as INSTAGRAM } from './socialIcons/INSTAGRAM.png';
-// export { default as LINKIN } from './socialIcons/LINKIN.png';
-// export { default as Mail } from './socialIcons/Mail.png';
-// export { default as X } from './socialIcons/TWT.png';
-// export { default as Stamens } from './Stamens.png';
-// export { default as Values1 } from './values-1.png';
-// export { default as Values2 } from './values-2.png';
-// export { default as Values3 } from './values-3.png';
-// export { default as Values4 } from './values-4.png';
-// export { default as Whoweare } from './who-we-are.jpeg';
-// export { default as Whyus } from './whyus.png';
-// export { default as FinsenLogo } from './finsen-logo.png';
-// export { default as LarishaLogo } from './larisha-logo.png';
-// export { default as ItfLogo } from './itf-logo.png';
-// export { default as JhanaLogo } from './jhana-logo.png';
-// export { default as EwaLogo } from './ewa-logo.png';
-// export { default as AtzeanLogo } from './atzean-logo.png';
-// export { default as ArthnextLogo } from './arthnext-logo.png';
-// export { default as BrainInventory } from './brain-inventory.png';
 
 
 export const staticAssests = {
@@ -198,35 +156,6 @@ export const staticAssests = {
 
   // --- Miscellaneous / General ---
   general: {
-    offerIconCustomSoftwareDevelopment: '/assets/offers/icons/customSoftwareDevelopment.png',
-    offerIconDigitalMarketing: '/assets/offers/icons/digitalMarketing.png',
-    offerIconProductSubscription: '/assets/offers/icons/productSubscription.png',
-    offerIconStaffAugmentation: '/assets/offers/icons/staffAugmentation.png',
-    Service1: '/assets/services/1.png',
-    Service2: '/assets/services/2.png',
-    Service3: '/assets/services/3.png',
-    Service4: '/assets/services/4.png',
-    Service5: '/assets/services/5.png',
-    Service6: '/assets/services/6.png',
-    Service7: '/assets/services/7.png',
-    Service8: '/assets/services/8.png',
-    Service9: '/assets/services/9.png',
-    Service10: '/assets/services/10.png',
-    Service11: '/assets/services/11.png',
-    Service12: '/assets/services/12.png',
-    SWAcademy: '/assets/shower-wealth-academy.png',
-    Values1: '/assets/values-1.png',
-    Values2: '/assets/values-2.png',
-    Values3: '/assets/values-3.png',
-    Values4: '/assets/values-4.png',
-    FinsenLogo: '/assets/finsen-logo.png',
-    LarishaLogo: '/assets/larisha-logo.png',
-    ItfLogo: '/assets/itf-logo.png',
-    JhanaLogo: '/assets/jhana-logo.png',
-    EwaLogo: '/assets/ewa-logo.png',
-    AtzeanLogo: '/assets/atzean-logo.png',
-    ArthnextLogo: '/assets/arthnext-logo.png',
-    BrainInventory: '/assets/brain-inventory.png',
     cb1: '/assets/cb-1.png',
     compositeLayer1: '/assets/CompositeLayer-1.png',
     compositeLayer2: '/assets/CompositeLayer-2.png',
