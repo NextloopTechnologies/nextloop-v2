@@ -76,7 +76,7 @@ export const Modal: React.FC<ModalProps> = ({
             <div className='flex flex-col flex-grow'>
               <div className='flex mb-2'>
                 <Image
-                  src={selectedOffer.icon.src}
+                  src={selectedOffer.icon}
                   alt={selectedOffer.title}
                   className='mr-2 w-16 sm:w-20 lg:w-24 h-16 sm:h-20 lg:h-24 object-contain'
                   fill

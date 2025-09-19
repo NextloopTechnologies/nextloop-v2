@@ -6,11 +6,10 @@ import CustomDropdown from '../CustomDropdown';
 import palette from '../../styles/pallette';
 import { EnquiryType } from '../../types';
 import { createInquiryForm } from '../../utils/db';
-import { FACEBOOK, GOOGLE, INSTAGRAM, LINKIN, Mail } from '../../../assets';
+import { staticAssests } from '../../../assets';
 import LocationIcon from '../../../assets/getInTouch/LocationIcon.png';
 import MailIcon from '../../../assets/getInTouch/MailIcon.png';
 import PhoneIcon from '../../../assets/getInTouch/PhoneIcon.png';
-import TwitterIcon from '../../../assets/getInTouch/twitterIcon.png';
 import { Dot } from 'lucide-react';
 
 interface OptionType {
@@ -244,7 +243,7 @@ const PitchThought: FC = () => {
                       passHref
                     >
                       <Image
-                        src={FACEBOOK}
+                        src={staticAssests.socials.facebook}
                         alt='fb-icon'
                         className='w-14 h-14 object-contain'
                       />
@@ -253,7 +252,7 @@ const PitchThought: FC = () => {
                   <li>
                     <Link href='https://g.co/kgs/7LnLSHN'>
                       <Image
-                        src={GOOGLE}
+                        src={staticAssests.socials.google}
                         alt='google-icon'
                         className='w-14 h-14 object-contain'
                       />
@@ -266,7 +265,7 @@ const PitchThought: FC = () => {
                       aria-label='Send Email'
                     >
                       <Image
-                        src={Mail}
+                        src={staticAssests.socials.mail}
                         alt='gmail-icon'
                         className='w-14 h-14 object-contain'
                       />
@@ -278,7 +277,7 @@ const PitchThought: FC = () => {
                       href='https://www.instagram.com/nextloop.technologies/'
                     >
                       <Image
-                        src={INSTAGRAM}
+                        src={staticAssests.socials.instagram}
                         alt='instagram-icon'
                         className='w-14 h-14 object-contain'
                       />
@@ -287,7 +286,7 @@ const PitchThought: FC = () => {
                   <li>
                     <Link href='https://www.linkedin.com/company/nextloop-technologies-llp'>
                       <Image
-                        src={LINKIN}
+                        src={staticAssests.socials.linkedin}
                         alt='x-icon'
                         className='w-14 h-14 object-contain'
                       />
@@ -296,7 +295,7 @@ const PitchThought: FC = () => {
                   <li>
                     <Link href='https://x.com/Nextloop_'>
                       <Image
-                        src={TwitterIcon}
+                        src={staticAssests.socials.x}
                         alt='insta-icon'
                         className='w-14 h-14 object-contain'
                       />

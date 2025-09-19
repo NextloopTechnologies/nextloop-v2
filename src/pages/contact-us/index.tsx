@@ -8,11 +8,9 @@ import Layout from '../../components/Layout/Layout';
 import palette from '../../styles/pallette';
 import { EnquiryType } from '../../types';
 import { createInquiryForm } from '../../utils/db';
-import { FACEBOOK, GOOGLE, INSTAGRAM, LINKIN, Mail } from '../../../assets';
+import { staticAssests } from '../../../assets';
 import LocationIcon from '../../../assets/getInTouch/LocationIcon.png';
-import MailIcon from '../../../assets/getInTouch/MailIcon.png';
 import PhoneIcon from '../../../assets/getInTouch/PhoneIcon.png';
-import TwitterIcon from '../../../assets/getInTouch/twitterIcon.png';
 
 interface OptionType {
   label: string;
@@ -132,7 +130,7 @@ const ContactForm: FC = () => {
                 </div>
                 <div className='flex items-center'>
                   <Image
-                    src={MailIcon}
+                    src={staticAssests.socials.mail}
                     height={24}
                     width={24}
                     alt='inventory-card-icon'
@@ -200,7 +198,7 @@ const ContactForm: FC = () => {
                         passHref
                       >
                         <Image
-                          src={FACEBOOK}
+                          src={staticAssests.socials.facebook}
                           alt='fb-icon'
                           className='w-14 h-14 object-contain'
                         />
@@ -209,7 +207,7 @@ const ContactForm: FC = () => {
                     <li>
                       <Link href='https://g.co/kgs/7LnLSHN'>
                         <Image
-                          src={GOOGLE}
+                          src={staticAssests.socials.google}
                           alt='google-icon'
                           className='w-14 h-14 object-contain'
                         />
@@ -222,7 +220,7 @@ const ContactForm: FC = () => {
                         aria-label='Send Email'
                       >
                         <Image
-                          src={Mail}
+                          src={staticAssests.socials.mail}
                           alt='gmail-icon'
                           className='w-14 h-14 object-contain'
                         />
@@ -234,7 +232,7 @@ const ContactForm: FC = () => {
                         href='https://www.instagram.com/nextloop.technologies/'
                       >
                         <Image
-                          src={INSTAGRAM}
+                          src={staticAssests.socials.instagram}
                           alt='instagram-icon'
                           className='w-14 h-14 object-contain'
                         />
@@ -243,8 +241,8 @@ const ContactForm: FC = () => {
                     <li>
                       <Link href='https://www.linkedin.com/company/nextloop-technologies-llp'>
                         <Image
-                          src={LINKIN}
-                          alt='x-icon'
+                          src={staticAssests.socials.linkedin}
+                          alt='linkedin-icon'
                           className='w-14 h-14 object-contain'
                         />
                       </Link>
@@ -252,8 +250,8 @@ const ContactForm: FC = () => {
                     <li>
                       <Link href='https://x.com/Nextloop_'>
                         <Image
-                          src={TwitterIcon}
-                          alt='insta-icon'
+                          src={staticAssests.socials.x}
+                          alt='x-icon'
                           className='w-14 h-14 object-contain'
                         />
                       </Link>

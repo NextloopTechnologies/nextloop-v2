@@ -9,7 +9,7 @@ import palette from '../../styles/pallette';
 //   textVariants,
 // } from '../../utils/frameMotionAnimations';
 // import useWindowSize from '../../utils/useWindowSize';
-import { Whoweare } from '../../../assets';
+import { staticAssests } from '../../../assets';
 
 const WhoWeAre: FC = () => {
   const [textAnimationCompleted, setTextAnimationCompleted] = useState(false);
@@ -87,7 +87,7 @@ const WhoWeAre: FC = () => {
               // className='bg-blue-300 rounded-tl-[52px] rounded-br-[52px] flex lg:items-end items-center justify-center'
               > */}
               <Image
-                src={Whoweare}
+                src={staticAssests.general.whoWeAre}
                 className='w-full h-full object-cover'
                 alt='image'
               />

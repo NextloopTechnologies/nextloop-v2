@@ -37,7 +37,7 @@ const SpecialOffers: React.FC = () => {
               );
               return {
                 ...offer,
-                icon: localOffer?.icon || { src: '' },
+                icon: localOffer?.icon || '',
               };
             });
             setOffers(offersWithIcons);
@@ -132,7 +132,7 @@ const SpecialOffers: React.FC = () => {
               key={offer.id}
               title={offer.title}
               description={offer.description}
-              icon={offer?.icon}
+              icon={{ src: offer?.icon }}
               onClick={() => setSelectedOffer(offer)}
             />
           ))}

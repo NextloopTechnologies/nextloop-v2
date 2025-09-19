@@ -124,9 +124,8 @@ export interface DBOffer {
 
   active: boolean;
 
-  icon: {
-    src: string;
-  };
+  icon: string;
+
   't&c_points': [];
 }
 

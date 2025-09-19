@@ -4,10 +4,7 @@ import OurValuesCard from './OurValuesCard';
 import palette from '../../styles/pallette';
 import {
   OurValues1,
-  Values1,
-  Values2,
-  Values3,
-  Values4,
+  staticAssests
 } from '../../../assets';
 
 interface ServiceCardProps {
@@ -25,25 +22,25 @@ const OURVALUES_DATA: ServiceCardProps[] = [
   },
   {
     heading: 'Customer Centric',
-    image: Values1 as unknown as string,
+    image: staticAssests.general.Values1 as unknown as string,
     description:
       'Our success is driven by our clients’ success, and we strive to exceed expectations through services and solutions that enhance their experience and drive growth.',
   },
   {
     heading: 'Agility',
-    image: Values2 as unknown as string,
+    image: staticAssests.general.Values2 as unknown as string,
     description:
       'At Nextloop Technologies, agility is our ability to swiftly adapt to changing technologies and client needs, delivering innovative solutions to keep our clients ahead in a dynamic digital landscape.',
   },
   {
     heading: 'Ideas ',
-    image: Values3 as unknown as string,
+    image: staticAssests.general.Values3 as unknown as string,
     description:
       'Ideas fuel our innovation, driving creative solutions and impactful results that keep our clients ahead in the digital world.',
   },
   {
     heading: 'Impact',
-    image: Values4 as unknown as string,
+    image: staticAssests.general.Values4 as unknown as string,
     description:
       "Impact reflects our commitment to delivering solutions that drive measurable, long-term success, contributing to our clients' growth and efficiency in the digital landscape.",
   },

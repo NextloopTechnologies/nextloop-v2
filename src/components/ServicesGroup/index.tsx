@@ -3,18 +3,7 @@ import React, { FC } from 'react';
 import OurServieceCard from '../OurServieceCard';
 import palette from '../../styles/pallette';
 import {
-  Service1,
-  Service2,
-  Service3,
-  Service4,
-  Service5,
-  Service6,
-  Service7,
-  Service8,
-  Service9,
-  Service10,
-  Service11,
-  Service12,
+  staticAssests
 } from '../../../assets';
 
 interface ServiceCardProps {
@@ -25,51 +14,51 @@ interface ServiceCardProps {
 const SERVICE_DATA: ServiceCardProps[] = [
   {
     heading: 'Custom Software Development',
-    image: Service1 as unknown as string,
+    image: staticAssests.general.Service1 as unknown as string,
   },
   {
     heading: 'Web Development',
-    image: Service2 as unknown as string,
+    image: staticAssests.general.Service2 as unknown as string,
   },
   {
     heading: 'MVP Development',
-    image: Service3 as unknown as string,
+    image: staticAssests.general.Service3 as unknown as string,
   },
   {
     heading: 'Cloud Services (DevOps, AWS, GCP, Azure)',
-    image: Service4 as unknown as string,
+    image: staticAssests.general.Service4 as unknown as string,
   },
   {
     heading: 'Mobile Development',
-    image: Service5 as unknown as string,
+    image: staticAssests.general.Service5 as unknown as string,
   },
   {
     heading: 'UI/UX Development',
-    image: Service6 as unknown as string,
+    image: staticAssests.general.Service6 as unknown as string,
   },
   {
     heading: 'Hire Dedicated Team',
-    image: Service7 as unknown as string,
+    image: staticAssests.general.Service7 as unknown as string,
   },
   {
     heading: 'E-commerce Development',
-    image: Service8 as unknown as string,
+    image: staticAssests.general.Service8 as unknown as string,
   },
   {
     heading: 'AI/ML',
-    image: Service9 as unknown as string,
+    image: staticAssests.general.Service9 as unknown as string,
   },
   {
     heading: 'Data Storage and Management',
-    image: Service10 as unknown as string,
+    image: staticAssests.general.Service10 as unknown as string,
   },
   {
     heading: 'Technical Support',
-    image: Service11 as unknown as string,
+    image: staticAssests.general.Service11 as unknown as string,
   },
   {
     heading: 'Technology Training',
-    image: Service12 as unknown as string,
+    image: staticAssests.general.Service12 as unknown as string,
   },
 ];
 

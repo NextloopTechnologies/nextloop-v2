@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 
 import { createOfferApplications } from '../../utils/db';
-import { offerPageBg, offersLogo } from '../../../assets';
+import { staticAssests } from '../../../assets';
 
 interface FormData {
   name: string;
@@ -67,7 +67,7 @@ const OffersPage = () => {
       <div className='absolute inset-0'>
         <div
           className='w-full h-1/2 bg-cover bg-center bg-no-repeat'
-          style={{ backgroundImage: `url(${offerPageBg.src})` }}
+          style={{ backgroundImage: `url(${staticAssests.offers.pageBg})` }}
         />
         <div className='w-full h-1/2 bg-white' />
       </div>
@@ -75,7 +75,7 @@ const OffersPage = () => {
       <div className='relative z-10 flex-1 flex flex-col'>
         <div className='p-4 md:p-6 lg:p-8'>
           <Image
-            src={offersLogo.src}
+            src={staticAssests.offers.logo}
             alt='Offers Logo'
             fill
             className='w-24 md:w-32 h-auto'
