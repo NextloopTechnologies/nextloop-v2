@@ -3,12 +3,13 @@ import Image from 'next/image';
 import React, { FC } from 'react'; // Import FC (Functional Component) type from React
 
 import useWindowSize from '../../utils/useWindowSize';
-import {
-  CompositeLayer_1,
-  CompositeLayer_2,
-  CompositeLayer_3,
-  CompositeLayer_4,
-} from '../../../assets';
+import { staticAssests } from '../../../assets';
+// import {
+//   CompositeLayer_1,
+//   CompositeLayer_2,
+//   CompositeLayer_3,
+//   CompositeLayer_4,
+// } from '../../../assets';
 
 type CoveroverProps = {
   isOpen: boolean;
@@ -16,10 +17,14 @@ type CoveroverProps = {
 };
 
 export const imageArray = [
-  CompositeLayer_1,
-  CompositeLayer_2,
-  CompositeLayer_3,
-  CompositeLayer_4,
+  staticAssests.general.compositeLayer1,
+  staticAssests.general.compositeLayer2,
+  staticAssests.general.compositeLayer3,
+  staticAssests.general.compositeLayer4,
+  // CompositeLayer_1,
+  // CompositeLayer_2,
+  // CompositeLayer_3,
+  // CompositeLayer_4,
 ];
 const Coverover: FC<CoveroverProps> = ({ isOpen }) => {
   const content = [
@@ -74,9 +79,8 @@ const Coverover: FC<CoveroverProps> = ({ isOpen }) => {
                 return (
                   <div key={index} className=''>
                     <div
-                      className={`flex ${
-                        index % 2 !== 0 ? 'justify-start' : 'justify-end'
-                      } m-4 lg:flex-row flex-col`}
+                      className={`flex ${index % 2 !== 0 ? 'justify-start' : 'justify-end'
+                        } m-4 lg:flex-row flex-col`}
                     >
                       <div className='relative'>
                         <Image

@@ -7,48 +7,71 @@ import styles from './OurClients.module.css';
 
 import CLientCard from './CLientCard';
 import palette from '../../styles/pallette';
-import {
-  ArthnextLogo,
-  AtzeanLogo,
-  BlueBird,
-  BrainInventory,
-  CB1,
-  Client2,
-  EwaLogo,
-  FinsenLogo,
-  ItfLogo,
-  JhanaLogo,
-  LarishaLogo,
-  Levram1,
-  Millennialz,
-  OurCLient,
-  ShowerWealth,
-  SWAcademy,
-} from '../../../assets';
+
+import { staticAssests } from '../../../assets';
+// import {
+//   ArthnextLogo,
+//   AtzeanLogo,
+//   BlueBird,
+//   BrainInventory,
+//   CB1,
+//   Client2,
+//   EwaLogo,
+//   FinsenLogo,
+//   ItfLogo,
+//   JhanaLogo,
+//   LarishaLogo,
+//   Levram1,
+//   Millennialz,
+//   OurCLient,
+//   ShowerWealth,
+//   SWAcademy,
+// } from '../../../assets';
 
 interface ServiceCardProps {
   heading: string;
   image: string;
 }
 
+
 const OURVALUES_DATA: ServiceCardProps[] = [
-  { heading: 'Persistence', image: OurCLient as unknown as string },
-  { heading: 'Customer Centric', image: BlueBird as unknown as string },
-  { heading: 'Agility', image: SWAcademy as unknown as string },
-  { heading: 'Ideas', image: Client2 as unknown as string },
-  { heading: 'Impact', image: Levram1 as unknown as string },
-  { heading: 'Customer Centric', image: CB1 as unknown as string },
-  { heading: 'Agility', image: ShowerWealth as unknown as string },
-  { heading: 'Agility', image: Millennialz as unknown as string },
-  { heading: 'Fintech', image: FinsenLogo as unknown as string },
-  { heading: 'Brain Inventory', image: BrainInventory as unknown as string },
-  { heading: 'Lavender', image: LarishaLogo as unknown as string },
-  { heading: 'ITF', image: ItfLogo as unknown as string },
-  { heading: 'Jhana', image: JhanaLogo as unknown as string },
-  { heading: 'EWA', image: EwaLogo as unknown as string },
-  { heading: 'Atzean', image: AtzeanLogo as unknown as string },
-  { heading: 'Artha', image: ArthnextLogo as unknown as string },
+  { heading: 'Persistence', image: staticAssests.client.client1 },
+  { heading: 'Customer Centric', image: staticAssests.general.blueBird },
+  { heading: 'Agility', image: staticAssests.general.showerWealthAcademy },
+  { heading: 'Ideas', image: staticAssests.client.client2 },
+  { heading: 'Impact', image: staticAssests.general.levram1 },
+  { heading: 'Customer Centric', image: staticAssests.general.cb1 },
+  { heading: 'Agility', image: staticAssests.general.showerWealth },
+  { heading: 'Agility', image: staticAssests.general.millennialz },
+  { heading: 'Fintech', image: staticAssests.logos.finSen },
+  { heading: 'Brain Inventory', image: staticAssests.logos.brainInventory },
+  { heading: 'Lavender', image: staticAssests.logos.larisha },
+  { heading: 'ITF', image: staticAssests.logos.itf },
+  { heading: 'Jhana', image: staticAssests.logos.jhana },
+  { heading: 'EWA', image: staticAssests.logos.ewa },
+  { heading: 'Atzean', image: staticAssests.logos.atzean },
+  { heading: 'Artha', image: staticAssests.logos.arthnext },
 ];
+
+// const OURVALUES_DATA: ServiceCardProps[] = [
+//   { heading: 'Persistence', image: OurCLient as unknown as string },
+//   { heading: 'Customer Centric', image: BlueBird as unknown as string },
+//   { heading: 'Agility', image: SWAcademy as unknown as string },
+//   { heading: 'Ideas', image: Client2 as unknown as string },
+//   { heading: 'Impact', image: Levram1 as unknown as string },
+//   { heading: 'Customer Centric', image: CB1 as unknown as string },
+//   { heading: 'Agility', image: ShowerWealth as unknown as string },
+//   { heading: 'Agility', image: Millennialz as unknown as string },
+//   { heading: 'Fintech', image: FinsenLogo as unknown as string },
+//   { heading: 'Brain Inventory', image: BrainInventory as unknown as string },
+//   { heading: 'Lavender', image: LarishaLogo as unknown as string },
+//   { heading: 'ITF', image: ItfLogo as unknown as string },
+//   { heading: 'Jhana', image: JhanaLogo as unknown as string },
+//   { heading: 'EWA', image: EwaLogo as unknown as string },
+//   { heading: 'Atzean', image: AtzeanLogo as unknown as string },
+//   { heading: 'Artha', image: ArthnextLogo as unknown as string },
+// ];
+
 
 const OurCLients: FC = () => {
   return (

@@ -2,14 +2,16 @@ import Image from 'next/image';
 import React, { FC, useState } from 'react';
 
 import palette from '../../styles/pallette';
-import {
-  InvertedQoute,
-  Levram1,
-  RightArrow,
-  Stamens,
-  SWAcademy,
-  // Client2,
-} from '../../../assets';
+import { staticAssests } from '../../../assets';
+
+// import {
+//   InvertedQoute,
+//   Levram1,
+//   RightArrow,
+//   Stamens,
+//   SWAcademy,
+//   // Client2,
+// } from '../../../assets';
 
 interface ServiceCardProps {
   heading: string;
@@ -21,19 +23,19 @@ interface ServiceCardProps {
 const OURVALUES_DATA: ServiceCardProps[] = [
   {
     heading: 'Manager, Levram Lifesciesnce Private Limited',
-    image: Levram1 as unknown as string,
+    image: staticAssests.general.levram1,
     title: 'Brijesh Panchal',
     desc: "Nextloop Technologies LLP delivered the project on time, meeting the client's expectations. They communicated frequently and promptly via email, ensuring an effective workflow. ",
   },
   {
     heading: 'Director, Shower Wealth Academy',
-    image: SWAcademy as unknown as string,
+    image: staticAssests.general.showerWealthAcademy,
     title: 'Ayush Shrivastav',
     desc: 'Nextloop Technologies LLP distinguishes itself in the realm of IT products and services through a myriad of pivotal factors, including innovative solutions.',
   },
   {
     heading: 'Founder, Stamens Software Pvt Ltd',
-    image: Stamens as unknown as string,
+    image: staticAssests.general.stamens,
     title: 'Shushil Kumar',
     desc: 'Their ability to consistently push boundaries and deliver cutting-edge solutions was truly remarkable.',
   },
@@ -96,7 +98,7 @@ const ClientSaysCard: FC = () => {
                   <div className='w-full flex flex-col justify-between items-center'>
                     <span className='self-start'>
                       <Image
-                        src={InvertedQoute}
+                        src={staticAssests.general.invertedQuote}
                         alt={card.heading}
                         className='w-10 object-cover'
                       />
@@ -110,7 +112,7 @@ const ClientSaysCard: FC = () => {
 
                     <span className='self-end'>
                       <Image
-                        src={InvertedQoute}
+                        src={staticAssests.general.invertedQuote}
                         alt={card.heading}
                         className='w-10 object-cover rotate-180'
                       />
@@ -130,7 +132,7 @@ const ClientSaysCard: FC = () => {
           <Image
             // width={60}
             // height={60}
-            src={RightArrow}
+            src={staticAssests.general.rightArrow}
             alt='right-arrow'
             className='w-3 object-cover rotate-180'
           />
@@ -144,7 +146,7 @@ const ClientSaysCard: FC = () => {
           <Image
             // width={60}
             // height={60}
-            src={RightArrow}
+            src={staticAssests.general.rightArrow}
             alt='right-arrow'
             className='w-3 object-cover'
           />

@@ -1,15 +1,15 @@
 // export { default as AboutUsBackground } from './AboutUsBackground.png';
 // export { default as CB } from './cb.png';
-export { default as CB1 } from './cb-1.png';
-export { default as CompositeLayer_1 } from './CompositeLayer-1.png';
-export { default as CompositeLayer_2 } from './CompositeLayer-2.png';
-export { default as CompositeLayer_3 } from './CompositeLayer-3.png';
-export { default as CompositeLayer_4 } from './CompositeLayer-4.png';
-export { default as ContactArrow } from './ContactArrow.png';
-export { default as ContactUs } from './ContactUs.png';
-export { default as DoubleQuotes } from './DoubleQuotes.png';
-export { default as DownArrow } from './down-arrow.png';
-export { default as InvertedQoute } from './inverted-qoute.png';
+// export { default as CB1 } from './cb-1.png';
+// export { default as CompositeLayer_1 } from './CompositeLayer-1.png';
+// export { default as CompositeLayer_2 } from './CompositeLayer-2.png';
+// export { default as CompositeLayer_3 } from './CompositeLayer-3.png';
+// export { default as CompositeLayer_4 } from './CompositeLayer-4.png';
+// export { default as ContactArrow } from './ContactArrow.png';
+// export { default as ContactUs } from './ContactUs.png';
+// export { default as DoubleQuotes } from './DoubleQuotes.png';
+// export { default as DownArrow } from './down-arrow.png';
+// export { default as InvertedQoute } from './inverted-qoute.png';
 // export { default as Levram } from './levram.png';
 export { default as Levram1 } from './levram-1.png';
 // export { default as Levram2 } from './levram2.png';
@@ -29,7 +29,7 @@ export { default as Portfolio3 } from './portfolio-3.png';
 export { default as Portfolio4 } from './portfolio-4.png';
 export { default as RightArrow } from './right-arrow.svg';
 export { default as SellEverywhereImage } from './sellEverywhere.png';
-export { default as Services1 } from './services.jpeg';
+export { default as Services1 } from './services.jpeg';  // as assets.services.main
 // export { default as SWAcademy } from './SW-Academy.png';
 export { default as AboutNextloopBackground } from './AboutNextloopBackground.png';
 export { default as Certificate1 } from './certificates/1.png';
@@ -97,6 +97,136 @@ export { default as BrainInventory } from './brain-inventory.png';
 
 
 export const staticAssests = {
+  logos: {
+    nextLoop: '/assets/NextLoopLogo.png',
+    nextLoopColored: '/assets/NextLoopColoredLogo.jpeg',
+    finSen: '/assets/finsen-logo.png',
+    larisha: '/assets/larisha-logo.png',
+    itf: '/assets/itf-logo.png',
+    jhana: '/assets/jhana-logo.png',
+    ewa: '/assets/ewa-logo.png',
+    atzean: '/assets/atzean-logo.png',
+    arthnext: '/assets/arthnext-logo.png',
+    brainInventory: '/assets/brain-inventory.png',
+  },
+  socials: {
+    facebook: '/assets/socialIcons/FACEBOOK.png',
+    google: '/assets/socialIcons/Google.png',
+    instagram: '/assets/socialIcons/INSTAGRAM.png',
+    linkedin: '/assets/socialIcons/LINKIN.png',
+    mail: '/assets/socialIcons/Mail.png',
+    x: '/assets/socialIcons/TWT.png',
+  },
+  certificates: {
+    c1: '/assets/certificates/1.png',
+    c2: '/assets/certificates/2.png',
+    c3: '/assets/certificates/3.png',
+    c4: '/assets/certificates/4.png',
+    c5: '/assets/certificates/5.png',
+  },
+  // --- Services ---
+  services: {
+    s1: '/assets/services/1.png',
+    s2: '/assets/services/2.png',
+    s3: '/assets/services/3.png',
+    s4: '/assets/services/4.png',
+    s5: '/assets/services/5.png',
+    s6: '/assets/services/6.png',
+    s7: '/assets/services/7.png',
+    s8: '/assets/services/8.png',
+    s9: '/assets/services/9.png',
+    s10: '/assets/services/10.png',
+    s11: '/assets/services/11.png',
+    s12: '/assets/services/12.png',
+    main: '/assets/services.jpeg', //pending
+  },
+
+  // --- Offers ---
+  offers: {
+    logo: '/assets/offers/logo.png',
+    pageBg: '/assets/offers/offerPageBg.png',
+    icons: {
+      customSoftwareDevelopment: '/assets/offers/icons/customSoftwareDevelopment.png',
+      digitalMarketing: '/assets/offers/icons/digitalMarketing.png',
+      productSubscription: '/assets/offers/icons/productSubscription.png',
+      staffAugmentation: '/assets/offers/icons/staffAugmentation.png',
+      successTick: '/assets/offers/icons/successTick.png',
+    },
+  },
+
+  // --- Healthcare ---
+  healthcare: {
+    digitalProducts: '/assets/healthcareAssets/digitalProducts.png',
+    dropshipping: '/assets/healthcareAssets/dropShipping.png',
+    physicalProducts: '/assets/healthcareAssets/physicalProducts.png',
+    printOnDemand: '/assets/healthcareAssets/printOnDemand.png',
+    subscriptions: '/assets/healthcareAssets/subscriptions.png',
+    whyChooseUs1: '/assets/healthCareWhyChooseUs1.jpeg',
+    whyChooseUs2: '/assets/healthCareWhyChooseUs2.jpeg',
+  },
+
+  // --- End-to-End Section ---
+  endToEnd: {
+    customerService: '/assets/endToEnd/customer-service.png',
+    locationPin: '/assets/endToEnd/location-pin.png',
+    medal: '/assets/endToEnd/medal.png',
+    shuttle: '/assets/endToEnd/shuttle.png',
+    trophy: '/assets/endToEnd/trophy.png',
+  },
+
+  // --- Portfolio ---
+  portfolio: {
+    p1: '/assets/portfolio-1.png',
+    p2: '/assets/portfolio-2.png',
+    p3: '/assets/portfolio-3.png',
+    p4: '/assets/portfolio-4.png',
+  },
+
+  // --- Values ---
+  values: {
+    v1: '/assets/our-values-1.png',
+    v2: '/assets/values-1.png',
+    v3: '/assets/values-2.png',
+    v4: '/assets/values-3.png',
+    v5: '/assets/values-4.png',
+  },
+  // --- Client ---
+  client: {
+    client1: '/assets/our-client-1.png',
+    client2: '/assets/client-2.png',
+  },
+
+  // --- Miscellaneous / General ---
+  general: {
+    cb1: '/assets/cb-1.png',
+    compositeLayer1: '/assets/CompositeLayer-1.png',
+    compositeLayer2: '/assets/CompositeLayer-2.png',
+    compositeLayer3: '/assets/CompositeLayer-3.png',
+    compositeLayer4: '/assets/CompositeLayer-4.png',
+    contactArrow: '/assets/ContactArrow.png',
+    millennialz: '/assets/millennialz.png',
+    contactUs: '/assets/ContactUs.png',
+    doubleQuotes: '/assets/DoubleQuotes.png',
+    downArrow: '/assets/down-arrow.png',
+    invertedQuote: '/assets/inverted-qoute.png',
+    levram1: '/assets/levram-1.png',
+    blueBird: '/assets/blue-bird.png',
+    leftSlide: '/assets/left-slide.png',
+    line: '/assets/line.png',
+    mobile1: '/assets/Mobile-1.png',
+    mobile2: '/assets/Mobile-2.png',
+    rightArrow: '/assets/right-arrow.svg',
+    sellEverywhere: '/assets/sellEverywhere.png',
+    aboutNextloopBackground: '/assets/AboutNextloopBackground.png',
+    foundedIcon: '/assets/FoundedIcon.png',
+    globalInventory: '/assets/GlobalInventoryImg.png',
+    showerWealth: '/assets/shower-wealth.png',
+    showerWealthAcademy: '/assets/shower-wealth-academy.png',
+    stamens: '/assets/Stamens.png',
+    whoWeAre: '/assets/who-we-are.jpeg',
+    whyUs: '/assets/whyus.png',
+  },
+
   AboutUsBackground:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/AboutUsBackground.png?updatedAt=1719991855890',
   BottomBig:

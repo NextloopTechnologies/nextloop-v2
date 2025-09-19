@@ -21,7 +21,7 @@ import WhoWeAre from '../components/WhoWeAre';
 import { IPortfolio } from '../types';
 import supabaseClient from '../utils/client';
 import useWindowSize from '../utils/useWindowSize';
-import { DownArrow } from '../../assets';
+import { staticAssests } from '../../assets';
 
 const sectionStyle: React.CSSProperties = {
   minHeight: '100vh',
@@ -348,7 +348,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
             // onClick={handleScrollOnClick}
             onClick={scrollToNext}
           >
-            <Image src={DownArrow} alt='Down arrow' className='h-5 w-7' />
+            <Image src={staticAssests.general.downArrow} alt='Down arrow' className='h-5 w-7' />
           </motion.button>
         )}
 
@@ -362,7 +362,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
             onClick={handleScrollOnClick}
           >
             <Image
-              src={DownArrow}
+              src={staticAssests.general.downArrow}
               alt='Up arrow'
               className='h-5 w-7 rotate-180'
             />
