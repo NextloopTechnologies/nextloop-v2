@@ -19,17 +19,14 @@ A modern, responsive company website built with Next.js, Supabase, and Tailwind 
 
 ```
 nextloop-website/
-├── components/           # Reusable UI components
-├── pages/               # Next.js pages and API routes
-├── public/              # Static assets (images, icons, etc.)
-├── styles/              # Global styles and Tailwind config
-├── lib/                 # Utility functions and configurations
-├── data/                # Static data configurations
-├── types/               # TypeScript type definitions
-├── hooks/               # Custom React hooks
+├── src/
+│   ├── components/      # Reusable UI components
+│   ├── pages/           # Next.js pages and API routes
+│   ├── styles/          # Global styles and Tailwind config
+│   ├── data/            # Static data configurations
+│   └── types/           # TypeScript type definitions
 ├── utils/               # Helper functions
-├── supabase/            # Database schemas and migrations
-└── tests/               # Test files
+└── public/              # Static assets (images, icons, etc.)
 ```
 
 ## ✨ Key Features
