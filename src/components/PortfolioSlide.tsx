@@ -67,10 +67,11 @@ const PortfolioSlide: FC = () => {
             key={index}
             src={item.image}
             alt={`image-${index}`}
-            className={`absolute top-0 left-0 w-full h-full object-fill object-top transition-all duration-700 ease-in-out ${index === currentSlide
-              ? 'opacity-100 z-10'
-              : 'opacity-0 z-0 pointer-events-none'
-              }`}
+            className={`absolute top-0 left-0 w-full h-full object-fill object-top transition-all duration-700 ease-in-out ${
+              index === currentSlide
+                ? 'opacity-100 z-10'
+                : 'opacity-0 z-0 pointer-events-none'
+            }`}
             fill
           />
         ))}

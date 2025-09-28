@@ -1,3 +1,4 @@
+import { Dot } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC, useState } from 'react';
@@ -11,7 +12,6 @@ import LocationIcon from '../../../assets/getInTouch/LocationIcon.png';
 import MailIcon from '../../../assets/getInTouch/MailIcon.png';
 import PhoneIcon from '../../../assets/getInTouch/PhoneIcon.png';
 import TwitterIcon from '../../../assets/getInTouch/twitterIcon.png';
-import { Dot } from 'lucide-react';
 
 interface OptionType {
   label: string;
@@ -81,9 +81,7 @@ const PitchThought: FC = () => {
         setTimeout(() => {
           setSuccessMessage('');
         }, 3000);
-      }
-      else
-        setError('Something went wrong. Please try again.');
+      } else setError('Something went wrong. Please try again.');
     } catch {
       setError('An error occurred while submitting the form.');
     }
@@ -206,7 +204,7 @@ const PitchThought: FC = () => {
                     )}`}
                     target='_blank'
                     rel='noopener noreferrer'
-                  // style={{ color: 'blue', textDecoration: 'underline' }}
+                    // style={{ color: 'blue', textDecoration: 'underline' }}
                   >
                     {location}
                   </a>
@@ -316,9 +314,11 @@ const PitchThought: FC = () => {
           Reserved.
         </p>
         <p className='flex justify-center items-center mt-2 sm:mt-0'>
-          <Link href="/cookies-policy">Cookie Policy</Link>
-          <span><Dot className='w-8 h-8 my-auto'></Dot></span>
-          <Link href="/privacy">Privacy Policy</Link>
+          <Link href='/cookies-policy'>Cookie Policy</Link>
+          <span>
+            <Dot className='w-8 h-8 my-auto'></Dot>
+          </span>
+          <Link href='/privacy'>Privacy Policy</Link>
         </p>
       </div>
     </>

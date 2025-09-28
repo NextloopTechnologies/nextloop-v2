@@ -1,7 +1,8 @@
 import Head from 'next/head';
+
+import CookiePolicy from '../../components/CookiePolicy';
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
-import CookiePolicy from '../../components/CookiePolicy';
 import privacyBg from '../../../assets/blogs.png';
 
 const CookiePage = () => {
