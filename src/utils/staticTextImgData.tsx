@@ -2625,6 +2625,32 @@ export const servicesSubPagesData = {
       items: [
         {
           id: 1,
+          title: 'We Find the Best Candidates',
+          description: `Need talent for a specific project or seasonal demand? We provide skilled professionals for short-term engagements, ensuring they’re not just qualified on paper but also the right cultural fit for your team.
+
+Need talent for a specific project or seasonal demand? We provide skilled professionals for short-term engagements, ensuring they’re not just qualified on paper but also the right cultural fit for your team`,
+        },
+        {
+          id: 2,
+          title: 'You Hire with Confidence',
+          description: `Need talent for a specific project or seasonal demand? We provide skilled professionals for short-term engagements, ensuring they’re not just qualified on paper but also the right cultural fit for your team`,
+        },
+        {
+          id: 3,
+          title: 'Tell Us What You Need',
+          description: `We provide skilled professionals for short-term engagements, ensuring they’re not just qualified on paper but also the right cultural fit for your team, Need talent for a specific project or seasonal demand? We provide skilled professionals for short-term engagements, ensuring they’re not just qualified on paper but also the right cultural fit for your team`,
+        },
+      ],
+    },
+    flexibleHiringData: {
+      headingData: {
+        heading: 'Flexible Hiring Solutions ',
+        coloredHeading: 'Tailored to Your Needs',
+        description: '',
+      },
+      items: [
+        {
+          id: 1,
           title: 'Short-Term Contracts',
           description:
             'Need talent for a specific project or seasonal demand? We provide skilled professionals for short-term engagements, ensuring they’re not just qualified on paper but also the right cultural fit for your team.',

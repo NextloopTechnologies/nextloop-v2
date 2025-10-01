@@ -7,6 +7,7 @@ import 'swiper/css/pagination';
 import BlogSection from '../../components/BlogSection';
 import DiamondGridBoxes from '../../components/DiamondGridBoxes';
 import FAQ from '../../components/Domains/FAQ';
+import FlexibleHiringSection from '../../components/FlexibleHiringSection';
 import IconTextBoxZebra from '../../components/IconTextBoxZebra';
 import IconTitleDescription from '../../components/IconTitleDescription';
 import Layout from '../../components/Layout/Layout';
@@ -115,6 +116,7 @@ export interface ServicePageProps {
   staffingIndustriesData?: StaffingData;
   whyBusinessChoosesUsData?: StaffingData;
   ourProcessData?: StaffingData;
+  flexibleHiringData?: StaffingData;
 }
 
 const ServicePage: React.FC<ServicePageProps> = ({
@@ -133,6 +135,7 @@ const ServicePage: React.FC<ServicePageProps> = ({
   staffingIndustriesData,
   whyBusinessChoosesUsData,
   ourProcessData,
+  flexibleHiringData,
 }) => {
   return (
     <Layout>
@@ -173,6 +176,10 @@ const ServicePage: React.FC<ServicePageProps> = ({
         <StaffingIndustriesSection industriesData={staffingIndustriesData} />
       )}
 
+      {ourProcessData && ourProcessData?.items?.length > 0 && (
+        <OurProcessSection ourProcess={ourProcessData} />
+      )}
+
       {whyBusinessChoosesUsData &&
         whyBusinessChoosesUsData?.items?.length > 0 && (
           <WhyBusinessChoosesUsSection
@@ -180,8 +187,8 @@ const ServicePage: React.FC<ServicePageProps> = ({
           />
         )}
 
-      {ourProcessData && ourProcessData?.items?.length > 0 && (
-        <OurProcessSection ourProcess={ourProcessData} />
+      {flexibleHiringData && flexibleHiringData?.items?.length > 0 && (
+        <FlexibleHiringSection hiringData={flexibleHiringData} />
       )}
 
       {techStackData.length > 0 && <TechStack techStackData={techStackData} />}
