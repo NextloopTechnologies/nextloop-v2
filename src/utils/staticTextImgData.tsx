@@ -2689,17 +2689,17 @@ Need talent for a specific project or seasonal demand? We provide skilled profes
           id: 2,
           title: '95%',
           description:
-            'Faster Hiring: Pre-vetted and skill-verified candidates.',
+            'Quality Match Rate: Pre-vetted and skill-verified candidates.',
         },
         {
           id: 3,
           title: '10+',
-          description: 'Faster Hiring: Global staffing solutions',
+          description: 'Countries Covered: Global staffing solutions',
         },
         {
           id: 4,
           title: '100%',
-          description: 'Faster Hiring: Permanent, contract, remote, or hybrid.',
+          description: 'Flexible Options: Permanent, contract, remote, or hybrid.',
         },
       ],
     },
