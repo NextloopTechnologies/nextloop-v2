@@ -28,10 +28,10 @@
 
 .fadeLeft {
   left: 0;
-  background: linear-gradient(to right, #1d1d1d 0%, transparent 100%);
+  background: linear-gradient(to right, #1D1D1D 0%, transparent 100%);
 }
 
 .fadeRight {
   right: 0;
-  background: linear-gradient(to left, #1d1d1d 0%, transparent 100%);
+  background: linear-gradient(to left, #1D1D1D 0%, transparent 100%);
 }

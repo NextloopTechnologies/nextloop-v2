@@ -10,7 +10,7 @@ interface BlogData {
   id: number;
   title: string;
   descp: string;
-  image: { url: string; fileId: string }[];
+  image: { url: string; fileId: string; }[];
 }
 const initialData = {
   ...servicesSubPagesData.aimlSolutions,
