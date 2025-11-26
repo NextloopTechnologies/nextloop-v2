@@ -13,9 +13,7 @@ const CustomRequestQuote = ({ title }: Props) => {
   return (
     <div className='flex flex-col md:flex-row items-center justify-between bg-[#FA8145] py-7 px-20'>
       <div className='flex flex-col gap-8 max-w-4xl'>
-        <h2
-          className="text-white font-bold leading-none uppercase md:text-[30px] text-[20px]"
-        >
+        <h2 className='text-white font-bold leading-none uppercase md:text-[30px] text-[20px]'>
           {title}
         </h2>
 
