@@ -4,7 +4,7 @@ export type StepProps = {
   icon: React.ReactNode;
   title: string;
   description: string;
-  color: string;
+  color?: string;
 };
 
 const DiamondBox: React.FC<StepProps> = ({

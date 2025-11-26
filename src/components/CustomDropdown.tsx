@@ -10,14 +10,16 @@ interface CustomDropdownProps {
   onChange?: (option: OptionType) => void;
 }
 
-const CustomDropdown: React.FC<CustomDropdownProps> = ({ selected, onChange }) => {
+const CustomDropdown: React.FC<CustomDropdownProps> = ({
+  selected,
+  onChange,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<OptionType | null>(null); // Define OptionType appropriately
   const dropdownRef = useRef<HTMLDivElement | null>(null); // Create a ref for the dropdown
 
   useEffect(() => {
-    if (selected !== selectedOption)
-      setSelectedOption(selected ?? null);
+    if (selected !== selectedOption) setSelectedOption(selected ?? null);
   }, [selected, selectedOption]);
 
   // Effect to handle clicks outside of the dropdown
