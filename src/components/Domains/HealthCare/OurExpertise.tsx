@@ -49,13 +49,12 @@ const OurExpertise = () => {
         >
           At Nextloop Technologies, we harness our extensive expertise in the
           healthcare sector alongside our mastery of advanced technological
-          innovations to forge software solutions that make a lasting impact.
-          Our unwavering dedication to excellence and innovation propels the
-          success of your projects, fundamentally enhancing the delivery of
-          patient care while streamlining operational efficiencies. By
-          partnering with us, you leverage a team committed to transforming the
-          healthcare landscape through solutions that are as reliable as they
-          are revolutionary.
+          innovations to forge software solutions that make a lasting impact. Our
+          unwavering dedication to excellence and innovation propels the success
+          of your projects, fundamentally enhancing the delivery of patient care
+          while streamlining operational efficiencies. By partnering with us, you
+          leverage a team committed to transforming the healthcare landscape
+          through solutions that are as reliable as they are revolutionary.
         </p>
         <div className='grid gird-cols-1 lg:grid-cols-2 xl:grid-cols-3 mt-[85px] gap-14 md:mx-20 mx-10'>
           {expertiseSuccessData?.map(

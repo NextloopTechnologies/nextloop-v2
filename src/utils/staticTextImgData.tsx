@@ -10,37 +10,16 @@ import {
 import { getStaticImageData } from './helper';
 import { StepProps } from '../components/DiamondGridBoxes';
 import { IFAQ } from '../types';
-import {
-  ecommerceAssets,
-  eventAssets,
-  fintechAssets,
-  healthcareAssets,
-} from '../../assets';
+import { ecommerceAssets, eventAssets, fintechAssets, healthcareAssets } from '../../assets';
 import blogImg from '../../assets/blog/blogImg.png';
 import buildingIcon from '../../assets/services/buildingIcon.png';
-import ComprehensiveSupport from '../../assets/services/comprehensive-support.png';
 import desktopCloud from '../../assets/services/desktopCloud.png';
 import documentIcon from '../../assets/services/documentIcon.png';
-import EducationAndEdTech from '../../assets/services/education-edtech.png';
-import ExpertRecruiters from '../../assets/services/expert-recruiters.png';
 import eyeIcon from '../../assets/services/eyeIcon.png';
 import fileIcon from '../../assets/services/fileIcon.png';
-import FinanceAndBanking from '../../assets/services/finance-banking.png';
-import FlexibleEngagement from '../../assets/services/flexible-engagement.png';
-import GlobalReach from '../../assets/services/global-reach.png';
-import HealthcareAndPharma from '../../assets/services/healthcare.png';
-import IndustryExpert from '../../assets/services/industry-expertise.png';
-import TechnologyAndIT from '../../assets/services/it-technology.png';
 import mapMarkerPlusIcon from '../../assets/services/mapMarkerPlusIcon.png';
-import OilAndGas from '../../assets/services/oil-gas.png';
-import OurProcess1 from '../../assets/services/ourProcess1.png';
-import OurProcess2 from '../../assets/services/ourProcess2.png';
-import OurProcess3 from '../../assets/services/ourProcess3.png';
 import pathFinderIcon from '../../assets/services/pathFinderIcon.png';
-import RetailAndEcommerce from '../../assets/services/retail-ecommerce.png';
 import servicesWebdevelopmentHero from '../../assets/services/servicesWebdevelopmentHero.png';
-import staffingService from '../../assets/services/staffing-service.png';
-import WhyBusinessChooseUs from '../../assets/services/why-choose-us-bg.png';
 import mahoutIcon from '../../assets/techstackIcons/aiml/mahoutIcon.png';
 import openCvIcon from '../../assets/techstackIcons/aiml/openCvIcon.png';
 import pytorchIcon from '../../assets/techstackIcons/aiml/pytorchIcon.png';
@@ -198,7 +177,7 @@ export const servicesWhyChooseUsData = [
   {
     id: 1,
     title: 'Expertise',
-    descp: 'Experienced developers who use cutting-edge technologies.',
+    descp: ' Experienced developers who use cutting-edge technologies.',
     icon: mapMarkerPlusIcon,
   },
   {
@@ -259,7 +238,7 @@ const staticServices = [
     description: 'Transforming patient care.',
     link: '/expertise/healthcare',
   },
-];
+]
 
 export const servicesAreaOfExpertiseData = {
   mainHeader: 'OUR AREAS OF EXPERTISE',
@@ -2534,305 +2513,6 @@ export const servicesSubPagesData = {
         "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
       items: staticServices,
     },
-    faqsContent: [
-      {
-        id: 1,
-        question: 'How long does it take to develop an MVP?',
-        answer: 'It depends on the complexity, but most MVPs take 2-6 months.',
-      },
-      {
-        id: 2,
-        question: 'Can you help refine my MVP idea?',
-        answer:
-          ' Yes! We provide consulting to define the best features for your MVP.',
-      },
-      {
-        id: 3,
-        question: 'What technologies do you use for MVP development?',
-        answer:
-          ' We use modern tech stacks like React, Node.js, Python, Flutter, and more.',
-      },
-      {
-        id: 4,
-        question: 'What happens after the MVP launch?',
-        answer:
-          'We help you analyze user feedback, improve features, and scale your product.',
-      },
-    ],
-  },
-  staffingServices: {
-    metaData: {
-      pageMetaTitle: 'Nextloop Technologies | Staffing Sevices',
-      pageMetaDescription:
-        'Nextloop Technologies offers expert staffing solutions to help businesses find top talent quickly and efficiently. Our tailored recruitment services ensure you get skilled professionals who fit your company culture and drive success.',
-    },
-    heroImage: staffingService,
-    heroSectionData: {
-      coloredTitle: 'Contract-to-Hire (C2H) ',
-      title: 'Staffing Services',
-      subtitle:
-        'We’re more than just recruiters—we’re your strategic talent partner. At Nextloop Technologies, we connect businesses with high-performing talent across industries and roles. Whether you need a single hire or an entire team, we make staffing simple, fast, and reliable.',
-    },
-    staffingPartnerData: {
-      headingData: {
-        heading: 'Not Your Average ',
-        coloredHeading: 'Staffing Partner',
-        description:
-          'At Nextloop Technologies, we don’t just find talent—we deliver end-to-end staffing solutions.',
-      },
-      items: [
-        {
-          id: 1,
-          title: 'Comprehensive Support:',
-          description: 'Candidate search, curation, onboarding, and beyond.',
-          image: ComprehensiveSupport,
-        },
-        {
-          id: 2,
-          title: 'Expert Recruiters:',
-          description:
-            'A skilled team with deep expertise across industries and roles.',
-          image: ExpertRecruiters,
-        },
-        {
-          id: 3,
-          title: 'Global Reach:',
-          description:
-            'Staffing solutions for businesses of all sizes, across multiple countries.',
-          image: GlobalReach,
-        },
-        {
-          id: 4,
-          title: 'Flexible Engagement:',
-          description:
-            'We work within your budget, and you only pay once your candidate joins.',
-          image: FlexibleEngagement,
-        },
-        {
-          id: 5,
-          title: 'Industry Expertise:',
-          description: 'Our recruiters understand your sector inside out.',
-          image: IndustryExpert,
-        },
-      ],
-    },
-    ourProcessData: {
-      headingData: {
-        heading: 'Our Process: ',
-        coloredHeading: 'Simple & Transparent',
-        description: '',
-      },
-      items: [
-        {
-          id: 1,
-          title: 'We Find the Best Candidates',
-          description: `Need talent for a specific project or seasonal demand? We provide skilled professionals for short-term engagements, ensuring they’re not just qualified on paper but also the right cultural fit for your team.
-
-Need talent for a specific project or seasonal demand? We provide skilled professionals for short-term engagements, ensuring they’re not just qualified on paper but also the right cultural fit for your team`,
-        },
-        {
-          id: 2,
-          title: 'You Hire with Confidence',
-          description: `Need talent for a specific project or seasonal demand? We provide skilled professionals for short-term engagements, ensuring they’re not just qualified on paper but also the right cultural fit for your team`,
-        },
-        {
-          id: 3,
-          title: 'Tell Us What You Need',
-          description: `We provide skilled professionals for short-term engagements, ensuring they’re not just qualified on paper but also the right cultural fit for your team, Need talent for a specific project or seasonal demand? We provide skilled professionals for short-term engagements, ensuring they’re not just qualified on paper but also the right cultural fit for your team`,
-        },
-      ],
-    },
-    flexibleHiringData: {
-      headingData: {
-        heading: 'Flexible Hiring Solutions ',
-        coloredHeading: 'Tailored to Your Needs',
-        description: '',
-      },
-      items: [
-        {
-          id: 1,
-          title: 'Short-Term Contracts',
-          description:
-            'Need talent for a specific project or seasonal demand? We provide skilled professionals for short-term engagements, ensuring they’re not just qualified on paper but also the right cultural fit for your team.',
-          image: OurProcess1,
-        },
-        {
-          id: 2,
-          title: 'Long-Term Contracts',
-          description:
-            'Looking for consistency and reliability? Our long-term contract staffing ensures you get professionals who align with your company values and have the expertise to deliver lasting results. ',
-          image: OurProcess2,
-        },
-        {
-          id: 3,
-          title: 'Direct Placement',
-          description:
-            'Hiring permanent employees is about more than filling a role—it’s about finding the right person who complements your team and drives growth. From entry-level positions to leadership roles, we help you find the perfect fit.',
-          image: OurProcess3,
-        },
-      ],
-    },
-    whyBusinessChoosesUsData: {
-      headingData: {
-        heading: 'Why do businesses choose ',
-        coloredHeading: 'Nextloop Technologies?',
-        description: '',
-      },
-      heroImage: WhyBusinessChooseUs,
-      items: [
-        {
-          id: 1,
-          title: '50%',
-          description: 'Faster Hiring: Reduce time-to-hire',
-        },
-        {
-          id: 2,
-          title: '95%',
-          description:
-            'Quality Match Rate: Pre-vetted and skill-verified candidates.',
-        },
-        {
-          id: 3,
-          title: '10+',
-          description: 'Countries Covered: Global staffing solutions',
-        },
-        {
-          id: 4,
-          title: '100%',
-          description: 'Flexible Options: Permanent, contract, remote, or hybrid.',
-        },
-      ],
-    },
-    staffingIndustriesData: {
-      headingData: {
-        heading: 'Staffing All  ',
-        coloredHeading: 'Industries & Functions',
-        description:
-          'From startups to global enterprises, we cover every industry and function.',
-      },
-      items: [
-        {
-          id: 1,
-          title: 'IT & Technology',
-          image: TechnologyAndIT,
-        },
-        {
-          id: 2,
-          title: 'Healthcare & Pharma',
-          image: HealthcareAndPharma,
-        },
-        {
-          id: 3,
-          title: 'Finance & Banking',
-          image: FinanceAndBanking,
-        },
-        {
-          id: 4,
-          title: 'Retail & E-commerce',
-          image: RetailAndEcommerce,
-        },
-        {
-          id: 5,
-          title: 'Education & EdTech',
-          image: EducationAndEdTech,
-        },
-        {
-          id: 6,
-          title: 'Oil & Gas',
-          image: OilAndGas,
-        },
-      ],
-    },
-    techStackData: [
-      {
-        title: 'FRONTEND',
-        items: [
-          { name: 'AngularJS', image: AngularIcon.src },
-          { name: 'React', image: ReactIcon.src },
-          { name: 'Vue.js', image: VueIcon.src },
-          { name: 'HTML5', image: Html5Icon.src },
-          { name: 'Stencil', image: StencilIcon.src },
-          { name: 'Svelte', image: SvelteIcon.src },
-        ],
-      },
-      {
-        title: 'MOBILE',
-        items: [
-          { name: 'AngularJS', image: androidIcon.src },
-          { name: 'React', image: iosIcon.src },
-          { name: 'Vue.js', image: ionicIcon.src },
-          { name: 'HTML5', image: reactNativeIcon.src },
-          { name: 'Stencil', image: objcIcon.src },
-          { name: 'Svelte', image: flutterIcon.src },
-        ],
-      },
-      {
-        title: 'OPEN SOURCE',
-        items: [
-          { name: 'AngularJS', image: javaIcon.src },
-          { name: 'React', image: nodeIcon.src },
-          { name: 'Vue.js', image: phpIcon.src },
-          { name: 'HTML5', image: pythonIcon.src },
-          { name: 'Stencil', image: rubyIcon.src },
-          { name: 'Svelte', image: golangIcon.src },
-        ],
-      },
-      {
-        title: 'UI/UX',
-        items: [
-          { name: 'AngularJS', image: XDIcon.src },
-          { name: 'React', image: PSIcon.src },
-          { name: 'Vue.js', image: figmaIcon.src },
-          { name: 'HTML5', image: AIIcon.src },
-          { name: 'Stencil', image: seekIcon.src },
-          { name: 'Svelte', image: webflowIcon.src },
-        ],
-      },
-      {
-        title: 'CLOUD',
-        items: [
-          { name: 'AngularJS', image: amazonWebServicesIcon.src },
-          { name: 'React', image: msAzureIcon.src },
-          { name: 'Vue.js', image: googleCloudIcon.src },
-          { name: 'HTML5', image: salesForceIcon.src },
-          { name: 'Stencil', image: ibmCloudIcon.src },
-          { name: 'Svelte', image: digitalOceanIcon.src },
-        ],
-      },
-      {
-        title: 'BLOCKCHAIN',
-        items: [
-          { name: 'AngularJS', image: solidityIcon.src },
-          { name: 'React', image: web3Icon.src },
-          { name: 'Vue.js', image: etherjsIcon.src },
-          { name: 'HTML5', image: ethereumIcon.src },
-          { name: 'Stencil', image: fabricIcon.src },
-          { name: 'Svelte', image: solanaIcon.src },
-        ],
-      },
-      {
-        title: 'OTHERS',
-        items: [
-          { name: 'AngularJS', image: uiPathIcon.src },
-          { name: 'React', image: drupalIcon.src },
-          { name: 'Vue.js', image: sapIcon.src },
-          { name: 'HTML5', image: googleAnalyticsIcon.src },
-          { name: 'Stencil', image: vrarIcon.src },
-          { name: 'Svelte', image: salesforceIcon.src },
-        ],
-      },
-      {
-        title: 'AI & ML',
-        items: [
-          { name: 'AngularJS', image: pythonIcon.src },
-          { name: 'React', image: tensorFlowIcon.src },
-          { name: 'Vue.js', image: openCvIcon.src },
-          { name: 'HTML5', image: pytorchIcon.src },
-          { name: 'Stencil', image: sparkIcon.src },
-          { name: 'Svelte', image: mahoutIcon.src },
-        ],
-      },
-    ],
     faqsContent: [
       {
         id: 1,

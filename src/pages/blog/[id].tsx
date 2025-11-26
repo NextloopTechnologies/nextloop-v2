@@ -61,9 +61,9 @@ const BlogID: React.FC<{ data?: BlogType; error?: string }> = ({
               <div className='w-full xl:h-[800px] h-[400px] animate-pulse bg-slate-100' />
             )}
             <span className='font-medium text-4xl '>{data.title}</span>
-            <div className='ql-snow'>
+            <div className="ql-snow">
               <div
-                className='ql-editor'
+                className="ql-editor"
                 dangerouslySetInnerHTML={{ __html: data.descp }}
               />
             </div>

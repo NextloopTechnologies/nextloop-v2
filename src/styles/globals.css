@@ -160,25 +160,3 @@ section {
   height: auto;
 }
 
-/* Custom scrollbar style */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-button {
-  display: none;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-orange-500 rounded-lg;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-gray-200;
-}
-
-/* Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: orange lightgray;
-}

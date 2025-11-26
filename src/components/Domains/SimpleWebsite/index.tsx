@@ -1,5 +1,7 @@
 import { Card, Data as ShadowCardData } from '../DesignYourEvents';
-import { hotelAssets } from '../../../../assets';
+import {
+  hotelAssets
+} from '../../../../assets';
 import { getStaticImageData } from '../../../utils/helper';
 
 const sampleData: ShadowCardData[] = [

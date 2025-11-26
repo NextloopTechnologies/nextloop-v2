@@ -32,9 +32,6 @@ export { default as SellEverywhereImage } from './sellEverywhere.png';
 export { default as Services1 } from './services.jpeg';
 // export { default as SWAcademy } from './SW-Academy.png';
 export { default as AboutNextloopBackground } from './AboutNextloopBackground.png';
-export { default as ArthnextLogo } from './arthnext-logo.png';
-export { default as AtzeanLogo } from './atzean-logo.png';
-export { default as BrainInventory } from './brain-inventory.png';
 export { default as Certificate1 } from './certificates/1.png';
 export { default as Certificate2 } from './certificates/2.png';
 export { default as Certificate3 } from './certificates/3.png';
@@ -46,8 +43,6 @@ export { default as LocationPin } from './endToEnd/location-pin.png';
 export { default as Medal } from './endToEnd/medal.png';
 export { default as Shuttle } from './endToEnd/shuttle.png';
 export { default as Trophy } from './endToEnd/trophy.png';
-export { default as EwaLogo } from './ewa-logo.png';
-export { default as FinsenLogo } from './finsen-logo.png';
 export { default as FoundedIcon } from './FoundedIcon.png';
 export { default as GlobalInventoryImage } from './GlobalInventoryImg.png';
 export { default as digitalProducts } from './healthcareAssets/digitalProducts.png';
@@ -57,9 +52,6 @@ export { default as printOnDemand } from './healthcareAssets/printOnDemand.png';
 export { default as subscriptions } from './healthcareAssets/subscriptions.png';
 export { default as healthCareWhyChooseUs1 } from './healthCareWhyChooseUs1.jpeg';
 export { default as healthCareWhyChooseUs2 } from './healthCareWhyChooseUs2.jpeg';
-export { default as ItfLogo } from './itf-logo.png';
-export { default as JhanaLogo } from './jhana-logo.png';
-export { default as LarishaLogo } from './larisha-logo.png';
 export { default as offerIconCustomSoftwareDevelopment } from './offers/icons/customSoftwareDevelopment.png';
 export { default as offerIconDigitalMarketing } from './offers/icons/digitalMarketing.png';
 export { default as offerIconProductSubscription } from './offers/icons/productSubscription.png';
@@ -94,6 +86,15 @@ export { default as Values3 } from './values-3.png';
 export { default as Values4 } from './values-4.png';
 export { default as Whoweare } from './who-we-are.jpeg';
 export { default as Whyus } from './whyus.png';
+export { default as FinsenLogo } from './finsen-logo.png';
+export { default as LarishaLogo } from './larisha-logo.png';
+export { default as ItfLogo } from './itf-logo.png';
+export { default as JhanaLogo } from './jhana-logo.png';
+export { default as EwaLogo } from './ewa-logo.png';
+export { default as AtzeanLogo } from './atzean-logo.png';
+export { default as ArthnextLogo } from './arthnext-logo.png';
+export { default as BrainInventory } from './brain-inventory.png';
+
 
 export const staticAssests = {
   AboutUsBackground:

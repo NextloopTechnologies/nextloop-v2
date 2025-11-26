@@ -48,7 +48,7 @@ const SERVICE_DATA: ServiceCardProps[] = [
     image: Service6 as unknown as string,
   },
   {
-    heading: 'Staffing',
+    heading: 'Hire Dedicated Team',
     image: Service7 as unknown as string,
   },
   {

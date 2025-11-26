@@ -67,15 +67,13 @@ const InfoOnImage = ({ description, image, title }: InfoOnImageProps) => (
       </p>
     </div>
 
-    {image && (
-      <Image
-        src={image}
-        alt={title}
-        height={500}
-        width={500}
-        className='w-full object-contain rounded-lg'
-      />
-    )}
+    {image && <Image
+      src={image}
+      alt={title}
+      height={500}
+      width={500}
+      className='w-full object-contain rounded-lg'
+    />}
   </div>
 );
 
@@ -83,17 +81,17 @@ const WhyWorkWithUs = ({ data = [] }: Props) => {
   const finalData =
     data.length > 0
       ? data
-          .map((item) =>
-            typeof item === 'object' && item !== null
-              ? {
-                  ...item,
-                  image:
-                    item?.image ||
-                    sampleData.find((sample) => sample.id === item.id)?.image,
-                }
-              : null
-          )
-          .filter((item) => item !== null)
+        .map((item) =>
+          typeof item === 'object' && item !== null
+            ? {
+              ...item,
+              image:
+                item?.image ||
+                sampleData.find((sample) => sample.id === item.id)?.image,
+            }
+            : null
+        )
+        .filter((item) => item !== null)
       : sampleData;
 
   return (
