@@ -85,7 +85,7 @@ export { default as FACEBOOK } from './socialIcons/FACEBOOK.png';
 export { default as GOOGLE } from './socialIcons/Google.png';
 export { default as INSTAGRAM } from './socialIcons/INSTAGRAM.png';
 export { default as LINKIN } from './socialIcons/LINKIN.png';
-export { default as Mail } from './socialIcons/Mail.png';
+export { default as MailS } from './socialIcons/Mail.png';
 export { default as X } from './socialIcons/TWT.png';
 export { default as Stamens } from './Stamens.png';
 export { default as Values1 } from './values-1.png';

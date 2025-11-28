@@ -10,7 +10,6 @@ import { AboutNextloopBackground, LeftSlide } from '../../assets';
 import {
   CustomerService,
   LocationPin,
-  Medal,
   Shuttle,
   Trophy,
 } from '../../assets';
@@ -22,45 +21,88 @@ import cert3 from '../../assets/certificates/3.png';
 import cert5 from '../../assets/certificates/5.png';
 import bulb from '../../assets/lightbulb.svg';
 import arrow from '../../assets/right-arrow.svg';
+import { ArrowRight, CalendarCheck, CalendarCheck2, Headset, Lightbulb, MapPin, Medal, Rocket, TrophyIcon } from 'lucide-react';
+// export interface Service {
+
+//   icon: string;
+//   title: string;
+//   description: string;
+// }
+
 
 export interface Service {
-  icon: string;
+  icon: React.ElementType;
   title: string;
   description: string;
 }
 
+// const servicesData: Service[] = [
+//   {
+//     icon: FoundedIcon.src,
+//     title: 'Founded in 2020',
+//     description:
+//       'Nextloop Technologies delivers innovative IT solutions across industries.',
+//   },
+//   {
+//     icon: LocationPin.src,
+//     title: 'Location',
+//     description: 'Headquartered in Indore, with an office in the UK.',
+//   },
+//   {
+//     icon: Medal.src,
+//     title: 'Certifications',
+//     description: 'Globally recognized standards achieved.',
+//   },
+//   {
+//     icon: Shuttle.src,
+//     title: 'Projects Completed',
+//     description: 'Successfully delivered 30+ projects globally.',
+//   },
+//   {
+//     icon: CustomerService.src,
+//     title: 'Expertise',
+//     description:
+//       'Specializing in Cloud Solutions, Blockchain, Custom Software, and Digital Transformation.',
+//   },
+//   {
+//     icon: Trophy.src,
+//     title: 'Recognition',
+//     description: 'Renowned for delivering award-winning IT solutions. ',
+//   },
+// ];
+
+
+
 const servicesData: Service[] = [
   {
-    icon: FoundedIcon.src,
-    title: 'Founded in 2020',
-    description:
-      'Nextloop Technologies delivers innovative IT solutions across industries.',
+    icon: CalendarCheck,
+    title: "Founded in 2020",
+    description: "Nextloop Technologies delivers innovative IT solutions across industries.",
   },
   {
-    icon: LocationPin.src,
-    title: 'Location',
-    description: 'Headquartered in Indore, with an office in the UK.',
+    icon: MapPin,
+    title: "Location",
+    description: "Headquartered in Indore, with an office in the UK.",
   },
   {
-    icon: Medal.src,
-    title: 'Certifications',
-    description: 'Globally recognized standards achieved.',
+    icon: Medal,
+    title: "Certifications",
+    description: "Globally recognized standards achieved.",
   },
   {
-    icon: Shuttle.src,
-    title: 'Projects Completed',
-    description: 'Successfully delivered 30+ projects globally.',
+    icon: Rocket,
+    title: "Projects Completed",
+    description: "Successfully delivered 30+ projects globally.",
   },
   {
-    icon: CustomerService.src,
-    title: 'Expertise',
-    description:
-      'Specializing in Cloud Solutions, Blockchain, Custom Software, and Digital Transformation.',
+    icon: Headset,
+    title: "Expertise",
+    description: "Specializing in Cloud Solutions, Blockchain, Custom Software, and Digital Transformation.",
   },
   {
-    icon: Trophy.src,
-    title: 'Recognition',
-    description: 'Renowned for delivering award-winning IT solutions. ',
+    icon: TrophyIcon,
+    title: "Recognition",
+    description: "Renowned for delivering award-winning IT solutions.",
   },
 ];
 
@@ -299,7 +341,6 @@ const CertificateCard: React.FC<CertificateCardProps> = ({
     </p>
   </div>
 );
-
 const EndToEnd = () => {
   return (
     <div className='flex flex-col items-center justify-center p-8 md:mt-5 md:mx-20 py-28'>
@@ -310,24 +351,24 @@ const EndToEnd = () => {
         <span className='text-orange-500'> software development</span> partner
       </h2>
       <div className='grid grid-cols-1 md:grid-cols-3 gap-4 w-full'>
-        {servicesData.map((service, index) => (
-          <div
-            key={index}
-            className='bg-white p-3 flex flex-col border items-left pl-8 border-gray-300'
-          >
-            <Image
-              src={service.icon}
-              alt={service.title}
-              width={40}
-              height={40}
-            />
-            <h3 className='font-bold text-sm mt-4'>{service.title}</h3>
-            <p className='text-left text-gray-600 mt-2 text-xs'>
-              {service.description}
-            </p>
-          </div>
-        ))}
+        {servicesData.map((service, index) => {
+          const Icon = service.icon;
+          return (
+            <div
+              key={index}
+              className='bg-white p-3 flex flex-col border items-left pl-8 border-gray-300'
+            >
+              <Icon size={40} strokeWidth={2.2} className="text-orange-500" />
+
+              <h3 className='font-bold text-sm mt-4'>{service.title}</h3>
+              <p className='text-left text-gray-600 mt-2 text-xs'>
+                {service.description}
+              </p>
+            </div>
+          );
+        })}
       </div>
+
     </div>
   );
 };
@@ -383,7 +424,8 @@ const Card: React.FC<{ title: string; sub: string }> = ({ title, sub }) => {
         >
           <div className='flex gap-2 items-center'>
             <div className=''>
-              <Image src={arrow} alt='arrow' />
+              {/* <Image src={arrow} alt='arrow' /> */}
+              <ArrowRight className='object-cover text-black ' size={25} />
             </div>
             <span
               className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} uppercase font-semibold`}
@@ -407,7 +449,12 @@ const JourneyCard: React.FC<{ title: string; sub: string; odd: boolean }> = ({
     <div className='xl:w-[300px] xl:h-[300px] flex flex-col items-center relative '>
       {!odd ? <SmallOrangeTop /> : <BigOrangeTop />}
       <div className='absolute flex flex-col  md:w-[275px] w-full items-center gap-2 md:px-0 mt-8'>
-        <Image src={bulb} alt='bulb' />
+        {/* <Image src={bulb} alt='bulb' /> */}
+        <Lightbulb
+          size={50}
+          strokeWidth={2.5}
+          className="text-white"   // or any color
+        />
         <h3
           className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop} font-bold`}
         >

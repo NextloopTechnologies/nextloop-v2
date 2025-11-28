@@ -9,6 +9,7 @@ import supabaseClient from '../../utils/client';
 import { careerAssets } from '../../../assets';
 import careerBg from '../../../assets/careerBg.png';
 import location from '../../../assets/location.svg';
+import { MapPin } from 'lucide-react';
 
 const CareersPage: React.FC<{ jobs?: Job[]; error?: string }> = ({
   jobs,
@@ -231,7 +232,8 @@ const JobCard: React.FC<{ job: Job }> = ({
         </div>
         <div className='flex gap-2'>
           <div className=''>
-            <Image src={location} alt='location' />
+            {/* <Image src={location} alt='location' /> */}
+            <MapPin size={20} strokeWidth={2} className="text-black" />
             <p className=''>{job_mode}</p>
           </div>
         </div>

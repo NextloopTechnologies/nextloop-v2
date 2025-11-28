@@ -1,16 +1,15 @@
+import { MoveLeft, MoveRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC, useEffect, useState } from 'react';
 
 import palette from '../styles/pallette';
 import {
-  LeftSlide,
   Portfolio1,
   Portfolio2,
   Portfolio3,
   Portfolio4,
 } from '../../assets/';
-
 interface PortfolioCardProps {
   image: string;
   caption: string;
@@ -67,11 +66,10 @@ const PortfolioSlide: FC = () => {
             key={index}
             src={item.image}
             alt={`image-${index}`}
-            className={`absolute top-0 left-0 w-full h-full object-fill object-top transition-all duration-700 ease-in-out ${
-              index === currentSlide
-                ? 'opacity-100 z-10'
-                : 'opacity-0 z-0 pointer-events-none'
-            }`}
+            className={`absolute top-0 left-0 w-full h-full object-fill object-top transition-all duration-700 ease-in-out ${index === currentSlide
+              ? 'opacity-100 z-10'
+              : 'opacity-0 z-0 pointer-events-none'
+              }`}
             fill
           />
         ))}
@@ -115,25 +113,27 @@ const PortfolioSlide: FC = () => {
           onClick={() => handleImages(-1)}
           className='absolute top-[50%] left-0 pl-5 transform -translate-y-1/2 hover:scale-110 active:scale-95 z-30'
         >
-          <Image
+          {/* <Image
             src={LeftSlide}
             alt='prev'
             className='w-full h-full object-cover'
             width={40}
             height={30}
-          />
+          /> */}
+          <MoveLeft className='object-cover text-orange-500' size={50} />
         </button>
         <button
           onClick={() => handleImages(1)}
           className='absolute top-[50%] right-0 pr-5 transform -translate-y-1/2 hover:scale-110 active:scale-95 z-30'
         >
-          <Image
+          {/* <Image
             src={LeftSlide}
             alt='next'
             className='w-full h-full object-cover rotate-180'
             width={40}
             height={30}
-          />
+          /> */}
+          <MoveRight className='object-cover text-orange-500' size={50} />
         </button>
       </div>
     </div>

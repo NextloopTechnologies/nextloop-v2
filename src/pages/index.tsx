@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { MoveDown } from 'lucide-react';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -340,7 +341,8 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
             // onClick={handleScrollOnClick}
             onClick={scrollToNext}
           >
-            <Image src={DownArrow} alt='Down arrow' className='h-5 w-7' />
+            {/* <Image src={DownArrow} alt='Down arrow' className='h-5 w-7' /> */}
+            <MoveDown className='h-5 w-7' />
           </motion.button>
         )}
 
