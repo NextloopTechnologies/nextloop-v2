@@ -1,5 +1,4 @@
 import { StaticImageData } from 'next/image';
-
 import ToolBox from './Domains/Restaurant/ToolBox';
 import palette from '../styles/pallette';
 
@@ -7,7 +6,7 @@ interface IconTitleDescriptionProps {
   data: {
     descp: string;
     id: number;
-    icon: StaticImageData;
+    icon: StaticImageData | React.ReactNode | string;
     title: string;
   }[];
 }

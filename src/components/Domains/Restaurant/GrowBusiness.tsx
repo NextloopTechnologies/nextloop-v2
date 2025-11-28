@@ -1,5 +1,4 @@
 import React from 'react';
-
 import ToolBox from './ToolBox';
 import palette from '../../../styles/pallette';
 import { Send, Gift, Megaphone } from 'lucide-react';
@@ -26,7 +25,7 @@ const GrowBusiness = () => {
   return (
     <div className='flex flex-col items-center justify-center text-center mx-auto py-10'>
       <h1
-        className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold uppercase  w-full`}
+        className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold uppercase w-full`}
       >
         The tools you need to grow your{' '}
         <span className='text-orange-500'>business</span>
