@@ -1,16 +1,15 @@
-import { Dot, Facebook, Instagram, Linkedin, Mail, MapPin, PhoneCall, Twitter } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC, useState } from 'react';
+import { BiSolidPhoneCall } from "react-icons/bi";
+import { FaFacebookF, FaGoogle, FaInstagram, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
+import { ImLocation } from "react-icons/im";
+import { IoIosMail, IoMdMail } from "react-icons/io";
+import { LuDot } from "react-icons/lu";
 
 import CustomDropdown from '../CustomDropdown';
 import palette from '../../styles/pallette';
 import { EnquiryType } from '../../types';
 import { createInquiryForm } from '../../utils/db';
-import { FACEBOOK, GOOGLE, INSTAGRAM, LINKIN, MailS } from '../../../assets';
-import LocationIcon from '../../../assets/getInTouch/LocationIcon.png';
-import PhoneIcon from '../../../assets/getInTouch/PhoneIcon.png';
-import TwitterIcon from '../../../assets/getInTouch/twitterIcon.png';
 
 interface OptionType {
   label: string;
@@ -171,16 +170,8 @@ const PitchThought: FC = () => {
           <div className='flex justify-center w-full text-white mt-6 md:mt-0'>
             <div className='flex flex-col justify-start lg:w-2/3 gap-y-5 w-full'>
               <div className='flex items-center'>
-                {/* <Image
-                  src={MailIcon}
-                  height={24}
-                  width={24}
-                  alt='inventory-card-icon'
-                  className='mr-4'
-                /> */}
-                {/* <Mail className="mr-4 p-2 bg-white rounded-full text-black" size={30}    strokeWidth={3}/> */}
-                <div className="mr-4 bg-white w-5 h-5 rounded-full flex items-center justify-center">
-                  <Mail size={12} strokeWidth={3} className="text-black" />
+                <div className="mr-4 bg-white w-6 h-6 rounded-full flex items-center justify-center">
+                  <IoIosMail className='w-5 h-5 text-black' />
                 </div>
                 <div
                   className={`flex ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
@@ -191,18 +182,9 @@ const PitchThought: FC = () => {
                 </div>
               </div>
               <div className='flex items-center'>
-                {/* <Image
-                  src={LocationIcon}
-                  height={24}
-                  width={24}
-                  alt='inventory-card-icon'
-                  className='mr-4'
-                /> */}
-
-                <div className="mr-4 bg-white w-5 h-5 rounded-full flex items-center justify-center">
-                  <MapPin size={12} strokeWidth={3} className="text-black" />
+                <div className="mr-4 bg-white w-6 h-6 rounded-full flex items-center justify-center">
+                  <ImLocation className='w-5 h-4 text-black mx-1' />
                 </div>
-                {/* <Mail className="mr-4 p-2 bg-white rounded-full text-black" size={30} strokeWidth={3} /> */}
                 <div
                   className={`flex ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
                 >
@@ -212,23 +194,14 @@ const PitchThought: FC = () => {
                     )}`}
                     target='_blank'
                     rel='noopener noreferrer'
-                  // style={{ color: 'blue', textDecoration: 'underline' }}
                   >
                     {location}
                   </a>
                 </div>
               </div>
               <div className='flex items-center'>
-                {/* <Image
-                  src={PhoneIcon}
-                  height={24}
-                  width={24}
-                  alt='inventory-card-icon'
-                  className='mr-4'
-                /> */}
-
-                <div className="mr-4 bg-white w-5 h-5 rounded-full flex items-center justify-center">
-                  <PhoneCall size={12} strokeWidth={3} className="text-black" />
+                <div className="mr-4 bg-white w-6 h-6 rounded-full flex items-center justify-center">
+                  <BiSolidPhoneCall className='w-5 h-4 text-black mx-1' />
                 </div>
                 <div
                   className={`flex gap-x-1 ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
@@ -246,153 +219,51 @@ const PitchThought: FC = () => {
                 ASAP.
               </div>
               <div className='border-b border-orange-500 w-full border-t-4 mb-2 md:mb-0'></div>
-              {/* <div>
-                <ul className='flex gap-x-7 mb-10 md:mb-5'>
-                  <li>
-                    <Link
-                      href='https://www.facebook.com/profile.php?id=61556914381569&mibextid=ZbWKwL'
-                      passHref
-                    >
-                      <Image
-                        src={FACEBOOK}
-                        alt='fb-icon'
-                        className='w-14 h-14 object-contain'
-                      />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href='https://g.co/kgs/7LnLSHN'>
-                      <Image
-                        src={GOOGLE}
-                        alt='google-icon'
-                        className='w-14 h-14 object-contain'
-                      />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      aria-disabled
-                      href='mailto:info@nextlooptechnologies.com'
-                      aria-label='Send Email'
-                    >
-                      <Image
-                        src={MailS}
-                        alt='gmail-icon'
-                        className='w-14 h-14 object-contain'
-                      />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      aria-disabled
-                      href='https://www.instagram.com/nextloop.technologies/'
-                    >
-                      <Image
-                        src={INSTAGRAM}
-                        alt='instagram-icon'
-                        className='w-14 h-14 object-contain'
-                      />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href='https://www.linkedin.com/company/nextloop-technologies-llp'>
-                      <Image
-                        src={LINKIN}
-                        alt='x-icon'
-                        className='w-14 h-14 object-contain'
-                      />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href='https://x.com/Nextloop_'>
-                      <Image
-                        src={TwitterIcon}
-                        alt='insta-icon'
-                        className='w-14 h-14 object-contain'
-                      />
-                    </Link>
-                  </li>
-                </ul>
-              </div> */}
-              {/* import {Mail, Instagram, Linkedin, Twitter} from "lucide-react"; */}
-
               <div>
                 <ul className="flex gap-x-7 mb-10 md:mb-5">
-
-                  {/* Facebook — keep PNG (no lucide brand icon) */}
-                  {/* <li>
-                    <a href="https://www.facebook.com/profile.php?id=61556914381569&mibextid=ZbWKwL">
-                      <img src="/facebook.png" className="w-14 h-14" alt="facebook" />
-                    </a>
-                  </li> */}
-                  <a href="https://www.facebook.com/profile.php?id=61556914381569&mibextid=ZbWKwL">
-                    <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center">
-                      <Facebook className="text-black" size={28} strokeWidth={2.5} />
-                    </div>
-                  </a>
-
-                  {/* Google — keep PNG */}
-                  {/* <li>
-                    <a href="https://g.co/kgs/7LnLSHN">
-                      <img src="/google.png" className="w-14 h-14" alt="google" />
-                    </a>
-                  </li> */}
-                  {/* <li>
-                    <Link href='https://g.co/kgs/7LnLSHN'>
-                      <Image
-                        src={GOOGLE}
-                        alt='google-icon'
-                        className='w-14 h-14 object-contain'
-                      />
-                    </Link>
-                  </li> */}
-
                   <li>
-                    <a href="https://g.co/kgs/7LnLSHN">
-                      <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center">
-                        <Image
-                          src={GOOGLE}
-                          alt="google-icon"
-                          className="w-8 h-8 object-contain"
-                        />
+                    <a href="https://www.facebook.com/profile.php?id=61556914381569&mibextid=ZbWKwL">
+                      <div className="w-14 h-14 bg-gray-700 rounded-full flex items-center justify-center">
+                        <FaFacebookF size={28} />
                       </div>
                     </a>
                   </li>
 
-
-
-                  {/* Gmail → Lucide Mail */}
+                  <li>
+                    <a href="https://g.co/kgs/7LnLSHN">
+                      <div className="w-14 h-14 bg-gray-700 rounded-full flex items-center justify-center">
+                        <FaGoogle size={28} />
+                      </div>
+                    </a>
+                  </li>
                   <li>
                     <a href="mailto:info@nextlooptechnologies.com">
-                      <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center">
-                        <Mail className="text-black" size={28} strokeWidth={2.5} />
+                      <div className="w-14 h-14 bg-gray-700 rounded-full flex items-center justify-center">
+                        <IoMdMail size={28} />
                       </div>
                     </a>
                   </li>
 
-                  {/* Instagram */}
                   <li>
                     <a href="https://www.instagram.com/nextloop.technologies/">
-                      <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center">
-                        <Instagram className="text-black" size={28} strokeWidth={2.5} />
+                      <div className="w-14 h-14 bg-gray-700 rounded-full flex items-center justify-center">
+                        <FaInstagram size={28} />
                       </div>
                     </a>
                   </li>
 
-                  {/* LinkedIn */}
                   <li>
                     <a href="https://www.linkedin.com/company/nextloop-technologies-llp">
-                      <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center">
-                        <Linkedin className="text-black" size={28} strokeWidth={2.5} />
+                      <div className="w-14 h-14 bg-gray-700 rounded-full flex items-center justify-center">
+                        <FaLinkedinIn size={28} />
                       </div>
                     </a>
                   </li>
 
-                  {/* Twitter (not X logo) */}
                   <li>
                     <a href="https://x.com/Nextloop_">
-                      <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center">
-                        <Twitter className="text-black" size={28} strokeWidth={2.5} />
+                      <div className="w-14 h-14 bg-gray-700 rounded-full flex items-center justify-center">
+                        <FaXTwitter size={28} />
                       </div>
                     </a>
                   </li>
@@ -414,7 +285,7 @@ const PitchThought: FC = () => {
         <p className='flex justify-center items-center mt-2 sm:mt-0'>
           <Link href='/cookies-policy'>Cookie Policy</Link>
           <span>
-            <Dot className='w-8 h-8 my-auto'></Dot>
+            <LuDot className='w-8 h-8 my-auto' />
           </span>
           <Link href='/privacy'>Privacy Policy</Link>
         </p>

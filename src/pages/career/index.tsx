@@ -1,6 +1,8 @@
+import { MapPin } from 'lucide-react';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { LiaLongArrowAltRightSolid } from "react-icons/lia";
 
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
@@ -8,8 +10,6 @@ import { Job } from '../../types';
 import supabaseClient from '../../utils/client';
 import { careerAssets } from '../../../assets';
 import careerBg from '../../../assets/careerBg.png';
-import location from '../../../assets/location.svg';
-import { MapPin } from 'lucide-react';
 
 const CareersPage: React.FC<{ jobs?: Job[]; error?: string }> = ({
   jobs,
@@ -50,10 +50,10 @@ const WhyUs = () => (
             <Image src={leftBig} alt='' className='h-full object-cover' />
           </div>
           <div className='flex flex-col gap-4'>
-            <div className=''>
+            <div>
               <Image src={rightTop} alt='' />
             </div>
-            <div className=''>
+            <div>
               <Image src={rightMiddle} alt='' />
             </div>
           </div>
@@ -139,7 +139,7 @@ const WhyUs = () => (
 
       <div className='lg:w-1/2 w-full flex flex-col gap-6 sm:pr-20 text-left'>
         <div className='flex flex-col'>
-          <p className=''>
+          <p>
             Come be a part of Nextloop Technologies, where your ideas,
             abilities, and potential are valued. Embracing technology and
             assisting you in your growth is our mission.
@@ -228,21 +228,18 @@ const JobCard: React.FC<{ job: Job }> = ({
       <div className='flex justify-between items-end'>
         <div className='flex flex-col gap-4'>
           <p className='font-medium text-[18px]'>{title}</p>
-          <p className=''>{job_type}</p>
+          <p>{job_type}</p>
         </div>
-        <div className='flex gap-2'>
-          <div className=''>
-            {/* <Image src={location} alt='location' /> */}
-            <MapPin size={20} strokeWidth={2} className="text-black" />
-            <p className=''>{job_mode}</p>
-          </div>
+        <div className='flex gap-2 flex-col items-center'>
+          <MapPin size={20} strokeWidth={2} className="text-black mx-auto" />
+          <p>{job_mode}</p>
         </div>
       </div>
       <button
         onClick={() => router.push(`/career/${id}`)}
         className='text-orange-500 bg-none font-medium py-3 rounded-full w-fit'
       >
-        View Details &#10230;
+        View Details <LiaLongArrowAltRightSolid className='inline-block w-6 h-6' />
       </button>
     </div>
   );

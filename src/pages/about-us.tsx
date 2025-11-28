@@ -1,3 +1,4 @@
+import { ArrowRight, CalendarCheck, Headset, Lightbulb, MapPin, Medal, Rocket, TrophyIcon } from 'lucide-react';
 import Head from 'next/head';
 import Image, { StaticImageData } from 'next/image';
 import { useRouter } from 'next/router';
@@ -7,21 +8,11 @@ import Layout from '../components/Layout/Layout';
 import PageHero from '../components/PageHero';
 import palette from '../styles/pallette';
 import { AboutNextloopBackground, LeftSlide } from '../../assets';
-import {
-  CustomerService,
-  LocationPin,
-  Shuttle,
-  Trophy,
-} from '../../assets';
-import { FoundedIcon } from '../../assets';
 import aboutBg from '../../assets/about-us-hero.png';
 import cert1 from '../../assets/certificates/1.png';
 import cert2 from '../../assets/certificates/2.png';
 import cert3 from '../../assets/certificates/3.png';
 import cert5 from '../../assets/certificates/5.png';
-import bulb from '../../assets/lightbulb.svg';
-import arrow from '../../assets/right-arrow.svg';
-import { ArrowRight, CalendarCheck, CalendarCheck2, Headset, Lightbulb, MapPin, Medal, Rocket, TrophyIcon } from 'lucide-react';
 // export interface Service {
 
 //   icon: string;
@@ -373,47 +364,6 @@ const EndToEnd = () => {
   );
 };
 
-// const AboutUsInAboutUs = () => (
-//   <div className='flex flex-col min-h-screen bg-white justify-center items-center xl:p-24 p-8 md:p-0 gap-24'>
-//     <div className='flex flex-col w-full gap-8'>
-//       <h2 className='font-medium text-2xl uppercase'>aboutus</h2>
-//       <span className='font-bold xl:text-7xl md:text-5xl text-3xl uppercase hidden lg:block'>
-//         we are a group of goal <br />
-//         <span className='text-orange-500'>developers.</span>
-//       </span>
-//       <span className='font-bold xl:text-7xl md:text-5xl text-3xl uppercase  lg:hidden'>
-//         we are a group of goal
-//         <span className='text-orange-500'> developers.</span>
-//       </span>
-//     </div>
-//     <div className='flex xl:w-[45%] md:w-[80%] w-full'>
-//       <p className='lg:text-4xl text-2xl lowercase'>
-//         Tech enthusiasts, who create{' '}
-//         <span className='text-orange-500'>great solutions.</span> We pride
-//         ourselves in delivering exceptional services AND EXPERIENCES WITH A
-//         FAST, HIGHLY <span className='text-orange-500'>DISCIPLINED TEAM</span>.
-//         wE WISH TO HELP OUR CLIENTS WITH CONTINUOUS INNOVATION AND PROGRESS BY
-//         BUILDING STRONG AND LASTING
-//         <span className='text-orange-500'> PARTNERSHIPS.</span>
-//       </p>
-//     </div>
-//     <div className='flex flex-col gap-8 xl:w-[45%] md:w-[80%] w-full'>
-//       <p className=''>
-//         Founded in 2020 with a vision of driving the loop towards new age
-//         technologies. Next loop has evolved into a thriving enterprise where
-//         unique minds shape innovative experiences for millions of users.
-//       </p>
-//       <p className=''>
-//         Born in the heart of the India Indore area, our outreach is global. We
-//         are a strong team of researchers, developers and experts of the digital
-//         world. Through a progressive and disciplined method our team creates
-//         digital transformation solutions with lasting impact.Partner with us to
-//         be in an endless loop of innovation and tech.
-//       </p>
-//     </div>
-//   </div>
-// );
-
 const Card: React.FC<{ title: string; sub: string }> = ({ title, sub }) => {
   return (
     <div className='p-4 border-[2px] border-orange-400  h-[420px] sm:h-[320px] w-full relative'>
@@ -423,8 +373,7 @@ const Card: React.FC<{ title: string; sub: string }> = ({ title, sub }) => {
           className='bg-white rounded-[2px] flex flex-col gap-2 max-w-md py-10 px-4 h-[420px] sm:h-[320px]'
         >
           <div className='flex gap-2 items-center'>
-            <div className=''>
-              {/* <Image src={arrow} alt='arrow' /> */}
+            <div>
               <ArrowRight className='object-cover text-black ' size={25} />
             </div>
             <span
@@ -449,11 +398,10 @@ const JourneyCard: React.FC<{ title: string; sub: string; odd: boolean }> = ({
     <div className='xl:w-[300px] xl:h-[300px] flex flex-col items-center relative '>
       {!odd ? <SmallOrangeTop /> : <BigOrangeTop />}
       <div className='absolute flex flex-col  md:w-[275px] w-full items-center gap-2 md:px-0 mt-8'>
-        {/* <Image src={bulb} alt='bulb' /> */}
         <Lightbulb
           size={50}
           strokeWidth={2.5}
-          className="text-white"   // or any color
+          className="text-white"
         />
         <h3
           className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop} font-bold`}

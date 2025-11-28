@@ -100,7 +100,7 @@ const JobDetails: React.FC<{ job: Job }> = ({
         </div>
         <div className='md:w-fit w-full rounded-md shadow-md flex flex-col px-12 py-4 gap-4'>
           <div className='flex gap-2 items-center'>
-            <div className=''>
+            <div>
               <Image src={locationIcon} alt='location' />
             </div>
             <p className='text-lg'>
@@ -108,7 +108,7 @@ const JobDetails: React.FC<{ job: Job }> = ({
             </p>
           </div>
           {/* <div className='flex gap-2 items-center'>
-            <div className=''>
+            <div>
               <Image src={wallet} alt='wallet' />
             </div>
              <p className='text-lg font-bold'>{money}</p>
