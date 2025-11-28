@@ -1,4 +1,5 @@
 import Image, { StaticImageData } from 'next/image';
+import React from 'react';
 
 import palette from '../styles/pallette';
 
@@ -8,13 +9,15 @@ export interface WhyBusinessChoosesUsItem {
   description?: string;
 }
 
+type ImageLike = StaticImageData | string | React.ReactNode | React.ElementType;
+
 export interface WhyBusinessChoosesUsData {
   headingData: {
     heading: string;
     coloredHeading: string;
     description: string;
   };
-  heroImage?: StaticImageData;
+  heroImage?: ImageLike;
   items: WhyBusinessChoosesUsItem[];
 }
 
@@ -23,15 +26,29 @@ const WhyBusinessChoosesUsSection: React.FC<{
 }> = ({ whyChooseUsData }) => {
   return (
     <div className='relative flex flex-col items-center text-center py-20 min-h-fit w-full bg-black overflow-hidden'>
-      {whyChooseUsData?.heroImage && (
-        <Image
-          src={whyChooseUsData.heroImage}
-          alt='Background'
-          fill
-          priority
-          className='object-cover object-bottom brightness-110 mix-blend-normal'
-        />
-      )}
+      {whyChooseUsData?.heroImage &&
+        (React.isValidElement(whyChooseUsData.heroImage) ? (
+          React.cloneElement(whyChooseUsData.heroImage, {
+            ...whyChooseUsData.heroImage.props,
+            className: `${whyChooseUsData.heroImage.props?.className || ''} object-cover object-bottom brightness-110 mix-blend-normal text-orange-600`.trim(),
+            size: whyChooseUsData.heroImage.props?.size || 80,
+            color: whyChooseUsData.heroImage.props?.color ?? 'currentColor',
+          })
+        ) : typeof whyChooseUsData.heroImage === 'function' ? (
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          React.createElement(whyChooseUsData.heroImage as any, { className: 'object-cover object-bottom brightness-110 mix-blend-normal text-orange-500', size: 80, color: 'currentColor' })
+        ) : typeof whyChooseUsData.heroImage === 'object' && (whyChooseUsData.heroImage as any).src ? (
+          <Image
+            src={whyChooseUsData.heroImage as any}
+            alt='Background'
+            fill
+            priority
+            className='object-cover object-bottom brightness-110 mix-blend-normal'
+          />
+        ) : typeof whyChooseUsData.heroImage === 'string' ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={whyChooseUsData.heroImage as string} alt='Background' className='object-cover object-bottom brightness-110 mix-blend-normal absolute inset-0 w-full h-full' />
+        ) : null)}
 
       <div className='relative z-10 w-full flex flex-col items-center px-4 max-w-6xl'>
         <h3

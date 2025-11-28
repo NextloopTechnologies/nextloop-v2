@@ -1,4 +1,5 @@
 import Image, { StaticImageData } from 'next/image';
+import React from 'react';
 
 import palette from '../styles/pallette';
 
@@ -6,7 +7,7 @@ export interface HiringItem {
   id: number;
   title: string;
   description?: string;
-  image?: StaticImageData;
+  image?: StaticImageData | string | React.ReactNode | React.ElementType;
 }
 
 export interface HiringSectionData {
@@ -37,15 +38,24 @@ const FlexibleHiringSection: React.FC<{
             key={item.id}
             className='flex flex-col items-center text-center space-y-4'
           >
-            <div className='relative w-36 h-36 mx-auto'>
-              {item.image && (
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  className='object-contain'
-                />
-              )}
+            <div className='relative w-36 h-36 mx-auto flex items-center justify-center'>
+              {item.image &&
+                (React.isValidElement(item.image) ? (
+                  React.cloneElement(item.image, {
+                    ...item.image.props,
+                    className: `${item.image.props?.className || ''} w-24 h-24 text-orange-600`.trim(),
+                    size: item.image.props?.size || 36,
+                    color: item.image.props?.color ?? 'currentColor',
+                  })
+                ) : typeof item.image === 'function' ? (
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  React.createElement(item.image as any, { className: 'w-24 h-24 text-orange-500', size: 36, color: 'currentColor' })
+                ) : typeof item.image === 'object' && (item.image as any).src ? (
+                  <Image src={item.image as any} alt={item.title} fill className='object-contain' />
+                ) : typeof item.image === 'string' ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={item.image as string} alt={item.title} className='object-contain w-20 h-20' />
+                ) : null)}
             </div>
             <h3 className='text-lg font-semibold text-black'>{item.title}</h3>
             <p className='text-gray-600 text-sm md:text-base max-w-xs'>
