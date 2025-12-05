@@ -1,4 +1,4 @@
-import { ArrowRight, CalendarCheck, Headset, Lightbulb, MapPin, Medal, Rocket, TrophyIcon } from 'lucide-react';
+import { ArrowRight, CalendarCheck, Headset, Lightbulb, MapPin, Medal, MoveLeft, MoveRight, Rocket, TrophyIcon } from 'lucide-react';
 import Head from 'next/head';
 import Image, { StaticImageData } from 'next/image';
 import { useRouter } from 'next/router';
@@ -7,7 +7,7 @@ import { useRef } from 'react';
 import Layout from '../components/Layout/Layout';
 import PageHero from '../components/PageHero';
 import palette from '../styles/pallette';
-import { AboutNextloopBackground, LeftSlide } from '../../assets';
+import { AboutNextloopBackground } from '../../assets';
 import aboutBg from '../../assets/about-us-hero.png';
 import cert1 from '../../assets/certificates/1.png';
 import cert2 from '../../assets/certificates/2.png';
@@ -27,40 +27,6 @@ export interface Service {
   description: string;
 }
 
-// const servicesData: Service[] = [
-//   {
-//     icon: FoundedIcon.src,
-//     title: 'Founded in 2020',
-//     description:
-//       'Nextloop Technologies delivers innovative IT solutions across industries.',
-//   },
-//   {
-//     icon: LocationPin.src,
-//     title: 'Location',
-//     description: 'Headquartered in Indore, with an office in the UK.',
-//   },
-//   {
-//     icon: Medal.src,
-//     title: 'Certifications',
-//     description: 'Globally recognized standards achieved.',
-//   },
-//   {
-//     icon: Shuttle.src,
-//     title: 'Projects Completed',
-//     description: 'Successfully delivered 30+ projects globally.',
-//   },
-//   {
-//     icon: CustomerService.src,
-//     title: 'Expertise',
-//     description:
-//       'Specializing in Cloud Solutions, Blockchain, Custom Software, and Digital Transformation.',
-//   },
-//   {
-//     icon: Trophy.src,
-//     title: 'Recognition',
-//     description: 'Renowned for delivering award-winning IT solutions. ',
-//   },
-// ];
 
 
 
@@ -291,19 +257,13 @@ const Certificates: React.FC = () => {
             onClick={prevCard}
             className='absolute -left-6 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full'
           >
-            <Image src={LeftSlide.src} alt='Previous' width={15} height={15} />
+            <MoveLeft className='object-cover text-orange-500' size={15} />
           </button>
           <button
             onClick={nextCard}
             className='absolute -right-6 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full'
           >
-            <Image
-              src={LeftSlide.src}
-              alt='Next'
-              width={15}
-              height={15}
-              className='transform rotate-180'
-            />
+            <MoveRight className='object-cover text-orange-500' size={15} />
           </button>
         </div>
       </div>

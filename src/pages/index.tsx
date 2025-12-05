@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { MoveDown } from 'lucide-react';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 
 import Certificate from '../components/Certificate';
@@ -22,7 +21,6 @@ import WhoWeAre from '../components/WhoWeAre';
 import { IPortfolio } from '../types';
 import supabaseClient from '../utils/client';
 import useWindowSize from '../utils/useWindowSize';
-import { DownArrow } from '../../assets';
 
 const sectionStyle: React.CSSProperties = {
   minHeight: '100vh',
@@ -354,11 +352,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
             className='fixed bottom-10 right-5 bg-orange-500 hover:bg-orange-600 text-white h-10 w-10 justify-center rounded-full flex items-center z-10 cursor-pointer'
             onClick={handleScrollOnClick}
           >
-            <Image
-              src={DownArrow}
-              alt='Up arrow'
-              className='h-5 w-7 rotate-180'
-            />
+            <MoveDown className='h-5 w-7 rotate-180' />
           </motion.button>
         )}
       </Layout>

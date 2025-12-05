@@ -113,26 +113,13 @@ const PortfolioSlide: FC = () => {
           onClick={() => handleImages(-1)}
           className='absolute top-[50%] left-0 pl-5 transform -translate-y-1/2 hover:scale-110 active:scale-95 z-30'
         >
-          {/* <Image
-            src={LeftSlide}
-            alt='prev'
-            className='w-full h-full object-cover'
-            width={40}
-            height={30}
-          /> */}
+
           <MoveLeft className='object-cover text-orange-500' size={50} />
         </button>
         <button
           onClick={() => handleImages(1)}
           className='absolute top-[50%] right-0 pr-5 transform -translate-y-1/2 hover:scale-110 active:scale-95 z-30'
         >
-          {/* <Image
-            src={LeftSlide}
-            alt='next'
-            className='w-full h-full object-cover rotate-180'
-            width={40}
-            height={30}
-          /> */}
           <MoveRight className='object-cover text-orange-500' size={50} />
         </button>
       </div>

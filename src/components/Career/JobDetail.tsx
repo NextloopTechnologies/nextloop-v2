@@ -1,11 +1,10 @@
 'use client';
 import dayjs from 'dayjs';
-import Image from 'next/image';
+import { MapPin } from 'lucide-react';
 import React, { useEffect, useRef, useState } from 'react';
 
 import ApplicationForm from '../../components/Career/ApplicationForm';
 import { Job } from '../../types';
-import locationIcon from '../../../assets/location.svg';
 // import wallet from '../../../assets/wallet.svg';
 
 const JobDetails: React.FC<{ job: Job }> = ({
@@ -101,7 +100,7 @@ const JobDetails: React.FC<{ job: Job }> = ({
         <div className='md:w-fit w-full rounded-md shadow-md flex flex-col px-12 py-4 gap-4'>
           <div className='flex gap-2 items-center'>
             <div>
-              <Image src={locationIcon} alt='location' />
+              <MapPin size={20} strokeWidth={2} className="text-black mx-auto" />
             </div>
             <p className='text-lg'>
               {location}, {job_mode} | {job_type}
