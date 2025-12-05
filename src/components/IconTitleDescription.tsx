@@ -1,12 +1,15 @@
 import { StaticImageData } from 'next/image';
+
 import ToolBox from './Domains/Restaurant/ToolBox';
 import palette from '../styles/pallette';
+
+type IconLike = StaticImageData | string | React.ReactNode | React.ElementType;
 
 interface IconTitleDescriptionProps {
   data: {
     descp: string;
     id: number;
-    icon: StaticImageData | React.ReactNode | string;
+    icon: IconLike;
     title: string;
   }[];
 }

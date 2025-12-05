@@ -39,7 +39,7 @@ const AboutUs: FC = () => {
               <div className='lg:w-5/6 w-full' />
               <div>
                 <div className='lg:w-2/3 w-full'>
-                  {/* <span className=''> */}
+                  {/* <span > */}
                   Tech enthusiasts, who create{' '}
                   <b className='text-orange-500 font-normal'>
                     {' '}
