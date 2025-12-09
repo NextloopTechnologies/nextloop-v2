@@ -1,4 +1,4 @@
-// export { default as AboutUsBackground } from './AboutUsBackground.png';
+
 // export { default as CB } from './cb.png';
 export { default as CB1 } from './cb-1.png';
 export { default as CompositeLayer_1 } from './CompositeLayer-1.png';
@@ -11,35 +11,18 @@ export { default as InvertedQoute } from './inverted-qoute.png';
 // export { default as Levram } from './levram.png';
 export { default as Levram1 } from './levram-1.png';
 // export { default as Levram2 } from './levram2.png';
-export { default as BlueBird } from './blue-bird.png';
-export { default as Lines } from './line.png';
-export { default as Millennialz } from './millennialz.png';
-export { default as Mobile_1 } from './Mobile-1.png';
-export { default as Mobile_2 } from './Mobile-2.png';
-export { default as NextLoopColoredLogo } from './NextLoopColoredLogo.jpeg';
-export { default as NextLoopLogo } from './NextLoopLogo.png';
-export { default as OurCLient } from './our-client-1.png';
-export { default as OurValues1 } from './our-values-1.png';
-export { default as Portfolio1 } from './portfolio-1.png';
-export { default as Portfolio2 } from './portfolio-2.png';
-export { default as Portfolio3 } from './portfolio-3.png';
-export { default as Portfolio4 } from './portfolio-4.png';
-export { default as SellEverywhereImage } from './sellEverywhere.png';
-export { default as Services1 } from './services.jpeg';
-// export { default as SWAcademy } from './SW-Academy.png';
 export { default as AboutNextloopBackground } from './AboutNextloopBackground.png';
 export { default as ArthnextLogo } from './arthnext-logo.png';
 export { default as AtzeanLogo } from './atzean-logo.png';
+export { default as BlueBird } from './blue-bird.png';
 export { default as BrainInventory } from './brain-inventory.png';
 export { default as Certificate1 } from './certificates/1.png';
 export { default as Certificate2 } from './certificates/2.png';
 export { default as Certificate3 } from './certificates/3.png';
-export { default as Certificate4 } from './certificates/4.png';
 export { default as Certificate5 } from './certificates/5.png';
 export { default as Client2 } from './client-2.png';
 export { default as EwaLogo } from './ewa-logo.png';
 export { default as FinsenLogo } from './finsen-logo.png';
-export { default as FoundedIcon } from './FoundedIcon.png';
 export { default as GlobalInventoryImage } from './GlobalInventoryImg.png';
 export { default as digitalProducts } from './healthcareAssets/digitalProducts.png';
 export { default as dropshipping } from './healthcareAssets/dropShipping.png';
@@ -51,13 +34,24 @@ export { default as healthCareWhyChooseUs2 } from './healthCareWhyChooseUs2.jpeg
 export { default as ItfLogo } from './itf-logo.png';
 export { default as JhanaLogo } from './jhana-logo.png';
 export { default as LarishaLogo } from './larisha-logo.png';
+export { default as Lines } from './line.png';
+export { default as Millennialz } from './millennialz.png';
+export { default as NextLoopColoredLogo } from './NextLoopColoredLogo.jpeg';
+export { default as NextLoopLogo } from './NextLoopLogo.png';
 export { default as offerIconCustomSoftwareDevelopment } from './offers/icons/customSoftwareDevelopment.png';
 export { default as offerIconDigitalMarketing } from './offers/icons/digitalMarketing.png';
 export { default as offerIconProductSubscription } from './offers/icons/productSubscription.png';
 export { default as offerIconStaffAugmentation } from './offers/icons/staffAugmentation.png';
-export { default as offerIconSuccessTick } from './offers/icons/successTick.png';
 export { default as offersLogo } from './offers/logo.png';
 export { default as offerPageBg } from './offers/offerPageBg.png';
+export { default as OurCLient } from './our-client-1.png';
+export { default as OurValues1 } from './our-values-1.png';
+export { default as Portfolio1 } from './portfolio-1.png';
+export { default as Portfolio2 } from './portfolio-2.png';
+export { default as Portfolio3 } from './portfolio-3.png';
+export { default as Portfolio4 } from './portfolio-4.png';
+export { default as SellEverywhereImage } from './sellEverywhere.png';
+export { default as Services1 } from './services.jpeg';
 export { default as Service1 } from './services/1.png';
 export { default as Service2 } from './services/2.png';
 export { default as Service3 } from './services/3.png';
@@ -78,7 +72,7 @@ export { default as Values2 } from './values-2.png';
 export { default as Values3 } from './values-3.png';
 export { default as Values4 } from './values-4.png';
 export { default as Whoweare } from './who-we-are.jpeg';
-export { default as Whyus } from './whyus.png';
+
 
 export const staticAssests = {
   AboutUsBackground:
