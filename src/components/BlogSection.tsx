@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react';
+import { BiRightArrowAlt } from 'react-icons/bi';
 
 // Strip HTML tags from a string
 const stripHtml = (html: string): string => {
@@ -55,7 +56,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ blogData }) => {
 
               <div className='text-left mt-auto pt-4'>
                 <span className='text-black font-bold flex items-center hover:underline'>
-                  Learn More <span className='ml-2'>→</span>
+                  Learn More <BiRightArrowAlt className='ml-1' />
                 </span>
               </div>
             </div>

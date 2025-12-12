@@ -1,3 +1,4 @@
+import { ArrowLeft, ArrowRight, } from 'lucide-react';
 import Image from 'next/image';
 import React, { FC, useState } from 'react';
 
@@ -5,7 +6,6 @@ import palette from '../../styles/pallette';
 import {
   InvertedQoute,
   Levram1,
-  RightArrow,
   Stamens,
   SWAcademy,
   // Client2,
@@ -127,13 +127,7 @@ const ClientSaysCard: FC = () => {
           onClick={prevSlide}
           className='absolute top-[50%] left-0 transform -translate-y-1/2 p-2 bg-white text-white rounded-full'
         >
-          <Image
-            // width={60}
-            // height={60}
-            src={RightArrow}
-            alt='right-arrow'
-            className='w-3 object-cover rotate-180'
-          />
+          <ArrowLeft className='object-cover text-black ' size={15} />
         </button>
 
         {/* Right Arrow */}
@@ -141,13 +135,7 @@ const ClientSaysCard: FC = () => {
           onClick={nextSlide}
           className='absolute  top-[50%] right-0 transform -translate-y-1/2 p-2 bg-white text-white rounded-full'
         >
-          <Image
-            // width={60}
-            // height={60}
-            src={RightArrow}
-            alt='right-arrow'
-            className='w-3 object-cover'
-          />
+          <ArrowRight className='object-cover text-black ' size={15} />
         </button>
       </div>
     </>
