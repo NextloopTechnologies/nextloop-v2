@@ -24,26 +24,26 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       {React.isValidElement(image) ? (
         React.cloneElement(image, {
           ...image.props,
-          className: `${image.props?.className || ''} absolute inset-0 w-full h-full object-cover text-orange-600`.trim(),
+          className: `${image.props?.className || ''} absolute inset-0 dark:text-white text-black dark:group-hover:text-white group-hover:text-black w-full h-full object-cover text-orange-600`.trim(),
           size: image.props?.size || 48,
           color: image.props?.color ?? 'currentColor',
         })
       ) : typeof image === 'function' ? (
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        React.createElement(image as any, { className: 'absolute inset-0 w-full h-full object-cover text-orange-500', size: 48, color: 'currentColor' })
+        React.createElement(image as any, { className: 'absolute inset-0 w-full h-full object-cover text-orange-500', size: 48, color: 'currentColor dark:text-white text-black dark:group-hover:text-white group-hover:text-black' })
       ) : typeof image === 'object' && (image as any).src ? (
         <Image
           src={image as any}
           fill
           alt={title}
-          className='absolute inset-0 w-full h-full object-cover transition-transform duration-300 scale-100 group-hover:scale-110'
+          className='absolute inset-0 w-full h-full object-cover transition-transform duration-300 scale-100 group-hover:scale-110 dark:text-white text-black dark:group-hover:text-white group-hover:text-black'
         />
       ) : typeof image === 'string' ? (
         <Image
           src={image as string}
           fill
           alt={title}
-          className='absolute inset-0 w-full h-full object-cover transition-transform duration-300 scale-100 group-hover:scale-110'
+          className='absolute inset-0 w-full h-full object-cover transition-transform duration-300 scale-100 group-hover:scale-110 dark:text-white text-black dark:group-hover:text-white group-hover:text-black'
         />
       ) : null}
       <div className='absolute inset-0 bg-black bg-opacity-50 transition-opacity group-hover:bg-opacity-60'></div>
