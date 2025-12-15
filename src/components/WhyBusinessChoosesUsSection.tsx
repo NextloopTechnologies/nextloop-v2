@@ -30,24 +30,24 @@ const WhyBusinessChoosesUsSection: React.FC<{
         (React.isValidElement(whyChooseUsData.heroImage) ? (
           React.cloneElement(whyChooseUsData.heroImage, {
             ...whyChooseUsData.heroImage.props,
-            className: `${whyChooseUsData.heroImage.props?.className || ''} object-cover object-bottom brightness-110 mix-blend-normal text-orange-600`.trim(),
+            className: `${whyChooseUsData.heroImage.props?.className || ''} object-cover object-bottom brightness-110 dark:text-white text-black dark:group-hover:text-white group-hover:text-black mix-blend-normal text-orange-600`.trim(),
             size: whyChooseUsData.heroImage.props?.size || 80,
             color: whyChooseUsData.heroImage.props?.color ?? 'currentColor',
           })
         ) : typeof whyChooseUsData.heroImage === 'function' ? (
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          React.createElement(whyChooseUsData.heroImage as any, { className: 'object-cover object-bottom brightness-110 mix-blend-normal text-orange-500', size: 80, color: 'currentColor' })
+          React.createElement(whyChooseUsData.heroImage as any, { className: 'object-cover dark:text-white text-black dark:group-hover:text-white group-hover:text-black  object-bottom brightness-110 mix-blend-normal text-orange-500', size: 80, color: 'currentColor' })
         ) : typeof whyChooseUsData.heroImage === 'object' && (whyChooseUsData.heroImage as any).src ? (
           <Image
             src={whyChooseUsData.heroImage as any}
             alt='Background'
             fill
             priority
-            className='object-cover object-bottom brightness-110 mix-blend-normal'
+            className='object-cover object-bottom brightness-110 mix-blend-normal dark:text-white text-black dark:group-hover:text-white group-hover:text-black'
           />
         ) : typeof whyChooseUsData.heroImage === 'string' ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={whyChooseUsData.heroImage as string} alt='Background' className='object-cover object-bottom brightness-110 mix-blend-normal absolute inset-0 w-full h-full' />
+          <img src={whyChooseUsData.heroImage as string} alt='Background' className='object-cover object-bottom dark:text-white text-black dark:group-hover:text-white group-hover:text-black brightness-110 mix-blend-normal absolute inset-0 w-full h-full' />
         ) : null)}
 
       <div className='relative z-10 w-full flex flex-col items-center px-4 max-w-6xl'>

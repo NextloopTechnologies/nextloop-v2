@@ -24,23 +24,23 @@ const PageHero: React.FC<{
           (React.isValidElement(image) ? (
             React.cloneElement(image, {
               ...image.props,
-              className: `${image.props?.className || ''} absolute h-full w-full object-cover text-orange-600`.trim(),
+              className: `${image.props?.className || ''} dark:text-white text-black dark:group-hover:text-black group-hover:text-white absolute h-full w-full object-cover text-orange-600`.trim(),
               size: image.props?.size || 100,
               color: image.props?.color ?? 'currentColor',
             })
           ) : typeof image === 'function' ? (
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            React.createElement(image as any, { className: 'absolute h-full w-full object-cover text-orange-500', size: 100, color: 'currentColor' })
+            React.createElement(image as any, { className: 'dark:text-white text-black dark:group-hover:text-black group-hover:text-white absolute h-full w-full object-cover text-orange-500', size: 100, color: 'currentColor' })
           ) : typeof image === 'object' && (image as any).src ? (
             <Image
               src={image as any}
-              className='absolute h-full w-full object-cover'
+              className='dark:text-white text-black dark:group-hover:text-black group-hover:text-white absolute h-full w-full object-cover'
               alt='blogs background'
               quality={100}
             />
           ) : typeof image === 'string' ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={image as string} className='absolute h-full w-full object-cover' alt='blogs background' />
+            <img src={image as string} className='dark:text-white text-black dark:group-hover:text-black group-hover:text-white absolute h-full w-full object-cover' alt='blogs background' />
           ) : null)}
         <div className={`absolute inset-0 bg-black ${opacity}`}></div>
         <div className='flex flex-col gap-8 items-center z-20 px-4 lg:p-0 md:w-[70%] lg:w-[60%]'>
