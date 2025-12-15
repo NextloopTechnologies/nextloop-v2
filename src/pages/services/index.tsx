@@ -38,9 +38,9 @@ const cards: { title: string; desc: string; link: string }[] = [
     link: '/services/ui-ux-development',
   },
   {
-    title: 'Staffing',
+    title: 'Hire Dedicated Team',
     desc: 'Need to bolster your development team with top-tier talent? Look no further! We can provide you with highly skilled and experienced developers dedicated to bringing your vision to life.  Think of it as seamlessly extending your in-house team with the perfect expertise you need.',
-    link: '/services/staffing',
+    link: '/services/hire-dedicated-team',
   },
   {
     title: 'E-commerce Development',

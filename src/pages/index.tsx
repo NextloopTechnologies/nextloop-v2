@@ -260,13 +260,21 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
           </div>
         </div>
 
-        <div id='who-we-are' ref={setDivRef(1)}>
+        <div
+          id='who-we-are'
+          ref={setDivRef(1)}
+          className=''
+        >
           <div className='md:my-20 md:mb-40 md:mx-22'>
             <WhoWeAre />
           </div>
         </div>
 
-        <div id='services' ref={setDivRef(2)} className='md:mb-20 '>
+        <div
+          id='services'
+          ref={setDivRef(2)}
+          className='md:mb-20 '
+        >
           <div className='container mx-auto min-w-[100vw]'>
             <Services />
           </div>
