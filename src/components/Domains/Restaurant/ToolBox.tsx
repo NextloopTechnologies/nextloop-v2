@@ -30,27 +30,27 @@ const ToolBox: React.FC<ToolBoxProps> = ({
         (React.isValidElement(icons) ? (
           React.cloneElement(icons, {
             ...icons.props,
-            className: `${icons.props?.className || ''} h-[80px] w-[80px] dark:text-white text-black dark:group-hover:text-black group-hover:text-white mt-6 mb-8 text-orange-500`.trim(),
+            className: `${icons.props?.className || ''} h-[80px] w-[80px] mt-6 mb-8 text-orange-500`.trim(),
             size: icons.props?.size || 40,
             color: icons.props?.color ?? 'currentColor',
           })
         ) : typeof icons === 'function' ? (
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          React.createElement(icons as any, { className: 'h-[80px] w-[80px] dark:text-white text-black dark:group-hover:text-black group-hover:text-white mt-6 mb-8 text-orange-500', size: 40 })
+          React.createElement(icons as any, { className: 'h-[80px] w-[80px] mt-6 mb-8 text-orange-500', size: 40 })
         ) : typeof icons === 'object' && (icons as any).src ? (
           <Image
             src={icons as any}
             height={height}
             width={width}
             alt='tools-icon'
-            className='h-[70px] w-[70px] dark:text-white text-black dark:group-hover:text-black group-hover:text-white mt-6 mb-8 '
+            className='h-[70px] w-[70px] mt-6 mb-8'
           />
         ) : typeof icons === 'string' ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={icons as string}
             alt='tools-icon'
-            className='h-[70px] w-[70px] mt-6 mb-8 dark:text-white text-black dark:group-hover:text-black group-hover:text-white'
+            className='h-[70px] w-[70px] mt-6 mb-8'
           />
         ) : null)}
       <h3

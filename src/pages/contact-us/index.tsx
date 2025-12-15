@@ -80,9 +80,7 @@ const ContactForm: FC = () => {
         setTimeout(() => {
           setSuccessMessage('');
         }, 3000);
-      }
-      else
-        setError('Something went wrong. Please try again.');
+      } else setError('Something went wrong. Please try again.');
     } catch {
       setError('An error occurred while submitting the form.');
     }
@@ -116,16 +114,16 @@ const ContactForm: FC = () => {
                   Get in Touch {'  '}
                   <span className='text-orange-500'>with Us!</span>
                 </h2>
-                <div className="w-full h-40 rounded-lg overflow-hidden">
+                <div className='w-full h-40 rounded-lg overflow-hidden'>
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.9360155863986!2d75.8852473!3d22.7282604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962e39ac69c135d%3A0xe95bb5f20aa420ac!2sNextloop%20Technologies%20LLP!5e0!3m2!1sen!2sin!4v1653091257496!5m2!1sen!2sin"
-                    width="100%"
-                    height="100%"
+                    src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.9360155863986!2d75.8852473!3d22.7282604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962e39ac69c135d%3A0xe95bb5f20aa420ac!2sNextloop%20Technologies%20LLP!5e0!3m2!1sen!2sin!4v1653091257496!5m2!1sen!2sin'
+                    width='100%'
+                    height='100%'
                     style={{ border: 0 }}
                     allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    aria-label="Interactive Google Map"
+                    loading='lazy'
+                    referrerPolicy='no-referrer-when-downgrade'
+                    aria-label='Interactive Google Map'
                   ></iframe>
                 </div>
                 <div className='flex items-center'>
