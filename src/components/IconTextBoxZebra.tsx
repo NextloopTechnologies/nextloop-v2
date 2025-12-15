@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import React from 'react';
 
 import { ExpertiseData } from '../pages/services/BaseServicePages';
 
@@ -20,12 +21,29 @@ const IconTextBoxZebra: React.FC<IconTextBoxZebraProps> = ({ data }) => {
         {data?.items?.map((item) => (
           <div
             key={item?.id}
-            className={`flex items-center p-6 rounded-lg shadow-md ${
-              item?.dark ? 'bg-black text-white' : 'bg-white text-black border'
-            }`}
+            className={`flex items-center p-6 rounded-lg shadow-md ${item?.dark ? 'bg-black text-white' : 'bg-white text-black border'
+              }`}
           >
-            <div className='w-13 h-13 relative mr-4'>
-              <Image src={item?.image} alt={item?.title} />
+            <div className='w-13 h-13 relative mr-4 flex items-center justify-center'>
+              {item?.image ? (
+                React.isValidElement(item.image) ? (
+                  // preserve existing props and apply color/size
+                  React.cloneElement(item.image, {
+                    ...item.image.props,
+                    className: `${item.image.props?.className || ''} w-8 h-8 text-orange-600`.trim(),
+                    size: item.image.props?.size || 28,
+                    color: item.image.props?.color ?? 'currentColor',
+                  })
+                ) : typeof item.image === 'function' ? (
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  React.createElement(item.image as any, { className: 'w-8 h-8 text-orange-500', size: 28 })
+                ) : typeof item.image === 'object' && (item.image as any).src ? (
+                  <Image src={item.image as any} alt={item?.title} />
+                ) : typeof item.image === 'string' ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={item.image as string} alt={item?.title} />
+                ) : null
+              ) : null}
             </div>
             <div className='text-left'>
               <h3 className='font-bold text-lg uppercase'>{item?.title}</h3>

@@ -101,7 +101,7 @@ const Services = () => {
               <h2 className='font-medium lg:text-4xl text-2xl w-4/5'>
                 {card.title}
               </h2>
-              <p className=''>{card.desc}</p>
+              <p>{card.desc}</p>
             </div>
           </Link>
         ))}

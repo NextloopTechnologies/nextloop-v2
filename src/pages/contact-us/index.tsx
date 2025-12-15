@@ -1,18 +1,16 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC, useState } from 'react';
+import { BiSolidPhoneCall } from "react-icons/bi";
+import { FaFacebookF, FaGoogle, FaInstagram, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
+import { ImLocation } from "react-icons/im";
+import { IoIosMail, IoMdMail } from "react-icons/io";
 
 import CustomDropdown from '../../components/CustomDropdown';
 import Layout from '../../components/Layout/Layout';
 import palette from '../../styles/pallette';
 import { EnquiryType } from '../../types';
 import { createInquiryForm } from '../../utils/db';
-import { FACEBOOK, GOOGLE, INSTAGRAM, LINKIN, Mail } from '../../../assets';
-import LocationIcon from '../../../assets/getInTouch/LocationIcon.png';
-import MailIcon from '../../../assets/getInTouch/MailIcon.png';
-import PhoneIcon from '../../../assets/getInTouch/PhoneIcon.png';
-import TwitterIcon from '../../../assets/getInTouch/twitterIcon.png';
 
 interface OptionType {
   label: string;
@@ -129,13 +127,9 @@ const ContactForm: FC = () => {
                   ></iframe>
                 </div>
                 <div className='flex items-center'>
-                  <Image
-                    src={MailIcon}
-                    height={24}
-                    width={24}
-                    alt='inventory-card-icon'
-                    className='mr-4'
-                  />
+                  <div className="mr-4 bg-white w-6 h-6 rounded-full flex items-center justify-center">
+                    <IoIosMail className='w-5 h-5 text-black' />
+                  </div>
                   <div
                     className={`flex ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
                   >
@@ -145,13 +139,9 @@ const ContactForm: FC = () => {
                   </div>
                 </div>
                 <div className='flex items-center'>
-                  <Image
-                    src={LocationIcon}
-                    height={24}
-                    width={24}
-                    alt='inventory-card-icon'
-                    className='mr-4 rounded-full bg-black'
-                  />
+                  <div className="mr-4 bg-white w-6 h-6 rounded-full flex items-center justify-center">
+                    <ImLocation className='w-5 h-4 text-black mx-1' />
+                  </div>
                   <div
                     className={`flex ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
                   >
@@ -167,13 +157,9 @@ const ContactForm: FC = () => {
                   </div>
                 </div>
                 <div className='flex items-center'>
-                  <Image
-                    src={PhoneIcon}
-                    height={24}
-                    width={24}
-                    alt='inventory-card-icon'
-                    className='mr-4'
-                  />
+                  <div className="mr-4 bg-white w-6 h-6 rounded-full flex items-center justify-center">
+                    <BiSolidPhoneCall className='w-5 h-4 text-black mx-1' />
+                  </div>
                   <div
                     className={`flex gap-x-1 ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
                   >
@@ -191,26 +177,19 @@ const ContactForm: FC = () => {
                 </div>
                 <div className='border-b border-orange-500 w-full border-t-4 mb-2 md:mb-0'></div>
                 <div>
-                  <ul className='flex gap-x-7 mb-10 md:mb-5'>
+                  <ul className='flex gap-7 mb-10 md:mb-5 flex-wrap justify-between'>
                     <li>
                       <Link
                         href='https://www.facebook.com/profile.php?id=61556914381569&mibextid=ZbWKwL'
                         passHref
+                        className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center"
                       >
-                        <Image
-                          src={FACEBOOK}
-                          alt='fb-icon'
-                          className='w-14 h-14 object-contain'
-                        />
+                        <FaFacebookF size={24} className='text-white' />
                       </Link>
                     </li>
                     <li>
-                      <Link href='https://g.co/kgs/7LnLSHN'>
-                        <Image
-                          src={GOOGLE}
-                          alt='google-icon'
-                          className='w-14 h-14 object-contain'
-                        />
+                      <Link href='https://g.co/kgs/7LnLSHN' className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
+                        <FaGoogle size={24} className='text-white' />
                       </Link>
                     </li>
                     <li>
@@ -218,42 +197,30 @@ const ContactForm: FC = () => {
                         aria-disabled
                         href='mailto:info@nextlooptechnologies.com'
                         aria-label='Send Email'
+                        className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center"
                       >
-                        <Image
-                          src={Mail}
-                          alt='gmail-icon'
-                          className='w-14 h-14 object-contain'
-                        />
+                        <IoMdMail size={24} className='text-white' />
                       </Link>
                     </li>
                     <li>
                       <Link
                         aria-disabled
                         href='https://www.instagram.com/nextloop.technologies/'
+                        className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center"
                       >
-                        <Image
-                          src={INSTAGRAM}
-                          alt='instagram-icon'
-                          className='w-14 h-14 object-contain'
-                        />
+                        <FaInstagram size={24} className='text-white' />
                       </Link>
                     </li>
                     <li>
-                      <Link href='https://www.linkedin.com/company/nextloop-technologies-llp'>
-                        <Image
-                          src={LINKIN}
-                          alt='x-icon'
-                          className='w-14 h-14 object-contain'
-                        />
+                      <Link href='https://www.linkedin.com/company/nextloop-technologies-llp'
+                        className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
+                        <FaLinkedinIn size={24} className='text-white' />
                       </Link>
                     </li>
                     <li>
-                      <Link href='https://x.com/Nextloop_'>
-                        <Image
-                          src={TwitterIcon}
-                          alt='insta-icon'
-                          className='w-14 h-14 object-contain'
-                        />
+                      <Link href='https://x.com/Nextloop_'
+                        className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
+                        <FaXTwitter size={24} className='text-white' />
                       </Link>
                     </li>
                   </ul>

@@ -1,46 +1,45 @@
-import Image, { StaticImageData } from 'next/image';
+
 import React from 'react';
-
-import { fintechAssets } from '../../../../assets';
+// Importing the required icons from lucide-react
+import { BarChart2, Cpu, Cloud, FileText, Settings, GitBranch, } from 'lucide-react';
+import { Columns3 } from 'lucide-react';
 import palette from '../../../styles/pallette';
-import { getStaticImageData } from '../../../utils/helper';
-
 type BoxProps = {
-  icon: StaticImageData;
+  icon: React.ReactNode; // Now using ReactNode since we're passing Lucide icons
   title: string;
 };
 
 const orangeBoxData: BoxProps[] = [
   {
-    icon: getStaticImageData(fintechAssets.reportIcon),
+    icon: <FileText size={32} />, // Using Lucide icon components
     title: 'customized reports',
   },
   {
-    icon: getStaticImageData(fintechAssets.infrastructureIcon),
-    title: 'design infrastrusture',
+    icon: <Cpu size={32} />,
+    title: 'design infrastructure',
   },
   {
-    icon: getStaticImageData(fintechAssets.updatesIcon),
+    icon: <Cloud size={32} />,
     title: 'On demand updates',
   },
 ];
 
 const blackBoxData: BoxProps[] = [
   {
-    icon: getStaticImageData(fintechAssets.graphIcon),
+    icon: <BarChart2 size={32} />,
     title: 'On demand updates',
   },
   {
-    icon: getStaticImageData(fintechAssets.settingIcon),
+    icon: <Settings size={32} />,
     title: 'custom integration',
   },
   {
-    icon: getStaticImageData(fintechAssets.supportIcon),
+    icon: <Columns3 size={32} />,
     title: 'constant support',
   },
   {
-    icon: getStaticImageData(fintechAssets.developmentIcon),
-    title: 'development from  scratch',
+    icon: <GitBranch size={32} />,
+    title: 'development from scratch',
   },
 ];
 
@@ -49,19 +48,20 @@ const OrangeBox: React.FC<BoxProps> = ({ icon, title }) => {
     <div className='relative w-[180px] h-[180px] md:w-[180px] md:h-[180px] bg-[#FA8145] transform rotate-45 flex items-center justify-center rounded'>
       <div className='transform -rotate-45'>
         <div className='absolute -top-12 left-[40%] md:-top-12 md:left-[75px] py-2'>
-          <Image src={icon} height={32} width={32} alt='orange-box-icon' />
+          {icon}
         </div>
         <h3 className='text-center text-md md:text-xl mt-5'>{title}</h3>
       </div>
     </div>
   );
 };
+
 const BlackBox: React.FC<BoxProps> = ({ icon, title }) => {
   return (
     <div className='relative w-[180px] h-[180px] md:w-[180px] md:h-[180px] bg-[#1D1D1D] transform rotate-45 flex items-center justify-center rounded'>
       <div className='transform -rotate-45'>
         <div className='absolute -top-14 left-[40%] md:-top-12 md:left-[75px]'>
-          <Image src={icon} height={32} width={32} alt='black-box-icon' />
+          {icon}
         </div>
         <h3 className='text-center text-sm md:text-xl'>{title}</h3>
       </div>

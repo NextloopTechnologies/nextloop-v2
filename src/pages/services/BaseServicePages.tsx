@@ -20,11 +20,13 @@ import StaffingPartnersSection from '../../components/StaffingPartners';
 import TechStack, { TechCategory } from '../../components/TechStackSection';
 import WhyBusinessChoosesUsSection from '../../components/WhyBusinessChoosesUsSection';
 
+type ImageLike = StaticImageData | string | React.ReactNode | React.ElementType;
+
 interface ExpertiseItem {
   id: number;
   title: string;
   description: string;
-  image: StaticImageData;
+  image: ImageLike;
   dark: boolean;
 }
 
@@ -45,7 +47,7 @@ interface StepData {
 }
 interface StaffingItems {
   id: number;
-  image?: StaticImageData;
+  image?: ImageLike;
   title: string;
   description?: string;
 }
@@ -54,7 +56,7 @@ interface WhyChooseUsData {
   id: number;
   title: string;
   descp: string;
-  icon: StaticImageData;
+  icon: ImageLike;
 }
 
 interface BlogData {
@@ -71,7 +73,7 @@ interface FAQData {
 }
 
 interface AreaOfExpertiseItem {
-  image: StaticImageData;
+  image: ImageLike;
   title: string;
   description: string;
   link: string;
@@ -89,7 +91,7 @@ interface StaffingData {
     coloredHeading: string;
     description: string;
   };
-  heroImage?: StaticImageData;
+  heroImage?: ImageLike;
   items: StaffingItems[];
 }
 

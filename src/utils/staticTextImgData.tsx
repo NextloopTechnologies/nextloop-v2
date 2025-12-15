@@ -6,6 +6,22 @@ import {
   Search,
   Settings,
 } from 'lucide-react';
+import { AiOutlineGlobal } from "react-icons/ai";
+import { BsBank } from "react-icons/bs";
+import { FaRegFileAlt } from "react-icons/fa";
+import { FaHandHoldingMedical } from "react-icons/fa";
+import { FaHandHoldingHand } from "react-icons/fa6";
+import { FiShoppingCart } from "react-icons/fi";
+import { GiOilPump } from "react-icons/gi";
+import { GrDirections } from "react-icons/gr";
+import { HiOutlineOfficeBuilding } from "react-icons/hi";
+import { IoCloudUploadOutline, IoFileTrayStackedOutline } from "react-icons/io5";
+import { MdOutlineAddLocation } from "react-icons/md";
+import { MdOutlineSupportAgent } from "react-icons/md";
+import { MdComputer } from "react-icons/md";
+import { MdOutlineSchool } from "react-icons/md";
+import { PiExcludeSquareDuotone, PiEyeBold } from "react-icons/pi";
+import { TbDeviceDesktopSearch } from "react-icons/tb";
 
 import { getStaticImageData } from './helper';
 import { StepProps } from '../components/DiamondGridBoxes';
@@ -17,27 +33,9 @@ import {
   healthcareAssets,
 } from '../../assets';
 import blogImg from '../../assets/blog/blogImg.png';
-import buildingIcon from '../../assets/services/buildingIcon.png';
-import ComprehensiveSupport from '../../assets/services/comprehensive-support.png';
-import desktopCloud from '../../assets/services/desktopCloud.png';
-import documentIcon from '../../assets/services/documentIcon.png';
-import EducationAndEdTech from '../../assets/services/education-edtech.png';
-import ExpertRecruiters from '../../assets/services/expert-recruiters.png';
-import eyeIcon from '../../assets/services/eyeIcon.png';
-import fileIcon from '../../assets/services/fileIcon.png';
-import FinanceAndBanking from '../../assets/services/finance-banking.png';
-import FlexibleEngagement from '../../assets/services/flexible-engagement.png';
-import GlobalReach from '../../assets/services/global-reach.png';
-import HealthcareAndPharma from '../../assets/services/healthcare.png';
-import IndustryExpert from '../../assets/services/industry-expertise.png';
-import TechnologyAndIT from '../../assets/services/it-technology.png';
-import mapMarkerPlusIcon from '../../assets/services/mapMarkerPlusIcon.png';
-import OilAndGas from '../../assets/services/oil-gas.png';
 import OurProcess1 from '../../assets/services/ourProcess1.png';
 import OurProcess2 from '../../assets/services/ourProcess2.png';
 import OurProcess3 from '../../assets/services/ourProcess3.png';
-import pathFinderIcon from '../../assets/services/pathFinderIcon.png';
-import RetailAndEcommerce from '../../assets/services/retail-ecommerce.png';
 import servicesWebdevelopmentHero from '../../assets/services/servicesWebdevelopmentHero.png';
 import staffingService from '../../assets/services/staffing-service.png';
 import WhyBusinessChooseUs from '../../assets/services/why-choose-us-bg.png';
@@ -128,7 +126,7 @@ export const expertiseData = [
     title: 'Enterprise Software Development',
     description:
       'Build powerful, scalable, and secure systems that manage business-critical operations.',
-    image: fileIcon,
+    image: IoFileTrayStackedOutline,
     dark: true,
   },
   {
@@ -136,7 +134,7 @@ export const expertiseData = [
     title: 'Web Applications',
     description:
       'Develop dynamic, responsive, and feature-rich web applications that are accessible across devices and platforms.',
-    image: documentIcon,
+    image: FaRegFileAlt,
     dark: false,
   },
   {
@@ -144,7 +142,7 @@ export const expertiseData = [
     title: 'Mobile Applications',
     description:
       'Create intuitive and engaging mobile apps for Android and iOS to meet the needs of your mobile-first users.',
-    image: buildingIcon,
+    image: HiOutlineOfficeBuilding,
     dark: false,
   },
   {
@@ -152,7 +150,7 @@ export const expertiseData = [
     title: 'Cloud Solutions',
     description:
       'Modernize your infrastructure with cloud-based solutions for enhanced flexibility, security, and scalability.',
-    image: desktopCloud,
+    image: IoCloudUploadOutline,
     dark: true,
   },
   {
@@ -160,7 +158,7 @@ export const expertiseData = [
     title: 'API Integrations',
     description:
       'Seamlessly integrate your software with third-party applications and services, enhancing functionality and improving workflows.',
-    image: fileIcon,
+    image: IoFileTrayStackedOutline,
     dark: true,
   },
   {
@@ -168,7 +166,7 @@ export const expertiseData = [
     title: 'Software Maintenance and Support',
     description:
       'Ensure your systems remain efficient with ongoing maintenance, updates, and troubleshooting services.',
-    image: documentIcon,
+    image: FaRegFileAlt,
     dark: false,
   },
 ];
@@ -199,38 +197,38 @@ export const servicesWhyChooseUsData = [
     id: 1,
     title: 'Expertise',
     descp: 'Experienced developers who use cutting-edge technologies.',
-    icon: mapMarkerPlusIcon,
+    icon: MdOutlineAddLocation,
   },
   {
     id: 2,
     title: 'Custom Solutions',
     descp: 'Tailored websites to meet your specific business needs.',
-    icon: pathFinderIcon,
+    icon: PiExcludeSquareDuotone,
   },
   {
     id: 3,
     title: 'Scalable Designs',
     descp: 'Websites that grow with your business.',
-    icon: eyeIcon,
+    icon: PiEyeBold,
   },
   {
     id: 4,
     title: 'Responsive Support',
     descp: 'Reliable support to ensure your site performs optimally.',
-    icon: mapMarkerPlusIcon,
+    icon: MdOutlineAddLocation,
   },
   {
     id: 5,
     title: 'SEO-Friendly',
     descp:
       'We ensure your website is search-engine optimized for better visibility.',
-    icon: pathFinderIcon,
+    icon: PiExcludeSquareDuotone,
   },
   {
     id: 6,
     title: 'On-time Delivery',
     descp: 'Projects completed on schedule with quality results.',
-    icon: eyeIcon,
+    icon: PiEyeBold,
   },
 ];
 
@@ -349,7 +347,7 @@ export const servicesSubPagesData = {
           title: 'Enterprise Software Development',
           description:
             'Build powerful, scalable, and secure systems that manage business-critical operations.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
@@ -357,7 +355,7 @@ export const servicesSubPagesData = {
           title: 'Web Applications',
           description:
             'Develop dynamic, responsive, and feature-rich web applications that are accessible across devices and platforms.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
         {
@@ -365,7 +363,7 @@ export const servicesSubPagesData = {
           title: 'Mobile Applications',
           description:
             'Create intuitive and engaging mobile apps for Android and iOS to meet the needs of your mobile-first users.',
-          image: buildingIcon,
+          image: HiOutlineOfficeBuilding,
           dark: false,
         },
         {
@@ -373,7 +371,7 @@ export const servicesSubPagesData = {
           title: 'Cloud Solutions',
           description:
             'Modernize your infrastructure with cloud-based solutions for enhanced flexibility, security, and scalability.',
-          image: desktopCloud,
+          image: IoCloudUploadOutline,
           dark: true,
         },
         {
@@ -381,7 +379,7 @@ export const servicesSubPagesData = {
           title: 'API Integrations',
           description:
             'Seamlessly integrate your software with third-party applications and services, enhancing functionality and improving workflows.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
@@ -389,7 +387,7 @@ export const servicesSubPagesData = {
           title: 'Software Maintenance and Support',
           description:
             'Ensure your systems remain efficient with ongoing maintenance, updates, and troubleshooting services.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
       ],
@@ -542,38 +540,38 @@ export const servicesSubPagesData = {
         id: 1,
         title: 'Expertise',
         descp: ' Experienced developers who use cutting-edge technologies.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 2,
         title: 'Custom Solutions',
         descp: 'Tailored websites to meet your specific business needs.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 3,
         title: 'Scalable Designs',
         descp: 'Websites that grow with your business.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
       {
         id: 4,
         title: 'Responsive Support',
         descp: 'Reliable support to ensure your site performs optimally.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 5,
         title: 'SEO-Friendly',
         descp:
           'We ensure your website is search-engine optimized for better visibility.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 6,
         title: 'On-time Delivery',
         descp: 'Projects completed on schedule with quality results.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
     ],
     faqsContent: [
@@ -635,7 +633,7 @@ export const servicesSubPagesData = {
           title: 'Custom Web Development:',
           description:
             'We build tailor-made websites and web applications that align with your business goals and user needs.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
@@ -643,7 +641,7 @@ export const servicesSubPagesData = {
           title: 'Front-End & Back-End Development:',
           description:
             'Delivering responsive, fast, and dynamic websites with strong back-end architecture.',
-          image: buildingIcon,
+          image: HiOutlineOfficeBuilding,
           dark: false,
         },
         {
@@ -651,7 +649,7 @@ export const servicesSubPagesData = {
           title: 'Web Performance & SEO Optimization:',
           description:
             'Ensuring fast load times, mobile-friendliness, and SEO best practices for better search rankings.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: false,
         },
         {
@@ -659,7 +657,7 @@ export const servicesSubPagesData = {
           title: 'E-Commerce Development:',
           description:
             'Create high-performing, secure, and scalable online stores with seamless shopping experiences.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: true,
         },
         {
@@ -667,7 +665,7 @@ export const servicesSubPagesData = {
           title: 'CMS Development:',
           description:
             'Develop and customize CMS platforms like WordPress, Shopify, and Magento for easy content management.',
-          image: desktopCloud,
+          image: IoCloudUploadOutline,
           dark: true,
         },
         {
@@ -675,7 +673,7 @@ export const servicesSubPagesData = {
           title: 'Web Security & Maintenance:',
           description:
             'Implementing advanced security measures and providing ongoing support to keep your website safe and up to date.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
       ],
@@ -828,38 +826,38 @@ export const servicesSubPagesData = {
         id: 1,
         title: 'Expertise',
         descp: ' Experienced developers who use cutting-edge technologies.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 2,
         title: 'Custom Solutions',
         descp: 'Tailored websites to meet your specific business needs.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 3,
         title: 'Scalable Designs',
         descp: 'Websites that grow with your business.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
       {
         id: 4,
         title: 'Responsive Support',
         descp: 'Reliable support to ensure your site performs optimally.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 5,
         title: 'SEO-Friendly',
         descp:
           'We ensure your website is search-engine optimized for better visibility.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 6,
         title: 'On-time Delivery',
         descp: 'Projects completed on schedule with quality results.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
     ],
     faqsContent: [
@@ -929,7 +927,7 @@ export const servicesSubPagesData = {
           title: 'CLOUD MIGRATION',
           description:
             'Smooth and secure migration of your business to the cloud, with minimal disruption and downtime.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
@@ -937,7 +935,7 @@ export const servicesSubPagesData = {
           title: 'CLOUD INFRASTRUCTURE MANAGEMENT:',
           description:
             'Build, deploy, and scale robust, cloud-native applications that drive business innovation and efficiency.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
         {
@@ -945,7 +943,7 @@ export const servicesSubPagesData = {
           title: 'CLOUD APPLICATION DEVELOPMENT:',
           description:
             'Build, deploy, and scale robust, cloud-native applications that drive business innovation and efficiency.',
-          image: buildingIcon,
+          image: HiOutlineOfficeBuilding,
           dark: false,
         },
         {
@@ -953,7 +951,7 @@ export const servicesSubPagesData = {
           title: 'CLOUD SECURITY:',
           description:
             'Modernize your infrastructure with cloud-based solutions for enhanced flexibility, security, and scalability.',
-          image: desktopCloud,
+          image: IoCloudUploadOutline,
           dark: true,
         },
         {
@@ -961,7 +959,7 @@ export const servicesSubPagesData = {
           title: 'DEVOPS & AUTOMATION:',
           description:
             'Automate workflows and streamline development to accelerate deployment and enhance operational efficiency.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
@@ -969,7 +967,7 @@ export const servicesSubPagesData = {
           title: 'CLOUD COST OPTIMIZATION:',
           description:
             'Maximize efficiency and reduce cloud expenses with our cost optimization strategies, ensuring you get the best value from your cloud investments.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
       ],
@@ -1107,40 +1105,40 @@ export const servicesSubPagesData = {
         id: 1,
         title: 'TAILORED SOLUTIONS',
         descp: 'Experienced developers who use cutting-edge technologies.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 2,
         title: 'EXPERT TEAM',
         descp:
           'Our certified cloud engineers deliver secure, scalable solutions.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 3,
         title: 'SEAMLESS MIGRATION',
         descp: 'We ensure a smooth, hassle-free transition to the cloud.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
       {
         id: 4,
         title: 'SCALABLE & FLEXIBLE',
         descp: 'Cloud solutions that grow with your business.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 5,
         title: 'TOP SECURITY',
         descp:
           'We prioritize data protection with industry-leading security measures.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 6,
         title: '24/7 SUPPORT',
         descp:
           'Continuous support and monitoring to keep everything running smoothly.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
     ],
     areaOfExpertiseData: {
@@ -1208,7 +1206,7 @@ export const servicesSubPagesData = {
           title: 'CUSTOM MOBILE APPS:',
           description:
             'Smooth and secure migration of your business to the cloud, with minimal disruption and downtime.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
@@ -1216,7 +1214,7 @@ export const servicesSubPagesData = {
           title: 'CLOUD INFRASTRUCTURE MANAGEMENT:',
           description:
             'From concept to deployment, we design and develop custom apps tailored to your business needs.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
         {
@@ -1224,7 +1222,7 @@ export const servicesSubPagesData = {
           title: 'UI/UX DESIGN:',
           description:
             'We create engaging and intuitive designs that provide an excellent user experience, ensuring your app stands out.',
-          image: buildingIcon,
+          image: HiOutlineOfficeBuilding,
           dark: false,
         },
         {
@@ -1232,7 +1230,7 @@ export const servicesSubPagesData = {
           title: 'CLOUD INTEGRATION::',
           description:
             'We integrate your mobile app with existing systems and APIs for seamless functionality and smooth operations.',
-          image: desktopCloud,
+          image: IoCloudUploadOutline,
           dark: true,
         },
         {
@@ -1240,7 +1238,7 @@ export const servicesSubPagesData = {
           title: 'APP MAINTENANCE & SUPPORT:',
           description:
             'We offer ongoing maintenance and support to ensure your app stays updated and performs optimally.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
@@ -1248,7 +1246,7 @@ export const servicesSubPagesData = {
           title: 'APP PERFORMANCE & OPTIMIZATION:',
           description:
             'We ensure your app runs smoothly with fast loading times, efficient resource usage, and minimal crashes.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
       ],
@@ -1402,42 +1400,42 @@ export const servicesSubPagesData = {
         title: 'TAILORED SOLUTIONS FOR YOUR BUSINESS',
         descp:
           'We create custom apps that align with your unique business goals.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 2,
         title: 'EXPERT DEVELOPERS',
         descp:
           'Our skilled team builds secure, high-performing apps with the latest technologies.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 3,
         title: 'END-TO-END SERVICES',
         descp:
           'We manage the entire app process, from idea to deployment and support.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
       {
         id: 4,
         title: 'FOCUS ON USER EXPERIENCE',
         descp:
           'We design apps that are intuitive and user-friendly for seamless experiences.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 5,
         title: 'SCALABLE SOLUTIONS',
         descp:
           'Our apps grow with your business, whether you’re a startup or an enterprise.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 6,
         title: 'AGILE DEVELOPMENT PROCESS',
         descp:
           'We use agile methods for flexible, fast development that adapts to your needs.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
     ],
     areaOfExpertiseData: {
@@ -1499,7 +1497,7 @@ export const servicesSubPagesData = {
           title: 'AI STRATEGY AND ROADMAP CONSULTING:',
           description:
             'We help businesses define a clear AI strategy and create a roadmap to implement AI-driven solutions effectively.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
@@ -1507,7 +1505,7 @@ export const servicesSubPagesData = {
           title: 'AI-DRIVEN MOBILE AND WEB APPLICATION DEVELOPMENT:',
           description:
             'We build intelligent mobile and web applications that leverage AI for automation, personalization, and enhanced user experiences.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
         {
@@ -1515,7 +1513,7 @@ export const servicesSubPagesData = {
           title: 'CUSTOM AI SOLUTIONS DEVELOPMENT:',
           description:
             'Custom AI Solutions Development - We develop tailor-made AI solutions designed to solve unique business challenges and drive innovation.',
-          image: buildingIcon,
+          image: HiOutlineOfficeBuilding,
           dark: false,
         },
         {
@@ -1523,7 +1521,7 @@ export const servicesSubPagesData = {
           title: 'Generative AI Integration Services:',
           description:
             ' We integrate powerful generative AI models into applications to enable content creation, automation, and intelligent decision-making.',
-          image: desktopCloud,
+          image: IoCloudUploadOutline,
           dark: true,
         },
         {
@@ -1531,7 +1529,7 @@ export const servicesSubPagesData = {
           title: 'AI-powered Copilot and Virtual Assistant Development:',
           description:
             'We build AI-powered copilots and virtual assistants to improve efficiency, automate tasks, and enhance customer engagement.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
@@ -1539,7 +1537,7 @@ export const servicesSubPagesData = {
           title: 'Natural Language Processing (NLP) Solutions: ',
           description:
             'We create NLP-powered solutions that enable applications to understand, process, and respond to human language naturally.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
       ],
@@ -1690,42 +1688,42 @@ export const servicesSubPagesData = {
         title: 'TAILORED SOLUTIONS FOR YOUR BUSINESS',
         descp:
           'We create custom apps that align with your unique business goals.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 2,
         title: 'EXPERT DEVELOPERS',
         descp:
           'Our skilled team builds secure, high-performing apps with the latest technologies.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 3,
         title: 'END-TO-END SERVICES',
         descp:
           'We manage the entire app process, from idea to deployment and support.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
       {
         id: 4,
         title: 'FOCUS ON USER EXPERIENCE',
         descp:
           'We design apps that are intuitive and user-friendly for seamless experiences.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 5,
         title: 'SCALABLE SOLUTIONS',
         descp:
           'Our apps grow with your business, whether you’re a startup or an enterprise.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 6,
         title: 'AGILE DEVELOPMENT PROCESS',
         descp:
           'We use agile methods for flexible, fast development that adapts to your needs.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
     ],
     areaOfExpertiseData: {
@@ -1793,42 +1791,42 @@ export const servicesSubPagesData = {
           id: 1,
           title: 'Custom E-commerce Websites:',
           description: 'Tailor-made online stores for your unique business.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 2,
           title: 'Shopify, WooCommerce & Magento Development:',
           description: 'Platform-based E-commerce solutions.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
         {
           id: 3,
           title: 'Multi-Vendor Marketplaces:',
           description: 'Enable multiple sellers to sell on your platform.',
-          image: buildingIcon,
+          image: HiOutlineOfficeBuilding,
           dark: false,
         },
         {
           id: 4,
           title: 'Mobile Commerce (M-commerce):',
           description: 'Seamless shopping experiences on mobile devices.',
-          image: desktopCloud,
+          image: IoCloudUploadOutline,
           dark: true,
         },
         {
           id: 5,
           title: 'E-commerce Integration:',
           description: 'Payment gateways, shipping APIs, CRM, and more.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 6,
           title: 'E-commerce SEO & Performance Optimization:  ',
           description: 'Improve speed, ranking, and conversions.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
       ],
@@ -1964,38 +1962,38 @@ export const servicesSubPagesData = {
         id: 1,
         title: 'Custom & Scalable Solutions',
         descp: 'Built for startups, small businesses, and enterprises.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 2,
         title: 'SEO & Mobile Optimized',
         descp: 'Drive traffic and ensure a seamless mobile experience.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 3,
         title: 'Secure & Reliable',
         descp: 'High security, fast performance, and smooth transactions.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
       {
         id: 4,
         title: 'Easy Management',
         descp: 'User-friendly admin panel for hassle-free store management.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 5,
         title: 'End-to-End Support',
         descp: 'From development to maintenance and growth.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 6,
         title: 'Proven Success & Innovation',
         descp:
           'Leverage AI and analytics to understand customer behavior and optimize sales strategies.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
     ],
     areaOfExpertiseData: {
@@ -2062,14 +2060,14 @@ export const servicesSubPagesData = {
           id: 1,
           title: 'Search Engine Optimization (SEO):',
           description: 'Improve your website’s ranking on Google.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 2,
           title: 'Pay-Per-Click (PPC) Advertising:',
           description: 'Get instant traffic with targeted ads.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
         {
@@ -2077,7 +2075,7 @@ export const servicesSubPagesData = {
           title: 'Social Media Marketing (SMM):',
           description:
             'Grow your brand on Facebook, Instagram, LinkedIn & more.',
-          image: buildingIcon,
+          image: HiOutlineOfficeBuilding,
           dark: false,
         },
         {
@@ -2085,21 +2083,21 @@ export const servicesSubPagesData = {
           title: 'Content Marketing:',
           description:
             'Engage customers with valuable blogs, videos, and articles.',
-          image: desktopCloud,
+          image: IoCloudUploadOutline,
           dark: true,
         },
         {
           id: 5,
           title: 'Email Marketing:',
           description: 'Reach your audience with personalized email campaigns.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 6,
           title: ' Conversion Rate Optimization (CRO):  ',
           description: 'Turn visitors into loyal customers.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
       ],
@@ -2233,38 +2231,38 @@ export const servicesSubPagesData = {
         id: 1,
         title: 'Experienced Team',
         descp: 'Our digital marketing experts have years of experience.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 2,
         title: 'Customized Solutions',
         descp: 'We create strategies that fit your unique business needs.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 3,
         title: 'Data-Driven Approach',
         descp: 'We use analytics and insights to maximize results.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
       {
         id: 4,
         title: 'Transparent Reporting',
         descp: 'Get clear and detailed reports on your campaign’s performance.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 5,
         title: 'Proven Results',
         descp: 'We have helped businesses grow and succeed online.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 6,
         title: 'Continuous Optimization',
         descp:
           'We analyze, test, and refine strategies to ensure sustained growth and maximum ROI.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
     ],
     areaOfExpertiseData: {
@@ -2326,42 +2324,42 @@ export const servicesSubPagesData = {
           id: 1,
           title: 'MVP Strategy & Consulting:',
           description: 'Defining the core features of your MVP.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 2,
           title: 'UI/UX Design:',
           description: 'Creating a user-friendly and engaging design.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
         {
           id: 3,
           title: 'Rapid Prototyping:',
           description: 'Building fast prototypes to test ideas.',
-          image: buildingIcon,
+          image: HiOutlineOfficeBuilding,
           dark: false,
         },
         {
           id: 4,
           title: 'Custom Web & Mobile App Development:',
           description: 'Developing scalable MVPs.',
-          image: desktopCloud,
+          image: IoCloudUploadOutline,
           dark: true,
         },
         {
           id: 5,
           title: 'Agile Development:',
           description: 'Iterative development with quick feedback cycles.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 6,
           title: 'MVP Testing & Validation: ',
           description: 'Ensuring your MVP is market-ready.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
       ],
@@ -2495,37 +2493,37 @@ export const servicesSubPagesData = {
         id: 1,
         title: 'Expert MVP Developers',
         descp: 'Skilled in building high-quality MVPs.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 2,
         title: 'Fast & Cost-Effective',
         descp: 'Launch your product quickly without overspending.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 3,
         title: 'Agile Approach',
         descp: 'Continuous improvements based on user feedback.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
       {
         id: 4,
         title: 'Scalable Solutions',
         descp: 'Easily expand your MVP into a full product.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 5,
         title: 'Transparent Process',
         descp: 'Clear communication and progress tracking.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 6,
         title: 'Market Validation Focus',
         descp: 'We help you test ideas, gather real user insights',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
     ],
     areaOfExpertiseData: {
@@ -2585,34 +2583,34 @@ export const servicesSubPagesData = {
           id: 1,
           title: 'Comprehensive Support:',
           description: 'Candidate search, curation, onboarding, and beyond.',
-          image: ComprehensiveSupport,
+          image: MdOutlineSupportAgent,
         },
         {
           id: 2,
           title: 'Expert Recruiters:',
           description:
             'A skilled team with deep expertise across industries and roles.',
-          image: ExpertRecruiters,
+          image: TbDeviceDesktopSearch,
         },
         {
           id: 3,
           title: 'Global Reach:',
           description:
             'Staffing solutions for businesses of all sizes, across multiple countries.',
-          image: GlobalReach,
+          image: AiOutlineGlobal,
         },
         {
           id: 4,
           title: 'Flexible Engagement:',
           description:
             'We work within your budget, and you only pay once your candidate joins.',
-          image: FlexibleEngagement,
+          image: GrDirections,
         },
         {
           id: 5,
           title: 'Industry Expertise:',
           description: 'Our recruiters understand your sector inside out.',
-          image: IndustryExpert,
+          image: FaHandHoldingHand,
         },
       ],
     },
@@ -2714,32 +2712,32 @@ Need talent for a specific project or seasonal demand? We provide skilled profes
         {
           id: 1,
           title: 'IT & Technology',
-          image: TechnologyAndIT,
+          image: MdComputer,
         },
         {
           id: 2,
           title: 'Healthcare & Pharma',
-          image: HealthcareAndPharma,
+          image: FaHandHoldingMedical,
         },
         {
           id: 3,
           title: 'Finance & Banking',
-          image: FinanceAndBanking,
+          image: BsBank,
         },
         {
           id: 4,
           title: 'Retail & E-commerce',
-          image: RetailAndEcommerce,
+          image: FiShoppingCart,
         },
         {
           id: 5,
           title: 'Education & EdTech',
-          image: EducationAndEdTech,
+          image: MdOutlineSchool,
         },
         {
           id: 6,
           title: 'Oil & Gas',
-          image: OilAndGas,
+          image: GiOilPump,
         },
       ],
     },
