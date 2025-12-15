@@ -6,18 +6,20 @@ import 'swiper/css/pagination';
 import ServicePage from './BaseServicePages';
 import { fetchLatestBlogs } from '../../utils/fetchBlogdata';
 import { servicesSubPagesData } from '../../utils/staticTextImgData';
+
 interface BlogData {
   id: number;
   title: string;
   descp: string;
-  image: { url: string; fileId: string }[];
+  image: any;
 }
+
 const initialData = {
-  ...servicesSubPagesData.aimlSolutions,
+  ...servicesSubPagesData.staffingServices,
   blogData: [] as BlogData[],
 };
 
-const AIMLSolutions: React.FC = () => {
+const StaffingDevelopment: React.FC = () => {
   const [pageData, setPageData] = useState(initialData);
 
   useEffect(() => {
@@ -41,4 +43,4 @@ const AIMLSolutions: React.FC = () => {
   return <ServicePage {...pageData} />;
 };
 
-export default AIMLSolutions;
+export default StaffingDevelopment;

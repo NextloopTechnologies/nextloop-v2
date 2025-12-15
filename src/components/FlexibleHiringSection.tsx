@@ -43,18 +43,18 @@ const FlexibleHiringSection: React.FC<{
                 (React.isValidElement(item.image) ? (
                   React.cloneElement(item.image, {
                     ...item.image.props,
-                    className: `${item.image.props?.className || ''} dark:text-white text-black dark:group-hover:text-black group-hover:text-white w-24 h-24 text-orange-600`.trim(),
+                    className: `${item.image.props?.className || ''} w-24 h-24 text-orange-600`.trim(),
                     size: item.image.props?.size || 36,
                     color: item.image.props?.color ?? 'currentColor',
                   })
                 ) : typeof item.image === 'function' ? (
                   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                  React.createElement(item.image as any, { className: 'w-24 dark:text-white text-black dark:group-hover:text-black group-hover:text-white h-24 text-orange-500', size: 36, color: 'currentColor' })
+                  React.createElement(item.image as any, { className: 'w-24 h-24 text-orange-500', size: 36, color: 'currentColor' })
                 ) : typeof item.image === 'object' && (item.image as any).src ? (
-                  <Image src={item.image as any} alt={item.title} fill className='object-contain dark:text-white text-black dark:group-hover:text-black group-hover:text-white' />
+                  <Image src={item.image as any} alt={item.title} fill className='object-contain' />
                 ) : typeof item.image === 'string' ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={item.image as string} alt={item.title} className='object-contain w-20 dark:text-white text-black dark:group-hover:text-black group-hover:text-white h-20' />
+                  <img src={item.image as string} alt={item.title} className='object-contain w-20 h-20' />
                 ) : null)}
             </div>
             <h3 className='text-lg font-semibold text-black'>{item.title}</h3>

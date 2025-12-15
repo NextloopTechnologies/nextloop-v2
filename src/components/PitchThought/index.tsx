@@ -79,9 +79,7 @@ const PitchThought: FC = () => {
         setTimeout(() => {
           setSuccessMessage('');
         }, 3000);
-      }
-      else
-        setError('Something went wrong. Please try again.');
+      } else setError('Something went wrong. Please try again.');
     } catch {
       setError('An error occurred while submitting the form.');
     }

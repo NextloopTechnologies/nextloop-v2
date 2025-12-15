@@ -26,12 +26,19 @@ import { TbDeviceDesktopSearch } from "react-icons/tb";
 import { getStaticImageData } from './helper';
 import { StepProps } from '../components/DiamondGridBoxes';
 import { IFAQ } from '../types';
-import { ecommerceAssets, eventAssets, fintechAssets, healthcareAssets } from '../../assets';
+import {
+  ecommerceAssets,
+  eventAssets,
+  fintechAssets,
+  healthcareAssets,
+} from '../../assets';
 import blogImg from '../../assets/blog/blogImg.png';
 import OurProcess1 from '../../assets/services/ourProcess1.png';
 import OurProcess2 from '../../assets/services/ourProcess2.png';
 import OurProcess3 from '../../assets/services/ourProcess3.png';
 import servicesWebdevelopmentHero from '../../assets/services/servicesWebdevelopmentHero.png';
+import staffingService from '../../assets/services/staffing-service.png';
+import WhyBusinessChooseUs from '../../assets/services/why-choose-us-bg.png';
 import mahoutIcon from '../../assets/techstackIcons/aiml/mahoutIcon.png';
 import openCvIcon from '../../assets/techstackIcons/aiml/openCvIcon.png';
 import pytorchIcon from '../../assets/techstackIcons/aiml/pytorchIcon.png';
@@ -250,7 +257,7 @@ const staticServices = [
     description: 'Transforming patient care.',
     link: '/expertise/healthcare',
   },
-]
+];
 
 export const servicesAreaOfExpertiseData = {
   mainHeader: 'OUR AREAS OF EXPERTISE',

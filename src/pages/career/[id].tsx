@@ -64,6 +64,15 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     };
   }
 
+  if (!data || data.length === 0) {
+    return { notFound: true };
+  }
+
+  const job = data[0] as any;
+  if (job && job.visibility === false) {
+    return { notFound: true };
+  }
+
   return {
     props: {
       data: data || [],
