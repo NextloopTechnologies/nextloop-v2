@@ -1,10 +1,10 @@
 // 
 
 
+import { Cpu, HeartPulse,ShieldCheck } from 'lucide-react';
 import React from 'react';
 
 import HexagonBox from '../../HexagonBox';
-import { Cpu, ShieldCheck, HeartPulse } from 'lucide-react';
 import palette from '../../../styles/pallette';
 
 const expertiseSuccessData = [

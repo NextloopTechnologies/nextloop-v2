@@ -30,18 +30,15 @@ const IconTextBoxZebra: React.FC<IconTextBoxZebraProps> = ({ data }) => {
                   // preserve existing props and apply color/size
                   React.cloneElement(item.image, {
                     ...item.image.props,
-                    className: `${item.image.props?.className || ''} w-8 h-8 text-orange-600`.trim(),
+                    className: `${item.image.props?.className || ''} w-8 h-8 dark:text-white text-black dark:group-hover:text-black group-hover:text-white text-orange-600`.trim(),
                     size: item.image.props?.size || 28,
                     color: item.image.props?.color ?? 'currentColor',
                   })
                 ) : typeof item.image === 'function' ? (
                   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                  React.createElement(item.image as any, { className: 'w-8 h-8 text-orange-500', size: 28 })
-                ) : typeof item.image === 'object' && (item.image as any).src ? (
-                  <Image src={item.image as any} alt={item?.title} />
-                ) : typeof item.image === 'string' ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={item.image as string} alt={item?.title} />
+                  React.createElement(item.image as any, { className: 'w-8 h-8 dark:text-white text-black dark:group-hover:text-black group-hover:text-white text-orange-500', size: 28 })
+                ) : typeof item.image === 'object' && (item.image as any).src || typeof item.image === 'string'  ? (
+                  <Image src={item.image as any} alt={item?.title} className='dark:text-white text-black dark:group-hover:text-black group-hover:text-white' />
                 ) : null
               ) : null}
             </div>

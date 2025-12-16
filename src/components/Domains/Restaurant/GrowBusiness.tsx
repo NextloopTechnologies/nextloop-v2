@@ -1,7 +1,8 @@
+import { Gift, Megaphone,Send } from 'lucide-react';
 import React from 'react';
+
 import ToolBox from './ToolBox';
 import palette from '../../../styles/pallette';
-import { Send, Gift, Megaphone } from 'lucide-react';
 
 const growBusinessData = [
   {
