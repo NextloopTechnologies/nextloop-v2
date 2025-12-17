@@ -36,11 +36,11 @@ const WhoWeAre: FC = () => {
           className='flex justify-end text-center lg:text-left  sm:w-[50%]'
         >
           <div className='flex flex-col md:mx-20'>
-            <b
+            <h2
               className={`${palette.fontSize.heading2.mobile}  md:text-4xl 2xl:text-4xl uppercase font-bold`}
             >
-              who we <span className='text-orange-400'>are?</span>
-            </b>
+              Who we <span className='text-orange-400'>are?</span>
+            </h2>
             {/* <span
               // initial={isMobile ? 'visible' : 'hide'}
               // animate={textAnimationCompleted ? 'show' : 'hide'}

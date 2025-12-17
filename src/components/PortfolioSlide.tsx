@@ -75,12 +75,17 @@ const PortfolioSlide: FC = () => {
         ))}
 
         <div className='absolute inset-0 z-20 flex flex-col justify-between items-center px-4 py-6'>
-          <div className='mt-4 sm:mt-6 text-center'>
-            <span
+          <div className='w-full flex flex-col justify-center items-center gap-y-3 z-10 px-4'>
+            <h2
               className={`${palette.fontSize.heading2.mobile} md:text-4xl 2xl:text-4xl uppercase font-bold text-white`}
             >
-              our <span className='text-orange-500'>portfolio</span>
-            </span>
+              Our <span className='text-orange-500'>Portfolio</span>
+            </h2>
+            <h3
+            className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}  text-center`}
+            >
+              Showcasing innovative software and digital solutions that deliver measurable business impact
+            </h3>
           </div>
 
           <div className='flex flex-col items-center gap-4 mt-8 mb-2 md:mt-12 md:mb-4'>

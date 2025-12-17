@@ -2310,7 +2310,7 @@ export const servicesSubPagesData = {
       coloredTitle: 'MVP ',
       title: 'DEVELOPMENT',
       subtitle:
-        'Digital marketing is the promotion of products, services, or brands using online channels like search engines, social media, email, and websites. It helps businesses reach their target audience, increase brand awareness, and drive sales. In today’s digital world, having a strong online presence is essential for business success. We provide expert digital marketing solutions that help you grow your brand, attract customers, and increase revenue. From SEO to social media marketing, we use data-driven strategies to boost your business online.',
+        'At Nextloop Technologies, we specialize in building high-quality Minimum Viable Products (MVPs) that help startups and businesses validate their ideas quickly and cost-effectively. Our MVP development services are designed to turn your concept into a functional, market-ready product using the latest technologies and agile methods. We focus on defining the right features, designing seamless user experiences, and developing scalable MVPs that allow you to test, refine, and grow your product with real user feedback. ',
     },
     expertiseData: {
       headingData: {

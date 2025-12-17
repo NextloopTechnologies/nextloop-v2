@@ -222,7 +222,7 @@ const PitchThought: FC = () => {
               <div>
                 <ul className="flex gap-x-7 mb-10 md:mb-5">
                   <li>
-                    <a href="https://www.facebook.com/profile.php?id=61556914381569&mibextid=ZbWKwL">
+                    <a href="https://www.facebook.com/profile.php?id=61556914381569&mibextid=ZbWKwL" target='_blank'>
                       <div className="w-14 h-14 bg-gray-700 rounded-full flex items-center justify-center">
                         <FaFacebookF size={28} />
                       </div>
@@ -230,14 +230,14 @@ const PitchThought: FC = () => {
                   </li>
 
                   <li>
-                    <a href="https://g.co/kgs/7LnLSHN">
+                    <a href="https://g.co/kgs/7LnLSHN" target='_blank'>
                       <div className="w-14 h-14 bg-gray-700 rounded-full flex items-center justify-center">
                         <FaGoogle size={28} />
                       </div>
                     </a>
                   </li>
                   <li>
-                    <a href="mailto:info@nextlooptechnologies.com">
+                    <a href="mailto:info@nextlooptechnologies.com" target='_blank'>
                       <div className="w-14 h-14 bg-gray-700 rounded-full flex items-center justify-center">
                         <IoMdMail size={28} />
                       </div>
@@ -245,7 +245,7 @@ const PitchThought: FC = () => {
                   </li>
 
                   <li>
-                    <a href="https://www.instagram.com/nextloop.technologies/">
+                    <a href="https://www.instagram.com/nextloop.technologies/" target='_blank'>
                       <div className="w-14 h-14 bg-gray-700 rounded-full flex items-center justify-center">
                         <FaInstagram size={28} />
                       </div>
@@ -253,7 +253,7 @@ const PitchThought: FC = () => {
                   </li>
 
                   <li>
-                    <a href="https://www.linkedin.com/company/nextloop-technologies-llp">
+                    <a href="https://www.linkedin.com/company/nextloop-technologies-llp" target='_blank'>
                       <div className="w-14 h-14 bg-gray-700 rounded-full flex items-center justify-center">
                         <FaLinkedinIn size={28} />
                       </div>
@@ -261,7 +261,7 @@ const PitchThought: FC = () => {
                   </li>
 
                   <li>
-                    <a href="https://x.com/Nextloop_">
+                    <a href="https://x.com/Nextloop_" target='_blank'>
                       <div className="w-14 h-14 bg-gray-700 rounded-full flex items-center justify-center">
                         <FaXTwitter size={28} />
                       </div>
