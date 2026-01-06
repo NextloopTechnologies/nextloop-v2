@@ -206,8 +206,8 @@ const PitchThought: FC = () => {
                 <div
                   className={`flex gap-x-1 ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
                 >
-                  <a href='tel:+918103542991'>+918103542991</a>,
-                  <a href='tel:+919893954683'>+919893954683</a>
+                  <a href='tel:+919893738323'>+919893738323</a>,
+                  <a href='tel:+919924299318'>+919924299318</a>
                 </div>
               </div>
 

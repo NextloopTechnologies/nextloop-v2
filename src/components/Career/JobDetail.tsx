@@ -86,14 +86,17 @@ const JobDetails: React.FC<{ job: Job }> = ({
           <div className='flex flex-col gap-4 md:w-[70%]'>
             <h2 className='text-2xl font-bold'>Skills</h2>
             <div className='flex flex-wrap gap-4'>
-              {skills?.map((s, i) => (
-                <div
-                  className='border text-orange-500 border-orange-500 rounded-3xl px-2 py-1'
-                  key={i}
-                >
-                  {s}
-                </div>
-              ))}
+              {skills?.map((s, i) =>
+                typeof s === "string" && !!s.trim().length && (
+                  <div
+                    key={i}
+                    className='border text-orange-500 border-orange-500 rounded-3xl px-2 py-1'
+                  >
+                    {s}
+                  </div>
+                ) 
+              )}
+
             </div>
           </div>
         </div>
