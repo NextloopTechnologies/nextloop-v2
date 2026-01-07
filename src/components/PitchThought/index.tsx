@@ -220,7 +220,7 @@ const PitchThought: FC = () => {
               </div>
               <div className='border-b border-orange-500 w-full border-t-4 mb-2 md:mb-0'></div>
               <div>
-                <ul className="flex gap-x-7 mb-10 md:mb-5">
+                <ul className="flex gap-x-7 mb-10 md:mb-5 flex-wrap">
                   <li>
                     <a href="https://www.facebook.com/profile.php?id=61556914381569&mibextid=ZbWKwL" target='_blank'>
                       <div className="w-14 h-14 bg-gray-700 rounded-full flex items-center justify-center">
