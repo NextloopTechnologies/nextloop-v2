@@ -1,6 +1,8 @@
+import { MapPin } from 'lucide-react';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { LiaLongArrowAltRightSolid } from "react-icons/lia";
 
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
@@ -8,7 +10,6 @@ import { Job } from '../../types';
 import supabaseClient from '../../utils/client';
 import { careerAssets } from '../../../assets';
 import careerBg from '../../../assets/careerBg.png';
-import location from '../../../assets/location.svg';
 
 const CareersPage: React.FC<{ jobs?: Job[]; error?: string }> = ({
   jobs,
@@ -37,11 +38,12 @@ const CareersPage: React.FC<{ jobs?: Job[]; error?: string }> = ({
 
 const WhyUs = () => (
   <div className='min-h-screen flex flex-col justify-center items-center text-center gap-12 p-8 lg:px-0 lg:py-8'>
-    <h2 className='font-medium text-2xl uppercase'>GALLERY</h2>
-    <p className='font-bold xl:text-7xl md:text-5xl text-3xl  2xl:w-[40%] xl:w-[60%] w-full'>
+    <p className='font-bold xl:text-4xl md:text-5xl text-3xl uppercase xl:w-1/2 text-center'>
       CURIOUS ABOUT HOW WE MANAGE TO MAKE ALL THIS{' '}
       <span className='text-orange-500'>POSSIBLE?</span>
     </p>
+
+    {/* <div className='w-[90vw] h-[75vh] border border-red-700 rounded-lg shadow-lg'></div> */}
     <div className='flex gap-24 w-full justify-around flex-col lg:flex-row lg:gap-0'>
       {/* <div className='flex flex-col gap-4 lg:w-1/2 items-center xl:px-48'>
         <div className='flex gap-4'>
@@ -49,10 +51,10 @@ const WhyUs = () => (
             <Image src={leftBig} alt='' className='h-full object-cover' />
           </div>
           <div className='flex flex-col gap-4'>
-            <div className=''>
+            <div>
               <Image src={rightTop} alt='' />
             </div>
-            <div className=''>
+            <div>
               <Image src={rightMiddle} alt='' />
             </div>
           </div>
@@ -126,19 +128,12 @@ const WhyUs = () => (
           </div>
         </div>
 
-        {/* Bottom */}
-        <Image
-          src={careerAssets.bottomBig}
-          height={400}
-          width={500}
-          alt='career-image'
-          className='object-cover w-full h-[180px]'
-        />
+        
       </div>
 
       <div className='lg:w-1/2 w-full flex flex-col gap-6 sm:pr-20 text-left'>
         <div className='flex flex-col'>
-          <p className=''>
+          <p>
             Come be a part of Nextloop Technologies, where your ideas,
             abilities, and potential are valued. Embracing technology and
             assisting you in your growth is our mission.
@@ -199,8 +194,8 @@ const WhyUs = () => (
 );
 
 const Jobs: React.FC<{ jobs?: Job[]; error?: string }> = ({ error, jobs }) => (
-  <div className='min-h-screen aboutUsPageBackgroundImage flex flex-col gap-24 items-center justify-center text-white p-8 lg:p-0'>
-    <h2 className='font-medium text-2xl uppercase'>opportunities</h2>
+  <div className='min-h-screen aboutUsPageBackgroundImage flex flex-col gap-24 items-center justify-center text-white p-8 lg:px-0 lg:py-8'>
+    
     <p className='font-bold xl:text-4xl md:text-5xl text-3xl uppercase xl:w-[30%] text-center'>
       find a <span className='text-orange-500'>suitable job</span> for you
     </p>
@@ -223,24 +218,22 @@ const JobCard: React.FC<{ job: Job }> = ({
 }) => {
   const router = useRouter();
   return (
-    <div className='px-8 py-12 bg-white text-black sm:w-[350px] min-w-full flex flex-col gap-4'>
-      <div className='flex justify-between items-end'>
+    <div className='px-6 py-6 md:py-11 bg-white text-black sm:w-[350px] min-w-full max-h-52 flex flex-col gap-4'>
+      <div className='flex justify-between items-end gap-2'>
         <div className='flex flex-col gap-4'>
-          <p className='font-medium text-[18px]'>{title}</p>
-          <p className=''>{job_type}</p>
+          <p className='font-medium text-base md:text-lg'>{title}</p>
+          <p>{job_type}</p>
         </div>
-        <div className='flex gap-2'>
-          <div className=''>
-            <Image src={location} alt='location' />
-            <p className=''>{job_mode}</p>
-          </div>
+        <div className='flex gap-2 flex-col items-center'>
+          <MapPin size={20} strokeWidth={2} className="text-black mx-auto" />
+          <p>{job_mode}</p>
         </div>
       </div>
       <button
         onClick={() => router.push(`/career/${id}`)}
         className='text-orange-500 bg-none font-medium py-3 rounded-full w-fit'
       >
-        View Details &#10230;
+        View Details <LiaLongArrowAltRightSolid className='inline-block w-6 h-6' />
       </button>
     </div>
   );

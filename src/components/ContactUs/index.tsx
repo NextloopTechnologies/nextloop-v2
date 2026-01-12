@@ -1,8 +1,9 @@
+import { MoveRight } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { FC } from 'react';
 
-import { ContactArrow, ContactUs as ContactImage } from '../../../assets';
+import { ContactUs as ContactImage } from '../../../assets';
 
 const ContactUs: FC = () => {
   const router = useRouter();
@@ -19,13 +20,7 @@ const ContactUs: FC = () => {
           alt='image'
           className='rotating-image'
         />
-        <Image
-          src={ContactArrow}
-          width={40}
-          height={40}
-          alt='image'
-          className=' absolute top-14 left-14'
-        />
+        <MoveRight className='object-cover text-orange-500 absolute top-14 left-14' size={40} />
       </div>
     </>
   );

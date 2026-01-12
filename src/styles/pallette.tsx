@@ -8,6 +8,10 @@ const palette = {
       mobile: 'text-xl',
       desktop: 'text-4xl',
     },
+    heading3: {
+      mobile: 'text-lg',
+      desktop: 'text-2xl',
+    },
     subtitle: {
       mobile: 'text-lg',
       desktop: 'text-xl',

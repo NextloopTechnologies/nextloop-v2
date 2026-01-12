@@ -6,20 +6,39 @@ import {
   Search,
   Settings,
 } from 'lucide-react';
+import { AiOutlineGlobal } from "react-icons/ai";
+import { BsBank } from "react-icons/bs";
+import { FaRegFileAlt } from "react-icons/fa";
+import { FaHandHoldingMedical } from "react-icons/fa";
+import { FaHandHoldingHand } from "react-icons/fa6";
+import { FiShoppingCart } from "react-icons/fi";
+import { GiOilPump } from "react-icons/gi";
+import { GrDirections } from "react-icons/gr";
+import { HiOutlineOfficeBuilding } from "react-icons/hi";
+import { IoCloudUploadOutline, IoFileTrayStackedOutline } from "react-icons/io5";
+import { MdOutlineAddLocation } from "react-icons/md";
+import { MdOutlineSupportAgent } from "react-icons/md";
+import { MdComputer } from "react-icons/md";
+import { MdOutlineSchool } from "react-icons/md";
+import { PiExcludeSquareDuotone, PiEyeBold } from "react-icons/pi";
+import { TbDeviceDesktopSearch } from "react-icons/tb";
 
 import { getStaticImageData } from './helper';
 import { StepProps } from '../components/DiamondGridBoxes';
 import { IFAQ } from '../types';
-import { ecommerceAssets, eventAssets, fintechAssets, healthcareAssets } from '../../assets';
+import {
+  ecommerceAssets,
+  eventAssets,
+  fintechAssets,
+  healthcareAssets,
+} from '../../assets';
 import blogImg from '../../assets/blog/blogImg.png';
-import buildingIcon from '../../assets/services/buildingIcon.png';
-import desktopCloud from '../../assets/services/desktopCloud.png';
-import documentIcon from '../../assets/services/documentIcon.png';
-import eyeIcon from '../../assets/services/eyeIcon.png';
-import fileIcon from '../../assets/services/fileIcon.png';
-import mapMarkerPlusIcon from '../../assets/services/mapMarkerPlusIcon.png';
-import pathFinderIcon from '../../assets/services/pathFinderIcon.png';
+import OurProcess1 from '../../assets/services/ourProcess1.png';
+import OurProcess2 from '../../assets/services/ourProcess2.png';
+import OurProcess3 from '../../assets/services/ourProcess3.png';
 import servicesWebdevelopmentHero from '../../assets/services/servicesWebdevelopmentHero.png';
+import staffingService from '../../assets/services/staffing-service.png';
+import WhyBusinessChooseUs from '../../assets/services/why-choose-us-bg.png';
 import mahoutIcon from '../../assets/techstackIcons/aiml/mahoutIcon.png';
 import openCvIcon from '../../assets/techstackIcons/aiml/openCvIcon.png';
 import pytorchIcon from '../../assets/techstackIcons/aiml/pytorchIcon.png';
@@ -107,7 +126,7 @@ export const expertiseData = [
     title: 'Enterprise Software Development',
     description:
       'Build powerful, scalable, and secure systems that manage business-critical operations.',
-    image: fileIcon,
+    image: IoFileTrayStackedOutline,
     dark: true,
   },
   {
@@ -115,7 +134,7 @@ export const expertiseData = [
     title: 'Web Applications',
     description:
       'Develop dynamic, responsive, and feature-rich web applications that are accessible across devices and platforms.',
-    image: documentIcon,
+    image: FaRegFileAlt,
     dark: false,
   },
   {
@@ -123,7 +142,7 @@ export const expertiseData = [
     title: 'Mobile Applications',
     description:
       'Create intuitive and engaging mobile apps for Android and iOS to meet the needs of your mobile-first users.',
-    image: buildingIcon,
+    image: HiOutlineOfficeBuilding,
     dark: false,
   },
   {
@@ -131,7 +150,7 @@ export const expertiseData = [
     title: 'Cloud Solutions',
     description:
       'Modernize your infrastructure with cloud-based solutions for enhanced flexibility, security, and scalability.',
-    image: desktopCloud,
+    image: IoCloudUploadOutline,
     dark: true,
   },
   {
@@ -139,7 +158,7 @@ export const expertiseData = [
     title: 'API Integrations',
     description:
       'Seamlessly integrate your software with third-party applications and services, enhancing functionality and improving workflows.',
-    image: fileIcon,
+    image: IoFileTrayStackedOutline,
     dark: true,
   },
   {
@@ -147,7 +166,7 @@ export const expertiseData = [
     title: 'Software Maintenance and Support',
     description:
       'Ensure your systems remain efficient with ongoing maintenance, updates, and troubleshooting services.',
-    image: documentIcon,
+    image: FaRegFileAlt,
     dark: false,
   },
 ];
@@ -177,39 +196,39 @@ export const servicesWhyChooseUsData = [
   {
     id: 1,
     title: 'Expertise',
-    descp: ' Experienced developers who use cutting-edge technologies.',
-    icon: mapMarkerPlusIcon,
+    descp: 'Experienced developers who use cutting-edge technologies.',
+    icon: MdOutlineAddLocation,
   },
   {
     id: 2,
     title: 'Custom Solutions',
     descp: 'Tailored websites to meet your specific business needs.',
-    icon: pathFinderIcon,
+    icon: PiExcludeSquareDuotone,
   },
   {
     id: 3,
     title: 'Scalable Designs',
     descp: 'Websites that grow with your business.',
-    icon: eyeIcon,
+    icon: PiEyeBold,
   },
   {
     id: 4,
     title: 'Responsive Support',
     descp: 'Reliable support to ensure your site performs optimally.',
-    icon: mapMarkerPlusIcon,
+    icon: MdOutlineAddLocation,
   },
   {
     id: 5,
     title: 'SEO-Friendly',
     descp:
       'We ensure your website is search-engine optimized for better visibility.',
-    icon: pathFinderIcon,
+    icon: PiExcludeSquareDuotone,
   },
   {
     id: 6,
     title: 'On-time Delivery',
     descp: 'Projects completed on schedule with quality results.',
-    icon: eyeIcon,
+    icon: PiEyeBold,
   },
 ];
 
@@ -238,7 +257,7 @@ const staticServices = [
     description: 'Transforming patient care.',
     link: '/expertise/healthcare',
   },
-]
+];
 
 export const servicesAreaOfExpertiseData = {
   mainHeader: 'OUR AREAS OF EXPERTISE',
@@ -328,7 +347,7 @@ export const servicesSubPagesData = {
           title: 'Enterprise Software Development',
           description:
             'Build powerful, scalable, and secure systems that manage business-critical operations.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
@@ -336,7 +355,7 @@ export const servicesSubPagesData = {
           title: 'Web Applications',
           description:
             'Develop dynamic, responsive, and feature-rich web applications that are accessible across devices and platforms.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
         {
@@ -344,7 +363,7 @@ export const servicesSubPagesData = {
           title: 'Mobile Applications',
           description:
             'Create intuitive and engaging mobile apps for Android and iOS to meet the needs of your mobile-first users.',
-          image: buildingIcon,
+          image: HiOutlineOfficeBuilding,
           dark: false,
         },
         {
@@ -352,7 +371,7 @@ export const servicesSubPagesData = {
           title: 'Cloud Solutions',
           description:
             'Modernize your infrastructure with cloud-based solutions for enhanced flexibility, security, and scalability.',
-          image: desktopCloud,
+          image: IoCloudUploadOutline,
           dark: true,
         },
         {
@@ -360,7 +379,7 @@ export const servicesSubPagesData = {
           title: 'API Integrations',
           description:
             'Seamlessly integrate your software with third-party applications and services, enhancing functionality and improving workflows.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
@@ -368,7 +387,7 @@ export const servicesSubPagesData = {
           title: 'Software Maintenance and Support',
           description:
             'Ensure your systems remain efficient with ongoing maintenance, updates, and troubleshooting services.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
       ],
@@ -521,38 +540,38 @@ export const servicesSubPagesData = {
         id: 1,
         title: 'Expertise',
         descp: ' Experienced developers who use cutting-edge technologies.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 2,
         title: 'Custom Solutions',
         descp: 'Tailored websites to meet your specific business needs.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 3,
         title: 'Scalable Designs',
         descp: 'Websites that grow with your business.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
       {
         id: 4,
         title: 'Responsive Support',
         descp: 'Reliable support to ensure your site performs optimally.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 5,
         title: 'SEO-Friendly',
         descp:
           'We ensure your website is search-engine optimized for better visibility.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 6,
         title: 'On-time Delivery',
         descp: 'Projects completed on schedule with quality results.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
     ],
     faqsContent: [
@@ -614,7 +633,7 @@ export const servicesSubPagesData = {
           title: 'Custom Web Development:',
           description:
             'We build tailor-made websites and web applications that align with your business goals and user needs.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
@@ -622,7 +641,7 @@ export const servicesSubPagesData = {
           title: 'Front-End & Back-End Development:',
           description:
             'Delivering responsive, fast, and dynamic websites with strong back-end architecture.',
-          image: buildingIcon,
+          image: HiOutlineOfficeBuilding,
           dark: false,
         },
         {
@@ -630,7 +649,7 @@ export const servicesSubPagesData = {
           title: 'Web Performance & SEO Optimization:',
           description:
             'Ensuring fast load times, mobile-friendliness, and SEO best practices for better search rankings.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: false,
         },
         {
@@ -638,7 +657,7 @@ export const servicesSubPagesData = {
           title: 'E-Commerce Development:',
           description:
             'Create high-performing, secure, and scalable online stores with seamless shopping experiences.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: true,
         },
         {
@@ -646,7 +665,7 @@ export const servicesSubPagesData = {
           title: 'CMS Development:',
           description:
             'Develop and customize CMS platforms like WordPress, Shopify, and Magento for easy content management.',
-          image: desktopCloud,
+          image: IoCloudUploadOutline,
           dark: true,
         },
         {
@@ -654,7 +673,7 @@ export const servicesSubPagesData = {
           title: 'Web Security & Maintenance:',
           description:
             'Implementing advanced security measures and providing ongoing support to keep your website safe and up to date.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
       ],
@@ -807,38 +826,38 @@ export const servicesSubPagesData = {
         id: 1,
         title: 'Expertise',
         descp: ' Experienced developers who use cutting-edge technologies.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 2,
         title: 'Custom Solutions',
         descp: 'Tailored websites to meet your specific business needs.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 3,
         title: 'Scalable Designs',
         descp: 'Websites that grow with your business.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
       {
         id: 4,
         title: 'Responsive Support',
         descp: 'Reliable support to ensure your site performs optimally.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 5,
         title: 'SEO-Friendly',
         descp:
           'We ensure your website is search-engine optimized for better visibility.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 6,
         title: 'On-time Delivery',
         descp: 'Projects completed on schedule with quality results.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
     ],
     faqsContent: [
@@ -908,7 +927,7 @@ export const servicesSubPagesData = {
           title: 'CLOUD MIGRATION',
           description:
             'Smooth and secure migration of your business to the cloud, with minimal disruption and downtime.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
@@ -916,7 +935,7 @@ export const servicesSubPagesData = {
           title: 'CLOUD INFRASTRUCTURE MANAGEMENT:',
           description:
             'Build, deploy, and scale robust, cloud-native applications that drive business innovation and efficiency.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
         {
@@ -924,7 +943,7 @@ export const servicesSubPagesData = {
           title: 'CLOUD APPLICATION DEVELOPMENT:',
           description:
             'Build, deploy, and scale robust, cloud-native applications that drive business innovation and efficiency.',
-          image: buildingIcon,
+          image: HiOutlineOfficeBuilding,
           dark: false,
         },
         {
@@ -932,7 +951,7 @@ export const servicesSubPagesData = {
           title: 'CLOUD SECURITY:',
           description:
             'Modernize your infrastructure with cloud-based solutions for enhanced flexibility, security, and scalability.',
-          image: desktopCloud,
+          image: IoCloudUploadOutline,
           dark: true,
         },
         {
@@ -940,7 +959,7 @@ export const servicesSubPagesData = {
           title: 'DEVOPS & AUTOMATION:',
           description:
             'Automate workflows and streamline development to accelerate deployment and enhance operational efficiency.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
@@ -948,7 +967,7 @@ export const servicesSubPagesData = {
           title: 'CLOUD COST OPTIMIZATION:',
           description:
             'Maximize efficiency and reduce cloud expenses with our cost optimization strategies, ensuring you get the best value from your cloud investments.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
       ],
@@ -1086,40 +1105,40 @@ export const servicesSubPagesData = {
         id: 1,
         title: 'TAILORED SOLUTIONS',
         descp: 'Experienced developers who use cutting-edge technologies.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 2,
         title: 'EXPERT TEAM',
         descp:
           'Our certified cloud engineers deliver secure, scalable solutions.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 3,
         title: 'SEAMLESS MIGRATION',
         descp: 'We ensure a smooth, hassle-free transition to the cloud.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
       {
         id: 4,
         title: 'SCALABLE & FLEXIBLE',
         descp: 'Cloud solutions that grow with your business.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 5,
         title: 'TOP SECURITY',
         descp:
           'We prioritize data protection with industry-leading security measures.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 6,
         title: '24/7 SUPPORT',
         descp:
           'Continuous support and monitoring to keep everything running smoothly.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
     ],
     areaOfExpertiseData: {
@@ -1187,7 +1206,7 @@ export const servicesSubPagesData = {
           title: 'CUSTOM MOBILE APPS:',
           description:
             'Smooth and secure migration of your business to the cloud, with minimal disruption and downtime.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
@@ -1195,7 +1214,7 @@ export const servicesSubPagesData = {
           title: 'CLOUD INFRASTRUCTURE MANAGEMENT:',
           description:
             'From concept to deployment, we design and develop custom apps tailored to your business needs.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
         {
@@ -1203,7 +1222,7 @@ export const servicesSubPagesData = {
           title: 'UI/UX DESIGN:',
           description:
             'We create engaging and intuitive designs that provide an excellent user experience, ensuring your app stands out.',
-          image: buildingIcon,
+          image: HiOutlineOfficeBuilding,
           dark: false,
         },
         {
@@ -1211,7 +1230,7 @@ export const servicesSubPagesData = {
           title: 'CLOUD INTEGRATION::',
           description:
             'We integrate your mobile app with existing systems and APIs for seamless functionality and smooth operations.',
-          image: desktopCloud,
+          image: IoCloudUploadOutline,
           dark: true,
         },
         {
@@ -1219,7 +1238,7 @@ export const servicesSubPagesData = {
           title: 'APP MAINTENANCE & SUPPORT:',
           description:
             'We offer ongoing maintenance and support to ensure your app stays updated and performs optimally.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
@@ -1227,7 +1246,7 @@ export const servicesSubPagesData = {
           title: 'APP PERFORMANCE & OPTIMIZATION:',
           description:
             'We ensure your app runs smoothly with fast loading times, efficient resource usage, and minimal crashes.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
       ],
@@ -1381,42 +1400,42 @@ export const servicesSubPagesData = {
         title: 'TAILORED SOLUTIONS FOR YOUR BUSINESS',
         descp:
           'We create custom apps that align with your unique business goals.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 2,
         title: 'EXPERT DEVELOPERS',
         descp:
           'Our skilled team builds secure, high-performing apps with the latest technologies.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 3,
         title: 'END-TO-END SERVICES',
         descp:
           'We manage the entire app process, from idea to deployment and support.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
       {
         id: 4,
         title: 'FOCUS ON USER EXPERIENCE',
         descp:
           'We design apps that are intuitive and user-friendly for seamless experiences.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 5,
         title: 'SCALABLE SOLUTIONS',
         descp:
           'Our apps grow with your business, whether you’re a startup or an enterprise.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 6,
         title: 'AGILE DEVELOPMENT PROCESS',
         descp:
           'We use agile methods for flexible, fast development that adapts to your needs.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
     ],
     areaOfExpertiseData: {
@@ -1478,7 +1497,7 @@ export const servicesSubPagesData = {
           title: 'AI STRATEGY AND ROADMAP CONSULTING:',
           description:
             'We help businesses define a clear AI strategy and create a roadmap to implement AI-driven solutions effectively.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
@@ -1486,7 +1505,7 @@ export const servicesSubPagesData = {
           title: 'AI-DRIVEN MOBILE AND WEB APPLICATION DEVELOPMENT:',
           description:
             'We build intelligent mobile and web applications that leverage AI for automation, personalization, and enhanced user experiences.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
         {
@@ -1494,7 +1513,7 @@ export const servicesSubPagesData = {
           title: 'CUSTOM AI SOLUTIONS DEVELOPMENT:',
           description:
             'Custom AI Solutions Development - We develop tailor-made AI solutions designed to solve unique business challenges and drive innovation.',
-          image: buildingIcon,
+          image: HiOutlineOfficeBuilding,
           dark: false,
         },
         {
@@ -1502,7 +1521,7 @@ export const servicesSubPagesData = {
           title: 'Generative AI Integration Services:',
           description:
             ' We integrate powerful generative AI models into applications to enable content creation, automation, and intelligent decision-making.',
-          image: desktopCloud,
+          image: IoCloudUploadOutline,
           dark: true,
         },
         {
@@ -1510,7 +1529,7 @@ export const servicesSubPagesData = {
           title: 'AI-powered Copilot and Virtual Assistant Development:',
           description:
             'We build AI-powered copilots and virtual assistants to improve efficiency, automate tasks, and enhance customer engagement.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
@@ -1518,7 +1537,7 @@ export const servicesSubPagesData = {
           title: 'Natural Language Processing (NLP) Solutions: ',
           description:
             'We create NLP-powered solutions that enable applications to understand, process, and respond to human language naturally.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
       ],
@@ -1669,42 +1688,42 @@ export const servicesSubPagesData = {
         title: 'TAILORED SOLUTIONS FOR YOUR BUSINESS',
         descp:
           'We create custom apps that align with your unique business goals.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 2,
         title: 'EXPERT DEVELOPERS',
         descp:
           'Our skilled team builds secure, high-performing apps with the latest technologies.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 3,
         title: 'END-TO-END SERVICES',
         descp:
           'We manage the entire app process, from idea to deployment and support.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
       {
         id: 4,
         title: 'FOCUS ON USER EXPERIENCE',
         descp:
           'We design apps that are intuitive and user-friendly for seamless experiences.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 5,
         title: 'SCALABLE SOLUTIONS',
         descp:
           'Our apps grow with your business, whether you’re a startup or an enterprise.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 6,
         title: 'AGILE DEVELOPMENT PROCESS',
         descp:
           'We use agile methods for flexible, fast development that adapts to your needs.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
     ],
     areaOfExpertiseData: {
@@ -1772,42 +1791,42 @@ export const servicesSubPagesData = {
           id: 1,
           title: 'Custom E-commerce Websites:',
           description: 'Tailor-made online stores for your unique business.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 2,
           title: 'Shopify, WooCommerce & Magento Development:',
           description: 'Platform-based E-commerce solutions.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
         {
           id: 3,
           title: 'Multi-Vendor Marketplaces:',
           description: 'Enable multiple sellers to sell on your platform.',
-          image: buildingIcon,
+          image: HiOutlineOfficeBuilding,
           dark: false,
         },
         {
           id: 4,
           title: 'Mobile Commerce (M-commerce):',
           description: 'Seamless shopping experiences on mobile devices.',
-          image: desktopCloud,
+          image: IoCloudUploadOutline,
           dark: true,
         },
         {
           id: 5,
           title: 'E-commerce Integration:',
           description: 'Payment gateways, shipping APIs, CRM, and more.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 6,
           title: 'E-commerce SEO & Performance Optimization:  ',
           description: 'Improve speed, ranking, and conversions.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
       ],
@@ -1943,38 +1962,38 @@ export const servicesSubPagesData = {
         id: 1,
         title: 'Custom & Scalable Solutions',
         descp: 'Built for startups, small businesses, and enterprises.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 2,
         title: 'SEO & Mobile Optimized',
         descp: 'Drive traffic and ensure a seamless mobile experience.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 3,
         title: 'Secure & Reliable',
         descp: 'High security, fast performance, and smooth transactions.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
       {
         id: 4,
         title: 'Easy Management',
         descp: 'User-friendly admin panel for hassle-free store management.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 5,
         title: 'End-to-End Support',
         descp: 'From development to maintenance and growth.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 6,
         title: 'Proven Success & Innovation',
         descp:
           'Leverage AI and analytics to understand customer behavior and optimize sales strategies.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
     ],
     areaOfExpertiseData: {
@@ -2041,14 +2060,14 @@ export const servicesSubPagesData = {
           id: 1,
           title: 'Search Engine Optimization (SEO):',
           description: 'Improve your website’s ranking on Google.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 2,
           title: 'Pay-Per-Click (PPC) Advertising:',
           description: 'Get instant traffic with targeted ads.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
         {
@@ -2056,7 +2075,7 @@ export const servicesSubPagesData = {
           title: 'Social Media Marketing (SMM):',
           description:
             'Grow your brand on Facebook, Instagram, LinkedIn & more.',
-          image: buildingIcon,
+          image: HiOutlineOfficeBuilding,
           dark: false,
         },
         {
@@ -2064,21 +2083,21 @@ export const servicesSubPagesData = {
           title: 'Content Marketing:',
           description:
             'Engage customers with valuable blogs, videos, and articles.',
-          image: desktopCloud,
+          image: IoCloudUploadOutline,
           dark: true,
         },
         {
           id: 5,
           title: 'Email Marketing:',
           description: 'Reach your audience with personalized email campaigns.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 6,
           title: ' Conversion Rate Optimization (CRO):  ',
           description: 'Turn visitors into loyal customers.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
       ],
@@ -2212,38 +2231,38 @@ export const servicesSubPagesData = {
         id: 1,
         title: 'Experienced Team',
         descp: 'Our digital marketing experts have years of experience.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 2,
         title: 'Customized Solutions',
         descp: 'We create strategies that fit your unique business needs.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 3,
         title: 'Data-Driven Approach',
         descp: 'We use analytics and insights to maximize results.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
       {
         id: 4,
         title: 'Transparent Reporting',
         descp: 'Get clear and detailed reports on your campaign’s performance.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 5,
         title: 'Proven Results',
         descp: 'We have helped businesses grow and succeed online.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 6,
         title: 'Continuous Optimization',
         descp:
           'We analyze, test, and refine strategies to ensure sustained growth and maximum ROI.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
     ],
     areaOfExpertiseData: {
@@ -2291,7 +2310,7 @@ export const servicesSubPagesData = {
       coloredTitle: 'MVP ',
       title: 'DEVELOPMENT',
       subtitle:
-        'Digital marketing is the promotion of products, services, or brands using online channels like search engines, social media, email, and websites. It helps businesses reach their target audience, increase brand awareness, and drive sales. In today’s digital world, having a strong online presence is essential for business success. We provide expert digital marketing solutions that help you grow your brand, attract customers, and increase revenue. From SEO to social media marketing, we use data-driven strategies to boost your business online.',
+        'At Nextloop Technologies, we specialize in building high-quality Minimum Viable Products (MVPs) that help startups and businesses validate their ideas quickly and cost-effectively. Our MVP development services are designed to turn your concept into a functional, market-ready product using the latest technologies and agile methods. We focus on defining the right features, designing seamless user experiences, and developing scalable MVPs that allow you to test, refine, and grow your product with real user feedback. ',
     },
     expertiseData: {
       headingData: {
@@ -2305,42 +2324,42 @@ export const servicesSubPagesData = {
           id: 1,
           title: 'MVP Strategy & Consulting:',
           description: 'Defining the core features of your MVP.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 2,
           title: 'UI/UX Design:',
           description: 'Creating a user-friendly and engaging design.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
         {
           id: 3,
           title: 'Rapid Prototyping:',
           description: 'Building fast prototypes to test ideas.',
-          image: buildingIcon,
+          image: HiOutlineOfficeBuilding,
           dark: false,
         },
         {
           id: 4,
           title: 'Custom Web & Mobile App Development:',
           description: 'Developing scalable MVPs.',
-          image: desktopCloud,
+          image: IoCloudUploadOutline,
           dark: true,
         },
         {
           id: 5,
           title: 'Agile Development:',
           description: 'Iterative development with quick feedback cycles.',
-          image: fileIcon,
+          image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 6,
           title: 'MVP Testing & Validation: ',
           description: 'Ensuring your MVP is market-ready.',
-          image: documentIcon,
+          image: FaRegFileAlt,
           dark: false,
         },
       ],
@@ -2474,37 +2493,37 @@ export const servicesSubPagesData = {
         id: 1,
         title: 'Expert MVP Developers',
         descp: 'Skilled in building high-quality MVPs.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 2,
         title: 'Fast & Cost-Effective',
         descp: 'Launch your product quickly without overspending.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 3,
         title: 'Agile Approach',
         descp: 'Continuous improvements based on user feedback.',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
       {
         id: 4,
         title: 'Scalable Solutions',
         descp: 'Easily expand your MVP into a full product.',
-        icon: mapMarkerPlusIcon,
+        icon: MdOutlineAddLocation,
       },
       {
         id: 5,
         title: 'Transparent Process',
         descp: 'Clear communication and progress tracking.',
-        icon: pathFinderIcon,
+        icon: PiExcludeSquareDuotone,
       },
       {
         id: 6,
         title: 'Market Validation Focus',
         descp: 'We help you test ideas, gather real user insights',
-        icon: eyeIcon,
+        icon: PiEyeBold,
       },
     ],
     areaOfExpertiseData: {
@@ -2524,6 +2543,309 @@ export const servicesSubPagesData = {
         question: 'Can you help refine my MVP idea?',
         answer:
           ' Yes! We provide consulting to define the best features for your MVP.',
+      },
+      {
+        id: 3,
+        question: 'What technologies do you use for MVP development?',
+        answer:
+          ' We use modern tech stacks like React, Node.js, Python, Flutter, and more.',
+      },
+      {
+        id: 4,
+        question: 'What happens after the MVP launch?',
+        answer:
+          'We help you analyze user feedback, improve features, and scale your product.',
+      },
+    ],
+  },
+  staffingServices: {
+    metaData: {
+      pageMetaTitle: 'Nextloop Technologies | Staffing Sevices',
+      pageMetaDescription:
+        'Nextloop Technologies offers expert staffing solutions to help businesses find top talent quickly and efficiently. Our tailored recruitment services ensure you get skilled professionals who fit your company culture and drive success.',
+    },
+    heroImage: staffingService,
+    heroSectionData: {
+      coloredTitle: 'Contract-to-Hire (C2H) ',
+      title: 'Staffing Services',
+      subtitle:
+        'We’re more than just recruiters—we’re your strategic talent partner. At Nextloop Technologies, we connect businesses with high-performing talent across industries and roles. Whether you need a single hire or an entire team, we make staffing simple, fast, and reliable.',
+    },
+    staffingPartnerData: {
+      headingData: {
+        heading: 'Not Your Average ',
+        coloredHeading: 'Staffing Partner',
+        description:
+          'At Nextloop Technologies, we don’t just find talent—we deliver end-to-end staffing solutions.',
+      },
+      items: [
+        {
+          id: 1,
+          title: 'Comprehensive Support',
+          description: 'Candidate search, curation, onboarding, and beyond.',
+          image: MdOutlineSupportAgent,
+        },
+        {
+          id: 2,
+          title: 'Expert Recruiters',
+          description:
+            'A skilled team with deep expertise across industries and roles.',
+          image: TbDeviceDesktopSearch,
+        },
+        {
+          id: 3,
+          title: 'Global Reach',
+          description:
+            'Staffing solutions for businesses of all sizes, across multiple countries.',
+          image: AiOutlineGlobal,
+        },
+        {
+          id: 4,
+          title: 'Flexible Engagement',
+          description:
+            'We work within your budget, and you only pay once your candidate joins.',
+          image: GrDirections,
+        },
+        {
+          id: 5,
+          title: 'Industry Expertise',
+          description: 'Our recruiters understand your sector inside out.',
+          image: FaHandHoldingHand,
+        },
+      ],
+    },
+    ourProcessData: {
+      headingData: {
+        heading: 'Our Process: ',
+        coloredHeading: 'Simple & Transparent',
+        description: '',
+      },
+      items: [
+        {
+          id: 1,
+          title: 'Tell Us What You Need',
+          description: `The first step is all about understanding your unique needs. You’ll provide detailed information about the role, including technical skills, experience level, certifications, and any specific industry knowledge required. Additionally, share your project timeline, team structure, and work culture. This step allows us to tailor our search specifically to your requirements, ensuring that every candidate we present is relevant and highly qualified.`,
+        },
+        {
+          id: 2,
+          title: 'We Find the Best Candidates',
+          description: `Once we have a clear understanding of your needs, our recruitment team activates a multi-channel sourcing strategy. We tap into our extensive network of IT professionals, partner platforms, and industry communities to identify potential candidates. Each candidate undergoes a thorough screening process, including:
+•	Resume and Profile Evaluation
+•	Technical Assessments
+•	Behavioral and Cultural Fit Analysis
+•	Background and Reference Checks
+Through this rigorous process, only the top-performing candidates are shortlisted, saving you time and reducing the risk of hiring mismatches.`,
+        },
+        {
+          id: 3,
+          title: 'You Hire with Confidence',
+          description: `After screening, we present you with a curated list of the most suitable candidates. You can review their profiles, schedule interviews, and assess their fit for your team. Our team supports you throughout this stage, coordinating interviews, collecting feedback, and facilitating communication between you and the candidates. Once you’ve made your selection, we assist with the onboarding process, ensuring that the new hire integrates smoothly into your team.`,
+        },
+
+      ],
+    },
+    flexibleHiringData: {
+      headingData: {
+        heading: 'Flexible Hiring Solutions ',
+        coloredHeading: 'Tailored to Your Needs',
+        description: '',
+      },
+      items: [
+        {
+          id: 1,
+          title: 'Short-Term Contracts',
+          description:
+            'Need talent for a specific project or seasonal demand? We provide skilled professionals for short-term engagements, ensuring they’re not just qualified on paper but also the right cultural fit for your team.',
+          image: OurProcess1,
+        },
+        {
+          id: 2,
+          title: 'Long-Term Contracts',
+          description:
+            'Looking for consistency and reliability? Our long-term contract staffing ensures you get professionals who align with your company values and have the expertise to deliver lasting results. ',
+          image: OurProcess2,
+        },
+        {
+          id: 3,
+          title: 'Direct Placement',
+          description:
+            'Hiring permanent employees is about more than filling a role—it’s about finding the right person who complements your team and drives growth. From entry-level positions to leadership roles, we help you find the perfect fit.',
+          image: OurProcess3,
+        },
+      ],
+    },
+    whyBusinessChoosesUsData: {
+      headingData: {
+        heading: 'Why do businesses choose ',
+        coloredHeading: 'Nextloop Technologies?',
+        description: '',
+      },
+      heroImage: WhyBusinessChooseUs,
+      items: [
+        {
+          id: 1,
+          title: '50%',
+          description: 'Faster Hiring: Reduce time-to-hire',
+        },
+        {
+          id: 2,
+          title: '95%',
+          description:
+            'Quality Match Rate: Pre-vetted and skill-verified candidates.',
+        },
+        {
+          id: 3,
+          title: '10+',
+          description: 'Countries Covered: Global staffing solutions',
+        },
+        {
+          id: 4,
+          title: '100%',
+          description: 'Flexible Options: Permanent, contract, remote, or hybrid.',
+        },
+      ],
+    },
+    staffingIndustriesData: {
+      headingData: {
+        heading: 'Staffing All  ',
+        coloredHeading: 'Industries & Functions',
+        description:
+          'From startups to global enterprises, we cover every industry and function.',
+      },
+      items: [
+        {
+          id: 1,
+          title: 'IT & Technology',
+          image: MdComputer,
+        },
+        {
+          id: 2,
+          title: 'Healthcare & Pharma',
+          image: FaHandHoldingMedical,
+        },
+        {
+          id: 3,
+          title: 'Finance & Banking',
+          image: BsBank,
+        },
+        {
+          id: 4,
+          title: 'Retail & E-commerce',
+          image: FiShoppingCart,
+        },
+        {
+          id: 5,
+          title: 'Education & EdTech',
+          image: MdOutlineSchool,
+        },
+        {
+          id: 6,
+          title: 'Oil & Gas',
+          image: GiOilPump,
+        },
+      ],
+    },
+    techStackData: [
+      {
+        title: 'FRONTEND',
+        items: [
+          { name: 'AngularJS', image: AngularIcon.src },
+          { name: 'React', image: ReactIcon.src },
+          { name: 'Vue.js', image: VueIcon.src },
+          { name: 'HTML5', image: Html5Icon.src },
+          { name: 'Stencil', image: StencilIcon.src },
+          { name: 'Svelte', image: SvelteIcon.src },
+        ],
+      },
+      {
+        title: 'MOBILE',
+        items: [
+          { name: 'AngularJS', image: androidIcon.src },
+          { name: 'React', image: iosIcon.src },
+          { name: 'Vue.js', image: ionicIcon.src },
+          { name: 'HTML5', image: reactNativeIcon.src },
+          { name: 'Stencil', image: objcIcon.src },
+          { name: 'Svelte', image: flutterIcon.src },
+        ],
+      },
+      {
+        title: 'OPEN SOURCE',
+        items: [
+          { name: 'AngularJS', image: javaIcon.src },
+          { name: 'React', image: nodeIcon.src },
+          { name: 'Vue.js', image: phpIcon.src },
+          { name: 'HTML5', image: pythonIcon.src },
+          { name: 'Stencil', image: rubyIcon.src },
+          { name: 'Svelte', image: golangIcon.src },
+        ],
+      },
+      {
+        title: 'UI/UX',
+        items: [
+          { name: 'AngularJS', image: XDIcon.src },
+          { name: 'React', image: PSIcon.src },
+          { name: 'Vue.js', image: figmaIcon.src },
+          { name: 'HTML5', image: AIIcon.src },
+          { name: 'Stencil', image: seekIcon.src },
+          { name: 'Svelte', image: webflowIcon.src },
+        ],
+      },
+      {
+        title: 'CLOUD',
+        items: [
+          { name: 'AngularJS', image: amazonWebServicesIcon.src },
+          { name: 'React', image: msAzureIcon.src },
+          { name: 'Vue.js', image: googleCloudIcon.src },
+          { name: 'HTML5', image: salesForceIcon.src },
+          { name: 'Stencil', image: ibmCloudIcon.src },
+          { name: 'Svelte', image: digitalOceanIcon.src },
+        ],
+      },
+      {
+        title: 'BLOCKCHAIN',
+        items: [
+          { name: 'AngularJS', image: solidityIcon.src },
+          { name: 'React', image: web3Icon.src },
+          { name: 'Vue.js', image: etherjsIcon.src },
+          { name: 'HTML5', image: ethereumIcon.src },
+          { name: 'Stencil', image: fabricIcon.src },
+          { name: 'Svelte', image: solanaIcon.src },
+        ],
+      },
+      {
+        title: 'OTHERS',
+        items: [
+          { name: 'AngularJS', image: uiPathIcon.src },
+          { name: 'React', image: drupalIcon.src },
+          { name: 'Vue.js', image: sapIcon.src },
+          { name: 'HTML5', image: googleAnalyticsIcon.src },
+          { name: 'Stencil', image: vrarIcon.src },
+          { name: 'Svelte', image: salesforceIcon.src },
+        ],
+      },
+      {
+        title: 'AI & ML',
+        items: [
+          { name: 'AngularJS', image: pythonIcon.src },
+          { name: 'React', image: tensorFlowIcon.src },
+          { name: 'Vue.js', image: openCvIcon.src },
+          { name: 'HTML5', image: pytorchIcon.src },
+          { name: 'Stencil', image: sparkIcon.src },
+          { name: 'Svelte', image: mahoutIcon.src },
+        ],
+      },
+    ],
+    faqsContent: [
+      {
+        id: 1,
+        question: 'How long does it take to develop an MVP?',
+        answer: 'It depends on the complexity, but most MVPs take 2-6 months.',
+      },
+      {
+        id: 2,
+        question: 'Can you help refine my MVP idea?',
+        answer:
+          'Yes! We provide consulting to define the best features for your MVP.',
       },
       {
         id: 3,

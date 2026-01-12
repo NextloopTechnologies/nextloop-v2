@@ -38,9 +38,9 @@ const cards: { title: string; desc: string; link: string }[] = [
     link: '/services/ui-ux-development',
   },
   {
-    title: 'Hire Dedicated Team',
+    title: 'Staffing',
     desc: 'Need to bolster your development team with top-tier talent? Look no further! We can provide you with highly skilled and experienced developers dedicated to bringing your vision to life.  Think of it as seamlessly extending your in-house team with the perfect expertise you need.',
-    link: '/services/hire-dedicated-team',
+    link: '/services/staffing',
   },
   {
     title: 'E-commerce Development',
@@ -101,7 +101,7 @@ const Services = () => {
               <h2 className='font-medium lg:text-4xl text-2xl w-4/5'>
                 {card.title}
               </h2>
-              <p className=''>{card.desc}</p>
+              <p>{card.desc}</p>
             </div>
           </Link>
         ))}

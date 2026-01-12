@@ -72,11 +72,10 @@ const Coverover: FC<CoveroverProps> = ({ isOpen }) => {
             <div className='flex flex-col overflow-x-hidden  lg:px-20 z-50'>
               {imageArray.map((item, index) => {
                 return (
-                  <div key={index} className=''>
+                  <div key={index} >
                     <div
-                      className={`flex ${
-                        index % 2 !== 0 ? 'justify-start' : 'justify-end'
-                      } m-4 lg:flex-row flex-col`}
+                      className={`flex ${index % 2 !== 0 ? 'justify-start' : 'justify-end'
+                        } m-4 lg:flex-row flex-col`}
                     >
                       <div className='relative'>
                         <Image

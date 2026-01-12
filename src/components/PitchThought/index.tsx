@@ -1,17 +1,15 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC, useState } from 'react';
+import { BiSolidPhoneCall } from "react-icons/bi";
+import { FaFacebookF, FaGoogle, FaInstagram, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
+import { ImLocation } from "react-icons/im";
+import { IoIosMail, IoMdMail } from "react-icons/io";
+import { LuDot } from "react-icons/lu";
 
 import CustomDropdown from '../CustomDropdown';
 import palette from '../../styles/pallette';
 import { EnquiryType } from '../../types';
 import { createInquiryForm } from '../../utils/db';
-import { FACEBOOK, GOOGLE, INSTAGRAM, LINKIN, Mail } from '../../../assets';
-import LocationIcon from '../../../assets/getInTouch/LocationIcon.png';
-import MailIcon from '../../../assets/getInTouch/MailIcon.png';
-import PhoneIcon from '../../../assets/getInTouch/PhoneIcon.png';
-import TwitterIcon from '../../../assets/getInTouch/twitterIcon.png';
-import { Dot } from 'lucide-react';
 
 interface OptionType {
   label: string;
@@ -81,9 +79,7 @@ const PitchThought: FC = () => {
         setTimeout(() => {
           setSuccessMessage('');
         }, 3000);
-      }
-      else
-        setError('Something went wrong. Please try again.');
+      } else setError('Something went wrong. Please try again.');
     } catch {
       setError('An error occurred while submitting the form.');
     }
@@ -174,13 +170,9 @@ const PitchThought: FC = () => {
           <div className='flex justify-center w-full text-white mt-6 md:mt-0'>
             <div className='flex flex-col justify-start lg:w-2/3 gap-y-5 w-full'>
               <div className='flex items-center'>
-                <Image
-                  src={MailIcon}
-                  height={24}
-                  width={24}
-                  alt='inventory-card-icon'
-                  className='mr-4'
-                />
+                <div className="mr-4 bg-white w-6 h-6 rounded-full flex items-center justify-center">
+                  <IoIosMail className='w-5 h-5 text-black' />
+                </div>
                 <div
                   className={`flex ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
                 >
@@ -190,13 +182,9 @@ const PitchThought: FC = () => {
                 </div>
               </div>
               <div className='flex items-center'>
-                <Image
-                  src={LocationIcon}
-                  height={24}
-                  width={24}
-                  alt='inventory-card-icon'
-                  className='mr-4'
-                />
+                <div className="mr-4 bg-white w-6 h-6 rounded-full flex items-center justify-center">
+                  <ImLocation className='w-5 h-4 text-black mx-1' />
+                </div>
                 <div
                   className={`flex ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
                 >
@@ -206,25 +194,20 @@ const PitchThought: FC = () => {
                     )}`}
                     target='_blank'
                     rel='noopener noreferrer'
-                  // style={{ color: 'blue', textDecoration: 'underline' }}
                   >
                     {location}
                   </a>
                 </div>
               </div>
               <div className='flex items-center'>
-                <Image
-                  src={PhoneIcon}
-                  height={24}
-                  width={24}
-                  alt='inventory-card-icon'
-                  className='mr-4'
-                />
+                <div className="mr-4 bg-white w-6 h-6 rounded-full flex items-center justify-center">
+                  <BiSolidPhoneCall className='w-5 h-4 text-black mx-1' />
+                </div>
                 <div
                   className={`flex gap-x-1 ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
                 >
-                  <a href='tel:+918103542991'>+918103542991</a>,
-                  <a href='tel:+919893954683'>+919893954683</a>
+                  <a href='tel:+919893738323'>+919893738323</a>,
+                  <a href='tel:+919924299318'>+919924299318</a>
                 </div>
               </div>
 
@@ -237,73 +220,57 @@ const PitchThought: FC = () => {
               </div>
               <div className='border-b border-orange-500 w-full border-t-4 mb-2 md:mb-0'></div>
               <div>
-                <ul className='flex gap-x-7 mb-10 md:mb-5'>
+                <ul className="flex gap-x-7 mb-10 md:mb-5 flex-wrap">
                   <li>
-                    <Link
-                      href='https://www.facebook.com/profile.php?id=61556914381569&mibextid=ZbWKwL'
-                      passHref
-                    >
-                      <Image
-                        src={FACEBOOK}
-                        alt='fb-icon'
-                        className='w-14 h-14 object-contain'
-                      />
-                    </Link>
+                    <a href="https://www.facebook.com/profile.php?id=61556914381569&mibextid=ZbWKwL" target='_blank'>
+                      <div className="w-14 h-14 bg-gray-700 rounded-full flex items-center justify-center">
+                        <FaFacebookF size={28} />
+                      </div>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="https://g.co/kgs/7LnLSHN" target='_blank'>
+                      <div className="w-14 h-14 bg-gray-700 rounded-full flex items-center justify-center">
+                        <FaGoogle size={28} />
+                      </div>
+                    </a>
                   </li>
                   <li>
-                    <Link href='https://g.co/kgs/7LnLSHN'>
-                      <Image
-                        src={GOOGLE}
-                        alt='google-icon'
-                        className='w-14 h-14 object-contain'
-                      />
-                    </Link>
+                    <a href="mailto:info@nextlooptechnologies.com" target='_blank'>
+                      <div className="w-14 h-14 bg-gray-700 rounded-full flex items-center justify-center">
+                        <IoMdMail size={28} />
+                      </div>
+                    </a>
                   </li>
+
                   <li>
-                    <Link
-                      aria-disabled
-                      href='mailto:info@nextlooptechnologies.com'
-                      aria-label='Send Email'
-                    >
-                      <Image
-                        src={Mail}
-                        alt='gmail-icon'
-                        className='w-14 h-14 object-contain'
-                      />
-                    </Link>
+                    <a href="https://www.instagram.com/nextloop.technologies/" target='_blank'>
+                      <div className="w-14 h-14 bg-gray-700 rounded-full flex items-center justify-center">
+                        <FaInstagram size={28} />
+                      </div>
+                    </a>
                   </li>
+
                   <li>
-                    <Link
-                      aria-disabled
-                      href='https://www.instagram.com/nextloop.technologies/'
-                    >
-                      <Image
-                        src={INSTAGRAM}
-                        alt='instagram-icon'
-                        className='w-14 h-14 object-contain'
-                      />
-                    </Link>
+                    <a href="https://www.linkedin.com/company/nextloop-technologies-llp" target='_blank'>
+                      <div className="w-14 h-14 bg-gray-700 rounded-full flex items-center justify-center">
+                        <FaLinkedinIn size={28} />
+                      </div>
+                    </a>
                   </li>
+
                   <li>
-                    <Link href='https://www.linkedin.com/company/nextloop-technologies-llp'>
-                      <Image
-                        src={LINKIN}
-                        alt='x-icon'
-                        className='w-14 h-14 object-contain'
-                      />
-                    </Link>
+                    <a href="https://x.com/Nextloop_" target='_blank'>
+                      <div className="w-14 h-14 bg-gray-700 rounded-full flex items-center justify-center">
+                        <FaXTwitter size={28} />
+                      </div>
+                    </a>
                   </li>
-                  <li>
-                    <Link href='https://x.com/Nextloop_'>
-                      <Image
-                        src={TwitterIcon}
-                        alt='insta-icon'
-                        className='w-14 h-14 object-contain'
-                      />
-                    </Link>
-                  </li>
+
                 </ul>
               </div>
+
             </div>
           </div>
         </div>
@@ -316,9 +283,11 @@ const PitchThought: FC = () => {
           Reserved.
         </p>
         <p className='flex justify-center items-center mt-2 sm:mt-0'>
-          <Link href="/cookies-policy">Cookie Policy</Link>
-          <span><Dot className='w-8 h-8 my-auto'></Dot></span>
-          <Link href="/privacy">Privacy Policy</Link>
+          <Link href='/cookies-policy'>Cookie Policy</Link>
+          <span>
+            <LuDot className='w-8 h-8 my-auto' />
+          </span>
+          <Link href='/privacy'>Privacy Policy</Link>
         </p>
       </div>
     </>
