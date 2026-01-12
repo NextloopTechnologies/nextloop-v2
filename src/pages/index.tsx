@@ -22,6 +22,7 @@ import { IPortfolio } from '../types';
 import supabaseClient from '../utils/client';
 import useWindowSize from '../utils/useWindowSize';
 
+
 const sectionStyle: React.CSSProperties = {
   minHeight: '100vh',
   display: 'flex',
@@ -244,6 +245,10 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
         <title>
           Custom Software, IT & Digital Solutions | Nextloop Technologies{' '}
         </title>
+         <meta
+          name='title'
+          content='abcd'
+        />
         <meta
           name='description'
           content='Nextloop Technologies delivers custom software, IT consulting, web & mobile app dev, cloud services, AI/ML & digital marketing personalised for your business'

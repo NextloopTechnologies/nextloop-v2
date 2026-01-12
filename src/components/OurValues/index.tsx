@@ -55,17 +55,16 @@ const OurValues: FC = () => {
       <div className='flex justify-center items-center w-full  overflow-x-hidden flex-col py-5 pb-24 pt-10'>
         <header className='flex gap-10 lg:w-4/6 lg:px-0 text-center'>
           <div className='w-full flex flex-col justify-center items-center gap-y-3 z-10 px-4 pt-4'>
-            <span
+            <h2
               className={`${palette.fontSize.heading2.mobile} md:text-4xl 2xl:text-4xl uppercase font-bold text-center`}
             >
-              OUR <span className='text-orange-500'>Values</span>
-            </span>
-            <span
+              Our <span className='text-orange-500'>Values</span>
+            </h2>
+            <h3
               className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} lg:px-20  text-center`}
             >
-              Accelerating digital outcomes through rapid innovation and
-              strategic execution.
-            </span>
+              Our culture of trust, creativity, and accountability drives everything we build and deliver 
+            </h3>
           </div>
         </header>
         <div className='grid grid-cols-1 sm:grid-cols-5 sm:grid-rows-1 gap-4 px-5 mt-10 mx-10'>

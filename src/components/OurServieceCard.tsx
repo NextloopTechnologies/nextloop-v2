@@ -14,11 +14,11 @@ const OurServieceCard: FC<ServiceCardProps> = ({ heading, image }) => {
       <div className='relative w-[170px] h-[150px]  sm:w-[190px] sm:h-[150px] overflow-hidden rounded-[33px]'>
         <Image src={image} alt={image} className='w-full h-full object-cover' />
         <div className='absolute inset-0 flex items-center justify-center bg-black bg-opacity-80'>
-          <h2
+          <h4
             className={`text-white ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.mobile} text-center font-semibold p-2`}
           >
             {heading}
-          </h2>
+          </h4>
         </div>
       </div>
     </div>

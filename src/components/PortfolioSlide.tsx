@@ -60,27 +60,35 @@ const PortfolioSlide: FC = () => {
 
   return (
     <div className='min-w-full max-w-full m-auto relative overflow-hidden'>
-      <div className='relative w-full h-screen'>
+      <div className='relative w-full h-[80vh] md:h-screen overflow-hidden'>
         {IMAGE_DATA.map((item, index) => (
           <Image
             key={index}
             src={item.image}
             alt={`image-${index}`}
-            className={`absolute top-0 left-0 w-full h-full object-fill object-top transition-all duration-700 ease-in-out ${index === currentSlide
-              ? 'opacity-100 z-10'
-              : 'opacity-0 z-0 pointer-events-none'
-              }`}
             fill
+            className={`absolute inset-0 object-cover object-center transition-opacity duration-700 ease-in-out
+              ${index === currentSlide
+                ? 'opacity-100 z-10'
+                : 'opacity-0 z-0 pointer-events-none'
+              }`}
+            priority={index === 0}
           />
+
         ))}
 
         <div className='absolute inset-0 z-20 flex flex-col justify-between items-center px-4 py-6'>
-          <div className='mt-4 sm:mt-6 text-center'>
-            <span
+          <div className='w-full flex flex-col justify-center items-center gap-y-1 md:gap-y-3 z-10 px-4'>
+            <h2
               className={`${palette.fontSize.heading2.mobile} md:text-4xl 2xl:text-4xl uppercase font-bold text-white`}
             >
-              our <span className='text-orange-500'>portfolio</span>
-            </span>
+              Our <span className='text-orange-500'>Portfolio</span>
+            </h2>
+            <h3
+             className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}  text-center`}
+            >
+              Showcasing innovative software and digital solutions that deliver measurable business impact
+            </h3>
           </div>
 
           <div className='flex flex-col items-center gap-4 mt-8 mb-2 md:mt-12 md:mb-4'>
@@ -111,14 +119,14 @@ const PortfolioSlide: FC = () => {
 
         <button
           onClick={() => handleImages(-1)}
-          className='absolute top-[50%] left-0 pl-5 transform -translate-y-1/2 hover:scale-110 active:scale-95 z-30'
+          className='absolute top-1/2 left-2 md:left-5 -translate-y-1/2 z-30'
         >
 
           <MoveLeft className='object-cover text-orange-500' size={50} />
         </button>
         <button
           onClick={() => handleImages(1)}
-          className='absolute top-[50%] right-0 pr-5 transform -translate-y-1/2 hover:scale-110 active:scale-95 z-30'
+          className='absolute top-1/2 right-2 md:right-5 -translate-y-1/2 z-30'
         >
           <MoveRight className='object-cover text-orange-500' size={50} />
         </button>

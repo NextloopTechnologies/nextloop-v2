@@ -1,8 +1,9 @@
 
-import React from 'react';
 // Importing the required icons from lucide-react
-import { BarChart2, Cpu, Cloud, FileText, Settings, GitBranch, } from 'lucide-react';
+import { BarChart2, Cloud, Cpu, FileText, GitBranch,Settings,  } from 'lucide-react';
 import { Columns3 } from 'lucide-react';
+import React from 'react';
+
 import palette from '../../../styles/pallette';
 type BoxProps = {
   icon: React.ReactNode; // Now using ReactNode since we're passing Lucide icons

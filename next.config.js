@@ -23,8 +23,7 @@ module.exports = withBundleAnalyzer({
       {
         protocol: 'https',
         hostname: 'ik.imagekit.io',
-        port: '',
-        pathname: '/nextloop/**',
+        
       },
     ],
   },

@@ -58,14 +58,15 @@ const OurCLients: FC = () => {
           <div
             className={`${palette.fontSize.heading2.mobile} md:text-4xl text-white uppercase font-bold text-center`}
           >
-            OUR <span className='text-orange-500'>Clients</span>
+            <h2>
+              Our <span className='text-orange-500'>Clients</span>
+            </h2>
           </div>
-          <span
+          <h3
             className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} text-white text-center`}
           >
-            Accelerating digital outcomes through rapid innovation and strategic
-            execution.
-          </span>
+            Trusted by global brands and startups for innovative technology solutions and lasting partnership
+          </h3>
         </div>
       </header>
 

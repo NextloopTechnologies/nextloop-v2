@@ -2310,7 +2310,7 @@ export const servicesSubPagesData = {
       coloredTitle: 'MVP ',
       title: 'DEVELOPMENT',
       subtitle:
-        'Digital marketing is the promotion of products, services, or brands using online channels like search engines, social media, email, and websites. It helps businesses reach their target audience, increase brand awareness, and drive sales. In today’s digital world, having a strong online presence is essential for business success. We provide expert digital marketing solutions that help you grow your brand, attract customers, and increase revenue. From SEO to social media marketing, we use data-driven strategies to boost your business online.',
+        'At Nextloop Technologies, we specialize in building high-quality Minimum Viable Products (MVPs) that help startups and businesses validate their ideas quickly and cost-effectively. Our MVP development services are designed to turn your concept into a functional, market-ready product using the latest technologies and agile methods. We focus on defining the right features, designing seamless user experiences, and developing scalable MVPs that allow you to test, refine, and grow your product with real user feedback. ',
     },
     expertiseData: {
       headingData: {
@@ -2581,34 +2581,34 @@ export const servicesSubPagesData = {
       items: [
         {
           id: 1,
-          title: 'Comprehensive Support:',
+          title: 'Comprehensive Support',
           description: 'Candidate search, curation, onboarding, and beyond.',
           image: MdOutlineSupportAgent,
         },
         {
           id: 2,
-          title: 'Expert Recruiters:',
+          title: 'Expert Recruiters',
           description:
             'A skilled team with deep expertise across industries and roles.',
           image: TbDeviceDesktopSearch,
         },
         {
           id: 3,
-          title: 'Global Reach:',
+          title: 'Global Reach',
           description:
             'Staffing solutions for businesses of all sizes, across multiple countries.',
           image: AiOutlineGlobal,
         },
         {
           id: 4,
-          title: 'Flexible Engagement:',
+          title: 'Flexible Engagement',
           description:
             'We work within your budget, and you only pay once your candidate joins.',
           image: GrDirections,
         },
         {
           id: 5,
-          title: 'Industry Expertise:',
+          title: 'Industry Expertise',
           description: 'Our recruiters understand your sector inside out.',
           image: FaHandHoldingHand,
         },
@@ -2623,21 +2623,25 @@ export const servicesSubPagesData = {
       items: [
         {
           id: 1,
-          title: 'We Find the Best Candidates',
-          description: `Need talent for a specific project or seasonal demand? We provide skilled professionals for short-term engagements, ensuring they’re not just qualified on paper but also the right cultural fit for your team.
-
-Need talent for a specific project or seasonal demand? We provide skilled professionals for short-term engagements, ensuring they’re not just qualified on paper but also the right cultural fit for your team`,
+          title: 'Tell Us What You Need',
+          description: `The first step is all about understanding your unique needs. You’ll provide detailed information about the role, including technical skills, experience level, certifications, and any specific industry knowledge required. Additionally, share your project timeline, team structure, and work culture. This step allows us to tailor our search specifically to your requirements, ensuring that every candidate we present is relevant and highly qualified.`,
         },
         {
           id: 2,
-          title: 'You Hire with Confidence',
-          description: `Need talent for a specific project or seasonal demand? We provide skilled professionals for short-term engagements, ensuring they’re not just qualified on paper but also the right cultural fit for your team`,
+          title: 'We Find the Best Candidates',
+          description: `Once we have a clear understanding of your needs, our recruitment team activates a multi-channel sourcing strategy. We tap into our extensive network of IT professionals, partner platforms, and industry communities to identify potential candidates. Each candidate undergoes a thorough screening process, including:
+•	Resume and Profile Evaluation
+•	Technical Assessments
+•	Behavioral and Cultural Fit Analysis
+•	Background and Reference Checks
+Through this rigorous process, only the top-performing candidates are shortlisted, saving you time and reducing the risk of hiring mismatches.`,
         },
         {
           id: 3,
-          title: 'Tell Us What You Need',
-          description: `We provide skilled professionals for short-term engagements, ensuring they’re not just qualified on paper but also the right cultural fit for your team, Need talent for a specific project or seasonal demand? We provide skilled professionals for short-term engagements, ensuring they’re not just qualified on paper but also the right cultural fit for your team`,
+          title: 'You Hire with Confidence',
+          description: `After screening, we present you with a curated list of the most suitable candidates. You can review their profiles, schedule interviews, and assess their fit for your team. Our team supports you throughout this stage, coordinating interviews, collecting feedback, and facilitating communication between you and the candidates. Once you’ve made your selection, we assist with the onboarding process, ensuring that the new hire integrates smoothly into your team.`,
         },
+
       ],
     },
     flexibleHiringData: {
@@ -2841,7 +2845,7 @@ Need talent for a specific project or seasonal demand? We provide skilled profes
         id: 2,
         question: 'Can you help refine my MVP idea?',
         answer:
-          ' Yes! We provide consulting to define the best features for your MVP.',
+          'Yes! We provide consulting to define the best features for your MVP.',
       },
       {
         id: 3,

@@ -116,17 +116,17 @@ export const staticAssests = {
 };
 export const careerAssets = {
   leftBig:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers3.JPG?updatedAt=1725604764050',
+    'https://ik.imagekit.io/zyf3auqbs/New%20Folder/WhatsApp%20Image%202025-09-07%20at%2011.56.15_c35e3869%201.jpg',
   rightTop:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers2.JPG?updatedAt=1725604765462',
+    'https://ik.imagekit.io/zyf3auqbs/New%20Folder/WhatsApp%20Image%202025-12-01%20at%204.13.02%20PM%20(1)%20(1).jpeg',
   rightMiddle:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers4.JPG?updatedAt=1725604765957',
+    'https://ik.imagekit.io/zyf3auqbs/New%20Folder/IMG_9148.JPG',
   middleBig:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers7.jpg?updatedAt=1725617401791',
+    'https://ik.imagekit.io/zyf3auqbs/New%20Folder/WhatsApp%20Image%202025-12-06%20at%206.08.36%20PM.jpeg?updatedAt=1767772843900',
   bottomLeft:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers5.JPG?updatedAt=1725604767086',
+    'https://ik.imagekit.io/zyf3auqbs/New%20Folder/ImportedPhoto.764242101.332007.jpg?tr=c-maintain_ratio,ar-4-3',
   bottomRight:
-    'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers6.png?updatedAt=1725604772798',
+    'https://ik.imagekit.io/zyf3auqbs/New%20Folder/WhatsApp%20Image%202025-10-17%20at%201.53.23%20PM.jpeg',
   bottomBig:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers1.JPG?updatedAt=1725604762600',
 };

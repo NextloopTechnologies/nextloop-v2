@@ -1,16 +1,17 @@
-import React from 'react';
 import {
-  Smartphone,
-  Layout,
-  Search,
-  FileText,
   Calendar,
   ClipboardCheck,
-  CreditCard,
-  Headphones,
   Coffee,
-  Monitor
-} from 'lucide-react'; // Import the icons you need
+  CreditCard,
+  FileText,
+  Headphones,
+  Layout,
+  Monitor,
+  Search,
+  Smartphone} from 'lucide-react'; // Import the icons you need
+import Image from 'next/image'
+import React from 'react';
+
 import { GlobalInventoryImage } from '../../../../assets';
 import palette from '../../../styles/pallette';
 
@@ -66,7 +67,7 @@ const GlobalInventory = () => {
           ))}
         </div>
         <div className='hidden md:block -mt-2'>
-          <img
+          <Image
             src={GlobalInventoryImage.src}
             alt=''
             width={500}
