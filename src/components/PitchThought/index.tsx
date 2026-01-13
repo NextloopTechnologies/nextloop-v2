@@ -103,7 +103,7 @@ const PitchThought: FC = () => {
         </h2>
         <div
           id='footer'
-          className='flex lg:flex-row flex-col items-center px-10'
+          className='flex lg:flex-row gap-8 flex-col items-center px-10'
         >
           <div className='flex gap-x-10 justify-end w-full text-white md:pl-10'>
             <div className='flex flex-col gap-y-4  w-full pb-5'>
@@ -168,7 +168,7 @@ const PitchThought: FC = () => {
             </div>
           </div>
           <div className='flex justify-center w-full text-white mt-6 md:mt-0'>
-            <div className='flex flex-col justify-start lg:w-2/3 gap-y-5 w-full'>
+            <div className='flex flex-col justify-start gap-y-5 w-11/12'>
               <div className='flex items-center'>
                 <div className="mr-4 bg-white w-6 h-6 rounded-full flex items-center justify-center">
                   <IoIosMail className='w-5 h-5 text-black' />
@@ -220,7 +220,7 @@ const PitchThought: FC = () => {
               </div>
               <div className='border-b border-orange-500 w-full border-t-4 mb-2 md:mb-0'></div>
               <div>
-                <ul className="flex gap-x-7 mb-10 md:mb-5 flex-wrap">
+                <ul className="flex gap-7 justify-evenly md:justify-start  mb-10 md:mb-5 flex-wrap ">
                   <li>
                     <a href="https://www.facebook.com/profile.php?id=61556914381569&mibextid=ZbWKwL" target='_blank'>
                       <div className="w-14 h-14 bg-gray-700 rounded-full flex items-center justify-center">
