@@ -86,7 +86,7 @@ const PitchThought: FC = () => {
   };
 
   return (
-    <>
+    <div>
       {/* <Head>
         <title>Nextloop Technologies | Let's Connect</title>
         <meta
@@ -290,7 +290,7 @@ const PitchThought: FC = () => {
           <Link href='/privacy'>Privacy Policy</Link>
         </p>
       </div>
-    </>
+    </div>
   );
 };
 

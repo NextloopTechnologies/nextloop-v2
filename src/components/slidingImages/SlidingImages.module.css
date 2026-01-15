@@ -2,13 +2,14 @@
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
 }
 
 .marquee {
-  animation: marquee 15s linear infinite;
+  animation: marquee 8s linear infinite;
   display: flex;
   width: max-content;
 }

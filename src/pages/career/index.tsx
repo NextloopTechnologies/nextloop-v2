@@ -3,13 +3,18 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { LiaLongArrowAltRightSolid } from "react-icons/lia";
 
-import SlidingImages from './SlidingImages';
 import Layout from '../../components/Layout/Layout';
+import LifeAtNextloop from '../../components/lifeatnextloop/lifeatnextloop';
 import PageHero from '../../components/PageHero';
+import PerksBenefitsSection from '../../components/perksandbenefits/PerksBenefitsSection';
+import SlidingImages from '../../components/slidingImages/SlidingImages';
 import { Job } from '../../types';
 import supabaseClient from '../../utils/client';
 import { careerImages } from '../../../assets';
 import careerBg from '../../../assets/careerBg.png';
+
+
+
 
 const CareersPage: React.FC<{ jobs?: Job[]; error?: string }> = ({
   jobs,
@@ -43,28 +48,34 @@ const WhyUs = () => (
       <span className='text-orange-500'>POSSIBLE?</span>
     </p>
 
-    <SlidingImages images={careerImages} />
+    <SlidingImages images={careerImages || []} />
+
 
   </div>
 );
 
 const Jobs: React.FC<{ jobs?: Job[]; error?: string }> = ({ error, jobs }) => (
-  <div className='min-h-screen aboutUsPageBackgroundImage flex flex-col gap-24 items-center justify-center text-white p-8 lg:px-0 lg:py-8'>
+  <div>
+    <div className='min-h-screen aboutUsPageBackgroundImage flex flex-col gap-14 items-center justify-center text-white p-8 lg:px-0 lg:py-8'>
 
-    <p className='font-bold xl:text-4xl md:text-5xl text-3xl uppercase xl:w-[30%] text-center'>
-      find a <span className='text-orange-500'>suitable job</span> for you
-    </p>
-    {error ? (
-      <div className='flex items-center justify-center h-screen text-4xl'>
-        {error}
-      </div>
-    ) : (
-      <div className='grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full place-items-center sm:gap-6 gap-6 p-2'>
-        {jobs?.map((j) => (
-          <JobCard job={j} key={j.id} />
-        ))}
-      </div>
-    )}
+      <p className='font-bold xl:text-4xl md:text-5xl text-3xl uppercase xl:w-[30%] text-center'>
+        find a <span className='text-orange-500'>suitable job</span> for you
+      </p>
+      {error ? (
+        <div className='flex items-center justify-center h-screen text-4xl'>
+          {error}
+        </div>
+      ) : (
+        <div className=' grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 place-items-center sm:gap-6 gap-6 p-2'>
+          {jobs?.map((j) => (
+            <JobCard job={j} key={j.id} />
+          ))}
+        </div>
+      )}
+
+    </div>
+    <PerksBenefitsSection />
+    <LifeAtNextloop />
   </div>
 );
 
@@ -74,7 +85,7 @@ const JobCard: React.FC<{ job: Job }> = ({
   const router = useRouter();
   return (
     <div
-      className="group sm:w-[400px] w-full bg-white text-black rounded-xl flex flex-col transition-all duration-300 hover:bg-orange-500 hover:shadow-lg hover:scale-105"
+      className="group w-[370px] bg-white text-black rounded-xl flex flex-col transition-all duration-300 hover:bg-orange-500 hover:shadow-lg hover:scale-105"
     >
       {/* TITLE */}
       <div className="px-6 pt-8 min-h-[110px]">
@@ -110,7 +121,7 @@ const JobCard: React.FC<{ job: Job }> = ({
         </button>
       </div>
     </div>
-    
+
   );
 };
 
