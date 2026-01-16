@@ -4,10 +4,10 @@ import { useRouter } from 'next/router';
 import { LiaLongArrowAltRightSolid } from "react-icons/lia";
 
 import Layout from '../../components/Layout/Layout';
-import LifeAtNextloop from '../../components/Lifeatnextloop/lifeatnextloop';
+import LifeAtNextloop from '../../components/lifeatnextloop/lifeatnextloop';
 import PageHero from '../../components/PageHero';
 import PerksBenefitsSection from '../../components/Perksandbenefits/PerksBenefitsSection';
-import SlidingImages from '../../components/SlidingImages/SlidingImages';
+import SlidingImages from '../../components/slidingImages/SlidingImages';
 import { Job } from '../../types';
 import supabaseClient from '../../utils/client';
 import { careerImages } from '../../../assets';
