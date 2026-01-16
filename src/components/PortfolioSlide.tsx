@@ -1,7 +1,7 @@
 import { MoveLeft, MoveRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { FC, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import palette from '../styles/pallette';
 import {
@@ -17,121 +17,125 @@ interface PortfolioCardProps {
 }
 
 const IMAGE_DATA: PortfolioCardProps[] = [
-  {
-    image: Portfolio1 as unknown as string,
-    caption: '1st image caption',
-    link: 'portfolio/4/?scrollToHeader=true',
-  },
-  {
-    image: Portfolio2 as unknown as string,
-    caption: '2nd image caption',
-    link: 'portfolio/5/?scrollToHeader=true',
-  },
-  {
-    image: Portfolio3 as unknown as string,
-    caption: '3rd image caption',
-    link: 'portfolio/2/?scrollToHeader=true',
-  },
-  {
-    image: Portfolio4 as unknown as string,
-    caption: '4th image caption',
-    link: 'portfolio/1/?scrollToHeader=true',
-  },
+  { image: Portfolio1 as unknown as string, caption: 'BrewPod', link: 'portfolio/4/?scrollToHeader=true' },
+  { image: Portfolio2 as unknown as string, caption: 'Shower Wealth Academy', link: 'portfolio/5/?scrollToHeader=true' },
+  { image: Portfolio3 as unknown as string, caption: 'Millennials', link: 'portfolio/2/?scrollToHeader=true' },
+  { image: Portfolio4 as unknown as string, caption: 'Blue Bird Event', link: 'portfolio/1/?scrollToHeader=true' },
 ];
 
-const PortfolioSlide: FC = () => {
-  const [currentSlide, setCurrentSlide] = useState<number>(0);
-
-  const handleImages = (count: number) => {
-    setCurrentSlide((prev) => {
-      const next = prev + count;
-      if (next >= IMAGE_DATA.length) return 0;
-      if (next < 0) return IMAGE_DATA.length - 1;
-      return next;
-    });
-  };
+const PortfolioSlide = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [itemsPerView, setItemsPerView] = useState(1);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % IMAGE_DATA.length);
-    }, 3000);
-    return () => clearInterval(interval);
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setItemsPerView(2); // Tablet & Desktop
+      } else {
+        setItemsPerView(1); // Mobile
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const handleNext = () => {
+    if (currentIndex + itemsPerView < IMAGE_DATA.length) {
+      setCurrentIndex(currentIndex + itemsPerView);
+    }
+  };
+
+  const handlePrev = () => {
+    if (currentIndex - itemsPerView >= 0) {
+      setCurrentIndex(currentIndex - itemsPerView);
+    }
+  };
+
   return (
-    <div className='min-w-full max-w-full m-auto relative overflow-hidden'>
-      <div className='relative w-full h-[80vh] md:h-screen overflow-hidden'>
-        {IMAGE_DATA.map((item, index) => (
-          <Image
-            key={index}
-            src={item.image}
-            alt={`image-${index}`}
-            fill
-            className={`absolute inset-0 object-cover object-center transition-opacity duration-700 ease-in-out
-              ${index === currentSlide
-                ? 'opacity-100 z-10'
-                : 'opacity-0 z-0 pointer-events-none'
-              }`}
-            priority={index === 0}
-          />
+    <section className="w-full bg-black py-16 px-4">
+      <div className="w-[80vw] mx-auto">
 
-        ))}
-
-        <div className='absolute inset-0 z-20 flex flex-col justify-between items-center px-4 py-6'>
-          <div className='w-full flex flex-col justify-center items-center gap-y-1 md:gap-y-3 z-10 px-4'>
-            <h2
-              className={`${palette.fontSize.heading2.mobile} md:text-4xl 2xl:text-4xl uppercase font-bold text-white`}
-            >
-              Our <span className='text-orange-500'>Portfolio</span>
-            </h2>
-            <h3
-             className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}  text-center`}
-            >
-              Showcasing innovative software and digital solutions that deliver measurable business impact
-            </h3>
-          </div>
-
-          <div className='flex flex-col items-center gap-4 mt-8 mb-2 md:mt-12 md:mb-4'>
-            <Link href={IMAGE_DATA[currentSlide]?.link || '#'} passHref>
-              <button className='text-orange-500 text-[14px] outline-none bg-white border border-orange-500 px-5 py-1 rounded-[20px]'>
-                View Case Study
-              </button>
-            </Link>
-            <div>
-              {IMAGE_DATA.map((_, index) => (
-                <span
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  style={{
-                    display: 'inline-block',
-                    width: 8,
-                    height: 8,
-                    borderRadius: '50%',
-                    margin: '0 5px',
-                    background: index === currentSlide ? '#bbb' : '#eee',
-                    cursor: 'pointer',
-                  }}
-                ></span>
-              ))}
-            </div>
-          </div>
+        {/* Heading */}
+        <div className="text-center mb-14">
+          <h2 className={`${palette.fontSize.heading2.mobile} md:text-4xl uppercase font-bold text-white`}>
+            Our <span className="text-orange-500">Portfolio</span>
+          </h2>
+          <p className="mt-3 text-gray-300 max-w-3xl mx-auto">
+            Showcasing innovative software and digital solutions that deliver measurable business impact
+          </p>
         </div>
 
-        <button
-          onClick={() => handleImages(-1)}
-          className='absolute top-1/2 left-2 md:left-5 -translate-y-1/2 z-30'
-        >
+        {/* Carousel */}
+        <div className="relative">
 
-          <MoveLeft className='object-cover text-orange-500' size={50} />
-        </button>
-        <button
-          onClick={() => handleImages(1)}
-          className='absolute top-1/2 right-2 md:right-5 -translate-y-1/2 z-30'
-        >
-          <MoveRight className='object-cover text-orange-500' size={50} />
-        </button>
+          {/* GRID FIXED HERE */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            {IMAGE_DATA.slice(currentIndex, currentIndex + itemsPerView).map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-col w-full"
+              >
+                {/* Image */}
+                <div className="relative w-full h-[300px] sm:h-[380px] md:h-[420px] lg:h-[480px] xl:h-[520px]">
+                  <Image
+                    src={item.image}
+                    alt={item.caption}
+                    fill
+                    className="object-cover rounded-2xl"
+                  />
+
+                  {/* Mobile arrows */}
+                  <button
+                    onClick={handlePrev}
+                    disabled={currentIndex === 0}
+                    className="md:hidden absolute left-2 top-1/2 -translate-y-1/2 z-30 bg-black/40 p-2 rounded-full disabled:opacity-30"
+                  >
+                    <MoveLeft className="text-orange-500 w-6 h-6" />
+                  </button>
+
+                  <button
+                    onClick={handleNext}
+                    disabled={currentIndex + itemsPerView >= IMAGE_DATA.length}
+                    className="md:hidden absolute right-2 top-1/2 -translate-y-1/2 z-30 bg-black/40 p-2 rounded-full disabled:opacity-30"
+                  >
+                    <MoveRight className="text-orange-500 w-6 h-6" />
+                  </button>
+                </div>
+
+                {/* Caption */}
+                <div className="py-4 flex justify-center">
+                  <Link href={item.link}>
+                    <p className="text-xl sm:text-2xl md:text-3xl font-semibold underline text-white hover:text-orange-500 transition-colors duration-300 text-center">
+                      {item.caption}
+                    </p>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop arrows */}
+          <button
+            onClick={handlePrev}
+            disabled={currentIndex === 0}
+            className="hidden md:block absolute left-[-60px] top-1/2 -translate-y-1/2 z-20 disabled:opacity-30"
+          >
+            <MoveLeft className="text-orange-500 w-11 h-11" />
+          </button>
+
+          <button
+            onClick={handleNext}
+            disabled={currentIndex + itemsPerView >= IMAGE_DATA.length}
+            className="hidden md:block absolute right-[-60px] top-1/2 -translate-y-1/2 z-20 disabled:opacity-30"
+          >
+            <MoveRight className="text-orange-500 w-11 h-11" />
+          </button>
+
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -16,7 +16,7 @@ const SlidingImages = ({ images = [] }: SlidingImagesProps) => {
         {[...images].map((src, index) => (
           <div
             key={index}
-            className="relative h-[260px] w-[420px] flex-shrink-0 mx-4"
+            className="relative h-[350px] w-[460px] flex-shrink-0 mx-4"
           >
             <Image
               src={src}
