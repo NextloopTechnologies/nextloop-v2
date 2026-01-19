@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import styles from './SlidingImages.module.css';
+import styles from './Sliding.module.css'
 
 
 interface SlidingImagesProps {

@@ -12,6 +12,7 @@ import ClientSays from '../components/ClientSays';
 // import Experience from '../components/Experience';
 import Intro from '../components/Intro';
 import Layout from '../components/Layout/Layout';
+import LogoSlide from '../components/LogoSlider';
 // import ClientSays from '../components/ClientSays';
 import OurCLient from '../components/OurClinet';
 import OurValues from '../components/OurValues';
@@ -21,6 +22,7 @@ import WhoWeAre from '../components/WhoWeAre';
 import { IPortfolio } from '../types';
 import supabaseClient from '../utils/client';
 import useWindowSize from '../utils/useWindowSize';
+import { LOGOS } from '../../assets';
 
 
 const sectionStyle: React.CSSProperties = {
@@ -243,9 +245,9 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
     <>
       <Head>
         <title>
-          Custom Software, IT & Digital Solutions | Nextloop Technologies{' '}
+          Custom Software, IT & Digital Solutions | Nextloop Technologies
         </title>
-         <meta
+        <meta
           name='title'
           content='abcd'
         />
@@ -256,14 +258,20 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
       </Head>
       <Layout divRefs={divRefs?.current} id='connect-with-us'>
         <div
-          id='intro'
+          id="intro"
           ref={setDivRef(0)}
-          className='sm:min-h-screen min-h-[50vh] aboutUsBackgroundImage'
+          className="relative sm:min-h-screen min-h-[50vh] aboutUsBackgroundImage"
         >
-          <div className='container min-w-[100vw]'>
+          <div className="container min-w-[100vw] min-h-full pb-28">
             <Intro />
           </div>
+
+          {/* Bottom-aligned logo slider */}
+          <div className="absolute bottom-4 sm:bottom-4 md:bottom-20 lg:bottom-4 left-0 w-full">
+            <LogoSlide logos={LOGOS} />
+          </div>
         </div>
+
 
         <div id='who-we-are' ref={setDivRef(1)}>
           <div className='md:my-20 md:mb-40 md:mx-22'>
