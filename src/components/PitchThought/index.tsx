@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React, { FC, useState } from 'react';
 import { BiSolidPhoneCall } from "react-icons/bi";
-import { FaFacebookF, FaGoogle, FaInstagram, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
+import { FaFacebookF, FaGoogle, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
 import { ImLocation } from "react-icons/im";
 import { IoIosMail, IoMdMail } from "react-icons/io";
 import { LuDot } from "react-icons/lu";
@@ -260,13 +260,7 @@ const PitchThought: FC = () => {
                     </a>
                   </li>
 
-                  <li>
-                    <a href="https://x.com/Nextloop_" target='_blank'>
-                      <div className="w-14 h-14 bg-gray-700 rounded-full flex items-center justify-center">
-                        <FaXTwitter size={28} />
-                      </div>
-                    </a>
-                  </li>
+                 
 
                 </ul>
               </div>

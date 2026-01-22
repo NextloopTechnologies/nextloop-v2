@@ -107,7 +107,7 @@ const PortfolioSlide = () => {
                 {/* Caption */}
                 <div className="py-4 flex justify-center">
                   <Link href={item.link}>
-                    <p className="text-xl sm:text-2xl md:text-3xl font-semibold underline text-white hover:text-orange-500 transition-colors duration-300 text-center">
+                    <p className="text-xl sm:text-2xl md:text-3xl font-semibold underline text-white hover:text-orange-500 transition-colors duration-300 text-center tracking-tighter">
                       {item.caption}
                     </p>
                   </Link>
