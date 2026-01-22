@@ -6,13 +6,9 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import Certificate from '../components/Certificate';
 import ClientSays from '../components/ClientSays';
-// import AboutUs from '../components/AboutUs';
-// import Career from '../components/Career';
-// import ClientReview from '../components/ClientReview';
-// import Experience from '../components/Experience';
 import Intro from '../components/Intro';
 import Layout from '../components/Layout/Layout';
-// import ClientSays from '../components/ClientSays';
+//import LogoSlide from '../components/LogoSlider';
 import OurCLient from '../components/OurClinet';
 import OurValues from '../components/OurValues';
 import Portfolio from '../components/Portfolio';
@@ -21,6 +17,7 @@ import WhoWeAre from '../components/WhoWeAre';
 import { IPortfolio } from '../types';
 import supabaseClient from '../utils/client';
 import useWindowSize from '../utils/useWindowSize';
+//import { LOGOS } from '../../assets';
 
 
 const sectionStyle: React.CSSProperties = {
@@ -56,18 +53,6 @@ export function Section({
 const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
   const [showNextPageButton, setShowNextPageButton] = useState(true);
   const [showToTopButton, setShowToTopButton] = useState(false);
-  // const [scrollBelowServices, setScrollBelowServices] = useState(false);
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-
-  // const introRef = useRef<HTMLDivElement | null>(null);
-  // const whoWeAreRef = useRef<HTMLDivElement | null>(null);
-  // const servicesSectionRef = useRef<HTMLDivElement | null>(null);
-  // const careersRef = useRef<HTMLDivElement | null>(null);
-
-  // const aboutUsRef = useRef<HTMLDivElement | null>(null);
-  // const experienceRef = useRef<HTMLDivElement | null>(null);
-  // const portfolioRef = useRef<HTMLDivElement | null>(null);
-  // const clientReviewRef = useRef<HTMLDivElement | null>(null);
 
   const handleScrollOnClick = () => {
     if (showNextPageButton) {
@@ -89,23 +74,6 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
         setShowNextPageButton(true);
         setShowToTopButton(false);
       }
-      // if (
-      //   servicesSectionRef?.current &&
-      //   window?.scrollY + windowHeight >=
-      //     servicesSectionRef.current.offsetTop +
-      //       servicesSectionRef.current.clientHeight
-      // ) {
-      //   if (!scrollBelowServices) {
-      //     // You have just scrolled to the Services section
-      //     setScrollBelowServices(true);
-      //     setIsModalOpen(true);
-      //     // Call your specific function here
-      //   }
-      // }
-      // if (window?.scrollY + windowHeight === 2803) {
-      //   setScrollBelowServices(false);
-      //   // setIsModalOpen(false);
-      // }
     };
 
     window?.addEventListener('scroll', handleScroll);
@@ -145,82 +113,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
     };
   }, []);
 
-  //     const scrollY = window.scrollY;
-  //     const windowHeight = window.innerHeight;
-  //     const introOffset = introRef.current!.offsetTop;
-  //     const whoWeAreRefOffset = whoWeAreRef.current!.offsetTop;
-  //     const servicesSectionRefOffset = servicesSectionRef.current!.offsetTop;
-  //     const careersOffset = careersRef.current!.offsetTop;
-  //     const aboutUsOffset = aboutUsRef.current!.offsetTop;
-  //     const experienceOffset = experienceRef.current!.offsetTop;
-  //     const portfolioOffset = portfolioRef.current!.offsetTop;
-  //     const clientReviewOffset = clientReviewRef.current!.offsetTop;
 
-  //     if (e.deltaY > 0) {
-  //       if (scrollY < introOffset) {
-  //         introRef.current!.scrollIntoView({ behavior: 'smooth' });
-  //       } else if (
-  //         scrollY >= introOffset &&
-  //         scrollY < whoWeAreRefOffset - windowHeight
-  //       ) {
-  //         whoWeAreRef.current!.scrollIntoView({ behavior: 'smooth' });
-  //       } else if (
-  //         scrollY >= whoWeAreRefOffset &&
-  //         scrollY < servicesSectionRefOffset - windowHeight
-  //       ) {
-  //         servicesSectionRef.current!.scrollIntoView({ behavior: 'smooth' });
-  //       } else if (
-  //         scrollY >= servicesSectionRefOffset &&
-  //         scrollY < careersOffset - windowHeight
-  //       ) {
-  //         careersRef.current!.scrollIntoView({ behavior: 'smooth' });
-  //       } else if (
-  //         scrollY >= careersOffset &&
-  //         scrollY < aboutUsOffset - windowHeight
-  //       ) {
-  //         aboutUsRef.current!.scrollIntoView({ behavior: 'smooth' });
-  //       } else if (
-  //         scrollY >= aboutUsOffset &&
-  //         scrollY < experienceOffset - windowHeight
-  //       ) {
-  //         experienceRef.current!.scrollIntoView({ behavior: 'smooth' });
-  //       } else if (
-  //         scrollY >= experienceOffset &&
-  //         scrollY < portfolioOffset - windowHeight
-  //       ) {
-  //         portfolioRef.current!.scrollIntoView({ behavior: 'smooth' });
-  //       } else if (
-  //         scrollY >= portfolioOffset &&
-  //         scrollY < clientReviewOffset - windowHeight
-  //       ) {
-  //         clientReviewRef.current!.scrollIntoView({ behavior: 'smooth' });
-  //       }
-  //     } else {
-  //       if (
-  //         scrollY >= clientReviewOffset - windowHeight &&
-  //         scrollY < portfolioOffset
-  //       ) {
-  //         portfolioRef.current!.scrollIntoView({ behavior: 'smooth' });
-  //       } else if (scrollY >= portfolioOffset && scrollY < experienceOffset) {
-  //         experienceRef.current!.scrollIntoView({ behavior: 'smooth' });
-  //       } else if (scrollY >= experienceOffset && scrollY < aboutUsOffset) {
-  //         aboutUsRef.current!.scrollIntoView({ behavior: 'smooth' });
-  //       } else if (scrollY >= aboutUsOffset && scrollY < careersOffset) {
-  //         careersRef.current!.scrollIntoView({ behavior: 'smooth' });
-  //       } else if (scrollY >= careersOffset && scrollY < whoWeAreRefOffset) {
-  //         whoWeAreRef.current!.scrollIntoView({ behavior: 'smooth' });
-  //       }
-  //     }
-
-  //     e.preventDefault(); // Prevent default scrolling behavior
-  //   };
-
-  //   window.addEventListener('wheel', handleScroll);
-
-  //   return () => {
-  //     window.removeEventListener('wheel', handleScroll);
-  //   };
-  // }, []);
   const scrollToNext = () => {
     if (visibleDiv) {
       const currentIndex = divRefs.current.findIndex(
@@ -243,9 +136,9 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
     <>
       <Head>
         <title>
-          Custom Software, IT & Digital Solutions | Nextloop Technologies{' '}
+          Custom Software, IT & Digital Solutions | Nextloop Technologies
         </title>
-         <meta
+        <meta
           name='title'
           content='abcd'
         />
@@ -256,14 +149,20 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
       </Head>
       <Layout divRefs={divRefs?.current} id='connect-with-us'>
         <div
-          id='intro'
+          id="intro"
           ref={setDivRef(0)}
-          className='sm:min-h-screen min-h-[50vh] aboutUsBackgroundImage'
+          className="relative sm:min-h-screen min-h-[50vh] aboutUsBackgroundImage"
         >
-          <div className='container min-w-[100vw]'>
+          <div className="container min-w-[100vw] min-h-full pb-28">
             <Intro />
           </div>
+
+          {/* Bottom-aligned logo slider */}
+          {/* <div className="absolute bottom-4 sm:bottom-4 md:bottom-20 lg:bottom-4 left-0 w-full">
+            <LogoSlide logos={LOGOS} />
+          </div> */}
         </div>
+
 
         <div id='who-we-are' ref={setDivRef(1)}>
           <div className='md:my-20 md:mb-40 md:mx-22'>
