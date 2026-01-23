@@ -304,20 +304,7 @@ export const bottomStepsWebDevelopment: StepProps[] = [
       'We launch the site and provide ongoing maintenance to keep it running smoothly.',
     color: 'border-gray-500',
   },
-  {
-    icon: <Rocket className='text-gray-600 w-7 h-7' />,
-    title: 'Launch & Support',
-    description:
-      'We launch the site and provide ongoing maintenance to keep it running smoothly.',
-    color: 'border-gray-500',
-  },
-  {
-    icon: <Rocket className='text-gray-600 w-7 h-7' />,
-    title: 'Launch & Support',
-    description:
-      'We launch the site and provide ongoing maintenance to keep it running smoothly.',
-    color: 'border-gray-500',
-  },
+  
 ];
 
 export const servicesSubPagesData = {
@@ -430,20 +417,7 @@ export const servicesSubPagesData = {
           'We launch the site and provide ongoing maintenance to keep it running smoothly.',
         color: 'border-gray-500',
       },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Launch & Support',
-        description:
-          'We launch the site and provide ongoing maintenance to keep it running smoothly.',
-        color: 'border-gray-500',
-      },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Launch & Support',
-        description:
-          'We launch the site and provide ongoing maintenance to keep it running smoothly.',
-        color: 'border-gray-500',
-      },
+      
     ],
     techStackData: [
       {
@@ -709,20 +683,7 @@ export const servicesSubPagesData = {
           'Comprehensive testing ensures smooth functionality and cross-platform compatibility.',
         color: 'border-gray-500',
       },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Launch & Support',
-        description:
-          'We launch the site and provide ongoing maintenance to keep it running smoothly.',
-        color: 'border-gray-500',
-      },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Launch & Support',
-        description:
-          'We launch the site and provide ongoing maintenance to keep it running smoothly.',
-        color: 'border-gray-500',
-      },
+      
       {
         icon: <Rocket className='text-gray-600 w-7 h-7' />,
         title: 'Launch & Support',
