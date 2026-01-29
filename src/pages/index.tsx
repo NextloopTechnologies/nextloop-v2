@@ -10,8 +10,8 @@ import Intro from '../components/Intro';
 import Layout from '../components/Layout/Layout';
 //import LogoSlide from '../components/LogoSlider';
 import OurCLient from '../components/OurClinet';
-import OurValues from '../components/OurValues';
 import Portfolio from '../components/Portfolio';
+import ProcessWeFollow from '../components/ProcessWeFollow';
 import Services from '../components/ServicesGroup';
 import WhoWeAre from '../components/WhoWeAre';
 import { IPortfolio } from '../types';
@@ -201,16 +201,9 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
           </div>
         </div>
 
-        <div
-          id='our-values'
-          ref={setDivRef(5)}
-          className=' max-w-[100vw] overflow-hidden'
-        >
           <div className='container mx-auto min-w-[100vw]'>
-            {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
-            <OurValues />
+            <ProcessWeFollow />
           </div>
-        </div>
 
         <div
           id='our-client-says'
