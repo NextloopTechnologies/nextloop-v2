@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
           gtag('config', 'G-1Z6KPDDQSB');
         `}
       </Script>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </>
   )
 }

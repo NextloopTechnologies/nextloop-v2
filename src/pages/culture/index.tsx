@@ -4,16 +4,16 @@ import Image, { StaticImageData } from 'next/image';
 
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
-import birthday from '../../../assets/birthday.jpeg';
+import birthday from '../../../assets/birthday-celebration.png';
 import careerBg from '../../../assets/careerBg.png';
-import christmas from '../../../assets/christmas.jpeg';
-import diwali from '../../../assets/DoubleQuotes.png';
-import ganesh from '../../../assets/ganesh.jpeg';
-import holi from '../../../assets/holi.jpg';
-import pizzaParty from '../../../assets/pizzaPart.jpeg';
-import teamTrip from '../../../assets/teamDay.jpeg';
-import turfDay from '../../../assets/turfDay.jpeg';
-import womensDay from '../../../assets/womensDay.jpeg';
+import christmas from '../../../assets/Christmas-Celebration.png';
+import diwali from '../../../assets/diwali.jpeg';
+import ganesh from '../../../assets/ganesh-chaturdi.jpeg';
+import holi from '../../../assets/holi-celebration.jpeg';
+import pizzaParty from '../../../assets/pizza-party.jpeg';
+import teamTrip from '../../../assets/teamtrip.jpeg';
+import turfDay from '../../../assets/turf-day.jpeg';
+import womensDay from '../../../assets/womens-day.jpeg';
 
 
 
