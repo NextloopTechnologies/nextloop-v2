@@ -72,10 +72,7 @@ const arr = [
     title: 'our vision',
     sub: 'Our vision is to be the trusted ally of businesses worldwide, guiding them through the complexities of the digital landscape with clarity, confidence, and compassion. We aspire to be at the forefront of technological innovation, driving positive change and shaping a future where possibilities are limitless.',
   },
-  {
-    title: 'our values',
-    sub: "Our values are the cornerstone of everything we do. Integrity, transparency, and empathy guide our interactions, both internally and externally. We believe in fostering a culture of collaboration, where diversity thrives and ideas are valued. We pour our hearts into making a real difference, and anything short of exceptional won't do.",
-  },
+  
 ];
 
 const journeyArr = [
@@ -156,14 +153,8 @@ const AboutUsHome = () => {
 
 const WhyUs = () => (
   <div className=' flex flex-col justify-center items-center text-center gap-12 p-8 py-20'>
-    <p
-      className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold uppercase w-full`}
-    >
-      CURIOUS ABOUT HOW WE MANAGE TO MAKE ALL THIS{' '}
-      <span className='text-orange-500'>POSSIBLE?</span>
-    </p>
 
-    <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full sm:w-[80%] place-items-center gap-12 px-6'>
+    <div className='grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 w-full sm:w-[60%] place-items-center gap-12 px-6'>
       {arr.map((t, i) => (
         <Card {...t} key={i} />
       ))}

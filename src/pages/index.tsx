@@ -8,7 +8,6 @@ import Certificate from '../components/Certificate';
 import ClientSays from '../components/ClientSays';
 import Intro from '../components/Intro';
 import Layout from '../components/Layout/Layout';
-//import LogoSlide from '../components/LogoSlider';
 import OurCLient from '../components/OurClinet';
 import Portfolio from '../components/Portfolio';
 import ProcessWeFollow from '../components/ProcessWeFollow';
@@ -17,7 +16,7 @@ import WhoWeAre from '../components/WhoWeAre';
 import { IPortfolio } from '../types';
 import supabaseClient from '../utils/client';
 import useWindowSize from '../utils/useWindowSize';
-//import { LOGOS } from '../../assets';
+
 
 
 const sectionStyle: React.CSSProperties = {
@@ -157,10 +156,7 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
             <Intro />
           </div>
 
-          {/* Bottom-aligned logo slider */}
-          {/* <div className="absolute bottom-4 sm:bottom-4 md:bottom-20 lg:bottom-4 left-0 w-full">
-            <LogoSlide logos={LOGOS} />
-          </div> */}
+
         </div>
 
 
@@ -201,9 +197,9 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
           </div>
         </div>
 
-          <div className='container mx-auto min-w-[100vw]'>
-            <ProcessWeFollow />
-          </div>
+        <div className='container mx-auto min-w-[100vw]'>
+          <ProcessWeFollow />
+        </div>
 
         <div
           id='our-client-says'

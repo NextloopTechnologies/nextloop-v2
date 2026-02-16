@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 const LifeAtNextloop = () => {
@@ -26,7 +27,7 @@ const LifeAtNextloop = () => {
             type="button"
             className="bg-white text-black font-bold px-6 sm:px-10 py-3 rounded-lg hover:scale-105 transition-all duration-300 whitespace-nowrap"
           >
-            Life@Nextloop
+            <Link href="/culture">Life@Nextloop</Link>
           </button>
         </div>
       </div>

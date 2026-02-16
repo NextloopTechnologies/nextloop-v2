@@ -1,30 +1,4 @@
-import Logo1 from "./logos/logo1.png";
-import Logo2 from "./logos/logo2.png";
-import Logo3 from "./logos/logo3.png";
-import Logo4 from "./logos/logo4.png";
-import Logo5 from "./logos/logo5.png";
-import Logo6 from "./logos/logo6.png";
-import Logo7 from "./logos/logo7.png";
-import Logo8 from "./logos/logo8.png";
-import Logo9 from "./logos/logo9.png";
-import Logo10 from "./logos/logo10.png";
-import Logo11 from "./logos/logo11.png";
-import Logo12 from "./logos/logo12.png";
-import Logo13 from "./logos/logo13.png";
-import Logo14 from "./logos/logo14.png";
-import Logo15 from "./logos/logo15.png";
-import Logo16 from "./logos/logo16.png";
-import Logo17 from "./logos/logo17.png";
-import Logo18 from "./logos/logo18.png";
-import Logo19 from "./logos/logo19.png";
-import Logo20 from "./logos/logo20.png";
-import Logo21 from "./logos/logo21.png";
-import Logo22 from "./logos/logo22.png";
-import Logo23 from "./logos/logo23.png";
-import Logo24 from "./logos/logo24.png";
-import Logo25 from "./logos/logo25.png";
-import Logo26 from "./logos/logo26.png";
-import Logo27 from "./logos/logo27.png";
+
 
 // export { default as CB } from './cb.png';
 export { default as CB1 } from './cb-1.png';
@@ -166,37 +140,6 @@ export const careerImages: string[] = [
   'https://ik.imagekit.io/zyf3auqbs/New%20Folder/WhatsApp%20Image%202025-10-17%20at%201.53.23%20PM.jpeg',
 
 ];
-
-export const LOGOS = [
-  Logo1,
-  Logo2,
-  Logo3,
-  Logo4,
-  Logo5,
-  Logo6,
-  Logo7,
-  Logo8,
-  Logo9,
-  Logo10,
-  Logo11,
-  Logo12,
-  Logo13,
-  Logo14,
-  Logo15,
-  Logo16,
-  Logo17,
-  Logo18,
-  Logo19,
-  Logo20,
-  Logo21,
-  Logo22,
-  Logo23,
-  Logo24,
-  Logo25,
-  Logo26,
-  Logo27,
-];
-
 
 export const eventAssets = {
   eventsBg:
