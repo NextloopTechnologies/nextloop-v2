@@ -15,18 +15,20 @@ const StatCounter: React.FC<StatCounterProps> = ({
 }) => {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement | null>(null);
-  const hasAnimated = useRef(false);
+
 
   useEffect(() => {
+    if (!ref.current) return;
+
+    let start = 0;
+    setCount(0);
+
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
         if (!entry) return;
 
-        if (entry.isIntersecting && !hasAnimated.current) {
-          hasAnimated.current = true;
-
-          let start = 0;
+        if (entry.isIntersecting) {
           const increment = end / (duration / 16);
 
           const animate = () => {
@@ -40,15 +42,19 @@ const StatCounter: React.FC<StatCounterProps> = ({
           };
 
           animate();
+          observer.disconnect(); // stop observing after animation
         }
       },
       { threshold: 0.4 }
     );
 
-    if (ref.current) observer.observe(ref.current);
+    observer.observe(ref.current);
 
     return () => observer.disconnect();
   }, [end, duration]);
+
+
+
 
   return (
     <span ref={ref} className="text-4xl font-bold text-orange-400">

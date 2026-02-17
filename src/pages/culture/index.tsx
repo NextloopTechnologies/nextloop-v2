@@ -1,81 +1,14 @@
 import { motion } from 'framer-motion';
 import Head from 'next/head';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
-import birthday from '../../../assets/birthday-celebration.png';
-import careerBg from '../../../assets/careerBg.png';
-import christmas from '../../../assets/Christmas-Celebration.png';
-import diwali from '../../../assets/diwali.jpeg';
-import ganesh from '../../../assets/ganesh-chaturdi.jpeg';
-import holi from '../../../assets/holi-celebration.jpeg';
-import pizzaParty from '../../../assets/pizza-party.jpeg';
-import teamTrip from '../../../assets/teamtrip.jpeg';
-import turfDay from '../../../assets/turf-day.jpeg';
-import womensDay from '../../../assets/womens-day.jpeg';
+import { CultureSectionProps } from '../../types';
+import { careerBg, cultureEvents } from '../../utils/staticTextImgData';
 
 
 
-
-
-interface CultureEvent {
-  title: string;
-  description: string;
-  image: StaticImageData;
-}
-
-interface CultureSectionProps extends CultureEvent {
-  reverse?: boolean;
-}
-
-const cultureEvents: CultureEvent[] = [
-  {
-    title: 'Team Trip',
-    image: teamTrip,
-    description: `We kicked off the year with our annual team trip, a refreshing break filled with nature, conversations, and shared experiences. It was the perfect way to reset, reconnect, and begin the year with stronger bonds and renewed energy.`,
-  },
-  {
-    title: 'Pizza Party',
-    image: pizzaParty,
-    description: `A simple pizza party turned into a moment of laughter and togetherness. Because sometimes, the best celebrations are the simplest ones.`,
-  },
-  {
-    title: 'Women’s Day',
-    image: womensDay,
-    description: `Women’s Day at Nextloop was all about appreciation and empowerment. A reminder that respect and recognition should be everyday values.`,
-  },
-  {
-    title: 'Holi Celebration',
-    image: holi,
-    description: `Holi brought vibrant colors, laughter, and festive energy into our workplace. Work felt lighter, brighter, and more joyful that day.`,
-  },
-  {
-    title: 'Turf Day',
-    image: turfDay,
-    description: `Our turf day brought out energy, enthusiasm, and friendly competition. Because teamwork grows stronger when shared beyond the office.`,
-  },
-  {
-    title: 'Birthday Celebrations',
-    image: birthday,
-    description: `Birthdays at Nextloop are celebrated with warmth and appreciation. Because people are at the heart of everything we do.`,
-  },
-  {
-    title: 'Ganesh Chaturthi',
-    image: ganesh,
-    description: `Ganesh Chaturthi was celebrated with devotion and joy, from Sthapna to Visarjan. The festival filled our workspace with positivity and unity.`,
-  },
-  {
-    title: 'Diwali Celebration',
-    image: diwali,
-    description: `Diwali at Nextloop was a celebration of gratitude and joy. Moments that truly reflected the spirit of togetherness.`,
-  },
-  {
-    title: 'Christmas Celebration',
-    image: christmas,
-    description: `We wrapped up the year with festive cheer and laughter. A joyful close to a year filled with growth and meaningful connections.`,
-  },
-];
 
 const CulturePage = () => {
   return (
@@ -121,12 +54,11 @@ const CultureSection = ({
 }: CultureSectionProps) => {
   return (
     <section className="relative py-32 overflow-hidden">
-      
+
       {/* Soft background shape */}
       <div
-        className={`absolute inset-0 ${
-          reverse ? 'bg-gray-50' : 'bg-white'
-        }`}
+        className={`absolute inset-0 ${reverse ? 'bg-gray-50' : 'bg-white'
+          }`}
       />
 
       <motion.div
@@ -140,9 +72,8 @@ const CultureSection = ({
 
           {/* IMAGE */}
           <motion.div
-            className={`relative lg:col-span-7 ${
-              reverse ? 'lg:order-2 lg:pl-20' : 'lg:order-1 lg:pr-20'
-            }`}
+            className={`relative lg:col-span-7 ${reverse ? 'lg:order-2 lg:pl-20' : 'lg:order-1 lg:pr-20'
+              }`}
             initial={{ x: reverse ? 80 : -80, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.9, ease: 'easeOut' }}
@@ -163,9 +94,8 @@ const CultureSection = ({
 
           {/* TEXT */}
           <motion.div
-            className={`lg:col-span-5 ${
-              reverse ? 'lg:order-1' : 'lg:order-2'
-            }`}
+            className={`lg:col-span-5 ${reverse ? 'lg:order-1' : 'lg:order-2'
+              }`}
             initial={{ y: 40, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.7, ease: 'easeOut', delay: 0.15 }}

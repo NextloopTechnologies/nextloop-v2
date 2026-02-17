@@ -143,3 +143,13 @@ export interface OfferApplicationType {
 
   offer_id?: number;
 }
+
+export interface CultureEvent {
+  title: string;
+  description: string;
+  image: StaticImageData;
+}
+
+export interface CultureSectionProps extends CultureEvent {
+  reverse?: boolean;
+}

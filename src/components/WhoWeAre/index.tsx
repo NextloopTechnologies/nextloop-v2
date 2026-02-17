@@ -69,14 +69,14 @@ const WhoWeAre: FC = () => {
             {/* STATS */}
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-8">
               <div>
-                <StatCounter end={200} suffix="+" />
+                <StatCounter end={40} suffix="+" />
                 <p className="mt-2 text-sm text-gray-600">
                   Successful Projects
                 </p>
               </div>
 
               <div>
-                <StatCounter end={150} suffix="+" />
+                <StatCounter end={80} suffix="+" />
                 <p className="mt-2 text-sm text-gray-600">
                   Tech Professionals
                 </p>
