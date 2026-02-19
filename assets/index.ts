@@ -1,4 +1,5 @@
 
+
 // export { default as CB } from './cb.png';
 export { default as CB1 } from './cb-1.png';
 export { default as CompositeLayer_1 } from './CompositeLayer-1.png';
@@ -130,6 +131,15 @@ export const careerAssets = {
   bottomBig:
     'https://ik.imagekit.io/nextloop/NextloopWebAssets/careers/careers1.JPG?updatedAt=1725604762600',
 };
+export const careerImages: string[] = [
+  'https://ik.imagekit.io/zyf3auqbs/New%20Folder/WhatsApp%20Image%202025-09-07%20at%2011.56.15_c35e3869%201.jpg',
+  'https://ik.imagekit.io/zyf3auqbs/New%20Folder/WhatsApp%20Image%202025-12-01%20at%204.13.02%20PM%20(1)%20(1).jpeg',
+  'https://ik.imagekit.io/zyf3auqbs/New%20Folder/IMG_9148.JPG',
+  'https://ik.imagekit.io/zyf3auqbs/New%20Folder/WhatsApp%20Image%202025-12-06%20at%206.08.36%20PM.jpeg?updatedAt=1767772843900',
+  'https://ik.imagekit.io/zyf3auqbs/New%20Folder/ImportedPhoto.764242101.332007.jpg?tr=c-maintain_ratio,ar-4-3',
+  'https://ik.imagekit.io/zyf3auqbs/New%20Folder/WhatsApp%20Image%202025-10-17%20at%201.53.23%20PM.jpeg',
+
+];
 
 export const eventAssets = {
   eventsBg:

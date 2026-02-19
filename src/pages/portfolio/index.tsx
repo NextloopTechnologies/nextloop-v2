@@ -50,31 +50,35 @@ const Portfolio: React.FC<{ data?: IPortfolio[]; error?: string }> = ({
 export default Portfolio;
 
 const ProjectCard: React.FC<{ proj: IPortfolio; index: number }> = ({
-  proj: { title, id },
-  index,
+  proj,
 }) => {
   const router = useRouter();
+
+  const imageUrl =
+    proj.image?.[0]?.url || '/placeholder.png';
+
   return (
     <div
-      className='relative w-full flex flex-col items-center justify-end cursor-pointer'
-      onClick={() => {
-        router.push(`/portfolio/${id}`);
-      }}
+      className=" w-full flex flex-col items-center justify-end cursor-pointer group"
+      onClick={() => router.push(`/portfolio/${proj.id}`)}
     >
       <Image
-        src={`/portfolio/${index}.png`}
-        alt={`portfolio-image-${index}`}
-        className='object-contain max-h-[650px]'
+        src={imageUrl}
+        alt={proj.title ?? 'portfolio-image'}
+        className="object-contain max-h-[650px] transition-transform duration-300 group-hover:scale-105"
         width={650}
         height={650}
       />
 
-      <div className='absolute bg-white w-[80%] xl:px-16 py-8 flex flex-col items-center gap-4 -bottom-16 shadow-lg text-center'>
-        <p className='font-medium xl:text-4xl lg:text-2xl text-xl'>{title}</p>
+      <div className=" bg-white w-[80%] xl:px-16 py-8 flex flex-col items-center gap-4 -bottom-16 shadow-lg text-center rounded-xl">
+        <p className="font-medium xl:text-4xl lg:text-2xl text-xl">
+          {proj.title}
+        </p>
       </div>
     </div>
   );
 };
+
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const { data, error } = await supabaseClient

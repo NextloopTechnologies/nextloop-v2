@@ -23,8 +23,13 @@ module.exports = withBundleAnalyzer({
       {
         protocol: 'https',
         hostname: 'ik.imagekit.io',
-        
+
       },
+      {
+        protocol: 'https',
+        hostname: 'udmihtgaqoavqruivzjn.supabase.co',
+      }
+
     ],
   },
 });

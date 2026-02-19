@@ -1,15 +1,20 @@
 import { MapPin } from 'lucide-react';
 import Head from 'next/head';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { LiaLongArrowAltRightSolid } from "react-icons/lia";
 
 import Layout from '../../components/Layout/Layout';
+import LifeAtNextloop from '../../components/lifeatnextloop';
 import PageHero from '../../components/PageHero';
+import PerksBenefitsSection from '../../components/Perksandbenefits';
+import SlidingImages from '../../components/SlidingImages';
 import { Job } from '../../types';
 import supabaseClient from '../../utils/client';
-import { careerAssets } from '../../../assets';
+import { careerImages } from '../../../assets';
 import careerBg from '../../../assets/careerBg.png';
+
+
+
 
 const CareersPage: React.FC<{ jobs?: Job[]; error?: string }> = ({
   jobs,
@@ -43,173 +48,34 @@ const WhyUs = () => (
       <span className='text-orange-500'>POSSIBLE?</span>
     </p>
 
-    {/* <div className='w-[90vw] h-[75vh] border border-red-700 rounded-lg shadow-lg'></div> */}
-    <div className='flex gap-24 w-full justify-around flex-col lg:flex-row lg:gap-0'>
-      {/* <div className='flex flex-col gap-4 lg:w-1/2 items-center xl:px-48'>
-        <div className='flex gap-4'>
-          <div className='h-full'>
-            <Image src={leftBig} alt='' className='h-full object-cover' />
-          </div>
-          <div className='flex flex-col gap-4'>
-            <div>
-              <Image src={rightTop} alt='' />
-            </div>
-            <div>
-              <Image src={rightMiddle} alt='' />
-            </div>
-          </div>
-        </div>
-        <div className='w-full'>
-          <Image src={bigRec} alt='' className='object-cover w-full h-1/2' />
-        </div>
-      </div> */}
+    <SlidingImages images={careerImages || []} />
 
-      <div className='flex flex-col gap-4 w-full lg:w-1/2 sm:px-20 items-center'>
-        {/* First */}
-        <div className='flex items-center justify-center gap-4'>
-          <div>
-            <Image
-              src={careerAssets.leftBig}
-              height={400}
-              width={500}
-              alt='career-image'
-              className='h-[314px] w-[400px] object-cover'
-            />
-          </div>
 
-          <div className='flex flex-col gap-4'>
-            <div>
-              <Image
-                src={careerAssets.rightTop}
-                height={400}
-                width={500}
-                alt='career-image'
-                className='h-[150px] w-[300px] object-cover'
-              />
-            </div>
-            <div>
-              <Image
-                src={careerAssets.rightMiddle}
-                height={400}
-                width={500}
-                alt='career-image'
-                className='h-[150px] w-[300px] object-cover'
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Middle */}
-        <Image
-          src={careerAssets.middleBig}
-          height={400}
-          width={400}
-          alt='career-image'
-          className='object-cover w-full h-[250px]'
-        />
-
-        {/* Bottom 1 */}
-        <div className='flex items-center gap-4'>
-          <div>
-            <Image
-              src={careerAssets.bottomLeft}
-              height={400}
-              width={400}
-              alt='career-image'
-            />
-          </div>
-          <div>
-            <Image
-              src={careerAssets.bottomRight}
-              height={400}
-              width={400}
-              alt='career-image'
-            />
-          </div>
-        </div>
-
-        
-      </div>
-
-      <div className='lg:w-1/2 w-full flex flex-col gap-6 sm:pr-20 text-left'>
-        <div className='flex flex-col'>
-          <p>
-            Come be a part of Nextloop Technologies, where your ideas,
-            abilities, and potential are valued. Embracing technology and
-            assisting you in your growth is our mission.
-          </p>
-          <p>
-            However, it's not just about personal development; it's also about
-            group achievement. We think that working together to achieve a
-            common objective may be powerful. For this reason, we've established
-            a cooperative atmosphere where ideas are openly exchanged and
-            teamwork is valued. Everyone's opinion is appreciated and
-            acknowledged, whether you're working together on a project or
-            brainstorming ideas with coworkers at a meeting.
-          </p>
-          <p>
-            If you're searching for a company where your abilities are
-            acknowledged and your potential is endless. Come along with us, and
-            let's do something incredible together.
-          </p>
-
-          <p>Here's what makes Nextloop Technologies special:</p>
-        </div>
-        <p className='text-lg lg:w-11/12 w-full'>
-          <b>Flexibility you crave: </b>We offer a hybrid work policy, giving
-          you the freedom to choose where you do your best work while
-          maintaining a healthy work-life balance.
-        </p>
-        <p className='text-lg lg:w-11/12 w-full'>
-          <b>Stability you deserve: </b>We believe in job security and offer
-          competitive salaries and a comprehensive benefits package to support
-          your well-being.
-        </p>
-        <p className='text-lg lg:w-11/12 w-full'>
-          <b>Growth that excites you: </b>We're committed to your development.
-          Regular performance reviews, mentorship opportunities, and access to
-          cutting-edge technologies help you reach your full potential.
-        </p>
-        <p className='text-lg lg:w-11/12 w-full'>
-          <b>Impact that inspires you: </b>Collaborate with a global clientele,
-          tackle real-world challenges, and see your work make a difference on a
-          grand scale. If you're searching for a company where your abilities
-          are acknowledged and your potential is endless. Come along with us,
-          and let's do something incredible together
-        </p>
-        {/* <p className='text-lg lg:w-11/12 w-full'>
-          <b>Promotions/Appraisals:</b> Resources company based in Germany, is
-          searching for a motivated UI/UX Design Intern to join our esteemed
-          client.
-        </p>
-        <p className='text-lg lg:w-11/12 w-full'>
-          <b>Carrier opportunities:</b> Resources company based in Germany, is
-          searching for a motivated UI/UX Design Intern to join our esteemed
-          client. This remote position offers an extraordinary chance for
-          someone excited to learn.
-        </p> */}
-      </div>
-    </div>
   </div>
 );
 
 const Jobs: React.FC<{ jobs?: Job[]; error?: string }> = ({ error, jobs }) => (
-  <div className='min-h-screen aboutUsPageBackgroundImage flex flex-col gap-24 items-center justify-center text-white p-8 lg:px-0 lg:py-8'>
-    
-    <p className='font-bold xl:text-4xl md:text-5xl text-3xl uppercase xl:w-[30%] text-center'>
-      find a <span className='text-orange-500'>suitable job</span> for you
-    </p>
-    {error ? (
-      <div className='flex items-center justify-center h-screen text-4xl'>
-        {error}
-      </div>
-    ) : (
-      <div className='grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full place-items-center sm:gap-6 gap-6 p-2'>
-        {jobs?.map((j) => (
-          <JobCard job={j} key={j.id} />
-        ))}
-      </div>
-    )}
+  <div>
+    <div className='min-h-screen aboutUsPageBackgroundImage flex flex-col gap-14 items-center justify-center text-white p-8 lg:px-0 lg:py-8'>
+
+      <p className='font-bold xl:text-4xl md:text-5xl text-3xl uppercase xl:w-[30%] text-center'>
+        find a <span className='text-orange-500'>suitable job</span> for you
+      </p>
+      {error ? (
+        <div className='flex items-center justify-center h-screen text-4xl'>
+          {error}
+        </div>
+      ) : (
+        <div className=' grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 place-items-center sm:gap-6 gap-6 p-2'>
+          {jobs?.map((j) => (
+            <JobCard job={j} key={j.id} />
+          ))}
+        </div>
+      )}
+
+    </div>
+    <PerksBenefitsSection />
+    <LifeAtNextloop />
   </div>
 );
 
@@ -218,24 +84,44 @@ const JobCard: React.FC<{ job: Job }> = ({
 }) => {
   const router = useRouter();
   return (
-    <div className='px-6 py-6 md:py-11 bg-white text-black sm:w-[350px] min-w-full max-h-52 flex flex-col gap-4'>
-      <div className='flex justify-between items-end gap-2'>
-        <div className='flex flex-col gap-4'>
-          <p className='font-medium text-base md:text-lg'>{title}</p>
-          <p>{job_type}</p>
-        </div>
-        <div className='flex gap-2 flex-col items-center'>
-          <MapPin size={20} strokeWidth={2} className="text-black mx-auto" />
-          <p>{job_mode}</p>
-        </div>
+    <div
+      className="group w-[370px] bg-white text-black rounded-xl flex flex-col transition-all duration-300 hover:bg-orange-500 hover:shadow-lg hover:scale-105"
+    >
+      {/* TITLE */}
+      <div className="px-6 pt-8 min-h-[110px]">
+        <p className="font-semibold text-lg md:text-xl leading-tight transition-colors duration-300 group-hover:text-white">
+          {title}
+        </p>
+        <p className="text-sm mt-2 transition-colors duration-300 group-hover:text-white">
+          {job_type}
+        </p>
       </div>
-      <button
-        onClick={() => router.push(`/career/${id}`)}
-        className='text-orange-500 bg-none font-medium py-3 rounded-full w-fit'
-      >
-        View Details <LiaLongArrowAltRightSolid className='inline-block w-6 h-6' />
-      </button>
+
+      <div className="flex-1" />
+
+      <div className="px-6 pb-8 flex items-center justify-between">
+
+        <div
+          className="flex items-center gap-2 text-lg font-medium transition-colors duration-300 group-hover:text-white"
+        >
+          <MapPin
+            size={22}
+            strokeWidth={2}
+            className="transition-colors duration-300 group-hover:text-white "
+          />
+          <span>{job_mode}</span>
+        </div>
+
+        <button
+          onClick={() => router.push(`/career/${id}`)}
+          className="flex items-center gap-2 font-semibold text-base transition-all duration-300 text-orange-500 group-hover:text-white group-hover:translate-x-1"
+        >
+          View Details
+          <LiaLongArrowAltRightSolid className="w-6 h-6" />
+        </button>
+      </div>
     </div>
+
   );
 };
 

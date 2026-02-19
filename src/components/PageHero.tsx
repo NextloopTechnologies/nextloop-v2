@@ -19,7 +19,7 @@ const PageHero: React.FC<{
   opacity = 'opacity-40',
 }) => {
     return (
-      <div className='h-screen relative flex items-center justify-center text-white'>
+      <div className='h-[70vh] relative flex items-center justify-center text-white'>
         {image &&
           (React.isValidElement(image) ? (
             React.cloneElement(image, {
