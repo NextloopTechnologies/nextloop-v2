@@ -162,6 +162,9 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
             <li className={`${pathname === '/blog' && 'text-orange-500'}`}>
               <Link href='/blog'>Blogs</Link>
             </li>
+            <li className={`${pathname === '/culture' && 'text-orange-500'}`}>
+              <Link href='/culture'>Culture</Link>
+            </li>
             <li>
               <Link
                 // onClick={handleRequestQuote}

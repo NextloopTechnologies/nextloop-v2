@@ -15,7 +15,7 @@ const ClientSays: FC = () => {
               Whats OUR <span className='text-orange-500'>Clients</span> Say
             </h2>
             <h3
-              className={`${palette.fontSize.heading3.mobile} md:${palette.fontSize.description.desktop} text-white lg:px-20 text-center mt-3`}
+              className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} text-white lg:px-20 text-center `}
             >
               Proven success stories from businesses that chose Nextloop for digital transformation 
             </h3>

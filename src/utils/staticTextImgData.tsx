@@ -27,18 +27,29 @@ import { getStaticImageData } from './helper';
 import { StepProps } from '../components/DiamondGridBoxes';
 import { IFAQ } from '../types';
 import {
+  CultureEvent
+} from '../types';
+import {
   ecommerceAssets,
   eventAssets,
   fintechAssets,
   healthcareAssets,
 } from '../../assets';
+import birthday from '../../assets/birthday.jpeg';
 import blogImg from '../../assets/blog/blogImg.png';
+import careerBg from '../../assets/careerBg.png';
+import christmas from '../../assets/Christmas-Celebration.png';
+import diwali from '../../assets/diwali.jpeg';
+import ganesh from '../../assets/ganesh-chaturdi.jpeg';
+import holi from '../../assets/holi-celebration.jpeg';
+import pizzaParty from '../../assets/pizza-party.jpeg';
 import OurProcess1 from '../../assets/services/ourProcess1.png';
 import OurProcess2 from '../../assets/services/ourProcess2.png';
 import OurProcess3 from '../../assets/services/ourProcess3.png';
 import servicesWebdevelopmentHero from '../../assets/services/servicesWebdevelopmentHero.png';
 import staffingService from '../../assets/services/staffing-service.png';
 import WhyBusinessChooseUs from '../../assets/services/why-choose-us-bg.png';
+import teamTrip from '../../assets/teamtrip.jpeg';
 import mahoutIcon from '../../assets/techstackIcons/aiml/mahoutIcon.png';
 import openCvIcon from '../../assets/techstackIcons/aiml/openCvIcon.png';
 import pytorchIcon from '../../assets/techstackIcons/aiml/pytorchIcon.png';
@@ -86,6 +97,9 @@ import PSIcon from '../../assets/techstackIcons/uiux/PSIcon.png';
 import seekIcon from '../../assets/techstackIcons/uiux/seekIcon.png';
 import webflowIcon from '../../assets/techstackIcons/uiux/webflowIcon.png';
 import XDIcon from '../../assets/techstackIcons/uiux/XDIcon.png';
+import turfDay from '../../assets/turf-day.jpeg';
+import womensDay from '../../assets/womens-day.jpeg';
+
 
 export const faqsContent: IFAQ[] = [
   {
@@ -304,21 +318,68 @@ export const bottomStepsWebDevelopment: StepProps[] = [
       'We launch the site and provide ongoing maintenance to keep it running smoothly.',
     color: 'border-gray-500',
   },
+
+];
+
+export const cultureEvents: CultureEvent[] = [
   {
-    icon: <Rocket className='text-gray-600 w-7 h-7' />,
-    title: 'Launch & Support',
+    title: 'Team Trip',
+    image: teamTrip,
     description:
-      'We launch the site and provide ongoing maintenance to keep it running smoothly.',
-    color: 'border-gray-500',
+      'We kicked off the year with our annual team trip, a refreshing break filled with nature, conversations, and shared experiences. It was the perfect way to reset, reconnect, and begin the year with stronger bonds and renewed energy.',
   },
   {
-    icon: <Rocket className='text-gray-600 w-7 h-7' />,
-    title: 'Launch & Support',
+    title: 'Pizza Party',
+    image: pizzaParty,
     description:
-      'We launch the site and provide ongoing maintenance to keep it running smoothly.',
-    color: 'border-gray-500',
+      'A simple pizza party turned into a moment of laughter and togetherness. Because sometimes, the best celebrations are the simplest ones.',
+  },
+  {
+    title: 'Women’s Day',
+    image: womensDay,
+    description:
+      'Women’s Day at Nextloop was all about appreciation and empowerment. A reminder that respect and recognition should be everyday values.',
+  },
+  {
+    title: 'Holi Celebration',
+    image: holi,
+    description:
+      'Holi brought vibrant colors, laughter, and festive energy into our workplace. Work felt lighter, brighter, and more joyful that day.',
+  },
+  {
+    title: 'Turf Day',
+    image: turfDay,
+    description:
+      'Our turf day brought out energy, enthusiasm, and friendly competition. Because teamwork grows stronger when shared beyond the office.',
+  },
+  {
+    title: 'Birthday Celebrations',
+    image: birthday,
+    description:
+      'Birthdays at Nextloop are celebrated with warmth and appreciation. Because people are at the heart of everything we do.',
+  },
+  {
+    title: 'Ganesh Chaturthi',
+    image: ganesh,
+    description:
+      'Ganesh Chaturthi was celebrated with devotion and joy, from Sthapna to Visarjan. The festival filled our workspace with positivity and unity.',
+  },
+  {
+    title: 'Diwali Celebration',
+    image: diwali,
+    description:
+      'Diwali at Nextloop was a celebration of gratitude and joy. Moments that truly reflected the spirit of togetherness.',
+  },
+  {
+    title: 'Christmas Celebration',
+    image: christmas,
+    description:
+      'We wrapped up the year with festive cheer and laughter. A joyful close to a year filled with growth and meaningful connections.',
   },
 ];
+
+export { careerBg };
+
 
 export const servicesSubPagesData = {
   customSoftwareDevelopment: {
@@ -430,20 +491,7 @@ export const servicesSubPagesData = {
           'We launch the site and provide ongoing maintenance to keep it running smoothly.',
         color: 'border-gray-500',
       },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Launch & Support',
-        description:
-          'We launch the site and provide ongoing maintenance to keep it running smoothly.',
-        color: 'border-gray-500',
-      },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Launch & Support',
-        description:
-          'We launch the site and provide ongoing maintenance to keep it running smoothly.',
-        color: 'border-gray-500',
-      },
+
     ],
     techStackData: [
       {
@@ -709,20 +757,7 @@ export const servicesSubPagesData = {
           'Comprehensive testing ensures smooth functionality and cross-platform compatibility.',
         color: 'border-gray-500',
       },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Launch & Support',
-        description:
-          'We launch the site and provide ongoing maintenance to keep it running smoothly.',
-        color: 'border-gray-500',
-      },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Launch & Support',
-        description:
-          'We launch the site and provide ongoing maintenance to keep it running smoothly.',
-        color: 'border-gray-500',
-      },
+
       {
         icon: <Rocket className='text-gray-600 w-7 h-7' />,
         title: 'Launch & Support',
