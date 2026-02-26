@@ -41,7 +41,7 @@
 }
 
 .aboutUsBackgroundImage {
-  background-image: url('../../assets/nextloop-landing.png');
+  background-image: url('../../assets/nextloop-landing.webp');
   background-size: cover; /* Cover the entire container */
   background-position: center; /* Center the background image */
   background-repeat: no-repeat;
@@ -53,7 +53,7 @@
 
 @media screen and (min-width: 1280px) {
   .aboutUsBackgroundImage {
-    background-image: url('../../assets/nextloop-landing.png');
+    background-image: url('../../assets/nextloop-landing.webp');
     background-size: cover; /* Cover the entire container */
     background-position: center; /* Center the background image */
     background-repeat: no-repeat;

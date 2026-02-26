@@ -163,14 +163,7 @@ const HealthCare: React.FC = () => {
                   <li key={benefit.id}>{benefit.text}</li>
                 ))}
               </ul>
-              <p
-                className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
-              >
-                In this blog, you will uncover the reasons why healthcare
-                providers should invest in custom software and how their
-                investment can improve efficiency, reduce costs, and improve
-                patient care.
-              </p>
+             
             </div>
           }
         />

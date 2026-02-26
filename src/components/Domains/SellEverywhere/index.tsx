@@ -17,7 +17,7 @@ const SellEverywhere = () => {
         className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} w-[90%] md:w-[52%] mx-auto text-center`}
       >
         Sell your products in more places with ease - in store, on the go, on
-        your eCommerce website and on leading marketplaces - all synced to one
+        your e-commerce website and on leading marketplaces - all synced to one
         dashboard.
       </p>
 

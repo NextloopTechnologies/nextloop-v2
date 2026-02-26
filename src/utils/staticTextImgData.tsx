@@ -37,7 +37,7 @@ import {
 } from '../../assets';
 import birthday from '../../assets/birthday.jpeg';
 import blogImg from '../../assets/blog/blogImg.png';
-import careerBg from '../../assets/careerBg.png';
+import careerBg from '../../assets/careerBg.webp';
 import christmas from '../../assets/Christmas-Celebration.png';
 import diwali from '../../assets/diwali.jpeg';
 import ganesh from '../../assets/ganesh-chaturdi.jpeg';

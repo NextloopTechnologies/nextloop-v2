@@ -11,7 +11,7 @@ import SlidingImages from '../../components/SlidingImages';
 import { Job } from '../../types';
 import supabaseClient from '../../utils/client';
 import { careerImages } from '../../../assets';
-import careerBg from '../../../assets/careerBg.png';
+import careerBg from '../../../assets/careerBg.webp';
 
 
 
