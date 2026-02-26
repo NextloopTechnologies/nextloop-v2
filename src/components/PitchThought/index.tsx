@@ -214,9 +214,7 @@ const PitchThought: FC = () => {
               <div
                 className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
               >
-                Send us some details about your project, and feel free to ask
-                questions about our process. Our consultants will be with you
-                ASAP.
+                Send us details about your project or any questions about our process. Our consultants will respond promptly
               </div>
               <div className='border-b border-orange-500 w-full border-t-4 mb-2 md:mb-0'></div>
               <div>

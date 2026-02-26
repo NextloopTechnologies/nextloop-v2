@@ -110,8 +110,7 @@ const OilAndGas = () => {
                 about performance. Save time and money by creating software that
                 lets you more effectively manage your operation. Our no-code
                 solution gives you the tech to solve your unique problems. We
-                make the entire process simple, cost-effective, and fast. What
-                can we do for you?
+                make the entire process simple, cost-effective, and fast.
               </p>
             </div>
           }

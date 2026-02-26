@@ -6,10 +6,13 @@ import React from 'react';
 
 import '../styles/globals.css';
 
+import { getBaseUrl } from '../utils/getBaseUrl';
+
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const baseUrl = process.env.NEXT_PUBLIC_API_ENDPOINT || 'http://localhost:3000';
-  const canonicalUrl = `${baseUrl}${router.asPath.split('?')[0]}`;
+
+  const baseUrl = getBaseUrl(); 
+  const canonicalUrl = `${baseUrl}${router.asPath}`;
 
   return (
     <>

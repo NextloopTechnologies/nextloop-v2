@@ -86,10 +86,10 @@ const Benefits: React.FC = () => {
           have become critical factors for successful business development.
           That’s why modern companies are increasingly using only software
           solutions that fully consider all the individual features of their
-          projects. When it comes to Fintech software development, custom
-          solutions can be more cost-effective as Fintech is highly
+          projects. When it comes to fintech software development, custom
+          solutions can be more cost-effective as fintech is highly
           technological. That’s why it can be the best option for you. Moreover,
-          financial custom software development can boost Fintech’s digital
+          financial custom software development can boost fintech’s digital
           acceleration. Find out the significant benefits of custom software
           development in our article.
         </p>

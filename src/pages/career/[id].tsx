@@ -6,7 +6,7 @@ import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
 import { Job } from '../../types';
 import supabaseClient from '../../utils/client';
-import careerBg from '../../../assets/careerBg.png';
+import careerBg from '../../../assets/careerBg.webp';
 
 const CareerID: React.FC<{ data?: Job[]; error?: string }> = ({
   data,

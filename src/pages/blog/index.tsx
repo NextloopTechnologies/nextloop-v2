@@ -30,7 +30,7 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
       <PageHero
         image={blogsBg}
         title='blogs'
-        subtitle='If you are looking for a complete business solution at a one place in
+        subtitle='If you are looking for a complete business solution at in one place in
           combination with distinctive designs, that is what you can expect from
           us. To stimulate the growth of your company, we focus on various
           services, although we do not limit ourselves to this. We keep learning
