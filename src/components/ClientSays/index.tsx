@@ -12,7 +12,7 @@ const ClientSays: FC = () => {
             <h2
               className={`${palette.fontSize.heading2.mobile} md:text-4xl 2xl:text-4xl text-white uppercase  font-bold text-center`}
             >
-              Whats OUR <span className='text-orange-500'>Clients</span> Say
+              What OUR <span className='text-orange-500'>Clients</span> Say
             </h2>
             <h3
               className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} text-white lg:px-20 text-center `}

@@ -197,7 +197,7 @@ const Ecommerce = () => {
             <div
               className={`mx-12 md:mx-10 lg:mx-0 md:max-w-[600px] ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
             >
-              In this highly competitive eCommerce environment, the struggle to
+              In this highly competitive e-commerce environment, the struggle to
               acquire customers and keep their interest has made customization
               indispensable. Users are becoming more demanding and impatient. We
               know that setting up your eCommerce business is not an easy job.
@@ -246,7 +246,7 @@ const Ecommerce = () => {
           colouredTitle='Real customer'
         /> */}
         <FAQ faqsContent={faqsContent} />
-        <CustomRequestQuote title='Your complete event management platform' />
+        <CustomRequestQuote title='Your complete event management in ecommerce' />
       </Layout>
     </>
   );

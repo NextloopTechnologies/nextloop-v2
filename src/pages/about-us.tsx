@@ -8,7 +8,7 @@ import Layout from '../components/Layout/Layout';
 import PageHero from '../components/PageHero';
 import palette from '../styles/pallette';
 import { AboutNextloopBackground } from '../../assets';
-import aboutBg from '../../assets/about-us-hero.png';
+import aboutBg from '../../assets/about-us-hero.webp';
 import cert1 from '../../assets/certificates/1.png';
 import cert2 from '../../assets/certificates/2.png';
 import cert3 from '../../assets/certificates/3.png';
@@ -154,7 +154,7 @@ const AboutUsHome = () => {
 const WhyUs = () => (
   <div className=' flex flex-col justify-center items-center text-center gap-12 p-8 py-20'>
 
-    <div className='grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 w-full sm:w-[60%] place-items-center gap-12 px-6'>
+    <div className='grid lg:grid-cols-2  grid-cols-1 w-full sm:w-[60%] place-items-center gap-12 px-6'>
       {arr.map((t, i) => (
         <Card {...t} key={i} />
       ))}
@@ -333,7 +333,7 @@ const Card: React.FC<{ title: string; sub: string }> = ({ title, sub }) => {
               {title}
             </span>
           </div>
-          <span className='text-[11px] md:text-[11px] text-left'>{sub}</span>
+          <span className=' text-[14px] text-left'>{sub}</span>
         </div>
       </div>
     </div>

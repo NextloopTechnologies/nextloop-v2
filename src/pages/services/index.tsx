@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
-import servicesBg from '../../../assets/servicesBg.png';
+import servicesBg from '../../../assets/servicesBg.webp';
 
 const cards: { title: string; desc: string; link: string }[] = [
   {

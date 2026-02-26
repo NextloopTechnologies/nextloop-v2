@@ -131,6 +131,130 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
     divRefs.current[index] = el;
   };
 
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.nextlooptechnologies.com/#organization",
+        "name": "Nextloop Technologies",
+        "legalName": "Nextloop Technologies LLP",
+        "url": "https://www.nextlooptechnologies.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.nextlooptechnologies.com/wp-content/uploads/2023/logo.png"
+        },
+        "email": "nextlooptechnologies@gmail.com",
+        "foundingDate": "2020",
+        "founders": [
+          {
+            "@type": "Person",
+            "name": "Piyush Shrivastava"
+          },
+          {
+            "@type": "Person",
+            "name": "Rahul Alekhachandra Nayak"
+          }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/nextlooptechnologies",
+          "https://www.linkedin.com/company/nextlooptechnologies",
+          "https://www.instagram.com/nextlooptechnologies"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.nextlooptechnologies.com/#website",
+        "url": "https://www.nextlooptechnologies.com/",
+        "name": "Nextloop Technologies",
+        "publisher": {
+          "@id": "https://www.nextlooptechnologies.com/#organization"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.nextlooptechnologies.com/?s={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://www.nextlooptechnologies.com/#professionalservice",
+        "name": "Nextloop Technologies",
+        "image": "https://www.nextlooptechnologies.com/wp-content/uploads/2023/office.jpg",
+        "url": "https://www.nextlooptechnologies.com/",
+        "telephone": "+91-9893738323",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "101, Kanchan Sagar, 18/1, Near Industry House, Old Palasia",
+          "addressLocality": "Indore",
+          "addressRegion": "MP",
+          "postalCode": "452001",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 22.7244,
+          "longitude": 75.8839
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "10:00",
+          "closes": "22:00"
+        }
+      },
+      {
+        "@type": "ItemList",
+        "name": "Our Services",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "Service",
+              "name": "Custom Software Development",
+              "description": "Tailored software solutions to solve unique business challenges."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "Service",
+              "name": "Mobile App Development",
+              "description": "High-performance Android and iOS applications built with Flutter and Native technologies."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "Service",
+              "name": "Web Development",
+              "description": "Modern, responsive, and SEO-friendly websites and web applications."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@type": "Service",
+              "name": "Cloud & AI Solutions",
+              "description": "AWS/Azure cloud migration and Artificial Intelligence/Machine Learning implementation."
+            }
+          }
+        ]
+      }
+    ]
+  };
+
+
   return (
     <>
       <Head>
@@ -145,6 +269,13 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
           name='description'
           content='Nextloop Technologies delivers custom software, IT consulting, web & mobile app dev, cloud services, AI/ML & digital marketing personalised for your business'
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schemaData),
+          }}
+        />
+
       </Head>
       <Layout divRefs={divRefs?.current} id='connect-with-us'>
         <div

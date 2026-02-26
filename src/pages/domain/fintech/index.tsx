@@ -132,7 +132,7 @@ const Fintech: React.FC = () => {
                     Fintech web design is critical to any financial services
                     company's online presence. Investing in professional and
                     user-friendly web design can help your business stand out
-                    from the competition , build trust
+                    from the competition.
                   </p>
                 </div>
               }
