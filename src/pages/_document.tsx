@@ -7,22 +7,7 @@ export default function Document() {
   return (
     <Html lang='en'>
       <Head>
-        {/* Google Tag Manager */}
-        <script
-          async
-          src='https://www.googletagmanager.com/gtag/js?id=G-ZZGFLK3MRW'
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag() { window.dataLayer.push(arguments); }
-              gtag('js', new Date());
-              gtag('config', 'G-ZZGFLK3MRW');
-            `,
-          }}
-        />
-
+        
         {/* Google Site Verification */}
         <meta
           name='google-site-verification'
