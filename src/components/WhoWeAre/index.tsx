@@ -18,8 +18,8 @@ const WhoWeAre: FC = () => {
             width={600}
             height={400}
             priority
-            sizes="(max-width: 768px) 100vw,(max-width: 1024px) 50vw, 600px"
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
+            className="w-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
         </div>
       </div>
@@ -42,7 +42,8 @@ const WhoWeAre: FC = () => {
           >
             With 8+ years of industry expertise, we specialize in building custom
             software, AI-powered solutions, web & mobile applications, and digital
-            ecosystems that drive real business outcomes.
+            ecosystems that drive real business outcomes.We partner with brands to
+              innovate faster, operate smarter, and grow sustainably.
           </p>
 
           {/* STATS */}
