@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { MoveDown } from 'lucide-react';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
+import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 
 import Certificate from '../components/Certificate';
@@ -16,6 +17,7 @@ import WhoWeAre from '../components/WhoWeAre';
 import { IPortfolio } from '../types';
 import supabaseClient from '../utils/client';
 import useWindowSize from '../utils/useWindowSize';
+import hero from '../../assets/nextloop-landing.webp';
 
 
 
@@ -278,16 +280,26 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
 
       </Head>
       <Layout divRefs={divRefs?.current} id='connect-with-us'>
+
         <div
           id="intro"
           ref={setDivRef(0)}
-          className="relative sm:min-h-screen min-h-[50vh] aboutUsBackgroundImage"
+          className="relative w-full sm:min-h-screen min-h-[50vh]"
         >
-          <div className="container min-w-[100vw] min-h-full pb-28">
-            <Intro />
+          <Image
+            src={hero}
+            alt="Nextloop landing"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+
+          <div className="relative z-10 w-full min-h-[50vh] sm:min-h-screen pb-28 flex items-center">
+            <div className="container mx-auto">
+              <Intro />
+            </div>
           </div>
-
-
         </div>
 
 

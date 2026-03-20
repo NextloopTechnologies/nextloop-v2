@@ -81,9 +81,7 @@ const ProcessWeFollow = () => {
                     strokeWidth={1.8}
                   />
                 </div>
-
-
-
+                
                 <h3 className="mt-20 text-sm font-semibold tracking-widest text-black">
                   {step.title}
                 </h3>

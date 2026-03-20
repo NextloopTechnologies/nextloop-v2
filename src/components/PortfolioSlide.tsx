@@ -83,6 +83,8 @@ const PortfolioSlide = () => {
                     src={item.image}
                     alt={item.caption}
                     fill
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover rounded-2xl"
                   />
 

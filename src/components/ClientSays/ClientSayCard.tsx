@@ -1,6 +1,6 @@
-import { ArrowLeft, ArrowRight, } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
-import React, { FC, useState } from 'react';
+import React, { FC, useCallback, useState } from 'react';
 
 import palette from '../../styles/pallette';
 import {
@@ -8,7 +8,6 @@ import {
   Levram1,
   Stamens,
   SWAcademy,
-  // Client2,
 } from '../../../assets';
 
 interface ServiceCardProps {
@@ -39,106 +38,125 @@ const OURVALUES_DATA: ServiceCardProps[] = [
   },
 ];
 
-const ClientSaysCard: FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex: number) =>
-      prevIndex === OURVALUES_DATA.length - 1 ? 0 : prevIndex + 1
-    );
-  };
 
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex: number) =>
-      prevIndex === 0 ? OURVALUES_DATA.length - 1 : prevIndex - 1
-    );
-  };
 
+const ClientCard = React.memo(({ card }: { card: ServiceCardProps }) => {
   return (
-    <>
-      <div className='relative w-full max-w-sm  sm:max-w-[800px] mx-auto'>
-        <div className='overflow-hidden'>
-          <div
-            className='flex transition-transform duration-500 ease-out'
-            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-          >
-            {OURVALUES_DATA.map((card, index) => (
-              <div key={index} className='min-w-full p-10 '>
-                <div className='bg-white rounded-lg shadow-lg overflow-hidden flex sm:flex-row flex-col justify-center items-center gap-y-4 sm:gap-x-4 px-5 py-5 mx-auto sm:w-[80%] h-[100%]'>
-                  {/* <img
-                    src={card.image}
-                    alt={card.heading}
-                    className='w-full h-48 object-cover'
-                  /> */}
+    <div className="min-w-full p-6 sm:p-10">
+      <div className="bg-white rounded-lg shadow-lg overflow-hidden flex sm:flex-row flex-col justify-center items-center gap-y-4 sm:gap-x-6 px-5 py-6 mx-auto sm:w-[80%]">
 
-                  <div className='flex flex-col justify-center items-center'>
-                    <Image
-                      // width={60}
-                      // height={60}
-                      src={card.image}
-                      alt={card.heading}
-                      className='h-16 w-16 object-contain'
-                    />
-                    <div className='text-center mt-3 '>
-                      <h2
-                        className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} font-semibold whitespace-nowrap`}
-                      >
-                        {card.title}
-                      </h2>
-                      <p
-                        className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop} whitespace-nowrap`}
-                      >
-                        {card?.heading}
-                      </p>
-                      {/* <p className='text-gray-600 mt-2'>{card.description}</p> */}
-                    </div>
-                  </div>
+        {/* Client Info */}
+        <div className="flex flex-col justify-center items-center">
+          <Image
+            src={card.image}
+            alt={card.heading}
+            width={64}
+            height={64}
+            className="object-contain"
+            sizes="64px"
+          />
 
-                  <div className='w-full flex flex-col justify-between items-center'>
-                    <span className='self-start'>
-                      <Image
-                        src={InvertedQoute}
-                        alt={card.heading}
-                        className='w-10 object-cover'
-                      />
-                    </span>
+          <div className="text-center mt-3">
+            <h2
+              className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} font-semibold`}
+            >
+              {card.title}
+            </h2>
 
-                    <p
-                      className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop} p-4 text-center`}
-                    >
-                      {card?.desc}
-                    </p>
-
-                    <span className='self-end'>
-                      <Image
-                        src={InvertedQoute}
-                        alt={card.heading}
-                        className='w-10 object-cover rotate-180'
-                      />
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
+            <p
+              className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+            >
+              {card.heading}
+            </p>
           </div>
         </div>
 
-        {/* Left Arrow */}
-        <button
-          onClick={prevSlide}
-          className='absolute top-[50%] left-0 transform -translate-y-1/2 p-2 bg-white text-white rounded-full'
-        >
-          <ArrowLeft className='object-cover text-black ' size={15} />
-        </button>
+        {/* Testimonial */}
+        <div className="w-full flex flex-col justify-between items-center">
 
-        {/* Right Arrow */}
-        <button
-          onClick={nextSlide}
-          className='absolute  top-[50%] right-0 transform -translate-y-1/2 p-2 bg-white text-white rounded-full'
-        >
-          <ArrowRight className='object-cover text-black ' size={15} />
-        </button>
+          <span className="self-start">
+            <Image
+              src={InvertedQoute}
+              alt="quote icon"
+              width={40}
+              height={40}
+              loading="lazy"
+            />
+          </span>
+
+          <p
+            className={`${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop} p-4 text-center`}
+          >
+            {card.desc}
+          </p>
+
+          <span className="self-end">
+            <Image
+              src={InvertedQoute}
+              alt="quote icon"
+              width={40}
+              height={40}
+              className="rotate-180"
+              loading="lazy"
+            />
+          </span>
+
+        </div>
       </div>
-    </>
+    </div>
+  );
+});
+
+ClientCard.displayName = 'ClientCard';
+
+/* =======================
+   Main Component
+======================= */
+
+const ClientSaysCard: FC = () => {
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prev) =>
+      prev === OURVALUES_DATA.length - 1 ? 0 : prev + 1
+    );
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? OURVALUES_DATA.length - 1 : prev - 1
+    );
+  }, []);
+
+  const currentCard = OURVALUES_DATA[currentIndex];
+
+  if (!currentCard) {
+    return null;
+  }
+
+  return (
+    <div className="relative w-full max-w-sm sm:max-w-[800px] mx-auto">
+
+      <ClientCard card={currentCard} />
+
+      {/* Left Arrow */}
+      <button
+        onClick={prevSlide}
+        className="absolute top-1/2 left-0 transform -translate-y-1/2 p-2 bg-white rounded-full shadow-md"
+      >
+        <ArrowLeft className="text-black" size={18} />
+      </button>
+
+      {/* Right Arrow */}
+      <button
+        onClick={nextSlide}
+        className="absolute top-1/2 right-0 transform -translate-y-1/2 p-2 bg-white rounded-full shadow-md"
+      >
+        <ArrowRight className="text-black" size={18} />
+      </button>
+
+    </div>
   );
 };
 
