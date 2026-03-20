@@ -87,13 +87,7 @@ const PitchThought: FC = () => {
 
   return (
     <div>
-      {/* <Head>
-        <title>Nextloop Technologies | Let's Connect</title>
-        <meta
-          name='description'
-          content='Get in touch with Nextloop Technologies for all your IT service needs. Our team is ready to assist you with innovative solutions and expert support.'
-        />
-      </Head> */}
+      
       <form onSubmit={handleSubmit} className='md:px-20 md:pb-5 md:pt-10 pb-24'>
         <h2
           className={`${palette.fontSize.heading2.mobile} md:text-4xl 2xl:text-4xl text-white uppercase font-bold text-center p-10`}
