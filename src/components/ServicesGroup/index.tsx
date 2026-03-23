@@ -9,9 +9,11 @@ import {
   Service3,
   Service4,
   Service5,
+  Service6,
   Service7,
   Service8,
   Service9,
+  // Service11,
   Service12,
 } from '../../../assets';
 
@@ -26,6 +28,11 @@ const SERVICE_DATA: ServiceCardProps[] = [
     heading: 'Custom Software Development',
     image: Service1 as unknown as string,
     link: '/services/custom-software-development',
+  },
+  {
+    heading: 'Staff Augmentation',
+    image: Service7 as unknown as string,
+    link: '/services/staffing',
   },
   {
     heading: 'Web Development',
@@ -47,12 +54,11 @@ const SERVICE_DATA: ServiceCardProps[] = [
     image: Service5 as unknown as string,
     link: '/services/mobile-development',
   },
-
-  {
-    heading: 'Staffing',
-    image: Service7 as unknown as string,
-    link: '/services/staffing',
-  },
+    {
+     heading: 'UI/UX Development',
+     image: Service6 as unknown as string,
+      link: '/services/ui-ux-development',
+   },
   {
     heading: 'E-commerce Development',
     image: Service8 as unknown as string,
@@ -63,6 +69,11 @@ const SERVICE_DATA: ServiceCardProps[] = [
     image: Service9 as unknown as string,
     link: '/services/ai-ml',
   },
+  //  {
+  //   heading: 'Technical Support',
+  //   image: Service11 as unknown as string,
+  //   link: '/services/technical-support',
+  // },
   {
     heading: 'Digital Marketing Services',
     image: Service12 as unknown as string,

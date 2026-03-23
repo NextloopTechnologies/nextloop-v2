@@ -35,21 +35,22 @@ import {
   fintechAssets,
   healthcareAssets,
 } from '../../assets';
-import birthday from '../../assets/birthday.jpeg';
+import birthday from '../../assets/birthday-celebration.png';
 import blogImg from '../../assets/blog/blogImg.png';
 import careerBg from '../../assets/careerBg.webp';
 import christmas from '../../assets/Christmas-Celebration.png';
+import culturebg from '../../assets/culturebg.png';
 import diwali from '../../assets/diwali.jpeg';
-import ganesh from '../../assets/ganesh-chaturdi.jpeg';
-import holi from '../../assets/holi-celebration.jpeg';
-import pizzaParty from '../../assets/pizza-party.jpeg';
+import ganesh from '../../assets/ganesh-chaturdi.png';
+import holi from '../../assets/holi-celebration.png';
+import pizzaParty from '../../assets/pizza-party.png';
 import OurProcess1 from '../../assets/services/ourProcess1.png';
 import OurProcess2 from '../../assets/services/ourProcess2.png';
 import OurProcess3 from '../../assets/services/ourProcess3.png';
 import servicesWebdevelopmentHero from '../../assets/services/servicesWebdevelopmentHero.png';
 import staffingService from '../../assets/services/staffing-service.png';
 import WhyBusinessChooseUs from '../../assets/services/why-choose-us-bg.png';
-import teamTrip from '../../assets/teamtrip.jpeg';
+import teamTrip from '../../assets/teamtrip.png';
 import mahoutIcon from '../../assets/techstackIcons/aiml/mahoutIcon.png';
 import openCvIcon from '../../assets/techstackIcons/aiml/openCvIcon.png';
 import pytorchIcon from '../../assets/techstackIcons/aiml/pytorchIcon.png';
@@ -98,7 +99,7 @@ import seekIcon from '../../assets/techstackIcons/uiux/seekIcon.png';
 import webflowIcon from '../../assets/techstackIcons/uiux/webflowIcon.png';
 import XDIcon from '../../assets/techstackIcons/uiux/XDIcon.png';
 import turfDay from '../../assets/turf-day.jpeg';
-import womensDay from '../../assets/womens-day.jpeg';
+import womensDay from '../../assets/womens-day.png';
 
 
 export const faqsContent: IFAQ[] = [
@@ -379,6 +380,7 @@ export const cultureEvents: CultureEvent[] = [
 ];
 
 export { careerBg };
+export { culturebg };
 
 
 export const servicesSubPagesData = {

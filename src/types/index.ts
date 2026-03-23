@@ -11,6 +11,7 @@ export interface BlogType {
   created_at: string;
 
   updated_at: string;
+
 }
 
 type JobMode = 'Remote' | 'On-site' | 'Hybrid';

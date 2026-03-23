@@ -41,9 +41,9 @@ const WhoWeAre: FC = () => {
             className={`${palette.fontSize.description.mobile} ${palette.fontSize.description.desktop} mt-6 tracking-wide leading-relaxed text-gray-700`}
           >
             With 8+ years of industry expertise, we specialize in building custom
-            software, AI-powered solutions, web & mobile applications, and digital
+            software, AI-powered solutions, web & mobile applications and digital
             ecosystems that drive real business outcomes.We partner with brands to
-              innovate faster, operate smarter, and grow sustainably.
+              innovate faster, operate smarter and grow sustainably.
           </p>
 
           {/* STATS */}

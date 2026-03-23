@@ -4,7 +4,7 @@ import palette from '../../styles/pallette';
 
 const Intro = () => {
   return (
-    <div className='relative w-full flex justify-start items-center overflow-x-hidden px-4'>
+    <div className='relative w-full flex justify-center items-center mb-96 overflow-x-hidden px-4'>
       <div className='px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 2xl:px-20 mx-4 sm:mx-8 md:mx-32 lg:mx-40 mt-36 md:mt-64 lg:mt-72'>
         <header className='text-white text-left'>
           <div

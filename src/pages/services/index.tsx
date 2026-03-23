@@ -13,6 +13,11 @@ const cards: { title: string; desc: string; link: string }[] = [
     link: '/services/custom-software-development',
   },
   {
+    title: 'Staff Augmentation',
+    desc: 'Need to bolster your development team with top-tier talent? Look no further! We can provide you with highly skilled and experienced developers dedicated to bringing your vision to life.  Think of it as seamlessly extending your in-house team with the perfect expertise you need.',
+    link: '/services/staffing',
+  },
+  {
     title: 'Web Development',
     desc: 'We craft innovative web solutions that go beyond just a website. We design intuitive interfaces and seamless user experiences to not only enhance your online presence but also drive real business growth.  Imagine a website that captivates visitors and compels them to take action!',
     link: '/services/web-development',
@@ -38,11 +43,6 @@ const cards: { title: string; desc: string; link: string }[] = [
     link: '/services/ui-ux-development',
   },
   {
-    title: 'Staffing',
-    desc: 'Need to bolster your development team with top-tier talent? Look no further! We can provide you with highly skilled and experienced developers dedicated to bringing your vision to life.  Think of it as seamlessly extending your in-house team with the perfect expertise you need.',
-    link: '/services/staffing',
-  },
-  {
     title: 'E-commerce Development',
     desc: "Turn your online store into a sales powerhouse! We offer end-to-end e-commerce development solutions, from building a secure and user-friendly platform to integrating robust payment gateways and implementing effective marketing strategies. We'll help you transform your online store into a thriving e-commerce empire.",
     link: '/services/e-commerce-development',
@@ -52,16 +52,16 @@ const cards: { title: string; desc: string; link: string }[] = [
     desc: 'Artificial Intelligence (AI) and Machine Learning (ML) are revolutionizing businesses. We can help you unlock the power of these technologies to gain valuable insights from your data, automate repetitive tasks, and drive innovation across your organization.',
     link: '/services/ai-ml',
   },
-  {
-    title: 'Quality Assurance',
-    desc: 'We offer complete Quality Assurance (QA) solutions to guarantee that your systems and software are up to par. Our exacting methodology, which emphasizes accuracy, efficiency, and dependability, enables you to produce flawless products that go above and beyond.',
-    link: '/services/quality-assurance',
-  },
-  {
-    title: 'Technical Support',
-    desc: "Peace of mind is priceless. Our reliable technical support services ensure that your website or application runs smoothly, uninterrupted. We'll be there to promptly address any technical issues that may arise, keeping your online presence running optimally.",
-    link: '/services/technical-support',
-  },
+  // {
+  //   title: 'Quality Assurance',
+  //   desc: 'We offer complete Quality Assurance (QA) solutions to guarantee that your systems and software are up to par. Our exacting methodology, which emphasizes accuracy, efficiency, and dependability, enables you to produce flawless products that go above and beyond.',
+  //   link: '/services/quality-assurance',
+  // },
+  // {
+  //   title: 'Technical Support',
+  //   desc: "Peace of mind is priceless. Our reliable technical support services ensure that your website or application runs smoothly, uninterrupted. We'll be there to promptly address any technical issues that may arise, keeping your online presence running optimally.",
+  //   link: '/services/technical-support',
+  // },
   {
     title: 'Digital Marketing Services',
     desc: "Take your brand to the next level with Nextloop's data-driven digital marketing solutions. Through SEO, advertisements, and social media interaction, we combine strategy, technology, and creativity to increase traffic, lead generation, and conversions.",
@@ -74,8 +74,8 @@ const Services = () => {
     <Layout>
       <Head>
         <title>
-          {' '}
-          Enterprise Software, Cloud, AI & Digital Services | Nextloop{' '}
+          
+          Enterprise Software, Cloud, AI & Digital Services | Nextloop
         </title>
         <meta
           name='description'
