@@ -42,11 +42,11 @@ const cards: { title: string; desc: string; link: string }[] = [
     desc: 'Need to bolster your development team with top-tier talent? Look no further! We can provide you with highly skilled and experienced developers dedicated to bringing your vision to life.  Think of it as seamlessly extending your in-house team with the perfect expertise you need.',
     link: '/services/ui-ux-development',
   },
-  {
-    title: 'E-commerce Development',
-    desc: "Turn your online store into a sales powerhouse! We offer end-to-end e-commerce development solutions, from building a secure and user-friendly platform to integrating robust payment gateways and implementing effective marketing strategies. We'll help you transform your online store into a thriving e-commerce empire.",
-    link: '/services/e-commerce-development',
-  },
+  // {
+  //   title: 'E-commerce Development',
+  //   desc: "Turn your online store into a sales powerhouse! We offer end-to-end e-commerce development solutions, from building a secure and user-friendly platform to integrating robust payment gateways and implementing effective marketing strategies. We'll help you transform your online store into a thriving e-commerce empire.",
+  //   link: '/services/e-commerce-development',
+  // },
   {
     title: 'AI/ML',
     desc: 'Artificial Intelligence (AI) and Machine Learning (ML) are revolutionizing businesses. We can help you unlock the power of these technologies to gain valuable insights from your data, automate repetitive tasks, and drive innovation across your organization.',
