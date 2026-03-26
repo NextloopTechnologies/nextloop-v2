@@ -11,7 +11,6 @@ export interface BlogType {
   created_at: string;
 
   updated_at: string;
-
 }
 
 type JobMode = 'Remote' | 'On-site' | 'Hybrid';
@@ -148,7 +147,7 @@ export interface OfferApplicationType {
 export interface CultureEvent {
   title: string;
   description: string;
-  image: StaticImageData;
+  image: StaticImageData | string;
 }
 
 export interface CultureSectionProps extends CultureEvent {

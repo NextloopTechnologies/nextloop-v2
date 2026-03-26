@@ -23,7 +23,7 @@ const CulturePage = () => {
 
       <PageHero
         image={culturebg}
-        coloredTitle='Life at'
+        coloredTitle='Life at '
         title="Nextloop"
         subtitle="From celebrations to everyday wins, every moment at Nextloop reflects our people-first culture."
         opacity="opacity-80"

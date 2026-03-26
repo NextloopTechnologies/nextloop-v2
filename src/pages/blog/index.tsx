@@ -125,8 +125,8 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
         </div>
       ) : (
         <div className="bg-white min-h-screen px-4 flex flex-col justify-center items-center md:px-8 xl:px-24 py-12 ">
-          <div className='relative bg-black w-11/12 h-[75vh] cursor-pointer'
-            onClick={() => router.push(`/blog/${data?.[0]?.id}`)}
+          <div className='relative bg-black w-11/12 h-[75vh] '
+            
           >
             {/* Background image */}
             {data?.[0]?.image?.[0]?.url ? (

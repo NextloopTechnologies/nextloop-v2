@@ -35,22 +35,15 @@ import {
   fintechAssets,
   healthcareAssets,
 } from '../../assets';
-import birthday from '../../assets/birthday-celebration.png';
 import blogImg from '../../assets/blog/blogImg.png';
 import careerBg from '../../assets/careerBg.webp';
-import christmas from '../../assets/Christmas-Celebration.png';
 import culturebg from '../../assets/culturebg.png';
-import diwali from '../../assets/diwali.jpeg';
-import ganesh from '../../assets/ganesh-chaturdi.png';
-import holi from '../../assets/holi-celebration.png';
-import pizzaParty from '../../assets/pizza-party.png';
 import OurProcess1 from '../../assets/services/ourProcess1.png';
 import OurProcess2 from '../../assets/services/ourProcess2.png';
 import OurProcess3 from '../../assets/services/ourProcess3.png';
 import servicesWebdevelopmentHero from '../../assets/services/servicesWebdevelopmentHero.png';
 import staffingService from '../../assets/services/staffing-service.png';
 import WhyBusinessChooseUs from '../../assets/services/why-choose-us-bg.png';
-import teamTrip from '../../assets/teamtrip.png';
 import mahoutIcon from '../../assets/techstackIcons/aiml/mahoutIcon.png';
 import openCvIcon from '../../assets/techstackIcons/aiml/openCvIcon.png';
 import pytorchIcon from '../../assets/techstackIcons/aiml/pytorchIcon.png';
@@ -98,8 +91,6 @@ import PSIcon from '../../assets/techstackIcons/uiux/PSIcon.png';
 import seekIcon from '../../assets/techstackIcons/uiux/seekIcon.png';
 import webflowIcon from '../../assets/techstackIcons/uiux/webflowIcon.png';
 import XDIcon from '../../assets/techstackIcons/uiux/XDIcon.png';
-import turfDay from '../../assets/turf-day.jpeg';
-import womensDay from '../../assets/womens-day.png';
 
 
 export const faqsContent: IFAQ[] = [
@@ -325,55 +316,55 @@ export const bottomStepsWebDevelopment: StepProps[] = [
 export const cultureEvents: CultureEvent[] = [
   {
     title: 'Team Trip',
-    image: teamTrip,
+    image: 'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/teamtrip.png',
     description:
       'We kicked off the year with our annual team trip, a refreshing break filled with nature, conversations, and shared experiences. It was the perfect way to reset, reconnect, and begin the year with stronger bonds and renewed energy.',
   },
   {
     title: 'Pizza Party',
-    image: pizzaParty,
+    image: 'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/pizza-party.png',
     description:
       'A simple pizza party turned into a moment of laughter and togetherness. Because sometimes, the best celebrations are the simplest ones.',
   },
   {
     title: 'Women’s Day',
-    image: womensDay,
+    image: 'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/womens-day.png',
     description:
       'Women’s Day at Nextloop was all about appreciation and empowerment. A reminder that respect and recognition should be everyday values.',
   },
   {
     title: 'Holi Celebration',
-    image: holi,
+    image: 'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/holi-celebration.png',
     description:
       'Holi brought vibrant colors, laughter, and festive energy into our workplace. Work felt lighter, brighter, and more joyful that day.',
   },
   {
     title: 'Turf Day',
-    image: turfDay,
+    image: 'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/turf-day.jpeg',
     description:
       'Our turf day brought out energy, enthusiasm, and friendly competition. Because teamwork grows stronger when shared beyond the office.',
   },
   {
     title: 'Birthday Celebrations',
-    image: birthday,
+    image: 'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/birthday-celebration.png',
     description:
       'Birthdays at Nextloop are celebrated with warmth and appreciation. Because people are at the heart of everything we do.',
   },
   {
     title: 'Ganesh Chaturthi',
-    image: ganesh,
+    image: 'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/ganesh-chaturdi.png',
     description:
       'Ganesh Chaturthi was celebrated with devotion and joy, from Sthapna to Visarjan. The festival filled our workspace with positivity and unity.',
   },
   {
     title: 'Diwali Celebration',
-    image: diwali,
+    image: 'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/diwali.jpeg',
     description:
       'Diwali at Nextloop was a celebration of gratitude and joy. Moments that truly reflected the spirit of togetherness.',
   },
   {
     title: 'Christmas Celebration',
-    image: christmas,
+    image: 'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/Christmas-Celebration.png',
     description:
       'We wrapped up the year with festive cheer and laughter. A joyful close to a year filled with growth and meaningful connections.',
   },
