@@ -72,7 +72,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
     { name: 'Healthcare', href: '/domain/healthcare' },
     // { name: 'Hotel', href: '/domain/hotel' },
     { name: 'Oil And Gas', href: '/domain/oil-and-gas' },
-    { name: 'Food and Beverages', href: '/domain/food-and-beverages' },
+    { name: 'Food And Beverages', href: '/domain/food-and-beverages' },
     { name: 'Travel And Hospitality', href: '/domain/travel-and-hospitality' },
   ];
 

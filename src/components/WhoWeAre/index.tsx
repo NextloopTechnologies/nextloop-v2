@@ -29,21 +29,18 @@ const WhoWeAre: FC = () => {
         <div className="flex flex-col max-w-xl text-center lg:text-left">
 
           <h2
-            className={`${palette.fontSize.heading2.mobile} lg:text-4xl 2xl:text-5xl uppercase font-bold leading-snug`}
+            className={`${palette.fontSize.heading2.mobile} ${palette.fontSize.heading1.mobile} lg:text-4xl 2xl:text-5xl font-bold leading-snug`}
           >
-            Transforming{" "}
+            Transforming Your Business{" "}
             <span className="text-orange-400">
-              Ideas into Scalable Digital Solutions
+            with Custom Software Solutions
             </span>
           </h2>
 
           <p
             className={`${palette.fontSize.description.mobile} ${palette.fontSize.description.desktop} mt-6 tracking-wide leading-relaxed text-gray-700`}
           >
-            With 8+ years of industry expertise, we specialize in building custom
-            software, AI-powered solutions, web & mobile applications, and digital
-            ecosystems that drive real business outcomes.We partner with brands to
-              innovate faster, operate smarter, and grow sustainably.
+            We offer software development outsourcing services that go beyond just creating code, thanks to our 8+ years of experience in the field. Our engineers are experts at using AI to update old systems and make digital ecosystems that are safe and can grow. We work with clients to fill up gaps in skills, speed up innovation, and help businesses flourish.
           </p>
 
           {/* STATS */}

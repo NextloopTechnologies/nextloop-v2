@@ -1,11 +1,12 @@
-import { ArrowRight, CalendarCheck, Headset, Lightbulb, MapPin, Medal, MoveLeft, MoveRight, Rocket, TrophyIcon } from 'lucide-react';
+import { ArrowRight, CalendarCheck, Headset, MapPin, Medal, MoveLeft, MoveRight, Rocket, TrophyIcon } from 'lucide-react';
 import Head from 'next/head';
 import Image, { StaticImageData } from 'next/image';
-import { useRouter } from 'next/router';
 import { useRef } from 'react';
 
 import Layout from '../components/Layout/Layout';
+import MeetFounders from '../components/MeetFounders';
 import PageHero from '../components/PageHero';
+import Timeline from '../components/Timeline';
 import palette from '../styles/pallette';
 import { AboutNextloopBackground } from '../../assets';
 import aboutBg from '../../assets/about-us-hero.webp';
@@ -72,26 +73,7 @@ const arr = [
     title: 'our vision',
     sub: 'Our vision is to be the trusted ally of businesses worldwide, guiding them through the complexities of the digital landscape with clarity, confidence, and compassion. We aspire to be at the forefront of technological innovation, driving positive change and shaping a future where possibilities are limitless.',
   },
-  
-];
 
-const journeyArr = [
-  {
-    title: 'Inception',
-    sub: 'our team of four engineers has come together from a variety of professions, including tech, administration, sales, and management, with the goal of assisting individuals in solving their challenges. Due to the pressing demand for digitalization in society and our proficiency in the field, we began developing mobile and web applications for nearby suppliers, and from there the whole idea was formed.',
-  },
-  {
-    title: 'Extension',
-    sub: 'Possessing all the necessary components for both digitization and humanitarian work, they began contacting various companies with their high-caliber offerings and, in just four months, secured our first project abroad',
-  },
-  {
-    title: 'Progression',
-    sub: ' In just eight months, through perseverance and hard work, we expanded to a team of fifteen driven employees and moved into an office. This was a significant turning point in our self-funded journey, and it gave us hope that we still had a long way to go. It will take months for the team to reach its full potential.',
-  },
-  {
-    title: 'Transformation',
-    sub: ' We will have 40 members by 2024 and be expanding quickly, all the while assisting numerous businesses. We have six domains in which we are experts. With every project, we redefine possibilities because we are committed to risk-taking experimentation. We believe in innovation. developing innovative technologies that will influence IT in the future.',
-  },
 ];
 
 const certificateCardArr = [
@@ -139,9 +121,10 @@ const AboutUsHome = () => {
         image={aboutBg}
         coloredTitle='about '
         title='us'
-        subtitle='Nextloop Technologies was founded in 2020, driven by enthusiasm and the desire to make a difference. What started off as a tiny concept has developed into something more significant, a journey requiring commitment and a strong drive for success. Our goal has always been the same: to support companies in realizing their aspirations and succeeding in the digital sphere. Our focus is on providing tailored IT solutions that empower companies to embrace digital transformation and unlock new opportunities. From cloud services to blockchain development and custom software solutions, we deliver cutting-edge technologies designed to meet the unique needs of your business.'
+        subtitle='At Nextloop Technologies, we partner with ambitious businesses to turn complex challenges into scalable, high-performance systems that drive measurable growth. Every solution we build is rooted in strategy, engineered with precision, and designed for long-term value. We specialize in crafting tailored IT solutions aligned with your unique business goals — from cloud architecture and optimization to AI-driven systems, intelligent automation, and custom software development. '
       />
       <WhyUs />
+      <MeetFounders />
       <Journey />
       {/* <AboutUsInAboutUs /> */}
       <EndToEnd />
@@ -163,26 +146,12 @@ const WhyUs = () => (
 );
 
 const Journey = () => {
-  const router = useRouter();
   return (
-    <div className='min-h-screen bg-[#010103] text-white flex flex-col justify-center items-center text-center gap-24 p-8'>
-      <h2
-        className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop}  uppercase font-bold mt-10`}
-      >
-        our journey
-      </h2>
-      <div className='grid xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 grid-cols-1 w-full place-items-center gap-10 xl:px-8'>
-        {journeyArr.map((t, i) => (
-          <JourneyCard {...t} key={i} odd={i % 2 !== 0} />
-        ))}
-      </div>
-      <div className='flex justify-center w-full'>
-        <button
-          onClick={() => router.push('#footer')}
-          className='bg-transparent border border-white text-white px-5 py-3 rounded-full'
-        >
-          Contact Us &#10230;
-        </button>
+    <div className='min-h-auto text-center p-8'>
+      
+
+      <div className="mt-16">
+        <Timeline />
       </div>
     </div>
   );
@@ -340,98 +309,8 @@ const Card: React.FC<{ title: string; sub: string }> = ({ title, sub }) => {
   );
 };
 
-const JourneyCard: React.FC<{ title: string; sub: string; odd: boolean }> = ({
-  sub,
-  title,
-  odd,
-}) => {
-  return (
-    <div className='xl:w-[300px] xl:h-[300px] flex flex-col items-center relative '>
-      {!odd ? <SmallOrangeTop /> : <BigOrangeTop />}
-      <div className='absolute flex flex-col  md:w-[275px] w-full items-center gap-2 md:px-0 mt-8'>
-        <Lightbulb
-          size={50}
-          strokeWidth={2.5}
-          className="text-white"
-        />
-        <h3
-          className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop} font-bold`}
-        >
-          {title}
-        </h3>
-        <span className=' text-[10px] px-8'>{sub}</span>
-      </div>
-    </div>
-  );
-};
 
-const BigOrangeTop = () => (
-  <>
-    <svg
-      width='343'
-      height='259'
-      viewBox='0 0 343 259'
-      fill='none'
-      xmlns='http://www.w3.org/2000/svg'
-    >
-      <path
-        d='M26.4759 251.722C12.3833 226.399 5.1659 197.827 5.54149 168.849C5.91707 139.871 13.8726 111.496 28.6168 86.546C43.3609 61.5963 64.38 40.9414 89.5835 26.6354C114.787 12.3295 143.297 4.871 172.277 5.00184C201.257 5.13268 229.698 12.8482 254.772 27.3812C279.845 41.9141 300.677 62.758 315.195 87.8398C329.713 112.922 337.412 141.367 337.526 170.348C337.64 199.328 330.165 227.833 315.844 253.028'
-        stroke='white'
-        strokeWidth='10'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      />
-    </svg>
-    <svg
-      width='287'
-      height='85'
-      viewBox='0 0 287 85'
-      fill='none'
-      xmlns='http://www.w3.org/2000/svg'
-    >
-      <path
-        d='M278.622 10.1303C262.773 31.0256 242.279 47.9456 218.761 59.5514C195.242 71.1572 169.346 77.1302 143.12 76.9978C116.895 76.8655 91.0596 70.6314 67.6597 58.7888C44.2598 46.9462 23.9371 29.8202 8.29991 8.76602'
-        stroke='#FA8145'
-        strokeWidth='16'
-        strokeLinecap='round'
-      />
-    </svg>
-  </>
-);
 
-const SmallOrangeTop = () => (
-  <>
-    <svg
-      width='287'
-      height='85'
-      viewBox='0 0 287 85'
-      fill='none'
-      xmlns='http://www.w3.org/2000/svg'
-    >
-      <path
-        d='M278.622 74.8697C262.773 53.9744 242.279 37.0544 218.761 25.4486C195.242 13.8428 169.346 7.86977 143.12 8.00213C116.895 8.13449 91.0596 14.3686 67.6597 26.2112C44.2598 38.0537 23.9371 55.1797 8.29991 76.2339'
-        stroke='#FA8145'
-        strokeWidth='16'
-        strokeLinecap='round'
-      />
-    </svg>
-    <svg
-      width='343'
-      height='259'
-      viewBox='0 0 343 259'
-      fill='none'
-      xmlns='http://www.w3.org/2000/svg'
-    >
-      <path
-        d='M26.4759 7.27826C12.3833 32.6017 5.1659 61.1733 5.54149 90.1515C5.91707 119.13 13.8726 147.505 28.6168 172.454C43.3609 197.404 64.38 218.059 89.5835 232.365C114.787 246.671 143.297 254.129 172.277 253.998C201.257 253.868 229.698 246.152 254.772 231.619C279.845 217.086 300.677 196.242 315.195 171.16C329.713 146.079 337.412 117.633 337.526 88.6527C337.64 59.6723 330.165 31.167 315.844 5.97184'
-        stroke='white'
-        strokeWidth='10'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      />
-    </svg>
-  </>
-);
 
 const AboutNextLoop = () => (
   <div className='relative z-20 flex flex-col items-center justify-center bg-[#1F1F1F] py-20 md:mx-28 mx-3 mb-[-100px]'>
