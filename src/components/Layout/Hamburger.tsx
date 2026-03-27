@@ -36,7 +36,7 @@ const Hamburger = () => {
     { name: 'Fin-Tech', href: '/domain/fintech' },
     { name: 'Healthcare', href: '/domain/healthcare' },
     { name: 'Oil And Gas', href: '/domain/oil-and-gas' },
-    { name: 'Food And Beverages', href: '/domain/food-and-beverages' },
+    { name: 'Food and Beverages', href: '/domain/food-and-beverages' },
     { name: 'Travel And Hospitality', href: '/domain/travel-and-hospitality' },
   ];
 
@@ -172,13 +172,6 @@ const Hamburger = () => {
             }`}
           >
             <button onClick={() => handleNavigation('/blog')}>Blogs</button>
-          </li>
-          <li
-            className={`w-full ${
-              pathname === '/culture' ? 'text-orange-500' : ''
-            }`}
-          >
-            <button onClick={() => handleNavigation('/culture')}>Culture</button>
           </li>
           <li className='w-full mt-4'>
             <button

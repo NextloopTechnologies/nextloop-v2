@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { MoveDown } from 'lucide-react';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
-// import Image from 'next/image';
+import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 
 import Certificate from '../components/Certificate';
@@ -10,7 +10,6 @@ import ClientSays from '../components/ClientSays';
 import Intro from '../components/Intro';
 import Layout from '../components/Layout/Layout';
 import OurCLient from '../components/OurClinet';
-// import PopupForm from '../components/PopupForm';
 import Portfolio from '../components/Portfolio';
 import ProcessWeFollow from '../components/ProcessWeFollow';
 import Services from '../components/ServicesGroup';
@@ -18,8 +17,7 @@ import WhoWeAre from '../components/WhoWeAre';
 import { IPortfolio } from '../types';
 import supabaseClient from '../utils/client';
 import useWindowSize from '../utils/useWindowSize';
-// import hero from '../../assets/nextloop-landing.webp';
-
+import hero from '../../assets/nextloop-landing.webp';
 
 
 
@@ -263,42 +261,39 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
     <>
       <Head>
         <title>
-          IT Staff Augmentation | Custom Software Solutions | AI Remote Teams
+          Custom Software, IT & Digital Solutions | Nextloop Technologies
         </title>
-
         <meta
-          name="title"
-          content="IT Staff Augmentation | Custom Software Solutions | AI Remote Teams"
+          name='title'
+          content='abcd'
         />
-
         <meta
-          name="description"
-          content="Leading IT outsourcing company in Indore & USA. We provide custom software development, staff augmentation & dedicated developers for AI, SaaS & MVP development"
+          name='description'
+          content='Nextloop Technologies delivers custom software, IT consulting, web & mobile app dev, cloud services, AI/ML & digital marketing personalised for your business'
         />
-
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(schemaData),
           }}
         />
+
       </Head>
       <Layout divRefs={divRefs?.current} id='connect-with-us'>
 
         <div
           id="intro"
           ref={setDivRef(0)}
-          className="relative w-full sm:min-h-screen  min-h-[50vh] max-h-[90vh] "
+          className="relative w-full sm:min-h-screen min-h-[50vh]"
         >
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="absolute w-full h-full object-cover"
-          >
-            <source src="https://res.cloudinary.com/dr97zpi7u/video/upload/v1773399103/Header_video_1_gjlkyy.mp4" type="video/mp4" />
-          </video>
+          <Image
+            src={hero}
+            alt="Nextloop landing"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
 
           <div className="relative z-10 w-full min-h-[50vh] sm:min-h-screen pb-28 flex items-center">
             <div className="container mx-auto">
@@ -397,7 +392,6 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
             <MoveDown className='h-5 w-7 rotate-180' />
           </motion.button>
         )}
-         {/* <PopupForm /> */}
       </Layout>
     </>
   );
