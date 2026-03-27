@@ -9,10 +9,12 @@ import {
   Service3,
   Service4,
   Service5,
+  Service6,
   Service7,
-  Service8,
+  // Service8,
   Service9,
-  Service12,
+  // Service11,
+  // Service12,
 } from '../../../assets';
 
 interface ServiceCardProps {
@@ -28,7 +30,12 @@ const SERVICE_DATA: ServiceCardProps[] = [
     link: '/services/custom-software-development',
   },
   {
-    heading: 'Web Development',
+    heading: 'IT Staff Augmentation',
+    image: Service7 as unknown as string,
+    link: '/services/staffing',
+  },
+  {
+    heading: 'Web Application Development',
     image: Service2 as unknown as string,
     link: '/services/web-development',
   },
@@ -38,7 +45,7 @@ const SERVICE_DATA: ServiceCardProps[] = [
     link: '/services/mvp-development',
   },
   {
-    heading: 'Cloud Services (DevOps, AWS, GCP, Azure)',
+    heading: 'Cloud & DevOps',
     image: Service4 as unknown as string,
     link: '/services/cloud-services',
   },
@@ -47,27 +54,31 @@ const SERVICE_DATA: ServiceCardProps[] = [
     image: Service5 as unknown as string,
     link: '/services/mobile-development',
   },
-
+    {
+     heading: 'UI/UX Design & Development ',
+     image: Service6 as unknown as string,
+      link: '/services/ui-ux-development',
+   },
+  // {
+  //   heading: 'E-commerce Development',
+  //   image: Service8 as unknown as string,
+  //   link: '/services/e-commerce-development',
+  // },
   {
-    heading: 'Staffing',
-    image: Service7 as unknown as string,
-    link: '/services/staffing',
-  },
-  {
-    heading: 'E-commerce Development',
-    image: Service8 as unknown as string,
-    link: '/services/e-commerce-development',
-  },
-  {
-    heading: 'AI/ML',
+    heading: 'AI & Machine Learning',
     image: Service9 as unknown as string,
     link: '/services/ai-ml',
   },
-  {
-    heading: 'Digital Marketing Services',
-    image: Service12 as unknown as string,
-    link: '/services/digital-marketing-services',
-  },
+  //  {
+  //   heading: 'Technical Support',
+  //   image: Service11 as unknown as string,
+  //   link: '/services/technical-support',
+  // },
+  // {
+  //   heading: 'Digital Marketing Services',
+  //   image: Service12 as unknown as string,
+  //   link: '/services/digital-marketing-services',
+  // },
 ];
 
 const Services: FC = () => {
@@ -77,15 +88,14 @@ const Services: FC = () => {
       <header className="flex gap-10 lg:w-4/6 lg:px-10 text-center">
         <div className="w-full flex flex-col justify-center items-center gap-y-3 z-10 px-4">
           <h2
-            className={`${palette.fontSize.heading2.mobile} md:text-4xl 2xl:text-4xl font-bold text-center uppercase`}
+            className={`${palette.fontSize.heading2.mobile} md:text-4xl 2xl:text-4xl font-bold text-center `}
           >
-            Our <span className="text-orange-500">Services</span>
+            Build, Scale and Transform with <span className="text-orange-500">Custom Software</span>
           </h2>
           <h3
             className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} text-center`}
           >
-            Delivering end-to-end software, web, and mobile solutions that
-            accelerate business innovation
+          Whether you're launching a new digital platform or deploying AI agents for business automation, our technical teams provide the secure, high-performance solutions you need to expand seamlessly.
           </h3>
         </div>
       </header>

@@ -59,18 +59,17 @@ const OurCLients: FC = () => {
       <header className="flex gap-10 lg:w-4/6 lg:px-10 text-center">
         <div className="pt-2 w-full flex flex-col justify-center items-center gap-y-3 z-10 px-4">
           <div
-            className={`${palette.fontSize.heading2.mobile} md:text-4xl text-white uppercase font-bold text-center`}
+            className={`${palette.fontSize.heading2.mobile} md:text-4xl text-white font-bold text-center`}
           >
             <h2>
-              Our <span className="text-orange-500">Clients</span>
+              Our <span className="text-orange-500">Trusted Partners</span>
             </h2>
           </div>
 
           <h3
             className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} text-white text-center`}
           >
-            Trusted by global brands and startups for innovative technology
-            solutions and lasting partnership
+            Serving as the dedicated IT outsourcing partner for ambitious startups, healthcare providers, and global enterprises. 
           </h3>
         </div>
       </header>
