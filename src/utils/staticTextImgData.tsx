@@ -657,9 +657,10 @@ export const servicesSubPagesData = {
   },
   webDevelopment: {
     metaData: {
-      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
+      pageMetaTitle:
+        'Scalable Web Development & IT Outsourcing Services in India',
       pageMetaDescription:
-        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Engineered for excellence. Transform your ideas into reality with custom full stack web development services. Hire dedicated web developers from our offshore software development company for precision-built software.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
@@ -938,9 +939,10 @@ export const servicesSubPagesData = {
   },
   cloudServices: {
     metaData: {
-      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
+      pageMetaTitle:
+        'Enterprise Cloud & DevOps Services India |AWS & Azure Experts ',
       pageMetaDescription:
-        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Optimize your infrastructure with Nextloop’s managed cloud solutions. Expert AWS, Azure & GCP migration, DevOps automation, and secure cloud cost management.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
@@ -1217,9 +1219,10 @@ export const servicesSubPagesData = {
   },
   mobileAppDevelopment: {
     metaData: {
-      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
+      pageMetaTitle:
+        'Native Mobile Application Development India | iOS & Android Experts',
       pageMetaDescription:
-        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Launch engaging native mobile experiences alongside a top mobile app & software development company in India & USA. Engineer scalable, secure smartphone apps.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
@@ -1508,9 +1511,9 @@ export const servicesSubPagesData = {
   },
   aimlSolutions: {
     metaData: {
-      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
+      pageMetaTitle: 'Generative AI Development Company | Hire AI Developers',
       pageMetaDescription:
-        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Nextloop is a leading Generative AI development company. Hire AI developers to build custom LLMs, RAG pipelines, and enterprise-grade AI/ML solutions.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
@@ -2072,9 +2075,9 @@ export const servicesSubPagesData = {
   },
   digitalMarketingServices: {
     metaData: {
-      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
+      pageMetaTitle: 'Best Performance Marketing & SEO Services India',
       pageMetaDescription:
-        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Boost brand awareness with Nextloop Technologies. Our performance marketing strategy combines SEO, paid promotion, and targeted lead generation to drive growth.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
@@ -2336,9 +2339,10 @@ export const servicesSubPagesData = {
   },
   mvpDevelopment: {
     metaData: {
-      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
+      pageMetaTitle:
+        'Build Your MVP Faster with Expert Software Development Services ',
       pageMetaDescription:
-        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Transform ideas into reality with a trusted MVP app & software product development services providing company. Launch quickly and test market demand.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
@@ -2595,9 +2599,10 @@ export const servicesSubPagesData = {
   },
   staffingServices: {
     metaData: {
-      pageMetaTitle: 'Nextloop Technologies | Staffing Sevices',
+      pageMetaTitle:
+        'IT Staff Augmentation Services | Hire Dedicated AI Developers ',
       pageMetaDescription:
-        'Nextloop Technologies offers expert staffing solutions to help businesses find top talent quickly and efficiently. Our tailored recruitment services ensure you get skilled professionals who fit your company culture and drive success.',
+        'Access top-tier AI talent and remote tech teams. Nextloop provides expert IT staff augmentation services to bridge your skill gaps and drive innovation.',
     },
     heroImage: staffingService,
     heroSectionData: {

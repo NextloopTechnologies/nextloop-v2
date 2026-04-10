@@ -68,10 +68,13 @@ const TravelAndHospitality = () => {
   return (
     <>
       <Head>
-        <title>Hotel Website & Booking Software | Nextloop Technologies</title>
+        <title>
+          Hotel Management Software (PMS) & Custom Travel App Development
+          Services
+        </title>
         <meta
           name='description'
-          content='Nextloop builds mobile & user-friendly hotel websites with online booking, AI chatbots, customer engagement, secure payment gateways and digital marketing tools'
+          content='Build scalable hotel PMS and travel apps with Nextloop. Get Custom booking engines and AI-powered solutions to boost bookings and enhance guest experience.'
         />
       </Head>
       <Layout>

@@ -1,4 +1,14 @@
-import { ArrowRight, CalendarCheck, Headset, MapPin, Medal, MoveLeft, MoveRight, Rocket, TrophyIcon } from 'lucide-react';
+import {
+  ArrowRight,
+  CalendarCheck,
+  Headset,
+  MapPin,
+  Medal,
+  MoveLeft,
+  MoveRight,
+  Rocket,
+  TrophyIcon,
+} from 'lucide-react';
 import Head from 'next/head';
 import Image, { StaticImageData } from 'next/image';
 import { useRef } from 'react';
@@ -21,46 +31,44 @@ import cert5 from '../../assets/certificates/5.png';
 //   description: string;
 // }
 
-
 export interface Service {
   icon: React.ElementType;
   title: string;
   description: string;
 }
 
-
-
-
 const servicesData: Service[] = [
   {
     icon: CalendarCheck,
-    title: "Founded in 2020",
-    description: "Nextloop Technologies delivers innovative IT solutions across industries.",
+    title: 'Founded in 2020',
+    description:
+      'Nextloop Technologies delivers innovative IT solutions across industries.',
   },
   {
     icon: MapPin,
-    title: "Location",
-    description: "Headquartered in Indore, with an office in the UK.",
+    title: 'Location',
+    description: 'Headquartered in Indore, with an office in the UK.',
   },
   {
     icon: Medal,
-    title: "Certifications",
-    description: "Globally recognized standards achieved.",
+    title: 'Certifications',
+    description: 'Globally recognized standards achieved.',
   },
   {
     icon: Rocket,
-    title: "Projects Completed",
-    description: "Successfully delivered 30+ projects globally.",
+    title: 'Projects Completed',
+    description: 'Successfully delivered 30+ projects globally.',
   },
   {
     icon: Headset,
-    title: "Expertise",
-    description: "Specializing in Cloud Solutions, Blockchain, Custom Software, and Digital Transformation.",
+    title: 'Expertise',
+    description:
+      'Specializing in Cloud Solutions, Blockchain, Custom Software, and Digital Transformation.',
   },
   {
     icon: TrophyIcon,
-    title: "Recognition",
-    description: "Renowned for delivering award-winning IT solutions.",
+    title: 'Recognition',
+    description: 'Renowned for delivering award-winning IT solutions.',
   },
 ];
 
@@ -73,7 +81,6 @@ const arr = [
     title: 'our vision',
     sub: 'Our vision is to be the trusted ally of businesses worldwide, guiding them through the complexities of the digital landscape with clarity, confidence, and compassion. We aspire to be at the forefront of technological innovation, driving positive change and shaping a future where possibilities are limitless.',
   },
-
 ];
 
 const certificateCardArr = [
@@ -110,11 +117,11 @@ const AboutUsHome = () => {
     <Layout>
       <Head>
         <title>
-          Innovative IT Solutions & Industry Expertise | About Nextloop
+          Blockchain Development Company & IT Services | Custom Web3 Solutions
         </title>
         <meta
           name='description'
-          content='Nextloop Technologies — ISO & CMMI certified IT experts delivering award-winning custom software, cloud, blockchain, digital transformation since 2020'
+          content='Get to know our team at Nextloop. We are a contract-based it company in India that provides custom blockchain app & web development services for businesses across the globe'
         />
       </Head>
       <PageHero
@@ -136,7 +143,6 @@ const AboutUsHome = () => {
 
 const WhyUs = () => (
   <div className=' flex flex-col justify-center items-center text-center gap-12 p-8 py-20'>
-
     <div className='grid lg:grid-cols-2  grid-cols-1 w-full sm:w-[60%] place-items-center gap-12 px-6'>
       {arr.map((t, i) => (
         <Card {...t} key={i} />
@@ -148,9 +154,7 @@ const WhyUs = () => (
 const Journey = () => {
   return (
     <div className='min-h-auto text-center p-8'>
-      
-
-      <div className="mt-16">
+      <div className='mt-16'>
         <Timeline />
       </div>
     </div>
@@ -269,7 +273,7 @@ const EndToEnd = () => {
               key={index}
               className='bg-white p-3 flex flex-col border items-left pl-8 border-gray-300'
             >
-              <Icon size={40} strokeWidth={2.2} className="text-orange-500" />
+              <Icon size={40} strokeWidth={2.2} className='text-orange-500' />
 
               <h3 className='font-bold text-sm mt-4'>{service.title}</h3>
               <p className='text-left text-gray-600 mt-2 text-xs'>
@@ -279,7 +283,6 @@ const EndToEnd = () => {
           );
         })}
       </div>
-
     </div>
   );
 };
@@ -308,9 +311,6 @@ const Card: React.FC<{ title: string; sub: string }> = ({ title, sub }) => {
     </div>
   );
 };
-
-
-
 
 const AboutNextLoop = () => (
   <div className='relative z-20 flex flex-col items-center justify-center bg-[#1F1F1F] py-20 md:mx-28 mx-3 mb-[-100px]'>

@@ -20,7 +20,7 @@ function BlogCard({ blog, onClick }: { blog: BlogType; onClick: () => void }) {
     <article
       onClick={onClick}
       className='group flex flex-col w-full h-full lg:max-w-[400px] self-start cursor-pointer
-                  overflow-hidden p-3
+                  overflow-hidden p-3 rounded-lg hover:shadow-lg 
                  bg-white border border-[#C8C8C8]
                  transition-all duration-300 ease-out
                  hover:bg-[#1D1D1D] hover:border-[#1D1D1D]'
@@ -96,11 +96,12 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
     <Layout>
       <Head>
         <title>
-          Insights on IT, Software, AI, Digital Trends | Nextloop Blog
+          Read Nextloop’s software development blogs to get useful
+          technology-based insights
         </title>
         <meta
           name='description'
-          content='Explore Nextloops blogs for expert insights on AI, cloud computing, software development, digital marketing & emerging tech trends shaping business in 2025'
+          content='Discover expert advice through Nextloop Technologies IT consulting blogs. We cover strategies for technology and information management to help your business grow and succeed.'
         />
       </Head>
 
