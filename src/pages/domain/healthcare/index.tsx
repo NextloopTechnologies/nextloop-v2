@@ -106,10 +106,12 @@ const HealthCare: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Healthcare Software Development & AI Solutions | Nextloop</title>
+        <title>
+          Healthcare Software Development Services | Hire AI Health Developers
+        </title>
         <meta
           name='description'
-          content='Nextloop delivers secure, AI-driven healthcare software with custom telemedicine, diagnostics, data analytics & compliant platforms to enhance patient care'
+          content='Nextloop Technologies builds next-gen healthcare apps with AI diagnostics, remote patient monitoring, and secure cloud integration. Scalable solutions for modern HealthTech.'
         />
       </Head>
       <Layout>
@@ -163,7 +165,6 @@ const HealthCare: React.FC = () => {
                   <li key={benefit.id}>{benefit.text}</li>
                 ))}
               </ul>
-             
             </div>
           }
         />

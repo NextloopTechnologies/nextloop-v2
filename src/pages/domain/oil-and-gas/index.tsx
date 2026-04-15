@@ -68,12 +68,10 @@ const OilAndGas = () => {
   return (
     <>
       <Head>
-        <title>
-          Oil & Gas Software & IoT Solutions by Nextloop Technologies
-        </title>
+        <title>AI Solutions for Oil & Gas | Custom Software Services</title>
         <meta
           name='description'
-          content='Boost operational efficiency with Nextloop’s AI and IoT-powered oil & gas software Manage assets, ensure safety and streamline workflows with real-time data'
+          content='Nextloop delivers AI-powered custom software to boost efficiency in oil & gas operations. Improve production, safety, and analytics with our scalable technology '
         />
       </Head>
       <Layout>

@@ -1,27 +1,20 @@
-import { motion } from 'framer-motion';
+import { domAnimation, LazyMotion, m } from 'framer-motion';
 import { MoveDown } from 'lucide-react';
-import { GetServerSideProps } from 'next';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
 // import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
-
-import Certificate from '../components/Certificate';
-import ClientSays from '../components/ClientSays';
+const ClientSays = dynamic(() => import('../components/ClientSays'), {
+  ssr: false,
+});
 import Intro from '../components/Intro';
 import Layout from '../components/Layout/Layout';
 import OurCLient from '../components/OurClinet';
-// import PopupForm from '../components/PopupForm';
-import Portfolio from '../components/Portfolio';
-import ProcessWeFollow from '../components/ProcessWeFollow';
+const Portfolio = dynamic(() => import('../components/Portfolio'));
+const ProcessWeFollow = dynamic(() => import('../components/ProcessWeFollow'));
 import Services from '../components/ServicesGroup';
 import WhoWeAre from '../components/WhoWeAre';
-import { IPortfolio } from '../types';
-import supabaseClient from '../utils/client';
 import useWindowSize from '../utils/useWindowSize';
-// import hero from '../../assets/nextloop-landing.webp';
-
-
-
 
 const sectionStyle: React.CSSProperties = {
   minHeight: '100vh',
@@ -53,7 +46,7 @@ export function Section({
   );
 }
 
-const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
+const Home: React.FC = () => {
   const [showNextPageButton, setShowNextPageButton] = useState(true);
   const [showToTopButton, setShowToTopButton] = useState(false);
 
@@ -116,7 +109,6 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
     };
   }, []);
 
-
   const scrollToNext = () => {
     if (visibleDiv) {
       const currentIndex = divRefs.current.findIndex(
@@ -136,128 +128,128 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
   };
 
   const schemaData = {
-    "@context": "https://schema.org",
-    "@graph": [
+    '@context': 'https://schema.org',
+    '@graph': [
       {
-        "@type": "Organization",
-        "@id": "https://www.nextlooptechnologies.com/#organization",
-        "name": "Nextloop Technologies",
-        "legalName": "Nextloop Technologies LLP",
-        "url": "https://www.nextlooptechnologies.com/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://www.nextlooptechnologies.com/wp-content/uploads/2023/logo.png"
+        '@type': 'Organization',
+        '@id': 'https://www.nextlooptechnologies.com/#organization',
+        name: 'Nextloop Technologies',
+        legalName: 'Nextloop Technologies LLP',
+        url: 'https://www.nextlooptechnologies.com/',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://www.nextlooptechnologies.com/wp-content/uploads/2023/logo.png',
         },
-        "email": "nextlooptechnologies@gmail.com",
-        "foundingDate": "2020",
-        "founders": [
+        email: 'nextlooptechnologies@gmail.com',
+        foundingDate: '2020',
+        founders: [
           {
-            "@type": "Person",
-            "name": "Piyush Shrivastava"
+            '@type': 'Person',
+            name: 'Piyush Shrivastava',
           },
           {
-            "@type": "Person",
-            "name": "Rahul Alekhachandra Nayak"
-          }
+            '@type': 'Person',
+            name: 'Rahul Alekhachandra Nayak',
+          },
         ],
-        "sameAs": [
-          "https://www.facebook.com/nextlooptechnologies",
-          "https://www.linkedin.com/company/nextlooptechnologies",
-          "https://www.instagram.com/nextlooptechnologies"
-        ]
+        sameAs: [
+          'https://www.facebook.com/nextlooptechnologies',
+          'https://www.linkedin.com/company/nextlooptechnologies',
+          'https://www.instagram.com/nextlooptechnologies',
+        ],
       },
       {
-        "@type": "WebSite",
-        "@id": "https://www.nextlooptechnologies.com/#website",
-        "url": "https://www.nextlooptechnologies.com/",
-        "name": "Nextloop Technologies",
-        "publisher": {
-          "@id": "https://www.nextlooptechnologies.com/#organization"
+        '@type': 'WebSite',
+        '@id': 'https://www.nextlooptechnologies.com/#website',
+        url: 'https://www.nextlooptechnologies.com/',
+        name: 'Nextloop Technologies',
+        publisher: {
+          '@id': 'https://www.nextlooptechnologies.com/#organization',
         },
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://www.nextlooptechnologies.com/?s={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
+        potentialAction: {
+          '@type': 'SearchAction',
+          target:
+            'https://www.nextlooptechnologies.com/?s={search_term_string}',
+          'query-input': 'required name=search_term_string',
+        },
       },
       {
-        "@type": "ProfessionalService",
-        "@id": "https://www.nextlooptechnologies.com/#professionalservice",
-        "name": "Nextloop Technologies",
-        "image": "https://www.nextlooptechnologies.com/wp-content/uploads/2023/office.jpg",
-        "url": "https://www.nextlooptechnologies.com/",
-        "telephone": "+91-9893738323",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "101, Kanchan Sagar, 18/1, Near Industry House, Old Palasia",
-          "addressLocality": "Indore",
-          "addressRegion": "MP",
-          "postalCode": "452001",
-          "addressCountry": "IN"
+        '@type': 'ProfessionalService',
+        '@id': 'https://www.nextlooptechnologies.com/#professionalservice',
+        name: 'Nextloop Technologies',
+        image:
+          'https://www.nextlooptechnologies.com/wp-content/uploads/2023/office.jpg',
+        url: 'https://www.nextlooptechnologies.com/',
+        telephone: '+91-9893738323',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress:
+            '101, Kanchan Sagar, 18/1, Near Industry House, Old Palasia',
+          addressLocality: 'Indore',
+          addressRegion: 'MP',
+          postalCode: '452001',
+          addressCountry: 'IN',
         },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 22.7244,
-          "longitude": 75.8839
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: 22.7244,
+          longitude: 75.8839,
         },
-        "openingHoursSpecification": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday"
-          ],
-          "opens": "10:00",
-          "closes": "22:00"
-        }
+        openingHoursSpecification: {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '10:00',
+          closes: '22:00',
+        },
       },
       {
-        "@type": "ItemList",
-        "name": "Our Services",
-        "itemListElement": [
+        '@type': 'ItemList',
+        name: 'Our Services',
+        itemListElement: [
           {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@type": "Service",
-              "name": "Custom Software Development",
-              "description": "Tailored software solutions to solve unique business challenges."
-            }
+            '@type': 'ListItem',
+            position: 1,
+            item: {
+              '@type': 'Service',
+              name: 'Custom Software Development',
+              description:
+                'Tailored software solutions to solve unique business challenges.',
+            },
           },
           {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@type": "Service",
-              "name": "Mobile App Development",
-              "description": "High-performance Android and iOS applications built with Flutter and Native technologies."
-            }
+            '@type': 'ListItem',
+            position: 2,
+            item: {
+              '@type': 'Service',
+              name: 'Mobile App Development',
+              description:
+                'High-performance Android and iOS applications built with Flutter and Native technologies.',
+            },
           },
           {
-            "@type": "ListItem",
-            "position": 3,
-            "item": {
-              "@type": "Service",
-              "name": "Web Development",
-              "description": "Modern, responsive, and SEO-friendly websites and web applications."
-            }
+            '@type': 'ListItem',
+            position: 3,
+            item: {
+              '@type': 'Service',
+              name: 'Web Development',
+              description:
+                'Modern, responsive, and SEO-friendly websites and web applications.',
+            },
           },
           {
-            "@type": "ListItem",
-            "position": 4,
-            "item": {
-              "@type": "Service",
-              "name": "Cloud & AI Solutions",
-              "description": "AWS/Azure cloud migration and Artificial Intelligence/Machine Learning implementation."
-            }
-          }
-        ]
-      }
-    ]
+            '@type': 'ListItem',
+            position: 4,
+            item: {
+              '@type': 'Service',
+              name: 'Cloud & AI Solutions',
+              description:
+                'AWS/Azure cloud migration and Artificial Intelligence/Machine Learning implementation.',
+            },
+          },
+        ],
+      },
+    ],
   };
-
 
   return (
     <>
@@ -267,56 +259,57 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
         </title>
 
         <meta
-          name="title"
-          content="IT Staff Augmentation | Custom Software Solutions | AI Remote Teams"
+          name='title'
+          content='IT Staff Augmentation | Custom Software Solutions | AI Remote Teams'
         />
 
         <meta
-          name="description"
-          content="Leading IT outsourcing company in Indore & USA. We provide custom software development, staff augmentation & dedicated developers for AI, SaaS & MVP development"
+          name='description'
+          content='Leading IT outsourcing company in Indore & USA. We provide custom software development, staff augmentation & dedicated developers for AI, SaaS & MVP development'
         />
 
         <script
-          type="application/ld+json"
+          type='application/ld+json'
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(schemaData),
           }}
         />
       </Head>
       <Layout divRefs={divRefs?.current} id='connect-with-us'>
-
         <div
-          id="intro"
+          id='intro'
           ref={setDivRef(0)}
-          className="relative w-full sm:min-h-screen  min-h-[50vh] max-h-[90vh] "
+          className='relative w-full sm:min-h-screen  min-h-[50vh] max-h-[90vh] '
         >
           <video
             autoPlay
             muted
             loop
             playsInline
-            className="absolute w-full h-full object-cover"
+            preload='none'
+            className='absolute w-full h-full object-cover'
           >
-            <source src="https://res.cloudinary.com/dr97zpi7u/video/upload/v1773399103/Header_video_1_gjlkyy.mp4" type="video/mp4" />
+            <source
+              src='https://res.cloudinary.com/deznt6msy/video/upload/v1775021803/Video_Project_m3ecam.mp4'
+              type='video/mp4'
+            />
           </video>
 
-          <div className="relative z-10 w-full min-h-[50vh] sm:min-h-screen pb-28 flex items-center">
-            <div className="container mx-auto">
+          <div className='relative z-10 w-full min-h-[50vh] sm:min-h-screen pb-28 flex items-center'>
+            <div className='container mx-auto'>
               <Intro />
             </div>
           </div>
         </div>
 
-
         <div id='who-we-are' ref={setDivRef(1)}>
-          <div className="my-10 px-4 sm:px-6 md:my-20">
+          <div className='my-10 px-4 sm:px-6 md:my-20'>
             <WhoWeAre />
           </div>
-
         </div>
 
         <div id='services' ref={setDivRef(2)} className='md:mb-20 '>
-          <div className='container mx-auto min-w-[100vw]'>
+          <div className='container mx-auto w-full'>
             <Services />
           </div>
         </div>
@@ -326,11 +319,8 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
           ref={setDivRef(3)}
           className='sm:min-h-max max-w-[100vw] overflow-hidden'
         >
-          <div className='container mx-auto min-w-[100vw]'>
-            {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
-            <Portfolio
-            // caseStudies={data!}
-            />
+          <div className='container mx-auto w-full'>
+            <Portfolio />
           </div>
         </div>
 
@@ -339,13 +329,16 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
           ref={setDivRef(4)}
           className='sm:min-h-[50vh] sm:min-w-screen'
         >
-          <div className='container mx-auto min-w-[100vw]'>
-            {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
+          <div className='container mx-auto w-full'>
             <OurCLient />
           </div>
         </div>
 
-        <div className='container mx-auto min-w-[100vw]'>
+        <div
+          id='process-we-follow'
+          ref={setDivRef(5)}
+          className='container mx-auto min-w-[100vw]'
+        >
           <ProcessWeFollow />
         </div>
 
@@ -354,74 +347,40 @@ const Home: React.FC<{ data?: IPortfolio[]; error?: string }> = () => {
           ref={setDivRef(6)}
           className=' max-w-[100vw] overflow-hidden'
         >
-          <div className='container mx-auto min-w-[100vw]'>
+          <div className='container mx-auto w-full'>
             {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
             <ClientSays />
           </div>
         </div>
-
-        <div
-          id='certificates'
-          ref={setDivRef(7)}
-          className='certificatesBackgroundImage p-0'
-        >
-          <div className='container mx-auto min-w-[100vw]'>
-            {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
-            <Certificate />
-          </div>
-        </div>
-
-        {showNextPageButton && (
-          <motion.button
-            initial={{ opacity: isMobile ? 1 : 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 40 }}
-            transition={{ duration: 0.5 }}
-            className='fixed bottom-10 right-5 bg-orange-500 hover:bg-orange-600 text-white h-10 w-10 justify-center rounded-full flex items-center cursor-pointer'
-            // onClick={handleScrollOnClick}
-            onClick={scrollToNext}
-          >
-            <MoveDown className='h-5 w-7' />
-          </motion.button>
-        )}
-
-        {showToTopButton && (
-          <motion.button
-            initial={{ opacity: isMobile ? 1 : 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 40 }}
-            transition={{ duration: 0.5 }}
-            className='fixed bottom-10 right-5 bg-orange-500 hover:bg-orange-600 text-white h-10 w-10 justify-center rounded-full flex items-center z-10 cursor-pointer'
-            onClick={handleScrollOnClick}
-          >
-            <MoveDown className='h-5 w-7 rotate-180' />
-          </motion.button>
-        )}
-         {/* <PopupForm /> */}
+        <LazyMotion features={domAnimation}>
+          {showNextPageButton && (
+            <m.button
+              initial={{ opacity: isMobile ? 1 : 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 40 }}
+              transition={{ duration: 0.5 }}
+              className='fixed bottom-10 right-5 bg-orange-500 hover:bg-orange-600 text-white h-10 w-10 justify-center rounded-full flex items-center z-10 cursor-pointer'
+              onClick={scrollToNext}
+            >
+              <MoveDown className='h-5 w-7' />
+            </m.button>
+          )}
+          {showToTopButton && (
+            <m.button
+              initial={{ opacity: isMobile ? 1 : 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 40 }}
+              transition={{ duration: 0.5 }}
+              className='fixed bottom-10 right-5 bg-orange-500 hover:bg-orange-600 text-white h-10 w-10 justify-center rounded-full flex items-center z-10 cursor-pointer'
+              onClick={handleScrollOnClick}
+            >
+              <MoveDown className='h-5 w-7 rotate-180' />
+            </m.button>
+          )}
+        </LazyMotion>
       </Layout>
     </>
   );
 };
 
 export default Home;
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  const { data, error } = await supabaseClient
-    .from('portfolio')
-    .select('id, title, image')
-    .order('id', { ascending: false });
-
-  if (error) {
-    return {
-      props: {
-        error: error.message,
-      },
-    };
-  }
-
-  return {
-    props: {
-      data: data || [],
-    },
-  };
-};

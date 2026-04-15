@@ -31,7 +31,7 @@ const Hamburger = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const industries = [
-    { name: 'E-commerce', href: '/domain/ecommerce' },
+    // { name: 'E-commerce', href: '/domain/ecommerce' },
     { name: 'Events', href: '/domain/events' },
     { name: 'Fin-Tech', href: '/domain/fintech' },
     { name: 'Healthcare', href: '/domain/healthcare' },
@@ -178,7 +178,9 @@ const Hamburger = () => {
               pathname === '/culture' ? 'text-orange-500' : ''
             }`}
           >
-            <button onClick={() => handleNavigation('/culture')}>Culture</button>
+            <button onClick={() => handleNavigation('/culture')}>
+              Culture
+            </button>
           </li>
           <li className='w-full mt-4'>
             <button

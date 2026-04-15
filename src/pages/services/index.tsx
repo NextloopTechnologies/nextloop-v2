@@ -13,7 +13,7 @@ const cards: { title: string; desc: string; link: string }[] = [
     link: '/services/custom-software-development',
   },
   {
-    title: 'Staff Augmentation',
+    title: 'IT Staff Augmentation',
     desc: 'Need to bolster your development team with top-tier talent? Look no further! We can provide you with highly skilled and experienced developers dedicated to bringing your vision to life.  Think of it as seamlessly extending your in-house team with the perfect expertise you need.',
     link: '/services/staffing',
   },
@@ -74,12 +74,11 @@ const Services = () => {
     <Layout>
       <Head>
         <title>
-          
-          Enterprise Software, Cloud, AI & Digital Services | Nextloop
+          Offshore development center | Custom Web & software services provider
         </title>
         <meta
           name='description'
-          content='Unlock scalable IT services with Nextloop: software development, app engineering, cloud, AI/ML, digital marketing, e-comm dev, tech consulting & many more'
+          content='Get bespoke software development services tailored to your needs. We offer remote IT staffing services and custom mobile app & web development services to scale faster.'
         />
       </Head>
       <PageHero

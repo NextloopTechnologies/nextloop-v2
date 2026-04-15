@@ -6,29 +6,30 @@ import {
   Search,
   Settings,
 } from 'lucide-react';
-import { AiOutlineGlobal } from "react-icons/ai";
-import { BsBank } from "react-icons/bs";
-import { FaRegFileAlt } from "react-icons/fa";
-import { FaHandHoldingMedical } from "react-icons/fa";
-import { FaHandHoldingHand } from "react-icons/fa6";
-import { FiShoppingCart } from "react-icons/fi";
-import { GiOilPump } from "react-icons/gi";
-import { GrDirections } from "react-icons/gr";
-import { HiOutlineOfficeBuilding } from "react-icons/hi";
-import { IoCloudUploadOutline, IoFileTrayStackedOutline } from "react-icons/io5";
-import { MdOutlineAddLocation } from "react-icons/md";
-import { MdOutlineSupportAgent } from "react-icons/md";
-import { MdComputer } from "react-icons/md";
-import { MdOutlineSchool } from "react-icons/md";
-import { PiExcludeSquareDuotone, PiEyeBold } from "react-icons/pi";
-import { TbDeviceDesktopSearch } from "react-icons/tb";
+import { AiOutlineGlobal } from 'react-icons/ai';
+import { BsBank } from 'react-icons/bs';
+import { FaRegFileAlt } from 'react-icons/fa';
+import { FaHandHoldingMedical } from 'react-icons/fa';
+import { FaHandHoldingHand } from 'react-icons/fa6';
+import { FiShoppingCart } from 'react-icons/fi';
+import { GiOilPump } from 'react-icons/gi';
+import { GrDirections } from 'react-icons/gr';
+import { HiOutlineOfficeBuilding } from 'react-icons/hi';
+import {
+  IoCloudUploadOutline,
+  IoFileTrayStackedOutline,
+} from 'react-icons/io5';
+import { MdOutlineAddLocation } from 'react-icons/md';
+import { MdOutlineSupportAgent } from 'react-icons/md';
+import { MdComputer } from 'react-icons/md';
+import { MdOutlineSchool } from 'react-icons/md';
+import { PiExcludeSquareDuotone, PiEyeBold } from 'react-icons/pi';
+import { TbDeviceDesktopSearch } from 'react-icons/tb';
 
 import { getStaticImageData } from './helper';
 import { StepProps } from '../components/DiamondGridBoxes';
 import { IFAQ } from '../types';
-import {
-  CultureEvent
-} from '../types';
+import { CultureEvent } from '../types';
 import {
   ecommerceAssets,
   eventAssets,
@@ -91,7 +92,6 @@ import PSIcon from '../../assets/techstackIcons/uiux/PSIcon.png';
 import seekIcon from '../../assets/techstackIcons/uiux/seekIcon.png';
 import webflowIcon from '../../assets/techstackIcons/uiux/webflowIcon.png';
 import XDIcon from '../../assets/techstackIcons/uiux/XDIcon.png';
-
 
 export const faqsContent: IFAQ[] = [
   {
@@ -310,61 +310,69 @@ export const bottomStepsWebDevelopment: StepProps[] = [
       'We launch the site and provide ongoing maintenance to keep it running smoothly.',
     color: 'border-gray-500',
   },
-
 ];
 
 export const cultureEvents: CultureEvent[] = [
   {
     title: 'Team Trip',
-    image: 'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/teamtrip.png',
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/teamtrip.png',
     description:
       'We kicked off the year with our annual team trip, a refreshing break filled with nature, conversations, and shared experiences. It was the perfect way to reset, reconnect, and begin the year with stronger bonds and renewed energy.',
   },
   {
     title: 'Pizza Party',
-    image: 'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/pizza-party.png',
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/pizza-party.png',
     description:
       'A simple pizza party turned into a moment of laughter and togetherness. Because sometimes, the best celebrations are the simplest ones.',
   },
   {
     title: 'Women’s Day',
-    image: 'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/womens-day.png',
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/womens-day.png',
     description:
       'Women’s Day at Nextloop was all about appreciation and empowerment. A reminder that respect and recognition should be everyday values.',
   },
   {
     title: 'Holi Celebration',
-    image: 'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/holi-celebration.png',
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/holi-celebration.png',
     description:
       'Holi brought vibrant colors, laughter, and festive energy into our workplace. Work felt lighter, brighter, and more joyful that day.',
   },
   {
     title: 'Turf Day',
-    image: 'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/turf-day.jpeg',
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/turf-day.jpeg',
     description:
       'Our turf day brought out energy, enthusiasm, and friendly competition. Because teamwork grows stronger when shared beyond the office.',
   },
   {
     title: 'Birthday Celebrations',
-    image: 'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/birthday-celebration.png',
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/birthday-celebration.png',
     description:
       'Birthdays at Nextloop are celebrated with warmth and appreciation. Because people are at the heart of everything we do.',
   },
   {
     title: 'Ganesh Chaturthi',
-    image: 'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/ganesh-chaturdi.png',
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/ganesh-chaturdi.png',
     description:
       'Ganesh Chaturthi was celebrated with devotion and joy, from Sthapna to Visarjan. The festival filled our workspace with positivity and unity.',
   },
   {
     title: 'Diwali Celebration',
-    image: 'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/diwali.jpeg',
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/diwali.jpeg',
     description:
       'Diwali at Nextloop was a celebration of gratitude and joy. Moments that truly reflected the spirit of togetherness.',
   },
   {
     title: 'Christmas Celebration',
-    image: 'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/Christmas-Celebration.png',
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/Christmas-Celebration.png',
     description:
       'We wrapped up the year with festive cheer and laughter. A joyful close to a year filled with growth and meaningful connections.',
   },
@@ -373,13 +381,13 @@ export const cultureEvents: CultureEvent[] = [
 export { careerBg };
 export { culturebg };
 
-
 export const servicesSubPagesData = {
   customSoftwareDevelopment: {
     metaData: {
-      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
+      pageMetaTitle:
+        'Custom Software Development Outsourcing | Nextloop Technologies',
       pageMetaDescription:
-        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Get expert custom software development outsourcing services. We are among the premier custom software development companies in India & USA delivering robust digital tools.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
@@ -484,7 +492,6 @@ export const servicesSubPagesData = {
           'We launch the site and provide ongoing maintenance to keep it running smoothly.',
         color: 'border-gray-500',
       },
-
     ],
     techStackData: [
       {
@@ -650,9 +657,10 @@ export const servicesSubPagesData = {
   },
   webDevelopment: {
     metaData: {
-      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
+      pageMetaTitle:
+        'Scalable Web Development & IT Outsourcing Services in India',
       pageMetaDescription:
-        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Engineered for excellence. Transform your ideas into reality with custom full stack web development services. Hire dedicated web developers from our offshore software development company for precision-built software.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
@@ -931,9 +939,10 @@ export const servicesSubPagesData = {
   },
   cloudServices: {
     metaData: {
-      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
+      pageMetaTitle:
+        'Enterprise Cloud & DevOps Services India |AWS & Azure Experts ',
       pageMetaDescription:
-        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Optimize your infrastructure with Nextloop’s managed cloud solutions. Expert AWS, Azure & GCP migration, DevOps automation, and secure cloud cost management.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
@@ -1210,9 +1219,10 @@ export const servicesSubPagesData = {
   },
   mobileAppDevelopment: {
     metaData: {
-      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
+      pageMetaTitle:
+        'Native Mobile Application Development India | iOS & Android Experts',
       pageMetaDescription:
-        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Launch engaging native mobile experiences alongside a top mobile app & software development company in India & USA. Engineer scalable, secure smartphone apps.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
@@ -1501,9 +1511,9 @@ export const servicesSubPagesData = {
   },
   aimlSolutions: {
     metaData: {
-      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
+      pageMetaTitle: 'Generative AI Development Company | Hire AI Developers',
       pageMetaDescription:
-        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Nextloop is a leading Generative AI development company. Hire AI developers to build custom LLMs, RAG pipelines, and enterprise-grade AI/ML solutions.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
@@ -2065,9 +2075,9 @@ export const servicesSubPagesData = {
   },
   digitalMarketingServices: {
     metaData: {
-      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
+      pageMetaTitle: 'Best Performance Marketing & SEO Services India',
       pageMetaDescription:
-        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Boost brand awareness with Nextloop Technologies. Our performance marketing strategy combines SEO, paid promotion, and targeted lead generation to drive growth.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
@@ -2329,9 +2339,10 @@ export const servicesSubPagesData = {
   },
   mvpDevelopment: {
     metaData: {
-      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
+      pageMetaTitle:
+        'Build Your MVP Faster with Expert Software Development Services ',
       pageMetaDescription:
-        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Transform ideas into reality with a trusted MVP app & software product development services providing company. Launch quickly and test market demand.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
@@ -2588,9 +2599,10 @@ export const servicesSubPagesData = {
   },
   staffingServices: {
     metaData: {
-      pageMetaTitle: 'Nextloop Technologies | Staffing Sevices',
+      pageMetaTitle:
+        'IT Staff Augmentation Services | Hire Dedicated AI Developers ',
       pageMetaDescription:
-        'Nextloop Technologies offers expert staffing solutions to help businesses find top talent quickly and efficiently. Our tailored recruitment services ensure you get skilled professionals who fit your company culture and drive success.',
+        'Access top-tier AI talent and remote tech teams. Nextloop provides expert IT staff augmentation services to bridge your skill gaps and drive innovation.',
     },
     heroImage: staffingService,
     heroSectionData: {
@@ -2669,7 +2681,6 @@ Through this rigorous process, only the top-performing candidates are shortliste
           title: 'You Hire with Confidence',
           description: `After screening, we present you with a curated list of the most suitable candidates. You can review their profiles, schedule interviews, and assess their fit for your team. Our team supports you throughout this stage, coordinating interviews, collecting feedback, and facilitating communication between you and the candidates. Once you’ve made your selection, we assist with the onboarding process, ensuring that the new hire integrates smoothly into your team.`,
         },
-
       ],
     },
     flexibleHiringData: {
@@ -2729,7 +2740,8 @@ Through this rigorous process, only the top-performing candidates are shortliste
         {
           id: 4,
           title: '100%',
-          description: 'Flexible Options: Permanent, contract, remote, or hybrid.',
+          description:
+            'Flexible Options: Permanent, contract, remote, or hybrid.',
         },
       ],
     },
