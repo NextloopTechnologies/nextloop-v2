@@ -724,46 +724,50 @@ export const servicesSubPagesData = {
         },
       ],
     },
-    topSteps: [
-      {
-        icon: <Lightbulb className='text-orange-500 w-7 h-7' />,
-        title: 'Planning & Consultation',
-        description:
-          'We discuss your goals and understand your business needs.',
-        color: 'border-orange-500',
+    processData: {
+      headingData: {
+        heading: 'Our ',
+        coloredHeading: 'Web Development Process',
       },
-      {
-        icon: <PenTool className='text-orange-500 w-7 h-7' />,
-        title: 'Design & Prototyping',
-        description:
-          'We create intuitive wireframes and prototypes for user-friendly interfaces.',
-        color: 'border-orange-500',
-      },
-      {
-        icon: <Code className='text-orange-500 w-7 h-7' />,
-        title: 'Development',
-        description:
-          'Our team writes clean code, developing the website using the latest technologies.',
-        color: 'border-orange-500',
-      },
-    ],
-    bottomSteps: [
-      {
-        icon: <Search className='text-gray-600 w-7 h-7' />,
-        title: 'Testing',
-        description:
-          'Comprehensive testing ensures smooth functionality and cross-platform compatibility.',
-        color: 'border-gray-500',
-      },
+      items: [
+        {
+          icon: <Lightbulb className='text-orange-500 w-7 h-7' />,
+          title: 'Planning & Consultation',
+          description:
+            'We discuss your goals and understand your business needs.',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <PenTool className='text-orange-500 w-7 h-7' />,
+          title: 'Design & Prototyping',
+          description:
+            'We create intuitive wireframes and prototypes for user-friendly interfaces.',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <Code className='text-orange-500 w-7 h-7' />,
+          title: 'Development',
+          description:
+            'Our team writes clean code, developing the website using the latest technologies.',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <Search className='text-gray-600 w-7 h-7' />,
+          title: 'Testing',
+          description:
+            'Comprehensive testing ensures smooth functionality and cross-platform compatibility.',
+          color: 'border-gray-500',
+        },
 
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Launch & Support',
-        description:
-          'We launch the site and provide ongoing maintenance to keep it running smoothly.',
-        color: 'border-gray-500',
-      },
-    ],
+        {
+          icon: <Rocket className='text-gray-600 w-7 h-7' />,
+          title: 'Launch & Support',
+          description:
+            'We launch the site and provide ongoing maintenance to keep it running smoothly.',
+          color: 'border-gray-500',
+        },
+      ],
+    },
     techStackData: {
       headingData: {
         heading: 'OUR',
@@ -1016,44 +1020,48 @@ export const servicesSubPagesData = {
         },
       ],
     },
-    topSteps: [
-      {
-        icon: <Lightbulb className='text-orange-500 w-7 h-7' />,
-        title: 'Consultation',
-        description:
-          'We understand your needs to create a tailored cloud strategy.',
-        color: 'border-orange-500',
+    processData: {
+      headingData: {
+        heading: 'Our ',
+        coloredHeading: 'Web Development Process',
       },
-      {
-        icon: <Settings className='text-orange-500 w-7 h-7' />,
-        title: 'Design',
-        description:
-          'We craft secure and scalable cloud solutions for your business.',
-        color: 'border-orange-500',
-      },
-    ],
-    bottomSteps: [
-      {
-        icon: <Search className='text-gray-600 w-7 h-7' />,
-        title: 'Migration',
-        description: 'We seamlessly move your data and apps to the cloud.',
-        color: 'border-gray-500',
-      },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Deployment',
-        description:
-          'Your cloud solution is deployed and optimized for performance.',
-        color: 'border-gray-500',
-      },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Support',
-        description:
-          'We provide ongoing support and maintenance for smooth operations.',
-        color: 'border-gray-500',
-      },
-    ],
+      items: [
+        {
+          icon: <Lightbulb className='text-orange-500 w-7 h-7' />,
+          title: 'Consultation',
+          description:
+            'We understand your needs to create a tailored cloud strategy.',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <Settings className='text-orange-500 w-7 h-7' />,
+          title: 'Design',
+          description:
+            'We craft secure and scalable cloud solutions for your business.',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <Search className='text-gray-600 w-7 h-7' />,
+          title: 'Migration',
+          description: 'We seamlessly move your data and apps to the cloud.',
+          color: 'border-gray-500',
+        },
+        {
+          icon: <Rocket className='text-gray-600 w-7 h-7' />,
+          title: 'Deployment',
+          description:
+            'Your cloud solution is deployed and optimized for performance.',
+          color: 'border-gray-500',
+        },
+        {
+          icon: <Rocket className='text-gray-600 w-7 h-7' />,
+          title: 'Support',
+          description:
+            'We provide ongoing support and maintenance for smooth operations.',
+          color: 'border-gray-500',
+        },
+      ],
+    },
     techStackData: {
       headingData: {
         heading: 'OUR',
@@ -1243,128 +1251,134 @@ export const servicesSubPagesData = {
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
-      coloredTitle: 'MOBILE APP ',
-      title: 'DEVLOPMENT',
+      coloredTitle: 'High-Performance ',
+      title: 'Mobile App Development Services',
       subtitle:
-        'We specialize in crafting intuitive, user-friendly, and high-performing mobile apps that drive business growth. Whether you need a custom app for iOS, Android, or both, we deliver tailored solutions that enhance user experience and meet your business objectives.',
+        'We engineer high-speed, scalable digital experiences designed to dominate the app market and drive immediate user engagement. Whether you need specialized custom mobile app development services for complex internal operations or versatile cross platform app development to reach broader audiences instantly, our technical team builds the robust architecture modern businesses require to thrive.',
     },
     expertiseData: {
       headingData: {
-        coloredHeading: 'OUR EXPERTISE IN ',
-        heading: 'MOBILE APP DEVELOPMENT',
+        coloredHeading: 'Precision Frameworks ',
+        heading: '& Deployment',
         description:
-          'We specialize in delivering high-performance, scalable, and secure cloud solutions across industries. With Nextloop Technologies, you can rely on our expertise to drive growth and efficiency in your business.',
+          'Our approach centers on creating secure digital ecosystems designed for long-term growth. By utilizing modern tech stacks and agile methodologies, our squads translate complex requirements into fluid, market-ready assets that drive measurable ROI.',
       },
       items: [
         {
           id: 1,
-          title: 'CUSTOM MOBILE APPS:',
+          title: 'React Native Solutions ',
           description:
-            'Smooth and secure migration of your business to the cloud, with minimal disruption and downtime.',
+            'To hit aggressive launch dates without losing native-grade quality, our focus remains on high-performance react native mobile app development. This framework allows for rapid iterations and a consistent experience across all devices while maintaining top-tier responsiveness for a global audience.',
           image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 2,
-          title: 'CLOUD INFRASTRUCTURE MANAGEMENT:',
+          title: 'Flutter Development ',
           description:
-            'From concept to deployment, we design and develop custom apps tailored to your business needs.',
+            'Crafting expressive, visually-led interfaces from a unified codebase involves our core flutter app development services. We leverage high-end UI toolkits to create stunning, pixel-perfect environments that feel completely natural on both iOS and Android platforms simultaneously. ',
           image: FaRegFileAlt,
           dark: false,
         },
         {
           id: 3,
-          title: 'UI/UX DESIGN:',
+          title: 'User-Centric Design',
           description:
-            'We create engaging and intuitive designs that provide an excellent user experience, ensuring your app stands out.',
+            'Fluid interactions prevent user drop-off and ensure long-term brand loyalty. A precision-led mobile app ui ux design workflow secures an intuitive, high-retention journey that guides visitors toward specific conversion goals by removing every point of friction.',
           image: HiOutlineOfficeBuilding,
           dark: false,
         },
         {
           id: 4,
-          title: 'CLOUD INTEGRATION::',
+          title: 'Hybrid Architectures',
           description:
-            'We integrate your mobile app with existing systems and APIs for seamless functionality and smooth operations.',
+            'Achieve broad market reach via hybrid mobile app development services that function flawlessly across diverse operating systems while lowering long-term maintenance overhead. This method utilizes modern web technologies to offer a versatile, cost-effective solution for brands.',
           image: IoCloudUploadOutline,
           dark: true,
         },
         {
           id: 5,
-          title: 'APP MAINTENANCE & SUPPORT:',
+          title: 'iOS Exclusives ',
           description:
-            'We offer ongoing maintenance and support to ensure your app stays updated and performs optimally.',
+            'Where hardware synergy and Apple-specific speed are vital, our ios app development services yield smooth, protected deployments. We prioritize modern coding standards to ensure full compatibility with the latest iPhone features, including advanced security and biometric protocols. ',
           image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 6,
-          title: 'APP PERFORMANCE & OPTIMIZATION:',
+          title: 'Team Augmentation',
           description:
-            'We ensure your app runs smoothly with fast loading times, efficient resource usage, and minimal crashes.',
+            'Need to scale internal capacity instantly to meet a critical milestone? Access our vetted talent pool to hire mobile app developers who integrate with your existing sprints from day one. This flexible model allows you to fill knowledge gaps without any administrative burden. ',
           image: FaRegFileAlt,
           dark: false,
         },
       ],
     },
-    topSteps: [
-      {
-        icon: <Lightbulb className='text-orange-500 w-7 h-7' />,
-        title: 'Consultation & Discovery',
+    processData: {
+      headingData: {
+        heading: 'From Concept to ',
+        coloredHeading: 'Market Deployment',
         description:
-          'We understand your business goals and define app features to fit your needs.',
-        color: 'border-orange-500',
+          'Transparent workflows bridge the gap between your initial vision and a market-ready deployment. This sequence ensures technical accuracy and timeline consistency for every milestone, giving your business complete visibility over the entire lifecycle without any operational friction. ',
       },
-      {
-        icon: <Settings className='text-orange-500 w-7 h-7' />,
-        title: 'UI/UX Design',
-        description:
-          'We design intuitive, engaging interfaces that reflect your brand.',
-        color: 'border-orange-500',
-      },
-      {
-        icon: <Settings className='text-orange-500 w-7 h-7' />,
-        title: 'App Development',
-        description:
-          'Our developers build secure, fast, and responsive apps using the latest technologies.',
-        color: 'border-orange-500',
-      },
-    ],
-    bottomSteps: [
-      {
-        icon: <Search className='text-gray-600 w-7 h-7' />,
-        title: 'Testing & Quality Assurance',
-        description:
-          'We rigorously test your app to ensure it works smoothly across all devices.',
-        color: 'border-gray-500',
-      },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Launch & Deployment',
-        description:
-          'We deploy your app to Google Play and Apple App stores after testing.',
-        color: 'border-gray-500',
-      },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Marketing & ASO',
-        description:
-          'Enhancing visibility with SEO-friendly descriptions, keywords, and user engagement strategies.',
-        color: 'border-gray-500',
-      },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Maintenance & Support',
-        description:
-          'We provide ongoing support to keep your app updated and functional.',
-        color: 'border-gray-500',
-      },
-    ],
+      items: [
+        {
+          icon: <Lightbulb className='text-orange-500 w-7 h-7' />,
+          title: 'Strategic Scoping & Analysis ',
+          description:
+            'Every successful partnership starts with a deep dive into your commercial goals to define a precise project scope and an accurate mobile app development cost. This phase eliminates financial uncertainty and builds the foundation for a robust architecture that perfectly matches your budgetary parameters and long-term targets.',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <Settings className='text-orange-500 w-7 h-7' />,
+          title: ' Behavioral Interface Architecture ',
+          description:
+            'Fluid interactions prevent user drop-off and build brand loyalty naturally. A precision-led mobile app ui ux design workflow secures an intuitive, high-retention journey that guides visitors toward specific conversion goals. By mapping out intricate user personas, our team creates environments that maximize satisfaction by removing every point of friction. ',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <Settings className='text-orange-500 w-7 h-7' />,
+          title: ' Core System Execution',
+          description:
+            'During the production phase, you gain direct access to elite technical skillsets, whether you require a specific android app developer for hire or a full squad. Our workflow integrates these experts into your operations to maintain high-velocity progress, ensuring every feature adheres to global performance standards without compromise. ',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <Search className='text-gray-600 w-7 h-7' />,
+          title: 'Rigorous Performance Vetting',
+          description:
+            'Strict stability checks and multi-device evaluations confirm that the software remains bug-free and responsive under heavy loads. This comprehensive vetting process ensures a secure, high-performance environment that meets the strict security requirements of modern corporate ecosystems and consumer-facing platforms, guaranteeing a flawless experience for your final audience.',
+          color: 'border-gray-500',
+        },
+        {
+          icon: <Rocket className='text-gray-600 w-7 h-7' />,
+          title: 'Market Release Management',
+          description:
+            'The final transition involves official release management overseen by our android app development agency division. We seamlessly manage the entire submission process to major storefronts, guaranteeing that the live environment remains stable and follows all necessary guidelines for a successful public launch and immediate availability to your target users.',
+          color: 'border-gray-500',
+        },
+        {
+          icon: <Rocket className='text-gray-600 w-7 h-7' />,
+          title: ' Visibility & Organic Scaling',
+          description:
+            'Maximizing visibility requires a strategic approach to App Store Optimization and keyword alignment for higher organic rankings. Our experts implement data-driven descriptions and visual assets that capture attention effortlessly, ensuring your product stands out in a crowded market and maintains a steady growth trajectory long after the initial debut.',
+          color: 'border-gray-500',
+        },
+        {
+          icon: <Rocket className='text-gray-600 w-7 h-7' />,
+          title: 'Continuous Lifecycle Optimization',
+          description:
+            'Continuous monitoring and regular updates keep your application running smoothly alongside new OS versions and evolving hardware capabilities. This long-term commitment includes a clear mobile app development contract that outlines ongoing support milestones, ensuring your platform stays secure, fast, and relevant as your user base expands and technologies evolve. ',
+          color: 'border-gray-500',
+        },
+      ],
+    },
     techStackData: {
       headingData: {
-        heading: 'OUR',
-        coloredHeading: 'TECH STACK',
+        heading: 'Advanced Mobile Application ',
+        coloredHeading: 'Development Technologies',
         description:
-          'We leverage cutting-edge technologies to build robust solutions.',
+          'Building resilient platforms requires strict code discipline. Our developers utilize exact server-side and client-facing languages to guarantee fluid, uninterrupted user sessions regardless of traffic volume.',
       },
       items: [
         {
@@ -1458,86 +1472,108 @@ export const servicesSubPagesData = {
       ],
     },
     whyChooseUsData: {
+      headingData: {
+        coloredHeading: 'Strategic Mobile ',
+        heading: 'Software Delivery ',
+        description:
+          'Selecting the right technical partner mitigates risk and ensures your product reaches the market on schedule. Our approach combines rigorous code discipline with transparent workflows to guarantee a flawless final deployment that drives actual business growth. ',
+      },
       items: [
         {
           id: 1,
-          title: 'TAILORED SOLUTIONS FOR YOUR BUSINESS',
+          title: 'Custom Commercial Systems',
           descp:
-            'We create custom apps that align with your unique business goals.',
+            'We construct bespoke digital platforms that align directly with specific commercial objectives. This targeted approach to enterprise mobile app development ensures every feature drives measurable ROI while seamlessly integrating with your existing daily operations. ',
           icon: MdOutlineAddLocation,
         },
         {
           id: 2,
-          title: 'EXPERT DEVELOPERS',
+          title: 'Elite Technical Talent',
           descp:
-            'Our skilled team builds secure, high-performing apps with the latest technologies.',
+            'Our standing among the top app development companies is driven by our vetted talent pool. We build secure, high-performing applications using advanced coding languages, guaranteeing your product remains fast, reliable, and completely crash-resistant. ',
           icon: PiExcludeSquareDuotone,
         },
         {
           id: 3,
-          title: 'END-TO-END SERVICES',
+          title: 'Full-Lifecycle Management ',
           descp:
-            'We manage the entire app process, from idea to deployment and support.',
+            'As detailed across our mobile app development company website, we oversee the entire production pipeline from conceptualization to post-launch optimization. This comprehensive oversight removes administrative burdens and guarantees a smooth, predictable delivery schedule.',
           icon: PiEyeBold,
         },
         {
           id: 4,
-          title: 'FOCUS ON USER EXPERIENCE',
+          title: 'Frictionless Digital Journeys',
           descp:
-            'We design apps that are intuitive and user-friendly for seamless experiences.',
+            'Superior functionality means nothing if the end-user abandons the screen due to poor navigation. Our design workflow prioritizes intuitive layouts and clear conversion paths to maximize long-term retention rates effortlessly and intuitively.',
           icon: MdOutlineAddLocation,
         },
         {
           id: 5,
-          title: 'SCALABLE SOLUTIONS',
+          title: 'High-Capacity Infrastructure',
           descp:
-            'Our apps grow with your business, whether you’re a startup or an enterprise.',
+            'As your user base expands, your digital assets must accommodate increased traffic without any performance drops. We build robust systems that grow effortlessly alongside your organization, ensuring zero latency during peak demand. ',
           icon: PiExcludeSquareDuotone,
         },
         {
           id: 6,
-          title: 'AGILE DEVELOPMENT PROCESS',
+          title: 'Adaptive Sprint Methodology',
           descp:
-            'We use agile methods for flexible, fast development that adapts to your needs.',
+            'Utilizing flexible iteration cycles allows our teams to pivot rapidly when market conditions or commercial requirements change. This iterative approach ensures high-velocity progress while maintaining strict adherence to your overall timeline and budget.',
           icon: PiEyeBold,
         },
       ],
     },
     areaOfExpertiseData: {
-      mainHeader: 'OUR AREAS OF EXPERTISE',
+      mainHeader: 'Apps That Command Your Industry',
       mainDescription:
-        "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
+        'Navigating a crowded market requires a product that stands out instantly. We design and launch mobile platforms tailored to your specific vertical, ensuring your brand delivers a flawless experience from the very first tap. ',
       items: staticServices,
     },
     faqsContent: [
       {
         id: 1,
-        question: 'What types of mobile apps do you develop?',
+        question:
+          ' What is the typical timeline for launching a custom application?',
         answer:
-          'We specialize in custom mobile apps for both iOS and Android, including native, hybrid, and cross-platform solutions.',
+          'Timelines scale with project complexity. A standard build may take three months, while a secure, high-volume retail platform executed by an ecommerce app development company typically requires six months to guarantee flawless inventory synchronization and payment security.',
       },
       {
         id: 2,
-        question: 'HOW LONG DOES IT TAKE TO DEVELOP A MOBILE APP?',
+        question: 'How do you determine the budget for a new project? ',
         answer:
-          'The timeline depends on the complexity and features of your app. Typically, development can take a few weeks to a few months.',
+          'We map exact features and system integrations before writing a single line of code. Operating as a transparent mobile app development company in usa, our priority is establishing a precise, locked-in estimate upfront to eliminate hidden fees and financial uncertainty. ',
       },
       {
         id: 3,
-        question: 'WILL MY APP BE ON BOTH GOOGLE PLAY AND THE APPLE APP STORE?',
+        question:
+          'Where is your team located, and how does communication work?',
         answer:
-          'Yes, we ensure your app is deployed to both platforms after thorough testing and quality assurance.',
+          'We operate a dual-delivery model for maximum operational efficiency. You receive the local accountability of a top mobile app development company in usa, seamlessly integrated with the high-capacity scaling of an app development company in india to ensure round-the-clock progress. ',
       },
       {
         id: 4,
-        question: 'DO YOU PROVIDE POST-LAUNCH SUPPORT FOR MY MOBILE-APP',
+        question:
+          ' Who owns the intellectual property and source code after deployment? ',
         answer:
-          'Yes, we offer ongoing maintenance and support to ensure your app stays updated and performs optimally.',
+          'Your organization retains 100% ownership of the final product. Upon successful deployment, all source code, visual assets, and intellectual property rights are officially and permanently transferred to your business. ',
+      },
+      {
+        id: 5,
+        question: ' How do you handle data security and compliance?',
+        answer:
+          'Security forms the core foundation of our architecture, rather than an afterthought. Our developers enforce strict international compliance standards and end-to-end encryption to protect user data and meet all industry-specific regulatory requirements. ',
+      },
+      {
+        id: 6,
+        question:
+          ' What happens after the application goes live on the app stores? ',
+        answer:
+          'Deployment initiates our ongoing lifecycle optimization phase. We establish continuous maintenance protocols to manage OS updates, security patches, and server scaling, ensuring your platform remains fast and secure as your traffic grows. ',
       },
     ],
     processSteps: [
       {
-        title: 'Consultation & Discovery',
+        title: 'Consultation & DiscoverYy',
         paragraphs: [
           'We understand your business goals and define app features to fit your needs.',
         ],
@@ -1651,56 +1687,61 @@ export const servicesSubPagesData = {
         },
       ],
     },
-    topSteps: [
-      {
-        icon: <Lightbulb className='text-orange-500 w-7 h-7' />,
-        title: 'Understanding Your Needs',
-        description: 'We analyze your business challenges and objectives.',
-        color: 'border-orange-500',
+    processData: {
+      headingData: {
+        heading: 'Our ',
+        coloredHeading: 'AI & ML Development Process',
       },
-      {
-        icon: <Settings className='text-orange-500 w-7 h-7' />,
-        title: 'Data Collection & Processing',
-        description: 'Cleaning and preparing data for AI models.',
-        color: 'border-orange-500',
-      },
-      {
-        icon: <Settings className='text-orange-500 w-7 h-7' />,
-        title: 'Model Development & Training',
-        description: 'Creating AI solutions customized to your requirements.',
-        color: 'border-orange-500',
-      },
-    ],
-    bottomSteps: [
-      {
-        icon: <Search className='text-gray-600 w-7 h-7' />,
-        title: 'Testing & Quality Assurance',
-        description:
-          'We rigorously test your app to ensure it works smoothly across all devices.',
-        color: 'border-gray-500',
-      },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Launch & Deployment',
-        description:
-          'We deploy your app to Google Play and Apple App stores after testing.',
-        color: 'border-gray-500',
-      },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Marketing & ASO',
-        description:
-          'Enhancing visibility with SEO-friendly descriptions, keywords, and user engagement strategies.',
-        color: 'border-gray-500',
-      },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Maintenance & Support',
-        description:
-          'We provide ongoing support to keep your app updated and functional.',
-        color: 'border-gray-500',
-      },
-    ],
+      items: [
+        {
+          icon: <Lightbulb className='text-orange-500 w-7 h-7' />,
+          title: 'Understanding Your Needs',
+          description: 'We analyze your business challenges and objectives.',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <Settings className='text-orange-500 w-7 h-7' />,
+          title: 'Data Collection & Processing',
+          description: 'Cleaning and preparing data for AI models.',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <Settings className='text-orange-500 w-7 h-7' />,
+          title: 'Model Development & Training',
+          description: 'Creating AI solutions customized to your requirements.',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <Search className='text-gray-600 w-7 h-7' />,
+          title: 'Testing & Quality Assurance',
+          description:
+            'We rigorously test your app to ensure it works smoothly across all devices.',
+          color: 'border-gray-500',
+        },
+        {
+          icon: <Rocket className='text-gray-600 w-7 h-7' />,
+          title: 'Launch & Deployment',
+          description:
+            'We deploy your app to Google Play and Apple App stores after testing.',
+          color: 'border-gray-500',
+        },
+        {
+          icon: <Rocket className='text-gray-600 w-7 h-7' />,
+          title: 'Marketing & ASO',
+          description:
+            'Enhancing visibility with SEO-friendly descriptions, keywords, and user engagement strategies.',
+          color: 'border-gray-500',
+        },
+        {
+          icon: <Rocket className='text-gray-600 w-7 h-7' />,
+          title: 'Maintenance & Support',
+          description:
+            'We provide ongoing support to keep your app updated and functional.',
+          color: 'border-gray-500',
+        },
+      ],
+    },
+
     techStackData: {
       headingData: {
         heading: 'OUR',

@@ -89,7 +89,7 @@ const OurProcess: React.FC<OurProcessProps> = ({ processData }) => {
 
       {/* Optional description — only renders if provided in static data */}
       {headingData.description && (
-        <p className='text-gray-600 text-center max-w-2xl mb-12 text-base'>
+        <p className='text-gray-600 text-center max-w-6xl mb-12 text-base'>
           {headingData.description}
         </p>
       )}

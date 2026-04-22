@@ -85,7 +85,7 @@ const PopupForm: React.FC = () => {
   useEffect(() => {
     const dismissed = sessionStorage.getItem('popupDismissed');
     if (dismissed) return;
-    const t = setTimeout(() => setIsVisible(true), 5000);
+    const t = setTimeout(() => setIsVisible(true), 3000);
     return () => clearTimeout(t);
   }, []);
 

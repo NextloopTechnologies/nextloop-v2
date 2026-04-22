@@ -30,12 +30,12 @@ const TechStack: React.FC<TechStackProps> = ({ techStackData }) => {
 
   return (
     <section className='flex flex-col py-16 px-4 md:px-16 text-center bg-black text-white'>
-      <h3 className='text-3xl md:text-4xl font-bold'>
+      <h2 className='text-3xl md:text-4xl font-bold'>
         {techStackData.headingData?.heading || 'OUR'}{' '}
         <span className='text-orange-500'>
           {techStackData.headingData?.coloredHeading || 'TECHSTACK'}
         </span>
-      </h3>
+      </h2>
 
       {techStackData.headingData?.description && (
         <p className='text-gray-400 mt-4'>
