@@ -12,6 +12,7 @@ import Layout from '../components/Layout/Layout';
 import OurCLient from '../components/OurClinet';
 const Portfolio = dynamic(() => import('../components/Portfolio'));
 const ProcessWeFollow = dynamic(() => import('../components/ProcessWeFollow'));
+import PopupForm from '../components/PopupForm';
 import Services from '../components/ServicesGroup';
 import WhoWeAre from '../components/WhoWeAre';
 import useWindowSize from '../utils/useWindowSize';
@@ -378,6 +379,7 @@ const Home: React.FC = () => {
             </m.button>
           )}
         </LazyMotion>
+        <PopupForm />
       </Layout>
     </>
   );

@@ -1,23 +1,19 @@
 import Head from 'next/head';
 import { StaticImageData } from 'next/image';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 
 import BlogSection from '../../components/BlogSection';
-import DiamondGridBoxes from '../../components/DiamondGridBoxes';
 import FAQ from '../../components/Domains/FAQ';
 import FlexibleHiringSection from '../../components/FlexibleHiringSection';
 import IconTextBoxZebra from '../../components/IconTextBoxZebra';
 import IconTitleDescription from '../../components/IconTitleDescription';
 import Layout from '../../components/Layout/Layout';
-// import OurProcessSection from '../../components/OurProcessSection';
 import PageHero from '../../components/PageHero';
 import { ProductCard } from '../../components/ProductCard';
+import ScrollingProcess from '../../components/ScrollingProcess';
 import Slider from '../../components/Slider';
 import StaffingIndustriesSection from '../../components/StaffingIndustriesSection';
-import StaffingPartnersSection from '../../components/StaffingPartners';
 import TechStack, { TechCategory } from '../../components/TechStackSection';
+import TrustedPartnersSection from '../../components/Trustedpartnerssection';
 import WhyBusinessChoosesUsSection from '../../components/WhyBusinessChoosesUsSection';
 
 type ImageLike = StaticImageData | string | React.ReactNode | React.ElementType;
@@ -39,11 +35,20 @@ export interface ExpertiseData {
   items: ExpertiseItem[];
 }
 
-interface StepData {
+interface StepItem {
   icon: React.ReactNode;
   title: string;
   description: string;
   color: string;
+}
+
+export interface ProcessData {
+  headingData: {
+    heading: string;
+    coloredHeading: string;
+    description?: string;
+  };
+  items: StepItem[];
 }
 interface StaffingItems {
   id: number;
@@ -94,6 +99,18 @@ interface StaffingData {
   heroImage?: ImageLike;
   items: StaffingItems[];
 }
+interface LogoItem {
+  title: string;
+  image?: ImageLike;
+}
+interface TrustedPartnersData {
+  headingData: {
+    heading: string;
+    coloredHeading: string;
+    description: string;
+  };
+  items: LogoItem[];
+}
 
 export interface ServicePageProps {
   metaData?: {
@@ -107,14 +124,27 @@ export interface ServicePageProps {
     subtitle: string;
   };
   expertiseData?: ExpertiseData;
-  topSteps?: StepData[];
-  bottomSteps?: StepData[];
-  techStackData?: TechCategory[];
-  whyChooseUsData?: WhyChooseUsData[];
+  processData?: ProcessData;
+  techStackData?: {
+    headingData?: {
+      heading: string;
+      coloredHeading: string;
+      description?: string;
+    };
+    items: TechCategory[];
+  };
+  whyChooseUsData?: {
+    headingData?: {
+      heading: string;
+      coloredHeading: string;
+      description?: string;
+    };
+    items: WhyChooseUsData[];
+  };
   blogData?: BlogData[];
   faqsContent?: FAQData[];
   areaOfExpertiseData?: AreaOfExpertiseData;
-  staffingPartnerData?: StaffingData;
+  staffingPartnerData?: TrustedPartnersData;
   staffingIndustriesData?: StaffingData;
   whyBusinessChoosesUsData?: StaffingData;
   // ourProcessData?: StaffingData;
@@ -126,10 +156,9 @@ const ServicePage: React.FC<ServicePageProps> = ({
   heroImage,
   heroSectionData,
   expertiseData,
-  topSteps = [],
-  bottomSteps = [],
-  techStackData = [],
-  whyChooseUsData = [],
+  processData,
+  techStackData,
+  whyChooseUsData,
   blogData = [],
   faqsContent = [],
   areaOfExpertiseData,
@@ -161,17 +190,12 @@ const ServicePage: React.FC<ServicePageProps> = ({
 
       {expertiseData && <IconTextBoxZebra data={expertiseData} />}
 
-      {(topSteps.length > 0 || bottomSteps.length > 0) && (
-        <DiamondGridBoxes
-          topSteps={topSteps}
-          bottomSteps={bottomSteps}
-          coloredText='OUR&nbsp;'
-          heading='PROCESS'
-        />
+      {processData && processData.items.length > 0 && (
+        <ScrollingProcess processData={processData} />
       )}
 
       {staffingPartnerData && staffingPartnerData?.items?.length > 0 && (
-        <StaffingPartnersSection staffingData={staffingPartnerData} />
+        <TrustedPartnersSection data={staffingPartnerData} />
       )}
 
       {staffingIndustriesData && staffingIndustriesData?.items?.length > 0 && (
@@ -193,10 +217,15 @@ const ServicePage: React.FC<ServicePageProps> = ({
         <FlexibleHiringSection hiringData={flexibleHiringData} />
       )}
 
-      {techStackData.length > 0 && <TechStack techStackData={techStackData} />}
+      {techStackData && techStackData.items.length > 0 && (
+        <TechStack techStackData={techStackData} />
+      )}
 
-      {whyChooseUsData.length > 0 && (
-        <IconTitleDescription data={whyChooseUsData} />
+      {whyChooseUsData && whyChooseUsData.items.length > 0 && (
+        <IconTitleDescription
+          headingData={whyChooseUsData.headingData}
+          data={whyChooseUsData.items}
+        />
       )}
 
       {blogData.length > 0 && <BlogSection blogData={blogData} />}
