@@ -30,14 +30,23 @@ const WhyBusinessChoosesUsSection: React.FC<{
         (React.isValidElement(whyChooseUsData.heroImage) ? (
           React.cloneElement(whyChooseUsData.heroImage, {
             ...whyChooseUsData.heroImage.props,
-             className: `${whyChooseUsData.heroImage.props?.className || ''} object-cover object-bottom brightness-110 dark:text-white text-black dark:group-hover:text-white group-hover:text-black mix-blend-normal text-orange-600`.trim(),
+            className: `${
+              whyChooseUsData.heroImage.props?.className || ''
+            } object-cover object-bottom brightness-110 dark:text-white text-black dark:group-hover:text-white group-hover:text-black mix-blend-normal text-orange-600`.trim(),
             size: whyChooseUsData.heroImage.props?.size || 80,
             color: whyChooseUsData.heroImage.props?.color ?? 'currentColor',
           })
         ) : typeof whyChooseUsData.heroImage === 'function' ? (
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          React.createElement(whyChooseUsData.heroImage as any, { className: 'object-cover dark:text-white text-black dark:group-hover:text-white group-hover:text-black  object-bottom brightness-110 mix-blend-normal text-orange-500', size: 80, color: 'currentColor' })
-        ) : typeof whyChooseUsData.heroImage === 'object' && (whyChooseUsData.heroImage as any).src || typeof whyChooseUsData.heroImage === 'string'  ? (
+          React.createElement(whyChooseUsData.heroImage as any, {
+            className:
+              'object-cover dark:text-white text-black dark:group-hover:text-white group-hover:text-black  object-bottom brightness-110 mix-blend-normal text-orange-500',
+            size: 80,
+            color: 'currentColor',
+          })
+        ) : (typeof whyChooseUsData.heroImage === 'object' &&
+            (whyChooseUsData.heroImage as any).src) ||
+          typeof whyChooseUsData.heroImage === 'string' ? (
           <Image
             src={whyChooseUsData.heroImage as any}
             alt='Background'
@@ -48,14 +57,14 @@ const WhyBusinessChoosesUsSection: React.FC<{
         ) : null)}
 
       <div className='relative z-10 w-full flex flex-col items-center px-4 max-w-6xl'>
-        <h3
+        <h2
           className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-white font-bold uppercase mb-16`}
         >
           {whyChooseUsData.headingData.heading}
           <span className='text-orange-500'>
             {whyChooseUsData.headingData.coloredHeading}
           </span>
-        </h3>
+        </h2>
 
         {whyChooseUsData.headingData.description && (
           <p className='text-gray-400 mt-4 mb-12 max-w-2xl'>

@@ -13,25 +13,38 @@ export interface TechCategory {
 }
 
 interface TechStackProps {
-  techStackData: TechCategory[];
+  techStackData: {
+    headingData?: {
+      heading: string;
+      coloredHeading: string;
+      description?: string;
+    };
+    items: TechCategory[];
+  };
 }
 
 const TechStack: React.FC<TechStackProps> = ({ techStackData }) => {
   const [activeTab, setActiveTab] = useState<string>(
-    techStackData?.length > 0 ? techStackData[0]?.title ?? '' : ''
+    techStackData?.items?.length > 0 ? techStackData.items[0]?.title ?? '' : ''
   );
 
   return (
     <section className='flex flex-col py-16 px-4 md:px-16 text-center bg-black text-white'>
-      <h3 className='text-3xl md:text-4xl font-bold'>
-        OUR <span className='text-orange-500'>TECHSTACK</span>
-      </h3>
-      <p className='text-gray-400 mt-4'>
-        Founded in 2020 with a vision of driving the loop towards new age
-        technologies.
-      </p>
+      <h2 className='text-3xl md:text-4xl font-bold'>
+        {techStackData.headingData?.heading || 'OUR'}{' '}
+        <span className='text-orange-500'>
+          {techStackData.headingData?.coloredHeading || 'TECHSTACK'}
+        </span>
+      </h2>
+
+      {techStackData.headingData?.description && (
+        <p className='text-gray-400 mt-4'>
+          {techStackData.headingData.description}
+        </p>
+      )}
+
       <div className='flex justify-center mt-6 border-b border-gray-600'>
-        {techStackData?.map((category) => (
+        {techStackData.items?.map((category) => (
           <button
             key={category.title}
             className={`px-4 py-2 text-lg font-medium ${
@@ -45,8 +58,9 @@ const TechStack: React.FC<TechStackProps> = ({ techStackData }) => {
           </button>
         ))}
       </div>
+
       <div className='flex flex-wrap justify-center gap-6 mt-10'>
-        {techStackData
+        {techStackData.items
           ?.find((category) => category.title === activeTab)
           ?.items?.map((item) => (
             <div

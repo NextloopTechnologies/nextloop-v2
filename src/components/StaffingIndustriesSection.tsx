@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from 'next/image';
+import { StaticImageData } from 'next/image';
 import React from 'react';
 
 import palette from '../styles/pallette';
@@ -8,6 +8,7 @@ type ImageLike = StaticImageData | string | React.ReactNode | React.ElementType;
 interface StaffingItems {
   id: number;
   title: string;
+  description?: string;
   image?: ImageLike;
 }
 
@@ -24,57 +25,51 @@ const StaffingIndustriesSection: React.FC<{ industriesData: StaffingData }> = ({
   industriesData,
 }) => {
   return (
-    <div className='flex flex-col items-center text-center min-h-fit w-full md:max-w-6xl mx-auto my-8 md:my-16 md:rounded-3xl'>
-      <h3
-        className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold uppercase`}
-      >
-        {industriesData.headingData.heading}
-        <span className='text-orange-500'>
-          {industriesData.headingData.coloredHeading}
-        </span>
-      </h3>
+    <div className='bg-[#F4F4F4]'>
+      <div className='flex flex-col items-center text-center min-h-fit w-full md:max-w-7xl mx-auto p-16 '>
+        <h3
+          className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold uppercase`}
+        >
+          {industriesData.headingData.heading}
+          <span className='text-orange-500'>
+            {industriesData.headingData.coloredHeading}
+          </span>
+        </h3>
 
-      <p className='text-gray-400 mt-4 mb-12'>
-        {industriesData.headingData.description}
-      </p>
+        <p className='text-gray-400 mt-4 mb-12'>
+          {industriesData.headingData.description}
+        </p>
+        <div className='w-full mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-4'>
+          {industriesData.items?.map((cat) => (
+            <div
+              key={cat.id}
+              className='flex flex-col items-center text-center gap-3 rounded-xl border border-gray-200 bg-white px-5 py-7 shadow-sm'
+            >
+              <div className='flex items-center justify-center w-12 h-12'>
+                {cat.image && React.isValidElement(cat.image)
+                  ? React.cloneElement(cat.image, {
+                      ...cat.image.props,
+                      className: 'w-9 h-9 text-orange-500',
+                      size: 36,
+                    })
+                  : typeof cat.image === 'function'
+                  ? React.createElement(cat.image as any, {
+                      className: 'w-9 h-9 text-orange-500',
+                      size: 36,
+                    })
+                  : null}
+              </div>
 
-      <div className='w-full mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3 p-4'>
-        {industriesData.items?.map((cat) => (
-          <button
-            key={cat.id}
-            className='group flex items-center justify-between rounded-xl border px-4 py-3 transition-all duration-200 shadow-sm 
-                       bg-white text-black hover:bg-black hover:text-white'
-          >
-            <div className='flex items-center gap-3'>
-              {cat.image &&
-                (React.isValidElement(cat.image) ? (
-                  React.cloneElement(cat.image, {
-                    ...cat.image.props,
-                     className: `${cat.image.props?.className || ''} w-7 h-7 text-orange-600 transition-all duration-200 dark:text-white text-black dark:group-hover:text-black group-hover:text-white`.trim(),
-                    size: cat.image.props?.size || 20,
-                    color: cat.image.props?.color ?? 'currentColor',
-                  })
-                ) : typeof cat.image === 'function' ? (
-                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                  React.createElement(cat.image as any, {
-                    className: 'w-7 h-7 transition-all duration-200 dark:text-white text-black dark:group-hover:text-black group-hover:text-white',
-                    size: 20,
-                    color: 'currentColor'
-                  })
-                ) : typeof cat.image === 'object' && (cat.image as any).src || typeof cat.image === 'string' ? (
-                  <Image
-                    src={cat.image as any}
-                    alt={cat.title}
-                    width={26}
-                    height={26}
-                    className='transition-all dark:text-white text-black dark:group-hover:text-black group-hover:text-white duration-200 group-hover:invert'
-                  />
-                ) : null)}
-              <span className='text-sm font-medium text-left'>{cat.title}</span>
+              <p className='text-sm font-semibold text-gray-900'>{cat.title}</p>
+
+              {cat.description && (
+                <p className='text-sm text-gray-500 leading-relaxed'>
+                  {cat.description}
+                </p>
+              )}
             </div>
-            <span className='text-lg font-bold'>›</span>
-          </button>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
