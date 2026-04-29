@@ -18,11 +18,11 @@ const FAQ: React.FC<AccordionProps> = ({ faqsContent }) => {
 
   return (
     <div className='flex flex-col items-center py-20 mx-auto mb-5'>
-      <h1
+      <h2
         className={`${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} font-bold`}
       >
         FAQ'S
-      </h1>
+      </h2>
       <div className='w-full p-10'>
         {faqsContent?.map((faq) => (
           <div
@@ -33,11 +33,11 @@ const FAQ: React.FC<AccordionProps> = ({ faqsContent }) => {
               className='flex justify-between items-center cursor-pointer'
               onClick={() => handleToggle(faq.id)}
             >
-              <span
+              <h3
                 className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} font-medium uppercase mb-2`}
               >
                 {faq.question}
-              </span>
+              </h3>
               {isOpen === faq.id ? (
                 <Image
                   src={faqAssets.faqCrossIcon}

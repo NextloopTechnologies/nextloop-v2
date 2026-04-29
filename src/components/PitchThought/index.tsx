@@ -35,12 +35,12 @@ const services = [
     label: 'Custom Software Development',
     href: '/services/custom-software-development',
   },
-  { label: 'IT Staff Augmentation', href: '/services/staffing' },
+  { label: 'IT Staff Augmentation', href: '/services/it-staff-augmentation' },
   { label: 'Web Development', href: '/services/web-development' },
-  { label: 'Mobile Development', href: '/services/mobile-development' },
+  { label: 'Mobile Development', href: '/services/mobile-app-development' },
   { label: 'MVP Development', href: '/services/mvp-development' },
   { label: 'AI/ML Development', href: '/services/ai-ml' },
-  { label: 'Cloud Services', href: '/services/cloud-services' },
+  { label: 'Cloud Services', href: '/services/cloud-computing-solutions' },
   { label: 'UI/UX Development', href: '/services/ui-ux-development' },
 ];
 
@@ -307,12 +307,6 @@ const Pitchthought: FC = () => {
             Rights Reserved.
           </p>
           <p className='flex items-center gap-1'>
-            <Link
-              href='/terms-of-use'
-              className='hover:text-orange-400 transition-colors'
-            >
-              Terms of Use
-            </Link>
             <Dot className='w-4 h-4' />
             <Link
               href='/cookies-policy'
@@ -322,10 +316,10 @@ const Pitchthought: FC = () => {
             </Link>
             <Dot className='w-4 h-4' />
             <Link
-              href='/terms-and-conditions'
+              href='/privacy'
               className='hover:text-orange-400 transition-colors'
             >
-              Terms &amp; Conditions
+              Privacy Policy
             </Link>
           </p>
         </div>

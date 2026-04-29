@@ -9,6 +9,8 @@ import {
 import { BsBank } from 'react-icons/bs';
 import { FaRegFileAlt } from 'react-icons/fa';
 import { FaHandHoldingMedical } from 'react-icons/fa';
+import { FaDesktop, FaEye, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaBrain, FaCogs, FaSearch } from 'react-icons/fa';
 import { FiShoppingCart } from 'react-icons/fi';
 import { HiOutlineOfficeBuilding } from 'react-icons/hi';
 import {
@@ -20,6 +22,10 @@ import { MdComputer } from 'react-icons/md';
 import { PiExcludeSquareDuotone, PiEyeBold } from 'react-icons/pi';
 
 import { getStaticImageData } from './helper';
+import type {
+  TechKey,
+  TechTalentData,
+} from '../pages/services/BaseServicePages';
 import { IFAQ } from '../types';
 import { CultureEvent } from '../types';
 import {
@@ -661,64 +667,64 @@ export const servicesSubPagesData = {
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
-      coloredTitle: 'WEB ',
-      title: 'DEVELOPMENT',
+      coloredTitle: 'Full Stack Web Application ',
+      title: '& eCommerce Development Services',
       subtitle:
-        'At Nextloop Technologies, we specialize in delivering customized web development services that help businesses build user-friendly, scalable, and secure web applications. Our team of expert developers ensures your website is fast, responsive, and optimized for all devices. From front-end design to back-end architecture, we create solutions that drive growth and deliver measurable results.',
+        'Nextloop Technologies focuses on engineering high-performance platforms as a premier web development company in India. Our technical teams specialize in creating digital solutions that captivate global users while ensuring maximum scalability. We bridge the gap between innovative design and technical excellence to drive measurable business results.',
     },
     expertiseData: {
       headingData: {
-        coloredHeading: 'OUR ',
-        heading: 'EXPERTISE',
+        coloredHeading: 'Our Advanced Web ',
+        heading: '& eCommerce Capabilities ',
         description:
-          ' We bring extensive experience across a wide range of industries. Our custom solutions include:',
+          ' Operating as a leading web design company in India, we deliver conversion-optimized digital experiences tailored to your market demands.',
       },
       items: [
         {
           id: 1,
-          title: 'Custom Web Development:',
+          title: 'Web App Development ',
           description:
-            'We build tailor-made websites and web applications that align with your business goals and user needs.',
+            'As a top web application development company, we build dynamic, interactive digital tools. Our engineering team ensures your interfaces and complex backend logic are seamlessly integrated for optimal performance and user retention.',
           image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 2,
-          title: 'Front-End & Back-End Development:',
+          title: 'Shopify eCommerce Solutions ',
           description:
-            'Delivering responsive, fast, and dynamic websites with strong back-end architecture.',
+            'Launch your online store rapidly and securely. Utilizing specialized Shopify website development services, our team creates customized storefronts that scale effortlessly as your inventory grows over time.',
           image: HiOutlineOfficeBuilding,
           dark: false,
         },
         {
           id: 3,
-          title: 'Web Performance & SEO Optimization:',
+          title: 'Custom eCommerce Platforms ',
           description:
-            'Ensuring fast load times, mobile-friendliness, and SEO best practices for better search rankings.',
+            'For complex, enterprise-grade storefronts, we act as a dedicated eCommerce website design and development company. We engineer robust systems capable of handling high transaction volumes without technical lag or security concerns.',
           image: IoFileTrayStackedOutline,
           dark: false,
         },
         {
           id: 4,
-          title: 'E-Commerce Development:',
+          title: 'Mobile-First eCommerce',
           description:
-            'Create high-performing, secure, and scalable online stores with seamless shopping experiences.',
+            'Capture the growing mobile market with our intuitive solutions. Working as a versatile ecommerce mobile app development company, we build native-quality applications providing a frictionless shopping experience across all modern devices.',
           image: FaRegFileAlt,
           dark: true,
         },
         {
           id: 5,
-          title: 'CMS Development:',
+          title: ' Corporate Website Design ',
           description:
-            'Develop and customize CMS platforms like WordPress, Shopify, and Magento for easy content management.',
+            "First impressions drive B2B lead generation. As a primary website design company in India, we craft visually stunning, highly responsive websites that communicate your brand's authority and streamline the user journey. ",
           image: IoCloudUploadOutline,
           dark: true,
         },
         {
           id: 6,
-          title: 'Web Security & Maintenance:',
+          title: 'Seamless Architecture ',
           description:
-            'Implementing advanced security measures and providing ongoing support to keep your website safe and up to date.',
+            'We offer comprehensive website design and development services for brands looking to automate their daily operations. We ensure your platforms integrate smoothly with external APIs and secure payment gateways. ',
           image: FaRegFileAlt,
           dark: false,
         },
@@ -910,35 +916,46 @@ export const servicesSubPagesData = {
     faqsContent: [
       {
         id: 1,
-        question:
-          'What web development services does Nextloop Technologies offer?',
+        question: ' Which platform should I choose for my online store? ',
         answer:
-          'We offer full-stack web development, including front-end design, back-end development, e-commerce solutions, and custom web applications.',
+          'Shopify is ideal for rapid launches, while Magento is better for complex enterprise catalogs. As an experienced Shopify eCommerce development company, we help you navigate specialized Magento development services to ensure you pick the platform that matches your specific transaction volume.',
       },
       {
         id: 2,
-        question: 'How long does it take to develop a website?',
+        question: 'Do you provide end-to-end coding solutions?',
         answer:
-          'The development time depends on the complexity of the project, but we always strive for efficient and timely delivery.',
+          'Yes, we handle everything from intuitive UI/UX design to robust database architecture. Our full stack web development services ensure your application runs seamlessly, securely, and efficiently without the need to hire multiple vendors.',
       },
       {
         id: 3,
-        question:
-          'Do you provide ongoing support after the website is launched?',
+        question: 'Should I build a PWA or a native mobile app?',
         answer:
-          'Yes, we offer continuous support and maintenance to ensure your website stays updated and functional.',
+          'If you need fast deployment and browser access, a PWA is cost-effective. However, for hardware-specific features, a native app via our ecommerce app development services is recommended to guarantee high performance and deep mobile integration.',
       },
       {
         id: 4,
-        question: 'Will my website be mobile-friendly?',
+        question: 'How do you optimize for Core Web Vitals and page speed?  ',
         answer:
-          'Absolutely! We create responsive websites that work seamlessly across all devices.',
+          'We prioritize performance by implementing advanced caching, image optimization, and code minification. Our engineering team ensures your site meets the strictest Google performance standards, resulting in faster load times, lower bounce rates, and improved organic search rankings. ',
       },
       {
         id: 5,
-        question: 'What technologies do you use for web development?',
+        question: 'What is headless commerce and is it right for my business?',
         answer:
-          'We use a wide range of technologies including JavaScript (React, Node.js), Java, Python, and many more to ensure the best solution for your business.',
+          'Headless architecture decouples the frontend presentation layer from the backend commerce logic. This approach offers unparalleled flexibility for brands needing to deliver content across multiple platforms (IoT, mobile, and web) without the limitations of a traditional monolithic system.',
+      },
+      {
+        id: 6,
+        question: ' How do you handle data security and PCI compliance? ',
+        answer:
+          'Security is integrated into our coding lifecycle. We implement end-to-end encryption, multi-factor authentication, and secure payment gateway integrations to ensure your platform is fully compliant with global data protection regulations and PCI-DSS standards.',
+      },
+      {
+        id: 7,
+        question:
+          'Can your platforms support international markets and multi-currency? ',
+        answer:
+          'Yes, we engineer sites with global scalability in mind. Our solutions support localized content, automated tax calculations, multi-currency checkouts, and international shipping logic to ensure your brand provides a frictionless experience for customers across different geographic regions.',
       },
     ],
     areaOfExpertiseData: {
@@ -957,64 +974,64 @@ export const servicesSubPagesData = {
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
-      coloredTitle: 'CLOUD ',
-      title: 'SERVICES',
+      coloredTitle: 'Cloud Computing ',
+      title: 'Services Provider',
       subtitle:
-        "At Nextloop Technologies, we offer comprehensive cloud services that empower your business to scale, innovate, and thrive. Whether you're migrating to the cloud, optimizing your cloud infrastructure, or developing cloud-based applications, we provide end-to-end solutions tailored to your unique needs.",
+        'In a digital-first world, your infrastructure should drive innovation, not just store data. As a premier managed cloud service provider, we bridge the gap between legacy complexity and high-performance demands. Nextloop delivers end-to-end cloud solutions for businesses prioritizing scalability, security, and operational excellence. ',
     },
     expertiseData: {
       headingData: {
-        coloredHeading: 'OUR EXPERTISE IN ',
-        heading: 'CLOUD SERVICES',
+        coloredHeading: 'Our Comprehensive ',
+        heading: 'Cloud Consulting Services',
         description:
-          'We specialize in delivering high-performance, scalable, and secure cloud solutions across industries. With Nextloop Technologies, you can rely on our expertise to drive growth and efficiency in your business.',
+          'Nextloop delivers enterprise-grade ecosystems designed to enhance business agility. By leveraging our position as one of the leading cloud service providers in India, we ensure your architecture is not just functional, but a competitive advantage.',
       },
       items: [
         {
           id: 1,
-          title: 'CLOUD MIGRATION',
+          title: 'Strategic Modernization & Migration',
           description:
-            'Smooth and secure migration of your business to the cloud, with minimal disruption and downtime.',
+            'Transitioning your core operations requires a strategy that eliminates the risk of data loss. Our managed cloud hosting services ensure a seamless move to the web with zero business disruption and optimized uptime.',
           image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 2,
-          title: 'CLOUD INFRASTRUCTURE MANAGEMENT:',
+          title: 'Next-Gen Infrastructure Solutions',
           description:
-            'Build, deploy, and scale robust, cloud-native applications that drive business innovation and efficiency.',
+            'Build a foundation that grows with your vision. We design and scale robust, cloud-native environments that improve efficiency, ensuring your cloud computing solutions are ready for global traffic demands. ',
           image: FaRegFileAlt,
           dark: false,
         },
         {
           id: 3,
-          title: 'CLOUD APPLICATION DEVELOPMENT:',
+          title: 'Scalable Cloud-Native Development',
           description:
-            'Build, deploy, and scale robust, cloud-native applications that drive business innovation and efficiency.',
+            'Innovation starts with the right architecture. We develop bespoke cloud solutions for businesses that prioritize high performance, allowing you to deploy features faster while maintaining a premium user experience.',
           image: HiOutlineOfficeBuilding,
           dark: false,
         },
         {
           id: 4,
-          title: 'CLOUD SECURITY:',
+          title: 'Ironclad Data Protection',
           description:
-            'Modernize your infrastructure with cloud-based solutions for enhanced flexibility, security, and scalability.',
+            'Security is the non-negotiable cornerstone of digital trust. We implement multi-layered cloud security solutions and specialized cloud data security solutions to safeguard your sensitive assets against modern threats. ',
           image: IoCloudUploadOutline,
           dark: true,
         },
         {
           id: 5,
-          title: 'DEVOPS & AUTOMATION:',
+          title: 'Integrated DevOps & Automation',
           description:
-            'Automate workflows and streamline development to accelerate deployment and enhance operational efficiency.',
+            'Accelerate your speed-to-market with automated delivery pipelines. As a dedicated DevOps development company, we streamline workflows to ensure your deployment cycles are stable, fast, and cost-efficient.',
           image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 6,
-          title: 'CLOUD COST OPTIMIZATION:',
+          title: 'Performance-Driven Cost Management ',
           description:
-            'Maximize efficiency and reduce cloud expenses with our cost optimization strategies, ensuring you get the best value from your cloud investments.',
+            'Maximize ROI by eliminating wasted resources. Our cloud cost optimization services transform your infrastructure from a cost center into a value driver, ensuring you pay only for the performance your business utilizes. ',
           image: FaRegFileAlt,
           dark: false,
         },
@@ -1204,41 +1221,46 @@ export const servicesSubPagesData = {
       ],
     },
     areaOfExpertiseData: {
-      mainHeader: 'OUR AREAS OF EXPERTISE',
+      mainHeader: 'Purpose-Built Systems for Complex Sectors',
       mainDescription:
-        "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
+        'Standardized tech falls apart under niche demands. We provide the tailored cloud transformation services necessary to power high-traffic retail, secure financial hubs, and custom corporate applications.',
       items: staticServices,
     },
     faqsContent: [
       {
         id: 1,
-        question: 'What is cloud computing?',
+        question:
+          'How do you ensure zero downtime during a core system transition?',
         answer:
-          'Cloud computing allows businesses to store, manage, and process data over the internet, rather than on physical servers. It offers flexibility, scalability, and cost-efficiency by enabling access to resources on-demand.',
+          'We eliminate transition risks using a phased, parallel-run methodology. By testing data integrity and load capacity in a mirrored environment first, we guarantee a final cutover with absolutely zero operational disruption to your active business.',
       },
       {
         id: 2,
-        question: 'How can cloud services benefit my business?',
+        question:
+          'Will our systems be locked into a single provider like AWS or Azure?',
         answer:
-          'Cloud services help improve scalability, reduce IT costs, enhance collaboration, and provide secure data storage. They allow businesses to focus on innovation while we manage your infrastructure.',
+          'No. We build with a strict "Zero-Lock-In" philosophy. Utilizing containerization and open-standard frameworks, we keep your digital assets entirely vendor-agnostic, granting you the freedom to pivot platforms without proprietary restrictions.',
       },
       {
         id: 3,
-        question: 'What types of cloud services do you offer?',
+        question:
+          'How do you handle compliance for heavily regulated industries?',
         answer:
-          'We offer cloud migration, cloud infrastructure management, cloud application development, cloud security, and DevOps automation, all tailored to your specific business needs.',
+          'We embed compliance directly into the architecture. From end-to-end encryption to localized server deployments, we engineer environments that strictly adhere to global regulatory standards, including HIPAA and PCI-DSS, by default.',
       },
       {
         id: 4,
-        question: 'Is my data safe in the cloud?',
+        question:
+          'What is the typical timeline for modernizing legacy IT environments?',
         answer:
-          "Yes! We prioritize your data's security by implementing advanced security measures, encryption, and compliance with industry standards to ensure your data is protected.",
+          'While dictated by system complexity, standard enterprise modernizations range from 4 to 12 weeks. We begin with a rigorous discovery phase, followed by agile deployments that deliver measurable performance gains long before the final milestone. ',
       },
       {
         id: 5,
-        question: 'How long does it take to migrate to the cloud?',
+        question:
+          ' How are ongoing maintenance and cost overruns managed post-deployment?',
         answer:
-          'The migration timeline depends on your current infrastructure and the complexity of your systems. We work closely with you to create a plan and ensure a smooth, timely transition with minimal disruption.',
+          'Post-deployment is an active optimization phase. Our 24/7 governance teams continuously audit resource usage and analyze traffic patterns to eliminate idle waste, ensuring your ongoing expenditure precisely matches your actual performance needs.',
       },
     ],
   },
@@ -2213,60 +2235,64 @@ export const servicesSubPagesData = {
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
-      coloredTitle: 'DIGITAL MARKETING ',
-      title: 'SERVICES',
+      coloredTitle: 'Data-Driven Digital Marketing ',
+      title: 'That Grows Your Revenue',
       subtitle:
-        'Digital marketing is the promotion of products, services, or brands using online channels like search engines, social media, email, and websites. It helps businesses reach their target audience, increase brand awareness, and drive sales. In today’s digital world, having a strong online presence is essential for business success. We provide expert digital marketing solutions that help you grow your brand, attract customers, and increase revenue. From SEO to social media marketing, we use data-driven strategies to boost your business online.',
+        'A strong online presence should do more than just look good—it needs to generate actual revenue. Whether you are a national brand looking for a global digital marketing agency or a local business searching for the best digital marketing company in Indore, our approach is straightforward and results focused. As a dedicated performance marketing agency in India, we ignore vanity metrics. We focus on verified data to position your brand in front of the right audience, reduce your acquisition costs, and turn your website traffic into loyal customers.',
     },
     expertiseData: {
       headingData: {
-        coloredHeading: 'OUR EXPERTISE IN ',
-        heading: 'DIGITAL MARKETING',
+        coloredHeading: 'Comprehensive Outsourcing ',
+        heading: 'Digital Marketing Services',
         description:
-          'We bring years of experience in developing mobile applications that are scalable, secure, and designed for seamless user experiences. Our team works with the latest tools, technologies, and trends to build apps that exceed expectations.',
+          'We offer highly targeted marketing execution designed around your specific business goals. From new setups to established tech firms, we act as a B2B SaaS digital marketing agency that knows exactly how to capture attention in crowded markets.',
       },
       items: [
         {
           id: 1,
-          title: 'Search Engine Optimization (SEO):',
-          description: 'Improve your website’s ranking on Google.',
+          title: 'Search Engine Optimization (SEO)',
+          description:
+            'Improve your search rankings and attract qualified visitors. As a trusted SEO company in Indore, we map out technical, data-backed search campaigns that place your website directly in front of the people actively searching for what you offer. ',
           image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 2,
           title: 'Pay-Per-Click (PPC) Advertising:',
-          description: 'Get instant traffic with targeted ads.',
+          description:
+            'Capture your ideal audience instantly with carefully managed ad budgets. Operating as an expert SaaS content marketing and PPC agency, we optimize your paid campaigns to lower customer acquisition costs and ensure a profitable return on your ad spend. ',
           image: FaRegFileAlt,
           dark: false,
         },
         {
           id: 3,
-          title: 'Social Media Marketing (SMM):',
+          title: 'Content marketing ',
           description:
-            'Grow your brand on Facebook, Instagram, LinkedIn & more.',
+            'Fuel your online presence with high-value, research-backed assets. We handle the exact digital marketing and lead generation for SaaS and enterprise brands, creating content that ranks well, educates your buyers, and drives organic traffic. ',
           image: HiOutlineOfficeBuilding,
           dark: false,
         },
         {
           id: 4,
-          title: 'Content Marketing:',
+          title: 'Social media marketing (SMM)',
           description:
-            'Engage customers with valuable blogs, videos, and articles.',
+            'Build an active community on the platforms where your buyers actually spend their time. Ranked among the best SMM companies, we craft campaigns that give your brand a human voice and start meaningful, productive conversations.',
           image: IoCloudUploadOutline,
           dark: true,
         },
         {
           id: 5,
-          title: 'Email Marketing:',
-          description: 'Reach your audience with personalized email campaigns.',
+          title: 'Email Marketing',
+          description:
+            'Speak to your audience directly with personalized, high-converting messages. As a dedicated outsource email marketing agency, we take care of the entire process—from segmenting your contact lists to setting up automated lead-nurturing workflows.',
           image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 6,
-          title: ' Conversion Rate Optimization (CRO):  ',
-          description: 'Turn visitors into loyal customers.',
+          title: ' Conversion Rate Optimization (CRO) ',
+          description:
+            'Getting visitors to your website is only half the job; they need to take action. We use detailed conversion rate optimization services to track user behavior, refine your site layout, and guide your audience naturally toward making a purchase or booking a consultation.',
           image: FaRegFileAlt,
           dark: false,
         },
@@ -2447,36 +2473,54 @@ export const servicesSubPagesData = {
       ],
     },
     areaOfExpertiseData: {
-      mainHeader: 'OUR AREAS OF EXPERTISE',
+      mainHeader:
+        'Specialized industry solutions from the top Digital marketing company in india',
       mainDescription:
-        "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
+        'From serving as a dedicated fintech digital marketing agency to managing growth for healthcare and e-commerce platforms, we provide expert marketing strategies for every major global sector.',
       items: staticServices,
     },
     faqsContent: [
       {
         id: 1,
         question:
-          'How long does it take to see results from digital marketing?',
+          'What defines the approach of the best digital marketing companies in india?',
         answer:
-          'SEO takes 3-6 months, while PPC and social media ads can deliver instant results.',
+          'The best digital marketing companies in india focus on measurable business outcomes rather than just traffic volume. We stand out by using verified search data to lower your customer acquisition costs, ensuring that every campaign is designed to increase your actual revenue and long-term brand authority.',
       },
       {
         id: 2,
-        question: 'Can you help my small business with digital marketing?',
+        question:
+          'How does a specialized seo company india improve my lead quality? ',
         answer:
-          'Yes! We work with businesses of all sizes and create strategies that fit your budget.',
+          'A dedicated seo company india looks beyond simple rankings to understand user intent. By auditing your site’s technical health and mapping content to what your buyers are actually searching for, we attract qualified visitors who are more likely to convert into paying customers. ',
       },
       {
         id: 3,
-        question: 'Do you provide monthly reports?',
+        question:
+          'What value do search engine optimization consulting agencies provide for b2b firms?',
         answer:
-          'Absolutely! We provide detailed reports so you can track your progress.',
+          'Specialized search engine optimization consulting agencies offer the technical depth needed to navigate complex markets. We provide the same level of strategic oversight as high-end search engine optimisation consulting companies, focusing on deep architectural audits and competitive mapping to keep your brand visible in a crowded digital space.',
       },
       {
         id: 4,
-        question: 'How do I get started?',
+        question:
+          'Why should I partner with the best seo company in indore for global projects?',
         answer:
-          'Contact us today, and we’ll create a customized digital marketing plan for your business!',
+          'Partnering with the best seo company in indore gives you access to world-class technical talent without the inflated overhead of metropolitan firms. We provide a blend of local cost-efficiency and global standards, ensuring your campaigns are technically sound and culturally relevant to your target audience.',
+      },
+      {
+        id: 5,
+        question:
+          'How does the best indian seo marketing company handle search algorithm updates?',
+        answer:
+          'The best indian seo marketing company relies on sustainable, white-hat practices that protect your rankings over time. Instead of using shortcuts, we focus on technical excellence and high-value content, ensuring your website remains authoritative even when search engines update their ranking criteria.',
+      },
+      {
+        id: 6,
+        question:
+          'Are search engine optimisation consulting companies necessary for established brands?',
+        answer:
+          'Yes, because search landscapes change daily. Even established brands need search engine optimisation consulting companies to identify new search trends and fix technical "debt" that could be slowing down growth. We provide the ongoing analysis required to maintain your market share and reach new audience segments. ',
       },
     ],
   },
@@ -2824,32 +2868,91 @@ export const servicesSubPagesData = {
         { title: 'EWA', image: EwaLogo },
       ],
     },
-    ourProcessData: {
+    teamMembersData: {
       headingData: {
-        heading: 'Our Process: ',
-        coloredHeading: 'Simple & Transparent',
-        description: '',
+        heading: 'Meet Your Dedicated ',
+        coloredHeading: 'Engineering Team',
+        description:
+          'Our staff augmentation services connect you with top-tier talent that integrates seamlessly into your projects.',
       },
       items: [
         {
-          id: 1,
-          title: 'Tell Us What You Need',
-          description: `The first step is all about understanding your unique needs. You’ll provide detailed information about the role, including technical skills, experience level, certifications, and any specific industry knowledge required. Additionally, share your project timeline, team structure, and work culture. This step allows us to tailor our search specifically to your requirements, ensuring that every candidate we present is relevant and highly qualified.`,
+          name: 'Alex M.',
+          title: 'Senior Full Stack Engineer',
+          experience: '7 years experience',
+          role: 'If you need to hire full stack developers, Alex is your ideal match.',
+          techStack: ['react', 'aws', 'angular', 'python'] as TechKey[],
+          domains: ['Fintech', 'Healthcare'],
         },
         {
-          id: 2,
-          title: 'We Find the Best Candidates',
-          description: `Once we have a clear understanding of your needs, our recruitment team activates a multi-channel sourcing strategy. We tap into our extensive network of IT professionals, partner platforms, and industry communities to identify potential candidates. Each candidate undergoes a thorough screening process, including:
-•	Resume and Profile Evaluation
-•	Technical Assessments
-•	Behavioral and Cultural Fit Analysis
-•	Background and Reference Checks
-Through this rigorous process, only the top-performing candidates are shortlisted, saving you time and reducing the risk of hiring mismatches.`,
+          name: 'Alex M.',
+          title: 'Senior Full Stack Engineer',
+          experience: '7 years experience',
+          role: 'If you need to hire full stack developers, Alex is your ideal match.',
+          techStack: ['react', 'aws', 'angular', 'python'] as TechKey[],
+          domains: ['Fintech', 'Healthcare'],
         },
         {
-          id: 3,
-          title: 'You Hire with Confidence',
-          description: `After screening, we present you with a curated list of the most suitable candidates. You can review their profiles, schedule interviews, and assess their fit for your team. Our team supports you throughout this stage, coordinating interviews, collecting feedback, and facilitating communication between you and the candidates. Once you’ve made your selection, we assist with the onboarding process, ensuring that the new hire integrates smoothly into your team.`,
+          name: 'Alex M.',
+          title: 'Senior Full Stack Engineer',
+          experience: '7 years experience',
+          role: 'If you need to hire full stack developers, Alex is your ideal match.',
+          techStack: ['react', 'aws', 'angular', 'python'] as TechKey[],
+          domains: ['Fintech', 'Healthcare'],
+        },
+        {
+          name: 'Alex M.',
+          title: 'Senior Full Stack Engineer',
+          experience: '7 years experience',
+          role: 'If you need to hire full stack developers, Alex is your ideal match.',
+          techStack: ['react', 'aws', 'angular', 'python'] as TechKey[],
+          domains: ['Fintech', 'Healthcare'],
+        },
+      ],
+    },
+    comparisonTableData: {
+      headingData: {
+        heading: 'The True Cost of Hiring: ',
+        coloredHeading: ' A Comparison Matrix',
+        description:
+          'Transparent. Secure. Hassle-Free. Subtitle: Experience the ease of choosing our IT staff augmentation services and never go back to traditional hiring again.',
+      },
+      columns: {
+        metric: 'Metric',
+        traditional: 'Traditional In-House Team',
+        freelancers: 'Freelancers / Portals',
+        nextloop: 'Nextloop Staff Augmentation',
+      },
+      rows: [
+        {
+          metric: 'Recruitment Cycle',
+          traditional: '45+ Days',
+          freelancers: '10-15 Days',
+          nextloop: '1-3 Days',
+        },
+        {
+          metric: 'Back Outs',
+          traditional: '30-50% (Last-minute drops)',
+          freelancers: '30% (Unreliable)',
+          nextloop: '0%\n(Full time Nextloop employees)',
+        },
+        {
+          metric: 'Cost To Hire',
+          traditional: '$10k+ (HR, Portals, Time)',
+          freelancers: '10-20% Platform Fees',
+          nextloop: '0%\n(Full time Nextloop employees)',
+        },
+        {
+          metric: 'Retention & Perks',
+          traditional: 'High overhead (Bonus, Gifts)',
+          freelancers: 'High risk of project abandonment',
+          nextloop: '$0\n(Nextloop handles retention)',
+        },
+        {
+          metric: 'Training & Upskilling',
+          traditional: 'Time-consuming & Expensive',
+          freelancers: 'Freelancers rarely upskill',
+          nextloop: '$0\n(In-house training center)',
         },
       ],
     },
@@ -2880,6 +2983,29 @@ Through this rigorous process, only the top-performing candidates are shortliste
           description:
             'Hiring permanent employees is about more than filling a role—it’s about finding the right person who complements your team and drives growth. From entry-level positions to leadership roles, we help you find the perfect fit.',
           image: OurProcess3,
+        },
+      ],
+    },
+    SecurityData: {
+      heading: 'Bank-Grade Security & IP Protection',
+      items: [
+        {
+          icon: FaMapMarkerAlt,
+          title: 'NDAs & Strict Contracts:',
+          description:
+            'Meticulously composed agreements with strict data handling and IP ownership guidelines.',
+        },
+        {
+          icon: FaDesktop,
+          title: 'Company Assigned Devices:',
+          description:
+            'Programmers collaborate using organization designated, monitored hardware.',
+        },
+        {
+          icon: FaEye,
+          title: 'Private Repositories:',
+          description:
+            'Entire source code is maintained and pushed daily to a Client-owned private repository.',
         },
       ],
     },
@@ -3051,6 +3177,43 @@ Through this rigorous process, only the top-performing candidates are shortliste
         },
       ],
     },
+    techTalentData: {
+      headingData: {
+        heading: 'Build Your ',
+        coloredHeading: 'Digital Future With The Best Tech Talent',
+        description:
+          'When you partner with Nextloop, you get access to a diverse pool of vetted specialists. We make it simple to scale your project exactly how you envision it:',
+      },
+      items: [
+        {
+          label: 'A',
+          icon: FaSearch,
+          title: 'Hire Mobile App Developers',
+          description:
+            'Need cross-platform excellence? Hire React Native developers from our bench to build seamless iOS and Android experiences. Our React Native developers boast an average rating of 4.8/5.',
+          position: 'left',
+          color: 'dark',
+        },
+        {
+          label: 'B',
+          icon: FaCogs,
+          title: 'Web & Full Stack',
+          description:
+            'Need end-to-end architecture? Hire full stack experts. We make it easy to hire full stack developers who fluently bridge frontend logic and backend databases.',
+          position: 'left',
+          color: 'orange',
+        },
+        {
+          label: 'C',
+          icon: FaBrain,
+          title: 'Backend & Frontend',
+          description:
+            'Scale gracefully. You can hire dedicated developers specifically tailored to your immediate sprint needs.',
+          position: 'right',
+          color: 'blue',
+        },
+      ],
+    } as TechTalentData,
     faqsContent: [
       {
         id: 1,

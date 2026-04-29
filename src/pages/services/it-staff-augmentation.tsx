@@ -14,6 +14,7 @@ interface BlogData {
 const initialData = {
   ...servicesSubPagesData.staffingServices,
   blogData: [] as BlogData[],
+  showStaffingTable: true,
 };
 
 const StaffingDevelopment: React.FC = () => {

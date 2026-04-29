@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import { StaticImageData } from 'next/image';
+import { IconType } from 'react-icons';
 
+// import { IconType } from 'react-icons';
 import BlogSection from '../../components/BlogSection';
 import FAQ from '../../components/Domains/FAQ';
 import FlexibleHiringSection from '../../components/FlexibleHiringSection';
@@ -12,11 +14,13 @@ import { ProductCard } from '../../components/ProductCard';
 import ScrollingProcess from '../../components/ScrollingProcess';
 import Slider from '../../components/Slider';
 import StaffingIndustriesSection from '../../components/StaffingIndustriesSection';
+import StaffingSecurity from '../../components/StaffingSecurity';
+import StaffingTable from '../../components/StaffingTable';
 import TechStack, { TechCategory } from '../../components/TechStackSection';
 import TrustedPartnersSection from '../../components/Trustedpartnerssection';
-import WhyBusinessChoosesUsSection from '../../components/WhyBusinessChoosesUsSection';
 
 type ImageLike = StaticImageData | string | React.ReactNode | React.ElementType;
+export type TechKey = 'react' | 'aws' | 'angular' | 'python';
 
 interface ExpertiseItem {
   id: number;
@@ -111,6 +115,71 @@ interface TrustedPartnersData {
   };
   items: LogoItem[];
 }
+export interface SecurityItem {
+  icon: IconType;
+  title: string;
+  description: string;
+}
+
+export interface SecurityData {
+  heading: string;
+  items: SecurityItem[];
+}
+export interface ComparisonRow {
+  metric: string;
+  traditional: string;
+  freelancers: string;
+  nextloop: string;
+}
+
+export interface ComparisonTableData {
+  headingData: {
+    heading: string;
+    coloredHeading: string;
+    description: string;
+  };
+  columns: {
+    metric: string;
+    traditional: string;
+    freelancers: string;
+    nextloop: string;
+  };
+  rows: ComparisonRow[];
+}
+export interface TeamMember {
+  name: string;
+  title: string;
+  experience: string;
+  role: string;
+  techStack: TechKey[];
+  domains: string[];
+  avatarUrl?: string;
+}
+export interface TeamMembersSectionData {
+  headingData: {
+    heading: string;
+    coloredHeading: string;
+    description: string;
+  };
+  items: TeamMember[];
+}
+export interface TechTalentItem {
+  label: string;
+  icon: IconType;
+  title: string;
+  description: string;
+  position: 'left' | 'right';
+  color: 'dark' | 'orange' | 'blue';
+}
+
+export interface TechTalentData {
+  headingData: {
+    heading: string;
+    coloredHeading: string;
+    description: string;
+  };
+  items: TechTalentItem[];
+}
 
 export interface ServicePageProps {
   metaData?: {
@@ -149,6 +218,10 @@ export interface ServicePageProps {
   whyBusinessChoosesUsData?: StaffingData;
   // ourProcessData?: StaffingData;
   flexibleHiringData?: StaffingData;
+  teamMembersData?: TeamMembersSectionData;
+  comparisonTableData?: ComparisonTableData;
+  SecurityData?: SecurityData;
+  techTalentData?: TechTalentData;
 }
 
 const ServicePage: React.FC<ServicePageProps> = ({
@@ -164,9 +237,12 @@ const ServicePage: React.FC<ServicePageProps> = ({
   areaOfExpertiseData,
   staffingPartnerData,
   staffingIndustriesData,
-  whyBusinessChoosesUsData,
   // ourProcessData,
   flexibleHiringData,
+  // teamMembersData,
+  comparisonTableData,
+  SecurityData,
+  // techTalentData,
 }) => {
   return (
     <Layout>
@@ -205,17 +281,15 @@ const ServicePage: React.FC<ServicePageProps> = ({
       {/* {ourProcessData && ourProcessData?.items?.length > 0 && (
         <OurProcessSection ourProcess={ourProcessData} />
       )} */}
+      {/* {teamMembersData && teamMembersData?.items?.length > 0 && <TeamMembers data={teamMembersData} />} */}
 
-      {whyBusinessChoosesUsData &&
-        whyBusinessChoosesUsData?.items?.length > 0 && (
-          <WhyBusinessChoosesUsSection
-            whyChooseUsData={whyBusinessChoosesUsData}
-          />
-        )}
+      {comparisonTableData && <StaffingTable data={comparisonTableData} />}
 
       {flexibleHiringData && flexibleHiringData?.items?.length > 0 && (
         <FlexibleHiringSection hiringData={flexibleHiringData} />
       )}
+      {SecurityData && <StaffingSecurity data={SecurityData} />}
+      {/* {techTalentData && <TechTalent data={techTalentData} />} */}
 
       {techStackData && techStackData.items.length > 0 && (
         <TechStack techStackData={techStackData} />

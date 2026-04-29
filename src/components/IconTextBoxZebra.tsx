@@ -91,12 +91,12 @@ const IconTextBoxZebra: React.FC<IconTextBoxZebraProps> = ({ data }) => {
 
   return (
     <section className='flex flex-col py-20 px-4 md:px-40 text-center bg-gray-100'>
-      <h3 className='text-3xl md:text-4xl font-bold'>
+      <h2 className='text-3xl md:text-4xl font-bold'>
         <span className='text-orange-500'>
           {data?.headingData?.coloredHeading}
-        </span>{' '}
+        </span>
         {data?.headingData?.heading}
-      </h3>
+      </h2>
       <p className='text-gray-600 mt-4'>{data?.headingData?.description}</p>
 
       <div className='flex items-center gap-2 md:gap-4 mt-10'>

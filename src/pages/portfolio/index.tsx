@@ -26,7 +26,7 @@ const Portfolio: React.FC<{ data?: IPortfolio[]; error?: string }> = ({
       </Head>
       <PageHero
         image={portfolioBg}
-        title='portfolio'
+        title='Portfolio'
         subtitle="View the range of projects completed by Nextloop Technologies. We have provided assistance to a wide range of firms in various industries and locations across the globe, from small startups to large corporations. This demonstrates our exceptional ability to generate fresh concepts and tailor solutions to the specific needs of each client. So, if you're interested in learning more about what Nextloop can accomplish for your company, have a look at our portfolios!"
         opacity='opacity-90'
       />
