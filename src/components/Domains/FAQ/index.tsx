@@ -34,7 +34,7 @@ const FAQ: React.FC<AccordionProps> = ({ faqsContent }) => {
               onClick={() => handleToggle(faq.id)}
             >
               <h3
-                className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} font-medium uppercase mb-2`}
+                className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} font-medium mb-2`}
               >
                 {faq.question}
               </h3>
