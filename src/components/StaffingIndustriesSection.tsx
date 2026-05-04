@@ -27,14 +27,14 @@ const StaffingIndustriesSection: React.FC<{ industriesData: StaffingData }> = ({
   return (
     <div className='bg-[#F4F4F4]'>
       <div className='flex flex-col items-center text-center min-h-fit w-full md:max-w-7xl mx-auto p-16 '>
-        <h3
-          className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold uppercase`}
+        <h2
+          className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold `}
         >
           {industriesData.headingData.heading}
           <span className='text-orange-500'>
             {industriesData.headingData.coloredHeading}
           </span>
-        </h3>
+        </h2>
 
         <p className='text-gray-400 mt-4 mb-12'>
           {industriesData.headingData.description}
@@ -48,16 +48,16 @@ const StaffingIndustriesSection: React.FC<{ industriesData: StaffingData }> = ({
               <div className='flex items-center justify-center w-12 h-12'>
                 {cat.image && React.isValidElement(cat.image)
                   ? React.cloneElement(cat.image, {
-                      ...cat.image.props,
-                      className: 'w-9 h-9 text-orange-500',
-                      size: 36,
-                    })
+                    ...cat.image.props,
+                    className: 'w-9 h-9 text-orange-500',
+                    size: 36,
+                  })
                   : typeof cat.image === 'function'
-                  ? React.createElement(cat.image as any, {
+                    ? React.createElement(cat.image as any, {
                       className: 'w-9 h-9 text-orange-500',
                       size: 36,
                     })
-                  : null}
+                    : null}
               </div>
 
               <p className='text-sm font-semibold text-gray-900'>{cat.title}</p>

@@ -126,8 +126,8 @@ const AboutUsHome = () => {
       </Head>
       <PageHero
         image={aboutBg}
-        coloredTitle='about '
-        title='us'
+        coloredTitle='About '
+        title='Us'
         subtitle='At Nextloop Technologies, we partner with ambitious businesses to turn complex challenges into scalable, high-performance systems that drive measurable growth. Every solution we build is rooted in strategy, engineered with precision, and designed for long-term value. We specialize in crafting tailored IT solutions aligned with your unique business goals — from cloud architecture and optimization to AI-driven systems, intelligent automation, and custom software development. '
       />
       <WhyUs />

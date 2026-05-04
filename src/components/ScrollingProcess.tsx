@@ -82,7 +82,7 @@ const OurProcess: React.FC<OurProcessProps> = ({ processData }) => {
   return (
     <section className='bg-[#f0f0f0] flex flex-col items-center px-6 py-20 font-sans'>
       {/* Dynamic heading — same pattern as expertiseData */}
-      <h2 className='text-3xl md:text-4xl font-extrabold uppercase tracking-tight text-center mb-4'>
+      <h2 className='text-3xl md:text-4xl font-bold tracking-tight text-center mb-4'>
         <span className='text-gray-900'>{headingData.heading}</span>
         <span className='text-orange-500'>{headingData.coloredHeading}</span>
       </h2>
@@ -123,7 +123,7 @@ const OurProcess: React.FC<OurProcessProps> = ({ processData }) => {
                     ${!isActive && dist > 1 ? 'opacity-20 text-gray-500' : ''}
                   `}
                 >
-                  {step.title}
+                  <h3>{step.title}</h3>
                 </div>
               );
             })}

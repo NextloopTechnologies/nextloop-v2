@@ -32,7 +32,7 @@ const SERVICE_DATA: ServiceCardProps[] = [
   {
     heading: 'IT Staff Augmentation',
     image: Service7 as unknown as string,
-    link: '/services/staffing',
+    link: '/services/it-staff-augmentation',
   },
   {
     heading: 'Website Development',
@@ -47,12 +47,12 @@ const SERVICE_DATA: ServiceCardProps[] = [
   {
     heading: 'Cloud & DevOps',
     image: Service4 as unknown as string,
-    link: '/services/cloud-services',
+    link: '/services/cloud-computing-solutions',
   },
   {
     heading: 'Mobile App Development',
     image: Service5 as unknown as string,
-    link: '/services/mobile-development',
+    link: '/services/mobile-app-development',
   },
   {
     heading: 'UI/UX Design & Development ',

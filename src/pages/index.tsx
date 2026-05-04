@@ -309,7 +309,11 @@ const Home: React.FC = () => {
           </div>
         </div>
 
-        <div id='services' ref={setDivRef(2)} className='md:mb-20 '>
+        <div
+          id='services'
+          ref={setDivRef(2)}
+          className='md:mb-20 items-center '
+        >
           <div className='container mx-auto w-full'>
             <Services />
           </div>
@@ -320,9 +324,7 @@ const Home: React.FC = () => {
           ref={setDivRef(3)}
           className='sm:min-h-max max-w-[100vw] overflow-hidden'
         >
-          <div className='container mx-auto w-full'>
-            <Portfolio />
-          </div>
+          <Portfolio />
         </div>
 
         <div
@@ -330,9 +332,7 @@ const Home: React.FC = () => {
           ref={setDivRef(4)}
           className='sm:min-h-[50vh] sm:min-w-screen'
         >
-          <div className='container mx-auto w-full'>
-            <OurCLient />
-          </div>
+          <OurCLient />
         </div>
 
         <div
@@ -348,10 +348,7 @@ const Home: React.FC = () => {
           ref={setDivRef(6)}
           className=' max-w-[100vw] overflow-hidden'
         >
-          <div className='container mx-auto w-full'>
-            {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
-            <ClientSays />
-          </div>
+          <ClientSays />
         </div>
         <LazyMotion features={domAnimation}>
           {showNextPageButton && (

@@ -81,9 +81,8 @@ const IconTextBoxZebra: React.FC<IconTextBoxZebraProps> = ({ data }) => {
     }
     if (React.isValidElement(item.image)) {
       return React.cloneElement(item.image, {
-        className: `${
-          (item.image.props as any)?.className || ''
-        } w-8 h-8 text-orange-500`,
+        className: `${(item.image.props as any)?.className || ''
+          } w-8 h-8 text-orange-500`,
       });
     }
     return null;
@@ -91,12 +90,12 @@ const IconTextBoxZebra: React.FC<IconTextBoxZebraProps> = ({ data }) => {
 
   return (
     <section className='flex flex-col py-20 px-4 md:px-40 text-center bg-gray-100'>
-      <h3 className='text-3xl md:text-4xl font-bold'>
+      <h2 className='text-3xl md:text-4xl font-bold'>
         <span className='text-orange-500'>
           {data?.headingData?.coloredHeading}
-        </span>{' '}
+        </span>
         {data?.headingData?.heading}
-      </h3>
+      </h2>
       <p className='text-gray-600 mt-4'>{data?.headingData?.description}</p>
 
       <div className='flex items-center gap-2 md:gap-4 mt-10'>
@@ -109,18 +108,16 @@ const IconTextBoxZebra: React.FC<IconTextBoxZebraProps> = ({ data }) => {
         </button>
 
         <div
-          className={`grid flex-1 gap-4 md:gap-8 ${
-            perView === 2 ? 'grid-cols-2' : 'grid-cols-1'
-          }`}
+          className={`grid flex-1 gap-4 md:gap-8 ${perView === 2 ? 'grid-cols-2' : 'grid-cols-1'
+            }`}
         >
           {visible.map((item) => (
             <div
               key={item?.id}
-              className={`flex items-center p-6 rounded-lg shadow-md ${
-                item?.dark
+              className={`flex items-center p-6 rounded-lg shadow-md ${item?.dark
                   ? 'bg-black text-white'
                   : 'bg-white text-black border'
-              }`}
+                }`}
             >
               <div className='w-13 h-13 relative mr-4 flex items-center justify-center'>
                 {renderIcon(item)}
