@@ -6,22 +6,22 @@ import palette from '../../styles/pallette';
 const steps = [
   {
     title: 'DISCOVER',
-    desc: 'We start by understanding your business, goals, users, and challenges. Through research and discussions, we identify the right opportunities and define a clear problem statement.',
+    desc: 'We start by finding out about your company, its goals, its users and the problems it faces. We do in-depth research and have strategic conversations to give you a clear plan, whether you need full-scale corporate architecture or focused MVP software development services.',
     icon: Search,
   },
   {
     title: 'DESIGN',
-    desc: 'We translate insights into intuitive system architecture and user-centric designs. Our focus is on simplicity, usability, and scalability, built to perform in real-world scenarios.',
+    desc: 'As a company that specializes in UI/UX design services, we take these ideas and make them into system architecture and user interfaces that are easy to use. Our main goal is still to make wireframing simple, easy to use and interactive, which makes sure it works perfectly.',
     icon: PenTool,
   },
   {
     title: 'BUILD',
-    desc: 'Using modern technologies and AI where it adds value, we develop secure, high-performance solutions that are robust, scalable, and aligned with your business objectives.',
+    desc: 'We build safe, high-performance apps using modern tech stacks and agile sprints. We build strong, scalable backend systems that are perfectly in line with your long-term business goals by using the best cloud service providers in India.',
     icon: Code2,
   },
   {
     title: 'DELIVER',
-    desc: 'We test, refine, and deploy with precision. Post-launch, we continuously optimize and improve to ensure long-term performance and growth.',
+    desc: 'We deliver your product with perfect accuracy. We promise a safe, perfect launch by combining our full range of software testing and QA services. After deployment, we keep an eye on things and make improvements to make sure growth is long-term.',
     icon: Rocket,
   },
 ];
@@ -32,15 +32,16 @@ const ProcessWeFollow = () => {
       {/* ================= HEADER ================= */}
       <div className='w-full flex flex-col justify-center items-center gap-y-3 z-10 px-4'>
         <h2
-          className={`${palette.fontSize.heading2.mobile} md:text-4xl 2xl:text-4xl uppercase font-bold text-center`}
+          className={`${palette.fontSize.heading2.mobile} md:text-4xl 2xl:text-4xl  font-bold text-center`}
         >
-          Process <span className='text-orange-500'>We Follow</span>
+          Our <span className='text-orange-500'>Delivery Pipeline</span>
         </h2>
         <h3
           className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} lg:px-20 text-center`}
         >
-          A structured, agile approach that ensures clarity, efficiency, and
-          measurable outcomes at every stage of your project.
+          A clear, structured method that makes sure that every stage of the
+          product lifecycle is clear, quick to implement and has demonstrable
+          results.
         </h3>
       </div>
 

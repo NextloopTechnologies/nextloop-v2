@@ -36,7 +36,7 @@ const Hamburger = () => {
     { name: 'Fin-Tech', href: '/domain/fintech' },
     { name: 'Healthcare', href: '/domain/healthcare' },
     { name: 'Oil And Gas', href: '/domain/oil-and-gas' },
-    { name: 'Food and Beverages', href: '/domain/food-and-beverages' },
+    { name: 'Food And Beverages', href: '/domain/food-and-beverages' },
     { name: 'Travel And Hospitality', href: '/domain/travel-and-hospitality' },
   ];
 

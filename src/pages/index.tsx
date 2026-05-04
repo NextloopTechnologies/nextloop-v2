@@ -2,6 +2,7 @@ import { domAnimation, LazyMotion, m } from 'framer-motion';
 import { MoveDown } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
+// import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 const ClientSays = dynamic(() => import('../components/ClientSays'), {
   ssr: false,
@@ -255,16 +256,19 @@ const Home: React.FC = () => {
     <>
       <Head>
         <title>
-          Custom Software, IT & Digital Solutions | Nextloop Technologies
+          IT Staff Augmentation | Custom Software Solutions | AI Remote Teams
         </title>
+
         <meta
           name='title'
           content='IT Staff Augmentation | Custom Software Solutions | AI Remote Teams'
         />
+
         <meta
           name='description'
           content='Leading IT outsourcing company in Indore & USA. We provide custom software development, staff augmentation & dedicated developers for AI, SaaS & MVP development'
         />
+
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{

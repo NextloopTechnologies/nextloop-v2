@@ -54,7 +54,7 @@ const PageHero: React.FC<{
       <div className='flex flex-col gap-8 items-center z-20 px-4 lg:p-0 md:w-[70%] lg:w-[60%]'>
         {coloredTitle ? (
           <h1
-            className={`${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} font-bold  text-center`}
+            className={`${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} font-bold text-center`}
           >
             <span className='text-orange-500'>{coloredTitle}</span>
             {title}

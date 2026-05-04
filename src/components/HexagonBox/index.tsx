@@ -11,11 +11,7 @@ type HexagonBoxProps = {
   descp: string;
 };
 
-const HexagonBox: React.FC<HexagonBoxProps> = ({
-  icon,
-  title,
-  descp,
-}) => {
+const HexagonBox: React.FC<HexagonBoxProps> = ({ icon, title, descp }) => {
   return (
     <div className='relative flex justify-center items-center'>
       {/* Background hexagon image */}
@@ -29,9 +25,7 @@ const HexagonBox: React.FC<HexagonBoxProps> = ({
       {/* Content */}
       <div className='absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8'>
         {/* Icon (Lucide SVG or other ReactNode) */}
-        <div className="flex items-center justify-center">
-          {icon}
-        </div>
+        <div className='flex items-center justify-center'>{icon}</div>
 
         <h3
           className={`font-bold text-[#1D1D1D] px-8 mt-5 ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop}`}

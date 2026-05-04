@@ -22,49 +22,42 @@ const perks = [
 
 const PerksBenefitsSection = () => {
   return (
-    <section className="w-full bg-white py-20 px-4">
-      <div className=" min-h-fit w-full md:max-w-6xl mx-auto text-center">
-
-        <h2 className="text-3xl text-black md:text-4xl font-bold uppercase">
-          Perks & <span className="text-orange-500">Benefits</span>
+    <section className='w-full bg-white py-20 px-4'>
+      <div className=' min-h-fit w-full md:max-w-6xl mx-auto text-center'>
+        <h2 className='text-3xl text-black md:text-4xl font-bold uppercase'>
+          Perks & <span className='text-orange-500'>Benefits</span>
         </h2>
 
-        <p className="mt-4 text-gray-500 max-w-3xl mx-auto">
-          We believe in creating an environment where our team thrives.
-          Here's what we offer to support your growth, wellness, and work-life balance.
+        <p className='mt-4 text-gray-500 max-w-3xl mx-auto'>
+          We believe in creating an environment where our team thrives. Here's
+          what we offer to support your growth, wellness, and work-life balance.
         </p>
 
-
-
-        <div className="mt-14  mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className='mt-14  mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3'>
           {perks.map((perk) => {
             const Icon = perk.icon;
 
             return (
               <div
                 key={perk.id}
-                className="group flex items-center justify-between cursor-pointer rounded-xl border px-4 py-3 transition-all duration-200 shadow-sm  bg-white text-black hover:bg-black hover:text-white"
+                className='group flex items-center justify-between cursor-pointer rounded-xl border px-4 py-3 transition-all duration-200 shadow-sm  bg-white text-black hover:bg-black hover:text-white'
               >
-                <div className="flex items-center gap-4">
-                  <div className="flex items-center justify-center w-9 h-9 rounded-full ">
-                    <Icon className="w-5 h-5 black" />
+                <div className='flex items-center gap-4'>
+                  <div className='flex items-center justify-center w-9 h-9 rounded-full '>
+                    <Icon className='w-5 h-5 black' />
                   </div>
 
-                  <p className="text-sm md:text-base font-medium  hover text-left">
+                  <p className='text-sm md:text-base font-medium  hover text-left'>
                     {perk.title}
                   </p>
                 </div>
-
-
               </div>
             );
           })}
         </div>
       </div>
-
     </section>
   );
 };
 
 export default PerksBenefitsSection;
-

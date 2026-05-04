@@ -14,6 +14,7 @@ import Image, { StaticImageData } from 'next/image';
 import { useRef } from 'react';
 
 import Layout from '../components/Layout/Layout';
+import MeetFounders from '../components/MeetFounders';
 import PageHero from '../components/PageHero';
 import Timeline from '../components/Timeline';
 import palette from '../styles/pallette';
@@ -130,6 +131,7 @@ const AboutUsHome = () => {
         subtitle='At Nextloop Technologies, we partner with ambitious businesses to turn complex challenges into scalable, high-performance systems that drive measurable growth. Every solution we build is rooted in strategy, engineered with precision, and designed for long-term value. We specialize in crafting tailored IT solutions aligned with your unique business goals — from cloud architecture and optimization to AI-driven systems, intelligent automation, and custom software development. '
       />
       <WhyUs />
+      <MeetFounders />
       <Journey />
       {/* <AboutUsInAboutUs /> */}
       <EndToEnd />

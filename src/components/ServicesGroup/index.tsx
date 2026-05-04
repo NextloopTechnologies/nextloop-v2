@@ -11,6 +11,7 @@ import {
   Service5,
   Service6,
   Service7,
+  // Service8,
   Service9,
   Service11,
   // Service12,
@@ -44,7 +45,7 @@ const SERVICE_DATA: ServiceCardProps[] = [
     link: '/services/mvp-development',
   },
   {
-    heading: 'Cloud Services (DevOps, AWS, GCP, Azure)',
+    heading: 'Cloud & DevOps',
     image: Service4 as unknown as string,
     link: '/services/cloud-computing-solutions',
   },
@@ -87,7 +88,7 @@ const Services: FC = () => {
       <header className='flex gap-10 lg:w-4/6 lg:px-10 text-center'>
         <div className='w-full flex flex-col justify-center items-center gap-y-3 z-10 px-4'>
           <h2
-            className={`${palette.fontSize.heading2.mobile} md:text-4xl 2xl:text-4xl font-bold text-center uppercase`}
+            className={`${palette.fontSize.heading2.mobile} md:text-4xl 2xl:text-4xl font-bold text-center `}
           >
             Build, Scale and Transform with{' '}
             <span className='text-orange-500'>Custom Software</span>

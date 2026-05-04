@@ -70,13 +70,14 @@ const PortfolioSlide = () => {
         {/* Heading */}
         <div className='text-center mb-14'>
           <h2
-            className={`${palette.fontSize.heading2.mobile} md:text-4xl uppercase font-bold text-white`}
+            className={`${palette.fontSize.heading2.mobile} md:text-4xl font-bold text-white`}
           >
-            Our <span className='text-orange-500'>Portfolio</span>
+            B2B Technology <span className='text-orange-500'>Case Studies</span>
           </h2>
           <p className='mt-3 text-gray-300 max-w-3xl mx-auto'>
-            Showcasing innovative software and digital solutions that deliver
-            measurable business impact
+            See how our dedicated teams turn complicated product ideas into
+            successful market launches that have a measurable effect on
+            business.
           </p>
         </div>
 

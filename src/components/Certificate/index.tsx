@@ -38,7 +38,7 @@ const Certificate: FC = () => {
               className={`${palette.fontSize.heading2.mobile} md:text-4xl 2xl:text-4xl text-white text-center`}
             >
               <h2
-                className={`${palette.fontSize.heading2.mobile} md:text-4xl 2xl:text-4xl text-white uppercase font-bold text-center mt-10 md:mt-0`}
+                className={`${palette.fontSize.heading2.mobile} md:text-4xl 2xl:text-4xl text-white font-bold text-center mt-10 md:mt-0`}
               >
                 Certificates
               </h2>

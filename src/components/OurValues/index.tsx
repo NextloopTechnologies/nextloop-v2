@@ -63,7 +63,8 @@ const OurValues: FC = () => {
             <h3
               className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} lg:px-20  text-center`}
             >
-              Our culture of trust, creativity, and accountability drives everything we build and deliver 
+              Our culture of trust, creativity, and accountability drives
+              everything we build and deliver
             </h3>
           </div>
         </header>

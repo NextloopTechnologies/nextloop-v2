@@ -149,7 +149,7 @@ export interface OfferApplicationType {
 export interface CultureEvent {
   title: string;
   description: string;
-  image: string;
+  image: StaticImageData | string;
 }
 
 export interface CultureSectionProps extends CultureEvent {

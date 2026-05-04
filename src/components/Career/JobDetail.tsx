@@ -114,12 +114,7 @@ const JobDetails: React.FC<{ job: Job }> = ({
               {location}, {job_mode} | {job_type}
             </p>
           </div>
-          {/* <div className='flex gap-2 items-center'>
-            <div>
-              <Image src={wallet} alt='wallet' />
-            </div>
-             <p className='text-lg font-bold'>{money}</p>
-          </div> */}
+
           <button
             className='flex rounded-3xl px-6 disabled:bg-gray-400 disabled:cursor-not-allowed bg-orange-500 text-white py-1 text-lg justify-center'
             onClick={handleApplyClick}

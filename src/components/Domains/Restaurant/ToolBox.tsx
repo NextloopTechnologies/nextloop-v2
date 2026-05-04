@@ -54,7 +54,7 @@ const ToolBox: React.FC<ToolBoxProps> = ({
           />
         ) : null)}
       <h3
-        className={`${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} text-[#1D1D1D] mb-4`}
+        className={`${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} text-[#1D1D1D] mb-4 `}
       >
         {title}
       </h3>
