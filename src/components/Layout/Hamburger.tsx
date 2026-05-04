@@ -31,7 +31,7 @@ const Hamburger = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const industries = [
-    { name: 'E-commerce', href: '/domain/ecommerce' },
+    // { name: 'E-commerce', href: '/domain/ecommerce' },
     { name: 'Events', href: '/domain/events' },
     { name: 'Fin-Tech', href: '/domain/fintech' },
     { name: 'Healthcare', href: '/domain/healthcare' },
@@ -101,18 +101,16 @@ const Hamburger = () => {
             <button onClick={() => handleNavigation('/')}>Home</button>
           </li>
           <li
-            className={`w-full ${
-              pathname === '/about-us' ? 'text-orange-500' : ''
-            }`}
+            className={`w-full ${pathname === '/about-us' ? 'text-orange-500' : ''
+              }`}
           >
             <button onClick={() => handleNavigation('/about-us')}>
               About us
             </button>
           </li>
           <li
-            className={`w-full ${
-              pathname.startsWith('/domain') ? 'text-orange-500' : ''
-            }`}
+            className={`w-full ${pathname.startsWith('/domain') ? 'text-orange-500' : ''
+              }`}
           >
             <div
               className='flex justify-between items-center cursor-pointer'
@@ -126,9 +124,8 @@ const Hamburger = () => {
                 {industries.map((industry) => (
                   <li
                     key={industry.name}
-                    className={`text-gray-700 hover:text-orange-500 opacity-60 ${
-                      pathname === industry.href ? 'text-orange-500' : ''
-                    }`}
+                    className={`text-gray-700 hover:text-orange-500 opacity-60 ${pathname === industry.href ? 'text-orange-500' : ''
+                      }`}
                   >
                     <button
                       onClick={() => handleNavigation(industry.href)}
@@ -142,36 +139,40 @@ const Hamburger = () => {
             )}
           </li>
           <li
-            className={`w-full ${
-              pathname === '/portfolio' ? 'text-orange-500' : ''
-            }`}
+            className={`w-full ${pathname === '/portfolio' ? 'text-orange-500' : ''
+              }`}
           >
             <button onClick={() => handleNavigation('/portfolio')}>
               Portfolio
             </button>
           </li>
           <li
-            className={`w-full ${
-              pathname === '/services' ? 'text-orange-500' : ''
-            }`}
+            className={`w-full ${pathname === '/services' ? 'text-orange-500' : ''
+              }`}
           >
             <button onClick={() => handleNavigation('/services')}>
               Services
             </button>
           </li>
           <li
-            className={`w-full ${
-              pathname === '/career' ? 'text-orange-500' : ''
-            }`}
+            className={`w-full ${pathname === '/career' ? 'text-orange-500' : ''
+              }`}
           >
             <button onClick={() => handleNavigation('/career')}>Careers</button>
           </li>
           <li
-            className={`w-full ${
-              pathname === '/blog' ? 'text-orange-500' : ''
-            }`}
+            className={`w-full ${pathname === '/blog' ? 'text-orange-500' : ''
+              }`}
           >
             <button onClick={() => handleNavigation('/blog')}>Blogs</button>
+          </li>
+          <li
+            className={`w-full ${pathname === '/culture' ? 'text-orange-500' : ''
+              }`}
+          >
+            <button onClick={() => handleNavigation('/culture')}>
+              Culture
+            </button>
           </li>
           <li className='w-full mt-4'>
             <button

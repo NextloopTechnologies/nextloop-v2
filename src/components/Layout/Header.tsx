@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react';
 import LoaderSvg from '../Loader/loader';
 import { NextLoopColoredLogo } from '../../../assets';
 
-
 interface HeaderProps {
   isSticky: boolean;
   headerColor?: string;
@@ -66,7 +65,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
   }, [router]);
 
   const industries = [
-    { name: 'E-commerce', href: '/domain/ecommerce' },
+    // { name: 'E-commerce', href: '/domain/ecommerce' },
     { name: 'Events', href: '/domain/events' },
     { name: 'Fin-Tech', href: '/domain/fintech' },
     { name: 'Healthcare', href: '/domain/healthcare' },
@@ -100,8 +99,8 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
       )}
       <nav
         className={`px-10 fixed transition-all duration-300 ease-in-out top-0 left-0 w-full z-30 ${isSticky
-          ? 'bg-white text-black shadow-md'
-          : headerColor ?? 'text-white'
+            ? 'bg-white text-black shadow-md'
+            : headerColor ?? 'text-white'
           }`}
       >
         <div className='flex justify-between'>
@@ -138,8 +137,8 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
                     <li
                       key={industry.name}
                       className={` hover:bg-orange-500 text-white text-sm rounded-sm ${pathname === industry.href
-                        ? 'bg-orange-500 text-white'
-                        : ''
+                          ? 'bg-orange-500 text-white'
+                          : ''
                         }`}
                     >
                       <Link href={industry.href} className='block px-3 py-1'>
@@ -171,7 +170,11 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
                 className='bg-orange-500 ml-10 text-white px-5 py-3 rounded-full flex items-center justify-center'
                 href='/contact-us'
               >
-                Contact Us <span className='ml-1'> <MoveRight size={20} /></span>
+                Contact Us{' '}
+                <span className='ml-1'>
+                  {' '}
+                  <MoveRight size={20} />
+                </span>
               </Link>
             </li>
           </ul>

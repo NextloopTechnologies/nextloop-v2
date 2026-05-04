@@ -6,29 +6,30 @@ import {
   Search,
   Settings,
 } from 'lucide-react';
-import { AiOutlineGlobal } from "react-icons/ai";
-import { BsBank } from "react-icons/bs";
-import { FaRegFileAlt } from "react-icons/fa";
-import { FaHandHoldingMedical } from "react-icons/fa";
-import { FaHandHoldingHand } from "react-icons/fa6";
-import { FiShoppingCart } from "react-icons/fi";
-import { GiOilPump } from "react-icons/gi";
-import { GrDirections } from "react-icons/gr";
-import { HiOutlineOfficeBuilding } from "react-icons/hi";
-import { IoCloudUploadOutline, IoFileTrayStackedOutline } from "react-icons/io5";
-import { MdOutlineAddLocation } from "react-icons/md";
-import { MdOutlineSupportAgent } from "react-icons/md";
-import { MdComputer } from "react-icons/md";
-import { MdOutlineSchool } from "react-icons/md";
-import { PiExcludeSquareDuotone, PiEyeBold } from "react-icons/pi";
-import { TbDeviceDesktopSearch } from "react-icons/tb";
+import { AiOutlineGlobal } from 'react-icons/ai';
+import { BsBank } from 'react-icons/bs';
+import { FaRegFileAlt } from 'react-icons/fa';
+import { FaHandHoldingMedical } from 'react-icons/fa';
+import { FaHandHoldingHand } from 'react-icons/fa6';
+import { FiShoppingCart } from 'react-icons/fi';
+import { GiOilPump } from 'react-icons/gi';
+import { GrDirections } from 'react-icons/gr';
+import { HiOutlineOfficeBuilding } from 'react-icons/hi';
+import {
+  IoCloudUploadOutline,
+  IoFileTrayStackedOutline,
+} from 'react-icons/io5';
+import { MdOutlineAddLocation } from 'react-icons/md';
+import { MdOutlineSupportAgent } from 'react-icons/md';
+import { MdComputer } from 'react-icons/md';
+import { MdOutlineSchool } from 'react-icons/md';
+import { PiExcludeSquareDuotone, PiEyeBold } from 'react-icons/pi';
+import { TbDeviceDesktopSearch } from 'react-icons/tb';
 
 import { getStaticImageData } from './helper';
 import { StepProps } from '../components/DiamondGridBoxes';
 import { IFAQ } from '../types';
-import {
-  CultureEvent
-} from '../types';
+import { CultureEvent } from '../types';
 import {
   ecommerceAssets,
   eventAssets,
@@ -97,9 +98,6 @@ import PSIcon from '../../assets/techstackIcons/uiux/PSIcon.png';
 import seekIcon from '../../assets/techstackIcons/uiux/seekIcon.png';
 import webflowIcon from '../../assets/techstackIcons/uiux/webflowIcon.png';
 import XDIcon from '../../assets/techstackIcons/uiux/XDIcon.png';
-import turfDay from '../../assets/turf-day.jpeg';
-import womensDay from '../../assets/womens-day.jpeg';
-
 
 export const faqsContent: IFAQ[] = [
   {
@@ -318,75 +316,84 @@ export const bottomStepsWebDevelopment: StepProps[] = [
       'We launch the site and provide ongoing maintenance to keep it running smoothly.',
     color: 'border-gray-500',
   },
-
 ];
 
 export const cultureEvents: CultureEvent[] = [
   {
     title: 'Team Trip',
-    image: teamTrip,
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/teamtrip.png',
     description:
       'We kicked off the year with our annual team trip, a refreshing break filled with nature, conversations, and shared experiences. It was the perfect way to reset, reconnect, and begin the year with stronger bonds and renewed energy.',
   },
   {
     title: 'Pizza Party',
-    image: pizzaParty,
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/pizza-party.png',
     description:
       'A simple pizza party turned into a moment of laughter and togetherness. Because sometimes, the best celebrations are the simplest ones.',
   },
   {
     title: 'Women’s Day',
-    image: womensDay,
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/womens-day.png',
     description:
       'Women’s Day at Nextloop was all about appreciation and empowerment. A reminder that respect and recognition should be everyday values.',
   },
   {
     title: 'Holi Celebration',
-    image: holi,
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/holi-celebration.png',
     description:
       'Holi brought vibrant colors, laughter, and festive energy into our workplace. Work felt lighter, brighter, and more joyful that day.',
   },
   {
     title: 'Turf Day',
-    image: turfDay,
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/turf-day.jpeg',
     description:
       'Our turf day brought out energy, enthusiasm, and friendly competition. Because teamwork grows stronger when shared beyond the office.',
   },
   {
     title: 'Birthday Celebrations',
-    image: birthday,
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/birthday-celebration.png',
     description:
       'Birthdays at Nextloop are celebrated with warmth and appreciation. Because people are at the heart of everything we do.',
   },
   {
     title: 'Ganesh Chaturthi',
-    image: ganesh,
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/ganesh-chaturdi.png',
     description:
       'Ganesh Chaturthi was celebrated with devotion and joy, from Sthapna to Visarjan. The festival filled our workspace with positivity and unity.',
   },
   {
     title: 'Diwali Celebration',
-    image: diwali,
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/diwali.jpeg',
     description:
       'Diwali at Nextloop was a celebration of gratitude and joy. Moments that truly reflected the spirit of togetherness.',
   },
   {
     title: 'Christmas Celebration',
-    image: christmas,
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/Christmas-Celebration.png',
     description:
       'We wrapped up the year with festive cheer and laughter. A joyful close to a year filled with growth and meaningful connections.',
   },
 ];
 
 export { careerBg };
-
+export { culturebg };
 
 export const servicesSubPagesData = {
   customSoftwareDevelopment: {
     metaData: {
-      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
+      pageMetaTitle:
+        'Custom Software Development Outsourcing | Nextloop Technologies',
       pageMetaDescription:
-        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Get expert custom software development outsourcing services. We are among the premier custom software development companies in India & USA delivering robust digital tools.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
@@ -491,7 +498,6 @@ export const servicesSubPagesData = {
           'We launch the site and provide ongoing maintenance to keep it running smoothly.',
         color: 'border-gray-500',
       },
-
     ],
     techStackData: [
       {
@@ -2676,7 +2682,6 @@ Through this rigorous process, only the top-performing candidates are shortliste
           title: 'You Hire with Confidence',
           description: `After screening, we present you with a curated list of the most suitable candidates. You can review their profiles, schedule interviews, and assess their fit for your team. Our team supports you throughout this stage, coordinating interviews, collecting feedback, and facilitating communication between you and the candidates. Once you’ve made your selection, we assist with the onboarding process, ensuring that the new hire integrates smoothly into your team.`,
         },
-
       ],
     },
     flexibleHiringData: {
@@ -2736,7 +2741,8 @@ Through this rigorous process, only the top-performing candidates are shortliste
         {
           id: 4,
           title: '100%',
-          description: 'Flexible Options: Permanent, contract, remote, or hybrid.',
+          description:
+            'Flexible Options: Permanent, contract, remote, or hybrid.',
         },
       ],
     },
