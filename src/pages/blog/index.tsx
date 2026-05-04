@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+// import dayjs from 'dayjs';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -104,7 +105,6 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
           content='Discover expert advice through Nextloop Technologies IT consulting blogs. We cover strategies for technology and information management to help your business grow and succeed.'
         />
       </Head>
-
       <PageHero
         image={blogsBg}
         title=''
@@ -115,7 +115,6 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
           services, although we do not limit ourselves to this. We keep learning
           and stay ourselves up to date with current market trends.'
       />
-
       {error ? (
         <div className='flex items-center justify-center h-screen text-4xl'>
           {error}
@@ -217,14 +216,20 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
 export default BlogPage;
 
 export async function getServerSideProps() {
-  const { data, error } = await supabaseClient
-    .from('blogs')
-    .select('*')
-    .order('created_at', { ascending: false });
+  // Fetch data from Supabase
+  const { data, error } = await supabaseClient.from('blogs').select('*');
 
   if (error) {
-    return { props: { error: error.message } };
+    return {
+      props: {
+        error: error.message,
+      },
+    };
   }
 
-  return { props: { data: data || [] } };
+  return {
+    props: {
+      data: data || [],
+    },
+  };
 }

@@ -31,14 +31,14 @@ const OURVALUES_DATA: ServiceCardProps[] = [
 const Certificate: FC = () => {
   return (
     <>
-      <div className="flex justify-center items-center w-full overflow-x-hidden flex-col py-10">
-        <header className="flex gap-10 lg:w-4/6 lg:px-10 text-center w-full">
-          <div className="w-full flex flex-col justify-center items-center gap-y-3 z-10 px-4">
+      <div className='flex justify-center items-center w-full overflow-x-hidden flex-col py-10'>
+        <header className='flex gap-10 lg:w-4/6 lg:px-10 text-center w-full'>
+          <div className='w-full flex flex-col justify-center items-center gap-y-3 z-10 px-4'>
             <div
               className={`${palette.fontSize.heading2.mobile} md:text-4xl 2xl:text-4xl text-white text-center`}
             >
               <h2
-                className={`${palette.fontSize.heading2.mobile} md:text-4xl 2xl:text-4xl text-white font-bold text-center mt-10 md:mt-0`}
+                className={`${palette.fontSize.heading2.mobile} md:text-4xl 2xl:text-4xl text-white uppercase font-bold text-center mt-10 md:mt-0`}
               >
                 Certificates
               </h2>
@@ -53,7 +53,7 @@ const Certificate: FC = () => {
           </div>
         </header>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 sm:grid-rows-1 gap-y-10 gap-x-10 sm:gap-x-12 p-4 mt-10">
+        <div className='grid grid-cols-2 sm:grid-cols-4 sm:grid-rows-1 gap-y-10 gap-x-10 sm:gap-x-12 p-4 mt-10'>
           {OURVALUES_DATA.map((data, ind) => {
             return <CertificateCard key={ind} image={data.image} />;
           })}

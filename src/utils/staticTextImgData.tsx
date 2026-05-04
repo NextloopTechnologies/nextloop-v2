@@ -49,7 +49,6 @@ import {
 } from '../../assets';
 import blogImg from '../../assets/blog/blogImg.png';
 import careerBg from '../../assets/careerBg.webp';
-import culturebg from '../../assets/culturebg.png';
 import OurProcess1 from '../../assets/services/ourProcess1.png';
 import OurProcess2 from '../../assets/services/ourProcess2.png';
 import OurProcess3 from '../../assets/services/ourProcess3.png';
@@ -350,7 +349,6 @@ export const cultureEvents: CultureEvent[] = [
 ];
 
 export { careerBg };
-export { culturebg };
 
 export const servicesSubPagesData = {
   customSoftwareDevelopment: {
