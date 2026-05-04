@@ -85,7 +85,7 @@ const PopupForm: React.FC = () => {
   useEffect(() => {
     const dismissed = sessionStorage.getItem('popupDismissed');
     if (dismissed) return;
-    const t = setTimeout(() => setIsVisible(true), 3000);
+    const t = setTimeout(() => setIsVisible(true), 15000);
     return () => clearTimeout(t);
   }, []);
 
@@ -269,11 +269,10 @@ const PopupForm: React.FC = () => {
 
                 {status && (
                   <div
-                    className={`rounded-xl px-4 py-3 text-sm ${
-                      status.ok
+                    className={`rounded-xl px-4 py-3 text-sm ${status.ok
                         ? 'bg-emerald-100 text-emerald-700'
                         : 'bg-rose-100 text-rose-700'
-                    }`}
+                      }`}
                   >
                     {status.msg}
                   </div>

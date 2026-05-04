@@ -15,7 +15,7 @@ const cards: { title: string; desc: string; link: string }[] = [
   {
     title: 'IT Staff Augmentation',
     desc: 'Expand your development capacity without long hiring cycles. If you need to hire remote developers, we enable you to add skilled professionals to your team who work within your processes and contribute from day one. It helps you manage changing project demands while keeping delivery consistent and on schedule.',
-    link: '/services/staffing',
+    link: '/services/it-staff-augmentation',
   },
   {
     title: 'Web Development',
@@ -30,12 +30,12 @@ const cards: { title: string; desc: string; link: string }[] = [
   {
     title: 'Cloud Services (DevOps, AWS, GCP, Azure)',
     desc: 'Managing infrastructure becomes easier when systems are built to scale, adapt and stay secure from the start. As a cloud services provider, our aim is to create environments that handle workloads efficiently while also supporting flexibility, performance and long-term stability.',
-    link: '/services/cloud-services',
+    link: '/services/cloud-computing-solutions',
   },
   {
     title: 'Mobile Development',
     desc: 'Mobile experiences today need to feel seamless, whether users are on Android, iOS, or multiple devices. Covering native and cross-platform builds, our cross-platform app development service highly focuses on delivering apps that run smoothly, stay consistent and keep users engaged over time. ',
-    link: '/services/mobile-development',
+    link: '/services/mobile-app-development',
   },
   {
     title: 'UI/UX Development',
