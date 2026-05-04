@@ -81,8 +81,9 @@ const IconTextBoxZebra: React.FC<IconTextBoxZebraProps> = ({ data }) => {
     }
     if (React.isValidElement(item.image)) {
       return React.cloneElement(item.image, {
-        className: `${(item.image.props as any)?.className || ''
-          } w-8 h-8 text-orange-500`,
+        className: `${
+          (item.image.props as any)?.className || ''
+        } w-8 h-8 text-orange-500`,
       });
     }
     return null;
@@ -108,16 +109,18 @@ const IconTextBoxZebra: React.FC<IconTextBoxZebraProps> = ({ data }) => {
         </button>
 
         <div
-          className={`grid flex-1 gap-4 md:gap-8 ${perView === 2 ? 'grid-cols-2' : 'grid-cols-1'
-            }`}
+          className={`grid flex-1 gap-4 md:gap-8 ${
+            perView === 2 ? 'grid-cols-2' : 'grid-cols-1'
+          }`}
         >
           {visible.map((item) => (
             <div
               key={item?.id}
-              className={`flex items-center p-6 rounded-lg shadow-md ${item?.dark
+              className={`flex items-center p-6 rounded-lg shadow-md ${
+                item?.dark
                   ? 'bg-black text-white'
                   : 'bg-white text-black border'
-                }`}
+              }`}
             >
               <div className='w-13 h-13 relative mr-4 flex items-center justify-center'>
                 {renderIcon(item)}

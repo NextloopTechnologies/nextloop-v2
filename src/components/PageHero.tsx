@@ -19,7 +19,7 @@ const PageHero: React.FC<{
   opacity = 'opacity-40',
 }) => {
   return (
-    <div className='h-[70vh] relative flex items-center justify-center text-white'>
+    <div className='h-[80vh] relative flex items-center justify-center text-white'>
       {image &&
         (React.isValidElement(image) ? (
           React.cloneElement(image, {
@@ -42,19 +42,19 @@ const PageHero: React.FC<{
           typeof image === 'string' ? (
           <Image
             src={image as any}
-            className='dark:text-white text-black dark:group-hover:text-black group-hover:text-white absolute h-full w-full object-cover'
             alt='blogs background'
             quality={100}
             fill
             sizes='100vw'
             priority
+            className='object-cover'
           />
         ) : null)}
       <div className={`absolute inset-0 bg-black ${opacity}`}></div>
       <div className='flex flex-col gap-8 items-center z-20 px-4 lg:p-0 md:w-[70%] lg:w-[60%]'>
         {coloredTitle ? (
           <h1
-            className={`${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} font-bold text-center`}
+            className={`${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} font-bold  text-center`}
           >
             <span className='text-orange-500'>{coloredTitle}</span>
             {title}

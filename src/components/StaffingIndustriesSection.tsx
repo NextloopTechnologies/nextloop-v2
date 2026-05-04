@@ -48,16 +48,16 @@ const StaffingIndustriesSection: React.FC<{ industriesData: StaffingData }> = ({
               <div className='flex items-center justify-center w-12 h-12'>
                 {cat.image && React.isValidElement(cat.image)
                   ? React.cloneElement(cat.image, {
-                    ...cat.image.props,
-                    className: 'w-9 h-9 text-orange-500',
-                    size: 36,
-                  })
-                  : typeof cat.image === 'function'
-                    ? React.createElement(cat.image as any, {
+                      ...cat.image.props,
                       className: 'w-9 h-9 text-orange-500',
                       size: 36,
                     })
-                    : null}
+                  : typeof cat.image === 'function'
+                  ? React.createElement(cat.image as any, {
+                      className: 'w-9 h-9 text-orange-500',
+                      size: 36,
+                    })
+                  : null}
               </div>
 
               <p className='text-sm font-semibold text-gray-900'>{cat.title}</p>

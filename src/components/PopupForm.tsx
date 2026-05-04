@@ -269,10 +269,11 @@ const PopupForm: React.FC = () => {
 
                 {status && (
                   <div
-                    className={`rounded-xl px-4 py-3 text-sm ${status.ok
+                    className={`rounded-xl px-4 py-3 text-sm ${
+                      status.ok
                         ? 'bg-emerald-100 text-emerald-700'
                         : 'bg-rose-100 text-rose-700'
-                      }`}
+                    }`}
                   >
                     {status.msg}
                   </div>
