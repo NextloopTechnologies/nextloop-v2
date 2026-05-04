@@ -30,8 +30,9 @@ const ToolBox: React.FC<ToolBoxProps> = ({
         (React.isValidElement(icons) ? (
           React.cloneElement(icons, {
             ...icons.props,
-            className: `${icons.props?.className || ''
-              } h-[80px] w-[80px] dark:text-white text-black dark:group-hover:text-black group-hover:text-white mt-6 mb-8 text-orange-500`.trim(),
+            className: `${
+              icons.props?.className || ''
+            } h-[80px] w-[80px] dark:text-white text-black dark:group-hover:text-black group-hover:text-white mt-6 mb-8 text-orange-500`.trim(),
             size: icons.props?.size || 40,
             color: icons.props?.color ?? 'currentColor',
           })
@@ -53,7 +54,7 @@ const ToolBox: React.FC<ToolBoxProps> = ({
           />
         ) : null)}
       <h3
-        className={`${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} text-[#1D1D1D] mb-4 `}
+        className={`${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} text-[#1D1D1D] mb-4`}
       >
         {title}
       </h3>

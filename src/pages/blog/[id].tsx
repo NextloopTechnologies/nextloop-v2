@@ -81,9 +81,10 @@ const TableOfContents: React.FC<{ items: TocItem[]; activeId: string }> = ({
               href={`#${item.id}`}
               style={{ paddingLeft: `${6 + (item.level - 2) * 10}px` }}
               className={`flex items-start gap-1.5 py-1.5 pr-2 text-[0.73rem] leading-snug rounded no-underline transition-all duration-150
-                ${activeId === item.id
-                  ? 'font-semibold text-orange-500 bg-orange-100 border-l-2 border-orange-500'
-                  : 'font-normal text-gray-600 border-l-2 border-transparent hover:text-orange-500 hover:bg-orange-100'
+                ${
+                  activeId === item.id
+                    ? 'font-semibold text-orange-500 bg-orange-100 border-l-2 border-orange-500'
+                    : 'font-normal text-gray-600 border-l-2 border-transparent hover:text-orange-500 hover:bg-orange-100'
                 }`}
             >
               <svg
@@ -179,10 +180,10 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error }) => {
 
   const publishedAt = data.created_at
     ? new Date(data.created_at).toLocaleDateString('en-GB', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    })
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+      })
     : undefined;
 
   return (
