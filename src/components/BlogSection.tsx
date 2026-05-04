@@ -26,7 +26,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ blogData }) => {
   return (
     <section className='flex flex-col py-16 px-4 md:px-10 text-center'>
       <h2 className='text-3xl md:text-4xl font-bold'>
-        OUR <span className='text-orange-500'>BLOGS</span>
+        Our <span className='text-orange-500'>Blogs</span>
       </h2>
       <div className='grid md:grid-cols-3 gap-6 mt-10'>
         {blogData?.map((blog) => {

@@ -1,4 +1,4 @@
-import { Gift, Megaphone,Send } from 'lucide-react';
+import { Gift, Megaphone, Send } from 'lucide-react';
 import React from 'react';
 
 import ToolBox from './ToolBox';
@@ -6,19 +6,21 @@ import palette from '../../../styles/pallette';
 
 const growBusinessData = [
   {
-    icon: <Send size={28} color="white" />,
+    icon: <Send size={28} color='white' />,
     title: 'Expand your reach',
     descp: 'Serve more customers with on-demand delivery integration.',
   },
   {
-    icon: <Gift size={28} color="white" />,
+    icon: <Gift size={28} color='white' />,
     title: 'Reward repeat customers',
-    descp: 'Build a strong customer base with an easily customizable loyalty program.',
+    descp:
+      'Build a strong customer base with an easily customizable loyalty program.',
   },
   {
-    icon: <Megaphone size={28} color="white" />,
+    icon: <Megaphone size={28} color='white' />,
     title: 'Boost your visibility',
-    descp: 'Get a suite of built-in marketing tools to grow and promote your business.',
+    descp:
+      'Get a suite of built-in marketing tools to grow and promote your business.',
   },
 ];
 

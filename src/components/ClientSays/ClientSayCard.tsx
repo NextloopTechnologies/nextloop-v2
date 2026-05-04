@@ -3,12 +3,7 @@ import Image from 'next/image';
 import React, { FC, useCallback, useState } from 'react';
 
 import palette from '../../styles/pallette';
-import {
-  InvertedQoute,
-  Levram1,
-  Stamens,
-  SWAcademy,
-} from '../../../assets';
+import { InvertedQoute, Levram1, Stamens, SWAcademy } from '../../../assets';
 
 interface ServiceCardProps {
   heading: string;
@@ -38,25 +33,22 @@ const OURVALUES_DATA: ServiceCardProps[] = [
   },
 ];
 
-
-
 const ClientCard = React.memo(({ card }: { card: ServiceCardProps }) => {
   return (
-    <div className="min-w-full p-6 sm:p-10">
-      <div className="bg-white rounded-lg shadow-lg overflow-hidden flex sm:flex-row flex-col justify-center items-center gap-y-4 sm:gap-x-6 px-5 py-6 mx-auto sm:w-[80%]">
-
+    <div className='min-w-full p-6 sm:p-10'>
+      <div className='bg-white rounded-lg shadow-lg overflow-hidden flex sm:flex-row flex-col justify-center items-center gap-y-4 sm:gap-x-6 px-5 py-6 mx-auto sm:w-[80%]'>
         {/* Client Info */}
-        <div className="flex flex-col justify-center items-center">
+        <div className='flex flex-col justify-center items-center'>
           <Image
             src={card.image}
             alt={card.heading}
             width={64}
             height={64}
-            className="object-contain"
-            sizes="64px"
+            className='object-contain'
+            sizes='64px'
           />
 
-          <div className="text-center mt-3">
+          <div className='text-center mt-3'>
             <h2
               className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} font-semibold`}
             >
@@ -72,15 +64,14 @@ const ClientCard = React.memo(({ card }: { card: ServiceCardProps }) => {
         </div>
 
         {/* Testimonial */}
-        <div className="w-full flex flex-col justify-between items-center">
-
-          <span className="self-start">
+        <div className='w-full flex flex-col justify-between items-center'>
+          <span className='self-start'>
             <Image
               src={InvertedQoute}
-              alt="quote icon"
+              alt='quote icon'
               width={40}
               height={40}
-              loading="lazy"
+              loading='lazy'
             />
           </span>
 
@@ -90,17 +81,16 @@ const ClientCard = React.memo(({ card }: { card: ServiceCardProps }) => {
             {card.desc}
           </p>
 
-          <span className="self-end">
+          <span className='self-end'>
             <Image
               src={InvertedQoute}
-              alt="quote icon"
+              alt='quote icon'
               width={40}
               height={40}
-              className="rotate-180"
-              loading="lazy"
+              className='rotate-180'
+              loading='lazy'
             />
           </span>
-
         </div>
       </div>
     </div>
@@ -114,7 +104,6 @@ ClientCard.displayName = 'ClientCard';
 ======================= */
 
 const ClientSaysCard: FC = () => {
-
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = useCallback(() => {
@@ -136,26 +125,24 @@ const ClientSaysCard: FC = () => {
   }
 
   return (
-    <div className="relative w-full max-w-sm sm:max-w-[800px] mx-auto">
-
+    <div className='relative w-full max-w-sm sm:max-w-[800px] mx-auto'>
       <ClientCard card={currentCard} />
 
       {/* Left Arrow */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-0 transform -translate-y-1/2 p-2 bg-white rounded-full shadow-md"
+        className='absolute top-1/2 left-0 transform -translate-y-1/2 p-2 bg-white rounded-full shadow-md'
       >
-        <ArrowLeft className="text-black" size={18} />
+        <ArrowLeft className='text-black' size={18} />
       </button>
 
       {/* Right Arrow */}
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-0 transform -translate-y-1/2 p-2 bg-white rounded-full shadow-md"
+        className='absolute top-1/2 right-0 transform -translate-y-1/2 p-2 bg-white rounded-full shadow-md'
       >
-        <ArrowRight className="text-black" size={18} />
+        <ArrowRight className='text-black' size={18} />
       </button>
-
     </div>
   );
 };

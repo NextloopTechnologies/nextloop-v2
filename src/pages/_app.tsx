@@ -11,21 +11,21 @@ import { getBaseUrl } from '../utils/getBaseUrl';
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
-  const baseUrl = getBaseUrl(); 
+  const baseUrl = getBaseUrl();
   const canonicalUrl = `${baseUrl}${router.asPath}`;
 
   return (
     <>
       <Head>
-        <link rel="canonical" href={canonicalUrl} />
+        <link rel='canonical' href={canonicalUrl} />
       </Head>
 
       {/* Google tag (gtag.js) */}
       <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-1Z6KPDDQSB"
-        strategy="afterInteractive"
+        src='https://www.googletagmanager.com/gtag/js?id=G-1Z6KPDDQSB'
+        strategy='afterInteractive'
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script id='google-analytics' strategy='afterInteractive'>
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}

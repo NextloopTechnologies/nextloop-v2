@@ -163,7 +163,6 @@ const HealthCare: React.FC = () => {
                   <li key={benefit.id}>{benefit.text}</li>
                 ))}
               </ul>
-             
             </div>
           }
         />

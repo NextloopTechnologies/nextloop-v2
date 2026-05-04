@@ -6,50 +6,56 @@ import {
   Search,
   Settings,
 } from 'lucide-react';
-import { AiOutlineGlobal } from "react-icons/ai";
-import { BsBank } from "react-icons/bs";
-import { FaRegFileAlt } from "react-icons/fa";
-import { FaHandHoldingMedical } from "react-icons/fa";
-import { FaHandHoldingHand } from "react-icons/fa6";
-import { FiShoppingCart } from "react-icons/fi";
-import { GiOilPump } from "react-icons/gi";
-import { GrDirections } from "react-icons/gr";
-import { HiOutlineOfficeBuilding } from "react-icons/hi";
-import { IoCloudUploadOutline, IoFileTrayStackedOutline } from "react-icons/io5";
-import { MdOutlineAddLocation } from "react-icons/md";
-import { MdOutlineSupportAgent } from "react-icons/md";
-import { MdComputer } from "react-icons/md";
-import { MdOutlineSchool } from "react-icons/md";
-import { PiExcludeSquareDuotone, PiEyeBold } from "react-icons/pi";
-import { TbDeviceDesktopSearch } from "react-icons/tb";
+import { BsBank } from 'react-icons/bs';
+import { FaRegFileAlt } from 'react-icons/fa';
+import { FaHandHoldingMedical } from 'react-icons/fa';
+import { FaDesktop, FaEye, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaBrain, FaCogs, FaSearch } from 'react-icons/fa';
+import { FiShoppingCart } from 'react-icons/fi';
+import { HiOutlineOfficeBuilding } from 'react-icons/hi';
+import {
+  IoCloudUploadOutline,
+  IoFileTrayStackedOutline,
+} from 'react-icons/io5';
+import { MdOutlineAddLocation } from 'react-icons/md';
+import { MdComputer } from 'react-icons/md';
+import { PiExcludeSquareDuotone, PiEyeBold } from 'react-icons/pi';
 
 import { getStaticImageData } from './helper';
-import { StepProps } from '../components/DiamondGridBoxes';
+import type {
+  TechKey,
+  TechTalentData,
+} from '../pages/services/BaseServicePages';
 import { IFAQ } from '../types';
-import {
-  CultureEvent
-} from '../types';
+import { CultureEvent } from '../types';
 import {
   ecommerceAssets,
   eventAssets,
   fintechAssets,
   healthcareAssets,
 } from '../../assets';
-import birthday from '../../assets/birthday.jpeg';
+import {
+  ArthnextLogo,
+  BlueBird,
+  BrainInventory,
+  CB1,
+  EwaLogo,
+  ItfLogo,
+  JhanaLogo,
+  Levram1,
+  ShowerWealth,
+  Stamens,
+  SWAcademy,
+} from '../../assets';
 import blogImg from '../../assets/blog/blogImg.png';
 import careerBg from '../../assets/careerBg.webp';
-import christmas from '../../assets/Christmas-Celebration.png';
-import diwali from '../../assets/diwali.jpeg';
-import ganesh from '../../assets/ganesh-chaturdi.jpeg';
-import holi from '../../assets/holi-celebration.jpeg';
-import pizzaParty from '../../assets/pizza-party.jpeg';
+import culturebg from '../../assets/culturebg.png';
 import OurProcess1 from '../../assets/services/ourProcess1.png';
 import OurProcess2 from '../../assets/services/ourProcess2.png';
 import OurProcess3 from '../../assets/services/ourProcess3.png';
 import servicesWebdevelopmentHero from '../../assets/services/servicesWebdevelopmentHero.png';
 import staffingService from '../../assets/services/staffing-service.png';
 import WhyBusinessChooseUs from '../../assets/services/why-choose-us-bg.png';
-import teamTrip from '../../assets/teamtrip.jpeg';
 import mahoutIcon from '../../assets/techstackIcons/aiml/mahoutIcon.png';
 import openCvIcon from '../../assets/techstackIcons/aiml/openCvIcon.png';
 import pytorchIcon from '../../assets/techstackIcons/aiml/pytorchIcon.png';
@@ -97,9 +103,6 @@ import PSIcon from '../../assets/techstackIcons/uiux/PSIcon.png';
 import seekIcon from '../../assets/techstackIcons/uiux/seekIcon.png';
 import webflowIcon from '../../assets/techstackIcons/uiux/webflowIcon.png';
 import XDIcon from '../../assets/techstackIcons/uiux/XDIcon.png';
-import turfDay from '../../assets/turf-day.jpeg';
-import womensDay from '../../assets/womens-day.jpeg';
-
 
 export const faqsContent: IFAQ[] = [
   {
@@ -280,372 +283,372 @@ export const servicesAreaOfExpertiseData = {
   items: staticServices,
 };
 
-export const topStepsWebDevelopment: StepProps[] = [
-  {
-    icon: <Lightbulb className='text-orange-500 w-7 h-7' />,
-    title: 'Planning & Consultation',
-    description: 'We discuss your goals and understand your business needs.',
-    color: 'border-orange-500',
-  },
-  {
-    icon: <PenTool className='text-orange-500 w-7 h-7' />,
-    title: 'Design & Prototyping',
-    description:
-      'We create intuitive wireframes and prototypes for user-friendly interfaces.',
-    color: 'border-orange-500',
-  },
-  {
-    icon: <Code className='text-orange-500 w-7 h-7' />,
-    title: 'Development',
-    description:
-      'Our team writes clean code, developing the website using the latest technologies.',
-    color: 'border-orange-500',
-  },
-];
-
-export const bottomStepsWebDevelopment: StepProps[] = [
-  {
-    icon: <Search className='text-gray-600 w-7 h-7' />,
-    title: 'Testing',
-    description:
-      'Comprehensive testing ensures smooth functionality and cross-platform compatibility.',
-    color: 'border-gray-500',
-  },
-  {
-    icon: <Rocket className='text-gray-600 w-7 h-7' />,
-    title: 'Launch & Support',
-    description:
-      'We launch the site and provide ongoing maintenance to keep it running smoothly.',
-    color: 'border-gray-500',
-  },
-
-];
-
 export const cultureEvents: CultureEvent[] = [
   {
     title: 'Team Trip',
-    image: teamTrip,
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/teamtrip.png',
     description:
       'We kicked off the year with our annual team trip, a refreshing break filled with nature, conversations, and shared experiences. It was the perfect way to reset, reconnect, and begin the year with stronger bonds and renewed energy.',
   },
   {
     title: 'Pizza Party',
-    image: pizzaParty,
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/pizza-party.png',
     description:
       'A simple pizza party turned into a moment of laughter and togetherness. Because sometimes, the best celebrations are the simplest ones.',
   },
   {
     title: 'Women’s Day',
-    image: womensDay,
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/womens-day.png',
     description:
       'Women’s Day at Nextloop was all about appreciation and empowerment. A reminder that respect and recognition should be everyday values.',
   },
   {
     title: 'Holi Celebration',
-    image: holi,
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/holi-celebration.png',
     description:
       'Holi brought vibrant colors, laughter, and festive energy into our workplace. Work felt lighter, brighter, and more joyful that day.',
   },
   {
     title: 'Turf Day',
-    image: turfDay,
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/turf-day.jpeg',
     description:
       'Our turf day brought out energy, enthusiasm, and friendly competition. Because teamwork grows stronger when shared beyond the office.',
   },
   {
     title: 'Birthday Celebrations',
-    image: birthday,
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/birthday-celebration.png',
     description:
       'Birthdays at Nextloop are celebrated with warmth and appreciation. Because people are at the heart of everything we do.',
   },
   {
     title: 'Ganesh Chaturthi',
-    image: ganesh,
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/ganesh-chaturdi.png',
     description:
       'Ganesh Chaturthi was celebrated with devotion and joy, from Sthapna to Visarjan. The festival filled our workspace with positivity and unity.',
   },
   {
     title: 'Diwali Celebration',
-    image: diwali,
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/diwali.jpeg',
     description:
       'Diwali at Nextloop was a celebration of gratitude and joy. Moments that truly reflected the spirit of togetherness.',
   },
   {
     title: 'Christmas Celebration',
-    image: christmas,
+    image:
+      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/Christmas-Celebration.png',
     description:
       'We wrapped up the year with festive cheer and laughter. A joyful close to a year filled with growth and meaningful connections.',
   },
 ];
 
 export { careerBg };
-
+export { culturebg };
 
 export const servicesSubPagesData = {
   customSoftwareDevelopment: {
     metaData: {
-      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
+      pageMetaTitle:
+        'Custom Software Development Outsourcing | Nextloop Technologies',
       pageMetaDescription:
-        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Get expert custom software development outsourcing services. We are among the premier custom software development companies in India & USA delivering robust digital tools.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
-      coloredTitle: 'CUSTOM SOFTWARE ',
-      title: 'DEVELOPMENT',
+      coloredTitle: 'Custom Software Application',
+      title: ' & Product Development Services',
       subtitle:
-        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Nextloop Technologies excels in SaaS product development to help you launch scalable platforms that drive consistent growth. As a leading enterprise software development company, we build secure and robust systems tailored to your unique business needs, ensuring high performance and a seamless user experience across all global digital touchpoints. ',
     },
     expertiseData: {
       headingData: {
-        coloredHeading: 'OUR EXPERTISE IN',
-        heading: 'CUSTOM SOFTWARE DEVELOPMENT',
+        coloredHeading: 'Our Advanced Software Development ',
+        heading: 'Consulting Services and Capabilities',
         description:
-          'We bring extensive experience across a wide range of industries. Our custom solutions include:',
+          'Applying deep expertise across various sectors, we build reliable digital systems. Standing out among elite software development firms, we provide the technical depth required to solve your specific business hurdles.',
       },
       items: [
         {
           id: 1,
           title: 'Enterprise Software Development',
           description:
-            'Build powerful, scalable, and secure systems that manage business-critical operations.',
+            'Nextloop builds secure digital foundations to streamline complex corporate workflows. With expert java software development services, our team creates scalable, agile internal systems that handle massive business data across global networks effortlessly and without disruption. ',
           image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 2,
-          title: 'Web Applications',
+          title: 'Web Software Development',
           description:
-            'Develop dynamic, responsive, and feature-rich web applications that are accessible across devices and platforms.',
+            'Delivering high-speed digital experiences has always been Nextloop’s core focus. Using specialized React JS development services, we design responsive web platforms with intuitive interfaces and powerful backend architectures, ensuring a seamless user journey across all modern browsers.',
           image: FaRegFileAlt,
           dark: false,
         },
         {
           id: 3,
-          title: 'Mobile Applications',
+          title: 'Custom Mobile Software Development ',
           description:
-            'Create intuitive and engaging mobile apps for Android and iOS to meet the needs of your mobile-first users.',
+            'Reach wider mobile audiences efficiently with our flutter app development services. We build native-quality systems for iOS and Android using a unified codebase, prioritizing fast market launches to keep your brand competitive across all devices. ',
           image: HiOutlineOfficeBuilding,
           dark: false,
         },
         {
           id: 4,
-          title: 'Cloud Solutions',
+          title: 'Cloud Application Development',
           description:
-            'Modernize your infrastructure with cloud-based solutions for enhanced flexibility, security, and scalability.',
+            'Transform innovative ideas into scalable platforms with our comprehensive SaaS development services. We build secure, subscription-based tools for founders and enterprises, focusing on highly available infrastructure that adapts as your user base grows. ',
           image: IoCloudUploadOutline,
           dark: true,
         },
         {
           id: 5,
-          title: 'API Integrations',
+          title: 'UI UX Design Agency',
           description:
-            'Seamlessly integrate your software with third-party applications and services, enhancing functionality and improving workflows.',
+            'Every successful digital platform begins with a clear vision. Our end-to-end Figma design services prioritize user-centric layouts and interactive wireframes, resulting in intuitive, stunning interfaces that drive brand loyalty and global engagement.',
           image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 6,
-          title: 'Software Maintenance and Support',
+          title: 'Legacy Software Modernization',
           description:
-            'Ensure your systems remain efficient with ongoing maintenance, updates, and troubleshooting services.',
+            'Future-proof your organization by transforming outdated tech debt into modern, reliable tools. Using strategic cloud migration services, our team upgrades your backend architecture to ensure your business remains secure and adapts seamlessly to evolving market demands. ',
           image: FaRegFileAlt,
           dark: false,
         },
       ],
     },
-    topSteps: [
-      {
-        icon: <Lightbulb className='text-orange-500 w-7 h-7' />,
-        title: 'Planning & Consultation',
-        description:
-          'We discuss your goals and understand your business needs.',
-        color: 'border-orange-500',
+    processData: {
+      headingData: {
+        heading: 'Our ',
+        coloredHeading: 'Development Process',
+        description: '',
       },
-      {
-        icon: <PenTool className='text-orange-500 w-7 h-7' />,
-        title: 'Design & Prototyping',
+      items: [
+        {
+          icon: <Lightbulb className='text-orange-500 w-7 h-7' />,
+          title: 'Discovery and Planning',
+          description:
+            'We initiate comprehensive software project planning to align your business goals with technical realities. By mapping system requirements before coding begins, we mitigate risks and set strict delivery timelines.',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <PenTool className='text-orange-500 w-7 h-7' />,
+          title: 'System Architecture and Design',
+          description:
+            'Preparing for robust full stack development services, our architects structure your database schema and server logic. We design secure pipelines guaranteed to handle future growth and heavy traffic smoothly.',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <Code className='text-orange-500 w-7 h-7' />,
+          title: 'Agile Engineering',
+          description:
+            'Utilizing proven scrum software development, our dedicated teams deliver functional features in rapid two-week sprints. You maintain complete visibility for continuous feedback and adaptation to market needs.',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <Search className='text-gray-600 w-7 h-7' />,
+          title: 'Quality Assurance and Testing',
+          description:
+            'Our QA engineers implement strict automated software testing to catch vulnerabilities instantly. We run extensive load and security simulations to validate your architecture under extreme real-world conditions.',
+          color: 'border-gray-500',
+        },
+        {
+          icon: <Rocket className='text-gray-600 w-7 h-7' />,
+          title: 'Deployment and Maintenance',
+          description:
+            'We provide dedicated software maintenance and support to keep your platform continuously updated. Our engineers actively monitor server health and resolve issues rapidly to extend your digital investment.',
+          color: 'border-gray-500',
+        },
+      ],
+    },
+    techStackData: {
+      headingData: {
+        heading: 'Our Tech Stack for Advanced ',
+        coloredHeading: 'Software Engineering & Development',
         description:
-          'We create intuitive wireframes and prototypes for user-friendly interfaces.',
-        color: 'border-orange-500',
+          'We leverage cutting-edge technologies to build robust solutions.',
       },
-      {
-        icon: <Code className='text-orange-500 w-7 h-7' />,
-        title: 'Development',
-        description:
-          'Our team writes clean code, developing the website using the latest technologies.',
-        color: 'border-orange-500',
-      },
-    ],
-    bottomSteps: [
-      {
-        icon: <Search className='text-gray-600 w-7 h-7' />,
-        title: 'Testing',
-        description:
-          'Comprehensive testing ensures smooth functionality and cross-platform compatibility.',
-        color: 'border-gray-500',
-      },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Launch & Support',
-        description:
-          'We launch the site and provide ongoing maintenance to keep it running smoothly.',
-        color: 'border-gray-500',
+      items: [
+        {
+          title: 'FRONTEND',
+          items: [
+            { name: 'AngularJS', image: AngularIcon.src },
+            { name: 'React', image: ReactIcon.src },
+            { name: 'Vue.js', image: VueIcon.src },
+            { name: 'HTML5', image: Html5Icon.src },
+            { name: 'Stencil', image: StencilIcon.src },
+            { name: 'Svelte', image: SvelteIcon.src },
+          ],
+        },
+        {
+          title: 'MOBILE',
+          items: [
+            { name: 'AngularJS', image: androidIcon.src },
+            { name: 'React', image: iosIcon.src },
+            { name: 'Vue.js', image: ionicIcon.src },
+            { name: 'HTML5', image: reactNativeIcon.src },
+            { name: 'Stencil', image: objcIcon.src },
+            { name: 'Svelte', image: flutterIcon.src },
+          ],
+        },
+        {
+          title: 'OPEN SOURCE',
+          items: [
+            { name: 'AngularJS', image: javaIcon.src },
+            { name: 'React', image: nodeIcon.src },
+            { name: 'Vue.js', image: phpIcon.src },
+            { name: 'HTML5', image: pythonIcon.src },
+            { name: 'Stencil', image: rubyIcon.src },
+            { name: 'Svelte', image: golangIcon.src },
+          ],
+        },
+        {
+          title: 'UI/UX',
+          items: [
+            { name: 'AngularJS', image: XDIcon.src },
+            { name: 'React', image: PSIcon.src },
+            { name: 'Vue.js', image: figmaIcon.src },
+            { name: 'HTML5', image: AIIcon.src },
+            { name: 'Stencil', image: seekIcon.src },
+            { name: 'Svelte', image: webflowIcon.src },
+          ],
+        },
+        {
+          title: 'CLOUD',
+          items: [
+            { name: 'AngularJS', image: amazonWebServicesIcon.src },
+            { name: 'React', image: msAzureIcon.src },
+            { name: 'Vue.js', image: googleCloudIcon.src },
+            { name: 'HTML5', image: salesForceIcon.src },
+            { name: 'Stencil', image: ibmCloudIcon.src },
+            { name: 'Svelte', image: digitalOceanIcon.src },
+          ],
+        },
+        {
+          title: 'BLOCKCHAIN',
+          items: [
+            { name: 'AngularJS', image: solidityIcon.src },
+            { name: 'React', image: web3Icon.src },
+            { name: 'Vue.js', image: etherjsIcon.src },
+            { name: 'HTML5', image: ethereumIcon.src },
+            { name: 'Stencil', image: fabricIcon.src },
+            { name: 'Svelte', image: solanaIcon.src },
+          ],
+        },
+        {
+          title: 'OTHERS',
+          items: [
+            { name: 'AngularJS', image: uiPathIcon.src },
+            { name: 'React', image: drupalIcon.src },
+            { name: 'Vue.js', image: sapIcon.src },
+            { name: 'HTML5', image: googleAnalyticsIcon.src },
+            { name: 'Stencil', image: vrarIcon.src },
+            { name: 'Svelte', image: salesforceIcon.src },
+          ],
+        },
+        {
+          title: 'AI & ML',
+          items: [
+            { name: 'AngularJS', image: pythonIcon.src },
+            { name: 'React', image: tensorFlowIcon.src },
+            { name: 'Vue.js', image: openCvIcon.src },
+            { name: 'HTML5', image: pytorchIcon.src },
+            { name: 'Stencil', image: sparkIcon.src },
+            { name: 'Svelte', image: mahoutIcon.src },
+          ],
+        },
+      ],
+    },
+    whyChooseUsData: {
+      headingData: {
+        heading: 'Why Choose Us as Your ',
+        coloredHeading: 'B2B Software Development Agency',
+        description: '',
       },
 
-    ],
-    techStackData: [
-      {
-        title: 'FRONTEND',
-        items: [
-          { name: 'AngularJS', image: AngularIcon.src },
-          { name: 'React', image: ReactIcon.src },
-          { name: 'Vue.js', image: VueIcon.src },
-          { name: 'HTML5', image: Html5Icon.src },
-          { name: 'Stencil', image: StencilIcon.src },
-          { name: 'Svelte', image: SvelteIcon.src },
-        ],
-      },
-      {
-        title: 'MOBILE',
-        items: [
-          { name: 'AngularJS', image: androidIcon.src },
-          { name: 'React', image: iosIcon.src },
-          { name: 'Vue.js', image: ionicIcon.src },
-          { name: 'HTML5', image: reactNativeIcon.src },
-          { name: 'Stencil', image: objcIcon.src },
-          { name: 'Svelte', image: flutterIcon.src },
-        ],
-      },
-      {
-        title: 'OPEN SOURCE',
-        items: [
-          { name: 'AngularJS', image: javaIcon.src },
-          { name: 'React', image: nodeIcon.src },
-          { name: 'Vue.js', image: phpIcon.src },
-          { name: 'HTML5', image: pythonIcon.src },
-          { name: 'Stencil', image: rubyIcon.src },
-          { name: 'Svelte', image: golangIcon.src },
-        ],
-      },
-      {
-        title: 'UI/UX',
-        items: [
-          { name: 'AngularJS', image: XDIcon.src },
-          { name: 'React', image: PSIcon.src },
-          { name: 'Vue.js', image: figmaIcon.src },
-          { name: 'HTML5', image: AIIcon.src },
-          { name: 'Stencil', image: seekIcon.src },
-          { name: 'Svelte', image: webflowIcon.src },
-        ],
-      },
-      {
-        title: 'CLOUD',
-        items: [
-          { name: 'AngularJS', image: amazonWebServicesIcon.src },
-          { name: 'React', image: msAzureIcon.src },
-          { name: 'Vue.js', image: googleCloudIcon.src },
-          { name: 'HTML5', image: salesForceIcon.src },
-          { name: 'Stencil', image: ibmCloudIcon.src },
-          { name: 'Svelte', image: digitalOceanIcon.src },
-        ],
-      },
-      {
-        title: 'BLOCKCHAIN',
-        items: [
-          { name: 'AngularJS', image: solidityIcon.src },
-          { name: 'React', image: web3Icon.src },
-          { name: 'Vue.js', image: etherjsIcon.src },
-          { name: 'HTML5', image: ethereumIcon.src },
-          { name: 'Stencil', image: fabricIcon.src },
-          { name: 'Svelte', image: solanaIcon.src },
-        ],
-      },
-      {
-        title: 'OTHERS',
-        items: [
-          { name: 'AngularJS', image: uiPathIcon.src },
-          { name: 'React', image: drupalIcon.src },
-          { name: 'Vue.js', image: sapIcon.src },
-          { name: 'HTML5', image: googleAnalyticsIcon.src },
-          { name: 'Stencil', image: vrarIcon.src },
-          { name: 'Svelte', image: salesforceIcon.src },
-        ],
-      },
-      {
-        title: 'AI & ML',
-        items: [
-          { name: 'AngularJS', image: pythonIcon.src },
-          { name: 'React', image: tensorFlowIcon.src },
-          { name: 'Vue.js', image: openCvIcon.src },
-          { name: 'HTML5', image: pytorchIcon.src },
-          { name: 'Stencil', image: sparkIcon.src },
-          { name: 'Svelte', image: mahoutIcon.src },
-        ],
-      },
-    ],
-    whyChooseUsData: [
-      {
-        id: 1,
-        title: 'Expertise',
-        descp: ' Experienced developers who use cutting-edge technologies.',
-        icon: MdOutlineAddLocation,
-      },
-      {
-        id: 2,
-        title: 'Custom Solutions',
-        descp: 'Tailored websites to meet your specific business needs.',
-        icon: PiExcludeSquareDuotone,
-      },
-      {
-        id: 3,
-        title: 'Scalable Designs',
-        descp: 'Websites that grow with your business.',
-        icon: PiEyeBold,
-      },
-      {
-        id: 4,
-        title: 'Responsive Support',
-        descp: 'Reliable support to ensure your site performs optimally.',
-        icon: MdOutlineAddLocation,
-      },
-      {
-        id: 5,
-        title: 'SEO-Friendly',
-        descp:
-          'We ensure your website is search-engine optimized for better visibility.',
-        icon: PiExcludeSquareDuotone,
-      },
-      {
-        id: 6,
-        title: 'On-time Delivery',
-        descp: 'Projects completed on schedule with quality results.',
-        icon: PiEyeBold,
-      },
-    ],
+      items: [
+        {
+          id: 1,
+          title: 'Flexible Engagement Models',
+          descp:
+            ' We adapt to your exact business reality. Whether you need a fully dedicated software development team or flexible hourly support, our engineers integrate smoothly into your workflow to keep your budget completely under control. ',
+          icon: MdOutlineAddLocation,
+        },
+        {
+          id: 2,
+          title: 'User Centric Design Focus',
+          descp:
+            'Great technology should feel effortless to use. Our experts design highly intuitive interfaces that simplify complex tasks for your audience, creating visually stunning layouts that drive genuine global engagement.',
+          icon: PiExcludeSquareDuotone,
+        },
+        {
+          id: 3,
+          title: 'Data Security and IP Protection',
+          descp:
+            'Your intellectual property and corporate data are entirely safe with us. By strictly enforcing secure software development protocols, we build compliant systems that actively protect your business against modern cyber threats from day one. ',
+          icon: PiEyeBold,
+        },
+        {
+          id: 4,
+          title: 'Comprehensive Support and Maintenance',
+          descp:
+            'Launch day is really just the beginning of our partnership. We provide proactive software lifecycle management to monitor server health, deploy crucial updates, and keep your digital investment running flawlessly long after it goes live. ',
+          icon: MdOutlineAddLocation,
+        },
+        {
+          id: 5,
+          title: 'Seamless Scalability',
+          descp:
+            'Your technology must be able to grow right alongside your business. We engineer scalable software architecture designed specifically to handle sudden traffic spikes and massive data loads without ever slowing down your daily operations.',
+          icon: PiExcludeSquareDuotone,
+        },
+        {
+          id: 6,
+          title: 'On Time and Within Budget Delivery',
+          descp:
+            'We believe in absolute transparency when it comes to deadlines and budgets. Using advanced agile project management software, we give you complete daily visibility into our progress, so there are never any unexpected delays.',
+          icon: PiEyeBold,
+        },
+      ],
+    },
     faqsContent: [
       {
         id: 1,
-        question: 'What is custom software development?',
+        question: 'How much does custom software development cost?',
         answer:
-          'Custom software development involves creating software solutions specifically tailored to your business requirements, ensuring that it fits perfectly with your unique processes and needs.',
+          'The cost varies based on project complexity, feature requirements, and the chosen tech stack. We offer flexible pricing options, including Fixed Price and Time & Material models, to align precisely with your budget and business goals.',
       },
       {
         id: 2,
         question: 'How long does it take to develop custom software?',
         answer:
-          'The timeline depends on the complexity of your project. Typically, it ranges from a few weeks to several months. We provide a detailed timeline and keep you updated on progress.',
+          'A typical custom software project takes between 3 to 9 months to complete. Simple applications may launch in 8 to 12 weeks, while complex enterprise systems require 6 months or more depending on necessary integrations.',
       },
       {
         id: 3,
-        question: 'How much does custom software development cost?',
+        question: 'Why opt for custom software over off-the-shelf solutions?',
         answer:
-          'Pricing depends on the scope and complexity of the project. We offer transparent pricing and work with you to develop a solution that fits your budget.',
+          'Custom software is built specifically for your unique workflows, ensuring seamless scalability and zero ongoing licensing fees. Unlike off-the-shelf products, it integrates flawlessly with your existing corporate systems without forcing you to change how your business operates.',
       },
       {
         id: 4,
-        question: 'Will I own the software?',
+        question: 'Who owns the intellectual property and source code?',
         answer:
-          'Yes! You will retain full ownership of the custom software developed for your business.',
+          'You own 100% of the intellectual property and source code. Upon project completion and final delivery, Nextloop Technologies transfers all proprietary rights directly to your business, ensuring total control over your digital assets.',
+      },
+      {
+        id: 5,
+        question: 'What engagement models do you offer?',
+        answer:
+          'We provide flexible engagement models tailored to your needs, including fully dedicated development teams, staff augmentation, and project-based outsourcing. This allows you to scale resources up or down while maintaining complete visibility over the development cycle.',
       },
     ],
     areaOfExpertiseData: {
@@ -657,276 +660,302 @@ export const servicesSubPagesData = {
   },
   webDevelopment: {
     metaData: {
-      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
+      pageMetaTitle:
+        'Scalable Web Development & IT Outsourcing Services in India',
       pageMetaDescription:
-        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Engineered for excellence. Transform your ideas into reality with custom full stack web development services. Hire dedicated web developers from our offshore software development company for precision-built software.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
-      coloredTitle: 'WEB ',
-      title: 'DEVELOPMENT',
+      coloredTitle: 'Full Stack Web Application ',
+      title: '& eCommerce Development Services',
       subtitle:
-        'At Nextloop Technologies, we specialize in delivering customized web development services that help businesses build user-friendly, scalable, and secure web applications. Our team of expert developers ensures your website is fast, responsive, and optimized for all devices. From front-end design to back-end architecture, we create solutions that drive growth and deliver measurable results.',
+        'Nextloop Technologies focuses on engineering high-performance platforms as a premier web development company in India. Our technical teams specialize in creating digital solutions that captivate global users while ensuring maximum scalability. We bridge the gap between innovative design and technical excellence to drive measurable business results.',
     },
     expertiseData: {
       headingData: {
-        coloredHeading: 'OUR ',
-        heading: 'EXPERTISE',
+        coloredHeading: 'Our Advanced Web ',
+        heading: '& eCommerce Capabilities ',
         description:
-          ' We bring extensive experience across a wide range of industries. Our custom solutions include:',
+          ' Operating as a leading web design company in India, we deliver conversion-optimized digital experiences tailored to your market demands.',
       },
       items: [
         {
           id: 1,
-          title: 'Custom Web Development:',
+          title: 'Web App Development ',
           description:
-            'We build tailor-made websites and web applications that align with your business goals and user needs.',
+            'As a top web application development company, we build dynamic, interactive digital tools. Our engineering team ensures your interfaces and complex backend logic are seamlessly integrated for optimal performance and user retention.',
           image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 2,
-          title: 'Front-End & Back-End Development:',
+          title: 'Shopify eCommerce Solutions ',
           description:
-            'Delivering responsive, fast, and dynamic websites with strong back-end architecture.',
+            'Launch your online store rapidly and securely. Utilizing specialized Shopify website development services, our team creates customized storefronts that scale effortlessly as your inventory grows over time.',
           image: HiOutlineOfficeBuilding,
           dark: false,
         },
         {
           id: 3,
-          title: 'Web Performance & SEO Optimization:',
+          title: 'Custom eCommerce Platforms ',
           description:
-            'Ensuring fast load times, mobile-friendliness, and SEO best practices for better search rankings.',
+            'For complex, enterprise-grade storefronts, we act as a dedicated eCommerce website design and development company. We engineer robust systems capable of handling high transaction volumes without technical lag or security concerns.',
           image: IoFileTrayStackedOutline,
           dark: false,
         },
         {
           id: 4,
-          title: 'E-Commerce Development:',
+          title: 'Mobile-First eCommerce',
           description:
-            'Create high-performing, secure, and scalable online stores with seamless shopping experiences.',
+            'Capture the growing mobile market with our intuitive solutions. Working as a versatile ecommerce mobile app development company, we build native-quality applications providing a frictionless shopping experience across all modern devices.',
           image: FaRegFileAlt,
           dark: true,
         },
         {
           id: 5,
-          title: 'CMS Development:',
+          title: ' Corporate Website Design ',
           description:
-            'Develop and customize CMS platforms like WordPress, Shopify, and Magento for easy content management.',
+            "First impressions drive B2B lead generation. As a primary website design company in India, we craft visually stunning, highly responsive websites that communicate your brand's authority and streamline the user journey. ",
           image: IoCloudUploadOutline,
           dark: true,
         },
         {
           id: 6,
-          title: 'Web Security & Maintenance:',
+          title: 'Seamless Architecture ',
           description:
-            'Implementing advanced security measures and providing ongoing support to keep your website safe and up to date.',
+            'We offer comprehensive website design and development services for brands looking to automate their daily operations. We ensure your platforms integrate smoothly with external APIs and secure payment gateways. ',
           image: FaRegFileAlt,
           dark: false,
         },
       ],
     },
-    topSteps: [
-      {
-        icon: <Lightbulb className='text-orange-500 w-7 h-7' />,
-        title: 'Planning & Consultation',
-        description:
-          'We discuss your goals and understand your business needs.',
-        color: 'border-orange-500',
+    processData: {
+      headingData: {
+        heading: 'Our ',
+        coloredHeading: 'Web Development Process',
       },
-      {
-        icon: <PenTool className='text-orange-500 w-7 h-7' />,
-        title: 'Design & Prototyping',
-        description:
-          'We create intuitive wireframes and prototypes for user-friendly interfaces.',
-        color: 'border-orange-500',
-      },
-      {
-        icon: <Code className='text-orange-500 w-7 h-7' />,
-        title: 'Development',
-        description:
-          'Our team writes clean code, developing the website using the latest technologies.',
-        color: 'border-orange-500',
-      },
-    ],
-    bottomSteps: [
-      {
-        icon: <Search className='text-gray-600 w-7 h-7' />,
-        title: 'Testing',
-        description:
-          'Comprehensive testing ensures smooth functionality and cross-platform compatibility.',
-        color: 'border-gray-500',
-      },
+      items: [
+        {
+          icon: <Lightbulb className='text-orange-500 w-7 h-7' />,
+          title: 'Planning & Consultation',
+          description:
+            'We discuss your goals and understand your business needs.',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <PenTool className='text-orange-500 w-7 h-7' />,
+          title: 'Design & Prototyping',
+          description:
+            'We create intuitive wireframes and prototypes for user-friendly interfaces.',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <Code className='text-orange-500 w-7 h-7' />,
+          title: 'Development',
+          description:
+            'Our team writes clean code, developing the website using the latest technologies.',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <Search className='text-gray-600 w-7 h-7' />,
+          title: 'Testing',
+          description:
+            'Comprehensive testing ensures smooth functionality and cross-platform compatibility.',
+          color: 'border-gray-500',
+        },
 
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Launch & Support',
+        {
+          icon: <Rocket className='text-gray-600 w-7 h-7' />,
+          title: 'Launch & Support',
+          description:
+            'We launch the site and provide ongoing maintenance to keep it running smoothly.',
+          color: 'border-gray-500',
+        },
+      ],
+    },
+    techStackData: {
+      headingData: {
+        heading: 'OUR',
+        coloredHeading: 'TECH STACK',
         description:
-          'We launch the site and provide ongoing maintenance to keep it running smoothly.',
-        color: 'border-gray-500',
+          'We leverage cutting-edge technologies to build robust solutions.',
       },
-    ],
-    techStackData: [
-      {
-        title: 'FRONTEND',
-        items: [
-          { name: 'AngularJS', image: AngularIcon.src },
-          { name: 'React', image: ReactIcon.src },
-          { name: 'Vue.js', image: VueIcon.src },
-          { name: 'HTML5', image: Html5Icon.src },
-          { name: 'Stencil', image: StencilIcon.src },
-          { name: 'Svelte', image: SvelteIcon.src },
-        ],
-      },
-      {
-        title: 'MOBILE',
-        items: [
-          { name: 'AngularJS', image: androidIcon.src },
-          { name: 'React', image: iosIcon.src },
-          { name: 'Vue.js', image: ionicIcon.src },
-          { name: 'HTML5', image: reactNativeIcon.src },
-          { name: 'Stencil', image: objcIcon.src },
-          { name: 'Svelte', image: flutterIcon.src },
-        ],
-      },
-      {
-        title: 'OPEN SOURCE',
-        items: [
-          { name: 'AngularJS', image: javaIcon.src },
-          { name: 'React', image: nodeIcon.src },
-          { name: 'Vue.js', image: phpIcon.src },
-          { name: 'HTML5', image: pythonIcon.src },
-          { name: 'Stencil', image: rubyIcon.src },
-          { name: 'Svelte', image: golangIcon.src },
-        ],
-      },
-      {
-        title: 'UI/UX',
-        items: [
-          { name: 'AngularJS', image: XDIcon.src },
-          { name: 'React', image: PSIcon.src },
-          { name: 'Vue.js', image: figmaIcon.src },
-          { name: 'HTML5', image: AIIcon.src },
-          { name: 'Stencil', image: seekIcon.src },
-          { name: 'Svelte', image: webflowIcon.src },
-        ],
-      },
-      {
-        title: 'CLOUD',
-        items: [
-          { name: 'AngularJS', image: amazonWebServicesIcon.src },
-          { name: 'React', image: msAzureIcon.src },
-          { name: 'Vue.js', image: googleCloudIcon.src },
-          { name: 'HTML5', image: salesForceIcon.src },
-          { name: 'Stencil', image: ibmCloudIcon.src },
-          { name: 'Svelte', image: digitalOceanIcon.src },
-        ],
-      },
-      {
-        title: 'BLOCKCHAIN',
-        items: [
-          { name: 'AngularJS', image: solidityIcon.src },
-          { name: 'React', image: web3Icon.src },
-          { name: 'Vue.js', image: etherjsIcon.src },
-          { name: 'HTML5', image: ethereumIcon.src },
-          { name: 'Stencil', image: fabricIcon.src },
-          { name: 'Svelte', image: solanaIcon.src },
-        ],
-      },
-      {
-        title: 'OTHERS',
-        items: [
-          { name: 'AngularJS', image: uiPathIcon.src },
-          { name: 'React', image: drupalIcon.src },
-          { name: 'Vue.js', image: sapIcon.src },
-          { name: 'HTML5', image: googleAnalyticsIcon.src },
-          { name: 'Stencil', image: vrarIcon.src },
-          { name: 'Svelte', image: salesforceIcon.src },
-        ],
-      },
-      {
-        title: 'AI & ML',
-        items: [
-          { name: 'AngularJS', image: pythonIcon.src },
-          { name: 'React', image: tensorFlowIcon.src },
-          { name: 'Vue.js', image: openCvIcon.src },
-          { name: 'HTML5', image: pytorchIcon.src },
-          { name: 'Stencil', image: sparkIcon.src },
-          { name: 'Svelte', image: mahoutIcon.src },
-        ],
-      },
-    ],
-    whyChooseUsData: [
-      {
-        id: 1,
-        title: 'Expertise',
-        descp: ' Experienced developers who use cutting-edge technologies.',
-        icon: MdOutlineAddLocation,
-      },
-      {
-        id: 2,
-        title: 'Custom Solutions',
-        descp: 'Tailored websites to meet your specific business needs.',
-        icon: PiExcludeSquareDuotone,
-      },
-      {
-        id: 3,
-        title: 'Scalable Designs',
-        descp: 'Websites that grow with your business.',
-        icon: PiEyeBold,
-      },
-      {
-        id: 4,
-        title: 'Responsive Support',
-        descp: 'Reliable support to ensure your site performs optimally.',
-        icon: MdOutlineAddLocation,
-      },
-      {
-        id: 5,
-        title: 'SEO-Friendly',
-        descp:
-          'We ensure your website is search-engine optimized for better visibility.',
-        icon: PiExcludeSquareDuotone,
-      },
-      {
-        id: 6,
-        title: 'On-time Delivery',
-        descp: 'Projects completed on schedule with quality results.',
-        icon: PiEyeBold,
-      },
-    ],
+      items: [
+        {
+          title: 'FRONTEND',
+          items: [
+            { name: 'AngularJS', image: AngularIcon.src },
+            { name: 'React', image: ReactIcon.src },
+            { name: 'Vue.js', image: VueIcon.src },
+            { name: 'HTML5', image: Html5Icon.src },
+            { name: 'Stencil', image: StencilIcon.src },
+            { name: 'Svelte', image: SvelteIcon.src },
+          ],
+        },
+        {
+          title: 'MOBILE',
+          items: [
+            { name: 'AngularJS', image: androidIcon.src },
+            { name: 'React', image: iosIcon.src },
+            { name: 'Vue.js', image: ionicIcon.src },
+            { name: 'HTML5', image: reactNativeIcon.src },
+            { name: 'Stencil', image: objcIcon.src },
+            { name: 'Svelte', image: flutterIcon.src },
+          ],
+        },
+        {
+          title: 'OPEN SOURCE',
+          items: [
+            { name: 'AngularJS', image: javaIcon.src },
+            { name: 'React', image: nodeIcon.src },
+            { name: 'Vue.js', image: phpIcon.src },
+            { name: 'HTML5', image: pythonIcon.src },
+            { name: 'Stencil', image: rubyIcon.src },
+            { name: 'Svelte', image: golangIcon.src },
+          ],
+        },
+        {
+          title: 'UI/UX',
+          items: [
+            { name: 'AngularJS', image: XDIcon.src },
+            { name: 'React', image: PSIcon.src },
+            { name: 'Vue.js', image: figmaIcon.src },
+            { name: 'HTML5', image: AIIcon.src },
+            { name: 'Stencil', image: seekIcon.src },
+            { name: 'Svelte', image: webflowIcon.src },
+          ],
+        },
+        {
+          title: 'CLOUD',
+          items: [
+            { name: 'AngularJS', image: amazonWebServicesIcon.src },
+            { name: 'React', image: msAzureIcon.src },
+            { name: 'Vue.js', image: googleCloudIcon.src },
+            { name: 'HTML5', image: salesForceIcon.src },
+            { name: 'Stencil', image: ibmCloudIcon.src },
+            { name: 'Svelte', image: digitalOceanIcon.src },
+          ],
+        },
+        {
+          title: 'BLOCKCHAIN',
+          items: [
+            { name: 'AngularJS', image: solidityIcon.src },
+            { name: 'React', image: web3Icon.src },
+            { name: 'Vue.js', image: etherjsIcon.src },
+            { name: 'HTML5', image: ethereumIcon.src },
+            { name: 'Stencil', image: fabricIcon.src },
+            { name: 'Svelte', image: solanaIcon.src },
+          ],
+        },
+        {
+          title: 'OTHERS',
+          items: [
+            { name: 'AngularJS', image: uiPathIcon.src },
+            { name: 'React', image: drupalIcon.src },
+            { name: 'Vue.js', image: sapIcon.src },
+            { name: 'HTML5', image: googleAnalyticsIcon.src },
+            { name: 'Stencil', image: vrarIcon.src },
+            { name: 'Svelte', image: salesforceIcon.src },
+          ],
+        },
+        {
+          title: 'AI & ML',
+          items: [
+            { name: 'AngularJS', image: pythonIcon.src },
+            { name: 'React', image: tensorFlowIcon.src },
+            { name: 'Vue.js', image: openCvIcon.src },
+            { name: 'HTML5', image: pytorchIcon.src },
+            { name: 'Stencil', image: sparkIcon.src },
+            { name: 'Svelte', image: mahoutIcon.src },
+          ],
+        },
+      ],
+    },
+    whyChooseUsData: {
+      items: [
+        {
+          id: 1,
+          title: 'Expertise',
+          descp: ' Experienced developers who use cutting-edge technologies.',
+          icon: MdOutlineAddLocation,
+        },
+        {
+          id: 2,
+          title: 'Custom Solutions',
+          descp: 'Tailored websites to meet your specific business needs.',
+          icon: PiExcludeSquareDuotone,
+        },
+        {
+          id: 3,
+          title: 'Scalable Designs',
+          descp: 'Websites that grow with your business.',
+          icon: PiEyeBold,
+        },
+        {
+          id: 4,
+          title: 'Responsive Support',
+          descp: 'Reliable support to ensure your site performs optimally.',
+          icon: MdOutlineAddLocation,
+        },
+        {
+          id: 5,
+          title: 'SEO-Friendly',
+          descp:
+            'We ensure your website is search-engine optimized for better visibility.',
+          icon: PiExcludeSquareDuotone,
+        },
+        {
+          id: 6,
+          title: 'On-time Delivery',
+          descp: 'Projects completed on schedule with quality results.',
+          icon: PiEyeBold,
+        },
+      ],
+    },
     faqsContent: [
       {
         id: 1,
-        question:
-          'What web development services does Nextloop Technologies offer?',
+        question: ' Which platform should I choose for my online store? ',
         answer:
-          'We offer full-stack web development, including front-end design, back-end development, e-commerce solutions, and custom web applications.',
+          'Shopify is ideal for rapid launches, while Magento is better for complex enterprise catalogs. As an experienced Shopify eCommerce development company, we help you navigate specialized Magento development services to ensure you pick the platform that matches your specific transaction volume.',
       },
       {
         id: 2,
-        question: 'How long does it take to develop a website?',
+        question: 'Do you provide end-to-end coding solutions?',
         answer:
-          'The development time depends on the complexity of the project, but we always strive for efficient and timely delivery.',
+          'Yes, we handle everything from intuitive UI/UX design to robust database architecture. Our full stack web development services ensure your application runs seamlessly, securely, and efficiently without the need to hire multiple vendors.',
       },
       {
         id: 3,
-        question:
-          'Do you provide ongoing support after the website is launched?',
+        question: 'Should I build a PWA or a native mobile app?',
         answer:
-          'Yes, we offer continuous support and maintenance to ensure your website stays updated and functional.',
+          'If you need fast deployment and browser access, a PWA is cost-effective. However, for hardware-specific features, a native app via our ecommerce app development services is recommended to guarantee high performance and deep mobile integration.',
       },
       {
         id: 4,
-        question: 'Will my website be mobile-friendly?',
+        question: 'How do you optimize for Core Web Vitals and page speed?  ',
         answer:
-          'Absolutely! We create responsive websites that work seamlessly across all devices.',
+          'We prioritize performance by implementing advanced caching, image optimization, and code minification. Our engineering team ensures your site meets the strictest Google performance standards, resulting in faster load times, lower bounce rates, and improved organic search rankings. ',
       },
       {
         id: 5,
-        question: 'What technologies do you use for web development?',
+        question: 'What is headless commerce and is it right for my business?',
         answer:
-          'We use a wide range of technologies including JavaScript (React, Node.js), Java, Python, and many more to ensure the best solution for your business.',
+          'Headless architecture decouples the frontend presentation layer from the backend commerce logic. This approach offers unparalleled flexibility for brands needing to deliver content across multiple platforms (IoT, mobile, and web) without the limitations of a traditional monolithic system.',
+      },
+      {
+        id: 6,
+        question: ' How do you handle data security and PCI compliance? ',
+        answer:
+          'Security is integrated into our coding lifecycle. We implement end-to-end encryption, multi-factor authentication, and secure payment gateway integrations to ensure your platform is fully compliant with global data protection regulations and PCI-DSS standards.',
+      },
+      {
+        id: 7,
+        question:
+          'Can your platforms support international markets and multi-currency? ',
+        answer:
+          'Yes, we engineer sites with global scalability in mind. Our solutions support localized content, automated tax calculations, multi-currency checkouts, and international shipping logic to ensure your brand provides a frictionless experience for customers across different geographic regions.',
       },
     ],
     areaOfExpertiseData: {
@@ -938,579 +967,682 @@ export const servicesSubPagesData = {
   },
   cloudServices: {
     metaData: {
-      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
+      pageMetaTitle:
+        'Enterprise Cloud & DevOps Services India |AWS & Azure Experts ',
       pageMetaDescription:
-        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Optimize your infrastructure with Nextloop’s managed cloud solutions. Expert AWS, Azure & GCP migration, DevOps automation, and secure cloud cost management.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
-      coloredTitle: 'CLOUD ',
-      title: 'SERVICES',
+      coloredTitle: 'Cloud Computing ',
+      title: 'Services Provider',
       subtitle:
-        "At Nextloop Technologies, we offer comprehensive cloud services that empower your business to scale, innovate, and thrive. Whether you're migrating to the cloud, optimizing your cloud infrastructure, or developing cloud-based applications, we provide end-to-end solutions tailored to your unique needs.",
+        'In a digital-first world, your infrastructure should drive innovation, not just store data. As a premier managed cloud service provider, we bridge the gap between legacy complexity and high-performance demands. Nextloop delivers end-to-end cloud solutions for businesses prioritizing scalability, security, and operational excellence. ',
     },
     expertiseData: {
       headingData: {
-        coloredHeading: 'OUR EXPERTISE IN ',
-        heading: 'CLOUD SERVICES',
+        coloredHeading: 'Our Comprehensive ',
+        heading: 'Cloud Consulting Services',
         description:
-          'We specialize in delivering high-performance, scalable, and secure cloud solutions across industries. With Nextloop Technologies, you can rely on our expertise to drive growth and efficiency in your business.',
+          'Nextloop delivers enterprise-grade ecosystems designed to enhance business agility. By leveraging our position as one of the leading cloud service providers in India, we ensure your architecture is not just functional, but a competitive advantage.',
       },
       items: [
         {
           id: 1,
-          title: 'CLOUD MIGRATION',
+          title: 'Strategic Modernization & Migration',
           description:
-            'Smooth and secure migration of your business to the cloud, with minimal disruption and downtime.',
+            'Transitioning your core operations requires a strategy that eliminates the risk of data loss. Our managed cloud hosting services ensure a seamless move to the web with zero business disruption and optimized uptime.',
           image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 2,
-          title: 'CLOUD INFRASTRUCTURE MANAGEMENT:',
+          title: 'Next-Gen Infrastructure Solutions',
           description:
-            'Build, deploy, and scale robust, cloud-native applications that drive business innovation and efficiency.',
+            'Build a foundation that grows with your vision. We design and scale robust, cloud-native environments that improve efficiency, ensuring your cloud computing solutions are ready for global traffic demands. ',
           image: FaRegFileAlt,
           dark: false,
         },
         {
           id: 3,
-          title: 'CLOUD APPLICATION DEVELOPMENT:',
+          title: 'Scalable Cloud-Native Development',
           description:
-            'Build, deploy, and scale robust, cloud-native applications that drive business innovation and efficiency.',
+            'Innovation starts with the right architecture. We develop bespoke cloud solutions for businesses that prioritize high performance, allowing you to deploy features faster while maintaining a premium user experience.',
           image: HiOutlineOfficeBuilding,
           dark: false,
         },
         {
           id: 4,
-          title: 'CLOUD SECURITY:',
+          title: 'Ironclad Data Protection',
           description:
-            'Modernize your infrastructure with cloud-based solutions for enhanced flexibility, security, and scalability.',
+            'Security is the non-negotiable cornerstone of digital trust. We implement multi-layered cloud security solutions and specialized cloud data security solutions to safeguard your sensitive assets against modern threats. ',
           image: IoCloudUploadOutline,
           dark: true,
         },
         {
           id: 5,
-          title: 'DEVOPS & AUTOMATION:',
+          title: 'Integrated DevOps & Automation',
           description:
-            'Automate workflows and streamline development to accelerate deployment and enhance operational efficiency.',
+            'Accelerate your speed-to-market with automated delivery pipelines. As a dedicated DevOps development company, we streamline workflows to ensure your deployment cycles are stable, fast, and cost-efficient.',
           image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 6,
-          title: 'CLOUD COST OPTIMIZATION:',
+          title: 'Performance-Driven Cost Management ',
           description:
-            'Maximize efficiency and reduce cloud expenses with our cost optimization strategies, ensuring you get the best value from your cloud investments.',
+            'Maximize ROI by eliminating wasted resources. Our cloud cost optimization services transform your infrastructure from a cost center into a value driver, ensuring you pay only for the performance your business utilizes. ',
           image: FaRegFileAlt,
           dark: false,
         },
       ],
     },
-    topSteps: [
-      {
-        icon: <Lightbulb className='text-orange-500 w-7 h-7' />,
-        title: 'Consultation',
+    processData: {
+      headingData: {
+        heading: 'Our ',
+        coloredHeading: 'Web Development Process',
+      },
+      items: [
+        {
+          icon: <Lightbulb className='text-orange-500 w-7 h-7' />,
+          title: 'Consultation',
+          description:
+            'We understand your needs to create a tailored cloud strategy.',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <Settings className='text-orange-500 w-7 h-7' />,
+          title: 'Design',
+          description:
+            'We craft secure and scalable cloud solutions for your business.',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <Search className='text-gray-600 w-7 h-7' />,
+          title: 'Migration',
+          description: 'We seamlessly move your data and apps to the cloud.',
+          color: 'border-gray-500',
+        },
+        {
+          icon: <Rocket className='text-gray-600 w-7 h-7' />,
+          title: 'Deployment',
+          description:
+            'Your cloud solution is deployed and optimized for performance.',
+          color: 'border-gray-500',
+        },
+        {
+          icon: <Rocket className='text-gray-600 w-7 h-7' />,
+          title: 'Support',
+          description:
+            'We provide ongoing support and maintenance for smooth operations.',
+          color: 'border-gray-500',
+        },
+      ],
+    },
+    techStackData: {
+      headingData: {
+        heading: 'OUR',
+        coloredHeading: 'TECH STACK',
         description:
-          'We understand your needs to create a tailored cloud strategy.',
-        color: 'border-orange-500',
+          'We leverage cutting-edge technologies to build robust solutions.',
       },
-      {
-        icon: <Settings className='text-orange-500 w-7 h-7' />,
-        title: 'Design',
-        description:
-          'We craft secure and scalable cloud solutions for your business.',
-        color: 'border-orange-500',
-      },
-    ],
-    bottomSteps: [
-      {
-        icon: <Search className='text-gray-600 w-7 h-7' />,
-        title: 'Migration',
-        description: 'We seamlessly move your data and apps to the cloud.',
-        color: 'border-gray-500',
-      },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Deployment',
-        description:
-          'Your cloud solution is deployed and optimized for performance.',
-        color: 'border-gray-500',
-      },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Support',
-        description:
-          'We provide ongoing support and maintenance for smooth operations.',
-        color: 'border-gray-500',
-      },
-    ],
-    techStackData: [
-      {
-        title: 'FRONTEND',
-        items: [
-          { name: 'AngularJS', image: AngularIcon.src },
-          { name: 'React', image: ReactIcon.src },
-          { name: 'Vue.js', image: VueIcon.src },
-          { name: 'HTML5', image: Html5Icon.src },
-          { name: 'Stencil', image: StencilIcon.src },
-          { name: 'Svelte', image: SvelteIcon.src },
-        ],
-      },
-      {
-        title: 'MOBILE',
-        items: [
-          { name: 'AngularJS', image: androidIcon.src },
-          { name: 'React', image: iosIcon.src },
-          { name: 'Vue.js', image: ionicIcon.src },
-          { name: 'HTML5', image: reactNativeIcon.src },
-          { name: 'Stencil', image: objcIcon.src },
-          { name: 'Svelte', image: flutterIcon.src },
-        ],
-      },
-      {
-        title: 'OPEN SOURCE',
-        items: [
-          { name: 'AngularJS', image: javaIcon.src },
-          { name: 'React', image: nodeIcon.src },
-          { name: 'Vue.js', image: phpIcon.src },
-          { name: 'HTML5', image: pythonIcon.src },
-          { name: 'Stencil', image: rubyIcon.src },
-          { name: 'Svelte', image: golangIcon.src },
-        ],
-      },
-      {
-        title: 'UI/UX',
-        items: [
-          { name: 'AngularJS', image: XDIcon.src },
-          { name: 'React', image: PSIcon.src },
-          { name: 'Vue.js', image: figmaIcon.src },
-          { name: 'HTML5', image: AIIcon.src },
-          { name: 'Stencil', image: seekIcon.src },
-          { name: 'Svelte', image: webflowIcon.src },
-        ],
-      },
-      {
-        title: 'CLOUD',
-        items: [
-          { name: 'AngularJS', image: amazonWebServicesIcon.src },
-          { name: 'React', image: msAzureIcon.src },
-          { name: 'Vue.js', image: googleCloudIcon.src },
-          { name: 'HTML5', image: salesForceIcon.src },
-          { name: 'Stencil', image: ibmCloudIcon.src },
-          { name: 'Svelte', image: digitalOceanIcon.src },
-        ],
-      },
-      {
-        title: 'BLOCKCHAIN',
-        items: [
-          { name: 'AngularJS', image: solidityIcon.src },
-          { name: 'React', image: web3Icon.src },
-          { name: 'Vue.js', image: etherjsIcon.src },
-          { name: 'HTML5', image: ethereumIcon.src },
-          { name: 'Stencil', image: fabricIcon.src },
-          { name: 'Svelte', image: solanaIcon.src },
-        ],
-      },
-      {
-        title: 'OTHERS',
-        items: [
-          { name: 'AngularJS', image: uiPathIcon.src },
-          { name: 'React', image: drupalIcon.src },
-          { name: 'Vue.js', image: sapIcon.src },
-          { name: 'HTML5', image: googleAnalyticsIcon.src },
-          { name: 'Stencil', image: vrarIcon.src },
-          { name: 'Svelte', image: salesforceIcon.src },
-        ],
-      },
-      {
-        title: 'AI & ML',
-        items: [
-          { name: 'AngularJS', image: pythonIcon.src },
-          { name: 'React', image: tensorFlowIcon.src },
-          { name: 'Vue.js', image: openCvIcon.src },
-          { name: 'HTML5', image: pytorchIcon.src },
-          { name: 'Stencil', image: sparkIcon.src },
-          { name: 'Svelte', image: mahoutIcon.src },
-        ],
-      },
-    ],
-    whyChooseUsData: [
-      {
-        id: 1,
-        title: 'TAILORED SOLUTIONS',
-        descp: 'Experienced developers who use cutting-edge technologies.',
-        icon: MdOutlineAddLocation,
-      },
-      {
-        id: 2,
-        title: 'EXPERT TEAM',
-        descp:
-          'Our certified cloud engineers deliver secure, scalable solutions.',
-        icon: PiExcludeSquareDuotone,
-      },
-      {
-        id: 3,
-        title: 'SEAMLESS MIGRATION',
-        descp: 'We ensure a smooth, hassle-free transition to the cloud.',
-        icon: PiEyeBold,
-      },
-      {
-        id: 4,
-        title: 'SCALABLE & FLEXIBLE',
-        descp: 'Cloud solutions that grow with your business.',
-        icon: MdOutlineAddLocation,
-      },
-      {
-        id: 5,
-        title: 'TOP SECURITY',
-        descp:
-          'We prioritize data protection with industry-leading security measures.',
-        icon: PiExcludeSquareDuotone,
-      },
-      {
-        id: 6,
-        title: '24/7 SUPPORT',
-        descp:
-          'Continuous support and monitoring to keep everything running smoothly.',
-        icon: PiEyeBold,
-      },
-    ],
+      items: [
+        {
+          title: 'FRONTEND',
+          items: [
+            { name: 'AngularJS', image: AngularIcon.src },
+            { name: 'React', image: ReactIcon.src },
+            { name: 'Vue.js', image: VueIcon.src },
+            { name: 'HTML5', image: Html5Icon.src },
+            { name: 'Stencil', image: StencilIcon.src },
+            { name: 'Svelte', image: SvelteIcon.src },
+          ],
+        },
+        {
+          title: 'MOBILE',
+          items: [
+            { name: 'AngularJS', image: androidIcon.src },
+            { name: 'React', image: iosIcon.src },
+            { name: 'Vue.js', image: ionicIcon.src },
+            { name: 'HTML5', image: reactNativeIcon.src },
+            { name: 'Stencil', image: objcIcon.src },
+            { name: 'Svelte', image: flutterIcon.src },
+          ],
+        },
+        {
+          title: 'OPEN SOURCE',
+          items: [
+            { name: 'AngularJS', image: javaIcon.src },
+            { name: 'React', image: nodeIcon.src },
+            { name: 'Vue.js', image: phpIcon.src },
+            { name: 'HTML5', image: pythonIcon.src },
+            { name: 'Stencil', image: rubyIcon.src },
+            { name: 'Svelte', image: golangIcon.src },
+          ],
+        },
+        {
+          title: 'UI/UX',
+          items: [
+            { name: 'AngularJS', image: XDIcon.src },
+            { name: 'React', image: PSIcon.src },
+            { name: 'Vue.js', image: figmaIcon.src },
+            { name: 'HTML5', image: AIIcon.src },
+            { name: 'Stencil', image: seekIcon.src },
+            { name: 'Svelte', image: webflowIcon.src },
+          ],
+        },
+        {
+          title: 'CLOUD',
+          items: [
+            { name: 'AngularJS', image: amazonWebServicesIcon.src },
+            { name: 'React', image: msAzureIcon.src },
+            { name: 'Vue.js', image: googleCloudIcon.src },
+            { name: 'HTML5', image: salesForceIcon.src },
+            { name: 'Stencil', image: ibmCloudIcon.src },
+            { name: 'Svelte', image: digitalOceanIcon.src },
+          ],
+        },
+        {
+          title: 'BLOCKCHAIN',
+          items: [
+            { name: 'AngularJS', image: solidityIcon.src },
+            { name: 'React', image: web3Icon.src },
+            { name: 'Vue.js', image: etherjsIcon.src },
+            { name: 'HTML5', image: ethereumIcon.src },
+            { name: 'Stencil', image: fabricIcon.src },
+            { name: 'Svelte', image: solanaIcon.src },
+          ],
+        },
+        {
+          title: 'OTHERS',
+          items: [
+            { name: 'AngularJS', image: uiPathIcon.src },
+            { name: 'React', image: drupalIcon.src },
+            { name: 'Vue.js', image: sapIcon.src },
+            { name: 'HTML5', image: googleAnalyticsIcon.src },
+            { name: 'Stencil', image: vrarIcon.src },
+            { name: 'Svelte', image: salesforceIcon.src },
+          ],
+        },
+        {
+          title: 'AI & ML',
+          items: [
+            { name: 'AngularJS', image: pythonIcon.src },
+            { name: 'React', image: tensorFlowIcon.src },
+            { name: 'Vue.js', image: openCvIcon.src },
+            { name: 'HTML5', image: pytorchIcon.src },
+            { name: 'Stencil', image: sparkIcon.src },
+            { name: 'Svelte', image: mahoutIcon.src },
+          ],
+        },
+      ],
+    },
+    whyChooseUsData: {
+      items: [
+        {
+          id: 1,
+          title: 'TAILORED SOLUTIONS',
+          descp: 'Experienced developers who use cutting-edge technologies.',
+          icon: MdOutlineAddLocation,
+        },
+        {
+          id: 2,
+          title: 'EXPERT TEAM',
+          descp:
+            'Our certified cloud engineers deliver secure, scalable solutions.',
+          icon: PiExcludeSquareDuotone,
+        },
+        {
+          id: 3,
+          title: 'SEAMLESS MIGRATION',
+          descp: 'We ensure a smooth, hassle-free transition to the cloud.',
+          icon: PiEyeBold,
+        },
+        {
+          id: 4,
+          title: 'SCALABLE & FLEXIBLE',
+          descp: 'Cloud solutions that grow with your business.',
+          icon: MdOutlineAddLocation,
+        },
+        {
+          id: 5,
+          title: 'TOP SECURITY',
+          descp:
+            'We prioritize data protection with industry-leading security measures.',
+          icon: PiExcludeSquareDuotone,
+        },
+        {
+          id: 6,
+          title: '24/7 SUPPORT',
+          descp:
+            'Continuous support and monitoring to keep everything running smoothly.',
+          icon: PiEyeBold,
+        },
+      ],
+    },
     areaOfExpertiseData: {
-      mainHeader: 'OUR AREAS OF EXPERTISE',
+      mainHeader: 'Purpose-Built Systems for Complex Sectors',
       mainDescription:
-        "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
+        'Standardized tech falls apart under niche demands. We provide the tailored cloud transformation services necessary to power high-traffic retail, secure financial hubs, and custom corporate applications.',
       items: staticServices,
     },
     faqsContent: [
       {
         id: 1,
-        question: 'What is cloud computing?',
+        question:
+          'How do you ensure zero downtime during a core system transition?',
         answer:
-          'Cloud computing allows businesses to store, manage, and process data over the internet, rather than on physical servers. It offers flexibility, scalability, and cost-efficiency by enabling access to resources on-demand.',
+          'We eliminate transition risks using a phased, parallel-run methodology. By testing data integrity and load capacity in a mirrored environment first, we guarantee a final cutover with absolutely zero operational disruption to your active business.',
       },
       {
         id: 2,
-        question: 'How can cloud services benefit my business?',
+        question:
+          'Will our systems be locked into a single provider like AWS or Azure?',
         answer:
-          'Cloud services help improve scalability, reduce IT costs, enhance collaboration, and provide secure data storage. They allow businesses to focus on innovation while we manage your infrastructure.',
+          'No. We build with a strict "Zero-Lock-In" philosophy. Utilizing containerization and open-standard frameworks, we keep your digital assets entirely vendor-agnostic, granting you the freedom to pivot platforms without proprietary restrictions.',
       },
       {
         id: 3,
-        question: 'What types of cloud services do you offer?',
+        question:
+          'How do you handle compliance for heavily regulated industries?',
         answer:
-          'We offer cloud migration, cloud infrastructure management, cloud application development, cloud security, and DevOps automation, all tailored to your specific business needs.',
+          'We embed compliance directly into the architecture. From end-to-end encryption to localized server deployments, we engineer environments that strictly adhere to global regulatory standards, including HIPAA and PCI-DSS, by default.',
       },
       {
         id: 4,
-        question: 'Is my data safe in the cloud?',
+        question:
+          'What is the typical timeline for modernizing legacy IT environments?',
         answer:
-          "Yes! We prioritize your data's security by implementing advanced security measures, encryption, and compliance with industry standards to ensure your data is protected.",
+          'While dictated by system complexity, standard enterprise modernizations range from 4 to 12 weeks. We begin with a rigorous discovery phase, followed by agile deployments that deliver measurable performance gains long before the final milestone. ',
       },
       {
         id: 5,
-        question: 'How long does it take to migrate to the cloud?',
+        question:
+          ' How are ongoing maintenance and cost overruns managed post-deployment?',
         answer:
-          'The migration timeline depends on your current infrastructure and the complexity of your systems. We work closely with you to create a plan and ensure a smooth, timely transition with minimal disruption.',
+          'Post-deployment is an active optimization phase. Our 24/7 governance teams continuously audit resource usage and analyze traffic patterns to eliminate idle waste, ensuring your ongoing expenditure precisely matches your actual performance needs.',
       },
     ],
   },
   mobileAppDevelopment: {
     metaData: {
-      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
+      pageMetaTitle:
+        'Native Mobile Application Development India | iOS & Android Experts',
       pageMetaDescription:
-        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Launch engaging native mobile experiences alongside a top mobile app & software development company in India & USA. Engineer scalable, secure smartphone apps.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
-      coloredTitle: 'MOBILE APP ',
-      title: 'DEVLOPMENT',
+      coloredTitle: 'High-Performance ',
+      title: 'Mobile App Development Services',
       subtitle:
-        'We specialize in crafting intuitive, user-friendly, and high-performing mobile apps that drive business growth. Whether you need a custom app for iOS, Android, or both, we deliver tailored solutions that enhance user experience and meet your business objectives.',
+        'We engineer high-speed, scalable digital experiences designed to dominate the app market and drive immediate user engagement. Whether you need specialized custom mobile app development services for complex internal operations or versatile cross platform app development to reach broader audiences instantly, our technical team builds the robust architecture modern businesses require to thrive.',
     },
     expertiseData: {
       headingData: {
-        coloredHeading: 'OUR EXPERTISE IN ',
-        heading: 'MOBILE APP DEVELOPMENT',
+        coloredHeading: 'Precision Frameworks ',
+        heading: '& Deployment',
         description:
-          'We specialize in delivering high-performance, scalable, and secure cloud solutions across industries. With Nextloop Technologies, you can rely on our expertise to drive growth and efficiency in your business.',
+          'Our approach centers on creating secure digital ecosystems designed for long-term growth. By utilizing modern tech stacks and agile methodologies, our squads translate complex requirements into fluid, market-ready assets that drive measurable ROI.',
       },
       items: [
         {
           id: 1,
-          title: 'CUSTOM MOBILE APPS:',
+          title: 'React Native Solutions ',
           description:
-            'Smooth and secure migration of your business to the cloud, with minimal disruption and downtime.',
+            'To hit aggressive launch dates without losing native-grade quality, our focus remains on high-performance react native mobile app development. This framework allows for rapid iterations and a consistent experience across all devices while maintaining top-tier responsiveness for a global audience.',
           image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 2,
-          title: 'CLOUD INFRASTRUCTURE MANAGEMENT:',
+          title: 'Flutter Development ',
           description:
-            'From concept to deployment, we design and develop custom apps tailored to your business needs.',
+            'Crafting expressive, visually-led interfaces from a unified codebase involves our core flutter app development services. We leverage high-end UI toolkits to create stunning, pixel-perfect environments that feel completely natural on both iOS and Android platforms simultaneously. ',
           image: FaRegFileAlt,
           dark: false,
         },
         {
           id: 3,
-          title: 'UI/UX DESIGN:',
+          title: 'User-Centric Design',
           description:
-            'We create engaging and intuitive designs that provide an excellent user experience, ensuring your app stands out.',
+            'Fluid interactions prevent user drop-off and ensure long-term brand loyalty. A precision-led mobile app ui ux design workflow secures an intuitive, high-retention journey that guides visitors toward specific conversion goals by removing every point of friction.',
           image: HiOutlineOfficeBuilding,
           dark: false,
         },
         {
           id: 4,
-          title: 'CLOUD INTEGRATION::',
+          title: 'Hybrid Architectures',
           description:
-            'We integrate your mobile app with existing systems and APIs for seamless functionality and smooth operations.',
+            'Achieve broad market reach via hybrid mobile app development services that function flawlessly across diverse operating systems while lowering long-term maintenance overhead. This method utilizes modern web technologies to offer a versatile, cost-effective solution for brands.',
           image: IoCloudUploadOutline,
           dark: true,
         },
         {
           id: 5,
-          title: 'APP MAINTENANCE & SUPPORT:',
+          title: 'iOS Exclusives ',
           description:
-            'We offer ongoing maintenance and support to ensure your app stays updated and performs optimally.',
+            'Where hardware synergy and Apple-specific speed are vital, our ios app development services yield smooth, protected deployments. We prioritize modern coding standards to ensure full compatibility with the latest iPhone features, including advanced security and biometric protocols. ',
           image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 6,
-          title: 'APP PERFORMANCE & OPTIMIZATION:',
+          title: 'Team Augmentation',
           description:
-            'We ensure your app runs smoothly with fast loading times, efficient resource usage, and minimal crashes.',
+            'Need to scale internal capacity instantly to meet a critical milestone? Access our vetted talent pool to hire mobile app developers who integrate with your existing sprints from day one. This flexible model allows you to fill knowledge gaps without any administrative burden. ',
           image: FaRegFileAlt,
           dark: false,
         },
       ],
     },
-    topSteps: [
-      {
-        icon: <Lightbulb className='text-orange-500 w-7 h-7' />,
-        title: 'Consultation & Discovery',
+    processData: {
+      headingData: {
+        heading: 'From Concept to ',
+        coloredHeading: 'Market Deployment',
         description:
-          'We understand your business goals and define app features to fit your needs.',
-        color: 'border-orange-500',
+          'Transparent workflows bridge the gap between your initial vision and a market-ready deployment. This sequence ensures technical accuracy and timeline consistency for every milestone, giving your business complete visibility over the entire lifecycle without any operational friction. ',
       },
-      {
-        icon: <Settings className='text-orange-500 w-7 h-7' />,
-        title: 'UI/UX Design',
+      items: [
+        {
+          icon: <Lightbulb className='text-orange-500 w-7 h-7' />,
+          title: 'Strategic Scoping & Analysis ',
+          description:
+            'Every successful partnership starts with a deep dive into your commercial goals to define a precise project scope and an accurate mobile app development cost. This phase eliminates financial uncertainty and builds the foundation for a robust architecture that perfectly matches your budgetary parameters and long-term targets.',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <Settings className='text-orange-500 w-7 h-7' />,
+          title: ' Behavioral Interface Architecture ',
+          description:
+            'Fluid interactions prevent user drop-off and build brand loyalty naturally. A precision-led mobile app ui ux design workflow secures an intuitive, high-retention journey that guides visitors toward specific conversion goals. By mapping out intricate user personas, our team creates environments that maximize satisfaction by removing every point of friction. ',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <Settings className='text-orange-500 w-7 h-7' />,
+          title: ' Core System Execution',
+          description:
+            'During the production phase, you gain direct access to elite technical skillsets, whether you require a specific android app developer for hire or a full squad. Our workflow integrates these experts into your operations to maintain high-velocity progress, ensuring every feature adheres to global performance standards without compromise. ',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <Search className='text-gray-600 w-7 h-7' />,
+          title: 'Rigorous Performance Vetting',
+          description:
+            'Strict stability checks and multi-device evaluations confirm that the software remains bug-free and responsive under heavy loads. This comprehensive vetting process ensures a secure, high-performance environment that meets the strict security requirements of modern corporate ecosystems and consumer-facing platforms, guaranteeing a flawless experience for your final audience.',
+          color: 'border-gray-500',
+        },
+        {
+          icon: <Rocket className='text-gray-600 w-7 h-7' />,
+          title: 'Market Release Management',
+          description:
+            'The final transition involves official release management overseen by our android app development agency division. We seamlessly manage the entire submission process to major storefronts, guaranteeing that the live environment remains stable and follows all necessary guidelines for a successful public launch and immediate availability to your target users.',
+          color: 'border-gray-500',
+        },
+        {
+          icon: <Rocket className='text-gray-600 w-7 h-7' />,
+          title: ' Visibility & Organic Scaling',
+          description:
+            'Maximizing visibility requires a strategic approach to App Store Optimization and keyword alignment for higher organic rankings. Our experts implement data-driven descriptions and visual assets that capture attention effortlessly, ensuring your product stands out in a crowded market and maintains a steady growth trajectory long after the initial debut.',
+          color: 'border-gray-500',
+        },
+        {
+          icon: <Rocket className='text-gray-600 w-7 h-7' />,
+          title: 'Continuous Lifecycle Optimization',
+          description:
+            'Continuous monitoring and regular updates keep your application running smoothly alongside new OS versions and evolving hardware capabilities. This long-term commitment includes a clear mobile app development contract that outlines ongoing support milestones, ensuring your platform stays secure, fast, and relevant as your user base expands and technologies evolve. ',
+          color: 'border-gray-500',
+        },
+      ],
+    },
+    techStackData: {
+      headingData: {
+        heading: 'Advanced Mobile Application ',
+        coloredHeading: 'Development Technologies',
         description:
-          'We design intuitive, engaging interfaces that reflect your brand.',
-        color: 'border-orange-500',
+          'Building resilient platforms requires strict code discipline. Our developers utilize exact server-side and client-facing languages to guarantee fluid, uninterrupted user sessions regardless of traffic volume.',
       },
-      {
-        icon: <Settings className='text-orange-500 w-7 h-7' />,
-        title: 'App Development',
+      items: [
+        {
+          title: 'FRONTEND',
+          items: [
+            { name: 'AngularJS', image: AngularIcon.src },
+            { name: 'React', image: ReactIcon.src },
+            { name: 'Vue.js', image: VueIcon.src },
+            { name: 'HTML5', image: Html5Icon.src },
+            { name: 'Stencil', image: StencilIcon.src },
+            { name: 'Svelte', image: SvelteIcon.src },
+          ],
+        },
+        {
+          title: 'MOBILE',
+          items: [
+            { name: 'AngularJS', image: androidIcon.src },
+            { name: 'React', image: iosIcon.src },
+            { name: 'Vue.js', image: ionicIcon.src },
+            { name: 'HTML5', image: reactNativeIcon.src },
+            { name: 'Stencil', image: objcIcon.src },
+            { name: 'Svelte', image: flutterIcon.src },
+          ],
+        },
+        {
+          title: 'OPEN SOURCE',
+          items: [
+            { name: 'AngularJS', image: javaIcon.src },
+            { name: 'React', image: nodeIcon.src },
+            { name: 'Vue.js', image: phpIcon.src },
+            { name: 'HTML5', image: pythonIcon.src },
+            { name: 'Stencil', image: rubyIcon.src },
+            { name: 'Svelte', image: golangIcon.src },
+          ],
+        },
+        {
+          title: 'UI/UX',
+          items: [
+            { name: 'AngularJS', image: XDIcon.src },
+            { name: 'React', image: PSIcon.src },
+            { name: 'Vue.js', image: figmaIcon.src },
+            { name: 'HTML5', image: AIIcon.src },
+            { name: 'Stencil', image: seekIcon.src },
+            { name: 'Svelte', image: webflowIcon.src },
+          ],
+        },
+        {
+          title: 'CLOUD',
+          items: [
+            { name: 'AngularJS', image: amazonWebServicesIcon.src },
+            { name: 'React', image: msAzureIcon.src },
+            { name: 'Vue.js', image: googleCloudIcon.src },
+            { name: 'HTML5', image: salesForceIcon.src },
+            { name: 'Stencil', image: ibmCloudIcon.src },
+            { name: 'Svelte', image: digitalOceanIcon.src },
+          ],
+        },
+        {
+          title: 'BLOCKCHAIN',
+          items: [
+            { name: 'AngularJS', image: solidityIcon.src },
+            { name: 'React', image: web3Icon.src },
+            { name: 'Vue.js', image: etherjsIcon.src },
+            { name: 'HTML5', image: ethereumIcon.src },
+            { name: 'Stencil', image: fabricIcon.src },
+            { name: 'Svelte', image: solanaIcon.src },
+          ],
+        },
+        {
+          title: 'OTHERS',
+          items: [
+            { name: 'AngularJS', image: uiPathIcon.src },
+            { name: 'React', image: drupalIcon.src },
+            { name: 'Vue.js', image: sapIcon.src },
+            { name: 'HTML5', image: googleAnalyticsIcon.src },
+            { name: 'Stencil', image: vrarIcon.src },
+            { name: 'Svelte', image: salesforceIcon.src },
+          ],
+        },
+        {
+          title: 'AI & ML',
+          items: [
+            { name: 'AngularJS', image: pythonIcon.src },
+            { name: 'React', image: tensorFlowIcon.src },
+            { name: 'Vue.js', image: openCvIcon.src },
+            { name: 'HTML5', image: pytorchIcon.src },
+            { name: 'Stencil', image: sparkIcon.src },
+            { name: 'Svelte', image: mahoutIcon.src },
+          ],
+        },
+      ],
+    },
+    whyChooseUsData: {
+      headingData: {
+        coloredHeading: 'Strategic Mobile ',
+        heading: 'Software Delivery ',
         description:
-          'Our developers build secure, fast, and responsive apps using the latest technologies.',
-        color: 'border-orange-500',
+          'Selecting the right technical partner mitigates risk and ensures your product reaches the market on schedule. Our approach combines rigorous code discipline with transparent workflows to guarantee a flawless final deployment that drives actual business growth. ',
       },
-    ],
-    bottomSteps: [
-      {
-        icon: <Search className='text-gray-600 w-7 h-7' />,
-        title: 'Testing & Quality Assurance',
-        description:
-          'We rigorously test your app to ensure it works smoothly across all devices.',
-        color: 'border-gray-500',
-      },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Launch & Deployment',
-        description:
-          'We deploy your app to Google Play and Apple App stores after testing.',
-        color: 'border-gray-500',
-      },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Marketing & ASO',
-        description:
-          'Enhancing visibility with SEO-friendly descriptions, keywords, and user engagement strategies.',
-        color: 'border-gray-500',
-      },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Maintenance & Support',
-        description:
-          'We provide ongoing support to keep your app updated and functional.',
-        color: 'border-gray-500',
-      },
-    ],
-    techStackData: [
-      {
-        title: 'FRONTEND',
-        items: [
-          { name: 'AngularJS', image: AngularIcon.src },
-          { name: 'React', image: ReactIcon.src },
-          { name: 'Vue.js', image: VueIcon.src },
-          { name: 'HTML5', image: Html5Icon.src },
-          { name: 'Stencil', image: StencilIcon.src },
-          { name: 'Svelte', image: SvelteIcon.src },
-        ],
-      },
-      {
-        title: 'MOBILE',
-        items: [
-          { name: 'AngularJS', image: androidIcon.src },
-          { name: 'React', image: iosIcon.src },
-          { name: 'Vue.js', image: ionicIcon.src },
-          { name: 'HTML5', image: reactNativeIcon.src },
-          { name: 'Stencil', image: objcIcon.src },
-          { name: 'Svelte', image: flutterIcon.src },
-        ],
-      },
-      {
-        title: 'OPEN SOURCE',
-        items: [
-          { name: 'AngularJS', image: javaIcon.src },
-          { name: 'React', image: nodeIcon.src },
-          { name: 'Vue.js', image: phpIcon.src },
-          { name: 'HTML5', image: pythonIcon.src },
-          { name: 'Stencil', image: rubyIcon.src },
-          { name: 'Svelte', image: golangIcon.src },
-        ],
-      },
-      {
-        title: 'UI/UX',
-        items: [
-          { name: 'AngularJS', image: XDIcon.src },
-          { name: 'React', image: PSIcon.src },
-          { name: 'Vue.js', image: figmaIcon.src },
-          { name: 'HTML5', image: AIIcon.src },
-          { name: 'Stencil', image: seekIcon.src },
-          { name: 'Svelte', image: webflowIcon.src },
-        ],
-      },
-      {
-        title: 'CLOUD',
-        items: [
-          { name: 'AngularJS', image: amazonWebServicesIcon.src },
-          { name: 'React', image: msAzureIcon.src },
-          { name: 'Vue.js', image: googleCloudIcon.src },
-          { name: 'HTML5', image: salesForceIcon.src },
-          { name: 'Stencil', image: ibmCloudIcon.src },
-          { name: 'Svelte', image: digitalOceanIcon.src },
-        ],
-      },
-      {
-        title: 'BLOCKCHAIN',
-        items: [
-          { name: 'AngularJS', image: solidityIcon.src },
-          { name: 'React', image: web3Icon.src },
-          { name: 'Vue.js', image: etherjsIcon.src },
-          { name: 'HTML5', image: ethereumIcon.src },
-          { name: 'Stencil', image: fabricIcon.src },
-          { name: 'Svelte', image: solanaIcon.src },
-        ],
-      },
-      {
-        title: 'OTHERS',
-        items: [
-          { name: 'AngularJS', image: uiPathIcon.src },
-          { name: 'React', image: drupalIcon.src },
-          { name: 'Vue.js', image: sapIcon.src },
-          { name: 'HTML5', image: googleAnalyticsIcon.src },
-          { name: 'Stencil', image: vrarIcon.src },
-          { name: 'Svelte', image: salesforceIcon.src },
-        ],
-      },
-      {
-        title: 'AI & ML',
-        items: [
-          { name: 'AngularJS', image: pythonIcon.src },
-          { name: 'React', image: tensorFlowIcon.src },
-          { name: 'Vue.js', image: openCvIcon.src },
-          { name: 'HTML5', image: pytorchIcon.src },
-          { name: 'Stencil', image: sparkIcon.src },
-          { name: 'Svelte', image: mahoutIcon.src },
-        ],
-      },
-    ],
-    whyChooseUsData: [
-      {
-        id: 1,
-        title: 'TAILORED SOLUTIONS FOR YOUR BUSINESS',
-        descp:
-          'We create custom apps that align with your unique business goals.',
-        icon: MdOutlineAddLocation,
-      },
-      {
-        id: 2,
-        title: 'EXPERT DEVELOPERS',
-        descp:
-          'Our skilled team builds secure, high-performing apps with the latest technologies.',
-        icon: PiExcludeSquareDuotone,
-      },
-      {
-        id: 3,
-        title: 'END-TO-END SERVICES',
-        descp:
-          'We manage the entire app process, from idea to deployment and support.',
-        icon: PiEyeBold,
-      },
-      {
-        id: 4,
-        title: 'FOCUS ON USER EXPERIENCE',
-        descp:
-          'We design apps that are intuitive and user-friendly for seamless experiences.',
-        icon: MdOutlineAddLocation,
-      },
-      {
-        id: 5,
-        title: 'SCALABLE SOLUTIONS',
-        descp:
-          'Our apps grow with your business, whether you’re a startup or an enterprise.',
-        icon: PiExcludeSquareDuotone,
-      },
-      {
-        id: 6,
-        title: 'AGILE DEVELOPMENT PROCESS',
-        descp:
-          'We use agile methods for flexible, fast development that adapts to your needs.',
-        icon: PiEyeBold,
-      },
-    ],
+      items: [
+        {
+          id: 1,
+          title: 'Custom Commercial Systems',
+          descp:
+            'We construct bespoke digital platforms that align directly with specific commercial objectives. This targeted approach to enterprise mobile app development ensures every feature drives measurable ROI while seamlessly integrating with your existing daily operations. ',
+          icon: MdOutlineAddLocation,
+        },
+        {
+          id: 2,
+          title: 'Elite Technical Talent',
+          descp:
+            'Our standing among the top app development companies is driven by our vetted talent pool. We build secure, high-performing applications using advanced coding languages, guaranteeing your product remains fast, reliable, and completely crash-resistant. ',
+          icon: PiExcludeSquareDuotone,
+        },
+        {
+          id: 3,
+          title: 'Full-Lifecycle Management ',
+          descp:
+            'As detailed across our mobile app development company website, we oversee the entire production pipeline from conceptualization to post-launch optimization. This comprehensive oversight removes administrative burdens and guarantees a smooth, predictable delivery schedule.',
+          icon: PiEyeBold,
+        },
+        {
+          id: 4,
+          title: 'Frictionless Digital Journeys',
+          descp:
+            'Superior functionality means nothing if the end-user abandons the screen due to poor navigation. Our design workflow prioritizes intuitive layouts and clear conversion paths to maximize long-term retention rates effortlessly and intuitively.',
+          icon: MdOutlineAddLocation,
+        },
+        {
+          id: 5,
+          title: 'High-Capacity Infrastructure',
+          descp:
+            'As your user base expands, your digital assets must accommodate increased traffic without any performance drops. We build robust systems that grow effortlessly alongside your organization, ensuring zero latency during peak demand. ',
+          icon: PiExcludeSquareDuotone,
+        },
+        {
+          id: 6,
+          title: 'Adaptive Sprint Methodology',
+          descp:
+            'Utilizing flexible iteration cycles allows our teams to pivot rapidly when market conditions or commercial requirements change. This iterative approach ensures high-velocity progress while maintaining strict adherence to your overall timeline and budget.',
+          icon: PiEyeBold,
+        },
+      ],
+    },
     areaOfExpertiseData: {
-      mainHeader: 'OUR AREAS OF EXPERTISE',
+      mainHeader: 'Apps That Command Your Industry',
       mainDescription:
-        "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
+        'Navigating a crowded market requires a product that stands out instantly. We design and launch mobile platforms tailored to your specific vertical, ensuring your brand delivers a flawless experience from the very first tap. ',
       items: staticServices,
     },
     faqsContent: [
       {
         id: 1,
-        question: 'What types of mobile apps do you develop?',
+        question:
+          ' What is the typical timeline for launching a custom application?',
         answer:
-          'We specialize in custom mobile apps for both iOS and Android, including native, hybrid, and cross-platform solutions.',
+          'Timelines scale with project complexity. A standard build may take three months, while a secure, high-volume retail platform executed by an ecommerce app development company typically requires six months to guarantee flawless inventory synchronization and payment security.',
       },
       {
         id: 2,
-        question: 'HOW LONG DOES IT TAKE TO DEVELOP A MOBILE APP?',
+        question: 'How do you determine the budget for a new project? ',
         answer:
-          'The timeline depends on the complexity and features of your app. Typically, development can take a few weeks to a few months.',
+          'We map exact features and system integrations before writing a single line of code. Operating as a transparent mobile app development company in usa, our priority is establishing a precise, locked-in estimate upfront to eliminate hidden fees and financial uncertainty. ',
       },
       {
         id: 3,
-        question: 'WILL MY APP BE ON BOTH GOOGLE PLAY AND THE APPLE APP STORE?',
+        question:
+          'Where is your team located, and how does communication work?',
         answer:
-          'Yes, we ensure your app is deployed to both platforms after thorough testing and quality assurance.',
+          'We operate a dual-delivery model for maximum operational efficiency. You receive the local accountability of a top mobile app development company in usa, seamlessly integrated with the high-capacity scaling of an app development company in india to ensure round-the-clock progress. ',
       },
       {
         id: 4,
-        question: 'DO YOU PROVIDE POST-LAUNCH SUPPORT FOR MY MOBILE-APP',
+        question:
+          ' Who owns the intellectual property and source code after deployment? ',
         answer:
-          'Yes, we offer ongoing maintenance and support to ensure your app stays updated and performs optimally.',
+          'Your organization retains 100% ownership of the final product. Upon successful deployment, all source code, visual assets, and intellectual property rights are officially and permanently transferred to your business. ',
+      },
+      {
+        id: 5,
+        question: ' How do you handle data security and compliance?',
+        answer:
+          'Security forms the core foundation of our architecture, rather than an afterthought. Our developers enforce strict international compliance standards and end-to-end encryption to protect user data and meet all industry-specific regulatory requirements. ',
+      },
+      {
+        id: 6,
+        question:
+          ' What happens after the application goes live on the app stores? ',
+        answer:
+          'Deployment initiates our ongoing lifecycle optimization phase. We establish continuous maintenance protocols to manage OS updates, security patches, and server scaling, ensuring your platform remains fast and secure as your traffic grows. ',
+      },
+    ],
+    processSteps: [
+      {
+        title: 'Consultation & DiscoverYy',
+        paragraphs: [
+          'We understand your business goals and define app features to fit your needs.',
+        ],
+      },
+      {
+        title: 'UI/UX Design',
+        paragraphs: [
+          'We design intuitive, engaging interfaces that reflect your brand.',
+        ],
+      },
+      {
+        title: 'App Development',
+        paragraphs: [
+          'Our developers build secure, fast, and responsive apps using the latest technologies.',
+        ],
+      },
+      {
+        title: 'Testing & Quality Assurance',
+        paragraphs: [
+          'We rigorously test your app to ensure it works smoothly across all devices.',
+        ],
+      },
+      {
+        title: 'Launch & Deployment',
+        paragraphs: [
+          'We deploy your app to Google Play and Apple App stores after testing.',
+        ],
+      },
+      {
+        title: 'Marketing & ASO',
+        paragraphs: [
+          'Enhancing visibility with SEO-friendly descriptions, keywords, and user engagement strategies.',
+        ],
+      },
+      {
+        title: 'Maintenance & Support',
+        paragraphs: [
+          'We provide ongoing support to keep your app updated and functional.',
+        ],
       },
     ],
   },
   aimlSolutions: {
     metaData: {
-      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
+      pageMetaTitle: 'Generative AI Development Company | Hire AI Developers',
       pageMetaDescription:
-        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Nextloop is a leading Generative AI development company. Hire AI developers to build custom LLMs, RAG pipelines, and enterprise-grade AI/ML solutions.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
@@ -1577,190 +1709,205 @@ export const servicesSubPagesData = {
         },
       ],
     },
-    topSteps: [
-      {
-        icon: <Lightbulb className='text-orange-500 w-7 h-7' />,
-        title: 'Understanding Your Needs',
-        description: 'We analyze your business challenges and objectives.',
-        color: 'border-orange-500',
+    processData: {
+      headingData: {
+        heading: 'Our ',
+        coloredHeading: 'AI & ML Development Process',
       },
-      {
-        icon: <Settings className='text-orange-500 w-7 h-7' />,
-        title: 'Data Collection & Processing',
-        description: 'Cleaning and preparing data for AI models.',
-        color: 'border-orange-500',
-      },
-      {
-        icon: <Settings className='text-orange-500 w-7 h-7' />,
-        title: 'Model Development & Training',
-        description: 'Creating AI solutions customized to your requirements.',
-        color: 'border-orange-500',
-      },
-    ],
-    bottomSteps: [
-      {
-        icon: <Search className='text-gray-600 w-7 h-7' />,
-        title: 'Testing & Quality Assurance',
+      items: [
+        {
+          icon: <Lightbulb className='text-orange-500 w-7 h-7' />,
+          title: 'Understanding Your Needs',
+          description: 'We analyze your business challenges and objectives.',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <Settings className='text-orange-500 w-7 h-7' />,
+          title: 'Data Collection & Processing',
+          description: 'Cleaning and preparing data for AI models.',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <Settings className='text-orange-500 w-7 h-7' />,
+          title: 'Model Development & Training',
+          description: 'Creating AI solutions customized to your requirements.',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <Search className='text-gray-600 w-7 h-7' />,
+          title: 'Testing & Quality Assurance',
+          description:
+            'We rigorously test your app to ensure it works smoothly across all devices.',
+          color: 'border-gray-500',
+        },
+        {
+          icon: <Rocket className='text-gray-600 w-7 h-7' />,
+          title: 'Launch & Deployment',
+          description:
+            'We deploy your app to Google Play and Apple App stores after testing.',
+          color: 'border-gray-500',
+        },
+        {
+          icon: <Rocket className='text-gray-600 w-7 h-7' />,
+          title: 'Marketing & ASO',
+          description:
+            'Enhancing visibility with SEO-friendly descriptions, keywords, and user engagement strategies.',
+          color: 'border-gray-500',
+        },
+        {
+          icon: <Rocket className='text-gray-600 w-7 h-7' />,
+          title: 'Maintenance & Support',
+          description:
+            'We provide ongoing support to keep your app updated and functional.',
+          color: 'border-gray-500',
+        },
+      ],
+    },
+
+    techStackData: {
+      headingData: {
+        heading: 'OUR',
+        coloredHeading: 'TECH STACK',
         description:
-          'We rigorously test your app to ensure it works smoothly across all devices.',
-        color: 'border-gray-500',
+          'We leverage cutting-edge technologies to build robust solutions.',
       },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Launch & Deployment',
-        description:
-          'We deploy your app to Google Play and Apple App stores after testing.',
-        color: 'border-gray-500',
-      },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Marketing & ASO',
-        description:
-          'Enhancing visibility with SEO-friendly descriptions, keywords, and user engagement strategies.',
-        color: 'border-gray-500',
-      },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Maintenance & Support',
-        description:
-          'We provide ongoing support to keep your app updated and functional.',
-        color: 'border-gray-500',
-      },
-    ],
-    techStackData: [
-      {
-        title: 'FRONTEND',
-        items: [
-          { name: 'AngularJS', image: AngularIcon.src },
-          { name: 'React', image: ReactIcon.src },
-          { name: 'Vue.js', image: VueIcon.src },
-          { name: 'HTML5', image: Html5Icon.src },
-          { name: 'Stencil', image: StencilIcon.src },
-          { name: 'Svelte', image: SvelteIcon.src },
-        ],
-      },
-      {
-        title: 'MOBILE',
-        items: [
-          { name: 'AngularJS', image: androidIcon.src },
-          { name: 'React', image: iosIcon.src },
-          { name: 'Vue.js', image: ionicIcon.src },
-          { name: 'HTML5', image: reactNativeIcon.src },
-          { name: 'Stencil', image: objcIcon.src },
-          { name: 'Svelte', image: flutterIcon.src },
-        ],
-      },
-      {
-        title: 'OPEN SOURCE',
-        items: [
-          { name: 'AngularJS', image: javaIcon.src },
-          { name: 'React', image: nodeIcon.src },
-          { name: 'Vue.js', image: phpIcon.src },
-          { name: 'HTML5', image: pythonIcon.src },
-          { name: 'Stencil', image: rubyIcon.src },
-          { name: 'Svelte', image: golangIcon.src },
-        ],
-      },
-      {
-        title: 'UI/UX',
-        items: [
-          { name: 'AngularJS', image: XDIcon.src },
-          { name: 'React', image: PSIcon.src },
-          { name: 'Vue.js', image: figmaIcon.src },
-          { name: 'HTML5', image: AIIcon.src },
-          { name: 'Stencil', image: seekIcon.src },
-          { name: 'Svelte', image: webflowIcon.src },
-        ],
-      },
-      {
-        title: 'CLOUD',
-        items: [
-          { name: 'AngularJS', image: amazonWebServicesIcon.src },
-          { name: 'React', image: msAzureIcon.src },
-          { name: 'Vue.js', image: googleCloudIcon.src },
-          { name: 'HTML5', image: salesForceIcon.src },
-          { name: 'Stencil', image: ibmCloudIcon.src },
-          { name: 'Svelte', image: digitalOceanIcon.src },
-        ],
-      },
-      {
-        title: 'BLOCKCHAIN',
-        items: [
-          { name: 'AngularJS', image: solidityIcon.src },
-          { name: 'React', image: web3Icon.src },
-          { name: 'Vue.js', image: etherjsIcon.src },
-          { name: 'HTML5', image: ethereumIcon.src },
-          { name: 'Stencil', image: fabricIcon.src },
-          { name: 'Svelte', image: solanaIcon.src },
-        ],
-      },
-      {
-        title: 'OTHERS',
-        items: [
-          { name: 'AngularJS', image: uiPathIcon.src },
-          { name: 'React', image: drupalIcon.src },
-          { name: 'Vue.js', image: sapIcon.src },
-          { name: 'HTML5', image: googleAnalyticsIcon.src },
-          { name: 'Stencil', image: vrarIcon.src },
-          { name: 'Svelte', image: salesforceIcon.src },
-        ],
-      },
-      {
-        title: 'AI & ML',
-        items: [
-          { name: 'AngularJS', image: pythonIcon.src },
-          { name: 'React', image: tensorFlowIcon.src },
-          { name: 'Vue.js', image: openCvIcon.src },
-          { name: 'HTML5', image: pytorchIcon.src },
-          { name: 'Stencil', image: sparkIcon.src },
-          { name: 'Svelte', image: mahoutIcon.src },
-        ],
-      },
-    ],
-    whyChooseUsData: [
-      {
-        id: 1,
-        title: 'TAILORED SOLUTIONS FOR YOUR BUSINESS',
-        descp:
-          'We create custom apps that align with your unique business goals.',
-        icon: MdOutlineAddLocation,
-      },
-      {
-        id: 2,
-        title: 'EXPERT DEVELOPERS',
-        descp:
-          'Our skilled team builds secure, high-performing apps with the latest technologies.',
-        icon: PiExcludeSquareDuotone,
-      },
-      {
-        id: 3,
-        title: 'END-TO-END SERVICES',
-        descp:
-          'We manage the entire app process, from idea to deployment and support.',
-        icon: PiEyeBold,
-      },
-      {
-        id: 4,
-        title: 'FOCUS ON USER EXPERIENCE',
-        descp:
-          'We design apps that are intuitive and user-friendly for seamless experiences.',
-        icon: MdOutlineAddLocation,
-      },
-      {
-        id: 5,
-        title: 'SCALABLE SOLUTIONS',
-        descp:
-          'Our apps grow with your business, whether you’re a startup or an enterprise.',
-        icon: PiExcludeSquareDuotone,
-      },
-      {
-        id: 6,
-        title: 'AGILE DEVELOPMENT PROCESS',
-        descp:
-          'We use agile methods for flexible, fast development that adapts to your needs.',
-        icon: PiEyeBold,
-      },
-    ],
+      items: [
+        {
+          title: 'FRONTEND',
+          items: [
+            { name: 'AngularJS', image: AngularIcon.src },
+            { name: 'React', image: ReactIcon.src },
+            { name: 'Vue.js', image: VueIcon.src },
+            { name: 'HTML5', image: Html5Icon.src },
+            { name: 'Stencil', image: StencilIcon.src },
+            { name: 'Svelte', image: SvelteIcon.src },
+          ],
+        },
+        {
+          title: 'MOBILE',
+          items: [
+            { name: 'AngularJS', image: androidIcon.src },
+            { name: 'React', image: iosIcon.src },
+            { name: 'Vue.js', image: ionicIcon.src },
+            { name: 'HTML5', image: reactNativeIcon.src },
+            { name: 'Stencil', image: objcIcon.src },
+            { name: 'Svelte', image: flutterIcon.src },
+          ],
+        },
+        {
+          title: 'OPEN SOURCE',
+          items: [
+            { name: 'AngularJS', image: javaIcon.src },
+            { name: 'React', image: nodeIcon.src },
+            { name: 'Vue.js', image: phpIcon.src },
+            { name: 'HTML5', image: pythonIcon.src },
+            { name: 'Stencil', image: rubyIcon.src },
+            { name: 'Svelte', image: golangIcon.src },
+          ],
+        },
+        {
+          title: 'UI/UX',
+          items: [
+            { name: 'AngularJS', image: XDIcon.src },
+            { name: 'React', image: PSIcon.src },
+            { name: 'Vue.js', image: figmaIcon.src },
+            { name: 'HTML5', image: AIIcon.src },
+            { name: 'Stencil', image: seekIcon.src },
+            { name: 'Svelte', image: webflowIcon.src },
+          ],
+        },
+        {
+          title: 'CLOUD',
+          items: [
+            { name: 'AngularJS', image: amazonWebServicesIcon.src },
+            { name: 'React', image: msAzureIcon.src },
+            { name: 'Vue.js', image: googleCloudIcon.src },
+            { name: 'HTML5', image: salesForceIcon.src },
+            { name: 'Stencil', image: ibmCloudIcon.src },
+            { name: 'Svelte', image: digitalOceanIcon.src },
+          ],
+        },
+        {
+          title: 'BLOCKCHAIN',
+          items: [
+            { name: 'AngularJS', image: solidityIcon.src },
+            { name: 'React', image: web3Icon.src },
+            { name: 'Vue.js', image: etherjsIcon.src },
+            { name: 'HTML5', image: ethereumIcon.src },
+            { name: 'Stencil', image: fabricIcon.src },
+            { name: 'Svelte', image: solanaIcon.src },
+          ],
+        },
+        {
+          title: 'OTHERS',
+          items: [
+            { name: 'AngularJS', image: uiPathIcon.src },
+            { name: 'React', image: drupalIcon.src },
+            { name: 'Vue.js', image: sapIcon.src },
+            { name: 'HTML5', image: googleAnalyticsIcon.src },
+            { name: 'Stencil', image: vrarIcon.src },
+            { name: 'Svelte', image: salesforceIcon.src },
+          ],
+        },
+        {
+          title: 'AI & ML',
+          items: [
+            { name: 'AngularJS', image: pythonIcon.src },
+            { name: 'React', image: tensorFlowIcon.src },
+            { name: 'Vue.js', image: openCvIcon.src },
+            { name: 'HTML5', image: pytorchIcon.src },
+            { name: 'Stencil', image: sparkIcon.src },
+            { name: 'Svelte', image: mahoutIcon.src },
+          ],
+        },
+      ],
+    },
+    whyChooseUsData: {
+      items: [
+        {
+          id: 1,
+          title: 'TAILORED SOLUTIONS FOR YOUR BUSINESS',
+          descp:
+            'We create custom apps that align with your unique business goals.',
+          icon: MdOutlineAddLocation,
+        },
+        {
+          id: 2,
+          title: 'EXPERT DEVELOPERS',
+          descp:
+            'Our skilled team builds secure, high-performing apps with the latest technologies.',
+          icon: PiExcludeSquareDuotone,
+        },
+        {
+          id: 3,
+          title: 'END-TO-END SERVICES',
+          descp:
+            'We manage the entire app process, from idea to deployment and support.',
+          icon: PiEyeBold,
+        },
+        {
+          id: 4,
+          title: 'FOCUS ON USER EXPERIENCE',
+          descp:
+            'We design apps that are intuitive and user-friendly for seamless experiences.',
+          icon: MdOutlineAddLocation,
+        },
+        {
+          id: 5,
+          title: 'SCALABLE SOLUTIONS',
+          descp:
+            'Our apps grow with your business, whether you’re a startup or an enterprise.',
+          icon: PiExcludeSquareDuotone,
+        },
+        {
+          id: 6,
+          title: 'AGILE DEVELOPMENT PROCESS',
+          descp:
+            'We use agile methods for flexible, fast development that adapts to your needs.',
+          icon: PiEyeBold,
+        },
+      ],
+    },
     areaOfExpertiseData: {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
@@ -1902,135 +2049,145 @@ export const servicesSubPagesData = {
         color: 'border-gray-500',
       },
     ],
-    techStackData: [
-      {
-        title: 'FRONTEND',
-        items: [
-          { name: 'AngularJS', image: AngularIcon.src },
-          { name: 'React', image: ReactIcon.src },
-          { name: 'Vue.js', image: VueIcon.src },
-          { name: 'HTML5', image: Html5Icon.src },
-          { name: 'Stencil', image: StencilIcon.src },
-          { name: 'Svelte', image: SvelteIcon.src },
-        ],
+    techStackData: {
+      headingData: {
+        heading: 'OUR',
+        coloredHeading: 'TECH STACK',
+        description:
+          'We leverage cutting-edge technologies to build robust solutions.',
       },
-      {
-        title: 'MOBILE',
-        items: [
-          { name: 'AngularJS', image: androidIcon.src },
-          { name: 'React', image: iosIcon.src },
-          { name: 'Vue.js', image: ionicIcon.src },
-          { name: 'HTML5', image: reactNativeIcon.src },
-          { name: 'Stencil', image: objcIcon.src },
-          { name: 'Svelte', image: flutterIcon.src },
-        ],
-      },
-      {
-        title: 'OPEN SOURCE',
-        items: [
-          { name: 'AngularJS', image: javaIcon.src },
-          { name: 'React', image: nodeIcon.src },
-          { name: 'Vue.js', image: phpIcon.src },
-          { name: 'HTML5', image: pythonIcon.src },
-          { name: 'Stencil', image: rubyIcon.src },
-          { name: 'Svelte', image: golangIcon.src },
-        ],
-      },
-      {
-        title: 'UI/UX',
-        items: [
-          { name: 'AngularJS', image: XDIcon.src },
-          { name: 'React', image: PSIcon.src },
-          { name: 'Vue.js', image: figmaIcon.src },
-          { name: 'HTML5', image: AIIcon.src },
-          { name: 'Stencil', image: seekIcon.src },
-          { name: 'Svelte', image: webflowIcon.src },
-        ],
-      },
-      {
-        title: 'CLOUD',
-        items: [
-          { name: 'AngularJS', image: amazonWebServicesIcon.src },
-          { name: 'React', image: msAzureIcon.src },
-          { name: 'Vue.js', image: googleCloudIcon.src },
-          { name: 'HTML5', image: salesForceIcon.src },
-          { name: 'Stencil', image: ibmCloudIcon.src },
-          { name: 'Svelte', image: digitalOceanIcon.src },
-        ],
-      },
-      {
-        title: 'BLOCKCHAIN',
-        items: [
-          { name: 'AngularJS', image: solidityIcon.src },
-          { name: 'React', image: web3Icon.src },
-          { name: 'Vue.js', image: etherjsIcon.src },
-          { name: 'HTML5', image: ethereumIcon.src },
-          { name: 'Stencil', image: fabricIcon.src },
-          { name: 'Svelte', image: solanaIcon.src },
-        ],
-      },
-      {
-        title: 'OTHERS',
-        items: [
-          { name: 'AngularJS', image: uiPathIcon.src },
-          { name: 'React', image: drupalIcon.src },
-          { name: 'Vue.js', image: sapIcon.src },
-          { name: 'HTML5', image: googleAnalyticsIcon.src },
-          { name: 'Stencil', image: vrarIcon.src },
-          { name: 'Svelte', image: salesforceIcon.src },
-        ],
-      },
-      {
-        title: 'AI & ML',
-        items: [
-          { name: 'AngularJS', image: pythonIcon.src },
-          { name: 'React', image: tensorFlowIcon.src },
-          { name: 'Vue.js', image: openCvIcon.src },
-          { name: 'HTML5', image: pytorchIcon.src },
-          { name: 'Stencil', image: sparkIcon.src },
-          { name: 'Svelte', image: mahoutIcon.src },
-        ],
-      },
-    ],
-    whyChooseUsData: [
-      {
-        id: 1,
-        title: 'Custom & Scalable Solutions',
-        descp: 'Built for startups, small businesses, and enterprises.',
-        icon: MdOutlineAddLocation,
-      },
-      {
-        id: 2,
-        title: 'SEO & Mobile Optimized',
-        descp: 'Drive traffic and ensure a seamless mobile experience.',
-        icon: PiExcludeSquareDuotone,
-      },
-      {
-        id: 3,
-        title: 'Secure & Reliable',
-        descp: 'High security, fast performance, and smooth transactions.',
-        icon: PiEyeBold,
-      },
-      {
-        id: 4,
-        title: 'Easy Management',
-        descp: 'User-friendly admin panel for hassle-free store management.',
-        icon: MdOutlineAddLocation,
-      },
-      {
-        id: 5,
-        title: 'End-to-End Support',
-        descp: 'From development to maintenance and growth.',
-        icon: PiExcludeSquareDuotone,
-      },
-      {
-        id: 6,
-        title: 'Proven Success & Innovation',
-        descp:
-          'Leverage AI and analytics to understand customer behavior and optimize sales strategies.',
-        icon: PiEyeBold,
-      },
-    ],
+      items: [
+        {
+          title: 'FRONTEND',
+          items: [
+            { name: 'AngularJS', image: AngularIcon.src },
+            { name: 'React', image: ReactIcon.src },
+            { name: 'Vue.js', image: VueIcon.src },
+            { name: 'HTML5', image: Html5Icon.src },
+            { name: 'Stencil', image: StencilIcon.src },
+            { name: 'Svelte', image: SvelteIcon.src },
+          ],
+        },
+        {
+          title: 'MOBILE',
+          items: [
+            { name: 'AngularJS', image: androidIcon.src },
+            { name: 'React', image: iosIcon.src },
+            { name: 'Vue.js', image: ionicIcon.src },
+            { name: 'HTML5', image: reactNativeIcon.src },
+            { name: 'Stencil', image: objcIcon.src },
+            { name: 'Svelte', image: flutterIcon.src },
+          ],
+        },
+        {
+          title: 'OPEN SOURCE',
+          items: [
+            { name: 'AngularJS', image: javaIcon.src },
+            { name: 'React', image: nodeIcon.src },
+            { name: 'Vue.js', image: phpIcon.src },
+            { name: 'HTML5', image: pythonIcon.src },
+            { name: 'Stencil', image: rubyIcon.src },
+            { name: 'Svelte', image: golangIcon.src },
+          ],
+        },
+        {
+          title: 'UI/UX',
+          items: [
+            { name: 'AngularJS', image: XDIcon.src },
+            { name: 'React', image: PSIcon.src },
+            { name: 'Vue.js', image: figmaIcon.src },
+            { name: 'HTML5', image: AIIcon.src },
+            { name: 'Stencil', image: seekIcon.src },
+            { name: 'Svelte', image: webflowIcon.src },
+          ],
+        },
+        {
+          title: 'CLOUD',
+          items: [
+            { name: 'AngularJS', image: amazonWebServicesIcon.src },
+            { name: 'React', image: msAzureIcon.src },
+            { name: 'Vue.js', image: googleCloudIcon.src },
+            { name: 'HTML5', image: salesForceIcon.src },
+            { name: 'Stencil', image: ibmCloudIcon.src },
+            { name: 'Svelte', image: digitalOceanIcon.src },
+          ],
+        },
+        {
+          title: 'BLOCKCHAIN',
+          items: [
+            { name: 'AngularJS', image: solidityIcon.src },
+            { name: 'React', image: web3Icon.src },
+            { name: 'Vue.js', image: etherjsIcon.src },
+            { name: 'HTML5', image: ethereumIcon.src },
+            { name: 'Stencil', image: fabricIcon.src },
+            { name: 'Svelte', image: solanaIcon.src },
+          ],
+        },
+        {
+          title: 'OTHERS',
+          items: [
+            { name: 'AngularJS', image: uiPathIcon.src },
+            { name: 'React', image: drupalIcon.src },
+            { name: 'Vue.js', image: sapIcon.src },
+            { name: 'HTML5', image: googleAnalyticsIcon.src },
+            { name: 'Stencil', image: vrarIcon.src },
+            { name: 'Svelte', image: salesforceIcon.src },
+          ],
+        },
+        {
+          title: 'AI & ML',
+          items: [
+            { name: 'AngularJS', image: pythonIcon.src },
+            { name: 'React', image: tensorFlowIcon.src },
+            { name: 'Vue.js', image: openCvIcon.src },
+            { name: 'HTML5', image: pytorchIcon.src },
+            { name: 'Stencil', image: sparkIcon.src },
+            { name: 'Svelte', image: mahoutIcon.src },
+          ],
+        },
+      ],
+    },
+    whyChooseUsData: {
+      items: [
+        {
+          id: 1,
+          title: 'Custom & Scalable Solutions',
+          descp: 'Built for startups, small businesses, and enterprises.',
+          icon: MdOutlineAddLocation,
+        },
+        {
+          id: 2,
+          title: 'SEO & Mobile Optimized',
+          descp: 'Drive traffic and ensure a seamless mobile experience.',
+          icon: PiExcludeSquareDuotone,
+        },
+        {
+          id: 3,
+          title: 'Secure & Reliable',
+          descp: 'High security, fast performance, and smooth transactions.',
+          icon: PiEyeBold,
+        },
+        {
+          id: 4,
+          title: 'Easy Management',
+          descp: 'User-friendly admin panel for hassle-free store management.',
+          icon: MdOutlineAddLocation,
+        },
+        {
+          id: 5,
+          title: 'End-to-End Support',
+          descp: 'From development to maintenance and growth.',
+          icon: PiExcludeSquareDuotone,
+        },
+        {
+          id: 6,
+          title: 'Proven Success & Innovation',
+          descp:
+            'Leverage AI and analytics to understand customer behavior and optimize sales strategies.',
+          icon: PiEyeBold,
+        },
+      ],
+    },
     areaOfExpertiseData: {
       mainHeader: 'OUR AREAS OF EXPERTISE',
       mainDescription:
@@ -2072,66 +2229,70 @@ export const servicesSubPagesData = {
   },
   digitalMarketingServices: {
     metaData: {
-      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
+      pageMetaTitle: 'Best Performance Marketing & SEO Services India',
       pageMetaDescription:
-        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Boost brand awareness with Nextloop Technologies. Our performance marketing strategy combines SEO, paid promotion, and targeted lead generation to drive growth.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
-      coloredTitle: 'DIGITAL MARKETING ',
-      title: 'SERVICES',
+      coloredTitle: 'Data-Driven Digital Marketing ',
+      title: 'That Grows Your Revenue',
       subtitle:
-        'Digital marketing is the promotion of products, services, or brands using online channels like search engines, social media, email, and websites. It helps businesses reach their target audience, increase brand awareness, and drive sales. In today’s digital world, having a strong online presence is essential for business success. We provide expert digital marketing solutions that help you grow your brand, attract customers, and increase revenue. From SEO to social media marketing, we use data-driven strategies to boost your business online.',
+        'A strong online presence should do more than just look good—it needs to generate actual revenue. Whether you are a national brand looking for a global digital marketing agency or a local business searching for the best digital marketing company in Indore, our approach is straightforward and results focused. As a dedicated performance marketing agency in India, we ignore vanity metrics. We focus on verified data to position your brand in front of the right audience, reduce your acquisition costs, and turn your website traffic into loyal customers.',
     },
     expertiseData: {
       headingData: {
-        coloredHeading: 'OUR EXPERTISE IN ',
-        heading: 'DIGITAL MARKETING',
+        coloredHeading: 'Comprehensive Outsourcing ',
+        heading: 'Digital Marketing Services',
         description:
-          'We bring years of experience in developing mobile applications that are scalable, secure, and designed for seamless user experiences. Our team works with the latest tools, technologies, and trends to build apps that exceed expectations.',
+          'We offer highly targeted marketing execution designed around your specific business goals. From new setups to established tech firms, we act as a B2B SaaS digital marketing agency that knows exactly how to capture attention in crowded markets.',
       },
       items: [
         {
           id: 1,
-          title: 'Search Engine Optimization (SEO):',
-          description: 'Improve your website’s ranking on Google.',
+          title: 'Search Engine Optimization (SEO)',
+          description:
+            'Improve your search rankings and attract qualified visitors. As a trusted SEO company in Indore, we map out technical, data-backed search campaigns that place your website directly in front of the people actively searching for what you offer. ',
           image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 2,
           title: 'Pay-Per-Click (PPC) Advertising:',
-          description: 'Get instant traffic with targeted ads.',
+          description:
+            'Capture your ideal audience instantly with carefully managed ad budgets. Operating as an expert SaaS content marketing and PPC agency, we optimize your paid campaigns to lower customer acquisition costs and ensure a profitable return on your ad spend. ',
           image: FaRegFileAlt,
           dark: false,
         },
         {
           id: 3,
-          title: 'Social Media Marketing (SMM):',
+          title: 'Content marketing ',
           description:
-            'Grow your brand on Facebook, Instagram, LinkedIn & more.',
+            'Fuel your online presence with high-value, research-backed assets. We handle the exact digital marketing and lead generation for SaaS and enterprise brands, creating content that ranks well, educates your buyers, and drives organic traffic. ',
           image: HiOutlineOfficeBuilding,
           dark: false,
         },
         {
           id: 4,
-          title: 'Content Marketing:',
+          title: 'Social media marketing (SMM)',
           description:
-            'Engage customers with valuable blogs, videos, and articles.',
+            'Build an active community on the platforms where your buyers actually spend their time. Ranked among the best SMM companies, we craft campaigns that give your brand a human voice and start meaningful, productive conversations.',
           image: IoCloudUploadOutline,
           dark: true,
         },
         {
           id: 5,
-          title: 'Email Marketing:',
-          description: 'Reach your audience with personalized email campaigns.',
+          title: 'Email Marketing',
+          description:
+            'Speak to your audience directly with personalized, high-converting messages. As a dedicated outsource email marketing agency, we take care of the entire process—from segmenting your contact lists to setting up automated lead-nurturing workflows.',
           image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 6,
-          title: ' Conversion Rate Optimization (CRO):  ',
-          description: 'Turn visitors into loyal customers.',
+          title: ' Conversion Rate Optimization (CRO) ',
+          description:
+            'Getting visitors to your website is only half the job; they need to take action. We use detailed conversion rate optimization services to track user behavior, refine your site layout, and guide your audience naturally toward making a purchase or booking a consultation.',
           image: FaRegFileAlt,
           dark: false,
         },
@@ -2171,512 +2332,628 @@ export const servicesSubPagesData = {
         color: 'border-gray-500',
       },
     ],
-    techStackData: [
-      {
-        title: 'FRONTEND',
-        items: [
-          { name: 'AngularJS', image: AngularIcon.src },
-          { name: 'React', image: ReactIcon.src },
-          { name: 'Vue.js', image: VueIcon.src },
-          { name: 'HTML5', image: Html5Icon.src },
-          { name: 'Stencil', image: StencilIcon.src },
-          { name: 'Svelte', image: SvelteIcon.src },
-        ],
+    techStackData: {
+      headingData: {
+        heading: 'OUR',
+        coloredHeading: 'TECH STACK',
+        description:
+          'We leverage cutting-edge technologies to build robust solutions.',
       },
-      {
-        title: 'MOBILE',
-        items: [
-          { name: 'AngularJS', image: androidIcon.src },
-          { name: 'React', image: iosIcon.src },
-          { name: 'Vue.js', image: ionicIcon.src },
-          { name: 'HTML5', image: reactNativeIcon.src },
-          { name: 'Stencil', image: objcIcon.src },
-          { name: 'Svelte', image: flutterIcon.src },
-        ],
-      },
-      {
-        title: 'OPEN SOURCE',
-        items: [
-          { name: 'AngularJS', image: javaIcon.src },
-          { name: 'React', image: nodeIcon.src },
-          { name: 'Vue.js', image: phpIcon.src },
-          { name: 'HTML5', image: pythonIcon.src },
-          { name: 'Stencil', image: rubyIcon.src },
-          { name: 'Svelte', image: golangIcon.src },
-        ],
-      },
-      {
-        title: 'UI/UX',
-        items: [
-          { name: 'AngularJS', image: XDIcon.src },
-          { name: 'React', image: PSIcon.src },
-          { name: 'Vue.js', image: figmaIcon.src },
-          { name: 'HTML5', image: AIIcon.src },
-          { name: 'Stencil', image: seekIcon.src },
-          { name: 'Svelte', image: webflowIcon.src },
-        ],
-      },
-      {
-        title: 'CLOUD',
-        items: [
-          { name: 'AngularJS', image: amazonWebServicesIcon.src },
-          { name: 'React', image: msAzureIcon.src },
-          { name: 'Vue.js', image: googleCloudIcon.src },
-          { name: 'HTML5', image: salesForceIcon.src },
-          { name: 'Stencil', image: ibmCloudIcon.src },
-          { name: 'Svelte', image: digitalOceanIcon.src },
-        ],
-      },
-      {
-        title: 'BLOCKCHAIN',
-        items: [
-          { name: 'AngularJS', image: solidityIcon.src },
-          { name: 'React', image: web3Icon.src },
-          { name: 'Vue.js', image: etherjsIcon.src },
-          { name: 'HTML5', image: ethereumIcon.src },
-          { name: 'Stencil', image: fabricIcon.src },
-          { name: 'Svelte', image: solanaIcon.src },
-        ],
-      },
-      {
-        title: 'OTHERS',
-        items: [
-          { name: 'AngularJS', image: uiPathIcon.src },
-          { name: 'React', image: drupalIcon.src },
-          { name: 'Vue.js', image: sapIcon.src },
-          { name: 'HTML5', image: googleAnalyticsIcon.src },
-          { name: 'Stencil', image: vrarIcon.src },
-          { name: 'Svelte', image: salesforceIcon.src },
-        ],
-      },
-      {
-        title: 'AI & ML',
-        items: [
-          { name: 'AngularJS', image: pythonIcon.src },
-          { name: 'React', image: tensorFlowIcon.src },
-          { name: 'Vue.js', image: openCvIcon.src },
-          { name: 'HTML5', image: pytorchIcon.src },
-          { name: 'Stencil', image: sparkIcon.src },
-          { name: 'Svelte', image: mahoutIcon.src },
-        ],
-      },
-    ],
-    whyChooseUsData: [
-      {
-        id: 1,
-        title: 'Experienced Team',
-        descp: 'Our digital marketing experts have years of experience.',
-        icon: MdOutlineAddLocation,
-      },
-      {
-        id: 2,
-        title: 'Customized Solutions',
-        descp: 'We create strategies that fit your unique business needs.',
-        icon: PiExcludeSquareDuotone,
-      },
-      {
-        id: 3,
-        title: 'Data-Driven Approach',
-        descp: 'We use analytics and insights to maximize results.',
-        icon: PiEyeBold,
-      },
-      {
-        id: 4,
-        title: 'Transparent Reporting',
-        descp: 'Get clear and detailed reports on your campaign’s performance.',
-        icon: MdOutlineAddLocation,
-      },
-      {
-        id: 5,
-        title: 'Proven Results',
-        descp: 'We have helped businesses grow and succeed online.',
-        icon: PiExcludeSquareDuotone,
-      },
-      {
-        id: 6,
-        title: 'Continuous Optimization',
-        descp:
-          'We analyze, test, and refine strategies to ensure sustained growth and maximum ROI.',
-        icon: PiEyeBold,
-      },
-    ],
+      items: [
+        {
+          title: 'FRONTEND',
+          items: [
+            { name: 'AngularJS', image: AngularIcon.src },
+            { name: 'React', image: ReactIcon.src },
+            { name: 'Vue.js', image: VueIcon.src },
+            { name: 'HTML5', image: Html5Icon.src },
+            { name: 'Stencil', image: StencilIcon.src },
+            { name: 'Svelte', image: SvelteIcon.src },
+          ],
+        },
+        {
+          title: 'MOBILE',
+          items: [
+            { name: 'AngularJS', image: androidIcon.src },
+            { name: 'React', image: iosIcon.src },
+            { name: 'Vue.js', image: ionicIcon.src },
+            { name: 'HTML5', image: reactNativeIcon.src },
+            { name: 'Stencil', image: objcIcon.src },
+            { name: 'Svelte', image: flutterIcon.src },
+          ],
+        },
+        {
+          title: 'OPEN SOURCE',
+          items: [
+            { name: 'AngularJS', image: javaIcon.src },
+            { name: 'React', image: nodeIcon.src },
+            { name: 'Vue.js', image: phpIcon.src },
+            { name: 'HTML5', image: pythonIcon.src },
+            { name: 'Stencil', image: rubyIcon.src },
+            { name: 'Svelte', image: golangIcon.src },
+          ],
+        },
+        {
+          title: 'UI/UX',
+          items: [
+            { name: 'AngularJS', image: XDIcon.src },
+            { name: 'React', image: PSIcon.src },
+            { name: 'Vue.js', image: figmaIcon.src },
+            { name: 'HTML5', image: AIIcon.src },
+            { name: 'Stencil', image: seekIcon.src },
+            { name: 'Svelte', image: webflowIcon.src },
+          ],
+        },
+        {
+          title: 'CLOUD',
+          items: [
+            { name: 'AngularJS', image: amazonWebServicesIcon.src },
+            { name: 'React', image: msAzureIcon.src },
+            { name: 'Vue.js', image: googleCloudIcon.src },
+            { name: 'HTML5', image: salesForceIcon.src },
+            { name: 'Stencil', image: ibmCloudIcon.src },
+            { name: 'Svelte', image: digitalOceanIcon.src },
+          ],
+        },
+        {
+          title: 'BLOCKCHAIN',
+          items: [
+            { name: 'AngularJS', image: solidityIcon.src },
+            { name: 'React', image: web3Icon.src },
+            { name: 'Vue.js', image: etherjsIcon.src },
+            { name: 'HTML5', image: ethereumIcon.src },
+            { name: 'Stencil', image: fabricIcon.src },
+            { name: 'Svelte', image: solanaIcon.src },
+          ],
+        },
+        {
+          title: 'OTHERS',
+          items: [
+            { name: 'AngularJS', image: uiPathIcon.src },
+            { name: 'React', image: drupalIcon.src },
+            { name: 'Vue.js', image: sapIcon.src },
+            { name: 'HTML5', image: googleAnalyticsIcon.src },
+            { name: 'Stencil', image: vrarIcon.src },
+            { name: 'Svelte', image: salesforceIcon.src },
+          ],
+        },
+        {
+          title: 'AI & ML',
+          items: [
+            { name: 'AngularJS', image: pythonIcon.src },
+            { name: 'React', image: tensorFlowIcon.src },
+            { name: 'Vue.js', image: openCvIcon.src },
+            { name: 'HTML5', image: pytorchIcon.src },
+            { name: 'Stencil', image: sparkIcon.src },
+            { name: 'Svelte', image: mahoutIcon.src },
+          ],
+        },
+      ],
+    },
+    whyChooseUsData: {
+      items: [
+        {
+          id: 1,
+          title: 'Experienced Team',
+          descp: 'Our digital marketing experts have years of experience.',
+          icon: MdOutlineAddLocation,
+        },
+        {
+          id: 2,
+          title: 'Customized Solutions',
+          descp: 'We create strategies that fit your unique business needs.',
+          icon: PiExcludeSquareDuotone,
+        },
+        {
+          id: 3,
+          title: 'Data-Driven Approach',
+          descp: 'We use analytics and insights to maximize results.',
+          icon: PiEyeBold,
+        },
+        {
+          id: 4,
+          title: 'Transparent Reporting',
+          descp:
+            'Get clear and detailed reports on your campaign’s performance.',
+          icon: MdOutlineAddLocation,
+        },
+        {
+          id: 5,
+          title: 'Proven Results',
+          descp: 'We have helped businesses grow and succeed online.',
+          icon: PiExcludeSquareDuotone,
+        },
+        {
+          id: 6,
+          title: 'Continuous Optimization',
+          descp:
+            'We analyze, test, and refine strategies to ensure sustained growth and maximum ROI.',
+          icon: PiEyeBold,
+        },
+      ],
+    },
     areaOfExpertiseData: {
-      mainHeader: 'OUR AREAS OF EXPERTISE',
+      mainHeader:
+        'Specialized industry solutions from the top Digital marketing company in india',
       mainDescription:
-        "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
+        'From serving as a dedicated fintech digital marketing agency to managing growth for healthcare and e-commerce platforms, we provide expert marketing strategies for every major global sector.',
       items: staticServices,
     },
     faqsContent: [
       {
         id: 1,
         question:
-          'How long does it take to see results from digital marketing?',
+          'What defines the approach of the best digital marketing companies in india?',
         answer:
-          'SEO takes 3-6 months, while PPC and social media ads can deliver instant results.',
+          'The best digital marketing companies in india focus on measurable business outcomes rather than just traffic volume. We stand out by using verified search data to lower your customer acquisition costs, ensuring that every campaign is designed to increase your actual revenue and long-term brand authority.',
       },
       {
         id: 2,
-        question: 'Can you help my small business with digital marketing?',
+        question:
+          'How does a specialized seo company india improve my lead quality? ',
         answer:
-          'Yes! We work with businesses of all sizes and create strategies that fit your budget.',
+          'A dedicated seo company india looks beyond simple rankings to understand user intent. By auditing your site’s technical health and mapping content to what your buyers are actually searching for, we attract qualified visitors who are more likely to convert into paying customers. ',
       },
       {
         id: 3,
-        question: 'Do you provide monthly reports?',
+        question:
+          'What value do search engine optimization consulting agencies provide for b2b firms?',
         answer:
-          'Absolutely! We provide detailed reports so you can track your progress.',
+          'Specialized search engine optimization consulting agencies offer the technical depth needed to navigate complex markets. We provide the same level of strategic oversight as high-end search engine optimisation consulting companies, focusing on deep architectural audits and competitive mapping to keep your brand visible in a crowded digital space.',
       },
       {
         id: 4,
-        question: 'How do I get started?',
+        question:
+          'Why should I partner with the best seo company in indore for global projects?',
         answer:
-          'Contact us today, and we’ll create a customized digital marketing plan for your business!',
+          'Partnering with the best seo company in indore gives you access to world-class technical talent without the inflated overhead of metropolitan firms. We provide a blend of local cost-efficiency and global standards, ensuring your campaigns are technically sound and culturally relevant to your target audience.',
+      },
+      {
+        id: 5,
+        question:
+          'How does the best indian seo marketing company handle search algorithm updates?',
+        answer:
+          'The best indian seo marketing company relies on sustainable, white-hat practices that protect your rankings over time. Instead of using shortcuts, we focus on technical excellence and high-value content, ensuring your website remains authoritative even when search engines update their ranking criteria.',
+      },
+      {
+        id: 6,
+        question:
+          'Are search engine optimisation consulting companies necessary for established brands?',
+        answer:
+          'Yes, because search landscapes change daily. Even established brands need search engine optimisation consulting companies to identify new search trends and fix technical "debt" that could be slowing down growth. We provide the ongoing analysis required to maintain your market share and reach new audience segments. ',
       },
     ],
   },
   mvpDevelopment: {
     metaData: {
-      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
+      pageMetaTitle:
+        'Build Your MVP Faster with Expert Software Development Services ',
       pageMetaDescription:
-        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Transform ideas into reality with a trusted MVP app & software product development services providing company. Launch quickly and test market demand.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
-      coloredTitle: 'MVP ',
-      title: 'DEVELOPMENT',
+      coloredTitle: ' Strategic Market Entry with an ',
+      title: ' MVP development company',
       subtitle:
-        'At Nextloop Technologies, we specialize in building high-quality Minimum Viable Products (MVPs) that help startups and businesses validate their ideas quickly and cost-effectively. Our MVP development services are designed to turn your concept into a functional, market-ready product using the latest technologies and agile methods. We focus on defining the right features, designing seamless user experiences, and developing scalable MVPs that allow you to test, refine, and grow your product with real user feedback. ',
+        'Navigating the transition from a digital concept to a market-ready product requires a focus on mitigating early-stage financial risk. Targeted MVP software development isolates core functionalities to validate your business hypothesis effectively. Through minimum viable product development services, founders gather the real-world user data needed to guide sustainable growth and optimize capital investment based on actual market demand.',
     },
     expertiseData: {
       headingData: {
-        coloredHeading: 'OUR EXPERTISE IN ',
-        heading: 'MVP DEVELOPMENT',
+        coloredHeading: 'Core Capabilities for  ',
+        heading: 'Rapid Market Validation',
         description:
-          'We bring years of experience in developing mobile applications that are scalable, secure, and designed for seamless user experiences. Our team works with the latest tools, technologies, and trends to build apps that exceed expectations.',
+          'Strategic engineering ensures that the first iteration of your product is not just a placeholder, but a functional tool designed for gathering high-quality market intelligence.',
       },
       items: [
         {
           id: 1,
-          title: 'MVP Strategy & Consulting:',
-          description: 'Defining the core features of your MVP.',
+          title: 'Targeted Product Mapping',
+          description:
+            'Defining a lean roadmap is essential to prevent resource drain during early-stage development. By integrating comprehensive product discovery services, we identify the specific features that solve core user pain points while maintaining strict alignment with your broader business objectives.',
           image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 2,
-          title: 'UI/UX Design:',
-          description: 'Creating a user-friendly and engaging design.',
+          title: 'Behavioral Interface Planning',
+          description:
+            "Initial product engagement depends on a logical and frictionless interface. Utilizing targeted ui ux wireframing allows for the rigorous testing of interaction flows, ensuring the final design prioritizes the user's journey and reduces cognitive load during the validation phase. ",
           image: FaRegFileAlt,
           dark: false,
         },
         {
           id: 3,
-          title: 'Rapid Prototyping:',
-          description: 'Building fast prototypes to test ideas.',
+          title: 'Interactive Concept Validation',
+          description:
+            'Visualizing a concept before committing to high-fidelity engineering prevents expensive pivots later in the cycle. We employ mobile app prototyping to enable stakeholders to experience core functionalities in a controlled environment, verifying the initial hypothesis with minimal overhead.',
           image: HiOutlineOfficeBuilding,
           dark: false,
         },
         {
           id: 4,
-          title: 'Custom Web & Mobile App Development:',
-          description: 'Developing scalable MVPs.',
+          title: 'Functional MVP Engineering',
+          description:
+            'Building a high-performance platform requires technical precision and a clean codebase that allows for future scaling. Delivering focused MVP app development services ensures that the software is engineered to be stable for launch while remaining flexible enough for rapid updates.',
           image: IoCloudUploadOutline,
           dark: true,
         },
         {
           id: 5,
-          title: 'Agile Development:',
-          description: 'Iterative development with quick feedback cycles.',
+          title: 'Adaptive Roadmap Execution',
+          description:
+            'The development lifecycle is managed in short, iterative cycles to maintain total transparency and delivery speed. Following a structured agile sprint methodology allows for continuous improvements and the flexibility to adjust features based on real-time market signals.',
           image: IoFileTrayStackedOutline,
           dark: true,
         },
         {
           id: 6,
-          title: 'MVP Testing & Validation: ',
-          description: 'Ensuring your MVP is market-ready.',
+          title: 'Technical Integrity Verification',
+          description:
+            'System reliability is paramount for capturing accurate user data during a launch. Conducting rigorous software quality assurance testing ensures the platform is secure, functional, and free of technical friction points that could skew market results. ',
           image: FaRegFileAlt,
           dark: false,
         },
       ],
     },
-    topSteps: [
-      {
-        icon: <Lightbulb className='text-orange-500 w-7 h-7' />,
-        title: 'Idea & Market Research',
-        description: 'Understanding your vision and target audience.',
-        color: 'border-orange-500',
+    processData: {
+      headingData: {
+        heading: ' A Data-Driven Roadmap ',
+        coloredHeading: 'for Product Validation',
+        description:
+          'A structured methodology is required to transform a business hypothesis into a functional, market-ready asset.',
       },
-      {
-        icon: <Settings className='text-orange-500 w-7 h-7' />,
-        title: 'Defining Core Features',
-        description: 'Selecting essential features for the MVP.',
-        color: 'border-orange-500',
+
+      items: [
+        {
+          icon: <Lightbulb className='text-orange-500 w-7 h-7' />,
+          title: 'Market Feasibility & Vision Alignment ',
+          description:
+            'Every project begins by analyzing the competitive landscape to ensure technical goals align with commercial viability. This stage defines the scope for specialized MVP development services, setting clear benchmarks for success before the build begins.',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <Settings className='text-orange-500 w-7 h-7' />,
+          title: 'Functional Priority Scoping',
+          description:
+            'Transitioning from concept to product requires strict prioritization. We isolate the primary value proposition to prevent feature bloat, focusing solely on functionalities that solve critical user pain points and provide the fastest path to market.',
+          color: 'border-orange-500',
+        },
+        {
+          icon: <Search className='text-gray-600 w-7 h-7' />,
+          title: ' Structural Prototyping & Technical Validation ',
+          description:
+            'Transforming logic into a visual framework requires balancing aesthetics with function. For high-risk technical assumptions, we initiate proof of concept development to verify feasibility, ensuring the core technology supports the intended user experience.',
+          color: 'border-gray-500',
+        },
+        {
+          icon: <Rocket className='text-gray-600 w-7 h-7' />,
+          title: 'Core Engineering & Systems Integration ',
+          description:
+            'The platform is engineered using a scalable architecture designed for future growth. We implement secure api integration solutions to connect essential third-party tools, providing reliable MVP development services for startups that are ready for live traffic.',
+          color: 'border-gray-500',
+        },
+        {
+          icon: <Rocket className='text-gray-600 w-7 h-7' />,
+          title: 'Deployment & Empirical Feedback Collection ',
+          description:
+            'Releasing the product is the start of a validation loop. We monitor real-world interactions and collect behavioral data to inform subsequent iterations. This empirical cycle ensures the product roadmap evolves according to authentic market demand.',
+          color: 'border-gray-500',
+        },
+      ],
+    },
+    techStackData: {
+      headingData: {
+        heading: 'Technical Foundations ',
+        coloredHeading: 'for MVP application',
+        description:
+          'Strategic software architecture consulting ensures that the chosen technology stack can support early market validation and future vertical scaling without accumulating technical debt.',
       },
-    ],
-    bottomSteps: [
-      {
-        icon: <Search className='text-gray-600 w-7 h-7' />,
-        title: 'Design & Prototyping',
-        description: 'Creating wireframes and UI/UX designs.',
-        color: 'border-gray-500',
+      items: [
+        {
+          title: 'FRONTEND',
+          items: [
+            { name: 'AngularJS', image: AngularIcon.src },
+            { name: 'React', image: ReactIcon.src },
+            { name: 'Vue.js', image: VueIcon.src },
+            { name: 'HTML5', image: Html5Icon.src },
+            { name: 'Stencil', image: StencilIcon.src },
+            { name: 'Svelte', image: SvelteIcon.src },
+          ],
+        },
+        {
+          title: 'MOBILE',
+          items: [
+            { name: 'AngularJS', image: androidIcon.src },
+            { name: 'React', image: iosIcon.src },
+            { name: 'Vue.js', image: ionicIcon.src },
+            { name: 'HTML5', image: reactNativeIcon.src },
+            { name: 'Stencil', image: objcIcon.src },
+            { name: 'Svelte', image: flutterIcon.src },
+          ],
+        },
+        {
+          title: 'OPEN SOURCE',
+          items: [
+            { name: 'AngularJS', image: javaIcon.src },
+            { name: 'React', image: nodeIcon.src },
+            { name: 'Vue.js', image: phpIcon.src },
+            { name: 'HTML5', image: pythonIcon.src },
+            { name: 'Stencil', image: rubyIcon.src },
+            { name: 'Svelte', image: golangIcon.src },
+          ],
+        },
+        {
+          title: 'UI/UX',
+          items: [
+            { name: 'AngularJS', image: XDIcon.src },
+            { name: 'React', image: PSIcon.src },
+            { name: 'Vue.js', image: figmaIcon.src },
+            { name: 'HTML5', image: AIIcon.src },
+            { name: 'Stencil', image: seekIcon.src },
+            { name: 'Svelte', image: webflowIcon.src },
+          ],
+        },
+        {
+          title: 'CLOUD',
+          items: [
+            { name: 'AngularJS', image: amazonWebServicesIcon.src },
+            { name: 'React', image: msAzureIcon.src },
+            { name: 'Vue.js', image: googleCloudIcon.src },
+            { name: 'HTML5', image: salesForceIcon.src },
+            { name: 'Stencil', image: ibmCloudIcon.src },
+            { name: 'Svelte', image: digitalOceanIcon.src },
+          ],
+        },
+        {
+          title: 'BLOCKCHAIN',
+          items: [
+            { name: 'AngularJS', image: solidityIcon.src },
+            { name: 'React', image: web3Icon.src },
+            { name: 'Vue.js', image: etherjsIcon.src },
+            { name: 'HTML5', image: ethereumIcon.src },
+            { name: 'Stencil', image: fabricIcon.src },
+            { name: 'Svelte', image: solanaIcon.src },
+          ],
+        },
+        {
+          title: 'OTHERS',
+          items: [
+            { name: 'AngularJS', image: uiPathIcon.src },
+            { name: 'React', image: drupalIcon.src },
+            { name: 'Vue.js', image: sapIcon.src },
+            { name: 'HTML5', image: googleAnalyticsIcon.src },
+            { name: 'Stencil', image: vrarIcon.src },
+            { name: 'Svelte', image: salesforceIcon.src },
+          ],
+        },
+        {
+          title: 'AI & ML',
+          items: [
+            { name: 'AngularJS', image: pythonIcon.src },
+            { name: 'React', image: tensorFlowIcon.src },
+            { name: 'Vue.js', image: openCvIcon.src },
+            { name: 'HTML5', image: pytorchIcon.src },
+            { name: 'Stencil', image: sparkIcon.src },
+            { name: 'Svelte', image: mahoutIcon.src },
+          ],
+        },
+      ],
+    },
+    whyChooseUsData: {
+      headingData: {
+        heading: ' Operational Advantages ',
+        coloredHeading: 'of Our Methodology',
+        description:
+          ' A successful market entry requires technical execution that balances speed, cost, and foundational stability.',
       },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Development & Testing',
-        description: 'Building and testing the MVP.',
-        color: 'border-gray-500',
-      },
-      {
-        icon: <Rocket className='text-gray-600 w-7 h-7' />,
-        title: 'Launch & User Feedback',
-        description: 'Releasing the MVP and collecting feedback.',
-        color: 'border-gray-500',
-      },
-    ],
-    techStackData: [
-      {
-        title: 'FRONTEND',
-        items: [
-          { name: 'AngularJS', image: AngularIcon.src },
-          { name: 'React', image: ReactIcon.src },
-          { name: 'Vue.js', image: VueIcon.src },
-          { name: 'HTML5', image: Html5Icon.src },
-          { name: 'Stencil', image: StencilIcon.src },
-          { name: 'Svelte', image: SvelteIcon.src },
-        ],
-      },
-      {
-        title: 'MOBILE',
-        items: [
-          { name: 'AngularJS', image: androidIcon.src },
-          { name: 'React', image: iosIcon.src },
-          { name: 'Vue.js', image: ionicIcon.src },
-          { name: 'HTML5', image: reactNativeIcon.src },
-          { name: 'Stencil', image: objcIcon.src },
-          { name: 'Svelte', image: flutterIcon.src },
-        ],
-      },
-      {
-        title: 'OPEN SOURCE',
-        items: [
-          { name: 'AngularJS', image: javaIcon.src },
-          { name: 'React', image: nodeIcon.src },
-          { name: 'Vue.js', image: phpIcon.src },
-          { name: 'HTML5', image: pythonIcon.src },
-          { name: 'Stencil', image: rubyIcon.src },
-          { name: 'Svelte', image: golangIcon.src },
-        ],
-      },
-      {
-        title: 'UI/UX',
-        items: [
-          { name: 'AngularJS', image: XDIcon.src },
-          { name: 'React', image: PSIcon.src },
-          { name: 'Vue.js', image: figmaIcon.src },
-          { name: 'HTML5', image: AIIcon.src },
-          { name: 'Stencil', image: seekIcon.src },
-          { name: 'Svelte', image: webflowIcon.src },
-        ],
-      },
-      {
-        title: 'CLOUD',
-        items: [
-          { name: 'AngularJS', image: amazonWebServicesIcon.src },
-          { name: 'React', image: msAzureIcon.src },
-          { name: 'Vue.js', image: googleCloudIcon.src },
-          { name: 'HTML5', image: salesForceIcon.src },
-          { name: 'Stencil', image: ibmCloudIcon.src },
-          { name: 'Svelte', image: digitalOceanIcon.src },
-        ],
-      },
-      {
-        title: 'BLOCKCHAIN',
-        items: [
-          { name: 'AngularJS', image: solidityIcon.src },
-          { name: 'React', image: web3Icon.src },
-          { name: 'Vue.js', image: etherjsIcon.src },
-          { name: 'HTML5', image: ethereumIcon.src },
-          { name: 'Stencil', image: fabricIcon.src },
-          { name: 'Svelte', image: solanaIcon.src },
-        ],
-      },
-      {
-        title: 'OTHERS',
-        items: [
-          { name: 'AngularJS', image: uiPathIcon.src },
-          { name: 'React', image: drupalIcon.src },
-          { name: 'Vue.js', image: sapIcon.src },
-          { name: 'HTML5', image: googleAnalyticsIcon.src },
-          { name: 'Stencil', image: vrarIcon.src },
-          { name: 'Svelte', image: salesforceIcon.src },
-        ],
-      },
-      {
-        title: 'AI & ML',
-        items: [
-          { name: 'AngularJS', image: pythonIcon.src },
-          { name: 'React', image: tensorFlowIcon.src },
-          { name: 'Vue.js', image: openCvIcon.src },
-          { name: 'HTML5', image: pytorchIcon.src },
-          { name: 'Stencil', image: sparkIcon.src },
-          { name: 'Svelte', image: mahoutIcon.src },
-        ],
-      },
-    ],
-    whyChooseUsData: [
-      {
-        id: 1,
-        title: 'Expert MVP Developers',
-        descp: 'Skilled in building high-quality MVPs.',
-        icon: MdOutlineAddLocation,
-      },
-      {
-        id: 2,
-        title: 'Fast & Cost-Effective',
-        descp: 'Launch your product quickly without overspending.',
-        icon: PiExcludeSquareDuotone,
-      },
-      {
-        id: 3,
-        title: 'Agile Approach',
-        descp: 'Continuous improvements based on user feedback.',
-        icon: PiEyeBold,
-      },
-      {
-        id: 4,
-        title: 'Scalable Solutions',
-        descp: 'Easily expand your MVP into a full product.',
-        icon: MdOutlineAddLocation,
-      },
-      {
-        id: 5,
-        title: 'Transparent Process',
-        descp: 'Clear communication and progress tracking.',
-        icon: PiExcludeSquareDuotone,
-      },
-      {
-        id: 6,
-        title: 'Market Validation Focus',
-        descp: 'We help you test ideas, gather real user insights',
-        icon: PiEyeBold,
-      },
-    ],
+      items: [
+        {
+          id: 1,
+          title: 'Regional Compliance & Standards',
+          descp:
+            'Engineering digital platforms requires adherence to strict data privacy and security frameworks. Delivering specialized MVP development services in USA ensures that the initial build complies with regional regulations and is prepared to pass early-stage technical due diligence. ',
+          icon: MdOutlineAddLocation,
+        },
+        {
+          id: 2,
+          title: 'Capital Efficiency',
+          descp:
+            'Building an MVP for startups demands strict resource allocation. We focus engineering efforts solely on high-impact features, ensuring the core product reaches the market for validation without unnecessary expenditure.',
+          icon: PiExcludeSquareDuotone,
+        },
+        {
+          id: 3,
+          title: 'Objective Technical Partnership',
+          descp:
+            'Navigating a launch requires unbiased architectural decisions. Operating as an independent MVP development agency, we prioritize the stability of the product and the accuracy of the market data over feature bloat or technical over-engineering.',
+          icon: PiEyeBold,
+        },
+        {
+          id: 4,
+          title: 'Foundation for Growth',
+          descp:
+            'The initial release must handle live traffic while preparing for future expansion. By implementing microservices development, the core system is structured so that individual components can be scaled horizontally as the user base grows.',
+          icon: MdOutlineAddLocation,
+        },
+        {
+          id: 5,
+          title: 'Rapid Market Adaptation',
+          descp:
+            'Responding to early user feedback is critical for survival. Applying the principles of agile software engineering creates a transparent development cycle where progress is measurable, and technical pivots can be executed seamlessly based on live data. ',
+          icon: PiExcludeSquareDuotone,
+        },
+        {
+          id: 6,
+          title: 'Focus on Core Value',
+          descp:
+            'Extraneous functionality obscures the primary validation goal. Our approach is rooted in lean product development, prioritizing measurable learning from real-world interactions to guide subsequent product iterations.',
+          icon: PiEyeBold,
+        },
+      ],
+    },
     areaOfExpertiseData: {
-      mainHeader: 'OUR AREAS OF EXPERTISE',
+      mainHeader: 'Sector-Specific MVP Engineering Frameworks',
       mainDescription:
-        "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
+        'Applying tailored UI/UX Design and Agile Development methodologies to engineer scalable, compliant platforms across diverse market verticals.',
       items: staticServices,
     },
     faqsContent: [
       {
         id: 1,
         question: 'How long does it take to develop an MVP?',
-        answer: 'It depends on the complexity, but most MVPs take 2-6 months.',
+        answer:
+          'Most initial builds are market ready within eight to twelve weeks. We ensure this speed through structured MVP Strategy & Consulting, strictly prioritizing core features and preventing scope creep.',
       },
       {
         id: 2,
-        question: 'Can you help refine my MVP idea?',
+        question: 'What differentiates a prototype from an MVP?',
         answer:
-          ' Yes! We provide consulting to define the best features for your MVP.',
+          ' A prototype is a visual model, while an MVP is a functional product. We use Rapid Prototyping for early visual testing, but the final MVP uses real code for live market validation.',
       },
       {
         id: 3,
-        question: 'What technologies do you use for MVP development?',
+        question: 'Will the MVP need to be completely rebuilt to scale later?',
         answer:
-          ' We use modern tech stacks like React, Node.js, Python, Flutter, and more.',
+          'Not at all. By utilizing scalable aws cloud deployment and optimized node js backend development, your initial release is engineered as a robust foundation designed to grow alongside your user base. ',
       },
       {
         id: 4,
-        question: 'What happens after the MVP launch?',
+        question:
+          'Can the platform connect to existing software and payment gateways?',
         answer:
-          'We help you analyze user feedback, improve features, and scale your product.',
+          'Absolutely. We keep the core lean by utilizing secure api integration services to seamlessly connect your platform with essential external tools like customer relationship managers and financial gateways. ',
+      },
+      {
+        id: 5,
+        question:
+          'How do you guarantee the platform remains stable during launch?',
+        answer:
+          'We guarantee stability through rigorous MVP Testing & Validation prior to release. This phase focuses entirely on load capacity, security, and core functionality to ensure a flawless market entry.',
       },
     ],
   },
   staffingServices: {
     metaData: {
-      pageMetaTitle: 'Nextloop Technologies | Staffing Sevices',
+      pageMetaTitle:
+        'IT Staff Augmentation Services | Hire Dedicated AI Developers ',
       pageMetaDescription:
-        'Nextloop Technologies offers expert staffing solutions to help businesses find top talent quickly and efficiently. Our tailored recruitment services ensure you get skilled professionals who fit your company culture and drive success.',
+        'Access top-tier AI talent and remote tech teams. Nextloop provides expert IT staff augmentation services to bridge your skill gaps and drive innovation.',
     },
     heroImage: staffingService,
     heroSectionData: {
-      coloredTitle: 'Contract-to-Hire (C2H) ',
-      title: 'Staffing Services',
+      coloredTitle: 'Scale Your Engineering Fast with ',
+      title: 'Premier IT Staff Augmentation Services',
       subtitle:
-        'We’re more than just recruiters—we’re your strategic talent partner. At Nextloop Technologies, we connect businesses with high-performing talent across industries and roles. Whether you need a single hire or an entire team, we make staffing simple, fast, and reliable.',
+        "Nextloop is a leading IT staff augmentation company offering a ready-to-deploy pool of elite in-house talent. Whether you need to hire dedicated developers to rescue a project or scale your entire tech team, we provide professionals you can trust with your code and your product's success. No freelancers. No portals. Just 100% full-time experts.",
     },
     staffingPartnerData: {
       headingData: {
-        heading: 'Not Your Average ',
-        coloredHeading: 'Staffing Partner',
+        heading: 'Trusted By Fast-Growing ',
+        coloredHeading: 'Startups & Global Corporates',
         description:
-          'At Nextloop Technologies, we don’t just find talent—we deliver end-to-end staffing solutions.',
+          'Join the ranks of successful businesses that have partnered with us for exceptional IT solutions.',
+      },
+      items: [
+        { title: 'Stamens Software', image: Stamens },
+        { title: 'Blue Bird Events', image: BlueBird },
+        { title: 'Shower Wealth Academy', image: SWAcademy },
+        { title: 'ITF', image: ItfLogo },
+        { title: 'Levram', image: Levram1 },
+        { title: 'CB For Genuinity', image: CB1 },
+        { title: 'Shower Wealth', image: ShowerWealth },
+        { title: 'BrainInventory', image: BrainInventory },
+        { title: 'ArthnextLogo', image: ArthnextLogo },
+        { title: 'Jhana', image: JhanaLogo },
+        { title: 'EWA', image: EwaLogo },
+      ],
+    },
+    teamMembersData: {
+      headingData: {
+        heading: 'Meet Your Dedicated ',
+        coloredHeading: 'Engineering Team',
+        description:
+          'Our staff augmentation services connect you with top-tier talent that integrates seamlessly into your projects.',
       },
       items: [
         {
-          id: 1,
-          title: 'Comprehensive Support',
-          description: 'Candidate search, curation, onboarding, and beyond.',
-          image: MdOutlineSupportAgent,
+          name: 'Alex M.',
+          title: 'Senior Full Stack Engineer',
+          experience: '7 years experience',
+          role: 'If you need to hire full stack developers, Alex is your ideal match.',
+          techStack: ['react', 'aws', 'angular', 'python'] as TechKey[],
+          domains: ['Fintech', 'Healthcare'],
         },
         {
-          id: 2,
-          title: 'Expert Recruiters',
-          description:
-            'A skilled team with deep expertise across industries and roles.',
-          image: TbDeviceDesktopSearch,
+          name: 'Alex M.',
+          title: 'Senior Full Stack Engineer',
+          experience: '7 years experience',
+          role: 'If you need to hire full stack developers, Alex is your ideal match.',
+          techStack: ['react', 'aws', 'angular', 'python'] as TechKey[],
+          domains: ['Fintech', 'Healthcare'],
         },
         {
-          id: 3,
-          title: 'Global Reach',
-          description:
-            'Staffing solutions for businesses of all sizes, across multiple countries.',
-          image: AiOutlineGlobal,
+          name: 'Alex M.',
+          title: 'Senior Full Stack Engineer',
+          experience: '7 years experience',
+          role: 'If you need to hire full stack developers, Alex is your ideal match.',
+          techStack: ['react', 'aws', 'angular', 'python'] as TechKey[],
+          domains: ['Fintech', 'Healthcare'],
         },
         {
-          id: 4,
-          title: 'Flexible Engagement',
-          description:
-            'We work within your budget, and you only pay once your candidate joins.',
-          image: GrDirections,
-        },
-        {
-          id: 5,
-          title: 'Industry Expertise',
-          description: 'Our recruiters understand your sector inside out.',
-          image: FaHandHoldingHand,
+          name: 'Alex M.',
+          title: 'Senior Full Stack Engineer',
+          experience: '7 years experience',
+          role: 'If you need to hire full stack developers, Alex is your ideal match.',
+          techStack: ['react', 'aws', 'angular', 'python'] as TechKey[],
+          domains: ['Fintech', 'Healthcare'],
         },
       ],
     },
-    ourProcessData: {
+    comparisonTableData: {
       headingData: {
-        heading: 'Our Process: ',
-        coloredHeading: 'Simple & Transparent',
-        description: '',
+        heading: 'The True Cost of Hiring: ',
+        coloredHeading: ' A Comparison Matrix',
+        description:
+          'Transparent. Secure. Hassle-Free. Subtitle: Experience the ease of choosing our IT staff augmentation services and never go back to traditional hiring again.',
       },
-      items: [
+      columns: {
+        metric: 'Metric',
+        traditional: 'Traditional In-House Team',
+        freelancers: 'Freelancers / Portals',
+        nextloop: 'Nextloop Staff Augmentation',
+      },
+      rows: [
         {
-          id: 1,
-          title: 'Tell Us What You Need',
-          description: `The first step is all about understanding your unique needs. You’ll provide detailed information about the role, including technical skills, experience level, certifications, and any specific industry knowledge required. Additionally, share your project timeline, team structure, and work culture. This step allows us to tailor our search specifically to your requirements, ensuring that every candidate we present is relevant and highly qualified.`,
+          metric: 'Recruitment Cycle',
+          traditional: '45+ Days',
+          freelancers: '10-15 Days',
+          nextloop: '1-3 Days',
         },
         {
-          id: 2,
-          title: 'We Find the Best Candidates',
-          description: `Once we have a clear understanding of your needs, our recruitment team activates a multi-channel sourcing strategy. We tap into our extensive network of IT professionals, partner platforms, and industry communities to identify potential candidates. Each candidate undergoes a thorough screening process, including:
-•	Resume and Profile Evaluation
-•	Technical Assessments
-•	Behavioral and Cultural Fit Analysis
-•	Background and Reference Checks
-Through this rigorous process, only the top-performing candidates are shortlisted, saving you time and reducing the risk of hiring mismatches.`,
+          metric: 'Back Outs',
+          traditional: '30-50% (Last-minute drops)',
+          freelancers: '30% (Unreliable)',
+          nextloop: '0%\n(Full time Nextloop employees)',
         },
         {
-          id: 3,
-          title: 'You Hire with Confidence',
-          description: `After screening, we present you with a curated list of the most suitable candidates. You can review their profiles, schedule interviews, and assess their fit for your team. Our team supports you throughout this stage, coordinating interviews, collecting feedback, and facilitating communication between you and the candidates. Once you’ve made your selection, we assist with the onboarding process, ensuring that the new hire integrates smoothly into your team.`,
+          metric: 'Cost To Hire',
+          traditional: '$10k+ (HR, Portals, Time)',
+          freelancers: '10-20% Platform Fees',
+          nextloop: '0%\n(Full time Nextloop employees)',
         },
-
+        {
+          metric: 'Retention & Perks',
+          traditional: 'High overhead (Bonus, Gifts)',
+          freelancers: 'High risk of project abandonment',
+          nextloop: '$0\n(Nextloop handles retention)',
+        },
+        {
+          metric: 'Training & Upskilling',
+          traditional: 'Time-consuming & Expensive',
+          freelancers: 'Freelancers rarely upskill',
+          nextloop: '$0\n(In-house training center)',
+        },
       ],
     },
     flexibleHiringData: {
@@ -2709,6 +2986,29 @@ Through this rigorous process, only the top-performing candidates are shortliste
         },
       ],
     },
+    SecurityData: {
+      heading: 'Bank-Grade Security & IP Protection',
+      items: [
+        {
+          icon: FaMapMarkerAlt,
+          title: 'NDAs & Strict Contracts:',
+          description:
+            'Meticulously composed agreements with strict data handling and IP ownership guidelines.',
+        },
+        {
+          icon: FaDesktop,
+          title: 'Company Assigned Devices:',
+          description:
+            'Programmers collaborate using organization designated, monitored hardware.',
+        },
+        {
+          icon: FaEye,
+          title: 'Private Repositories:',
+          description:
+            'Entire source code is maintained and pushed daily to a Client-owned private repository.',
+        },
+      ],
+    },
     whyBusinessChoosesUsData: {
       headingData: {
         heading: 'Why do businesses choose ',
@@ -2736,140 +3036,184 @@ Through this rigorous process, only the top-performing candidates are shortliste
         {
           id: 4,
           title: '100%',
-          description: 'Flexible Options: Permanent, contract, remote, or hybrid.',
+          description:
+            'Flexible Options: Permanent, contract, remote, or hybrid.',
         },
       ],
     },
     staffingIndustriesData: {
       headingData: {
-        heading: 'Staffing All  ',
-        coloredHeading: 'Industries & Functions',
+        heading: 'Stand Out from Other  ',
+        coloredHeading: 'IT Staff Augmentation Companies',
         description:
-          'From startups to global enterprises, we cover every industry and function.',
+          "We don't just provide coders; we offer comprehensive remote IT staffing services focused on product engineering. When you hire remote developers through us, you get engineers with past experience complementing your project’s domain, working with the utmost focus on data security and agile delivery.",
       },
       items: [
         {
           id: 1,
-          title: 'IT & Technology',
+          title: '100% In-House Developers',
+          description:
+            'We strictly say NO to freelancers. Every resource is a Nextloop employee.',
           image: MdComputer,
         },
         {
           id: 2,
-          title: 'Healthcare & Pharma',
+          title: 'Niche Specialization',
+          description:
+            ' Deep expertise in modern tech stacks backed by our on-premise training center. Ideal when you need to hire software developers fast.',
           image: FaHandHoldingMedical,
         },
         {
           id: 3,
-          title: 'Finance & Banking',
+          title: ' Domain Matching',
+          description:
+            'Hire dedicated resources who have already built products similar to yours (Healthcare, Fintech, E-commerce, etc.).',
           image: BsBank,
         },
         {
           id: 4,
-          title: 'Retail & E-commerce',
+          title: 'Proactive Participation',
+          description:
+            'Our engineers actively participate in product discussions, offering architectural suggestions and improvements.',
           image: FiShoppingCart,
-        },
-        {
-          id: 5,
-          title: 'Education & EdTech',
-          image: MdOutlineSchool,
-        },
-        {
-          id: 6,
-          title: 'Oil & Gas',
-          image: GiOilPump,
         },
       ],
     },
-    techStackData: [
-      {
-        title: 'FRONTEND',
-        items: [
-          { name: 'AngularJS', image: AngularIcon.src },
-          { name: 'React', image: ReactIcon.src },
-          { name: 'Vue.js', image: VueIcon.src },
-          { name: 'HTML5', image: Html5Icon.src },
-          { name: 'Stencil', image: StencilIcon.src },
-          { name: 'Svelte', image: SvelteIcon.src },
-        ],
+    techStackData: {
+      headingData: {
+        heading: 'OUR',
+        coloredHeading: 'TECH STACK',
+        description:
+          'We leverage cutting-edge technologies to build robust solutions.',
       },
-      {
-        title: 'MOBILE',
-        items: [
-          { name: 'AngularJS', image: androidIcon.src },
-          { name: 'React', image: iosIcon.src },
-          { name: 'Vue.js', image: ionicIcon.src },
-          { name: 'HTML5', image: reactNativeIcon.src },
-          { name: 'Stencil', image: objcIcon.src },
-          { name: 'Svelte', image: flutterIcon.src },
-        ],
+      items: [
+        {
+          title: 'FRONTEND',
+          items: [
+            { name: 'AngularJS', image: AngularIcon.src },
+            { name: 'React', image: ReactIcon.src },
+            { name: 'Vue.js', image: VueIcon.src },
+            { name: 'HTML5', image: Html5Icon.src },
+            { name: 'Stencil', image: StencilIcon.src },
+            { name: 'Svelte', image: SvelteIcon.src },
+          ],
+        },
+        {
+          title: 'MOBILE',
+          items: [
+            { name: 'AngularJS', image: androidIcon.src },
+            { name: 'React', image: iosIcon.src },
+            { name: 'Vue.js', image: ionicIcon.src },
+            { name: 'HTML5', image: reactNativeIcon.src },
+            { name: 'Stencil', image: objcIcon.src },
+            { name: 'Svelte', image: flutterIcon.src },
+          ],
+        },
+        {
+          title: 'OPEN SOURCE',
+          items: [
+            { name: 'AngularJS', image: javaIcon.src },
+            { name: 'React', image: nodeIcon.src },
+            { name: 'Vue.js', image: phpIcon.src },
+            { name: 'HTML5', image: pythonIcon.src },
+            { name: 'Stencil', image: rubyIcon.src },
+            { name: 'Svelte', image: golangIcon.src },
+          ],
+        },
+        {
+          title: 'UI/UX',
+          items: [
+            { name: 'AngularJS', image: XDIcon.src },
+            { name: 'React', image: PSIcon.src },
+            { name: 'Vue.js', image: figmaIcon.src },
+            { name: 'HTML5', image: AIIcon.src },
+            { name: 'Stencil', image: seekIcon.src },
+            { name: 'Svelte', image: webflowIcon.src },
+          ],
+        },
+        {
+          title: 'CLOUD',
+          items: [
+            { name: 'AngularJS', image: amazonWebServicesIcon.src },
+            { name: 'React', image: msAzureIcon.src },
+            { name: 'Vue.js', image: googleCloudIcon.src },
+            { name: 'HTML5', image: salesForceIcon.src },
+            { name: 'Stencil', image: ibmCloudIcon.src },
+            { name: 'Svelte', image: digitalOceanIcon.src },
+          ],
+        },
+        {
+          title: 'BLOCKCHAIN',
+          items: [
+            { name: 'AngularJS', image: solidityIcon.src },
+            { name: 'React', image: web3Icon.src },
+            { name: 'Vue.js', image: etherjsIcon.src },
+            { name: 'HTML5', image: ethereumIcon.src },
+            { name: 'Stencil', image: fabricIcon.src },
+            { name: 'Svelte', image: solanaIcon.src },
+          ],
+        },
+        {
+          title: 'OTHERS',
+          items: [
+            { name: 'AngularJS', image: uiPathIcon.src },
+            { name: 'React', image: drupalIcon.src },
+            { name: 'Vue.js', image: sapIcon.src },
+            { name: 'HTML5', image: googleAnalyticsIcon.src },
+            { name: 'Stencil', image: vrarIcon.src },
+            { name: 'Svelte', image: salesforceIcon.src },
+          ],
+        },
+        {
+          title: 'AI & ML',
+          items: [
+            { name: 'AngularJS', image: pythonIcon.src },
+            { name: 'React', image: tensorFlowIcon.src },
+            { name: 'Vue.js', image: openCvIcon.src },
+            { name: 'HTML5', image: pytorchIcon.src },
+            { name: 'Stencil', image: sparkIcon.src },
+            { name: 'Svelte', image: mahoutIcon.src },
+          ],
+        },
+      ],
+    },
+    techTalentData: {
+      headingData: {
+        heading: 'Build Your ',
+        coloredHeading: 'Digital Future With The Best Tech Talent',
+        description:
+          'When you partner with Nextloop, you get access to a diverse pool of vetted specialists. We make it simple to scale your project exactly how you envision it:',
       },
-      {
-        title: 'OPEN SOURCE',
-        items: [
-          { name: 'AngularJS', image: javaIcon.src },
-          { name: 'React', image: nodeIcon.src },
-          { name: 'Vue.js', image: phpIcon.src },
-          { name: 'HTML5', image: pythonIcon.src },
-          { name: 'Stencil', image: rubyIcon.src },
-          { name: 'Svelte', image: golangIcon.src },
-        ],
-      },
-      {
-        title: 'UI/UX',
-        items: [
-          { name: 'AngularJS', image: XDIcon.src },
-          { name: 'React', image: PSIcon.src },
-          { name: 'Vue.js', image: figmaIcon.src },
-          { name: 'HTML5', image: AIIcon.src },
-          { name: 'Stencil', image: seekIcon.src },
-          { name: 'Svelte', image: webflowIcon.src },
-        ],
-      },
-      {
-        title: 'CLOUD',
-        items: [
-          { name: 'AngularJS', image: amazonWebServicesIcon.src },
-          { name: 'React', image: msAzureIcon.src },
-          { name: 'Vue.js', image: googleCloudIcon.src },
-          { name: 'HTML5', image: salesForceIcon.src },
-          { name: 'Stencil', image: ibmCloudIcon.src },
-          { name: 'Svelte', image: digitalOceanIcon.src },
-        ],
-      },
-      {
-        title: 'BLOCKCHAIN',
-        items: [
-          { name: 'AngularJS', image: solidityIcon.src },
-          { name: 'React', image: web3Icon.src },
-          { name: 'Vue.js', image: etherjsIcon.src },
-          { name: 'HTML5', image: ethereumIcon.src },
-          { name: 'Stencil', image: fabricIcon.src },
-          { name: 'Svelte', image: solanaIcon.src },
-        ],
-      },
-      {
-        title: 'OTHERS',
-        items: [
-          { name: 'AngularJS', image: uiPathIcon.src },
-          { name: 'React', image: drupalIcon.src },
-          { name: 'Vue.js', image: sapIcon.src },
-          { name: 'HTML5', image: googleAnalyticsIcon.src },
-          { name: 'Stencil', image: vrarIcon.src },
-          { name: 'Svelte', image: salesforceIcon.src },
-        ],
-      },
-      {
-        title: 'AI & ML',
-        items: [
-          { name: 'AngularJS', image: pythonIcon.src },
-          { name: 'React', image: tensorFlowIcon.src },
-          { name: 'Vue.js', image: openCvIcon.src },
-          { name: 'HTML5', image: pytorchIcon.src },
-          { name: 'Stencil', image: sparkIcon.src },
-          { name: 'Svelte', image: mahoutIcon.src },
-        ],
-      },
-    ],
+      items: [
+        {
+          label: 'A',
+          icon: FaSearch,
+          title: 'Hire Mobile App Developers',
+          description:
+            'Need cross-platform excellence? Hire React Native developers from our bench to build seamless iOS and Android experiences. Our React Native developers boast an average rating of 4.8/5.',
+          position: 'left',
+          color: 'dark',
+        },
+        {
+          label: 'B',
+          icon: FaCogs,
+          title: 'Web & Full Stack',
+          description:
+            'Need end-to-end architecture? Hire full stack experts. We make it easy to hire full stack developers who fluently bridge frontend logic and backend databases.',
+          position: 'left',
+          color: 'orange',
+        },
+        {
+          label: 'C',
+          icon: FaBrain,
+          title: 'Backend & Frontend',
+          description:
+            'Scale gracefully. You can hire dedicated developers specifically tailored to your immediate sprint needs.',
+          position: 'right',
+          color: 'blue',
+        },
+      ],
+    } as TechTalentData,
     faqsContent: [
       {
         id: 1,

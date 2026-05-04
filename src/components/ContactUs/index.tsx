@@ -20,7 +20,10 @@ const ContactUs: FC = () => {
           alt='image'
           className='rotating-image'
         />
-        <MoveRight className='object-cover text-orange-500 absolute top-14 left-14' size={40} />
+        <MoveRight
+          className='object-cover text-orange-500 absolute top-14 left-14'
+          size={40}
+        />
       </div>
     </>
   );

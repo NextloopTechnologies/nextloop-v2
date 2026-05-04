@@ -1,4 +1,4 @@
-import { StaticImageData } from "next/image";
+import { StaticImageData } from 'next/image';
 import React, { FC } from 'react';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -55,14 +55,14 @@ const OurCLients: FC = () => {
   const sliderData = [...OURVALUES_DATA, ...OURVALUES_DATA];
 
   return (
-    <div className="bg-[#1D1D1D] flex flex-col items-center w-full overflow-hidden py-10 md:py-20">
-      <header className="flex gap-10 lg:w-4/6 lg:px-10 text-center">
-        <div className="pt-2 w-full flex flex-col justify-center items-center gap-y-3 z-10 px-4">
+    <div className='bg-[#1D1D1D] flex flex-col items-center w-full overflow-hidden py-10 md:py-20'>
+      <header className='flex gap-10 lg:w-4/6 lg:px-10 text-center'>
+        <div className='pt-2 w-full flex flex-col justify-center items-center gap-y-3 z-10 px-4'>
           <div
             className={`${palette.fontSize.heading2.mobile} md:text-4xl text-white uppercase font-bold text-center`}
           >
             <h2>
-              Our <span className="text-orange-500">Clients</span>
+              Our <span className='text-orange-500'>Clients</span>
             </h2>
           </div>
 
@@ -75,13 +75,13 @@ const OurCLients: FC = () => {
         </div>
       </header>
 
-      <div className="relative w-full lg:w-11/12 mt-10 px-4 overflow-hidden">
+      <div className='relative w-full lg:w-11/12 mt-10 px-4 overflow-hidden'>
         <div className={styles.fadeLeft}></div>
         <div className={styles.fadeRight}></div>
 
         <Swiper
           modules={[Autoplay]}
-          slidesPerView="auto"
+          slidesPerView='auto'
           spaceBetween={30}
           loop
           speed={2500}

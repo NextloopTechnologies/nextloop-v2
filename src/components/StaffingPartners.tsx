@@ -28,7 +28,11 @@ const ServicePartnerCards: React.FC<{ item: StepData }> = ({ item }) => {
             item.image
           ) : typeof item.image === 'function' ? (
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            React.createElement(item.image as any, { className: 'h-[82px] w-[82px] m-2 text-orange-500', size: 36, color: 'currentColor' })
+            React.createElement(item.image as any, {
+              className: 'h-[82px] w-[82px] m-2 text-orange-500',
+              size: 36,
+              color: 'currentColor',
+            })
           ) : typeof item.image === 'object' && (item.image as any).src ? (
             <Image
               src={item.image as any}
@@ -39,7 +43,11 @@ const ServicePartnerCards: React.FC<{ item: StepData }> = ({ item }) => {
             />
           ) : typeof item.image === 'string' ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={item.image as string} alt='tools-icon' className='h-[70px] w-[70px] m-2' />
+            <img
+              src={item.image as string}
+              alt='tools-icon'
+              className='h-[70px] w-[70px] m-2'
+            />
           ) : null)}
         <h3 className='mt-2 font-semibold text-sm mb-2'>{item.title}</h3>
         <p className='text-xs text-gray-600 px-4'>{item.description}</p>

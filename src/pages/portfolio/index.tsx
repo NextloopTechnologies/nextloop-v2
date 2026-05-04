@@ -18,17 +18,15 @@ const Portfolio: React.FC<{ data?: IPortfolio[]; error?: string }> = ({
   return (
     <Layout>
       <Head>
-        <title>
-          Customised IT solutions across Industries | Nextloop Portfolio
-        </title>
+        <title>Software Development Portfolio for Super App Development</title>
         <meta
           name='description'
-          content='Discover Nextloop’s portfolio of custom software, web development & cloud solutions delivering digital transformation for diverse industries & clients worldwide'
+          content='Nextloop Technologies has a proven track record of delivering tailored technology, from custom IoT app development & vendor management software to learning management system development'
         />
       </Head>
       <PageHero
         image={portfolioBg}
-        title='portfolio'
+        title='Portfolio'
         subtitle="View the range of projects completed by Nextloop Technologies. We have provided assistance to a wide range of firms in various industries and locations across the globe, from small startups to large corporations. This demonstrates our exceptional ability to generate fresh concepts and tailor solutions to the specific needs of each client. So, if you're interested in learning more about what Nextloop can accomplish for your company, have a look at our portfolios!"
         opacity='opacity-90'
       />
@@ -54,31 +52,29 @@ const ProjectCard: React.FC<{ proj: IPortfolio; index: number }> = ({
 }) => {
   const router = useRouter();
 
-  const imageUrl =
-    proj.image?.[0]?.url || '/placeholder.png';
+  const imageUrl = proj.image?.[0]?.url || '/placeholder.png';
 
   return (
     <div
-      className=" w-full flex flex-col items-center justify-end cursor-pointer group"
+      className=' w-full flex flex-col items-center justify-end cursor-pointer group'
       onClick={() => router.push(`/portfolio/${proj.id}`)}
     >
       <Image
         src={imageUrl}
         alt={proj.title ?? 'portfolio-image'}
-        className="object-contain max-h-[650px] transition-transform duration-300 group-hover:scale-105"
+        className='object-contain max-h-[650px] transition-transform duration-300 group-hover:scale-105'
         width={650}
         height={650}
       />
 
-      <div className=" bg-white w-[80%] xl:px-16 py-8 flex flex-col items-center gap-4 -bottom-16 shadow-lg text-center rounded-xl">
-        <p className="font-medium xl:text-4xl lg:text-2xl text-xl">
+      <div className=' bg-white w-[80%] xl:px-16 py-8 flex flex-col items-center gap-4 -bottom-16 shadow-lg text-center rounded-xl'>
+        <p className='font-medium xl:text-4xl lg:text-2xl text-xl'>
           {proj.title}
         </p>
       </div>
     </div>
   );
 };
-
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const { data, error } = await supabaseClient

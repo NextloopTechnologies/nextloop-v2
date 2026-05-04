@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react';
 import LoaderSvg from '../Loader/loader';
 import { NextLoopColoredLogo } from '../../../assets';
 
-
 interface HeaderProps {
   isSticky: boolean;
   headerColor?: string;
@@ -99,10 +98,11 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
         </div>
       )}
       <nav
-        className={`px-10 fixed transition-all duration-300 ease-in-out top-0 left-0 w-full z-30 ${isSticky
-          ? 'bg-white text-black shadow-md'
-          : headerColor ?? 'text-white'
-          }`}
+        className={`px-10 fixed transition-all duration-300 ease-in-out top-0 left-0 w-full z-30 ${
+          isSticky
+            ? 'bg-white text-black shadow-md'
+            : headerColor ?? 'text-white'
+        }`}
       >
         <div className='flex justify-between'>
           <Image
@@ -120,8 +120,9 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
               <Link href='/about-us'>About us</Link>
             </li>
             <li
-              className={`relative ${pathname.startsWith('/domain') && 'text-orange-500'
-                }`}
+              className={`relative ${
+                pathname.startsWith('/domain') && 'text-orange-500'
+              }`}
               onMouseEnter={() => setShowIndustriesDropdown(true)}
               onMouseLeave={() => setShowIndustriesDropdown(false)}
             >
@@ -137,10 +138,11 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
                   {industries.map((industry) => (
                     <li
                       key={industry.name}
-                      className={` hover:bg-orange-500 text-white text-sm rounded-sm ${pathname === industry.href
-                        ? 'bg-orange-500 text-white'
-                        : ''
-                        }`}
+                      className={` hover:bg-orange-500 text-white text-sm rounded-sm ${
+                        pathname === industry.href
+                          ? 'bg-orange-500 text-white'
+                          : ''
+                      }`}
                     >
                       <Link href={industry.href} className='block px-3 py-1'>
                         {industry.name}
@@ -171,7 +173,11 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
                 className='bg-orange-500 ml-10 text-white px-5 py-3 rounded-full flex items-center justify-center'
                 href='/contact-us'
               >
-                Contact Us <span className='ml-1'> <MoveRight size={20} /></span>
+                Contact Us{' '}
+                <span className='ml-1'>
+                  {' '}
+                  <MoveRight size={20} />
+                </span>
               </Link>
             </li>
           </ul>
