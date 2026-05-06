@@ -1,7 +1,6 @@
-// 
+//
 
-
-import { Cpu, HeartPulse,ShieldCheck } from 'lucide-react';
+import { Cpu, HeartPulse, ShieldCheck } from 'lucide-react';
 import React from 'react';
 
 import HexagonBox from '../../HexagonBox';

@@ -1,4 +1,3 @@
-
 import React, { FC } from 'react';
 
 const Career: FC = () => {
@@ -21,33 +20,21 @@ const Career: FC = () => {
     },
   ];
 
-
-
   return (
     <>
       <div className='flex flex-col justify-center items-center mt-10 sm:min-h-screen overflow-x-hidden lg:text-left text-center'>
-        <header
-          
-          className='flex flex-col gap-y-10 lg:w-5/6 w-full'
-        >
+        <header className='flex flex-col gap-y-10 lg:w-5/6 w-full'>
           <div className='flex flex-col gap-y-3 mt-10'>
             <span className='text-lg text-white sm:text-xl'>
               SUCCESS NUMBERS
             </span>
-            <span
-              
-              className='flex flex-col lg:flex-row w-full'
-            >
+            <span className='flex flex-col lg:flex-row w-full'>
               <span className='uppercase lg:text-4xl text-3xl font-bold text-white text-center lg:text-left'>
                 A Closer Look at Our Company's{' '}
                 <b className='text-orange-500'>Success.</b>
               </span>
-              
             </span>
-            <span
-              
-              className='text-xl pt-2 flex items-center text-center lg:text-left text-white'
-            >
+            <span className='text-xl pt-2 flex items-center text-center lg:text-left text-white'>
               <div className='lg:w-1/2'>
                 Explore the remarkable milestones, groundbreaking innovations,
                 and{' '}
@@ -59,10 +46,7 @@ const Career: FC = () => {
                 force in technology solutions.
               </div>
             </span>
-            <span
-         
-              className='flex text-white justify-between lg:w-5/6 mt-6 flex-wrap gap-8'
-            >
+            <span className='flex text-white justify-between lg:w-5/6 mt-6 flex-wrap gap-8'>
               {badge.map((item) => {
                 return (
                   <div

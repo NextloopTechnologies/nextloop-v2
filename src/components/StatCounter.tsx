@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
 interface StatCounterProps {
   end: number;
@@ -11,11 +11,10 @@ interface StatCounterProps {
 const StatCounter: React.FC<StatCounterProps> = ({
   end,
   duration = 2000,
-  suffix = "",
+  suffix = '',
 }) => {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement | null>(null);
-
 
   useEffect(() => {
     if (!ref.current) return;
@@ -53,11 +52,8 @@ const StatCounter: React.FC<StatCounterProps> = ({
     return () => observer.disconnect();
   }, [end, duration]);
 
-
-
-
   return (
-    <span ref={ref} className="text-4xl font-bold text-orange-400">
+    <span ref={ref} className='text-4xl font-bold text-orange-400'>
       {count}
       {suffix}
     </span>

@@ -86,30 +86,35 @@ const JobDetails: React.FC<{ job: Job }> = ({
           <div className='flex flex-col gap-4 md:w-[70%]'>
             <h2 className='text-2xl font-bold'>Skills</h2>
             <div className='flex flex-wrap gap-4'>
-              {skills?.map((s, i) =>
-                typeof s === "string" && !!s.trim().length && (
-                  <div
-                    key={i}
-                    className='border text-orange-500 border-orange-500 rounded-3xl px-2 py-1'
-                  >
-                    {s}
-                  </div>
-                ) 
+              {skills?.map(
+                (s, i) =>
+                  typeof s === 'string' &&
+                  !!s.trim().length && (
+                    <div
+                      key={i}
+                      className='border text-orange-500 border-orange-500 rounded-3xl px-2 py-1'
+                    >
+                      {s}
+                    </div>
+                  )
               )}
-
             </div>
           </div>
         </div>
         <div className='md:w-fit w-full rounded-md shadow-md flex flex-col px-12 py-4 gap-4'>
           <div className='flex gap-2 items-center'>
             <div>
-              <MapPin size={20} strokeWidth={2} className="text-black mx-auto" />
+              <MapPin
+                size={20}
+                strokeWidth={2}
+                className='text-black mx-auto'
+              />
             </div>
             <p className='text-lg'>
               {location}, {job_mode} | {job_type}
             </p>
           </div>
-          
+
           <button
             className='flex rounded-3xl px-6 disabled:bg-gray-400 disabled:cursor-not-allowed bg-orange-500 text-white py-1 text-lg justify-center'
             onClick={handleApplyClick}
