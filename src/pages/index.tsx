@@ -2,7 +2,7 @@ import { domAnimation, LazyMotion, m } from 'framer-motion';
 import { MoveDown } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-// import Image from 'next/image';
+import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 const ClientSays = dynamic(() => import('../components/ClientSays'), {
   ssr: false,
@@ -96,7 +96,7 @@ const Home: React.FC = () => {
           }
         });
       },
-      { root: null, threshold: 0.1 }
+      { root: null, threshold: 0.1 },
     );
 
     currentDivs.forEach((div) => {
@@ -113,7 +113,7 @@ const Home: React.FC = () => {
   const scrollToNext = () => {
     if (visibleDiv) {
       const currentIndex = divRefs.current.findIndex(
-        (div) => div?.id === visibleDiv
+        (div) => div?.id === visibleDiv,
       );
       if (currentIndex >= 0 && currentIndex < divRefs.current.length - 1) {
         const nextDiv = divRefs.current[currentIndex + 1];
@@ -256,19 +256,16 @@ const Home: React.FC = () => {
     <>
       <Head>
         <title>
-          IT Staff Augmentation | Custom Software Solutions | AI Remote Teams
+          Custom Software, IT & Digital Solutions | Nextloop Technologies
         </title>
-
         <meta
           name='title'
           content='IT Staff Augmentation | Custom Software Solutions | AI Remote Teams'
         />
-
         <meta
           name='description'
           content='Leading IT outsourcing company in Indore & USA. We provide custom software development, staff augmentation & dedicated developers for AI, SaaS & MVP development'
         />
-
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{

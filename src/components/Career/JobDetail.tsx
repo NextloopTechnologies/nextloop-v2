@@ -96,7 +96,7 @@ const JobDetails: React.FC<{ job: Job }> = ({
                     >
                       {s}
                     </div>
-                  )
+                  ),
               )}
             </div>
           </div>

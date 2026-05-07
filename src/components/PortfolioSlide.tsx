@@ -128,7 +128,7 @@ const PortfolioSlide = () => {
                     </Link>
                   </div>
                 </div>
-              )
+              ),
             )}
           </div>
 

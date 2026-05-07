@@ -99,7 +99,7 @@ const CultureSection = ({
             className={`lg:col-span-5 ${reverse ? 'lg:order-1' : 'lg:order-2'}`}
             initial={{ y: 40, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 2, ease: 'easeOut', delay: 0.15 }}
+            transition={{ duration: 0.7, ease: 'easeOut', delay: 0.15 }}
           >
             <div className='relative'>
               {/* Section tag */}

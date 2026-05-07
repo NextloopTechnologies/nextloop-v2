@@ -32,7 +32,7 @@ const ProcessWeFollow = () => {
       {/* ================= HEADER ================= */}
       <div className='w-full flex flex-col justify-center items-center gap-y-3 z-10 px-4'>
         <h2
-          className={`${palette.fontSize.heading2.mobile} md:text-4xl 2xl:text-4xl  font-bold text-center`}
+          className={`${palette.fontSize.heading2.mobile} md:text-4xl 2xl:text-4xl uppercase font-bold text-center`}
         >
           Our <span className='text-orange-500'>Delivery Pipeline</span>
         </h2>

@@ -1,5 +1,12 @@
 import React, { FC } from 'react';
 
+// import ContactUs from '../ContactUs';
+// import {
+//   introHeaderVariants,
+//   textVariants,
+// } from '../../utils/frameMotionAnimations';
+// import useWindowSize from '../../utils/useWindowSize';
+
 const Career: FC = () => {
   const badge = [
     {

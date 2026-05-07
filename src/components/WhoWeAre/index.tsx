@@ -27,7 +27,7 @@ const WhoWeAre: FC = () => {
       <div className='w-full lg:w-1/2 flex justify-center lg:justify-end'>
         <div className='flex flex-col max-w-xl text-center lg:text-left'>
           <h2
-            className={`${palette.fontSize.heading2.mobile} ${palette.fontSize.heading1.mobile} lg:text-4xl 2xl:text-5xl font-bold leading-snug`}
+            className={`${palette.fontSize.heading2.mobile} lg:text-4xl 2xl:text-5xl uppercase font-bold leading-snug`}
           >
             Transforming Your Business{' '}
             <span className='text-orange-400'>

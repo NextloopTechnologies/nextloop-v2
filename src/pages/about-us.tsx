@@ -11,12 +11,11 @@ import {
 } from 'lucide-react';
 import Head from 'next/head';
 import Image, { StaticImageData } from 'next/image';
+import { useRouter } from 'next/router';
 import { useRef } from 'react';
 
 import Layout from '../components/Layout/Layout';
-import MeetFounders from '../components/MeetFounders';
 import PageHero from '../components/PageHero';
-import Timeline from '../components/Timeline';
 import palette from '../styles/pallette';
 import { AboutNextloopBackground } from '../../assets';
 import aboutBg from '../../assets/about-us-hero.webp';
@@ -83,6 +82,25 @@ const arr = [
   },
 ];
 
+const journeyArr = [
+  {
+    title: 'Inception',
+    sub: 'our team of four engineers has come together from a variety of professions, including tech, administration, sales, and management, with the goal of assisting individuals in solving their challenges. Due to the pressing demand for digitalization in society and our proficiency in the field, we began developing mobile and web applications for nearby suppliers, and from there the whole idea was formed.',
+  },
+  {
+    title: 'Extension',
+    sub: 'Possessing all the necessary components for both digitization and humanitarian work, they began contacting various companies with their high-caliber offerings and, in just four months, secured our first project abroad',
+  },
+  {
+    title: 'Progression',
+    sub: ' In just eight months, through perseverance and hard work, we expanded to a team of fifteen driven employees and moved into an office. This was a significant turning point in our self-funded journey, and it gave us hope that we still had a long way to go. It will take months for the team to reach its full potential.',
+  },
+  {
+    title: 'Transformation',
+    sub: ' We will have 40 members by 2024 and be expanding quickly, all the while assisting numerous businesses. We have six domains in which we are experts. With every project, we redefine possibilities because we are committed to risk-taking experimentation. We believe in innovation. developing innovative technologies that will influence IT in the future.',
+  },
+];
+
 const certificateCardArr = [
   {
     img: cert1,
@@ -131,7 +149,6 @@ const AboutUsHome = () => {
         subtitle='At Nextloop Technologies, we partner with ambitious businesses to turn complex challenges into scalable, high-performance systems that drive measurable growth. Every solution we build is rooted in strategy, engineered with precision, and designed for long-term value. We specialize in crafting tailored IT solutions aligned with your unique business goals — from cloud architecture and optimization to AI-driven systems, intelligent automation, and custom software development. '
       />
       <WhyUs />
-      <MeetFounders />
       <Journey />
       {/* <AboutUsInAboutUs /> */}
       <EndToEnd />
@@ -152,6 +169,7 @@ const WhyUs = () => (
 );
 
 const Journey = () => {
+  const router = useRouter();
   return (
     <div className='min-h-auto text-center p-8'>
       <div className='mt-16'>
