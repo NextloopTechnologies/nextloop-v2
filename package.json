@@ -10,11 +10,11 @@
     "build-prod": "run-s clean build export",
     "clean": "rimraf .next out",
     "lint": "next lint",
-    "build-types": "tsc --noEmit --format",
+    "build-types": "tsc --noEmit --pretty",
     "prepare": "husky install",
     "test": "jest",
     "test-watch": "jest --watch",
-    "format": "prettier --write ."
+    "pretty": "prettier --write ."
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.39.8",

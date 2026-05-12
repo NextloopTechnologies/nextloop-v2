@@ -94,37 +94,23 @@ export const TechTalent = ({ data }: TechTalentProps) => {
   if (!itemA || !itemB || !itemC) return null;
 
   return (
-    <div className='bg-white px-6 md:px-16 lg:px-24 py-16 font-sans'>
-      {/* Heading */}
+    <div className='bg-white px-6 md:px-16 lg:px-24 py-16 font-sans text-center'>
       <h2
-        className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-extrabold text-gray-900 leading-tight mb-4`}
+        className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold text-gray-900 leading-tight mb-4`}
       >
         {headingData.heading}
         <span className='text-orange-500'>{headingData.coloredHeading}</span>
       </h2>
-      <p className='text-gray-500 text-sm text-center max-w-2xl mx-auto mb-2'>
-        {headingData.description}
-      </p>
+      <p className='text-gray-400 mt-4 mb-12'>{headingData.description}</p>
 
-      {/* Decorative underline */}
-      <div className='flex justify-center gap-1 mb-12'>
-        <div className='h-1 w-12 bg-gray-800 rounded-full' />
-        <div className='h-1 w-8 bg-orange-500 rounded-full' />
-        <div className='h-1 w-12 bg-gray-300 rounded-full' />
-      </div>
-
-      {/* Mobile layout — stacked cards */}
-      <div className='flex flex-col gap-4 md:hidden'>
+      <div className='flex flex-col gap-4 lg:hidden'>
         {items.map((item, i) => (
           <MobileCard key={i} item={item} />
         ))}
       </div>
 
-      {/* Desktop layout — hexagon cluster */}
-      <div className='hidden md:flex flex-col items-center max-w-5xl mx-auto'>
-        {/* Row 1 — Item A (top center) with left text connector */}
-        <div className='flex items-center justify-center w-full mb-[-52px] relative z-10'>
-          {/* Left text */}
+      <div className='hidden lg:flex flex-col items-center max-w-5xl mx-auto'>
+        <div className='flex items-center justify-center w-full mb-[-20px] mr-20 relative z-10'>
           <div className='w-52 lg:w-64 text-right'>
             <p className='font-bold text-sm text-gray-900'>{itemA.title}</p>
             <p className='text-xs text-gray-500 mt-1 leading-relaxed'>
@@ -136,13 +122,10 @@ export const TechTalent = ({ data }: TechTalentProps) => {
           <div className='mx-4'>
             <HexagonCard item={itemA} />
           </div>
-          {/* Spacer to balance right side */}
           <div className='w-52 lg:w-64' />
         </div>
 
-        {/* Row 2 — Items B & C (overlapping, side by side) */}
         <div className='flex items-center justify-center w-full'>
-          {/* Left text for B */}
           <div className='w-52 lg:w-64 text-right'>
             <p className='font-bold text-sm text-orange-500'>{itemB.title}</p>
             <p className='text-xs text-gray-500 mt-1 leading-relaxed'>
@@ -152,8 +135,7 @@ export const TechTalent = ({ data }: TechTalentProps) => {
           <ConnectorLine />
           <ConnectorDot />
 
-          {/* B & C overlapping hexagons */}
-          <div className='flex items-center mx-2'>
+          <div className='flex items-center mx-2 gap-10'>
             <div className='relative z-10 mr-[-22px]'>
               <HexagonCard item={itemB} />
             </div>
