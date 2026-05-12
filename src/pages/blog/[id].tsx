@@ -5,10 +5,8 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 import Layout from '../../components/Layout/Layout';
-import PageHero from '../../components/PageHero';
 import { BlogType } from '../../types';
 import supabaseClient from '../../utils/client';
-import blogsBg from '../../../assets/blogs.png';
 
 interface TocItem {
   id: string;
@@ -168,7 +166,7 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error }) => {
 
   if (error) {
     return (
-      <Layout>
+      <Layout headerColor='text-black'>
         <div className='min-h-[60vh] flex items-center justify-center text-xl text-gray-500'>
           {error}
         </div>
@@ -187,17 +185,8 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error }) => {
     : undefined;
 
   return (
-    <Layout>
-      <PageHero
-        image={blogsBg}
-        title='blogs'
-        subtitle='If you are looking for a complete business solution at a one place in
-          combination with distinctive designs, that is what you can expect from
-          us. To stimulate the growth of your company, we focus on various
-          services, although we do not limit ourselves to this. We keep learning
-          and stay ourselves up to date with current market trends.'
-      />
-      <div className='bg-white min-h-screen pb-16'>
+    <Layout headerColor='text-black'>
+      <div className='bg-white min-h-screen pb-16  lg:mt-11'>
         <div className='max-w-4xl mx-auto px-4 pt-8 text-center'>
           <h1 className='text-2xl md:text-3xl lg:text-[2rem] font-extrabold leading-tight text-gray-900'>
             {data.title}

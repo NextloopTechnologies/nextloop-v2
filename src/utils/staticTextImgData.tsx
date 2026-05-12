@@ -6,6 +6,7 @@ import {
   Search,
   Settings,
 } from 'lucide-react';
+import { HardHat, HeartPulse, Leaf } from 'lucide-react';
 import { BsBank } from 'react-icons/bs';
 import { FaRegFileAlt } from 'react-icons/fa';
 import { FaHandHoldingMedical } from 'react-icons/fa';
@@ -50,9 +51,6 @@ import {
 import blogImg from '../../assets/blog/blogImg.png';
 import careerBg from '../../assets/careerBg.webp';
 import culturebg from '../../assets/culturebg.png';
-import OurProcess1 from '../../assets/services/ourProcess1.png';
-import OurProcess2 from '../../assets/services/ourProcess2.png';
-import OurProcess3 from '../../assets/services/ourProcess3.png';
 import servicesWebdevelopmentHero from '../../assets/services/servicesWebdevelopmentHero.png';
 import staffingService from '../../assets/services/staffing-service.png';
 import WhyBusinessChooseUs from '../../assets/services/why-choose-us-bg.png';
@@ -1039,52 +1037,55 @@ export const servicesSubPagesData = {
     },
     processData: {
       headingData: {
-        heading: 'Our ',
-        coloredHeading: 'Web Development Process',
+        heading: 'The Blueprint for ',
+        coloredHeading: 'Zero-Disruption Modernization',
+        description:
+          'Moving complex systems requires absolute precision. Our proven, five-phase engineering framework ensures your transition is secure, seamless, and perfectly aligned with your commercial objectives. ',
       },
       items: [
         {
           icon: <Lightbulb className='text-orange-500 w-7 h-7' />,
-          title: 'Consultation',
+          title: 'Discovery & Strategic Consultation',
           description:
-            'We understand your needs to create a tailored cloud strategy.',
+            'We begin by auditing your existing infrastructure and understanding your commercial goals. Our cloud consulting services provide a tailored roadmap to ensure your digital transformation aligns perfectly with your long-term business growth.',
           color: 'border-orange-500',
         },
         {
           icon: <Settings className='text-orange-500 w-7 h-7' />,
-          title: 'Design',
+          title: 'Scalable Architectural Design ',
           description:
-            'We craft secure and scalable cloud solutions for your business.',
+            'Our engineers craft a secure, high-availability blueprint before writing a single line of code. We design robust cloud computing solutions tailored specifically to handle your traffic patterns, compliance requirements, and future scalability.',
           color: 'border-orange-500',
         },
         {
           icon: <Search className='text-gray-600 w-7 h-7' />,
-          title: 'Migration',
-          description: 'We seamlessly move your data and apps to the cloud.',
+          title: 'Risk-Mitigated Migration',
+          description:
+            "Transitioning shouldn't mean downtime. We execute a phased, highly monitored transfer of your data and applications. Our primary focus is ensuring zero business disruption and absolute data integrity throughout the entire move. ",
           color: 'border-gray-500',
         },
         {
           icon: <Rocket className='text-gray-600 w-7 h-7' />,
-          title: 'Deployment',
+          title: 'Deployment & Performance Tuning',
           description:
-            'Your cloud solution is deployed and optimized for performance.',
+            'Once the environment is live, our optimization phase begins. We deploy your systems and immediately fine-tune every node and resource for maximum speed, ensuring your new infrastructure runs at peak operational efficiency. ',
           color: 'border-gray-500',
         },
         {
           icon: <Rocket className='text-gray-600 w-7 h-7' />,
-          title: 'Support',
+          title: 'Proactive Governance & Support',
           description:
-            'We provide ongoing support and maintenance for smooth operations.',
+            'We act as a seamless extension of your internal IT team. Our engineers provide 24/7 monitoring, continuous security patching, and proactive maintenance to guarantee smooth, uninterrupted operations year-round. ',
           color: 'border-gray-500',
         },
       ],
     },
     techStackData: {
       headingData: {
-        heading: 'OUR',
-        coloredHeading: 'TECH STACK',
+        heading: 'Multi-Platform ',
+        coloredHeading: 'Technical Depth',
         description:
-          'We leverage cutting-edge technologies to build robust solutions.',
+          'We believe the best digital architectures are vendor-agnostic. Our certified engineers leverage the world’s leading ecosystems to provide you with the most efficient, secure, and scalable tech stack for your specific workload. ',
       },
       items: [
         {
@@ -1178,44 +1179,53 @@ export const servicesSubPagesData = {
       ],
     },
     whyChooseUsData: {
+      headingData: {
+        heading: 'Why High-Growth ',
+        coloredHeading: 'Enterprises Choose Nextloop ',
+        description:
+          'Selecting a technical partner is a critical business decision. Here is how our zero-lock-in philosophy and compliance-grade protection set a new standard for managed IT.Establishing a partnership with premier cloud hosting companies in India requires a team that values your long-term autonomy as much as your daily uptime. We provide the enterprise-grade cloud infrastructure management necessary for sustainable digital growth:  ',
+      },
       items: [
         {
           id: 1,
-          title: 'TAILORED SOLUTIONS',
-          descp: 'Experienced developers who use cutting-edge technologies.',
+          title: 'Structural Independence',
+          descp:
+            'We advocate for a "Zero-Lock-In" philosophy. We build frameworks that give you the freedom to pivot, move, or expand your assets without being tethered to a single platform\'s limitations or proprietary traps.',
           icon: MdOutlineAddLocation,
         },
         {
           id: 2,
-          title: 'EXPERT TEAM',
+          title: 'Multi-Cloud Proficiency',
           descp:
-            'Our certified cloud engineers deliver secure, scalable solutions.',
+            'Collaborate with a team of cross-functional specialists. We harmonize the strengths of AWS, Azure, and Google Cloud to develop a digital ecosystem that is uniquely balanced for your specific commercial durability. ',
           icon: PiExcludeSquareDuotone,
         },
         {
           id: 3,
-          title: 'SEAMLESS MIGRATION',
-          descp: 'We ensure a smooth, hassle-free transition to the cloud.',
+          title: 'Frictionless Transitions',
+          descp:
+            "Growth shouldn't come at the cost of stability. Our modernization methods are designed to upgrade your stack in the background, ensuring your active business operations remain completely unaffected and 100% stable. ",
           icon: PiEyeBold,
         },
         {
           id: 4,
-          title: 'SCALABLE & FLEXIBLE',
-          descp: 'Cloud solutions that grow with your business.',
+          title: 'Intelligent Elasticity',
+          descp:
+            'Eliminate the waste of over-provisioning. We implement systems that react dynamically to demand, ensuring a flawless user experience during traffic surges while remaining lean and cost-efficient during quiet periods.',
           icon: MdOutlineAddLocation,
         },
         {
           id: 5,
-          title: 'TOP SECURITY',
+          title: 'Sovereign Data Safeguarding ',
           descp:
-            'We prioritize data protection with industry-leading security measures.',
+            'We implement defensive layers that go beyond standard protection. From regional privacy laws to global financial benchmarks, we ensure your data handling meets the world’s most stringent regulatory standards.',
           icon: PiExcludeSquareDuotone,
         },
         {
           id: 6,
-          title: '24/7 SUPPORT',
+          title: 'Persistent System Oversight ',
           descp:
-            'Continuous support and monitoring to keep everything running smoothly.',
+            'As your primary cloud services company, we move beyond simple troubleshooting. We provide the continuous strategic stewardship and technical refinement required to prevent bottlenecks before they ever reach the user. ',
           icon: PiEyeBold,
         },
       ],
@@ -1640,9 +1650,10 @@ export const servicesSubPagesData = {
   },
   aimlSolutions: {
     metaData: {
-      pageMetaTitle: 'Generative AI Development Company | Hire AI Developers',
+      pageMetaTitle:
+        'AI & ML Solutions Custom Development & Consulting | Nextloop ',
       pageMetaDescription:
-        'Nextloop is a leading Generative AI development company. Hire AI developers to build custom LLMs, RAG pipelines, and enterprise-grade AI/ML solutions.',
+        'Partner with Nextloop for custom AI & ML development services. We deliver enterprise AI solutions, predictive analytics, and scalable data architecture.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {
@@ -2956,33 +2967,39 @@ export const servicesSubPagesData = {
         },
       ],
     },
-    flexibleHiringData: {
-      headingData: {
-        heading: 'Flexible Hiring Solutions ',
-        coloredHeading: 'Tailored to Your Needs',
-        description: '',
-      },
-      items: [
+    staffProcessData: {
+      heading: 'How Our IT Staff Augmentation',
+      coloredHeading: ' Process Works',
+      steps: [
         {
-          id: 1,
-          title: 'Short-Term Contracts',
+          step: 1,
+          title: 'Requirement Analysis',
           description:
-            'Need talent for a specific project or seasonal demand? We provide skilled professionals for short-term engagements, ensuring they’re not just qualified on paper but also the right cultural fit for your team.',
-          image: OurProcess1,
+            'Understanding your project needs, tech stack, and team dynamics.',
         },
         {
-          id: 2,
-          title: 'Long-Term Contracts',
+          step: 2,
+          title: 'Talent Matching & Screening',
           description:
-            'Looking for consistency and reliability? Our long-term contract staffing ensures you get professionals who align with your company values and have the expertise to deliver lasting results. ',
-          image: OurProcess2,
+            'Selecting pre-vetted developers with matching skills and experience.',
         },
         {
-          id: 3,
-          title: 'Direct Placement',
+          step: 3,
+          title: 'Onboarding & Integration',
           description:
-            'Hiring permanent employees is about more than filling a role—it’s about finding the right person who complements your team and drives growth. From entry-level positions to leadership roles, we help you find the perfect fit.',
-          image: OurProcess3,
+            'Seamless integration with your team, tools, and development processes.',
+        },
+        {
+          step: 4,
+          title: 'Project Execution & Monitoring',
+          description:
+            'Daily collaboration, code reviews, and performance tracking.',
+        },
+        {
+          step: 5,
+          title: 'Ongoing Support & Scaling',
+          description:
+            'Continuous assessment, skill development, and team expansion as needed.',
         },
       ],
     },
@@ -3079,104 +3096,6 @@ export const servicesSubPagesData = {
         },
       ],
     },
-    techStackData: {
-      headingData: {
-        heading: 'OUR',
-        coloredHeading: 'TECH STACK',
-        description:
-          'We leverage cutting-edge technologies to build robust solutions.',
-      },
-      items: [
-        {
-          title: 'FRONTEND',
-          items: [
-            { name: 'AngularJS', image: AngularIcon.src },
-            { name: 'React', image: ReactIcon.src },
-            { name: 'Vue.js', image: VueIcon.src },
-            { name: 'HTML5', image: Html5Icon.src },
-            { name: 'Stencil', image: StencilIcon.src },
-            { name: 'Svelte', image: SvelteIcon.src },
-          ],
-        },
-        {
-          title: 'MOBILE',
-          items: [
-            { name: 'AngularJS', image: androidIcon.src },
-            { name: 'React', image: iosIcon.src },
-            { name: 'Vue.js', image: ionicIcon.src },
-            { name: 'HTML5', image: reactNativeIcon.src },
-            { name: 'Stencil', image: objcIcon.src },
-            { name: 'Svelte', image: flutterIcon.src },
-          ],
-        },
-        {
-          title: 'OPEN SOURCE',
-          items: [
-            { name: 'AngularJS', image: javaIcon.src },
-            { name: 'React', image: nodeIcon.src },
-            { name: 'Vue.js', image: phpIcon.src },
-            { name: 'HTML5', image: pythonIcon.src },
-            { name: 'Stencil', image: rubyIcon.src },
-            { name: 'Svelte', image: golangIcon.src },
-          ],
-        },
-        {
-          title: 'UI/UX',
-          items: [
-            { name: 'AngularJS', image: XDIcon.src },
-            { name: 'React', image: PSIcon.src },
-            { name: 'Vue.js', image: figmaIcon.src },
-            { name: 'HTML5', image: AIIcon.src },
-            { name: 'Stencil', image: seekIcon.src },
-            { name: 'Svelte', image: webflowIcon.src },
-          ],
-        },
-        {
-          title: 'CLOUD',
-          items: [
-            { name: 'AngularJS', image: amazonWebServicesIcon.src },
-            { name: 'React', image: msAzureIcon.src },
-            { name: 'Vue.js', image: googleCloudIcon.src },
-            { name: 'HTML5', image: salesForceIcon.src },
-            { name: 'Stencil', image: ibmCloudIcon.src },
-            { name: 'Svelte', image: digitalOceanIcon.src },
-          ],
-        },
-        {
-          title: 'BLOCKCHAIN',
-          items: [
-            { name: 'AngularJS', image: solidityIcon.src },
-            { name: 'React', image: web3Icon.src },
-            { name: 'Vue.js', image: etherjsIcon.src },
-            { name: 'HTML5', image: ethereumIcon.src },
-            { name: 'Stencil', image: fabricIcon.src },
-            { name: 'Svelte', image: solanaIcon.src },
-          ],
-        },
-        {
-          title: 'OTHERS',
-          items: [
-            { name: 'AngularJS', image: uiPathIcon.src },
-            { name: 'React', image: drupalIcon.src },
-            { name: 'Vue.js', image: sapIcon.src },
-            { name: 'HTML5', image: googleAnalyticsIcon.src },
-            { name: 'Stencil', image: vrarIcon.src },
-            { name: 'Svelte', image: salesforceIcon.src },
-          ],
-        },
-        {
-          title: 'AI & ML',
-          items: [
-            { name: 'AngularJS', image: pythonIcon.src },
-            { name: 'React', image: tensorFlowIcon.src },
-            { name: 'Vue.js', image: openCvIcon.src },
-            { name: 'HTML5', image: pytorchIcon.src },
-            { name: 'Stencil', image: sparkIcon.src },
-            { name: 'Svelte', image: mahoutIcon.src },
-          ],
-        },
-      ],
-    },
     techTalentData: {
       headingData: {
         heading: 'Build Your ',
@@ -3214,6 +3133,30 @@ export const servicesSubPagesData = {
         },
       ],
     } as TechTalentData,
+    NotJustAPartnerData: {
+      heading: 'Not Just A Partner,',
+      coloredHeading: 'But An Extension Of Your In-House Team.',
+      items: [
+        {
+          icon: HeartPulse,
+          title: 'No Intrusive Agency Managers',
+          description:
+            'You have unrestricted, unconditional direct access to your resources.',
+        },
+        {
+          icon: HardHat,
+          title: 'A Fully Managed Team',
+          description:
+            'We manage hiring, grievances, retention, and the happiness index of your developers.',
+        },
+        {
+          icon: Leaf,
+          title: 'Customizable Work Culture',
+          description:
+            "When you hire dedicated developers through Nextloop, they seamlessly adapt to your company's workflows and time zones.",
+        },
+      ],
+    },
     faqsContent: [
       {
         id: 1,

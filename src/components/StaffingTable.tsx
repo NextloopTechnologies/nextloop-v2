@@ -14,7 +14,7 @@ const StaffingTable = ({ data }: StaffingTableProps) => {
   const { headingData, columns, rows } = data;
 
   return (
-    <div className='flex flex-col items-center text-center w-full bg-gray-100 px-6 md:px-16 lg:px-24 py-16'>
+    <div className='flex flex-col items-center text-center w-full  px-6 md:px-16 lg:px-24 py-16'>
       <h2
         className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold text-gray-900`}
       >

@@ -5,10 +5,10 @@ import { IconType } from 'react-icons';
 // import { IconType } from 'react-icons';
 import BlogSection from '../../components/BlogSection';
 import FAQ from '../../components/Domains/FAQ';
-import FlexibleHiringSection from '../../components/FlexibleHiringSection';
 import IconTextBoxZebra from '../../components/IconTextBoxZebra';
 import IconTitleDescription from '../../components/IconTitleDescription';
 import Layout from '../../components/Layout/Layout';
+import NotJustAPartner from '../../components/NotJustPartner';
 import PageHero from '../../components/PageHero';
 import { ProductCard } from '../../components/ProductCard';
 import ScrollingProcess from '../../components/ScrollingProcess';
@@ -16,7 +16,9 @@ import Slider from '../../components/Slider';
 import StaffingIndustriesSection from '../../components/StaffingIndustriesSection';
 import StaffingSecurity from '../../components/StaffingSecurity';
 import StaffingTable from '../../components/StaffingTable';
+import StaffProcess from '../../components/StaffProcess';
 import TechStack, { TechCategory } from '../../components/TechStackSection';
+import TechTalent from '../../components/TechTalent';
 import TrustedPartnersSection from '../../components/Trustedpartnerssection';
 
 type ImageLike = StaticImageData | string | React.ReactNode | React.ElementType;
@@ -180,6 +182,28 @@ export interface TechTalentData {
   };
   items: TechTalentItem[];
 }
+export interface PartnerItem {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+}
+
+export interface NotJustAPartnerData {
+  heading: string;
+  coloredHeading: string;
+  items: PartnerItem[];
+}
+export interface StaffProcessStep {
+  step: number;
+  title: string;
+  description: string;
+}
+
+export interface StaffProcessData {
+  heading: string;
+  coloredHeading: string;
+  steps: StaffProcessStep[];
+}
 
 export interface ServicePageProps {
   metaData?: {
@@ -217,11 +241,12 @@ export interface ServicePageProps {
   staffingIndustriesData?: StaffingData;
   whyBusinessChoosesUsData?: StaffingData;
   // ourProcessData?: StaffingData;
-  flexibleHiringData?: StaffingData;
   teamMembersData?: TeamMembersSectionData;
   comparisonTableData?: ComparisonTableData;
   SecurityData?: SecurityData;
   techTalentData?: TechTalentData;
+  NotJustAPartnerData?: NotJustAPartnerData;
+  staffProcessData?: StaffProcessData;
 }
 
 const ServicePage: React.FC<ServicePageProps> = ({
@@ -238,11 +263,12 @@ const ServicePage: React.FC<ServicePageProps> = ({
   staffingPartnerData,
   staffingIndustriesData,
   // ourProcessData,
-  flexibleHiringData,
   // teamMembersData,
   comparisonTableData,
   SecurityData,
-  // techTalentData,
+  techTalentData,
+  NotJustAPartnerData,
+  staffProcessData,
 }) => {
   return (
     <Layout>
@@ -284,15 +310,18 @@ const ServicePage: React.FC<ServicePageProps> = ({
       {/* {teamMembersData && teamMembersData?.items?.length > 0 && <TeamMembers data={teamMembersData} />} */}
 
       {comparisonTableData && <StaffingTable data={comparisonTableData} />}
-
-      {flexibleHiringData && flexibleHiringData?.items?.length > 0 && (
-        <FlexibleHiringSection hiringData={flexibleHiringData} />
+      {staffProcessData && staffProcessData.steps.length > 0 && (
+        <StaffProcess data={staffProcessData} />
       )}
+
       {SecurityData && <StaffingSecurity data={SecurityData} />}
-      {/* {techTalentData && <TechTalent data={techTalentData} />} */}
+      {techTalentData && <TechTalent data={techTalentData} />}
 
       {techStackData && techStackData.items.length > 0 && (
         <TechStack techStackData={techStackData} />
+      )}
+      {NotJustAPartnerData && NotJustAPartnerData.items.length > 0 && (
+        <NotJustAPartner data={NotJustAPartnerData} />
       )}
 
       {whyChooseUsData && whyChooseUsData.items.length > 0 && (
