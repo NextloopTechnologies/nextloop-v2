@@ -8,7 +8,7 @@ const LifeAtNextloop = () => {
       <div className='h-32 bg-white'></div>
 
       {/* Black background (bottom half) */}
-      <div className='h-32 bg-black'></div>
+      <div className='h-32 bg-[#111111]'></div>
 
       {/* Orange CTA Card */}
       <div className='absolute inset-0 flex justify-center items-center'>

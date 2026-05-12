@@ -26,7 +26,7 @@ const IconTitleDescription: React.FC<IconTitleDescriptionProps> = ({
   return (
     <div className='relative flex flex-col px-14 md:px-32 lg:px-40 z-[2] py-20'>
       <h2
-        className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-black font-bold leading-none uppercase text-center mb-4 mt-10`}
+        className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-black font-bold leading-none text-center mb-4 mt-10`}
       >
         {headingData?.heading}
         <span className='text-orange-500'>{headingData?.coloredHeading}</span>
