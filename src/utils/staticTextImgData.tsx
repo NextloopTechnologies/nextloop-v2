@@ -730,44 +730,44 @@ export const servicesSubPagesData = {
     },
     processData: {
       headingData: {
-        heading: 'Our ',
+        heading: 'Our Agile ',
         coloredHeading: 'Web Development Process',
       },
       items: [
         {
           icon: <Lightbulb className='text-orange-500 w-7 h-7' />,
-          title: 'Planning & Consultation',
+          title: ' Discovery & Strategy ',
           description:
-            'We discuss your goals and understand your business needs.',
+            'We map out your target audience and technical requirements to align with your core business goals. By defining the system architecture early, we mitigate risks and set realistic delivery timelines.',
           color: 'border-orange-500',
         },
         {
           icon: <PenTool className='text-orange-500 w-7 h-7' />,
-          title: 'Design & Prototyping',
+          title: ' UI/UX & Wireframing ',
           description:
-            'We create intuitive wireframes and prototypes for user-friendly interfaces.',
+            "Our designers create intuitive layouts while our architects' structure secure databases. We design responsive, mobile-first interfaces guaranteed to handle heavy web traffic and optimize conversions.",
           color: 'border-orange-500',
         },
         {
           icon: <Code className='text-orange-500 w-7 h-7' />,
-          title: 'Development',
+          title: 'Iterative Engineering ',
           description:
-            'Our team writes clean code, developing the website using the latest technologies.',
+            'Utilizing agile frameworks, our full-stack engineers build your web platform in rapid, transparent sprints. You maintain complete visibility to provide continuous feedback as the site takes shape.',
           color: 'border-orange-500',
         },
         {
           icon: <Search className='text-gray-600 w-7 h-7' />,
-          title: 'Testing',
+          title: ' QA & Performance Testing ',
           description:
-            'Comprehensive testing ensures smooth functionality and cross-platform compatibility.',
+            'Our engineers perform rigorous cross-browser testing, load simulations, and security checks. We eliminate bugs and vulnerabilities to guarantee a flawless user experience prior to launch. ',
           color: 'border-gray-500',
         },
 
         {
           icon: <Rocket className='text-gray-600 w-7 h-7' />,
-          title: 'Launch & Support',
+          title: ' Launch & Ongoing Support ',
           description:
-            'We launch the site and provide ongoing maintenance to keep it running smoothly.',
+            'We deploy your platform seamlessly with zero downtime. Our team actively monitors site health and provides dedicated maintenance to extend the lifecycle of your web investment. ',
           color: 'border-gray-500',
         },
       ],
@@ -871,42 +871,52 @@ export const servicesSubPagesData = {
       ],
     },
     whyChooseUsData: {
+      headingData: {
+        heading: 'Why Choose Us as Your ',
+        coloredHeading: 'Web Development Partner',
+        description: '',
+      },
       items: [
         {
           id: 1,
-          title: 'Expertise',
-          descp: ' Experienced developers who use cutting-edge technologies.',
+          title: 'End-to-End Expertise:  ',
+          descp:
+            ' From initial UI/UX wireframes to complex backend engineering, we provide comprehensive website capabilities under one roof. ',
           icon: MdOutlineAddLocation,
         },
         {
           id: 2,
-          title: 'Custom Solutions',
-          descp: 'Tailored websites to meet your specific business needs.',
+          title: 'Conversion-Focused Layouts: ',
+          descp:
+            'We engineer layouts specifically designed to minimize bounce rates, reduce cart abandonment, and maximize your daily ROI.',
           icon: PiExcludeSquareDuotone,
         },
         {
           id: 3,
-          title: 'Scalable Designs',
-          descp: 'Websites that grow with your business.',
+          title: 'Global Technical Reach:',
+          descp:
+            'Serving clients as a top web design company in USA, we understand diverse international market expectations and strict data compliance standards.',
           icon: PiEyeBold,
         },
         {
           id: 4,
-          title: 'Responsive Support',
-          descp: 'Reliable support to ensure your site performs optimally.',
+          title: 'Robust Security Protocols: ',
+          descp:
+            'We implement advanced data encryption, ensuring your customer records, user accounts, and payment gateways are completely protected. ',
           icon: MdOutlineAddLocation,
         },
         {
           id: 5,
-          title: 'SEO-Friendly',
+          title: 'Seamless Scalability:  ',
           descp:
-            'We ensure your website is search-engine optimized for better visibility.',
+            'Our web platforms are built on highly available infrastructure designed to handle sudden traffic spikes and massive product catalogs.',
           icon: PiExcludeSquareDuotone,
         },
         {
           id: 6,
-          title: 'On-time Delivery',
-          descp: 'Projects completed on schedule with quality results.',
+          title: 'Transparent Delivery:  ',
+          descp:
+            'Using advanced project management, we give you absolute daily visibility into our progress to ensure on-time, on-budget launches. ',
           icon: PiEyeBold,
         },
       ],
