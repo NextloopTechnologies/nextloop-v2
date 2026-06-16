@@ -21,6 +21,8 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
   const router = useRouter();
   const { pathname } = router;
 
+  const isPortfolioDetail = pathname.startsWith('/portfolio/');
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset;
@@ -101,6 +103,8 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
         className={`px-10 fixed transition-all duration-300 ease-in-out top-0 left-0 w-full z-30 ${
           isSticky
             ? 'bg-white text-black shadow-md'
+            : isPortfolioDetail
+            ? 'text-black'
             : headerColor ?? 'text-white'
         }`}
       >
