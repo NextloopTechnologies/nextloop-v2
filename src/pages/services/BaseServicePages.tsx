@@ -12,11 +12,11 @@ import NotJustAPartner from '../../components/NotJustPartner';
 import PageHero from '../../components/PageHero';
 import { ProductCard } from '../../components/ProductCard';
 import ScrollingProcess from '../../components/ScrollingProcess';
+import ServicesProcess from '../../components/ServicesProcess';
 import Slider from '../../components/Slider';
 import StaffingIndustriesSection from '../../components/StaffingIndustriesSection';
 import StaffingSecurity from '../../components/StaffingSecurity';
 import StaffingTable from '../../components/StaffingTable';
-import StaffProcess from '../../components/StaffProcess';
 import TechStack, { TechCategory } from '../../components/TechStackSection';
 import TechTalent from '../../components/TechTalent';
 import TrustedPartnersSection from '../../components/Trustedpartnerssection';
@@ -193,16 +193,17 @@ export interface NotJustAPartnerData {
   coloredHeading: string;
   items: PartnerItem[];
 }
-export interface StaffProcessStep {
+export interface ServiceProcessStep {
   step: number;
   title: string;
   description: string;
 }
 
-export interface StaffProcessData {
+export interface ServiceProcessData {
   heading: string;
   coloredHeading: string;
-  steps: StaffProcessStep[];
+  description?: string;
+  steps: ServiceProcessStep[];
 }
 
 export interface ServicePageProps {
@@ -246,7 +247,7 @@ export interface ServicePageProps {
   SecurityData?: SecurityData;
   techTalentData?: TechTalentData;
   NotJustAPartnerData?: NotJustAPartnerData;
-  staffProcessData?: StaffProcessData;
+  serviceProcessData?: ServiceProcessData;
 }
 
 const ServicePage: React.FC<ServicePageProps> = ({
@@ -268,12 +269,12 @@ const ServicePage: React.FC<ServicePageProps> = ({
   SecurityData,
   techTalentData,
   NotJustAPartnerData,
-  staffProcessData,
+  serviceProcessData,
 }) => {
   return (
     <Layout>
       <Head>
-        <title>{metaData?.pageMetaTitle || 'Service Page'}</title>
+        <title>{String(metaData?.pageMetaTitle ?? 'Service Page')}</title>
         <meta
           name='description'
           content={metaData?.pageMetaDescription || 'Service Page Description'}
@@ -310,8 +311,8 @@ const ServicePage: React.FC<ServicePageProps> = ({
       {/* {teamMembersData && teamMembersData?.items?.length > 0 && <TeamMembers data={teamMembersData} />} */}
 
       {comparisonTableData && <StaffingTable data={comparisonTableData} />}
-      {staffProcessData && staffProcessData.steps.length > 0 && (
-        <StaffProcess data={staffProcessData} />
+      {serviceProcessData && serviceProcessData.steps.length > 0 && (
+        <ServicesProcess data={serviceProcessData} />
       )}
 
       {SecurityData && <StaffingSecurity data={SecurityData} />}

@@ -37,7 +37,7 @@ const services = [
   },
   { label: 'IT Staff Augmentation', href: '/services/it-staff-augmentation' },
   { label: 'Web Development', href: '/services/web-development' },
-  { label: 'Mobile Development', href: '/services/mobile-app-development' },
+  { label: 'Mobile App Development', href: '/services/mobile-app-development' },
   { label: 'MVP Development', href: '/services/mvp-development' },
   { label: 'AI/ML Development', href: '/services/ai-ml' },
   { label: 'Cloud Services', href: '/services/cloud-computing-solutions' },
