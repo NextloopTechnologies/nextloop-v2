@@ -36,7 +36,7 @@ const HexagonGrid: NextPage<HexagonGridType> = ({ title, descp, icon }) => {
           alt='chartline-image'
           src={icon}
         />
-        <div className='relative top-[117px] z-[4] p-4'>
+        <div className='relative mt-24 z-[4] p-4'>
           <h3
             className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} leading-none uppercase font-bold mb-3`}
           >

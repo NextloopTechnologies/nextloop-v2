@@ -78,9 +78,9 @@ const GlobalInventory = () => {
   return (
     <div className='pb-5 px-10'>
       <h1
-        className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-black uppercase font-bold text-center`}
+        className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-black font-bold text-center`}
       >
-        set your business apart with design and great{' '}
+        Set your business apart with design and great{' '}
         <span className='text-orange-500'>global inventory</span>
       </h1>
       <div className='flex flex-col items-center justify-center xl:flex-row md:mx-10 mt-[50px] md:gap-4'>

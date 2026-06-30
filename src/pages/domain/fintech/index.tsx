@@ -18,21 +18,22 @@ import { getStaticImageData } from '../../../utils/helper';
 const faqsContent: IFAQ[] = [
   {
     id: 1,
-    question: 'HOW MUCH DOES WEB DESIGN FOR FINTECH COMPANIES COST?',
+    question: 'How do fintech applications protect sensitive financial data?',
     answer:
-      'Fintech businesses frequently shell out over £7,000 for a straightforward lead-generating website. But Web Choice also offers a longer-term solution that generates money from excellent inbound leads, typically costing around £10,000.',
+      'Fintech platforms enforce multi-layered security frameworks to safeguard user assets and privacy. They connect to traditional banking infrastructures using secure APIs (Application Programming Interfaces), which act as protected bridges for data transmission without exposing core credentials. Additionally, these apps implement advanced end-to-end encryption protocols to scramble data during transit and storage, combined with biometric authentication (such as fingerprint or facial recognition) to block unauthorized device access. ',
   },
   {
     id: 2,
-    question: 'How LONG DOES WEB DESIGN FOR FINTECH COMPANIES TAKE?',
+    question:
+      'In what ways is artificial intelligence revolutionizing financial technology? ',
     answer:
-      'Fintech businesses frequently shell out over £7,000 for a straightforward lead-generating website. But Web Choice also offers a longer-term solution that generates money from excellent inbound leads, typically costing around £10,000.',
+      'Artificial Intelligence (AI) and Machine Learning (ML) are driving massive efficiency gains across the financial ecosystem. These technologies instantly evaluate risk parameters for real-time credit scoring, execute microsecond decisions in algorithmic trading, and power automated advisors that deliver highly tailored wealth management strategies. Furthermore, AI models constantly analyze transaction patterns to identify anomalous behavior, stopping fraudulent activity before it impacts the consumer. ',
   },
   {
     id: 3,
-    question: 'WHAT PAGES SHOULD A FINTECH WEBSITE HAVE?',
+    question: 'What are the core sectors within the fintech landscape? ',
     answer:
-      'Fintech businesses frequently shell out over £7,000 for a straightforward lead-generating website. But Web Choice also offers a longer-term solution that generates money from excellent inbound leads, typically costing around £10,000.',
+      'The financial technology industry is diversified across several highly specialized verticals, including:\n\n- Digital Payments & Neobanking: Frictionless consumer transactions, peer-to-peer transfers, and mobile-first banking.\n- WealthTech: Automated investment portfolios, robo-advisory algorithms, and retail trading platforms.\n- InsurTech: Data-driven risk assessment, automated claims processing, and personalized insurance policies.\n- RegTech: Streamlined regulatory compliance management, anti-money laundering (AML) monitoring, and identity verification.\n- Alternative Lending: Peer-to-peer (P2P) lending networks and decentralized credit underwriting tools.\n- Crypto & Blockchain: Distributed ledger technology, digital asset management, and decentralized financial (DeFi) architectures. ',
   },
 ];
 
@@ -40,13 +41,13 @@ const whyChooseContent: IWhyChooseUs[] = [
   {
     title: 'WHAT IS FINTECH WEB DESIGN',
     descp:
-      'Fintech web design refers to the creation and maintenance of websites for companies that offer financial services using technology. The design of these websites plays a crucial role in attracting and retaining customers, as it directly impacts their overall experience with the brand.The main goal of fintech web design is to provide users with a seamless and secure experience while interacting with financial services online. It involves user interface design, visual design, information architecture, content creation, and web development.',
+      "Fintech web design is the specialised practice of designing and developing websites for companies that deliver financial services through technology. It's a discipline that goes well beyond aesthetics. A fintech website has to do several things at once: communicate credibility, provide a frictionless user experience, meet strict security and compliance standards, and convert visitors into customers — in a sector where those visitors are especially cautious about trust. In practice, that means bringing together user interface design, visual design, information architecture, content strategy, and full-stack web development — all working in concert. Get any one of these elements wrong, and the entire experience suffers. Get them right, and your website becomes one of your strongest business assets. ",
     image: getStaticImageData(fintechAssets.whyChooseUsImg1),
   },
   {
     title: 'Why Hire a Fintech Web Design Company?',
     descp:
-      "The fintech industry is known for being complex and highly competitive. So you'll need a website that captures and keeps your audience's attention to stand out to your target audience.While it's possible, and often cheaper, to design your own website using online tools, this is not the best route for most fintech businesses. Notably, website design tools will rarely provide the level of security and compliance that most financial technology companies require.",
+      "The fintech industry is technically complex, heavily regulated, and intensely competitive. Your website needs to reflect all of that — while still feeling intuitive and approachable to the end user. That's a difficult balance to strike, and it's one that generic website-building tools simply aren't equipped to handle. While it might be tempting to use a low-cost platform to get online quickly, these tools rarely deliver the security architecture, compliance features, or performance standards that financial technology companies require. A fintech website isn't just a marketing asset — it's a direct extension of your product. It needs to be built accordingly. ",
     image: getStaticImageData(fintechAssets.whyChooseUsImg2),
   },
 ];
@@ -70,10 +71,14 @@ const Fintech: React.FC = () => {
               image={getStaticImageData(fintechAssets.fintechBg)}
               titleChildren={
                 <h1
-                  className={`text-white ${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} uppercase font-bold text-center w-full md:max-w-[1500px]`}
+                  className={`text-white ${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} font-bold text-center w-full md:max-w-[1500px]`}
                 >
-                  <span className='text-orange-500'>fintech</span>
-                  <br /> website design
+                  Building the Future of Finance:{' '}
+                  <span className='text-orange-500'>
+                    {' '}
+                    Why Your Business Needs the Right Fintech Software Partner.
+                    Hire fintech Developers
+                  </span>
                 </h1>
               }
               subtitle=''
@@ -82,59 +87,58 @@ const Fintech: React.FC = () => {
             />
             <WhyBuild
               image={getStaticImageData(fintechAssets.whyBuildImg)}
-              colouredTitle='fintech industry'
+              title='Why Build a Custom Software Solution '
+              colouredTitle=' for the Fintech Industry?'
               infoAndImgClassname='items-center'
               informationSection={
                 <div
-                  className={`mx-5 md:mx-10 lg:mx-0 md:max-w-[600px] ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} px-10`}
+                  className={`mx-5 md:mx-10 lg:mx-0 md:max-w-[600px] ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} px-10 gap-4`}
                 >
                   <p
                     className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
                   >
-                    The fintech industry is booming. Today, most people begin
-                    their research and purchase journeys online, so you need a
-                    website that meets the expectations of your potential
-                    customers.
+                    The fintech industry isn't slowing down — and neither are
+                    customer expectations. Today's users begin every financial
+                    journey online, which means your website is often the first
+                    impression your brand makes. Getting it right isn't
+                    optional.
                   </p>
                   <p
                     className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
                   >
-                    With the increasing popularity of digital banking and
-                    financial services, it's more important than ever for
-                    fintech companies to get their web design right.
+                    As digital banking and financial services become the norm,
+                    fintech companies face a straightforward reality: a
+                    well-designed, high-performing website builds trust, while a
+                    poor one erodes it. Intuitive navigation, clear information
+                    architecture, and frictionless access to key features all
+                    signal to users that your platform is reliable and worth
+                    their confidence.
                   </p>
                   <p
                     className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
                   >
-                    A well-designed fintech website can enhance the user
-                    experience by providing intuitive navigation, clear and
-                    concise information, and easy access to essential tools and
-                    features. It can also help establish trust with users by
-                    conveying a professional and reliable image of the company.
+                    Web design also directly impacts how discoverable your
+                    business is. A site built with SEO best practices ranks
+                    higher in search results — putting your brand in front of
+                    the right audience at exactly the right moment in their
+                    decision-making process.
                   </p>
                   <p
                     className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
                   >
-                    On the other hand, a poorly designed website can frustrate
-                    users, cause confusion, and ultimately drive them away from
-                    your brand.
+                    The smartest way to achieve all of this is to Hire Fintech
+                    Developer talent that understands both the technical demands
+                    and the unique compliance and UX standards of financial
+                    services. Generic solutions rarely hold up in this space. A
+                    custom-built fintech platform gives you the flexibility to
+                    differentiate, the performance to compete, and the
+                    credibility to convert.
                   </p>
                   <p
                     className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
                   >
-                    In addition to user experience, web design affects a
-                    company's search engine optimisation (SEO) and overall
-                    online visibility. A website optimised for search engines
-                    will rank higher in search results, making it easier for
-                    potential customers to find and engage with the brand.
-                  </p>
-                  <p
-                    className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
-                  >
-                    Fintech web design is critical to any financial services
-                    company's online presence. Investing in professional and
-                    user-friendly web design can help your business stand out
-                    from the competition.
+                    In a sector where trust is everything, your website needs to
+                    earn it — fast.
                   </p>
                 </div>
               }

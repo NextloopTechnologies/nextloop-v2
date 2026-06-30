@@ -51,6 +51,7 @@ import {
 import blogImg from '../../assets/blog/blogImg.png';
 import careerBg from '../../assets/careerBg.webp';
 import culturebg from '../../assets/culturebg.png';
+import QAandTestingHero from '../../assets/services/QAandTestingHero.jpg';
 import servicesWebdevelopmentHero from '../../assets/services/servicesWebdevelopmentHero.png';
 import staffingService from '../../assets/services/staffing-service.png';
 import WhyBusinessChooseUs from '../../assets/services/why-choose-us-bg.png';
@@ -2977,7 +2978,7 @@ export const servicesSubPagesData = {
         },
       ],
     },
-    staffProcessData: {
+    serviceProcessData: {
       heading: 'How Our IT Staff Augmentation',
       coloredHeading: ' Process Works',
       steps: [
@@ -3192,5 +3193,64 @@ export const servicesSubPagesData = {
           'We help you analyze user feedback, improve features, and scale your product.',
       },
     ],
+  },
+  QAandTesting: {
+    metaData: {
+      pageMetaTitle:
+        'Software Testing & QA Services | Nextloop Quality Assurance ',
+      pageMetaDescription:
+        'Nextloop delivers full-cycle QA & software testing services — test automation, manual testing, API security, and performance testing. Ship bug-free, faster',
+    },
+    heroImage: QAandTestingHero,
+    heroSectionData: {
+      coloredTitle: 'Deliver Flawless Software with ',
+      title: 'Nextloop’s QA & Testing Services',
+      subtitle:
+        'Our comprehensive software testing and quality assurance services ensure your product is bug-free, secure, and performs flawlessly. From functional testing to performance optimization, we help you deliver high-quality software that exceeds user expectations.',
+    },
+    serviceProcessData: {
+      heading: 'The Nextloop QA Process - ',
+      coloredHeading: 'Built to Catch Issues Early ',
+      description:
+        'Most QA failures happen because testing starts too late. Our shift-left methodology integrates quality checks from day one — reducing rework, shortening release cycles, and cutting defect costs by up to 75%',
+      steps: [
+        {
+          step: 1,
+          title: 'Requirement Analysis',
+          description:
+            'We start by understanding your business goals, user expectations, and technical constraints — then define measurable quality benchmarks before a single test is written.',
+        },
+        {
+          step: 2,
+          title: 'Strategic Test Planning',
+          description:
+            'Custom test plans built around your stack, release cadence, and risk profile. We select the right tools, coverage approach, and KPIs upfront.',
+        },
+        {
+          step: 3,
+          title: 'Test Case Design',
+          description:
+            'Comprehensive test cases covering functional flows, edge cases, negative scenarios, and boundary conditions — nothing left to chance.',
+        },
+        {
+          step: 4,
+          title: 'Shift-Left Execution',
+          description:
+            "Testing runs in parallel with development, not after it. Issues are caught when they're cheapest and easiest to fix.",
+        },
+        {
+          step: 5,
+          title: 'Defect Reporting & Communication',
+          description:
+            'Every bug report includes steps to reproduce, severity classification, screen recordings, and log files. No ambiguity, no back-and-forth.',
+        },
+        {
+          step: 6,
+          title: 'Pre-Release Validation',
+          description:
+            'A final quality gate before every deployment — regression checks, sign-off testing, and release readiness confirmation. ',
+        },
+      ],
+    },
   },
 };
