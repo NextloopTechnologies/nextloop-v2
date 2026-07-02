@@ -304,9 +304,6 @@ const ServicePage: React.FC<ServicePageProps> = ({
         <StaffingIndustriesSection industriesData={staffingIndustriesData} />
       )}
 
-      {/* {ourProcessData && ourProcessData?.items?.length > 0 && (
-        <OurProcessSection ourProcess={ourProcessData} />
-      )} */}
       {/* {teamMembersData && teamMembersData?.items?.length > 0 && <TeamMembers data={teamMembersData} />} */}
 
       {comparisonTableData && <StaffingTable data={comparisonTableData} />}
