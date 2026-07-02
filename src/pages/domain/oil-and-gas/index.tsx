@@ -19,24 +19,21 @@ import { getStaticImageData } from '../../../utils/helper';
 const faqsContent: IFAQ[] = [
   {
     id: 1,
-    question:
-      "How is Nextloop's AI-powered custom software different from standard oil and gas software available off the shelf? ",
+    question: 'What is the best software solution for mining?',
     answer:
-      "Most off-the-shelf oil and gas software is built for the average operation — which means it fits no one perfectly. You end up working around its limitations, paying for features you don't need, and missing the ones you do. Nextloop's AI-powered custom software is built around your specific workflows, infrastructure, and operational goals from day one. Our AI solutions for oil and gas go further than standard tools by continuously learning from your data — flagging inefficiencies, predicting equipment failures, and surfacing insights that generic platforms simply aren't designed to deliver. The result is software that feels like it was made for your business, because it was.",
+      'There’s no one size fits all answer. Mining companies use a wide range of tools. It’s why we recommend you work with a custom software development company like us.',
   },
   {
     id: 2,
-    question:
-      'Our operation involves both onshore and offshore sites. Can a single platform manage both? ',
+    question: 'How can we solve the problem of mining?',
     answer:
-      'Yes — and this is something we design for intentionally. Offshore and onshore environments have genuinely different challenges: regulatory frameworks, connectivity constraints, personnel logistics, and supply coordination all vary significantly between the two. Our platforms are built to handle that complexity within a single, unified system. Your onshore team and offshore crew can work from the same platform, with role-based access, real-time data syncing where connectivity allows, and offline functionality that ensures nothing falls through the gaps when signals are unreliable. ',
+      'There’s no one size fits all answer. Mining companies use a wide range of tools. It’s why we recommend you work with a custom software development company like us.',
   },
   {
     id: 3,
-    question:
-      'We already use several third-party tools for finance and procurement. Will your software work alongside them? ',
+    question: 'Which software is used for mine planning?',
     answer:
-      "Absolutely. We understand that switching out every system at once isn't realistic — and in many cases, it isn't necessary. If your existing financial, procurement, or ERP tools are working well for you, we build around them. Our platforms are designed with open integration architecture, meaning your new custom software can connect cleanly with the tools already embedded in your operation. You get the benefits of a purpose-built oil and gas platform without the disruption of replacing systems your team already depends on. ",
+      'There’s no one size fits all answer. Mining companies use a wide range of tools. It’s why we recommend you work with a custom software development company like us.',
   },
 ];
 
@@ -45,25 +42,25 @@ const customData = [
     id: 1,
     title: 'Industry-Specific Expertise',
     description:
-      'Our developers understand the oil and gas sector as well as they understand code. From resource management and HSE protocols to regulatory compliance and field operations, that domain knowledge is built into every decision we make. The outcome is less back-and-forth, faster delivery, and software that solves the problems your operation actually has — not the ones a generalist assumed you might. ',
+      'Our developers have in-depth knowledge of the Oil & Gas industry, ensuring that we deliver tailored solutions that address the unique challenges of your operations. From resource management to safety protocols, we understand the sector’s complexities and craft solutions to optimize performance.',
   },
   {
     id: 2,
-    title: ' Cutting-Edge Technology Integration ',
+    title: 'Cutting-Edge Technology Integration',
     description:
-      'IoT sensors, AI-driven analytics, machine learning, real-time data pipelines — we build with the technologies that are genuinely changing how oil and gas operations run. Our AI-powered custom software gives your team continuous asset monitoring, early warning on equipment failures, and faster, better-informed decisions across the board. Less downtime. Stronger resource utilisation. A clear operational advantage over teams still working manually. ',
+      'We leverage the latest technologies, such as IoT, AI, and data analytics, to provide real-time monitoring, predictive maintenance, and enhanced decision-making for Oil & Gas operations. Our solutions help you stay ahead of the curve, improving operational efficiency and reducing downtime.',
   },
   {
     id: 3,
-    title: 'A Proven Track Record ',
+    title: 'Custom Software Solutions',
     description:
-      "We've delivered AI solutions for oil and gas clients across the full value chain — improving productivity, reducing operational risk, and tightening supply chains in environments where getting it wrong isn't an option. When you work with Next Loop Technologies, you're working with a team that knows this industry, has navigated its complexity before, and understands exactly what it takes to deliver something that holds up in the field. ",
+      "We specialize in building custom software solutions designed specifically for the Oil & Gas sector. Whether it's a comprehensive asset management system, pipeline monitoring software, or regulatory compliance tools, our solutions are scalable, secure, and tailored to your needs.",
   },
   {
     id: 4,
-    title: 'Custom Software Solutions ',
+    title: 'Proven Track Record in Oil & Gas Projects',
     description:
-      'We build custom software solutions designed specifically for the oil and gas sector — not adapted from generic platforms and made to fit. Whether you need a comprehensive asset management system, pipeline monitoring software, or regulatory compliance tools, every solution we deliver is scalable, secure, and shaped around the way your operation actually runs. ',
+      'With a proven history of successful Oil & Gas projects, we have consistently delivered impactful solutions that enhance productivity, improve safety, and optimize supply chain management. Partner with us to experience a smooth, reliable, and future-ready transformation of your operations.',
   },
 ];
 
@@ -82,47 +79,36 @@ const OilAndGas = () => {
           image={getStaticImageData(oilAndGasAssets.oilAndGasBg)}
           titleChildren={
             <h1
-              className={`${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} text-white font-bold text-center w-full`}
+              className={`${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} text-white uppercase font-bold text-center w-full`}
             >
-              Hire Remote Developers for{'   '}
-              <span className='text-orange-500'>
-                Custom Oil & Gas Software Solutions
-              </span>
+              Build <span className='text-orange-500'>oil and gas</span>{' '}
+              software applications
             </h1>
           }
           customSubtitleClassname={`xl:w-[51%] ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop}`}
-          subtitle=''
+          subtitle='Streamline operations, improve workplace safety, and increase profits with your new web, mobile or desktop app. Oil and gas software solutions don’t need to be complicated. Tell us what you need and we build it. It’s that easy.'
           opacity='opacity-10'
           title=''
         />
 
         <WhyBuild
           image={getStaticImageData(oilAndGasAssets.whyBuildOilAndGas)}
-          title='Why Custom Software for  '
-          colouredTitle='oil and gas industry?'
+          colouredTitle='mining industry'
           informationSection={
-            <div className='max-w-[737px] md:flex md:flex-col justify-center px-5 md:px-0 md:w-full w-[350px] gap-2'>
+            <div className='max-w-[737px] md:flex md:flex-col justify-center px-5 md:px-0 md:w-full w-[350px]'>
+              {/* <h3
+                className={`${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} uppercase my-5`}
+              >
+                Why build a custom software solution for the mining industry?
+              </h3> */}
               <p
                 className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
               >
-                Generic tools weren't built for your operation — they were built
-                for everyone, which means they rarely work well for anyone.
-                Adapting your workflows to fit their limitations costs time,
-                money, and in this industry, sometimes safety.
-              </p>
-              <p
-                className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
-              >
-                Custom software changes that dynamic entirely. Whether you're
-                running upstream production, midstream logistics, or downstream
-                distribution, a purpose-built platform gives your team exactly
-                what they need — nothing more, nothing redundant. Nextloop's AI
-                solutions for oil and gas are built to understand your
-                environment, match your processes, and scale as your operation
-                evolves.Generic tools weren't built for your operation — they
-                were built for everyone, which means they rarely work well for
-                anyone. Adapting your workflows to fit their limitations costs
-                time, money, and in this industry, sometimes safety.
+                Whether it’s mining or the oil and gas industry... you care
+                about performance. Save time and money by creating software that
+                lets you more effectively manage your operation. Our no-code
+                solution gives you the tech to solve your unique problems. We
+                make the entire process simple, cost-effective, and fast.
               </p>
             </div>
           }

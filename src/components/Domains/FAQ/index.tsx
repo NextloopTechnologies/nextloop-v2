@@ -12,51 +12,6 @@ interface AccordionProps {
 const FAQ: React.FC<AccordionProps> = ({ faqsContent }) => {
   const [isOpen, setIsOpen] = useState<number | null>(null);
 
-  const renderAnswer = (answer: string | string[]) => {
-    if (Array.isArray(answer)) {
-      return (
-        <ul className='list-disc space-y-2 border-l-[3px] border-orange-500 pl-6 text-[#261F21]'>
-          {answer.map((item, index) => (
-            <li key={`${index}-${item}`}>{item}</li>
-          ))}
-        </ul>
-      );
-    }
-
-    const lines = answer
-      .split('\n')
-      .map((line) => line.trim())
-      .filter(Boolean);
-    const bulletIndex = lines.findIndex((line) => line.startsWith('- '));
-
-    if (bulletIndex === -1) {
-      return (
-        <p className='border-l-[3px] border-orange-500 pl-4 text-[#261F21]'>
-          {answer}
-        </p>
-      );
-    }
-
-    const paragraph = lines.slice(0, bulletIndex).join(' ');
-    const bullets = lines
-      .slice(bulletIndex)
-      .map((line) => line.replace(/^-\s*/, '').trim())
-      .filter(Boolean);
-
-    return (
-      <div className='space-y-3 border-l-[3px] border-orange-500 pl-4 text-[#261F21]'>
-        {paragraph && <p>{paragraph}</p>}
-        {bullets.length > 0 && (
-          <ul className='list-disc space-y-2 pl-5'>
-            {bullets.map((item, index) => (
-              <li key={`${index}-${item}`}>{item}</li>
-            ))}
-          </ul>
-        )}
-      </div>
-    );
-  };
-
   const handleToggle = (id: number) => {
     setIsOpen(isOpen === id ? null : id);
   };
@@ -101,11 +56,11 @@ const FAQ: React.FC<AccordionProps> = ({ faqsContent }) => {
             </div>
             {isOpen === faq.id && (
               <div className='sm:ml-[140px]'>
-                <div
-                  className={`text-[#261F21] ${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop}`}
+                <p
+                  className={`text-[#261F21] ${palette.fontSize.descriptionSmall.mobile} md:${palette.fontSize.descriptionSmall.desktop} border-l-[3px] border-orange-500 pl-4`}
                 >
-                  {renderAnswer(faq.answer)}
-                </div>
+                  {faq.answer}
+                </p>
               </div>
             )}
           </div>

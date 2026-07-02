@@ -10,28 +10,28 @@ const sampleData = [
     image: getStaticImageData(oilAndGasAssets.WhyWorkWithUs),
     title: 'Custom Event Websites & Apps',
     description:
-      'We build custom websites and mobile apps that give attendees everything they need in one place — speaker bios, event schedules, interactive maps, real-time updates, and personalised agendas — all designed to make the experience feel seamless from the first click.',
+      'We design custom mobile applications and websites for events, giving participants quick access to speaker bios, event schedules, interactive maps, real-time updates, and personalised agendas for a better experience.',
   },
   {
     id: 2,
     image: getStaticImageData(oilAndGasAssets.MakeItReal),
     title: 'Virtual & Hybrid Event Solutions',
     description:
-      'Live streaming, real-time Q&A, networking lounges, and interactive breakout spaces — built to bring online and in-person audiences together without the friction that usually comes with it.',
+      'We provide innovative solutions for smooth virtual and hybrid events, such as interactive breakout spaces, real-time Q&A, networking lounges, high-quality live streaming, and audience interaction tools to bring together both online and in-person guests.',
   },
   {
     id: 3,
     image: getStaticImageData(oilAndGasAssets.WhyWorkWithUs),
     title: 'Event Branding & Customization',
     description:
-      'Distinctive themes, logos, and immersive digital designs that carry your brand consistently across every touchpoint — creating an experience that feels intentional and keeps guests engaged from registration through to close.',
+      'We enhance the brand of your event by developing unique themes, logos, and immersive designs for digital media, providing a seamless experience that matches your vision and keeps guests engaged from start to finish.',
   },
   {
     id: 4,
     image: getStaticImageData(oilAndGasAssets.WhyWorkWithUs),
     title: 'Streamlined Promotion & Marketing of Events',
     description:
-      'Targeted email campaigns, social media content, and marketing automation tools that build awareness, drive registrations, and put your event in front of exactly the right audience at exactly the right time.',
+      'We use innovative marketing automation tools to optimize promotion on websites, email campaigns, and social media platforms, increasing awareness, engagement, and attendance by specifically targeting the right audience.',
   },
 ];
 
@@ -52,10 +52,8 @@ type InfoOnImageProps = {
 };
 
 const InfoOnImage = ({ description, image, title }: InfoOnImageProps) => (
-  <article className='group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-black shadow-xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:shadow-2xl'>
-    <div className='absolute inset-0 z-10 bg-gradient-to-t from-black/90 via-black/50 to-transparent' />
-
-    <div className='relative z-20 flex h-full min-h-[320px] flex-col justify-end gap-2 p-5 text-white md:min-h-[380px] md:p-6 lg:p-8'>
+  <div className='rounded-lg relative'>
+    <div className='absolute flex gap-1 flex-col text-white top-3 left-5 z-10 lg:top-20 lg:left-16 right-6'>
       <h2
         className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} font-bold`}
       >
@@ -63,7 +61,7 @@ const InfoOnImage = ({ description, image, title }: InfoOnImageProps) => (
       </h2>
 
       <p
-        className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop} max-w-[350px] font-normal text-white/90 lg:max-w-xl`}
+        className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop} font-normal max-w-[350px] lg:max-w-xl`}
       >
         {description}
       </p>
@@ -73,12 +71,12 @@ const InfoOnImage = ({ description, image, title }: InfoOnImageProps) => (
       <Image
         src={image}
         alt={title}
-        fill
-        sizes='(max-width: 768px) 100vw, 50vw'
-        className='absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105'
+        height={500}
+        width={500}
+        className='w-full object-contain rounded-lg'
       />
     )}
-  </article>
+  </div>
 );
 
 const WhyWorkWithUs = ({ data = [] }: Props) => {
@@ -100,24 +98,24 @@ const WhyWorkWithUs = ({ data = [] }: Props) => {
 
   return (
     <div className='flex'>
-      <div className='flex flex-col pt-[50px] pb-[122px] max-w-[1479px] mx-auto  justify-center items-center'>
+      <div className='flex flex-col pt-[50px] pb-[122px] max-w-[1479px] mx-auto'>
         <h1
-          className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold text-center`}
+          className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center`}
         >
-          Why <span className='text-orange-500'> Nextloop Technologies?</span>
+          Why <span className='text-orange-500'>Work</span> With Us
         </h1>
         <div
-          className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} flex flex-col justify-center items-center w-3/4 text-center mt-5`}
+          className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} mx-10 md:mx-0 text-center mt-5`}
         >
           <p>
-            Your platform is delivered faster and more cost-effectively than
-            you'd expect — no technical background needed on your end. Your
-            delivery date is confirmed upfront, and your price is locked in from
-            day one.
+            You get your app faster and more cost effective – no tech skills are
+            needed. Your delivery date is calculated upfront and we lock in a
+            fixed price.
           </p>
+          <p>But we offer more than just fantastic software. Take a look.</p>
         </div>
 
-        <div className='mt-10 grid w-full grid-cols-1 gap-6 px-4 md:grid-cols-2 md:px-8 lg:mx-0 lg:gap-8'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:mx-0 gap-5 mt-10 px-8'>
           {finalData.map(({ description, id, image, title }) => (
             <InfoOnImage
               key={id}

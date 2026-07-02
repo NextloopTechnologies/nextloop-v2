@@ -87,7 +87,7 @@ const DesignYourEvents = () => {
   return (
     <div className='flex flex-col py-[50px] mx-auto gap-[10px]'>
       <h1
-        className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold text-center mx-10`}
+        className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center mx-10`}
       >
         Design your events website the way{' '}
         <span className='text-orange-500'>you want</span>

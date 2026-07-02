@@ -27,7 +27,7 @@ const Portfolio: React.FC<{ data?: IPortfolio[]; error?: string }> = ({
       <PageHero
         image={portfolioBg}
         title='Portfolio'
-        subtitle='Explore projects done by Nextloop Technologies. We worked with startups and established companies in different industries and countries. We helped them build digital solutions that are scalable and give good results. Our projects show how we turn ideas into custom technology solutions. These solutions help each client achieve their goals and meet their needs. Each project shows we care about being creative, technically good and focused on business. If you want to know how Nextloop Technologies can help your business grow, look at our projects. You can see the impact of our work yourself. '
+        subtitle="View the range of projects completed by Nextloop Technologies. We have provided assistance to a wide range of firms in various industries and locations across the globe, from small startups to large corporations. This demonstrates our exceptional ability to generate fresh concepts and tailor solutions to the specific needs of each client. So, if you're interested in learning more about what Nextloop can accomplish for your company, have a look at our portfolios!"
         opacity='opacity-90'
       />
       {data?.length ? (

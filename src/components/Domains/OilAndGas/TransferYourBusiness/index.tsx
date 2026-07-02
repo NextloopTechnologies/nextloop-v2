@@ -10,29 +10,27 @@ const data = [
   {
     id: 1,
     title: 'Visionary',
-    descp:
-      "We don't just build what you ask for. We help you think through what your operation genuinely needs, and bring a broader perspective to every project.",
+    descp: 'Nextloop gives best vision for your business',
     icon: getStaticImageData(oilAndGasAssets.visionaryIcon),
   },
   {
     id: 2,
     title: 'Rapid',
     descp:
-      'Our AI-powered development process delivers enterprise-grade software up to six times faster than traditional approaches. Less waiting, faster results.',
+      'Create software especially for your enterprise – delivered 6x faster.',
     icon: getStaticImageData(oilAndGasAssets.rapidIcon),
   },
   {
     id: 3,
     title: 'Transparent',
-    descp:
-      'Your price and timeline are calculated and locked in before we start. No hidden costs, no moving goalposts. What we quote is what you pay — and if we finish early, you pay less.',
+    descp: 'Get a guaranteed price and set timings upfront – calculated by AI.',
     icon: getStaticImageData(oilAndGasAssets.transparentIcon),
   },
   {
     id: 4,
     title: 'Simple & Trusted',
     descp:
-      "We handle the full project lifecycle so your internal team doesn't have to. From scoping to deployment, we take the pressure off your resources and keep you informed every step of the way.",
+      'Relieve pressure on your internal resources – fully project managed.',
     icon: getStaticImageData(oilAndGasAssets.trustedIcon),
   },
 ];
@@ -51,11 +49,11 @@ const TransformYourBusiness = () => {
       />
       <div className='relative flex flex-col px-14 md:px-24 lg:px-12 z-[2]'>
         <h1
-          className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-white font-bold leading-none text-center mb-10 mt-10`}
+          className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-white font-bold leading-none uppercase text-center mb-10 mt-10`}
         >
-          The Nextloop<span className='text-orange-500'> Difference </span>
+          Transform your business <span className='text-orange-500'>today</span>
         </h1>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-14 mb-20'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-14 mb-40'>
           {data?.map(({ descp, id, icon, title }) => (
             <ToolBox key={id} icons={icon} title={title} descp={descp} />
           ))}
