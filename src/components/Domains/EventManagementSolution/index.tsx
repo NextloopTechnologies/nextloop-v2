@@ -9,59 +9,64 @@ const data = [
     id: 1,
     title: 'Create your event website',
     subTitle:
-      'Unlimited event listings are available. Your event website can support languages. You can choose from event layouts and calendars. ',
+      'Unlimited event listings | Multilingual capabilities | Event layouts and calendars',
     description:
-      'Build an event website that works hard. List events and present your schedule in a layout that fits your audience. They can view it as a calendar, a grid or a full event page. ',
+      'Create a floor plan of your venue where guests can choose and purchase their seats. Customize it with rows, tables or standing room only and set different prices for each',
     image: getStaticImageData(eventAssets.EventManagement1),
   },
   {
     id: 2,
     title: 'Make an interactive seating map',
     description:
-      'Design a floor plan. Guests can. Buy seats directly. Configure rows, tables or standing areas. Apply pricing to each section. Choose from over 1000 templates. These templates are for conferences, concerts, sports events, weddings, parties and more. You can also host events with our live streaming solution. ',
+      'Choose from 900+ customizable templates designed to showcase any type of event from professional meetups, conferences, concerts, sports events, parties, weddings and more. With our fully integrated video streaming solution, Wix Live, you can host online events from anywhere.',
     image: getStaticImageData(eventAssets.EventManagement2),
   },
   {
     id: 3,
     title: 'Sell tickets and membership plans',
     subTitle:
-      'Create ticket types. Price them as you like. Add membership plans. Set capacity limits. Include a ticket policy.',
-    description:
-      'The platform handles ticket types and flexible pricing. It also handles membership plans and subscriptions. Online payment processing is secure. The platform collects tax automatically on ticket sales. You can track sales and revenue in time. ',
+      'Create unlimited ticket types and set prices. Offer membership plans set capacity and add a ticket policy. Accept online payments, charge tax on ticket sales and send printable tickets.',
+    descriptionPoints: [
+      'Unlimited Ticket Types',
+      'Membership Plans and Subscriptions',
+      'Secure Online Payment',
+      'Tax Collection on Ticket Sales',
+      'Sales and Revenue Tracking',
+    ],
     image: getStaticImageData(eventAssets.EventManagement3),
   },
   {
     id: 4,
     title: 'Promote your events',
     subTitle:
-      'Use email marketing. Create coupon and promo codes. Integrate with Google and Facebook. ',
+      'Email marketing | Coupon and promo codes | Google and Facebook integrations',
     description:
-      'Sell tickets with marketing tools. Schedule email. Generate coupon codes. Publish posts on Facebook and Instagram. All this can be done from the dashboard. ',
+      'Generate more ticket sales for your events using smart marketing tools. Drive traffic to your event website with scheduled email campaign, coupon offers designed social posts for Facebook and Instagram and more.',
     image: getStaticImageData(eventAssets.EventManagement4),
   },
   {
     id: 5,
     title: 'Build a community around your event',
-    subTitle: 'Create a members area. Have a live event feed and a forum. ',
+    subTitle: 'Members Area | Live event feed | Forum',
     description:
-      'Great events build lasting connections. Give attendees a space to engage before during and, after the event. They can discuss on a forum. They can view a content feed. They can also set up a profile in the members area. ',
+      'Create a professional community and networking opportunities. Keep attendees connected and engaged with a blog, discussion forum and live, content feed he day of your event.  Add a Members area where attendees can create a profile and see who else is going.',
     image: getStaticImageData(eventAssets.EventManagement5),
   },
   {
     id: 6,
     title: 'Track and manage attendance',
     subTitle:
-      'Manage your guest list. Use guest and waitlists. Send automated email confirmation. ',
+      'Editable guest and waitlists | Automated email confirmation | Customizable registration',
     description:
-      'Stay on top of your attendee list. Collect guest information and preferences. Set your capacity. Open a waitlist when needed. Automated emails handle confirmation and reminders. ',
+      'Track and manage your attendee list. Capture attendee information and preferences with custom forms. Set your guest capacity and open awaitlist. Trigger automated emails for ticket and RSVP confirmation, reminders and more.',
     image: getStaticImageData(eventAssets.EventManagement6),
   },
   {
     id: 7,
     title: 'Manage the day of your event with our website',
-    subTitle: 'Use a ticketing app. Process walk-in ticket sales. ',
+    subTitle: 'Mobile ticketing app | Walk-in ticket sales',
     description:
-      'When the event starts everything needs to run. Check in guests and scan tickets. Manage your guest list on your phone. Keep the energy going with a live event discussion feed. ',
+      'Smoothly manage your event onsite with the Wix Owner app. Run a clean door by checking in guests, scanning tickets, selling tickets at the door, managing your guest list and more. Open a live event discussion feed that you and your attendees can use to share and discuss content.',
     image: getStaticImageData(eventAssets.EventManagement7),
   },
 ];
@@ -215,23 +220,29 @@ const EventManagementSolution = () => {
   return (
     <div className='flex flex-col'>
       <h1
-        className={`font-bold text-center ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} w-full`}
+        className={`uppercase font-bold text-center ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} w-full`}
       >
-        Your complete{' '}
-        <span className='text-orange-500'>event management solution</span>
+        Your complete event management{' '}
+        <span className='text-orange-500'>solution</span>
       </h1>
 
       <div className='flex flex-col gap-12 mt-7 mb-10'>
-        {data.map(({ description, id, image, subTitle, title }, index) => (
-          <EventIdeaRow
-            key={id}
-            description={description}
-            image={image}
-            subTitle={subTitle}
-            title={title}
-            position={index % 2 === 0 ? POSITION.RIGHT : POSITION.LEFT}
-          />
-        ))}
+        {data.map(
+          (
+            { description, id, image, subTitle, title, descriptionPoints },
+            index
+          ) => (
+            <EventIdeaRow
+              key={id}
+              description={description}
+              image={image}
+              subTitle={subTitle}
+              title={title}
+              position={index % 2 === 0 ? POSITION.RIGHT : POSITION.LEFT}
+              descriptionPoints={descriptionPoints}
+            />
+          )
+        )}
       </div>
     </div>
   );

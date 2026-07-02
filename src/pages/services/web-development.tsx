@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 import ServicePage from './BaseServicePages';
 import { fetchLatestBlogs } from '../../utils/fetchBlogdata';

@@ -70,7 +70,7 @@ export interface IFAQ {
 
   question: string;
 
-  answer: string | string[];
+  answer: string;
 }
 
 export interface IWhyChooseUs {
