@@ -14,6 +14,7 @@ interface BlogData {
 const initialData = {
   ...servicesSubPagesData.cloudServices,
   blogData: [] as BlogData[],
+  schemaKey: 'service-cloud-devops' as const,
 };
 
 const CloudServices: React.FC = () => {

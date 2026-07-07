@@ -14,6 +14,7 @@ interface BlogData {
 const initialData = {
   ...servicesSubPagesData.webDevelopment,
   blogData: [] as BlogData[],
+  schemaKey: 'service-web-app' as const,
 };
 
 const WebDevelopment: React.FC = () => {

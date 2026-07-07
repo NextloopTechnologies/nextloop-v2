@@ -14,6 +14,7 @@ interface BlogData {
 const initialData = {
   ...servicesSubPagesData.mobileAppDevelopment,
   blogData: [] as BlogData[],
+  schemaKey: 'service-mobile-app' as const,
 };
 
 const MobileDevelopment: React.FC = () => {

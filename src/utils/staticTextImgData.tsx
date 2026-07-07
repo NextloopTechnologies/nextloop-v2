@@ -3171,26 +3171,21 @@ export const servicesSubPagesData = {
     faqsContent: [
       {
         id: 1,
-        question: 'How long does it take to develop an MVP?',
-        answer: 'It depends on the complexity, but most MVPs take 2-6 months.',
+        question: 'How long will it take to find a suitable developer?',
+        answer:
+          'Within 3 to 7 days, the complete process from requirement sharing to onboarding is completed.',
       },
       {
         id: 2,
-        question: 'Can you help refine my MVP idea?',
+        question: 'Can I hire developers for my specific time zone?',
         answer:
-          'Yes! We provide consulting to define the best features for your MVP.',
+          'Yes, our resources offer overlapping hours to match your preferred daily stand-up schedules.',
       },
       {
         id: 3,
-        question: 'What technologies do you use for MVP development?',
+        question: 'Who owns the code?',
         answer:
-          ' We use modern tech stacks like React, Node.js, Python, Flutter, and more.',
-      },
-      {
-        id: 4,
-        question: 'What happens after the MVP launch?',
-        answer:
-          'We help you analyze user feedback, improve features, and scale your product.',
+          ' You do. 100%. We sign strict NDAs and IP assignment contracts before the project begins.',
       },
     ],
   },

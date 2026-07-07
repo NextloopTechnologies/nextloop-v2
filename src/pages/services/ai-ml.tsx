@@ -12,6 +12,7 @@ interface BlogData {
 const initialData = {
   ...servicesSubPagesData.aimlSolutions,
   blogData: [] as BlogData[],
+  schemaKey: 'service-ai-ml' as const,
 };
 
 const AIMLSolutions: React.FC = () => {
