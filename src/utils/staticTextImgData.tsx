@@ -253,25 +253,25 @@ const staticServices = [
     image: getStaticImageData(ecommerceAssets.ECommerceBg),
     title: 'E-COMMERCE WEBSITE.',
     description: 'Start selling immediately, without limits.',
-    link: '/expertise/ecommerce',
+    link: '/domain/ecommerce',
   },
   {
     image: getStaticImageData(eventAssets.eventsBg),
     title: 'CREATE A PROFESSIONAL EVENT WEBSITE',
     description: '',
-    link: '/expertise/event',
+    link: '/domain/events',
   },
   {
     image: getStaticImageData(fintechAssets.fintechBg),
     title: 'FINTECH WEBSITE DESIGN',
     description: '',
-    link: '/expertise/fintech',
+    link: '/domain/fintech',
   },
   {
     image: getStaticImageData(healthcareAssets.healthCareBg),
     title: 'HEALTHCARE SOFTWARE DEVELOPMENT',
     description: 'Transforming patient care.',
-    link: '/expertise/healthcare',
+    link: '/domain/healthcare',
   },
 ];
 
