@@ -1,5 +1,58 @@
-User-agent: *
-Disallow: 
-Disallow: /404
+User-agent: Googlebot
 
-Sitemap: https://www.nextlooptechnologies.com/
+Allow: /
+
+User-agent: Bingbot
+
+Allow: /
+
+# Major AI/LLM crawlers - restricted to optimized summary files only
+
+User-agent: GPTBot
+
+Disallow: /
+
+Allow: /llm.txt
+Allow: /llm-full.txt
+
+User-agent: ChatGPT-User
+
+Disallow: /
+
+Allow: /llm.txt
+Allow: /llm-full.txt
+
+User-agent: ClaudeBot
+
+Disallow: /
+
+Allow: /llm.txt
+Allow: /llm-full.txt
+
+User-agent: PerplexityBot
+
+Disallow: /
+
+Allow: /llm.txt
+Allow: /llm-full.txt
+
+User-agent: Google-Extended
+
+Disallow: /
+
+User-agent: CCBot
+
+Disallow: /
+
+# All other bots - default rules
+
+User-agent: *
+
+Allow: /llm.txt
+Allow: /llm-full.txt
+
+Disallow: /admin/
+Disallow: /config/
+Disallow: /api/private/
+
+Sitemap: https://www.nextlooptechnologies.com/sitemap.xml
