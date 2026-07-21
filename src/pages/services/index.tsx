@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
+import { getSchemaMarkup } from '../../utils/seoSchemas';
 import servicesBg from '../../../assets/servicesBg.webp';
 
 const cards: { title: string; desc: string; link: string }[] = [
@@ -79,6 +80,12 @@ const Services = () => {
         <meta
           name='description'
           content='Get bespoke software development services tailored to your needs. We offer remote IT staffing services and custom mobile app & web development services to scale faster.'
+        />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: getSchemaMarkup('services'),
+          }}
         />
       </Head>
       <PageHero

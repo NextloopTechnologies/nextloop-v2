@@ -10,6 +10,7 @@ import PerksBenefitsSection from '../../components/Perksandbenefits';
 import SlidingImages from '../../components/SlidingImages';
 import { Job } from '../../types';
 import supabaseClient from '../../utils/client';
+import { getSchemaMarkup } from '../../utils/seoSchemas';
 import { careerImages } from '../../../assets';
 import careerBg from '../../../assets/careerBg.webp';
 
@@ -24,6 +25,12 @@ const CareersPage: React.FC<{ jobs?: Job[]; error?: string }> = ({
         <meta
           name='description'
           content='Join Nextloop Technologies for dynamic IT careers: grow with flexible hybrid work, competitive pay, software dev cloud AI/ML -mentorship in collaborative culture'
+        />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: getSchemaMarkup('careers'),
+          }}
         />
       </Head>
       <PageHero

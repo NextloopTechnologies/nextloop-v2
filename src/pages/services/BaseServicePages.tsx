@@ -20,6 +20,7 @@ import StaffProcess from '../../components/StaffProcess';
 import TechStack, { TechCategory } from '../../components/TechStackSection';
 import TechTalent from '../../components/TechTalent';
 import TrustedPartnersSection from '../../components/Trustedpartnerssection';
+import { getSchemaMarkup, PageSchemaKey } from '../../utils/seoSchemas';
 
 type ImageLike = StaticImageData | string | React.ReactNode | React.ElementType;
 export type TechKey = 'react' | 'aws' | 'angular' | 'python';
@@ -206,6 +207,7 @@ export interface StaffProcessData {
 }
 
 export interface ServicePageProps {
+  schemaKey?: PageSchemaKey;
   metaData?: {
     pageMetaTitle: string;
     pageMetaDescription: string;
@@ -250,6 +252,7 @@ export interface ServicePageProps {
 }
 
 const ServicePage: React.FC<ServicePageProps> = ({
+  schemaKey,
   metaData,
   heroImage,
   heroSectionData,
@@ -278,6 +281,12 @@ const ServicePage: React.FC<ServicePageProps> = ({
           name='description'
           content={metaData?.pageMetaDescription || 'Service Page Description'}
         />
+        {schemaKey && (
+          <script
+            type='application/ld+json'
+            dangerouslySetInnerHTML={{ __html: getSchemaMarkup(schemaKey) }}
+          />
+        )}
       </Head>
 
       {heroImage && heroSectionData && (

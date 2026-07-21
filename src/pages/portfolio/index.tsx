@@ -9,6 +9,7 @@ import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
 import { IPortfolio } from '../../types';
 import supabaseClient from '../../utils/client';
+import { getSchemaMarkup } from '../../utils/seoSchemas';
 import portfolioBg from '../../../assets/portfolioBg.png';
 
 const Portfolio: React.FC<{ data?: IPortfolio[]; error?: string }> = ({
@@ -22,6 +23,12 @@ const Portfolio: React.FC<{ data?: IPortfolio[]; error?: string }> = ({
         <meta
           name='description'
           content='Nextloop Technologies has a proven track record of delivering tailored technology, from custom IoT app development & vendor management software to learning management system development'
+        />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: getSchemaMarkup('portfolio'),
+          }}
         />
       </Head>
       <PageHero
