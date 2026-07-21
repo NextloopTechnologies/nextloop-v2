@@ -15,6 +15,7 @@ const initialData = {
   ...servicesSubPagesData.staffingServices,
   blogData: [] as BlogData[],
   showStaffingTable: true,
+  schemaKey: 'service-staff-augmentation' as const,
 };
 
 const StaffingDevelopment: React.FC = () => {

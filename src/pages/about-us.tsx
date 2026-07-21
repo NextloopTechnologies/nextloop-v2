@@ -18,6 +18,7 @@ import MeetFounders from '../components/MeetFounders';
 import PageHero from '../components/PageHero';
 import Timeline from '../components/Timeline';
 import palette from '../styles/pallette';
+import { getSchemaMarkup } from '../utils/seoSchemas';
 import { AboutNextloopBackground } from '../../assets';
 import aboutBg from '../../assets/about-us-hero.webp';
 import cert1 from '../../assets/certificates/1.png';
@@ -122,6 +123,12 @@ const AboutUsHome = () => {
         <meta
           name='description'
           content='Get to know our team at Nextloop. We are a contract-based it company in India that provides custom blockchain app & web development services for businesses across the globe'
+        />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: getSchemaMarkup('about'),
+          }}
         />
       </Head>
       <PageHero
