@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React, { useEffect } from 'react';
-import Swal from 'sweetalert2';
 
+//import Swal from 'sweetalert2';
 import { DBOffer } from '../../types';
 
 interface ModalProps {
@@ -23,31 +23,63 @@ export const Modal: React.FC<ModalProps> = ({
   error,
   successMessage,
 }) => {
+  // useEffect(() => {
+  //   if (successMessage) {
+  //     Swal.fire({
+  //       title: 'Success!',
+  //       text: successMessage,
+  //       icon: 'success',
+  //       confirmButtonText: 'OK',
+  //       confirmButtonColor: '#13326C',
+  //       customClass: {
+  //         popup:
+  //           'rounded-lg max-w-[60%] w-full sm:max-w-[440px] lg:max-w-[520px]',
+  //         title: 'text-xl sm:text-2xl font-bold text-gray-800',
+  //         confirmButton:
+  //           'bg-[#13326C] text-white px-6 py-2 rounded-md font-semibold text-sm sm:text-base hover:bg-opacity-90 transition-colors',
+  //         actions: 'mt-4',
+  //         container: 'p-0',
+  //       },
+  //       allowOutsideClick: false,
+  //       allowEscapeKey: false,
+  //     }).then((result) => {
+  //       if (result.isConfirmed) {
+  //         onClose();
+  //         window.location.href = '/';
+  //       }
+  //     });
+  //   }
+  // }, [successMessage, onClose]);
+
   useEffect(() => {
     if (successMessage) {
-      Swal.fire({
-        title: 'Success!',
-        text: successMessage,
-        icon: 'success',
-        confirmButtonText: 'OK',
-        confirmButtonColor: '#13326C',
-        customClass: {
-          popup:
-            'rounded-lg max-w-[60%] w-full sm:max-w-[440px] lg:max-w-[520px]',
-          title: 'text-xl sm:text-2xl font-bold text-gray-800',
-          confirmButton:
-            'bg-[#13326C] text-white px-6 py-2 rounded-md font-semibold text-sm sm:text-base hover:bg-opacity-90 transition-colors',
-          actions: 'mt-4',
-          container: 'p-0',
-        },
-        allowOutsideClick: false,
-        allowEscapeKey: false,
-      }).then((result) => {
-        if (result.isConfirmed) {
-          onClose();
-          window.location.href = '/';
-        }
-      });
+      (async () => {
+        const Swal = (await import('sweetalert2')).default;
+
+        Swal.fire({
+          title: 'Success!',
+          text: successMessage,
+          icon: 'success',
+          confirmButtonText: 'OK',
+          confirmButtonColor: '#13326C',
+          customClass: {
+            popup:
+              'rounded-lg max-w-[60%] w-full sm:max-w-[440px] lg:max-w-[520px]',
+            title: 'text-xl sm:text-2xl font-bold text-gray-800',
+            confirmButton:
+              'bg-[#13326C] text-white px-6 py-2 rounded-md font-semibold text-sm sm:text-base hover:bg-opacity-90 transition-colors',
+            actions: 'mt-4',
+            container: 'p-0',
+          },
+          allowOutsideClick: false,
+          allowEscapeKey: false,
+        }).then((result) => {
+          if (result.isConfirmed) {
+            onClose();
+            window.location.href = '/';
+          }
+        });
+      })();
     }
   }, [successMessage, onClose]);
 

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
@@ -44,15 +45,13 @@ const Hamburger = () => {
     setShowIndustriesDropdown(!showIndustriesDropdown);
   };
 
-  const handleNavigation = (href: string) => {
+  const handleLinkClick = () => {
     setIsLoading(true);
-    router.push(href).then(() => {
-      setIsLoading(false);
-      setIsOpen(false);
-    });
+    setIsOpen(false);
   };
 
-  const handleRequestQuote = () => {
+  const handleRequestQuote = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
     const footer = document.getElementById('footer');
     if (footer) {
       const headerOffset = 100;
@@ -77,13 +76,14 @@ const Hamburger = () => {
         </div>
       )}
       <div className='relative flex justify-between px-4'>
-        <Image
-          src={NextLoopColoredLogo}
-          width={80}
-          height={60}
-          alt='Nextloop'
-          onClick={() => handleNavigation('/')}
-        />
+        <Link href='/' onClick={() => setIsOpen(false)}>
+          <Image
+            src={NextLoopColoredLogo}
+            width={80}
+            height={60}
+            alt='Nextloop'
+          />
+        </Link>
         <Image
           src={navIcon}
           alt='Technologies'
@@ -98,16 +98,18 @@ const Hamburger = () => {
       >
         <ul className='flex flex-col items-start py-16 px-6 gap-6 h-full'>
           <li className={`w-full ${pathname === '/' ? 'text-orange-500' : ''}`}>
-            <button onClick={() => handleNavigation('/')}>Home</button>
+            <Link href='/' onClick={handleLinkClick}>
+              Home
+            </Link>
           </li>
           <li
             className={`w-full ${
               pathname === '/about-us' ? 'text-orange-500' : ''
             }`}
           >
-            <button onClick={() => handleNavigation('/about-us')}>
+            <Link href='/about-us' onClick={handleLinkClick}>
               About us
-            </button>
+            </Link>
           </li>
           <li
             className={`w-full ${
@@ -130,12 +132,13 @@ const Hamburger = () => {
                       pathname === industry.href ? 'text-orange-500' : ''
                     }`}
                   >
-                    <button
-                      onClick={() => handleNavigation(industry.href)}
+                    <Link
+                      href={industry.href}
+                      onClick={handleLinkClick}
                       className='block'
                     >
                       {industry.name}
-                    </button>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -146,49 +149,54 @@ const Hamburger = () => {
               pathname === '/portfolio' ? 'text-orange-500' : ''
             }`}
           >
-            <button onClick={() => handleNavigation('/portfolio')}>
+            <Link href='/portfolio' onClick={handleLinkClick}>
               Portfolio
-            </button>
+            </Link>
           </li>
           <li
             className={`w-full ${
               pathname === '/services' ? 'text-orange-500' : ''
             }`}
           >
-            <button onClick={() => handleNavigation('/services')}>
+            <Link href='/services' onClick={handleLinkClick}>
               Services
-            </button>
+            </Link>
           </li>
           <li
             className={`w-full ${
               pathname === '/career' ? 'text-orange-500' : ''
             }`}
           >
-            <button onClick={() => handleNavigation('/career')}>Careers</button>
+            <Link href='/career' onClick={handleLinkClick}>
+              Careers
+            </Link>
           </li>
           <li
             className={`w-full ${
               pathname === '/blog' ? 'text-orange-500' : ''
             }`}
           >
-            <button onClick={() => handleNavigation('/blog')}>Blogs</button>
+            <Link href='/blog' onClick={handleLinkClick}>
+              Blogs
+            </Link>
           </li>
           <li
             className={`w-full ${
               pathname === '/culture' ? 'text-orange-500' : ''
             }`}
           >
-            <button onClick={() => handleNavigation('/culture')}>
+            <Link href='/culture' onClick={handleLinkClick}>
               Culture
-            </button>
+            </Link>
           </li>
           <li className='w-full mt-4'>
-            <button
+            <Link
+              href='#footer'
               onClick={handleRequestQuote}
-              className='w-full bg-orange-500 text-white px-5 py-3 rounded-full'
+              className='w-full bg-orange-500 text-white px-5 py-3 rounded-full inline-block text-center'
             >
               Contact Us &#10230;
-            </button>
+            </Link>
           </li>
         </ul>
       </motion.div>
