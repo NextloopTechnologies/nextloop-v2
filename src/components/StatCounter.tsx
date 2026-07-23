@@ -9,7 +9,7 @@ interface StatCounterProps {
 }
 
 const StatCounter: React.FC<StatCounterProps> = ({
-  end,
+  end = 0,
   duration = 2000,
   suffix = '',
 }) => {
