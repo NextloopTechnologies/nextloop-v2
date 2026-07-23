@@ -11,8 +11,8 @@ import { getBaseUrl } from '../utils/getBaseUrl';
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
-  const baseUrl = getBaseUrl();
-  const canonicalUrl = `${baseUrl}${router.asPath}`;
+  const baseUrl = getBaseUrl(router);
+  const canonicalUrl = new URL(router.asPath, baseUrl).toString();
 
   return (
     <>
