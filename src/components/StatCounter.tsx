@@ -13,14 +13,13 @@ const StatCounter: React.FC<StatCounterProps> = ({
   duration = 2000,
   suffix = '',
 }) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(end);
   const ref = useRef<HTMLSpanElement | null>(null);
 
   useEffect(() => {
     if (!ref.current) return;
 
     let start = 0;
-    setCount(0);
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -28,6 +27,7 @@ const StatCounter: React.FC<StatCounterProps> = ({
         if (!entry) return;
 
         if (entry.isIntersecting) {
+          setCount(0);
           const increment = end / (duration / 16);
 
           const animate = () => {
@@ -41,7 +41,7 @@ const StatCounter: React.FC<StatCounterProps> = ({
           };
 
           animate();
-          observer.disconnect(); // stop observing after animation
+          observer.disconnect();
         }
       },
       { threshold: 0.4 }
