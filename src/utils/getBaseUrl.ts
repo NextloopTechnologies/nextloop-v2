@@ -1,14 +1,18 @@
-export function getBaseUrl() {
-  // Browser
+export function getBaseUrl(router?: { basePath?: string }) {
+  const basePath = router?.basePath ?? '';
+
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (siteUrl) {
+    return `${siteUrl.replace(/\/$/, '')}${basePath}`;
+  }
+
   if (typeof window !== 'undefined') {
-    return window.location.origin;
+    return `${window.location.origin}${basePath}`;
   }
 
-  // Vercel server (preview + production)
   if (process.env.VERCEL_URL) {
-    return `https://${process.env.VERCEL_URL}`;
+    return `https://${process.env.VERCEL_URL}${basePath}`;
   }
 
-  // Local dev fallback
-  return process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
+  return `http://localhost:3000${basePath}`;
 }
