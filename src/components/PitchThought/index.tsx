@@ -220,7 +220,7 @@ const Pitchthought: FC = () => {
                   {location}
                 </a>
               </li>
-              Social Icons
+              {/*Social Icons*/}
               <li className='pt-2'>
                 <div className='flex gap-3 flex-wrap'>
                   <a

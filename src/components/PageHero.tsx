@@ -43,11 +43,11 @@ const PageHero: React.FC<{
           <Image
             src={image as any}
             alt='blogs background'
-            quality={75} // 100 se 75 — file size bahut kam, visually same
+            quality={75}
             fill
             sizes='100vw'
             priority
-            fetchPriority='high' // yeh explicitly add karo
+            fetchPriority='high'
             placeholder={
               typeof image === 'object' && (image as any).blurDataURL
                 ? 'blur'

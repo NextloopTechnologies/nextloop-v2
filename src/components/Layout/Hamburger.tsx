@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import LoaderSvg from '../Loader/loader';
 import { NextLoopColoredLogo } from '../../../assets';
@@ -44,6 +44,10 @@ const Hamburger = () => {
   const toggleIndustriesDropdown = () => {
     setShowIndustriesDropdown(!showIndustriesDropdown);
   };
+
+  useEffect(() => {
+    setIsLoading(false);
+  }, [pathname]);
 
   const handleLinkClick = () => {
     setIsLoading(true);
