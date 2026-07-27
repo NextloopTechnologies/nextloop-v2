@@ -36,12 +36,14 @@ const Slider: React.FC<SliderProps> = ({
         <>
           <button
             ref={prevRef}
+            aria-label='Previous slide'
             className='hidden md:flex swiper-custom-prev absolute top-2/3 left-3 transform -translate-y-1/2 z-10 bg-white hover:bg-gray-300 p-2 shadow-lg rounded-full'
           >
             <ChevronLeft size={23} />
           </button>
           <button
             ref={nextRef}
+            aria-label='Next slide'
             className='hidden md:flex swiper-custom-next absolute top-2/3 right-3 transform -translate-y-1/2 z-10 bg-white hover:bg-gray-300 p-2 shadow-lg rounded-full'
           >
             <ChevronRight size={23} />

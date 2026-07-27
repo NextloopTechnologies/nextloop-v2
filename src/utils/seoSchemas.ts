@@ -11,134 +11,233 @@ export type PageSchemaKey =
   | 'portfolio'
   | 'careers';
 
-const baseOrganizationSchema = {
-  '@type': 'Organization',
-  '@id': 'https://www.nextlooptechnologies.com/#organization',
-  name: 'Nextloop Technologies',
-  legalName: 'Nextloop Technologies LLP',
-  url: 'https://www.nextlooptechnologies.com/',
-  logo: {
-    '@type': 'ImageObject',
-    url: 'https://www.nextlooptechnologies.com/wp-content/uploads/2023/logo.png',
-  },
-  email: 'nextlooptechnologies@gmail.com',
-  foundingDate: '2020',
-  founders: [
-    {
-      '@type': 'Person',
-      name: 'Piyush Shrivastava',
-    },
-    {
-      '@type': 'Person',
-      name: 'Rahul Alekhachandra Nayak',
-    },
-  ],
-  sameAs: [
-    'https://www.facebook.com/nextlooptechnologies',
-    'https://www.linkedin.com/company/nextlooptechnologies',
-    'https://www.instagram.com/nextlooptechnologies',
-  ],
-};
-
-const baseWebsiteSchema = {
-  '@type': 'WebSite',
-  '@id': 'https://www.nextlooptechnologies.com/#website',
-  url: 'https://www.nextlooptechnologies.com/',
-  name: 'Nextloop Technologies',
-  publisher: {
-    '@id': 'https://www.nextlooptechnologies.com/#organization',
-  },
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: 'https://www.nextlooptechnologies.com/?s={search_term_string}',
-    'query-input': 'required name=search_term_string',
-  },
-};
-
-const baseLocalBusinessSchema = {
-  '@type': 'ProfessionalService',
-  '@id': 'https://www.nextlooptechnologies.com/#professionalservice',
-  name: 'Nextloop Technologies',
-  image:
-    'https://www.nextlooptechnologies.com/wp-content/uploads/2023/office.jpg',
-  url: 'https://www.nextlooptechnologies.com/',
-  telephone: '+91-9893738323',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: '101, Kanchan Sagar, 18/1, Near Industry House, Old Palasia',
-    addressLocality: 'Indore',
-    addressRegion: 'MP',
-    postalCode: '452001',
-    addressCountry: 'IN',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 22.7244,
-    longitude: 75.8839,
-  },
-  openingHoursSpecification: {
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-    opens: '10:00',
-    closes: '22:00',
-  },
-};
-
-const serviceListSchema = {
-  '@type': 'ItemList',
-  name: 'Our Services',
-  itemListElement: [
-    {
-      '@type': 'ListItem',
-      position: 1,
-      item: {
-        '@type': 'Service',
-        name: 'Custom Software Development',
-        description:
-          'Tailored software solutions to solve unique business challenges.',
-      },
-    },
-    {
-      '@type': 'ListItem',
-      position: 2,
-      item: {
-        '@type': 'Service',
-        name: 'Mobile App Development',
-        description:
-          'High-performance Android and iOS applications built with Flutter and Native technologies.',
-      },
-    },
-    {
-      '@type': 'ListItem',
-      position: 3,
-      item: {
-        '@type': 'Service',
-        name: 'Web Development',
-        description:
-          'Modern, responsive, and SEO-friendly websites and web applications.',
-      },
-    },
-    {
-      '@type': 'ListItem',
-      position: 4,
-      item: {
-        '@type': 'Service',
-        name: 'Cloud & AI Solutions',
-        description:
-          'AWS/Azure cloud migration and Artificial Intelligence/Machine Learning implementation.',
-      },
-    },
-  ],
-};
-
 const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
   home: {
     '@context': 'https://schema.org',
     '@graph': [
-      baseOrganizationSchema,
-      baseWebsiteSchema,
-      baseLocalBusinessSchema,
-      serviceListSchema,
+      {
+        '@type': 'Organization',
+        '@id': 'https://www.nextlooptechnologies.com/#organization',
+        name: 'Nextloop Technologies',
+        legalName: 'Nextloop Technologies Pvt. Ltd.',
+        url: 'https://www.nextlooptechnologies.com/',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://www.nextlooptechnologies.com/_next/static/media/NextLoopColoredLogo.526d6d62.jpeg',
+        },
+        email: 'info@nextlooptechnologies.com',
+        foundingDate: '2020',
+        contactPoint: [
+          {
+            '@type': 'ContactPoint',
+            telephone: '+91-6103542991',
+            contactType: 'customer service',
+            areaServed: ['IN', 'US'],
+            availableLanguage: ['English', 'Hindi'],
+          },
+          {
+            '@type': 'ContactPoint',
+            telephone: '+91-9893954583',
+            contactType: 'sales',
+            areaServed: ['IN', 'US'],
+            availableLanguage: ['English', 'Hindi'],
+          },
+        ],
+        sameAs: [
+          'https://www.facebook.com/profile.php?id=61556914381569',
+          'https://www.linkedin.com/company/nextloop-technologies-llp',
+          'https://www.instagram.com/nextloop.technologies/',
+        ],
+      },
+      {
+        '@type': 'WebSite',
+        '@id': 'https://www.nextlooptechnologies.com/#website',
+        url: 'https://www.nextlooptechnologies.com/',
+        name: 'Nextloop Technologies',
+        publisher: {
+          '@id': 'https://www.nextlooptechnologies.com/#organization',
+        },
+      },
+      {
+        '@type': 'WebPage',
+        '@id': 'https://www.nextlooptechnologies.com/#webpage',
+        url: 'https://www.nextlooptechnologies.com/',
+        name: 'IT Staff Augmentation | Custom Software Solutions | AI Remote Teams',
+        description:
+          'Leading IT outsourcing company in Indore & USA. We provide custom software development, staff augmentation & dedicated developers for AI, SaaS & MVP development.',
+        isPartOf: { '@id': 'https://www.nextlooptechnologies.com/#website' },
+        about: { '@id': 'https://www.nextlooptechnologies.com/#organization' },
+        primaryImageOfPage: {
+          '@type': 'ImageObject',
+          url: 'https://www.nextlooptechnologies.com/_next/static/media/who-we-are.5d2431a8.jpeg',
+        },
+        breadcrumb: {
+          '@id': 'https://www.nextlooptechnologies.com/#breadcrumb',
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': 'https://www.nextlooptechnologies.com/#breadcrumb',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://www.nextlooptechnologies.com/',
+          },
+        ],
+      },
+      {
+        '@type': 'ProfessionalService',
+        '@id': 'https://www.nextlooptechnologies.com/#professionalservice',
+        name: 'Nextloop Technologies',
+        image:
+          'https://www.nextlooptechnologies.com/_next/static/media/who-we-are.5d2431a8.jpeg',
+        url: 'https://www.nextlooptechnologies.com/',
+        telephone: '+91-6103542991',
+        email: 'info@nextlooptechnologies.com',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress:
+            '101, Kanchan Sagar, 18/1, Near Industry House, Old Palasia',
+          addressLocality: 'Indore',
+          addressRegion: 'MP',
+          postalCode: '452001',
+          addressCountry: 'IN',
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: 22.7244,
+          longitude: 75.8839,
+        },
+        areaServed: ['IN', 'US'],
+        openingHoursSpecification: [
+          {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+            opens: '10:00',
+            closes: '22:00',
+          },
+        ],
+      },
+      {
+        '@type': 'ItemList',
+        name: 'Our Services',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            item: {
+              '@type': 'Service',
+              name: 'Custom Software Development',
+              url: 'https://www.nextlooptechnologies.com/services/custom-software-development/',
+              serviceType: 'Custom Software Development',
+              provider: {
+                '@id': 'https://www.nextlooptechnologies.com/#organization',
+              },
+              areaServed: ['IN', 'US'],
+            },
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            item: {
+              '@type': 'Service',
+              name: 'IT Staff Augmentation',
+              url: 'https://www.nextlooptechnologies.com/services/it-staff-augmentation/',
+              serviceType: 'IT Staff Augmentation',
+              provider: {
+                '@id': 'https://www.nextlooptechnologies.com/#organization',
+              },
+              areaServed: ['IN', 'US'],
+            },
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            item: {
+              '@type': 'Service',
+              name: 'Web Development',
+              url: 'https://www.nextlooptechnologies.com/services/web-development/',
+              serviceType: 'Web Development',
+              provider: {
+                '@id': 'https://www.nextlooptechnologies.com/#organization',
+              },
+              areaServed: ['IN', 'US'],
+            },
+          },
+          {
+            '@type': 'ListItem',
+            position: 4,
+            item: {
+              '@type': 'Service',
+              name: 'MVP Development',
+              url: 'https://www.nextlooptechnologies.com/services/mvp-development/',
+              serviceType: 'MVP Development',
+              provider: {
+                '@id': 'https://www.nextlooptechnologies.com/#organization',
+              },
+              areaServed: ['IN', 'US'],
+            },
+          },
+          {
+            '@type': 'ListItem',
+            position: 5,
+            item: {
+              '@type': 'Service',
+              name: 'Cloud & DevOps',
+              url: 'https://www.nextlooptechnologies.com/services/cloud-computing-solutions/',
+              serviceType: 'Cloud Computing',
+              provider: {
+                '@id': 'https://www.nextlooptechnologies.com/#organization',
+              },
+              areaServed: ['IN', 'US'],
+            },
+          },
+          {
+            '@type': 'ListItem',
+            position: 6,
+            item: {
+              '@type': 'Service',
+              name: 'Mobile App Development',
+              url: 'https://www.nextlooptechnologies.com/services/mobile-app-development/',
+              serviceType: 'Mobile App Development',
+              provider: {
+                '@id': 'https://www.nextlooptechnologies.com/#organization',
+              },
+              areaServed: ['IN', 'US'],
+            },
+          },
+          {
+            '@type': 'ListItem',
+            position: 7,
+            item: {
+              '@type': 'Service',
+              name: 'UI/UX Design & Development',
+              url: 'https://www.nextlooptechnologies.com/services/ui-ux-development/',
+              serviceType: 'UI/UX Design',
+              provider: {
+                '@id': 'https://www.nextlooptechnologies.com/#organization',
+              },
+              areaServed: ['IN', 'US'],
+            },
+          },
+          {
+            '@type': 'ListItem',
+            position: 8,
+            item: {
+              '@type': 'Service',
+              name: 'AI & ML Solutions',
+              url: 'https://www.nextlooptechnologies.com/services/ai-ml/',
+              serviceType: 'AI/ML Development',
+              provider: {
+                '@id': 'https://www.nextlooptechnologies.com/#organization',
+              },
+              areaServed: ['IN', 'US'],
+            },
+          },
+        ],
+      },
     ],
   },
   about: {
