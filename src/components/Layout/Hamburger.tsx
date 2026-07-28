@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import LoaderSvg from '../Loader/loader';
 import { NextLoopColoredLogo } from '../../../assets';
@@ -45,28 +45,17 @@ const Hamburger = () => {
     setShowIndustriesDropdown(!showIndustriesDropdown);
   };
 
-  useEffect(() => {
-    const handleStart = (url: string) => {
-      if (url !== router.asPath) {
-        setIsLoading(true);
-      }
-    };
-    const handleComplete = () => setIsLoading(false);
-    const handleError = () => setIsLoading(false);
-
-    router.events.on('routeChangeStart', handleStart);
-    router.events.on('routeChangeComplete', handleComplete);
-    router.events.on('routeChangeError', handleError);
-
-    return () => {
-      router.events.off('routeChangeStart', handleStart);
-      router.events.off('routeChangeComplete', handleComplete);
-      router.events.off('routeChangeError', handleError);
-    };
-  }, [router]);
-
-  const handleLinkClick = () => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const href = e.currentTarget.getAttribute('href');
     setIsOpen(false);
+
+    if (href) {
+      setIsLoading(true);
+      router.push(href).finally(() => {
+        setIsLoading(false);
+      });
+    }
   };
 
   const handleRequestQuote = (e: React.MouseEvent<HTMLAnchorElement>) => {
