@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
-import LoaderSvg from '../Loader/loader';
 import { NextLoopColoredLogo } from '../../../assets';
 import navIcon from '../../../public/hamburger.svg';
 
@@ -29,7 +28,6 @@ const Hamburger = () => {
   const router = useRouter();
   const { pathname } = router;
   const [showIndustriesDropdown, setShowIndustriesDropdown] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
 
   const industries = [
     // { name: 'E-commerce', href: '/domain/ecommerce' },
@@ -45,17 +43,8 @@ const Hamburger = () => {
     setShowIndustriesDropdown(!showIndustriesDropdown);
   };
 
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    const href = e.currentTarget.getAttribute('href');
+  const handleLinkClick = () => {
     setIsOpen(false);
-
-    if (href) {
-      setIsLoading(true);
-      router.push(href).finally(() => {
-        setIsLoading(false);
-      });
-    }
   };
 
   const handleRequestQuote = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -78,11 +67,6 @@ const Hamburger = () => {
 
   return (
     <>
-      {isLoading && (
-        <div className='fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-95 z-50'>
-          <LoaderSvg />
-        </div>
-      )}
       <div className='relative flex justify-between px-4'>
         <Link href='/' onClick={() => setIsOpen(false)}>
           <Image
