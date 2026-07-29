@@ -2,8 +2,9 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
+import LoaderSvg from '../Loader/loader';
 import { NextLoopColoredLogo } from '../../../assets';
 import navIcon from '../../../public/hamburger.svg';
 
@@ -25,9 +26,32 @@ const ChevronIcon = ({ isUp }: { isUp: boolean }) => (
 
 const Hamburger = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showIndustriesDropdown, setShowIndustriesDropdown] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   const router = useRouter();
   const { pathname } = router;
-  const [showIndustriesDropdown, setShowIndustriesDropdown] = useState(false);
+
+  useEffect(() => {
+    const handleStart = () => {
+      setIsLoading(true);
+    };
+
+    const handleComplete = () => {
+      setIsLoading(false);
+      setIsOpen(false);
+    };
+
+    router.events.on('routeChangeStart', handleStart);
+    router.events.on('routeChangeComplete', handleComplete);
+    router.events.on('routeChangeError', handleComplete);
+
+    return () => {
+      router.events.off('routeChangeStart', handleStart);
+      router.events.off('routeChangeComplete', handleComplete);
+      router.events.off('routeChangeError', handleComplete);
+    };
+  }, [router.events]);
 
   const industries = [
     // { name: 'E-commerce', href: '/domain/ecommerce' },
@@ -40,7 +64,7 @@ const Hamburger = () => {
   ];
 
   const toggleIndustriesDropdown = () => {
-    setShowIndustriesDropdown(!showIndustriesDropdown);
+    setShowIndustriesDropdown((prev) => !prev);
   };
 
   const handleLinkClick = () => {
@@ -49,7 +73,9 @@ const Hamburger = () => {
 
   const handleRequestQuote = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
+
     const footer = document.getElementById('footer');
+
     if (footer) {
       const headerOffset = 100;
       const elementPosition =
@@ -67,8 +93,14 @@ const Hamburger = () => {
 
   return (
     <>
+      {isLoading && (
+        <div className='fixed top-0 left-0 z-50 flex h-full w-full items-center justify-center bg-black bg-opacity-95'>
+          <LoaderSvg />
+        </div>
+      )}
+
       <div className='relative flex justify-between px-4'>
-        <Link href='/' onClick={() => setIsOpen(false)}>
+        <Link href='/' onClick={handleLinkClick}>
           <Image
             src={NextLoopColoredLogo}
             width={80}
@@ -76,24 +108,27 @@ const Hamburger = () => {
             alt='Nextloop'
           />
         </Link>
+
         <Image
           src={navIcon}
           alt='Technologies'
-          onClick={() => setIsOpen((t) => !t)}
+          onClick={() => setIsOpen((prev) => !prev)}
         />
       </div>
+
       <motion.div
-        className='fixed top-0 left-0 w-3/4 h-full bg-white z-[999] overflow-y-auto'
+        className='fixed top-0 left-0 z-[999] h-full w-3/4 overflow-y-auto bg-white'
         initial={{ x: '-100%' }}
         animate={{ x: isOpen ? 0 : '-100%' }}
         transition={{ duration: 0.5 }}
       >
-        <ul className='flex flex-col items-start py-16 px-6 gap-6 h-full'>
+        <ul className='flex h-full flex-col items-start gap-6 px-6 py-16'>
           <li className={`w-full ${pathname === '/' ? 'text-orange-500' : ''}`}>
             <Link href='/' onClick={handleLinkClick}>
               Home
             </Link>
           </li>
+
           <li
             className={`w-full ${
               pathname === '/about-us' ? 'text-orange-500' : ''
@@ -103,24 +138,26 @@ const Hamburger = () => {
               About us
             </Link>
           </li>
+
           <li
             className={`w-full ${
               pathname.startsWith('/domain') ? 'text-orange-500' : ''
             }`}
           >
             <div
-              className='flex justify-between items-center cursor-pointer'
+              className='flex cursor-pointer items-center justify-between'
               onClick={toggleIndustriesDropdown}
             >
               <span>Industries</span>
               <ChevronIcon isUp={showIndustriesDropdown} />
             </div>
+
             {showIndustriesDropdown && (
-              <ul className='mt-2 ml-4 space-y-2'>
+              <ul className='ml-4 mt-2 space-y-2'>
                 {industries.map((industry) => (
                   <li
                     key={industry.name}
-                    className={`text-gray-700 hover:text-orange-500 opacity-60 ${
+                    className={`text-gray-700 opacity-60 hover:text-orange-500 ${
                       pathname === industry.href ? 'text-orange-500' : ''
                     }`}
                   >
@@ -136,6 +173,7 @@ const Hamburger = () => {
               </ul>
             )}
           </li>
+
           <li
             className={`w-full ${
               pathname === '/portfolio' ? 'text-orange-500' : ''
@@ -145,6 +183,7 @@ const Hamburger = () => {
               Portfolio
             </Link>
           </li>
+
           <li
             className={`w-full ${
               pathname === '/services' ? 'text-orange-500' : ''
@@ -154,6 +193,7 @@ const Hamburger = () => {
               Services
             </Link>
           </li>
+
           <li
             className={`w-full ${
               pathname === '/career' ? 'text-orange-500' : ''
@@ -163,6 +203,7 @@ const Hamburger = () => {
               Careers
             </Link>
           </li>
+
           <li
             className={`w-full ${
               pathname === '/blog' ? 'text-orange-500' : ''
@@ -172,6 +213,7 @@ const Hamburger = () => {
               Blogs
             </Link>
           </li>
+
           <li
             className={`w-full ${
               pathname === '/culture' ? 'text-orange-500' : ''
@@ -181,11 +223,12 @@ const Hamburger = () => {
               Culture
             </Link>
           </li>
-          <li className='w-full mt-4'>
+
+          <li className='mt-4 w-full'>
             <Link
               href='#footer'
               onClick={handleRequestQuote}
-              className='w-full bg-orange-500 text-white px-5 py-3 rounded-full inline-block text-center'
+              className='inline-block w-full rounded-full bg-orange-500 px-5 py-3 text-center text-white'
             >
               Contact Us &#10230;
             </Link>
