@@ -11,19 +11,41 @@ export type PageSchemaKey =
   | 'portfolio'
   | 'careers';
 
+const normalizeSiteUrl = (value: string) => value.replace(/\/+$/, '');
+const SITE_URL = normalizeSiteUrl(
+  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.nextlooptechnologies.com'
+);
+const withSiteUrl = (path: string) =>
+  `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;
+const CURRENT_DATE = new Date().toISOString().slice(0, 10);
+
+export const SEO_IMAGES = {
+  logo: withSiteUrl('/images/logo.png'),
+  organization: withSiteUrl('/images/who-we-are.jpg'),
+  portfolio: withSiteUrl('/images/case-studies/brewpod.jpg'),
+};
+
 const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
   home: {
     '@context': 'https://schema.org',
     '@graph': [
       {
         '@type': 'Organization',
-        '@id': 'https://www.nextlooptechnologies.com/#organization',
+        '@id': withSiteUrl('/#organization'),
         name: 'Nextloop Technologies',
         legalName: 'Nextloop Technologies Pvt. Ltd.',
-        url: 'https://www.nextlooptechnologies.com/',
+        url: withSiteUrl('/'),
         logo: {
           '@type': 'ImageObject',
-          url: 'https://www.nextlooptechnologies.com/_next/static/media/NextLoopColoredLogo.526d6d62.jpeg',
+          url: SEO_IMAGES.logo,
+          width: 400,
+          height: 120,
+        },
+        image: {
+          '@type': 'ImageObject',
+          url: SEO_IMAGES.organization,
+          width: 1200,
+          height: 800,
         },
         email: 'info@nextlooptechnologies.com',
         foundingDate: '2020',
@@ -51,49 +73,55 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
       },
       {
         '@type': 'WebSite',
-        '@id': 'https://www.nextlooptechnologies.com/#website',
-        url: 'https://www.nextlooptechnologies.com/',
+        '@id': withSiteUrl('/#website'),
+        url: withSiteUrl('/'),
         name: 'Nextloop Technologies',
         publisher: {
-          '@id': 'https://www.nextlooptechnologies.com/#organization',
+          '@id': withSiteUrl('/#organization'),
         },
       },
       {
         '@type': 'WebPage',
-        '@id': 'https://www.nextlooptechnologies.com/#webpage',
-        url: 'https://www.nextlooptechnologies.com/',
+        '@id': withSiteUrl('/#webpage'),
+        url: withSiteUrl('/'),
         name: 'IT Staff Augmentation | Custom Software Solutions | AI Remote Teams',
         description:
           'Leading IT outsourcing company in Indore & USA. We provide custom software development, staff augmentation & dedicated developers for AI, SaaS & MVP development.',
-        isPartOf: { '@id': 'https://www.nextlooptechnologies.com/#website' },
-        about: { '@id': 'https://www.nextlooptechnologies.com/#organization' },
+        isPartOf: { '@id': withSiteUrl('/#website') },
+        about: { '@id': withSiteUrl('/#organization') },
         primaryImageOfPage: {
           '@type': 'ImageObject',
-          url: 'https://www.nextlooptechnologies.com/_next/static/media/who-we-are.5d2431a8.jpeg',
+          url: SEO_IMAGES.organization,
         },
         breadcrumb: {
-          '@id': 'https://www.nextlooptechnologies.com/#breadcrumb',
+          '@id': withSiteUrl('/#breadcrumb'),
         },
+        inLanguage: 'en',
+        dateModified: CURRENT_DATE,
       },
       {
         '@type': 'BreadcrumbList',
-        '@id': 'https://www.nextlooptechnologies.com/#breadcrumb',
+        '@id': withSiteUrl('/#breadcrumb'),
         itemListElement: [
           {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://www.nextlooptechnologies.com/',
+            item: withSiteUrl('/'),
           },
         ],
       },
       {
         '@type': 'ProfessionalService',
-        '@id': 'https://www.nextlooptechnologies.com/#professionalservice',
+        '@id': withSiteUrl('/#professionalservice'),
         name: 'Nextloop Technologies',
-        image:
-          'https://www.nextlooptechnologies.com/_next/static/media/who-we-are.5d2431a8.jpeg',
-        url: 'https://www.nextlooptechnologies.com/',
+        image: {
+          '@type': 'ImageObject',
+          url: SEO_IMAGES.organization,
+          width: 1200,
+          height: 800,
+        },
+        url: withSiteUrl('/'),
         telephone: '+91-6103542991',
         email: 'info@nextlooptechnologies.com',
         address: {
@@ -130,10 +158,10 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
             item: {
               '@type': 'Service',
               name: 'Custom Software Development',
-              url: 'https://www.nextlooptechnologies.com/services/custom-software-development/',
+              url: withSiteUrl('/services/custom-software-development/'),
               serviceType: 'Custom Software Development',
               provider: {
-                '@id': 'https://www.nextlooptechnologies.com/#organization',
+                '@id': withSiteUrl('/#organization'),
               },
               areaServed: ['IN', 'US'],
             },
@@ -144,10 +172,10 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
             item: {
               '@type': 'Service',
               name: 'IT Staff Augmentation',
-              url: 'https://www.nextlooptechnologies.com/services/it-staff-augmentation/',
+              url: withSiteUrl('/services/it-staff-augmentation/'),
               serviceType: 'IT Staff Augmentation',
               provider: {
-                '@id': 'https://www.nextlooptechnologies.com/#organization',
+                '@id': withSiteUrl('/#organization'),
               },
               areaServed: ['IN', 'US'],
             },
@@ -158,10 +186,10 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
             item: {
               '@type': 'Service',
               name: 'Web Development',
-              url: 'https://www.nextlooptechnologies.com/services/web-development/',
+              url: withSiteUrl('/services/web-development/'),
               serviceType: 'Web Development',
               provider: {
-                '@id': 'https://www.nextlooptechnologies.com/#organization',
+                '@id': withSiteUrl('/#organization'),
               },
               areaServed: ['IN', 'US'],
             },
@@ -172,10 +200,10 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
             item: {
               '@type': 'Service',
               name: 'MVP Development',
-              url: 'https://www.nextlooptechnologies.com/services/mvp-development/',
+              url: withSiteUrl('/services/mvp-development/'),
               serviceType: 'MVP Development',
               provider: {
-                '@id': 'https://www.nextlooptechnologies.com/#organization',
+                '@id': withSiteUrl('/#organization'),
               },
               areaServed: ['IN', 'US'],
             },
@@ -186,10 +214,10 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
             item: {
               '@type': 'Service',
               name: 'Cloud & DevOps',
-              url: 'https://www.nextlooptechnologies.com/services/cloud-computing-solutions/',
+              url: withSiteUrl('/services/cloud-computing-solutions/'),
               serviceType: 'Cloud Computing',
               provider: {
-                '@id': 'https://www.nextlooptechnologies.com/#organization',
+                '@id': withSiteUrl('/#organization'),
               },
               areaServed: ['IN', 'US'],
             },
@@ -200,10 +228,10 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
             item: {
               '@type': 'Service',
               name: 'Mobile App Development',
-              url: 'https://www.nextlooptechnologies.com/services/mobile-app-development/',
+              url: withSiteUrl('/services/mobile-app-development/'),
               serviceType: 'Mobile App Development',
               provider: {
-                '@id': 'https://www.nextlooptechnologies.com/#organization',
+                '@id': withSiteUrl('/#organization'),
               },
               areaServed: ['IN', 'US'],
             },
@@ -214,10 +242,10 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
             item: {
               '@type': 'Service',
               name: 'UI/UX Design & Development',
-              url: 'https://www.nextlooptechnologies.com/services/ui-ux-development/',
+              url: withSiteUrl('/services/ui-ux-development/'),
               serviceType: 'UI/UX Design',
               provider: {
-                '@id': 'https://www.nextlooptechnologies.com/#organization',
+                '@id': withSiteUrl('/#organization'),
               },
               areaServed: ['IN', 'US'],
             },
@@ -228,10 +256,10 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
             item: {
               '@type': 'Service',
               name: 'AI & ML Solutions',
-              url: 'https://www.nextlooptechnologies.com/services/ai-ml/',
+              url: withSiteUrl('/services/ai-ml/'),
               serviceType: 'AI/ML Development',
               provider: {
-                '@id': 'https://www.nextlooptechnologies.com/#organization',
+                '@id': withSiteUrl('/#organization'),
               },
               areaServed: ['IN', 'US'],
             },
@@ -244,7 +272,7 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
     '@context': 'https://schema.org',
     '@type': 'AboutPage',
     mainEntity: {
-      '@id': 'https://www.nextlooptechnologies.com/#organization',
+      '@id': withSiteUrl('/#organization'),
     },
     description:
       'Nextloop Technologies is an AI-native IT services and software development consulting partner delivering modern agile solutions across global markets.',
@@ -262,7 +290,7 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
     provider: {
       '@type': 'Organization',
       name: 'Nextloop Technologies',
-      url: 'https://www.nextlooptechnologies.com/',
+      url: withSiteUrl('/'),
     },
     areaServed: {
       '@type': 'Country',
@@ -319,9 +347,8 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
     '@graph': [
       {
         '@type': 'WebPage',
-        '@id':
-          'https://www.nextlooptechnologies.com/services/custom-software-development/#webpage',
-        url: 'https://www.nextlooptechnologies.com/services/custom-software-development/',
+        '@id': withSiteUrl('/services/custom-software-development/#webpage'),
+        url: withSiteUrl('/services/custom-software-development/'),
         name: 'Custom Software Development Services | Nextloop Technologies',
         description:
           'Tailored enterprise software architecture and full-stack development to build secure, highly scalable applications from scratch.',
@@ -332,22 +359,24 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
               '@type': 'ListItem',
               position: 1,
               name: 'Home',
-              item: 'https://www.nextlooptechnologies.com/',
+              item: withSiteUrl('/'),
             },
             {
               '@type': 'ListItem',
               position: 2,
               name: 'Services',
-              item: 'https://www.nextlooptechnologies.com/services/',
+              item: withSiteUrl('/services/'),
             },
             {
               '@type': 'ListItem',
               position: 3,
               name: 'Custom Software Development',
-              item: 'https://www.nextlooptechnologies.com/services/custom-software-development/',
+              item: withSiteUrl('/services/custom-software-development/'),
             },
           ],
         },
+        inLanguage: 'en',
+        dateModified: CURRENT_DATE,
       },
       {
         '@type': 'Service',
@@ -356,7 +385,7 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
         provider: {
           '@type': 'Organization',
           name: 'Nextloop Technologies',
-          url: 'https://www.nextlooptechnologies.com/',
+          url: withSiteUrl('/'),
         },
         areaServed: { '@type': 'Country', name: 'Global' },
         audience: {
@@ -400,9 +429,8 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
     '@graph': [
       {
         '@type': 'WebPage',
-        '@id':
-          'https://www.nextlooptechnologies.com/services/it-staff-augmentation/#webpage',
-        url: 'https://www.nextlooptechnologies.com/services/it-staff-augmentation/',
+        '@id': withSiteUrl('/services/it-staff-augmentation/#webpage'),
+        url: withSiteUrl('/services/it-staff-augmentation/'),
         name: 'IT Staff Augmentation & Dedicated Remote Developers | Nextloop Technologies',
         description:
           'Scale your engineering velocity overnight. Hire vetted full-time remote developers, QA specialists, and architects matching your exact tech stack.',
@@ -413,22 +441,24 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
               '@type': 'ListItem',
               position: 1,
               name: 'Home',
-              item: 'https://www.nextlooptechnologies.com/',
+              item: withSiteUrl('/'),
             },
             {
               '@type': 'ListItem',
               position: 2,
               name: 'Services',
-              item: 'https://www.nextlooptechnologies.com/services/',
+              item: withSiteUrl('/services/'),
             },
             {
               '@type': 'ListItem',
               position: 3,
               name: 'Staff Augmentation',
-              item: 'https://www.nextlooptechnologies.com/services/it-staff-augmentation/',
+              item: withSiteUrl('/services/it-staff-augmentation/'),
             },
           ],
         },
+        inLanguage: 'en',
+        dateModified: CURRENT_DATE,
       },
       {
         '@type': 'Service',
@@ -437,7 +467,7 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
         provider: {
           '@type': 'Organization',
           name: 'Nextloop Technologies',
-          url: 'https://www.nextlooptechnologies.com/',
+          url: withSiteUrl('/'),
         },
         description:
           'Vetted, high-performing engineering talent operating natively inside your timezone and communication loops, minimizing management overhead.',
@@ -476,9 +506,8 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
     '@graph': [
       {
         '@type': 'WebPage',
-        '@id':
-          'https://www.nextlooptechnologies.com/services/ai-machine-learning/#webpage',
-        url: 'https://www.nextlooptechnologies.com/services/ai-machine-learning/',
+        '@id': withSiteUrl('/services/ai-machine-learning/#webpage'),
+        url: withSiteUrl('/services/ai-machine-learning/'),
         name: 'Artificial Intelligence & Custom ML Model Development | Nextloop Technologies',
         description:
           'Deploy secure, enterprise-grade AI applications. Specializing in intelligent workflow automation, data modeling, and custom NLP deployment pipelines.',
@@ -489,22 +518,24 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
               '@type': 'ListItem',
               position: 1,
               name: 'Home',
-              item: 'https://www.nextlooptechnologies.com/',
+              item: withSiteUrl('/'),
             },
             {
               '@type': 'ListItem',
               position: 2,
               name: 'Services',
-              item: 'https://www.nextlooptechnologies.com/services/',
+              item: withSiteUrl('/services/'),
             },
             {
               '@type': 'ListItem',
               position: 3,
               name: 'AI & ML Solutions',
-              item: 'https://www.nextlooptechnologies.com/services/ai-machine-learning/',
+              item: withSiteUrl('/services/ai-machine-learning/'),
             },
           ],
         },
+        inLanguage: 'en',
+        dateModified: CURRENT_DATE,
       },
       {
         '@type': 'Service',
@@ -513,7 +544,7 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
         provider: {
           '@type': 'Organization',
           name: 'Nextloop Technologies',
-          url: 'https://www.nextlooptechnologies.com/',
+          url: withSiteUrl('/'),
         },
         description:
           'Implementing data predictive features and machine learning training loops to transform messy raw corporate datasets into automated pipelines.',
@@ -552,9 +583,8 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
     '@graph': [
       {
         '@type': 'WebPage',
-        '@id':
-          'https://www.nextlooptechnologies.com/services/web-app-development/#webpage',
-        url: 'https://www.nextlooptechnologies.com/services/web-app-development/',
+        '@id': withSiteUrl('/services/web-app-development/#webpage'),
+        url: withSiteUrl('/services/web-app-development/'),
         name: 'Responsive Web Application Development Company | Nextloop Technologies',
         description:
           'Engineered for speed, security, and user experience. Building fluid single-page applications (SPAs) and SaaS portals built to scale dynamically.',
@@ -565,22 +595,24 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
               '@type': 'ListItem',
               position: 1,
               name: 'Home',
-              item: 'https://www.nextlooptechnologies.com/',
+              item: withSiteUrl('/'),
             },
             {
               '@type': 'ListItem',
               position: 2,
               name: 'Services',
-              item: 'https://www.nextlooptechnologies.com/services/',
+              item: withSiteUrl('/services/'),
             },
             {
               '@type': 'ListItem',
               position: 3,
               name: 'Web App Development',
-              item: 'https://www.nextlooptechnologies.com/services/web-app-development/',
+              item: withSiteUrl('/services/web-app-development/'),
             },
           ],
         },
+        inLanguage: 'en',
+        dateModified: CURRENT_DATE,
       },
       {
         '@type': 'Service',
@@ -589,7 +621,7 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
         provider: {
           '@type': 'Organization',
           name: 'Nextloop Technologies',
-          url: 'https://www.nextlooptechnologies.com/',
+          url: withSiteUrl('/'),
         },
         description:
           'Deploying cutting-edge frontend structures tied together with lightning-fast RESTful APIs and modern database configurations.',
@@ -628,9 +660,8 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
     '@graph': [
       {
         '@type': 'WebPage',
-        '@id':
-          'https://www.nextlooptechnologies.com/services/mobile-app-development/#webpage',
-        url: 'https://www.nextlooptechnologies.com/services/mobile-app-development/',
+        '@id': withSiteUrl('/services/mobile-app-development/#webpage'),
+        url: withSiteUrl('/services/mobile-app-development/'),
         name: 'iOS & Android Cross-Platform Mobile App Engineering | Nextloop Technologies',
         description:
           'Transforming creative ideas into elegant App Store and Google Play deployments. Specialized in native performance and zero-latency UI designs.',
@@ -641,22 +672,24 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
               '@type': 'ListItem',
               position: 1,
               name: 'Home',
-              item: 'https://www.nextlooptechnologies.com/',
+              item: withSiteUrl('/'),
             },
             {
               '@type': 'ListItem',
               position: 2,
               name: 'Services',
-              item: 'https://www.nextlooptechnologies.com/services/',
+              item: withSiteUrl('/services/'),
             },
             {
               '@type': 'ListItem',
               position: 3,
               name: 'Mobile App Development',
-              item: 'https://www.nextlooptechnologies.com/services/mobile-app-development/',
+              item: withSiteUrl('/services/mobile-app-development/'),
             },
           ],
         },
+        inLanguage: 'en',
+        dateModified: CURRENT_DATE,
       },
       {
         '@type': 'Service',
@@ -665,7 +698,7 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
         provider: {
           '@type': 'Organization',
           name: 'Nextloop Technologies',
-          url: 'https://www.nextlooptechnologies.com/',
+          url: withSiteUrl('/'),
         },
         description:
           'Crafting customer-facing custom mobile applications optimized for offline availability, fast payment operations, and lightweight installation sizes.',
@@ -704,9 +737,8 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
     '@graph': [
       {
         '@type': 'WebPage',
-        '@id':
-          'https://www.nextlooptechnologies.com/services/cloud-devops/#webpage',
-        url: 'https://www.nextlooptechnologies.com/services/cloud-devops/',
+        '@id': withSiteUrl('/services/cloud-devops/#webpage'),
+        url: withSiteUrl('/services/cloud-devops/'),
         name: 'Cloud Engineering, DevOps Automation & Infrastructure Setup | Nextloop Technologies',
         description:
           'Eliminate build downtime. Automate code pipelines, cut architecture cloud bills, and achieve secure, 99.99% high-availability application scaling setups.',
@@ -717,22 +749,24 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
               '@type': 'ListItem',
               position: 1,
               name: 'Home',
-              item: 'https://www.nextlooptechnologies.com/',
+              item: withSiteUrl('/'),
             },
             {
               '@type': 'ListItem',
               position: 2,
               name: 'Services',
-              item: 'https://www.nextlooptechnologies.com/services/',
+              item: withSiteUrl('/services/'),
             },
             {
               '@type': 'ListItem',
               position: 3,
               name: 'Cloud & DevOps',
-              item: 'https://www.nextlooptechnologies.com/services/cloud-devops/',
+              item: withSiteUrl('/services/cloud-devops/'),
             },
           ],
         },
+        inLanguage: 'en',
+        dateModified: CURRENT_DATE,
       },
       {
         '@type': 'Service',
@@ -741,7 +775,7 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
         provider: {
           '@type': 'Organization',
           name: 'Nextloop Technologies',
-          url: 'https://www.nextlooptechnologies.com/',
+          url: withSiteUrl('/'),
         },
         description:
           'Constructing robust Infrastructure as Code (IaC) layouts using modern cloud container patterns to keep software highly available and secure.',
@@ -781,12 +815,16 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
     headline: 'BrewPod B2B Technology Case Study',
     description:
       'How Nextloop Technologies engineered a secure, high-performance platform turning an ambitious product idea into a successful market launch.',
-    image:
-      'https://www.nextlooptechnologies.com/images/case-studies/brewpod.jpg',
+    image: {
+      '@type': 'ImageObject',
+      url: SEO_IMAGES.portfolio,
+      width: 1200,
+      height: 800,
+    },
     author: {
       '@type': 'Organization',
       name: 'Nextloop Technologies',
-      url: 'https://www.nextlooptechnologies.com/',
+      url: withSiteUrl('/'),
     },
     about: [
       { '@type': 'Thing', name: 'Software Architecture' },
@@ -795,7 +833,10 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
     publisher: {
       '@type': 'Organization',
       name: 'Nextloop Technologies',
-      logo: 'https://www.nextlooptechnologies.com/images/logo.png',
+      logo: {
+        '@type': 'ImageObject',
+        url: SEO_IMAGES.logo,
+      },
     },
   },
   careers: {
@@ -804,6 +845,9 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
     name: 'Careers at Nextloop Technologies',
     description:
       'Explore remote-friendly tech opportunities and join our software delivery sprints.',
+    url: withSiteUrl('/career/'),
+    inLanguage: 'en',
+    dateModified: CURRENT_DATE,
     mainEntity: {
       '@type': 'ItemList',
       name: 'Open Positions',
@@ -821,7 +865,7 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
             hiringOrganization: {
               '@type': 'Organization',
               name: 'Nextloop Technologies LLP',
-              sameAs: 'https://www.nextlooptechnologies.com/',
+              sameAs: withSiteUrl('/'),
             },
             jobLocation: {
               '@type': 'Place',
