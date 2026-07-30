@@ -147,7 +147,7 @@ const OilAndGas = () => {
 
         <WhyBuild
           image={getStaticImageData(oilAndGasAssets.whyBuildOilAndGas)}
-          title='Why build <br /> a custom software solution for the'
+          title='Driving digital transformation in '
           colouredTitle='oil and gas'
           informationSection={
             <div className='max-w-[737px] md:flex md:flex-col justify-center px-5 md:px-0 md:w-full w-[350px] gap-2'>
