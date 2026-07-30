@@ -874,7 +874,7 @@ export const servicesSubPagesData = {
     whyChooseUsData: {
       headingData: {
         heading: 'Why Choose Us as Your ',
-        coloredHeading: 'Marketing Partner',
+        coloredHeading: 'Web Development Partner',
         description: '',
       },
       items: [
@@ -2807,7 +2807,7 @@ export const servicesSubPagesData = {
     whyChooseUsData: {
       headingData: {
         heading: 'Why Choose Us as Your ',
-        coloredHeading: 'Marketing Partner',
+        coloredHeading: 'MVP Development Partner',
         description: '',
       },
       items: [
