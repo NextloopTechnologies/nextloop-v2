@@ -12,14 +12,11 @@ interface BlogData {
 }
 
 const initialData = {
-  ...servicesSubPagesData.webDevelopment,
+  ...servicesSubPagesData.QAandTesting,
   blogData: [] as BlogData[],
-  schemaKey: 'service-web-app' as const,
 };
-
-const WebDevelopment: React.FC = () => {
+const SoftwareTestingQA: React.FC = () => {
   const [pageData, setPageData] = useState(initialData);
-
   useEffect(() => {
     const loadBlogs = async () => {
       try {
@@ -37,8 +34,7 @@ const WebDevelopment: React.FC = () => {
 
     loadBlogs();
   }, []);
-
   return <ServicePage {...pageData} />;
 };
 
-export default WebDevelopment;
+export default SoftwareTestingQA;

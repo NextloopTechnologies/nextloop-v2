@@ -8,58 +8,58 @@ import { getStaticImageData } from '../../../../utils/helper';
 const data = [
   {
     id: 1,
-    title: 'Oil and gas operations management software',
+    title: 'Smart Operations Dashboard ',
     descp:
-      'Your operation produces huge amounts of data. Understand and visualise it easily. Pick the metrics you monitor and AI instantly identifies your improvement areas.',
+      'Your operation generates more data than any spreadsheet can handle. Our AI-powered dashboard turns that data into clarity — letting you choose the metrics that matter most, visualise performance in real time, and automatically surface the areas where improvement will have the greatest impact.',
     icon: getStaticImageData(oilAndGasAssets.miningIcon),
   },
   {
     id: 2,
-    title: 'Predictive maintenance software for oil and gas',
+    title: 'Asset Lifecycle Management ',
     descp:
-      'Continuous equipment monitoring ensures everything runs optimally. Stay fully compliant effortlessly. Push notifications send you fast reminders when any urgent machine issues are found.',
+      'Continuous equipment monitoring keeps your operation running at full capacity and your compliance records clean. When something needs attention, push notifications flag it immediately — so your team can act before a minor issue becomes a costly one. ',
     icon: getStaticImageData(oilAndGasAssets.lifeCycleIcon),
   },
   {
     id: 3,
-    title: 'Reservoir modeling and simulation tools',
+    title: 'Scenario Planning and Optimisation ',
     descp:
-      'Use collected data to safely simulate various outcomes. Want to see how fluid or gravel figures change things? Do it easily with just one click.',
+      'Use your operational data to model outcomes before committing to them. Adjust fluid volumes, gravel figures, or resource allocations and see the projected impact instantly. Smarter decisions, made faster — without the guesswork. ',
     icon: getStaticImageData(oilAndGasAssets.optimiseIcon),
   },
   {
     id: 4,
-    title: 'Offshore oil and gas software solutions',
+    title: 'Offshore-Ready Capability ',
     descp:
-      'Working offshore brings unique regulations and complex connectivity issues. Do not worry. Our dedicated offline ready apps handle all of these challenges easily for you.',
+      'Offshore environments come with their own rules: stricter regulations, personnel logistics, supply coordination, and connectivity constraints. Your platform is built to handle all of it — reliably, wherever your operation is based. ',
     icon: getStaticImageData(oilAndGasAssets.readyIcon),
   },
   {
     id: 5,
-    title: 'Regulatory compliance tracking software for energy',
+    title: 'Everything in one place',
     descp:
-      'No more messy cabinets. Store all your documents safely in the cloud. Simple search features make your production and safety reports instantly accessible to everyone.',
+      'No more scattered files or overflowing cabinets. Every document — production reports, energy efficiency records, safety documentation — is stored securely in the cloud, fully searchable and accessible the moment you need it. ',
     icon: getStaticImageData(oilAndGasAssets.onePlaceIcon),
   },
   {
     id: 6,
-    title: 'Seamless software integration',
+    title: 'Seamless Integration ',
     descp:
-      'Your custom app functions as a complete solution. Prefer the legacy financial services you currently use? These tools seamlessly integrate right into your new ecosystem.',
+      'Your new platform can function as a complete standalone solution. But if there are existing financial tools or third-party systems your team already relies on, those can be integrated cleanly — no disruption, no forced replacements. ',
     icon: getStaticImageData(oilAndGasAssets.easyIntegrationIcon),
   },
   {
     id: 7,
-    title: 'Fixed price guarantee',
+    title: 'Fixed Price Guarantee ',
     descp:
-      'Our AI calculates your price after we know your exact project details. This price is permanently locked in. If done quicker you pay much less.',
+      "Once we understand your project requirements, we lock in your price. It doesn't increase as the build progresses — and if we deliver ahead of schedule, you pay less. No surprises. No scope creep.",
     icon: getStaticImageData(oilAndGasAssets.fixedPriceIcon),
   },
   {
     id: 8,
-    title: 'Cross platform energy support',
+    title: 'Cross-Platform Support ',
     descp:
-      'Your energy software needs to work perfectly everywhere. That is exactly why we provide full web desktop and mobile support designed purely for your business.',
+      'Your oil and gas software needs to perform in the office, in the field, and everywhere in between. We deliver web, desktop, and mobile support as standard — so your team has full access to the platform wherever the work takes them.',
     icon: getStaticImageData(oilAndGasAssets.platformIcon),
   },
 ];
@@ -107,20 +107,21 @@ const HowToBuild = () => {
   return (
     <div className='flex bg-white mx-auto max-w-7xl'>
       <div className='flex flex-col pb-2'>
-        <h2
+        <h1
           className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold text-center`}
         >
-          Enterprise oil and gas{' '}
-          <span className='text-orange-500'>software development process</span>
-        </h2>
+          How to Build an{' '}
+          <span className='text-orange-500'>Oil and Gas Software App </span>
+        </h1>
         <div
           className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} text-center mt-5 md:mx-20 mx-10`}
         >
           <p>
-            Utilize our oil and gas digital transformation company to create
-            unique cloud and AI solutions. Our domain experts guarantee smooth
-            system integration adherence to regulations and future ready
-            scalability.
+            Put Next Loop's expertise in cloud, IoT, and AI to work for your
+            operation. From asset management and real-time monitoring to system
+            integration and regulatory compliance, our domain specialists handle
+            the complexity — delivering a scalable, future-ready platform built
+            around how your business actually operates.
           </p>
         </div>
         <div className='grid grid-cols-1 lg:grid-cols-4 gap-3 w-full max-w-7xl mt-[100px] px-10'>
