@@ -103,6 +103,7 @@ const PortfolioSlide = () => {
                     <button
                       onClick={handlePrev}
                       disabled={currentIndex === 0}
+                      aria-label='Previous project'
                       className='md:hidden absolute left-2 top-1/2 -translate-y-1/2 z-30 bg-black/40 p-2 rounded-full disabled:opacity-30'
                     >
                       <MoveLeft className='text-orange-500 w-6 h-6' />
@@ -113,6 +114,7 @@ const PortfolioSlide = () => {
                       disabled={
                         currentIndex + itemsPerView >= IMAGE_DATA.length
                       }
+                      aria-label='Next project'
                       className='md:hidden absolute right-2 top-1/2 -translate-y-1/2 z-30 bg-black/40 p-2 rounded-full disabled:opacity-30'
                     >
                       <MoveRight className='text-orange-500 w-6 h-6' />

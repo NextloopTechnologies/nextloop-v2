@@ -4,16 +4,16 @@ import React from 'react';
 import palette from '../../../styles/pallette';
 
 type Props = {
-  title: string;
   colouredTitle?: string;
+  title: string | React.ReactNode;
   image: StaticImageData;
   informationSection: React.ReactNode;
   infoAndImgClassname?: string;
 };
 
 const WhyBuild = ({
-  title,
   image,
+  title,
   informationSection,
   colouredTitle,
   infoAndImgClassname,
@@ -23,9 +23,13 @@ const WhyBuild = ({
       <h1
         className={` font-bold text-center max-w-[1300px] ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} px-10`}
       >
-        {title}{' '}
+        {typeof title === 'string' ? (
+          <span dangerouslySetInnerHTML={{ __html: title }} />
+        ) : (
+          title
+        )}
         {colouredTitle && (
-          <span className='text-orange-500'>{colouredTitle}</span>
+          <span className='text-orange-500'>{` ${colouredTitle}?`}</span>
         )}
       </h1>
 

@@ -41,7 +41,6 @@ const services = [
   { label: 'MVP Development', href: '/services/mvp-development' },
   { label: 'AI/ML Development', href: '/services/ai-ml' },
   { label: 'Cloud Services', href: '/services/cloud-computing-solutions' },
-  { label: 'UI/UX Development', href: '/services/ui-ux-development' },
 ];
 
 const industrySolutions = [

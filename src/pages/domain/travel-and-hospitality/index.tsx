@@ -19,50 +19,48 @@ import { getStaticImageData } from '../../../utils/helper';
 const faqsContent: IFAQ[] = [
   {
     id: 1,
-    question: 'What is a Hotel PMS and how do I know if my property needs one?',
+    question: 'why do you need travel & hotel website design?',
     answer:
-      "A Hotel Property Management System is the operational hub of a hospitality business — the software that manages reservations, room assignments, check-ins, check-outs, housekeeping coordination, billing, and guest communication from a single platform. If your team is currently managing any of these processes manually, across spreadsheets, or through disconnected systems that don't talk to each other, you're absorbing costs that a good PMS eliminates. Staff spend less time on administration, errors decrease, and the guest experience improves because your team has accurate information at hand. The right hotel management software typically pays for itself within the first operating year through time savings and reduced booking errors alone. ",
+      'Hotel website design is a huge influence on the booking behaviour of travellers and helps your hotel address their desires and expectations. It’s very important that potential guests are able to navigate your website easily and quickly understand the content that’s most relevant to them.',
   },
   {
     id: 2,
-    question:
-      'How do your AI-powered solutions actually move the needle on bookings?',
+    question: 'why do I need a  website for my hotel?',
     answer:
-      "The honest answer is that it depends on where your biggest gaps are — which is why we assess that before recommending anything. That said, the areas where we consistently see the clearest impact are pricing and personalization. Dynamic pricing tools that respond to real demand signals rather than static seasonal rates tend to capture meaningful revenue that would otherwise be left on the table. Personalization engines that recognize returning guests and surface relevant offers at the right moment lift conversion rates and repeat bookings. AI chatbots that respond instantly to booking inquiries — including outside business hours — reduce the number of potential guests who ask a question, don't hear back quickly enough, and book somewhere else. Together, these aren't incremental improvements. They're structural advantages over competitors not using them. ",
+      'Hotel website design is a huge influence on the booking behaviour of travellers and helps your hotel address their desires and expectations. It’s very important that potential guests are able to navigate your website easily and quickly understand the content that’s most relevant to them.',
   },
   {
     id: 3,
-    question:
-      'We already work with several OTAs and booking platforms. Can you build around what we have?',
+    question: 'What are the benefits of hotel website design?',
     answer:
-      "Yes, and this is something we're deliberate about from the start of every project. Replacing established OTA relationships or payment infrastructure isn't necessary and often isn't practical. Our custom travel apps and hotel management software are built with open integration architecture, meaning they connect with Booking.com, Expedia, channel managers, payment gateways, and other third-party platforms you rely on. The goal is to give you a better central platform, not to force you to rebuild relationships that are already working. ",
+      'Hotel website design is a huge influence on the booking behaviour of travellers and helps your hotel address their desires and expectations. It’s very important that potential guests are able to navigate your website easily and quickly understand the content that’s most relevant to them.',
   },
 ];
 
 const WhatWeDoData = [
   {
     image: getStaticImageData(travelandhotelAssets.WhatWeDo1),
-    title: 'Accelerate Lending with Modern Digital Loan Origination Systems ',
+    title: 'Digital Loan Origination Systems',
     description:
-      'Transform your credit operations with our advanced Digital Loan Origination System (LOS). By automating the entire pipeline from the initial application to final disbursement, our platform accelerates approval times, eliminates cumbersome paperwork, and elevates the borrower experience. Give your financial institution the modern infrastructure it needs to scale operations and serve clients more efficiently. ',
+      'Streamline your lending process with our cutting-edge Digital Loan Origination System (LOS). From application to disbursement, we automate every step, ensuring faster approvals, reduced paperwork, and enhanced customer experience. Empower your financial institution to serve clients more efficiently.',
   },
   {
     image: getStaticImageData(travelandhotelAssets.WhatWeDo2),
-    title: 'Protect Transactions with Advanced Secure Payment Gateways ',
+    title: 'Secure Payment Gateways',
     description:
-      'Strengthen your business infrastructure with our robust Secure Payment Gateway Solutions. We provide seamless integration paired with sophisticated encryption and real-time fraud detection systems to guarantee safe, swift, and dependable digital transactions. Build lasting merchant credibility and elevate customer trust with a frictionless checkout experience designed to scale ',
+      "Boost your transaction capabilities with our Secure Payment Gateway Solutions. We offer seamless integration, robust encryption, and fraud detection systems to ensure safe, swift, and reliable digital payments, enhancing your customers' trust and satisfaction.",
   },
   {
     image: getStaticImageData(travelandhotelAssets.WhatWeDo3),
-    title: 'Optimize Performance with AI-Driven Financial Analytics ',
+    title: 'AI-Driven Financial Analytics',
     description:
-      'Unlock deeper business intelligence with our advanced AI-Driven Financial Analytics solutions. By leveraging big data and machine learning, we deliver actionable insights that empower your team to make data-backed decisions, streamline day-to-day operations, and accelerate growth across your financial services portfolio. ',
+      'Unlock deeper insights with our AI-Driven Financial Analytics solutions. We harness big data and machine learning to provide actionable intelligence, helping you make informed decisions, optimize operations, and drive growth in your financial services',
   },
   {
     image: getStaticImageData(travelandhotelAssets.WhatWeDo4),
-    title: 'Custom Fintech Software Development ',
+    title: 'Custom Fintech Software Development',
     description:
-      'Accelerate your digital transformation with our tailored Fintech software development services. From intuitive mobile banking applications and robust wealth management platforms to cutting-edge blockchain solutions, we engineer scalable, high-performance financial technology designed around your specific strategic goals. Turn your vision into market-ready innovation. ',
+      "Transform your ideas into reality with our Custom Fintech Software Development services. Whether it's mobile banking apps, wealth management platforms, or blockchain solutions, we tailor our expertise to fit your unique business needs, delivering innovative and scalable FinTech products.",
   },
 ];
 
@@ -84,12 +82,11 @@ const TravelAndHospitality = () => {
           image={getStaticImageData(travelandhotelAssets.hotelAndTravelBg)}
           titleChildren={
             <h1
-              className={`text-white ${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} font-bold text-center w-full md:max-w-[1500px]`}
+              className={`text-white ${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} uppercase font-bold text-center w-full md:max-w-[1500px]`}
             >
-              Travel & hotel website design and{' '}
-              <span className='text-orange-500'>
-                custom software development
-              </span>
+              uncover new business opportunities with appealing{' '}
+              <span className='text-orange-500'>travel & hotel website</span>
+              <br /> design & development
             </h1>
           }
           subtitle=''
@@ -99,37 +96,42 @@ const TravelAndHospitality = () => {
 
         <WhyBuild
           image={getStaticImageData(travelandhotelAssets.whyBuildImg)}
-          title='Why the Travel Industry is Switching to'
-          colouredTitle=' Custom Software Solutions '
+          title='Why build <br /> a custom software solution for the'
+          colouredTitle='travel & hotel industry'
           informationSection={
-            <div className='max-w-[737px] flex flex-col justify-center px-14 md:px-0 gap-2'>
+            <div className='max-w-[737px] flex flex-col justify-center px-14 md:px-0'>
               <p
                 className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
               >
-                Once, word-of-mouth and brochures were enough to book out a
-                hotel. That worked, until it didn’t. By 2017, long before the
-                pandemic, 88% of travelers were already shifting to online hotel
-                booking. The properties that embraced digital growth thrived;
-                the rest watched guests pass them by.
+                There was once a time when hotels attracted and retained their
+                customers by word of mouth and by distributing physical
+                marketing material to potential guests. While that might have
+                been the most effective way to let people know about your brand,
+                it’s no longer true.
               </p>
               <p
                 className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
               >
-                Today, the pace has accelerated. Modern guests expect a
-                seamless, friction-free booking experience. They want real-time
-                room availability, instant confirmation, and fast communication.
-                A static website with a phone number just doesn't cut it
-                anymore. If your digital presence fails to impress, travelers
-                move on in seconds.
+                Digitalisation has grown at a rapid speed across all industries,
+                especially travel. In fact, a survey found that in pre-pandemic
+                2017, already 88% of people preferred to make their hotel
+                bookings online.
               </p>
               <p
                 className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
               >
-                The good news? Upgrading your hospitality digital infrastructure
-                is entirely accessible. At Nextloop Technologies, we build
-                custom website and booking solutions tailored to your unique
-                business. From boutique hotels to multi-property operators, we
-                make modernizing your guest experience straightforward.
+                The best outcome of this acceleration into the future is that
+                many things that used to take a lot of time and investment are
+                now more accessible, affordable, and offer ease of use, like
+                building your first hotel website.
+              </p>
+              <p
+                className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
+              >
+                Gone are the days when you would have to spend a heavy amount of
+                money to hire a developer and designer. It’s now as easy as a
+                drag-and-drop tool. And if nothing else, a hotel website will
+                tell the world that you really exist.
               </p>
             </div>
           }

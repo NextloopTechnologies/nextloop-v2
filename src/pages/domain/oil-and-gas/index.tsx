@@ -20,50 +20,99 @@ const faqsContent: IFAQ[] = [
   {
     id: 1,
     question:
-      "How is Nextloop's AI-powered custom software different from standard oil and gas software available off the shelf? ",
+      'Why choose bespoke software solutions for the energy sector over off the shelf platforms?',
     answer:
-      "Most off-the-shelf oil and gas software is built for the average operation — which means it fits no one perfectly. You end up working around its limitations, paying for features you don't need, and missing the ones you do. Nextloop's AI-powered custom software is built around your specific workflows, infrastructure, and operational goals from day one. Our AI solutions for oil and gas go further than standard tools by continuously learning from your data — flagging inefficiencies, predicting equipment failures, and surfacing insights that generic platforms simply aren't designed to deliver. The result is software that feels like it was made for your business, because it was.",
+      'Generic software is built for average businesses but the energy sector demands precision. Forcing unique field operations and strict safety workflows into standard platforms compromises data accuracy. Bespoke software solutions for the energy sector are designed to match how your engineers and logistics teams actually work. This eliminates redundant features ensures rapid user adoption and perfectly aligns with your operational reality without forcing you to change your processes.',
   },
   {
     id: 2,
     question:
-      'Our operation involves both onshore and offshore sites. Can a single platform manage both? ',
+      'Can new enterprise software development for oil and gas integrate seamlessly with our existing legacy systems?',
     answer:
-      'Yes — and this is something we design for intentionally. Offshore and onshore environments have genuinely different challenges: regulatory frameworks, connectivity constraints, personnel logistics, and supply coordination all vary significantly between the two. Our platforms are built to handle that complexity within a single, unified system. Your onshore team and offshore crew can work from the same platform, with role-based access, real-time data syncing where connectivity allows, and offline functionality that ensures nothing falls through the gaps when signals are unreliable. ',
+      'Upgrading your technology should never force you to abandon expensive legacy infrastructure. Our approach to enterprise software development for oil and gas involves building secure APIs and custom middleware. This bridges the gap between your new applications and existing SCADA systems historical databases or ERP platforms. Your historical data remains perfectly intact while data flows smoothly across your entire operation unlocking modern mobile access without interrupting field production.',
   },
   {
     id: 3,
     question:
-      'We already use several third-party tools for finance and procurement. Will your software work alongside them? ',
+      'How do offshore oil and gas software solutions maintain data synchronization in remote environments?',
     answer:
-      "Absolutely. We understand that switching out every system at once isn't realistic — and in many cases, it isn't necessary. If your existing financial, procurement, or ERP tools are working well for you, we build around them. Our platforms are designed with open integration architecture, meaning your new custom software can connect cleanly with the tools already embedded in your operation. You get the benefits of a purpose-built oil and gas platform without the disruption of replacing systems your team already depends on. ",
+      'Reliable connectivity is a major challenge out at sea. To solve this our offshore oil and gas software solutions utilize an offline first architecture. Your field crew can log safety reports update asset metrics and track logistics directly on their devices even without internet access. The software securely stores this data locally and automatically syncs it back to the centralized cloud network the exact moment a stable connection is restored.',
+  },
+  {
+    id: 4,
+    question:
+      'What is the real world operational impact of implementing predictive maintenance software for oil and gas?',
+    answer:
+      'Waiting for equipment to fail before fixing it is costly and dangerous. Advanced predictive maintenance software for oil and gas uses machine learning and live IoT sensors to constantly monitor machinery health. By analyzing minor changes in temperature or vibration the system catches microscopic anomalies weeks early. This allows your crew to schedule repairs during planned downtimes preventing catastrophic failures and keeping operations running smoothly.',
+  },
+  {
+    id: 5,
+    question:
+      'How is digital twin technology for oil and gas practically applied within field operations?',
+    answer:
+      'Deploying digital twin technology for oil and gas creates a live virtual replica of your physical rigs or refineries. It aggregates sensor data to show exactly how assets are performing globally. Field managers use these digital models to run virtual simulations allowing them to test operational adjustments safely before applying them on the ground. It also serves as a completely risk free training environment for new technicians.',
+  },
+  {
+    id: 6,
+    question:
+      'Does custom software streamline HSE protocols and regulatory compliance tracking software for energy?',
+    answer:
+      'Relying on manual paperwork for strict environmental regulations can quickly become an administrative nightmare. We build centralized systems that function as dedicated regulatory compliance tracking software for energy. These platforms automatically log safety audits incident reports and environmental metrics directly from the field. By organizing all records securely in the cloud your organization remains completely audit ready eliminating lost files and ensuring total transparency.',
+  },
+  {
+    id: 7,
+    question:
+      'What should we expect regarding timelines when engaging oil and gas app development services?',
+    answer:
+      'Enterprise projects cannot afford endless developmental delays. By leveraging our specialized oil and gas app development services we use an AI driven methodology to streamline coding and testing. This allows us to deliver fully functional applications significantly faster than traditional software agencies. We prioritize strict scoping during the initial phase so we can give you a definitive delivery date upfront allowing your teams to plan their rollout confidently.',
+  },
+  {
+    id: 8,
+    question:
+      'How is the investment structured for custom oil and gas software development?',
+    answer:
+      'Financial predictability is essential for enterprise budgets. Nextloop removes pricing risks by operating under a strict fixed price guarantee for all custom oil and gas software development. Once we map out your project scope the final cost is locked in permanently. You will never face hidden fees or mid project price spikes. If our engineering team finishes the build ahead of schedule we pass those cost savings directly to you.',
+  },
+  {
+    id: 9,
+    question:
+      'What are the primary proven benefits of custom software in upstream operations?',
+    answer:
+      'Upstream environments are incredibly dynamic and leave no room for informational delays. The core benefits of custom software in upstream operations revolve around turning raw telemetry into actionable insights. From automated drill site monitoring to live reservoir performance tracking specialized software optimizes extraction rates and keeps crews safer. It breaks down information silos between the field and headquarters providing everyone with a single source of truth.',
+  },
+  {
+    id: 10,
+    question:
+      'How does software drive supply chain optimization for oilfield services and logistics?',
+    answer:
+      'Coordinating heavy machinery and materials across remote sites requires flawless execution. True supply chain optimization for oilfield services involves integrating custom logistics modules with your tracking systems for complete pipeline visibility. By automating procurement workflows and monitoring fleet locations in real time the platform prevents costly material delays and coordinates complex equipment arrivals perfectly. This ensures your crews always have exactly what they need on site.',
   },
 ];
 
 const customData = [
   {
     id: 1,
-    title: 'Industry-Specific Expertise',
+    title: 'Hire oil and gas software developers',
     description:
-      'Our developers understand the oil and gas sector as well as they understand code. From resource management and HSE protocols to regulatory compliance and field operations, that domain knowledge is built into every decision we make. The outcome is less back-and-forth, faster delivery, and software that solves the problems your operation actually has — not the ones a generalist assumed you might. ',
+      'We deliver tailored solutions that solve your unique daily challenges. We truly understand the sector complexities. From complex resource management to strict safety protocols we craft the right technology to clearly optimize your overall field performance.',
   },
   {
     id: 2,
-    title: ' Cutting-Edge Technology Integration ',
+    title: 'IoT integration for oil and gas field operations',
     description:
-      'IoT sensors, AI-driven analytics, machine learning, real-time data pipelines — we build with the technologies that are genuinely changing how oil and gas operations run. Our AI-powered custom software gives your team continuous asset monitoring, early warning on equipment failures, and faster, better-informed decisions across the board. Less downtime. Stronger resource utilisation. A clear operational advantage over teams still working manually. ',
+      'We provide real time monitoring and smart predictive maintenance. These enhanced decision making capabilities easily keep you ahead of the curve. Our tools improve operational efficiency while actively reducing downtime with AI in refinery operations.',
   },
   {
     id: 3,
-    title: 'A Proven Track Record ',
+    title: 'Real time pipeline monitoring solutions',
     description:
-      "We've delivered AI solutions for oil and gas clients across the full value chain — improving productivity, reducing operational risk, and tightening supply chains in environments where getting it wrong isn't an option. When you work with Next Loop Technologies, you're working with a team that knows this industry, has navigated its complexity before, and understands exactly what it takes to deliver something that holds up in the field. ",
+      'We specialize in building custom systems designed specifically for the energy sector today. Whether you need a comprehensive asset management system or regulatory compliance tools our platforms remain scalable secure and tailored to you.',
   },
   {
     id: 4,
-    title: 'Custom Software Solutions ',
+    title: 'Proven energy sector software case studies',
     description:
-      'We build custom software solutions designed specifically for the oil and gas sector — not adapted from generic platforms and made to fit. Whether you need a comprehensive asset management system, pipeline monitoring software, or regulatory compliance tools, every solution we deliver is scalable, secure, and shaped around the way your operation actually runs. ',
+      'We consistently deliver impactful solutions that enhance daily productivity and improve worker safety. We drive true supply chain optimization for oilfield services. Partner with us to experience a smooth reliable and future ready digital transformation.',
   },
 ];
 
@@ -71,10 +120,12 @@ const OilAndGas = () => {
   return (
     <>
       <Head>
-        <title>AI Solutions for Oil & Gas | Custom Software Services</title>
+        <title>
+          Enterprise software development for oil and gas | Nextloop
+        </title>
         <meta
           name='description'
-          content='Nextloop delivers AI-powered custom software to boost efficiency in oil & gas operations. Improve production, safety, and analytics with our scalable technology '
+          content='Partner with a leading oil and gas digital transformation company. We build custom software solutions for the energy sector to scale daily field operations.'
         />
       </Head>
       <Layout>
@@ -84,51 +135,51 @@ const OilAndGas = () => {
             <h1
               className={`${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} text-white font-bold text-center w-full`}
             >
-              Hire Remote Developers for{'   '}
-              <span className='text-orange-500'>
-                Custom Oil & Gas Software Solutions
-              </span>
+              Custom oil and gas software{' '}
+              <span className='text-orange-500'>development company</span>
             </h1>
           }
           customSubtitleClassname={`xl:w-[51%] ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop}`}
-          subtitle=''
+          subtitle='Running an energy operation is highly complex. Your daily software should not be. We build bespoke software solutions for the energy sector designed specifically for your workflows. Our custom web, mobile and desktop apps help you streamline daily field operations. They improve workplace safety, reduce manual errors and ultimately increase your profit margins. Tell us exactly what your team needs to succeed. We will build it from the ground up. It really is that easy.'
           opacity='opacity-10'
           title=''
         />
 
         <WhyBuild
           image={getStaticImageData(oilAndGasAssets.whyBuildOilAndGas)}
-          title='Why Custom Software for  '
-          colouredTitle='oil and gas industry?'
+          title='Why build <br /> a custom software solution for the'
+          colouredTitle='oil and gas'
           informationSection={
             <div className='max-w-[737px] md:flex md:flex-col justify-center px-5 md:px-0 md:w-full w-[350px] gap-2'>
               <p
                 className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
               >
-                Generic tools weren't built for your operation — they were built
-                for everyone, which means they rarely work well for anyone.
-                Adapting your workflows to fit their limitations costs time,
-                money, and in this industry, sometimes safety.
+                Generic tools are built for the masses. They rarely work well
+                for specialized energy operations. Adapting your complex
+                workflows to fit basic software costs you time and money. In
+                this industry it can even risk crew safety.
               </p>
               <p
                 className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
               >
-                Custom software changes that dynamic entirely. Whether you're
-                running upstream production, midstream logistics, or downstream
-                distribution, a purpose-built platform gives your team exactly
-                what they need — nothing more, nothing redundant. Nextloop's AI
-                solutions for oil and gas are built to understand your
-                environment, match your processes, and scale as your operation
-                evolves.Generic tools weren't built for your operation — they
-                were built for everyone, which means they rarely work well for
-                anyone. Adapting your workflows to fit their limitations costs
-                time, money, and in this industry, sometimes safety.
+                Custom software changes everything. You will quickly see the
+                benefits of custom software in upstream operations and
+                downstream distribution. You get a purpose built platform. It
+                gives your team exactly what they need. There is no software
+                bloat and no missing features. Nextloop designs technology to
+                perfectly match your exact field processes. We make the entire
+                development journey simple, cost effective and incredibly fast.
               </p>
             </div>
           }
         />
 
-        <WhyWorkWithUs data={customData} />
+        <WhyWorkWithUs
+          data={customData}
+          title='Specialized oilfield'
+          colouredTitle='IT consulting services'
+          subtitle='Get oil and gas app development services faster and effectively. No tech skills are needed. Your delivery date is calculated upfront and we lock a fixed price. But we offer more than just fantastic software. Take a look.'
+        />
 
         <HowToBuild />
 

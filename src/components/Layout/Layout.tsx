@@ -1,4 +1,4 @@
-import Head from 'next/head';
+// import Head from 'next/head';
 import React, { ReactNode, useEffect, useState } from 'react';
 
 import Hamburger from './Hamburger';
@@ -46,12 +46,12 @@ const Layout: React.FC<LayoutProps> = ({
   return (
     <div>
       {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
-      <Head>
+      {/* <Head>
         <meta
           name='google-site-verification'
           content='rSkhwwyngCBXY24oCD9ERrGDGzkIFubisOa3k-JDjWs'
         />
-      </Head>
+      </Head> */}
       {width && width > 1023 ? (
         <Header isSticky={isSticky} headerColor={headerColor} />
       ) : (
