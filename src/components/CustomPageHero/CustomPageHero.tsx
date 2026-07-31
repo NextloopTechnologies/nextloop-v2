@@ -2,6 +2,7 @@ import Image, { StaticImageData } from 'next/image';
 import React from 'react';
 
 import PageHero from '../PageHero';
+import palette from '../../styles/pallette';
 
 type Props = {
   image: StaticImageData;
@@ -27,23 +28,23 @@ const CustomPageHero = ({
   return (
     <div className={`flex ${className}`}>
       {titleChildren ? (
-        <div className='w-full h-[40vh] sm:h-[50vh] md:h-[70vh] lg:h-screen relative flex items-center justify-center text-white'>
+        <div className='w-full md:w-full h-[50vh] md:h-screen relative flex items-center justify-center text-white'>
           <Image
             src={image}
-            className='absolute h-full w-full object-cover object-center'
+            className='absolute h-full w-full object-cover'
             alt='blogs background'
             fill
-            sizes='(max-width: 640px) 100vw, (max-width: 768px) 100vw, 100vw'
+            sizes='100vw'
             quality={100}
             priority
           />
-          <div className={`absolute inset-0 bg-black ${opacity}`} />
+          <div className={`absolute inset-0 bg-black ${opacity}`}></div>
           <div
-            className={`flex flex-col gap-3 sm:gap-4 md:gap-5 items-center z-20 px-4 sm:px-6 md:px-8 lg:px-0 mt-6 sm:mt-8 md:mt-10 w-3/4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl `}
+            className={`flex flex-col gap-5 items-center z-20 px-4 lg:p-0 mt-10 ${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop}`}
           >
             {titleChildren}
             <span
-              className={` w-full sm:w-[85%] md:w-[70%] xl:w-[50%] text-center font-normal whitespace-pre-line text-sm sm:text-base md:text-lg lg:text-xl ${customSubtitleClassname} `}
+              className={`${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} xl:w-[50%] md:w-[60%] text-center font-normal ${customSubtitleClassname}`}
             >
               {subtitle}
             </span>

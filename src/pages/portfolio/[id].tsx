@@ -5,8 +5,10 @@ import { useRouter } from 'next/router';
 import { useEffect, useRef } from 'react';
 
 import Layout from '../../components/Layout/Layout';
+import PageHero from '../../components/PageHero';
 import { IPortfolio } from '../../types';
 import supabaseClient from '../../utils/client';
+import portfolioBg from '../../../assets/portfolioBg.png';
 
 const PortfolioID: React.FC<{ data?: IPortfolio; error?: string }> = ({
   data,
@@ -23,6 +25,12 @@ const PortfolioID: React.FC<{ data?: IPortfolio; error?: string }> = ({
 
   return (
     <Layout>
+      <PageHero
+        image={portfolioBg}
+        title='Portfolio'
+        subtitle="View the range of projects completed by Nextloop Technologies. We have provided assistance to a wide range of firms in various industries and locations across the globe, from small startups to large corporations. This demonstrates our exceptional ability to generate fresh concepts and tailor solutions to the specific needs of each client. So, if you're interested in learning more about what Nextloop can accomplish for your company, have a look at our portfolios!"
+        opacity='opacity-90'
+      />
       <div className='xl:p-24 lg:p-8 p-4 flex flex-col'>
         {data ? (
           <div className='flex flex-col w-full min-h-screen items-center justify-center'>
