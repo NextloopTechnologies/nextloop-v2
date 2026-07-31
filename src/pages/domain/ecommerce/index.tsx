@@ -191,6 +191,7 @@ const Ecommerce = () => {
 
         <WhyBuild
           image={getStaticImageData(ecommerceAssets.WhyBuildEcomIndustry)}
+          title='Why build <br /> a custom software solution for the'
           colouredTitle='Ecommerce Industry'
           infoAndImgClassname='items-center'
           informationSection={

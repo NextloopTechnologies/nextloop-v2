@@ -5,6 +5,7 @@ import palette from '../../../styles/pallette';
 
 type Props = {
   colouredTitle?: string;
+  title: string | React.ReactNode;
   image: StaticImageData;
   informationSection: React.ReactNode;
   infoAndImgClassname?: string;
@@ -12,6 +13,7 @@ type Props = {
 
 const WhyBuild = ({
   image,
+  title,
   informationSection,
   colouredTitle,
   infoAndImgClassname,
@@ -21,9 +23,13 @@ const WhyBuild = ({
       <h1
         className={`uppercase font-bold text-center max-w-[1300px] ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} px-10`}
       >
-        Why build <br /> a custom software solution for the{' '}
+        {typeof title === 'string' ? (
+          <span dangerouslySetInnerHTML={{ __html: title }} />
+        ) : (
+          title
+        )}
         {colouredTitle && (
-          <span className='text-orange-500'>{colouredTitle} ?</span>
+          <span className='text-orange-500'>{` ${colouredTitle}?`}</span>
         )}
       </h1>
 

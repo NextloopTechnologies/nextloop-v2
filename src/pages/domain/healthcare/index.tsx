@@ -132,6 +132,7 @@ const HealthCare: React.FC = () => {
 
         <WhyBuild
           image={getStaticImageData(healthcareAssets.whyBuildImg)}
+          title='Why build <br /> a custom software solution for the'
           colouredTitle='healthcare'
           informationSection={
             <div className='max-w-[737px] flex flex-col justify-center px-5 md:px-0'>

@@ -96,6 +96,7 @@ const TravelAndHospitality = () => {
 
         <WhyBuild
           image={getStaticImageData(travelandhotelAssets.whyBuildImg)}
+          title='Why build <br /> a custom software solution for the'
           colouredTitle='travel & hotel industry'
           informationSection={
             <div className='max-w-[737px] flex flex-col justify-center px-14 md:px-0'>

@@ -82,6 +82,7 @@ const Fintech: React.FC = () => {
             />
             <WhyBuild
               image={getStaticImageData(fintechAssets.whyBuildImg)}
+              title='Why build <br /> a custom software solution for the'
               colouredTitle='fintech industry'
               infoAndImgClassname='items-center'
               informationSection={
