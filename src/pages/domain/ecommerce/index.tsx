@@ -173,7 +173,7 @@ const Ecommerce = () => {
           image={getStaticImageData(ecommerceAssets.ECommerceBg)}
           titleChildren={
             <h1
-              className={`text-white ${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} font-bold text-center w-full md:max-w-[1500px]`}
+              className={`text-white ${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} uppercase font-bold text-center w-full md:max-w-[1500px]`}
             >
               Build an{' '}
               <span className='text-orange-500'>ecommerce website.</span>
@@ -191,7 +191,7 @@ const Ecommerce = () => {
 
         <WhyBuild
           image={getStaticImageData(ecommerceAssets.WhyBuildEcomIndustry)}
-          title='Why Build Custom Software for the'
+          title='Why build <br /> a custom software solution for the'
           colouredTitle='Ecommerce Industry'
           infoAndImgClassname='items-center'
           informationSection={

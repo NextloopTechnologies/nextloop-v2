@@ -20,27 +20,43 @@ import palette from '../../../styles/pallette';
 import { IFAQ, IWhyChooseUs } from '../../../types';
 import { getStaticImageData } from '../../../utils/helper';
 
-const faqsContent: IFAQ[] = [
+const benefits = [
   {
     id: 1,
-    question:
-      'What is a Healthcare Management System and does my organisation actually need one?',
-    answer:
-      "A Healthcare Management System (HMS) is an integrated software platform that connects and automates the core functions of a healthcare facility — patient registration, appointment scheduling, medical records, billing, staff management, and more — into one centralised system. If your team is still relying on manual processes, disconnected tools, or outdated legacy software, the short answer is yes — you need one. An HMS eliminates administrative bottlenecks, reduces costly errors, and frees your clinical staff to focus on patient care rather than paperwork. At Next Loop Technologies, we build HMS solutions tailored to your specific workflows, so you're not forced to adapt to a one-size-fits-all product. ",
+    text: 'Managing patient records',
   },
   {
     id: 2,
-    question:
-      'How does healthcare software development improve the patient experience?',
-    answer:
-      'Patient experience is directly shaped by how efficiently your operations run behind the scenes. When appointments are easy to book, waiting times are reduced, billing is clear and timely, and communication is proactive — patients notice. Our solutions include automated appointment reminders to reduce no-shows, real-time patient mobile apps for record access and updates, streamlined billing workflows that eliminate confusion, and telehealth capabilities that make care more accessible. The result is a smoother, more trustworthy experience at every touchpoint — from the first booking to the final invoice. ',
+    text: 'Scheduling appointments',
   },
   {
     id: 3,
-    question:
-      'How do you handle data security and compliance in healthcare software?',
+    text: 'Ordering medications',
+  },
+  {
+    id: 4,
+    text: 'Billing patients',
+  },
+];
+
+const faqsContent: IFAQ[] = [
+  {
+    id: 1,
+    question: 'what is healthcare software development?',
     answer:
-      'Healthcare data is among the most sensitive information in existence, and we treat it that way. Security and compliance are built into our development process from day one — not added as an afterthought. Our solutions incorporate end-to-end data encryption, multi-factor authentication, role-based access controls, and regular security testing throughout the build. We also develop with relevant regulatory frameworks in mind, including HIPAA and applicable local healthcare data protection standards. Automated compliance modules within the platform ensure your organisation stays current as regulations evolve, flagging issues before they become violations.',
+      'Healthcare software development involves creating customized software solutions to meet the specific needs of the healthcare industry, including patient management, EHRs, telehealth services, and compliance management, utilizing the latest technologies and regulations.',
+  },
+  {
+    id: 2,
+    question: 'can nextloop modernize my existing healthcare software?',
+    answer:
+      'Healthcare software development involves creating customized software solutions to meet the specific needs of the healthcare industry, including patient management, EHRs, telehealth services, and compliance management, utilizing the latest technologies and regulations.',
+  },
+  {
+    id: 3,
+    question: 'how long does it take to develop a healthcare solution?',
+    answer:
+      'Healthcare software development involves creating customized software solutions to meet the specific needs of the healthcare industry, including patient management, EHRs, telehealth services, and compliance management, utilizing the latest technologies and regulations.',
   },
 ];
 
@@ -48,13 +64,13 @@ const whyChooseContent: IWhyChooseUs[] = [
   {
     title: 'Customized Healthcare Solutions',
     descp:
-      ' Our software is built specifically for healthcare professionals — not adapted from a generic platform. Every solution is designed around your clinical workflows, compliance obligations, and patient needs, ensuring efficient care delivery and full adherence to standards like HIPAA from day one.',
+      ' Our software is made to specifically address the requirements of healthcare professionals, guaranteeing effective patient care, streamlined processes, and smooth adherence to legal requirements such as HIPAA.',
     image: healthCareWhyChooseUs1,
   },
   {
-    title: 'Innovative Technology with Always-On Support',
+    title: 'Innovative Technology with Round-the-Clock Assistance',
     descp:
-      'When you Hire Healthcare Dedicated Software Developers from Next Loop Technologies, you get more than a development team. You get access to AI, IoT, and cloud-based expertise — applied directly to your operational challenges. And as your demands grow, our round-the-clock support keeps your systems running without interruption.',
+      'We use cloud-based technologies, IoT, and AI to improve operational effectiveness and care delivery. As your healthcare demands expand, our round-the-clock assistance guarantees scalability and uninterrupted service.',
     image: healthCareWhyChooseUs2,
   },
 ];
@@ -64,25 +80,25 @@ const productServiceContent = [
     icon: getStaticImageData(healthcareAssets.settingIcon),
     title: 'Product Engineering',
     descp:
-      'Turning clinical requirements into purpose-built healthcare software — designed for the next generation of patient care and built to scale alongside your organisation.',
+      'Transforming innovative ideas into cutting-edge healthcare software products designed for superior next-generation patient care.',
   },
   {
     icon: getStaticImageData(healthcareAssets.modernizeIcon),
     title: 'Application Modernization',
     descp:
-      'Legacy systems slow teams down and create risk. We replace outdated healthcare infrastructure with modern, secure platforms your staff will actually want to use. ',
+      'Revitalizing legacy healthcare systems with modern tech to enhance efficiency, security, and user experience.',
   },
   {
     icon: getStaticImageData(healthcareAssets.cloudIcon),
     title: 'Cloud Migration',
     descp:
-      'We move your healthcare operations to the cloud with minimal disruption — improving reliability, strengthening data security, and setting your platform up for long-term performance. ',
+      'Seamlessly transitioning your healthcare solutions to the cloud for enhanced scalability, reliability, and performance.',
   },
   {
     icon: getStaticImageData(healthcareAssets.maintenanceIcon),
     title: 'Application Maintenance',
     descp:
-      "When you Hire Healthcare Software Developers from Next Loop Technologies, the relationship doesn't end at launch. We provide ongoing support, updates, and compliance-driven optimisation to keep your applications running smoothly and securely.",
+      'Providing continuous support & updates to ensure your healthcare applications run smoothly and securely.',
   },
 ];
 
@@ -103,13 +119,10 @@ const HealthCare: React.FC = () => {
           image={getStaticImageData(healthcareAssets.healthCareBg)}
           titleChildren={
             <h1
-              className={` text-white font-bold text-center max-w-[1306px] ${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop}`}
+              className={` text-white uppercase font-bold text-center max-w-[1306px] ${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop}`}
             >
-              Transforming Patient Care: <br />
-              <span className='text-orange-500'>
-                Hire Healthcare Software Developers to Build Next-Gen Medical
-                Solutions
-              </span>{' '}
+              <span className='text-orange-500'>healthcare</span> software
+              development transforming patient care
             </h1>
           }
           subtitle=''
@@ -119,30 +132,40 @@ const HealthCare: React.FC = () => {
 
         <WhyBuild
           image={getStaticImageData(healthcareAssets.whyBuildImg)}
-          title='What Is Healthcare Software Development —  '
-          colouredTitle='And Why Does It Matter?'
+          title='Why build <br /> a custom software solution for the'
+          colouredTitle='healthcare'
           informationSection={
-            <div className='max-w-[737px] flex flex-col justify-center px-5 md:px-0 gap-2'>
+            <div className='max-w-[737px] flex flex-col justify-center px-5 md:px-0'>
               <p
-                className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
+                className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
               >
-                A Healthcare Management System (HMS) is the operational backbone
-                of a modern healthcare facility — not just a place to store
-                records, but a centralised platform that connects every
-                function, from patient registration and appointment scheduling
-                to billing, inventory, and staff management, in one cohesive
-                system.
+                We all know that technology is rapidly changing the healthcare
+                industry. From electronic health records (EHRs) to telemedicine,
+                technology is being used to improve the quality, efficiency, and
+                affordability of healthcare.
               </p>
               <p
-                className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
+                className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
               >
-                At Next Loop Technologies, Hire Healthcare Software Developers
-                with deep domain expertise to build custom HMS solutions shaped
-                around your specific workflows, compliance requirements, and
-                patient population. Whether you're managing a busy urban
-                hospital, a specialist clinic, or a multi-site network we build
-                software that fits the way you actually work.
+                In fact, the global healthcare software market is expected to
+                reach $974.5 billion by 2027. This means that healthcare
+                automation is not just a future but is becoming a necessity.
               </p>
+              <p
+                className={`${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop}`}
+              >
+                Custom Software solutions involve a process in which software is
+                specifically designed for a particular healthcare organization.
+                They can be used to improve a variety of tasks and processes,
+                such as:
+              </p>
+              <ul
+                className={`list-disc ${palette.fontSize.descriptionMid.mobile} md:${palette.fontSize.descriptionMid.desktop} pl-5 md:pl-10 mt-2 mb-2`}
+              >
+                {benefits.map((benefit) => (
+                  <li key={benefit.id}>{benefit.text}</li>
+                ))}
+              </ul>
             </div>
           }
         />
@@ -154,10 +177,10 @@ const HealthCare: React.FC = () => {
         <ProductServices
           title={
             <h1
-              className={`text-black font-bold text-center  ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop}`}
+              className={`text-black uppercase font-bold text-center  ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop}`}
             >
-              Specialised{' '}
-              <span className='text-orange-500'>Healthcare Services</span>{' '}
+              specialized <span className='text-orange-500'>healthcare</span>{' '}
+              services!
             </h1>
           }
           data={productServiceContent}
