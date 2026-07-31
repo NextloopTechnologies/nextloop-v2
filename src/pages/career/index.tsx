@@ -35,7 +35,7 @@ const CareersPage: React.FC<{ jobs?: Job[]; error?: string }> = ({
       </Head>
       <PageHero
         image={careerBg}
-        subtitle='If you are looking for a complete business solution at a one place in combination with distinctive designs, that is what you can expect from us. To stimulate the growth of your company, we focus on various services, although we do not limit ourselves to this. We keep  learning and stay ourselves up to date with current market trends.'
+        subtitle="If you're looking for software engineering jobs in Indore, India, Nextloop Technologies offers an environment where you can learn, grow, and build meaningful solutions. We welcome both experienced professionals and those searching for IT jobs in Indore for freshers, giving everyone the opportunity to work on real projects, learn modern technologies, and grow with expert guidance. With a supportive culture, continuous learning, and careers with flexible hours, we help you build a successful career while maintaining a healthy work-life balance."
         coloredTitle='Careers'
         title=''
         opacity='opacity-80'

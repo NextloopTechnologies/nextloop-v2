@@ -131,6 +131,7 @@ const ClientSaysCard: FC = () => {
       {/* Left Arrow */}
       <button
         onClick={prevSlide}
+        aria-label='Previous testimonial'
         className='absolute top-1/2 left-0 transform -translate-y-1/2 p-2 bg-white rounded-full shadow-md'
       >
         <ArrowLeft className='text-black' size={18} />
@@ -139,6 +140,7 @@ const ClientSaysCard: FC = () => {
       {/* Right Arrow */}
       <button
         onClick={nextSlide}
+        aria-label='Next testimonial'
         className='absolute top-1/2 right-0 transform -translate-y-1/2 p-2 bg-white rounded-full shadow-md'
       >
         <ArrowRight className='text-black' size={18} />

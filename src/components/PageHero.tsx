@@ -43,10 +43,19 @@ const PageHero: React.FC<{
           <Image
             src={image as any}
             alt='blogs background'
-            quality={100}
+            quality={75}
             fill
             sizes='100vw'
             priority
+            fetchPriority='high'
+            placeholder={
+              typeof image === 'object' && (image as any).blurDataURL
+                ? 'blur'
+                : 'empty'
+            }
+            blurDataURL={
+              typeof image === 'object' ? (image as any).blurDataURL : undefined
+            }
             className='object-cover'
           />
         ) : null)}

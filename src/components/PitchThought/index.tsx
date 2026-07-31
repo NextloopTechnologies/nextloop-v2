@@ -185,7 +185,6 @@ const Pitchthought: FC = () => {
                   info@nextlooptechnologies.com
                 </a>
               </li>
-
               <li className='flex items-start gap-3'>
                 <div className='mt-0.5 w-5 h-5 flex-shrink-0 text-orange-400'>
                   <Phone className='w-5 h-5' />
@@ -205,7 +204,6 @@ const Pitchthought: FC = () => {
                   </a>
                 </div>
               </li>
-
               {/* Address */}
               <li className='flex items-start gap-3'>
                 <div className='mt-0.5 w-5 h-5 flex-shrink-0 text-orange-400'>
@@ -222,8 +220,7 @@ const Pitchthought: FC = () => {
                   {location}
                 </a>
               </li>
-
-              {/* Social Icons */}
+              {/*Social Icons*/}
               <li className='pt-2'>
                 <div className='flex gap-3 flex-wrap'>
                   <a

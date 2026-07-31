@@ -44,6 +44,9 @@ type DataItem = {
 
 type Props = {
   data?: DataItem[];
+  title?: string;
+  colouredTitle?: string;
+  subtitle?: string;
 };
 type InfoOnImageProps = {
   description: string;
@@ -81,7 +84,12 @@ const InfoOnImage = ({ description, image, title }: InfoOnImageProps) => (
   </article>
 );
 
-const WhyWorkWithUs = ({ data = [] }: Props) => {
+const WhyWorkWithUs = ({
+  data = [],
+  title = 'Why',
+  colouredTitle = 'Nextloop Technologies?',
+  subtitle = "Your platform is delivered faster and more cost-effectively than you'd expect — no technical background needed on your end. Your delivery date is confirmed upfront, and your price is locked in from day one.",
+}: Props) => {
   const finalData =
     data.length > 0
       ? data
@@ -101,20 +109,15 @@ const WhyWorkWithUs = ({ data = [] }: Props) => {
   return (
     <div className='flex'>
       <div className='flex flex-col pt-[50px] pb-[122px] max-w-[1479px] mx-auto  justify-center items-center'>
-        <h1
+        <h2
           className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold text-center`}
         >
-          Why <span className='text-orange-500'> Nextloop Technologies?</span>
-        </h1>
+          {title} <span className='text-orange-500'>{colouredTitle}</span>
+        </h2>
         <div
           className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} flex flex-col justify-center items-center w-3/4 text-center mt-5`}
         >
-          <p>
-            Your platform is delivered faster and more cost-effectively than
-            you'd expect — no technical background needed on your end. Your
-            delivery date is confirmed upfront, and your price is locked in from
-            day one.
-          </p>
+          <p>{subtitle}</p>
         </div>
 
         <div className='mt-10 grid w-full grid-cols-1 gap-6 px-4 md:grid-cols-2 md:px-8 lg:mx-0 lg:gap-8'>

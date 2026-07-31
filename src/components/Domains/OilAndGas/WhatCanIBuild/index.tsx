@@ -10,44 +10,44 @@ const data = [
   {
     id: 1,
     image: getStaticImageData(oilAndGasAssets.productionSoftwareImg),
-    title: 'Smart Operations Dashboard ',
+    title: 'Production Monitoring Systems',
     description:
-      "Your operation generates enormous amounts of data every single day. The question is whether you're actually using it. Our AI-powered dashboards pull everything together in one clear, visual interface — letting you choose the metrics that matter most and letting AI surface the insights and inefficiencies you might otherwise miss.",
+      'Track well pipelines and facilities in real time. Get total control over your production assets. Our solutions maximize output locate bottlenecks minimize downtime and dramatically enhance your overall field performance.',
   },
   {
     id: 2,
     image: getStaticImageData(oilAndGasAssets.complianceKeyImg),
-    title: 'Asset Lifecycle Management ',
+    title: 'Oil and gas field service management software',
     description:
-      ' Continuous monitoring of your equipment means nothing catches you off guard. Our systems track asset health in real time, flag maintenance needs before they become failures, and send push notifications the moment urgent issues are detected — keeping you compliant and your machinery running at full capacity. ',
+      'Use smart technology for tracking maintenance planning and daily inspections. Decrease your operating expenses prolong your asset life and easily prevent unplanned equipment failures by proactively managing all machinery lifecycles.',
   },
   {
     id: 3,
     image: getStaticImageData(oilAndGasAssets.employeeSimplifiedImg),
-    title: 'Scenario Simulation & Optimization ',
+    title: 'Compliance Platforms for Energy',
     description:
-      'What would happen if you adjusted fluid volumes or gravel figures? Instead of guessing, simulate it. Our scenario modeling tools let you test different operational variables and see projected outcomes instantly — turning complex decisions into confident ones. ',
+      'Automated reporting helps you stay ahead of evolving safety health and environmental standards. Lower your risk of expensive penalties operational delays or legal problems while easily meeting global industry requirements.',
   },
   {
     id: 4,
     image: getStaticImageData(oilAndGasAssets.dataSoftwareImg),
-    title: 'Offshore-Ready Capability ',
+    title: 'Supply chain optimization for oilfield services',
     description:
-      'Offshore environments come with their own rulebook: unique regulatory requirements, personnel logistics, supply coordination, and connectivity limitations. We build with all of that in mind, so your platform performs reliably whether your team is onshore or in the middle of the ocean. ',
+      'Use integrated tools for better inventory logistics and procurement management. Cut your lead times totally avoid material shortages and keep field operations uniform across distant remote locations without any stress.',
   },
   {
     id: 5,
     image: getStaticImageData(oilAndGasAssets.fleetImg),
-    title: 'Centralised Document Management ',
+    title: 'Digital twin technology for oil and gas',
     description:
-      'Say goodbye to filing cabinets and scattered spreadsheets. All your critical documents — production reports, energy efficiency data, safety records, inspection logs — live in the cloud, organised and searchable. The right information, always at your fingertips. ',
+      'Make much smarter decisions using virtual replicas to estimate equipment breakdowns early. You can dramatically reduce downtime and increase daily operational efficiency with our clear actionable data driven insights.',
   },
   {
     id: 6,
     image: getStaticImageData(oilAndGasAssets.operationImg),
-    title: 'Seamless Integration ',
+    title: 'Systems for Workforce Management',
     description:
-      'Already relying on financial tools or third-party systems that work well for you? No need to replace them. Our platforms are built to integrate cleanly with your existing software stack, so your new solution enhances what you already have rather than disrupting it. ',
+      'Effectively manage your staff using smart technologies for remote task management scheduling and training. Provide the best possible team coordination for administrative and field workers while significantly increasing output.',
   },
 ];
 
@@ -94,20 +94,18 @@ const WhatCanIBuild = () => {
   return (
     <div className='flex'>
       <div className='flex flex-col pb-[50px] max-w-[1479px] mx-auto'>
-        <h1
+        <h2
           className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold text-center`}
         >
-          What can we <span className='text-orange-500'>build For You ?</span>
-        </h1>
+          How to improve operational efficiency{' '}
+          <span className='text-orange-500'>in oil and gas</span>
+        </h2>
         <div
           className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} mx-10  text-center mt-5`}
         >
           <p>
-            We deliver custom digital solutions that enhance efficiency,
-            optimize operations, and drive innovation in the oil and gas sector.
-            From exploration and production to asset management and compliance,
-            our expertise helps businesses improve performance and achieve
-            sustainable growth.
+            We develop tailored digital tools that drive true innovation. Our
+            specialized capabilities include:
           </p>
         </div>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-6 gap-1 mt-16'>
