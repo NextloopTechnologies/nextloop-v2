@@ -39,8 +39,12 @@ const services = [
   { label: 'Web Development', href: '/services/web-development' },
   { label: 'Mobile App Development', href: '/services/mobile-app-development' },
   { label: 'MVP Development', href: '/services/mvp-development' },
-  { label: 'AI/ML Development', href: '/services/ai-ml' },
-  { label: 'Cloud Services', href: '/services/cloud-computing-solutions' },
+  { label: 'AI & ML Solutions', href: '/services/ai-ml' },
+  {
+    label: 'Cloud Computing & DevOps',
+    href: '/services/cloud-computing-solutions',
+  },
+  { label: 'UI/UX Design & Development', href: '/services/ui-ux-development' },
 ];
 
 const industrySolutions = [
