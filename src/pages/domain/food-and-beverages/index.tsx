@@ -124,6 +124,7 @@ const FoodAndBeverages: React.FC = () => {
 
         <WhyBuild
           image={getStaticImageData(restaurantAssets.WhyBuildRestaurant)}
+          title='Why build <br /> a custom software solution for the'
           colouredTitle='restaurant'
           informationSection={
             <div className='max-w-[737px] mx-5 md:mx-0'>

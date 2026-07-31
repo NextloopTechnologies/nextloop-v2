@@ -78,6 +78,7 @@ const Hotel = () => {
 
       <WhyBuild
         image={getStaticImageData(hotelAssets.whyBuildImg)}
+        title='Why build <br /> a custom software solution for the'
         colouredTitle='Hotel Booking?'
         infoAndImgClassname='items-center'
         informationSection={

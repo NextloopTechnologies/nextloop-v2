@@ -95,6 +95,7 @@ const Events = () => {
         />
         <WhyBuild
           image={getStaticImageData(eventAssets.WhyBuildEventManagement)}
+          title='Why build <br /> a custom software solution for the'
           colouredTitle='Event Management'
           informationSection={
             <div className={`mx-14 md:mx-10 lg:mx-0 md:max-w-[600px] `}>
