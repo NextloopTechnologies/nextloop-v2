@@ -76,11 +76,11 @@ const servicesData: Service[] = [
 const arr = [
   {
     title: 'our mission',
-    sub: 'Our mission is to empower startups, enterprises, and growing businesses by delivering skilled, strategic, and future-focused technology teams. Through custom software development, AI-driven innovation, and scalable digital solutions, we help companies build competitive, high-performance products that are designed for long-term success in an evolving digital landscape. ',
+    sub: "At Nextloop Technologies, our mission is simple yet profound - to be the catalyst for your success. We're passionate about partnering with businesses like yours to bridge the gap between idea and execution. Our team of skilled developers, designers, and strategists bring their expertise and dedication to every project, ensuring a seamless and collaborative experience. Every project is an opportunity to make a meaningful impact, to transform challenges into triumphs, and to forge partnerships built on trust and collaboration.",
   },
   {
-    title: 'vision',
-    sub: 'At Nextloop Technologies, we envision a future where technology professionals are more than contributors — they are innovators, problem-solvers, and growth partners. We foster a culture where creativity is valued, ownership is encouraged, and every achievement is shared collectively. Our goal is to build an ecosystem where talent, innovation, and collaboration drive meaningful digital transformation for businesses worldwide. ',
+    title: 'our vision',
+    sub: 'Our vision is to be the trusted ally of businesses worldwide, guiding them through the complexities of the digital landscape with clarity, confidence, and compassion. We aspire to be at the forefront of technological innovation, driving positive change and shaping a future where possibilities are limitless.',
   },
 ];
 
@@ -135,7 +135,7 @@ const AboutUsHome = () => {
         image={aboutBg}
         coloredTitle='About '
         title='Us'
-        subtitle='At Nextloop Technologies, we deliver custom software development services, AI development services, and cloud-driven solutions tailored to business growth. As a top custom software development company, we provide software development outsourcing services, IT staff augmentation services, MVP software development services, and Generative AI Development Services. Hire dedicated developers and AI experts to build scalable, high-performance digital products. '
+        subtitle='At Nextloop Technologies, we partner with ambitious businesses to turn complex challenges into scalable, high-performance systems that drive measurable growth. Every solution we build is rooted in strategy, engineered with precision, and designed for long-term value. We specialize in crafting tailored IT solutions aligned with your unique business goals — from cloud architecture and optimization to AI-driven systems, intelligent automation, and custom software development. '
       />
       <WhyUs />
       <MeetFounders />

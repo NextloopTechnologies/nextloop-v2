@@ -51,7 +51,6 @@ import {
 import blogImg from '../../assets/blog/blogImg.png';
 import careerBg from '../../assets/careerBg.webp';
 import culturebg from '../../assets/culturebg.png';
-import QAandTestingHero from '../../assets/services/QAandTestingHero.jpg';
 import servicesWebdevelopmentHero from '../../assets/services/servicesWebdevelopmentHero.png';
 import staffingService from '../../assets/services/staffing-service.png';
 import WhyBusinessChooseUs from '../../assets/services/why-choose-us-bg.png';
@@ -731,44 +730,44 @@ export const servicesSubPagesData = {
     },
     processData: {
       headingData: {
-        heading: 'Our Agile ',
+        heading: 'Our ',
         coloredHeading: 'Web Development Process',
       },
       items: [
         {
           icon: <Lightbulb className='text-orange-500 w-7 h-7' />,
-          title: ' Discovery & Strategy ',
+          title: 'Planning & Consultation',
           description:
-            'We map out your target audience and technical requirements to align with your core business goals. By defining the system architecture early, we mitigate risks and set realistic delivery timelines.',
+            'We discuss your goals and understand your business needs.',
           color: 'border-orange-500',
         },
         {
           icon: <PenTool className='text-orange-500 w-7 h-7' />,
-          title: ' UI/UX & Wireframing ',
+          title: 'Design & Prototyping',
           description:
-            "Our designers create intuitive layouts while our architects' structure secure databases. We design responsive, mobile-first interfaces guaranteed to handle heavy web traffic and optimize conversions.",
+            'We create intuitive wireframes and prototypes for user-friendly interfaces.',
           color: 'border-orange-500',
         },
         {
           icon: <Code className='text-orange-500 w-7 h-7' />,
-          title: 'Iterative Engineering ',
+          title: 'Development',
           description:
-            'Utilizing agile frameworks, our full-stack engineers build your web platform in rapid, transparent sprints. You maintain complete visibility to provide continuous feedback as the site takes shape.',
+            'Our team writes clean code, developing the website using the latest technologies.',
           color: 'border-orange-500',
         },
         {
           icon: <Search className='text-gray-600 w-7 h-7' />,
-          title: ' QA & Performance Testing ',
+          title: 'Testing',
           description:
-            'Our engineers perform rigorous cross-browser testing, load simulations, and security checks. We eliminate bugs and vulnerabilities to guarantee a flawless user experience prior to launch. ',
+            'Comprehensive testing ensures smooth functionality and cross-platform compatibility.',
           color: 'border-gray-500',
         },
 
         {
           icon: <Rocket className='text-gray-600 w-7 h-7' />,
-          title: ' Launch & Ongoing Support ',
+          title: 'Launch & Support',
           description:
-            'We deploy your platform seamlessly with zero downtime. Our team actively monitors site health and provides dedicated maintenance to extend the lifecycle of your web investment. ',
+            'We launch the site and provide ongoing maintenance to keep it running smoothly.',
           color: 'border-gray-500',
         },
       ],
@@ -872,52 +871,42 @@ export const servicesSubPagesData = {
       ],
     },
     whyChooseUsData: {
-      headingData: {
-        heading: 'Why Choose Us as Your ',
-        coloredHeading: 'Web Development Partner',
-        description: '',
-      },
       items: [
         {
           id: 1,
-          title: 'End-to-End Expertise:  ',
-          descp:
-            ' From initial UI/UX wireframes to complex backend engineering, we provide comprehensive website capabilities under one roof. ',
+          title: 'Expertise',
+          descp: ' Experienced developers who use cutting-edge technologies.',
           icon: MdOutlineAddLocation,
         },
         {
           id: 2,
-          title: 'Conversion-Focused Layouts: ',
-          descp:
-            'We engineer layouts specifically designed to minimize bounce rates, reduce cart abandonment, and maximize your daily ROI.',
+          title: 'Custom Solutions',
+          descp: 'Tailored websites to meet your specific business needs.',
           icon: PiExcludeSquareDuotone,
         },
         {
           id: 3,
-          title: 'Global Technical Reach:',
-          descp:
-            'Serving clients as a top web design company in USA, we understand diverse international market expectations and strict data compliance standards.',
+          title: 'Scalable Designs',
+          descp: 'Websites that grow with your business.',
           icon: PiEyeBold,
         },
         {
           id: 4,
-          title: 'Robust Security Protocols: ',
-          descp:
-            'We implement advanced data encryption, ensuring your customer records, user accounts, and payment gateways are completely protected. ',
+          title: 'Responsive Support',
+          descp: 'Reliable support to ensure your site performs optimally.',
           icon: MdOutlineAddLocation,
         },
         {
           id: 5,
-          title: 'Seamless Scalability:  ',
+          title: 'SEO-Friendly',
           descp:
-            'Our web platforms are built on highly available infrastructure designed to handle sudden traffic spikes and massive product catalogs.',
+            'We ensure your website is search-engine optimized for better visibility.',
           icon: PiExcludeSquareDuotone,
         },
         {
           id: 6,
-          title: 'Transparent Delivery:  ',
-          descp:
-            'Using advanced project management, we give you absolute daily visibility into our progress to ensure on-time, on-budget launches. ',
+          title: 'On-time Delivery',
+          descp: 'Projects completed on schedule with quality results.',
           icon: PiEyeBold,
         },
       ],
@@ -3019,7 +3008,7 @@ export const servicesSubPagesData = {
         },
       ],
     },
-    serviceProcessData: {
+    staffProcessData: {
       heading: 'How Our IT Staff Augmentation',
       coloredHeading: ' Process Works',
       steps: [
@@ -3229,64 +3218,5 @@ export const servicesSubPagesData = {
           ' You do. 100%. We sign strict NDAs and IP assignment contracts before the project begins.',
       },
     ],
-  },
-  QAandTesting: {
-    metaData: {
-      pageMetaTitle:
-        'Software Testing & QA Services | Nextloop Quality Assurance ',
-      pageMetaDescription:
-        'Nextloop delivers full-cycle QA & software testing services — test automation, manual testing, API security, and performance testing. Ship bug-free, faster',
-    },
-    heroImage: QAandTestingHero,
-    heroSectionData: {
-      coloredTitle: 'Deliver Flawless Software with ',
-      title: 'Nextloop’s QA & Testing Services',
-      subtitle:
-        'Our comprehensive software testing and quality assurance services ensure your product is bug-free, secure, and performs flawlessly. From functional testing to performance optimization, we help you deliver high-quality software that exceeds user expectations.',
-    },
-    serviceProcessData: {
-      heading: 'The Nextloop QA Process - ',
-      coloredHeading: 'Built to Catch Issues Early ',
-      description:
-        'Most QA failures happen because testing starts too late. Our shift-left methodology integrates quality checks from day one — reducing rework, shortening release cycles, and cutting defect costs by up to 75%',
-      steps: [
-        {
-          step: 1,
-          title: 'Requirement Analysis',
-          description:
-            'We start by understanding your business goals, user expectations, and technical constraints — then define measurable quality benchmarks before a single test is written.',
-        },
-        {
-          step: 2,
-          title: 'Strategic Test Planning',
-          description:
-            'Custom test plans built around your stack, release cadence, and risk profile. We select the right tools, coverage approach, and KPIs upfront.',
-        },
-        {
-          step: 3,
-          title: 'Test Case Design',
-          description:
-            'Comprehensive test cases covering functional flows, edge cases, negative scenarios, and boundary conditions — nothing left to chance.',
-        },
-        {
-          step: 4,
-          title: 'Shift-Left Execution',
-          description:
-            "Testing runs in parallel with development, not after it. Issues are caught when they're cheapest and easiest to fix.",
-        },
-        {
-          step: 5,
-          title: 'Defect Reporting & Communication',
-          description:
-            'Every bug report includes steps to reproduce, severity classification, screen recordings, and log files. No ambiguity, no back-and-forth.',
-        },
-        {
-          step: 6,
-          title: 'Pre-Release Validation',
-          description:
-            'A final quality gate before every deployment — regression checks, sign-off testing, and release readiness confirmation. ',
-        },
-      ],
-    },
   },
 };
