@@ -7,11 +7,11 @@ const Experience: FC = () => {
       desc: 'We help businesses by reducing inquiries and improving customer experiences proactively.',
     },
     {
-      heading: 'Web Development',
+      heading: 'Website Development',
       desc: 'We help you to elevate your websites customer experience effortlessly.',
     },
     {
-      heading: 'Mobile Development',
+      heading: 'Mobile App Development',
       desc: 'We help you to transform your business with top-notch app development in the mobile-centric world.',
     },
   ];
