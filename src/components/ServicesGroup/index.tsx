@@ -45,7 +45,7 @@ const SERVICE_DATA: ServiceCardProps[] = [
     link: '/services/mvp-development',
   },
   {
-    heading: 'Cloud & DevOps',
+    heading: 'Cloud Computing & Devops Solutions',
     image: Service4 as unknown as string,
     link: '/services/cloud-computing-solutions',
   },

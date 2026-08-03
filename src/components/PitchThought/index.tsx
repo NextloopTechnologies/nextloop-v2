@@ -40,7 +40,10 @@ const services = [
   { label: 'Mobile App Development', href: '/services/mobile-app-development' },
   { label: 'MVP Development', href: '/services/mvp-development' },
   { label: 'AI & ML Solutions', href: '/services/ai-ml' },
-  { label: 'Cloud & DevOps', href: '/services/cloud-computing-solutions' },
+  {
+    label: 'Cloud Computing & DevOps',
+    href: '/services/cloud-computing-solutions',
+  },
   { label: 'UI/UX Design & Development', href: '/services/ui-ux-development' },
 ];
 

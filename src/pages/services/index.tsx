@@ -19,7 +19,7 @@ const cards: { title: string; desc: string; link: string }[] = [
     link: '/services/it-staff-augmentation',
   },
   {
-    title: 'Web Development',
+    title: 'Website Development',
     desc: 'Create a strong digital presence with websites that are fast, easy to navigate, and built for real users. Through our website design and development service, we emphasize delivering responsive experiences that not only look good but also perform seamlessly across devices.',
     link: '/services/web-development',
   },
@@ -29,12 +29,12 @@ const cards: { title: string; desc: string; link: string }[] = [
     link: '/services/mvp-development',
   },
   {
-    title: 'Cloud Services (DevOps, AWS, GCP, Azure)',
+    title: 'Cloud Computing Services (DevOps, AWS, GCP, Azure)',
     desc: 'Managing infrastructure becomes easier when systems are built to scale, adapt and stay secure from the start. As a cloud services provider, our aim is to create environments that handle workloads efficiently while also supporting flexibility, performance and long-term stability.',
     link: '/services/cloud-computing-solutions',
   },
   {
-    title: 'Mobile Development',
+    title: 'Mobile App Development',
     desc: 'Mobile experiences today need to feel seamless, whether users are on Android, iOS, or multiple devices. Covering native and cross-platform builds, our cross-platform app development service highly focuses on delivering apps that run smoothly, stay consistent and keep users engaged over time. ',
     link: '/services/mobile-app-development',
   },
@@ -49,7 +49,7 @@ const cards: { title: string; desc: string; link: string }[] = [
   //   link: '/services/e-commerce-development',
   // },
   {
-    title: 'AI/ML',
+    title: 'AI & ML Solutions',
     desc: 'Turn complex data into meaningful outcomes using intelligent systems built for real use cases. Our generative AI service include developing models that automate tasks, generate insights and enhance user experiences. From chatbots to predictive systems, these solutions help integrate AI into everyday business workflows.',
     link: '/services/ai-ml',
   },
