@@ -44,7 +44,7 @@ const services = [
     label: 'Cloud Computing & DevOps',
     href: '/services/cloud-computing-solutions',
   },
-  { label: 'UI/UX Design & Development', href: '/services/ui-ux-development' },
+  { label: 'E-commerce Development', href: '/services/e-commerce-development' },
 ];
 
 const industrySolutions = [
