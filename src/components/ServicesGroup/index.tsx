@@ -54,16 +54,16 @@ const SERVICE_DATA: ServiceCardProps[] = [
     image: Service5 as unknown as string,
     link: '/services/mobile-app-development',
   },
-  {
-    heading: 'UI/UX Design & Development ',
-    image: Service6 as unknown as string,
-    link: '/services/ui-ux-development',
-  },
   // {
-  //   heading: 'E-commerce Development',
-  //   image: Service8 as unknown as string,
-  //   link: '/services/e-commerce-development',
+  //   heading: 'UI/UX Design & Development ',
+  //   image: Service6 as unknown as string,
+  //   link: '/services/ui-ux-development',
   // },
+  {
+    heading: 'E-commerce Development',
+    image: Service6 as unknown as string,
+    link: '/services/e-commerce-development',
+  },
   {
     heading: 'AI & ML Solutions',
     image: Service9 as unknown as string,

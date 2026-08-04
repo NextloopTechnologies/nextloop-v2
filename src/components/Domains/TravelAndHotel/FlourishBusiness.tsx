@@ -7,39 +7,39 @@ import { getStaticImageData } from '../../../utils/helper';
 
 const content: { title: string; descp: string; icon: StaticImageData }[] = [
   {
-    title: 'Customized Booking Solutions',
+    title: 'Bespoke Booking Solutions ',
     descp:
       'Give your clients the advantage of smooth online reservation platforms, real-time availability, and customized packages that improve user satisfaction.',
     icon: getStaticImageData(travelandhotelAssets.dynamicIcon),
   },
   {
-    title: 'AI-Driven Customer Insights',
+    title: 'AI-Powered Traveler Insights ',
     descp:
-      'To better analyze traveler behavior, enhance services, and provide individualized recommendations for client happiness, use artificial intelligence (AI) and predictive analytics.',
+      'Leverage predictive analytics and artificial intelligence to decode guest behavior, refine your offerings, and deliver tailored recommendations that drive customer loyalty.',
     icon: getStaticImageData(travelandhotelAssets.paymentIcon),
   },
   {
-    title: 'Cloud-Based Management Systems',
+    title: 'Cloud-Enabled Management Hubs ',
     descp:
-      'With cloud-based property and reservation management systems that guarantee effectiveness and scalability, you can access your company data from any location anytime.',
+      'Access critical business intelligence from anywhere with cloud-native property and booking management tools designed for peak efficiency and effortless scalability. ',
     icon: getStaticImageData(travelandhotelAssets.pictureIcon),
   },
   {
-    title: 'Omnichannel Marketing Support',
+    title: 'Omnichannel Marketing Strategies ',
     descp:
-      'Increase client involvement and awareness through integrated digital marketing tactics, such as social media outreach and customized email campaigns.',
+      'Boost brand visibility and guest engagement across channels with cohesive digital marketing campaigns, targeted social media initiatives, and personalized email outreach. ',
     icon: getStaticImageData(travelandhotelAssets.languageIcon),
   },
   {
-    title: 'Smart Automation & Chatbots',
+    title: 'Intelligent Automation & AI Chatbots ',
     descp:
-      'Automate reservations, questions, and customer care with smart chatbots that offer round-the-clock help, enhancing service quality.',
+      'Streamline bookings and resolve guest inquiries instantly with smart virtual assistants that offer 24/7 support, drastically reducing your operational response times. ',
     icon: getStaticImageData(travelandhotelAssets.travelIcon),
   },
   {
-    title: 'Seamless Integration & Data Security',
+    title: 'Secure Integrations & Advanced Protection ',
     descp:
-      'Integrate with top payment gateways and OTAs (online travel agencies) while protecting data with cutting-edge cybersecurity techniques.',
+      'Connect effortlessly with major global payment gateways and leading OTAs while safeguarding sensitive customer data through industry-leading cybersecurity frameworks. ',
     icon: getStaticImageData(travelandhotelAssets.supportIcon),
   },
 ];
@@ -47,10 +47,10 @@ const content: { title: string; descp: string; icon: StaticImageData }[] = [
 const FlourishBusiness = () => (
   <div className=' relative bg-[#010103]'>
     <h1
-      className={` text-white ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center py-14 px-10`}
+      className={` text-white ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop}  font-bold text-center py-14 px-10`}
     >
-      flourish your <span className='text-orange-500'>travel & hotel</span>{' '}
-      business with nextloop technologies
+      Elevate Your Travel & Hospitality Brand{' '}
+      <span className='text-orange-500'>with Nextloop Technologies</span>
     </h1>
     <div className='relative w-full'>
       <Image
