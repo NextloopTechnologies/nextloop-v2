@@ -238,20 +238,6 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
           },
           {
             '@type': 'ListItem',
-            position: 7,
-            item: {
-              '@type': 'Service',
-              name: 'UI/UX Design & Development',
-              url: withSiteUrl('/services/ui-ux-development/'),
-              serviceType: 'UI/UX Design',
-              provider: {
-                '@id': withSiteUrl('/#organization'),
-              },
-              areaServed: ['IN', 'US'],
-            },
-          },
-          {
-            '@type': 'ListItem',
             position: 8,
             item: {
               '@type': 'Service',
