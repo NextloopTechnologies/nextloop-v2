@@ -470,10 +470,10 @@ export const servicesSubPagesData = {
     },
     techStackData: {
       headingData: {
-        heading: 'Our Tech Stack for Advanced ',
-        coloredHeading: 'Software Engineering & Development',
+        heading: 'Our Tech Stack for Advanced Software Engineering ',
+        coloredHeading: '& Development',
         description:
-          'We leverage cutting-edge technologies to build robust solutions.',
+          'Building scalable digital infrastructure requires a highly secure foundation. We utilize modern web development frameworks and integrate the best cloud computing platforms to deliver fast, reliable systems built for long term business growth.',
       },
       items: [
         {
@@ -651,9 +651,9 @@ export const servicesSubPagesData = {
       },
     ],
     areaOfExpertiseData: {
-      mainHeader: 'OUR AREAS OF EXPERTISE',
+      mainHeader: 'Enterprise Software Solutions for Global Industries',
       mainDescription:
-        "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
+        'Empowering diverse sectors with advanced technical architecture. Our dedicated engineering team understands the unique operational realities of your specific market, delivering reliable digital platforms built for long term business growth.',
       items: staticServices,
     },
   },
