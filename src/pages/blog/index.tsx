@@ -122,7 +122,7 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
         </div>
       ) : (
         <div className='bg-white min-h-screen px-4 flex flex-col justify-center items-center md:px-8 xl:px-24 py-12 '>
-          <div className='relative w-11/12 aspect-[16/9] lg:aspect-[21/9] overflow-hidden rounded-lg'>
+          <div className='relative w-11/12 aspect-[16/9] overflow-hidden rounded-lg'>
             {/* Background image */}
             {data?.[0]?.image?.[0]?.url ? (
               <Image
