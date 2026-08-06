@@ -31,7 +31,7 @@ function BlogCard({ blog, onClick }: { blog: BlogType; onClick: () => void }) {
             src={blog.image[0].url as string}
             alt={blog.title ?? 'blog image'}
             fill
-            className='object-cover transition-transform duration-500 group-hover:scale-105'
+            className='object-fit-contain transition-transform duration-500 group-hover:scale-105'
             sizes='(max-width: 768px) 100vw, 400px'
           />
         ) : (
@@ -122,21 +122,21 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
         </div>
       ) : (
         <div className='bg-white min-h-screen px-4 flex flex-col justify-center items-center md:px-8 xl:px-24 py-12 '>
-          <div className='relative bg-black w-11/12 h-[75vh] '>
+          <div className='relative w-11/12 aspect-[16/9] lg:aspect-[21/9] overflow-hidden rounded-lg'>
             {/* Background image */}
             {data?.[0]?.image?.[0]?.url ? (
               <Image
                 src={data[0].image[0].url as string}
                 alt={data[0].title ?? 'latest blog'}
                 fill
-                className='object-cover opacity-80'
+                className='object-fit-contain opacity-80'
                 priority
               />
             ) : (
               <div className='w-full h-full bg-gradient-to-br from-[#1e3a5f] to-[#0d1b2e]' />
             )}
 
-            <div className='absolute -bottom-16 right-0 bg-white w-3/4 h-[40vh] border-[#D8D8D8] border-2 p-6 flex flex-col gap-5 z-10'>
+            <div className='relative md:absolute md:-bottom-16 md:right-0 bg-white w-full md:w-3/4 border-[#D8D8D8] border-2 p-4 sm:p-6 flex flex-col gap-3 sm:gap-5 z-10'>
               {/* Date + Tag */}
               <div className='flex items-center gap-2.5 flex-wrap font-light '>
                 {data?.[0]?.created_at && (
@@ -151,7 +151,7 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
               </div>
 
               {/* Title */}
-              <h3 className='text-4xl md:text-3xl sm:text-xl font-bold text-black  leading-snug line-clamp-2  sm:line-clamp-2'>
+              <h3 className='text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-black leading-snug line-clamp-2'>
                 {data?.[0]?.title ?? ''}
               </h3>
 
