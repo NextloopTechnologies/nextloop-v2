@@ -2,7 +2,6 @@ import Head from 'next/head';
 import { StaticImageData } from 'next/image';
 import { IconType } from 'react-icons';
 
-// import { IconType } from 'react-icons';
 import BlogSection from '../../components/BlogSection';
 import FAQ from '../../components/Domains/FAQ';
 import IconTextBoxZebra from '../../components/IconTextBoxZebra';
@@ -149,23 +148,7 @@ export interface ComparisonTableData {
   };
   rows: ComparisonRow[];
 }
-export interface TeamMember {
-  name: string;
-  title: string;
-  experience: string;
-  role: string;
-  techStack: TechKey[];
-  domains: string[];
-  avatarUrl?: string;
-}
-export interface TeamMembersSectionData {
-  headingData: {
-    heading: string;
-    coloredHeading: string;
-    description: string;
-  };
-  items: TeamMember[];
-}
+
 export interface TechTalentItem {
   label: string;
   icon: IconType;
@@ -242,9 +225,7 @@ export interface ServicePageProps {
   areaOfExpertiseData?: AreaOfExpertiseData;
   staffingPartnerData?: TrustedPartnersData;
   staffingIndustriesData?: StaffingData;
-  whyBusinessChoosesUsData?: StaffingData;
-  // ourProcessData?: StaffingData;
-  teamMembersData?: TeamMembersSectionData;
+
   comparisonTableData?: ComparisonTableData;
   SecurityData?: SecurityData;
   techTalentData?: TechTalentData;
@@ -266,8 +247,6 @@ const ServicePage: React.FC<ServicePageProps> = ({
   areaOfExpertiseData,
   staffingPartnerData,
   staffingIndustriesData,
-  // ourProcessData,
-  // teamMembersData,
   comparisonTableData,
   SecurityData,
   techTalentData,
@@ -313,8 +292,6 @@ const ServicePage: React.FC<ServicePageProps> = ({
       {staffingIndustriesData && staffingIndustriesData?.items?.length > 0 && (
         <StaffingIndustriesSection industriesData={staffingIndustriesData} />
       )}
-
-      {/* {teamMembersData && teamMembersData?.items?.length > 0 && <TeamMembers data={teamMembersData} />} */}
 
       {comparisonTableData && <StaffingTable data={comparisonTableData} />}
       {serviceProcessData && serviceProcessData.steps.length > 0 && (

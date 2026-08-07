@@ -2,7 +2,6 @@ import { domAnimation, LazyMotion, m } from 'framer-motion';
 import { MoveDown } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-// import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 
 import { getSchemaMarkup } from '../utils/seoSchemas';

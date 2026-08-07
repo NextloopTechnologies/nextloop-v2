@@ -1,6 +1,5 @@
 import { hotelAssets } from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
-// import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
 import EnrollForWebsite from '../../../components/Domains/EnrollForWebsite';
 import FAQ from '../../../components/Domains/FAQ';

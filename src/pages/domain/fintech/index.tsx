@@ -3,7 +3,6 @@ import React from 'react';
 
 import { fintechAssets } from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
-// import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
 import FAQ from '../../../components/Domains/FAQ';
 import Benefits from '../../../components/Domains/Fintech/Benefits';

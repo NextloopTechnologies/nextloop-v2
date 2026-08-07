@@ -1,4 +1,3 @@
-// import Head from 'next/head';
 import React, { ReactNode, useEffect, useState } from 'react';
 
 import Hamburger from './Hamburger';

@@ -2,7 +2,6 @@ import Head from 'next/head';
 
 import { eventAssets } from '../../../../assets';
 import CustomPageHero from '../../../components/CustomPageHero/CustomPageHero';
-// import ClientReviews from '../../../components/Domains/ClientReviews';
 import CustomRequestQuote from '../../../components/Domains/CustomRequestQuote';
 import DesignYourEvents from '../../../components/Domains/DesignYourEvents';
 import EventManagementSolution from '../../../components/Domains/EventManagementSolution';

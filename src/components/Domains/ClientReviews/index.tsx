@@ -1,3 +1,6 @@
+// NOTE: This component is intentionally not rendered on any page yet.
+// It is kept pending real client review data and will be re-enabled once
+// reviews are available. Do not flag as dead code — this is a future-use component.
 import { AnimatePresence, motion } from 'framer-motion';
 import Image, { StaticImageData } from 'next/image';
 import { useEffect, useMemo, useState } from 'react';

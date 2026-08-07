@@ -9,7 +9,6 @@ import {
   printOnDemand,
   subscriptions,
 } from '../../../../assets';
-// import ClientReviews from '../../../components/Domains/ClientReviews';
 const Layout = dynamic(() => import('../../../components/Layout/Layout'));
 import palette from '../../../styles/pallette';
 import { IFAQ } from '../../../types';

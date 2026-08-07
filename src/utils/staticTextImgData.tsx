@@ -23,10 +23,7 @@ import { MdComputer } from 'react-icons/md';
 import { PiExcludeSquareDuotone, PiEyeBold } from 'react-icons/pi';
 
 import { getStaticImageData } from './helper';
-import type {
-  TechKey,
-  TechTalentData,
-} from '../pages/services/BaseServicePages';
+import type { TechTalentData } from '../pages/services/BaseServicePages';
 import { IFAQ } from '../types';
 import { CultureEvent } from '../types';
 import {
@@ -2929,48 +2926,6 @@ export const servicesSubPagesData = {
         { title: 'ArthnextLogo', image: ArthnextLogo },
         { title: 'Jhana', image: JhanaLogo },
         { title: 'EWA', image: EwaLogo },
-      ],
-    },
-    teamMembersData: {
-      headingData: {
-        heading: 'Meet Your Dedicated ',
-        coloredHeading: 'Engineering Team',
-        description:
-          'Our staff augmentation services connect you with top-tier talent that integrates seamlessly into your projects.',
-      },
-      items: [
-        {
-          name: 'Alex M.',
-          title: 'Senior Full Stack Engineer',
-          experience: '7 years experience',
-          role: 'If you need to hire full stack developers, Alex is your ideal match.',
-          techStack: ['react', 'aws', 'angular', 'python'] as TechKey[],
-          domains: ['Fintech', 'Healthcare'],
-        },
-        {
-          name: 'Alex M.',
-          title: 'Senior Full Stack Engineer',
-          experience: '7 years experience',
-          role: 'If you need to hire full stack developers, Alex is your ideal match.',
-          techStack: ['react', 'aws', 'angular', 'python'] as TechKey[],
-          domains: ['Fintech', 'Healthcare'],
-        },
-        {
-          name: 'Alex M.',
-          title: 'Senior Full Stack Engineer',
-          experience: '7 years experience',
-          role: 'If you need to hire full stack developers, Alex is your ideal match.',
-          techStack: ['react', 'aws', 'angular', 'python'] as TechKey[],
-          domains: ['Fintech', 'Healthcare'],
-        },
-        {
-          name: 'Alex M.',
-          title: 'Senior Full Stack Engineer',
-          experience: '7 years experience',
-          role: 'If you need to hire full stack developers, Alex is your ideal match.',
-          techStack: ['react', 'aws', 'angular', 'python'] as TechKey[],
-          domains: ['Fintech', 'Healthcare'],
-        },
       ],
     },
     comparisonTableData: {

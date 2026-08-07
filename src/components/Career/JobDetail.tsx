@@ -5,7 +5,6 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import ApplicationForm from '../../components/Career/ApplicationForm';
 import { Job } from '../../types';
-// import wallet from '../../../assets/wallet.svg';
 
 const JobDetails: React.FC<{ job: Job }> = ({
   job: {
