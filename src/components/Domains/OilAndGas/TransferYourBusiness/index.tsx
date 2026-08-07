@@ -10,27 +10,26 @@ const data = [
   {
     id: 1,
     title: 'Visionary',
-    descp: 'Nextloop gives best vision for your business',
+    descp: 'Nextloop gives best vision for your business.',
     icon: getStaticImageData(oilAndGasAssets.visionaryIcon),
   },
   {
     id: 2,
     title: 'Rapid',
     descp:
-      'Create software especially for your enterprise – delivered 6x faster.',
+      'Create software especially for your enterprise delivered 6x faster.',
     icon: getStaticImageData(oilAndGasAssets.rapidIcon),
   },
   {
     id: 3,
     title: 'Transparent',
-    descp: 'Get a guaranteed price and set timings upfront – calculated by AI.',
+    descp: 'Get a guaranteed price and set timings upfront calculated by AI.',
     icon: getStaticImageData(oilAndGasAssets.transparentIcon),
   },
   {
     id: 4,
     title: 'Simple & Trusted',
-    descp:
-      'Relieve pressure on your internal resources – fully project managed.',
+    descp: 'Relieve pressure on your internal resources fully project managed.',
     icon: getStaticImageData(oilAndGasAssets.trustedIcon),
   },
 ];
@@ -48,12 +47,12 @@ const TransformYourBusiness = () => {
         priority
       />
       <div className='relative flex flex-col px-14 md:px-24 lg:px-12 z-[2]'>
-        <h1
-          className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-white font-bold leading-none uppercase text-center mb-10 mt-10`}
+        <h2
+          className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-white font-bold leading-none text-center mb-10 mt-10`}
         >
-          Transform your business <span className='text-orange-500'>today</span>
-        </h1>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-14 mb-40'>
+          Transform your <span className='text-orange-500'>business today</span>
+        </h2>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-14 mb-20'>
           {data?.map(({ descp, id, icon, title }) => (
             <ToolBox key={id} icons={icon} title={title} descp={descp} />
           ))}

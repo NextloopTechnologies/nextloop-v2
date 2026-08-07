@@ -1,13 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
 <url>
-<loc>https://www.nextlooptechnologies.com/</loc>
-<lastmod>2024-12-04T07:54:55+00:00</lastmod>
-<priority>1.00</priority>
+  <loc>https://www.nextlooptechnologies.com/</loc>
+  <lastmod>2026-05-26T16:18:20+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
 <url>
-<loc>https://www.nextlooptechnologies.com/portfolio/4/</loc>
-<lastmod>2024-12-04T07:54:55+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://www.nextlooptechnologies.com/services/custom-software-development/</loc>
+  <lastmod>2026-05-28T07:40:37+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
+<url>
+  <loc>https://www.nextlooptechnologies.com/services/it-staff-augmentation/</loc>
+  <lastmod>2026-05-26T17:28:15+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nextlooptechnologies.com/services/web-development/</loc>
+  <lastmod>2026-05-28T07:40:37+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nextlooptechnologies.com/services/mvp-development/</loc>
+  <lastmod>2026-05-28T07:40:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nextlooptechnologies.com/services/cloud-computing-solutions/</loc>
+  <lastmod>2026-05-26T17:27:16+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nextlooptechnologies.com/services/mobile-app-development/</loc>
+  <lastmod>2026-05-26T16:54:15+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nextlooptechnologies.com/services/ai-ml/</loc>
+  <lastmod>2026-05-26T18:56:01+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nextlooptechnologies.com/domain/events/</loc>
+  <lastmod>2026-05-28T07:40:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nextlooptechnologies.com/domain/fintech/</loc>
+  <lastmod>2026-05-28T07:40:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nextlooptechnologies.com/domain/healthcare/</loc>
+  <lastmod>2026-05-28T07:40:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nextlooptechnologies.com/domain/oil-and-gas/</loc>
+  <lastmod>2026-05-28T07:40:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nextlooptechnologies.com/domain/food-and-beverages/</loc>
+  <lastmod>2026-05-28T07:40:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nextlooptechnologies.com/domain/travel-and-hospitality/</loc>
+  <lastmod>2026-05-28T07:40:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nextlooptechnologies.com/about-us/</loc>
+  <lastmod>2026-05-28T07:40:39+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nextlooptechnologies.com/services/</loc>
+  <lastmod>2026-05-12T21:44:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nextlooptechnologies.com/career/</loc>
+  <lastmod>2026-05-28T07:40:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nextlooptechnologies.com/blog/</loc>
+  <lastmod>2026-05-28T07:40:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nextlooptechnologies.com/culture/</loc>
+  <lastmod>2026-05-28T07:40:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nextlooptechnologies.com/contact-us/</loc>
+  <lastmod>2026-05-28T07:40:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nextlooptechnologies.com/cookies-policy/</loc>
+  <lastmod>2026-05-22T18:25:12+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nextlooptechnologies.com/privacy/</loc>
+  <lastmod>2026-05-28T07:40:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nextlooptechnologies.com/services/digital-marketing-services/</loc>
+  <lastmod>2026-05-23T05:37:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
 </urlset>

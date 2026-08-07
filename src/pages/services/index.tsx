@@ -19,7 +19,7 @@ const cards: { title: string; desc: string; link: string }[] = [
     link: '/services/it-staff-augmentation',
   },
   {
-    title: 'Web Development',
+    title: 'Website Development',
     desc: 'Create a strong digital presence with websites that are fast, easy to navigate, and built for real users. Through our website design and development service, we emphasize delivering responsive experiences that not only look good but also perform seamlessly across devices.',
     link: '/services/web-development',
   },
@@ -29,35 +29,35 @@ const cards: { title: string; desc: string; link: string }[] = [
     link: '/services/mvp-development',
   },
   {
-    title: 'Cloud Services (DevOps, AWS, GCP, Azure)',
+    title: 'Cloud Computing Services (DevOps, AWS, GCP, Azure)',
     desc: 'Managing infrastructure becomes easier when systems are built to scale, adapt and stay secure from the start. As a cloud services provider, our aim is to create environments that handle workloads efficiently while also supporting flexibility, performance and long-term stability.',
     link: '/services/cloud-computing-solutions',
   },
   {
-    title: 'Mobile Development',
+    title: 'Mobile App Development',
     desc: 'Mobile experiences today need to feel seamless, whether users are on Android, iOS, or multiple devices. Covering native and cross-platform builds, our cross-platform app development service highly focuses on delivering apps that run smoothly, stay consistent and keep users engaged over time. ',
     link: '/services/mobile-app-development',
   },
-  {
-    title: 'UI/UX Development',
-    desc: 'How a product feels often shapes how people use it. Clear layouts, intuitive flows and thoughtful interactions remove friction and make navigation effortless. Our UI/UX design and development service intents on crafting experiences that feel natural, guide users smoothly and keep engagement consistent across every touchpoint.',
-    link: '/services/ui-ux-development',
-  },
   // {
-  //   title: 'E-commerce Development',
-  //   desc: "Turn your online store into a sales powerhouse! We offer end-to-end e-commerce development solutions, from building a secure and user-friendly platform to integrating robust payment gateways and implementing effective marketing strategies. We'll help you transform your online store into a thriving e-commerce empire.",
-  //   link: '/services/e-commerce-development',
+  //   title: 'UI/UX Development',
+  //   desc: 'How a product feels often shapes how people use it. Clear layouts, intuitive flows and thoughtful interactions remove friction and make navigation effortless. Our UI/UX design and development service intents on crafting experiences that feel natural, guide users smoothly and keep engagement consistent across every touchpoint.',
+  //   link: '/services/ui-ux-development',
   // },
   {
-    title: 'AI/ML',
+    title: 'E-commerce Development',
+    desc: "Turn your online store into a sales powerhouse! We offer end-to-end e-commerce development solutions, from building a secure and user-friendly platform to integrating robust payment gateways and implementing effective marketing strategies. We'll help you transform your online store into a thriving e-commerce empire.",
+    link: '/services/e-commerce-development',
+  },
+  {
+    title: 'AI & ML Solutions',
     desc: 'Turn complex data into meaningful outcomes using intelligent systems built for real use cases. Our generative AI service include developing models that automate tasks, generate insights and enhance user experiences. From chatbots to predictive systems, these solutions help integrate AI into everyday business workflows.',
     link: '/services/ai-ml',
   },
-  {
-    title: 'Quality Assurance & Software Testing',
-    desc: 'Software issues often surface when real users start interacting with the product. You can use our automation testing service to help detect bugs, performance gaps and inconsistencies early through continuous and structured testing. This ensures stable releases, smoother user experiences and fewer issues after deployment. ',
-    link: '/services/quality-assurance',
-  },
+  // {
+  //   title: 'Quality Assurance & Software Testing',
+  //   desc: 'Software issues often surface when real users start interacting with the product. You can use our automation testing service to help detect bugs, performance gaps and inconsistencies early through continuous and structured testing. This ensures stable releases, smoother user experiences and fewer issues after deployment. ',
+  //   link: '/services/software-testing-qa-services',
+  // },
   // {
   //   title: 'Technical Support',
   //   desc: "Peace of mind is priceless. Our reliable technical support services ensure that your website or application runs smoothly, uninterrupted. We'll be there to promptly address any technical issues that may arise, keeping your online presence running optimally.",
@@ -105,7 +105,7 @@ const Services = () => {
                 height={140}
                 width={140}
               />
-              <h2 className='font-medium lg:text-4xl text-2xl w-4/5'>
+              <h2 className='font-medium lg:text-3xl text-2xl w-full'>
                 {card.title}
               </h2>
               <p>{card.desc}</p>

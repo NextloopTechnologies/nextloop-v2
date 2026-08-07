@@ -8,58 +8,58 @@ import { getStaticImageData } from '../../../../utils/helper';
 const data = [
   {
     id: 1,
-    title: 'Smart mining dashboard',
+    title: 'Oil and gas operations management software',
     descp:
-      'Your operation produces huge amounts of data. Understand and visualise it with your dashboard. Pick the metrics you want to monitor and AI identifies areas of improvement.',
+      'Your operation produces huge amounts of data. Understand and visualise it easily. Pick the metrics you monitor and AI instantly identifies your improvement areas.',
     icon: getStaticImageData(oilAndGasAssets.miningIcon),
   },
   {
     id: 2,
-    title: 'Asset life cycle management',
+    title: 'Predictive maintenance software for oil and gas',
     descp:
-      'Continuous monitoring of your equipment ensures everything runs optimally and you stay fully compliant. Push notifications send reminders when urgent issues are found.',
+      'Continuous equipment monitoring ensures everything runs optimally. Stay fully compliant effortlessly. Push notifications send you fast reminders when any urgent machine issues are found.',
     icon: getStaticImageData(oilAndGasAssets.lifeCycleIcon),
   },
   {
     id: 3,
-    title: 'Run scenarios and optimise',
+    title: 'Reservoir modeling and simulation tools',
     descp:
-      'Use the data you’ve collected to simulate various outcomes. Want to see how different fluid or gravel figures change things? It’s as easy as clicking a button.',
+      'Use collected data to safely simulate various outcomes. Want to see how fluid or gravel figures change things? Do it easily with just one click.',
     icon: getStaticImageData(oilAndGasAssets.optimiseIcon),
   },
   {
     id: 4,
-    title: 'Offshore ready',
+    title: 'Offshore oil and gas software solutions',
     descp:
-      'Working offshore comes with its own set of challenges: unique regulations, moving personnel, managing supplies and connectivity issues. Your app handles it all.',
+      'Working offshore brings unique regulations and complex connectivity issues. Do not worry. Our dedicated offline ready apps handle all of these challenges easily for you.',
     icon: getStaticImageData(oilAndGasAssets.readyIcon),
   },
   {
     id: 5,
-    title: 'Everything in one place',
+    title: 'Regulatory compliance tracking software for energy',
     descp:
-      'No more messy cabinets. All your documents are stored in the cloud. Sort and search features make everything accessible: production, energy efficiency and safety reports.',
+      'No more messy cabinets. Store all your documents safely in the cloud. Simple search features make your production and safety reports instantly accessible to everyone.',
     icon: getStaticImageData(oilAndGasAssets.onePlaceIcon),
   },
   {
     id: 6,
-    title: 'Easy integration',
+    title: 'Seamless software integration',
     descp:
-      'Your app can be a complete solution. But maybe you like the financial services you currently use? No worries, these tools can be seamlessly integrated into your solution.',
+      'Your custom app functions as a complete solution. Prefer the legacy financial services you currently use? These tools seamlessly integrate right into your new ecosystem.',
     icon: getStaticImageData(oilAndGasAssets.easyIntegrationIcon),
   },
   {
     id: 7,
     title: 'Fixed price guarantee',
     descp:
-      'Our AI calculates your price after we know your project details. This price is locked in and never goes up – if it’s done quicker, you pay less.',
+      'Our AI calculates your price after we know your exact project details. This price is permanently locked in. If done quicker you pay much less.',
     icon: getStaticImageData(oilAndGasAssets.fixedPriceIcon),
   },
   {
     id: 8,
-    title: 'The platform you need',
+    title: 'Cross platform energy support',
     descp:
-      'Your oil and gas software needs to work everywhere. That’s why we can provide web, desktop and mobile support. It’s designed for your business needs.',
+      'Your energy software needs to work perfectly everywhere. That is exactly why we provide full web desktop and mobile support designed purely for your business.',
     icon: getStaticImageData(oilAndGasAssets.platformIcon),
   },
 ];
@@ -107,21 +107,20 @@ const HowToBuild = () => {
   return (
     <div className='flex bg-white mx-auto max-w-7xl'>
       <div className='flex flex-col pb-2'>
-        <h1
-          className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center`}
+        <h2
+          className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold text-center`}
         >
-          How to build
-          <br /> an <span className='text-orange-500'>oil and gas </span>
-          software app
-        </h1>
+          Enterprise oil and gas{' '}
+          <span className='text-orange-500'>software development process</span>
+        </h2>
         <div
           className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} text-center mt-5 md:mx-20 mx-10`}
         >
           <p>
-            Utilize Nextloop's experience to create unique cloud, IoT, and AI
-            solutions for effective asset management and real-time monitoring.
-            Our domain experts guarantee smooth system integration, adherence to
-            regulations, and scalability that is ready for the future.
+            Utilize our oil and gas digital transformation company to create
+            unique cloud and AI solutions. Our domain experts guarantee smooth
+            system integration adherence to regulations and future ready
+            scalability.
           </p>
         </div>
         <div className='grid grid-cols-1 lg:grid-cols-4 gap-3 w-full max-w-7xl mt-[100px] px-10'>

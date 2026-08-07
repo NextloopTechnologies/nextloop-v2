@@ -81,23 +81,19 @@ const Benefits: React.FC = () => {
     <div className='bg-white w-full'>
       <div className='flex flex-col text-center items-center'>
         <h1
-          className={`text-black ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center mb-10`}
+          className={`text-black ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold text-center mb-10`}
         >
-          benefits
+          The Benefits of Custom{' '}
+          <span className='text-orange-500'>Fintech Software Development</span>
         </h1>
         <p
           className={`text-black ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} xl:mx-[150px] mx-10 md:mb-24 mb-10`}
         >
-          In a highly competitive business world, originality and uniqueness
-          have become critical factors for successful business development.
-          That’s why modern companies are increasingly using only software
-          solutions that fully consider all the individual features of their
-          projects. When it comes to fintech software development, custom
-          solutions can be more cost-effective as fintech is highly
-          technological. That’s why it can be the best option for you. Moreover,
-          financial custom software development can boost fintech’s digital
-          acceleration. Find out the significant benefits of custom software
-          development in our article.
+          In a market defined by rapid innovation and high user expectations,
+          originality isn't a luxury — it's a competitive necessity.
+          Off-the-shelf solutions are built for broad audiences, which means
+          they're rarely optimised for the specific workflows, security
+          requirements, or user journeys that fintech businesses need.
         </p>
       </div>
       <div className='flex flex-col items-center text-white uppercase font-bold md:mb-14 md:gap-1 gap-20 py-10'>

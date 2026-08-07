@@ -36,12 +36,15 @@ const services = [
     href: '/services/custom-software-development',
   },
   { label: 'IT Staff Augmentation', href: '/services/it-staff-augmentation' },
-  { label: 'Web Development', href: '/services/web-development' },
-  { label: 'Mobile Development', href: '/services/mobile-app-development' },
+  { label: 'Website Development', href: '/services/web-development' },
+  { label: 'Mobile App Development', href: '/services/mobile-app-development' },
   { label: 'MVP Development', href: '/services/mvp-development' },
-  { label: 'AI/ML Development', href: '/services/ai-ml' },
-  { label: 'Cloud Services', href: '/services/cloud-computing-solutions' },
-  { label: 'UI/UX Development', href: '/services/ui-ux-development' },
+  { label: 'AI & ML Solutions', href: '/services/ai-ml' },
+  {
+    label: 'Cloud Computing & DevOps',
+    href: '/services/cloud-computing-solutions',
+  },
+  { label: 'E-commerce Development', href: '/services/e-commerce-development' },
 ];
 
 const industrySolutions = [
@@ -180,7 +183,7 @@ const Pitchthought: FC = () => {
                 </div>
                 <a
                   href='mailto:info@nextlooptechnologies.com'
-                  className='text-white text-sm hover:text-orange-400 transition-colors break-all'
+                  className='text-white text-sm hover:text-orange-400 transition-colors break-words'
                 >
                   info@nextlooptechnologies.com
                 </a>
@@ -192,16 +195,16 @@ const Pitchthought: FC = () => {
                 </div>
                 <div className='text-white text-sm flex flex-col gap-1'>
                   <a
-                    href='tel:+916103542991'
+                    href='tel:+919893738323'
                     className='hover:text-orange-400 transition-colors'
                   >
-                    +916103542991
+                    +91 9893738323
                   </a>
                   <a
-                    href='tel:+919893954583'
+                    href='tel:+919924299318'
                     className='hover:text-orange-400 transition-colors'
                   >
-                    +919893954583
+                    +91 9924299318
                   </a>
                 </div>
               </li>
@@ -285,8 +288,8 @@ const Pitchthought: FC = () => {
       <div className='border-t border-gray-800'>
         <div className='max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row sm:justify-between items-center gap-2 text-white text-xs'>
           <p>
-            © {new Date().getFullYear()} Nextloop Technologies Pvt. Ltd. All
-            Rights Reserved.
+            © {new Date().getFullYear()} Nextloop Technologies LLP. All Rights
+            Reserved.
           </p>
           <p className='flex items-center gap-1'>
             <Dot className='w-4 h-4' />
