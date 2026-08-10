@@ -54,7 +54,7 @@ const industrySolutions = [
   // { label: 'Hotel', href: '/domain/hotel' },
   { label: 'Oil And Gas', href: '/domain/oil-and-gas' },
   { label: 'Food And Beverages', href: '/domain/food-and-beverages' },
-  { label: 'Travel And Hospitality', href: '/domain/travel-and-hospitality' },
+  // { label: 'Travel And Hospitality', href: '/domain/travel-and-hospitality' },
 ];
 
 const quickLinks = [
