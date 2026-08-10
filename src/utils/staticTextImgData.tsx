@@ -470,8 +470,8 @@ export const servicesSubPagesData = {
     },
     techStackData: {
       headingData: {
-        heading: 'Our Tech Stack for Advanced Software Engineering ',
-        coloredHeading: '& Development',
+        heading: 'Our Tech Stack for Advanced ',
+        coloredHeading: 'Software Engineering & Development',
         description:
           'Building scalable digital infrastructure requires a highly secure foundation. We utilize modern web development frameworks and integrate the best cloud computing platforms to deliver fast, reliable systems built for long term business growth.',
       },

@@ -19,48 +19,50 @@ import { getStaticImageData } from '../../../utils/helper';
 const faqsContent: IFAQ[] = [
   {
     id: 1,
-    question: 'why do you need travel & hotel website design?',
+    question: 'What is a Hotel PMS and how do I know if my property needs one?',
     answer:
-      'Hotel website design is a huge influence on the booking behaviour of travellers and helps your hotel address their desires and expectations. It’s very important that potential guests are able to navigate your website easily and quickly understand the content that’s most relevant to them.',
+      "A Hotel Property Management System is the operational hub of a hospitality business — the software that manages reservations, room assignments, check-ins, check-outs, housekeeping coordination, billing, and guest communication from a single platform. If your team is currently managing any of these processes manually, across spreadsheets, or through disconnected systems that don't talk to each other, you're absorbing costs that a good PMS eliminates. Staff spend less time on administration, errors decrease, and the guest experience improves because your team has accurate information at hand. The right hotel management software typically pays for itself within the first operating year through time savings and reduced booking errors alone. ",
   },
   {
     id: 2,
-    question: 'why do I need a  website for my hotel?',
+    question:
+      'How do your AI-powered solutions actually move the needle on bookings?',
     answer:
-      'Hotel website design is a huge influence on the booking behaviour of travellers and helps your hotel address their desires and expectations. It’s very important that potential guests are able to navigate your website easily and quickly understand the content that’s most relevant to them.',
+      "The honest answer is that it depends on where your biggest gaps are — which is why we assess that before recommending anything. That said, the areas where we consistently see the clearest impact are pricing and personalization. Dynamic pricing tools that respond to real demand signals rather than static seasonal rates tend to capture meaningful revenue that would otherwise be left on the table. Personalization engines that recognize returning guests and surface relevant offers at the right moment lift conversion rates and repeat bookings. AI chatbots that respond instantly to booking inquiries — including outside business hours — reduce the number of potential guests who ask a question, don't hear back quickly enough, and book somewhere else. Together, these aren't incremental improvements. They're structural advantages over competitors not using them. ",
   },
   {
     id: 3,
-    question: 'What are the benefits of hotel website design?',
+    question:
+      'We already work with several OTAs and booking platforms. Can you build around what we have?',
     answer:
-      'Hotel website design is a huge influence on the booking behaviour of travellers and helps your hotel address their desires and expectations. It’s very important that potential guests are able to navigate your website easily and quickly understand the content that’s most relevant to them.',
+      "Yes, and this is something we're deliberate about from the start of every project. Replacing established OTA relationships or payment infrastructure isn't necessary and often isn't practical. Our custom travel apps and hotel management software are built with open integration architecture, meaning they connect with Booking.com, Expedia, channel managers, payment gateways, and other third-party platforms you rely on. The goal is to give you a better central platform, not to force you to rebuild relationships that are already working. ",
   },
 ];
 
 const WhatWeDoData = [
   {
     image: getStaticImageData(travelandhotelAssets.WhatWeDo1),
-    title: 'Digital Loan Origination Systems',
+    title: 'Accelerate Lending with Modern Digital Loan Origination Systems ',
     description:
-      'Streamline your lending process with our cutting-edge Digital Loan Origination System (LOS). From application to disbursement, we automate every step, ensuring faster approvals, reduced paperwork, and enhanced customer experience. Empower your financial institution to serve clients more efficiently.',
+      'Transform your credit operations with our advanced Digital Loan Origination System (LOS). By automating the entire pipeline from the initial application to final disbursement, our platform accelerates approval times, eliminates cumbersome paperwork, and elevates the borrower experience. Give your financial institution the modern infrastructure it needs to scale operations and serve clients more efficiently. ',
   },
   {
     image: getStaticImageData(travelandhotelAssets.WhatWeDo2),
-    title: 'Secure Payment Gateways',
+    title: 'Protect Transactions with Advanced Secure Payment Gateways ',
     description:
-      "Boost your transaction capabilities with our Secure Payment Gateway Solutions. We offer seamless integration, robust encryption, and fraud detection systems to ensure safe, swift, and reliable digital payments, enhancing your customers' trust and satisfaction.",
+      'Strengthen your business infrastructure with our robust Secure Payment Gateway Solutions. We provide seamless integration paired with sophisticated encryption and real-time fraud detection systems to guarantee safe, swift, and dependable digital transactions. Build lasting merchant credibility and elevate customer trust with a frictionless checkout experience designed to scale ',
   },
   {
     image: getStaticImageData(travelandhotelAssets.WhatWeDo3),
-    title: 'AI-Driven Financial Analytics',
+    title: 'Optimize Performance with AI-Driven Financial Analytics ',
     description:
-      'Unlock deeper insights with our AI-Driven Financial Analytics solutions. We harness big data and machine learning to provide actionable intelligence, helping you make informed decisions, optimize operations, and drive growth in your financial services',
+      'Unlock deeper business intelligence with our advanced AI-Driven Financial Analytics solutions. By leveraging big data and machine learning, we deliver actionable insights that empower your team to make data-backed decisions, streamline day-to-day operations, and accelerate growth across your financial services portfolio. ',
   },
   {
     image: getStaticImageData(travelandhotelAssets.WhatWeDo4),
-    title: 'Custom Fintech Software Development',
+    title: 'Custom Fintech Software Development ',
     description:
-      "Transform your ideas into reality with our Custom Fintech Software Development services. Whether it's mobile banking apps, wealth management platforms, or blockchain solutions, we tailor our expertise to fit your unique business needs, delivering innovative and scalable FinTech products.",
+      'Accelerate your digital transformation with our tailored Fintech software development services. From intuitive mobile banking applications and robust wealth management platforms to cutting-edge blockchain solutions, we engineer scalable, high-performance financial technology designed around your specific strategic goals. Turn your vision into market-ready innovation. ',
   },
 ];
 
@@ -82,11 +84,12 @@ const TravelAndHospitality = () => {
           image={getStaticImageData(travelandhotelAssets.hotelAndTravelBg)}
           titleChildren={
             <h1
-              className={`text-white ${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} uppercase font-bold text-center w-full md:max-w-[1500px]`}
+              className={`text-white ${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} font-bold text-center w-full md:max-w-[1500px]`}
             >
-              uncover new business opportunities with appealing{' '}
-              <span className='text-orange-500'>travel & hotel website</span>
-              <br /> design & development
+              Travel & hotel website design and{' '}
+              <span className='text-orange-500'>
+                custom software development
+              </span>
             </h1>
           }
           subtitle=''
