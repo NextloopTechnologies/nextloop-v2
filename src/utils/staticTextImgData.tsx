@@ -50,6 +50,7 @@ import {
 } from '../../assets';
 import blogImg from '../../assets/blog/blogImg.png';
 import careerBg from '../../assets/careerBg.webp';
+import ChristmasCelebration from '../../assets/Christmas-Celebration.png';
 import culturebg from '../../assets/culturebg.png';
 import QAandTestingHero from '../../assets/services/QAandTestingHero.jpg';
 import servicesWebdevelopmentHero from '../../assets/services/servicesWebdevelopmentHero.png';
@@ -341,8 +342,7 @@ export const cultureEvents: CultureEvent[] = [
   },
   {
     title: 'Christmas Celebration',
-    image:
-      'https://ik.imagekit.io/nextloop/NextloopWebAssets/culture/Christmas-Celebration.png',
+    image: ChristmasCelebration,
     description:
       'We wrapped up the year with festive cheer and laughter. A joyful close to a year filled with growth and meaningful connections.',
   },
