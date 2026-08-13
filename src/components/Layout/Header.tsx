@@ -72,7 +72,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
     // { name: 'Hotel', href: '/domain/hotel' },
     { name: 'Oil And Gas', href: '/domain/oil-and-gas' },
     { name: 'Food And Beverages', href: '/domain/food-and-beverages' },
-    { name: 'Travel And Hospitality', href: '/domain/travel-and-hospitality' },
+    // { name: 'Travel And Hospitality', href: '/domain/travel-and-hospitality' },
   ];
 
   // const handleRequestQuote = () => {
