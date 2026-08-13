@@ -9,12 +9,12 @@ import {
   Service3,
   Service4,
   Service5,
-  Service6,
+  //Service6,
   Service7,
   // Service8,
   Service9,
   Service11,
-  // Service12,
+  Service12,
 } from '../../../assets';
 
 interface ServiceCardProps {
@@ -59,11 +59,11 @@ const SERVICE_DATA: ServiceCardProps[] = [
   //   image: Service6 as unknown as string,
   //   link: '/services/ui-ux-development',
   // },
-  {
-    heading: 'E-commerce Development',
-    image: Service6 as unknown as string,
-    link: '/services/e-commerce-development',
-  },
+  // {
+  //   heading: 'E-commerce Development',
+  //   image: Service6 as unknown as string,
+  //   link: '/services/e-commerce-development',
+  // },
   {
     heading: 'AI & ML Solutions',
     image: Service9 as unknown as string,
@@ -74,11 +74,11 @@ const SERVICE_DATA: ServiceCardProps[] = [
     image: Service11 as unknown as string,
     link: '',
   },
-  // {
-  //   heading: 'Digital Marketing Services',
-  //   image: Service12 as unknown as string,
-  //   link: '/services/digital-marketing-services',
-  // },
+  {
+    heading: 'Digital Marketing Services',
+    image: Service12 as unknown as string,
+    link: '/services/digital-marketing-services',
+  },
 ];
 
 const Services: FC = () => {

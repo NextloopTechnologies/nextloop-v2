@@ -43,11 +43,11 @@ const cards: { title: string; desc: string; link: string }[] = [
   //   desc: 'How a product feels often shapes how people use it. Clear layouts, intuitive flows and thoughtful interactions remove friction and make navigation effortless. Our UI/UX design and development service intents on crafting experiences that feel natural, guide users smoothly and keep engagement consistent across every touchpoint.',
   //   link: '/services/ui-ux-development',
   // },
-  {
-    title: 'E-commerce Development',
-    desc: "Turn your online store into a sales powerhouse! We offer end-to-end e-commerce development solutions, from building a secure and user-friendly platform to integrating robust payment gateways and implementing effective marketing strategies. We'll help you transform your online store into a thriving e-commerce empire.",
-    link: '/services/e-commerce-development',
-  },
+  // {
+  //   title: 'E-commerce Development',
+  //   desc: "Turn your online store into a sales powerhouse! We offer end-to-end e-commerce development solutions, from building a secure and user-friendly platform to integrating robust payment gateways and implementing effective marketing strategies. We'll help you transform your online store into a thriving e-commerce empire.",
+  //   link: '/services/e-commerce-development',
+  // },
   {
     title: 'AI & ML Solutions',
     desc: 'Turn complex data into meaningful outcomes using intelligent systems built for real use cases. Our generative AI service include developing models that automate tasks, generate insights and enhance user experiences. From chatbots to predictive systems, these solutions help integrate AI into everyday business workflows.',

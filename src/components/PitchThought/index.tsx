@@ -44,7 +44,11 @@ const services = [
     label: 'Cloud Computing & DevOps',
     href: '/services/cloud-computing-solutions',
   },
-  { label: 'E-commerce Development', href: '/services/e-commerce-development' },
+  // { label: 'E-commerce Development', href: '/services/e-commerce-development' },
+  {
+    label: 'Digital Marketing Services',
+    href: '/services/digital-marketing-services',
+  },
 ];
 
 const industrySolutions = [
