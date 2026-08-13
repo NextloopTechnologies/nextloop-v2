@@ -11,6 +11,9 @@ import {
 } from 'react-icons/fa6';
 import { ImLocation } from 'react-icons/im';
 import { IoIosMail, IoMdMail } from 'react-icons/io';
+import PhoneInput from 'react-phone-input-2';
+
+import 'react-phone-input-2/lib/style.css';
 
 import CustomDropdown from '../../components/CustomDropdown';
 import Layout from '../../components/Layout/Layout';
@@ -24,28 +27,38 @@ interface OptionType {
 }
 
 const ContactForm: FC = () => {
+  const [firstNameError, setFirstNameError] = useState('');
+  const [lastNameError, setLastNameError] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [phoneError, setPhoneError] = useState('');
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [phone, setPhone] = useState('');
+  const [countryCode, setCountryCode] = useState('91');
   const [message, setMessage] = useState('');
   const [subject, setSubject] = useState<OptionType | null>(null);
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const location =
     '101, Kanchan Sagar, 18/1, Near Industry House, Old Palasia, Indore, Madhya Pradesh 452001';
-  const handleEmailChange = (e: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
-    setEmail(e.target.value);
-  };
 
   const validateForm = () => {
-    if (!firstName) return 'First name is required.';
-    if (!lastName) return 'Last name is required.';
+    const nameRegex = /^[a-zA-Z\s'-]{1,20}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!firstName.trim()) return 'First name is required.';
+    if (!nameRegex.test(firstName.trim()))
+      return 'First name should contain only letters and must be under 20 characters.';
+    if (!lastName.trim()) return 'Last name is required.';
+    if (!nameRegex.test(lastName.trim()))
+      return 'Last name should contain only letters and must be under 20 characters.';
     if (!subject) return 'Subject is required.';
-    if (!email) return 'Email is required.';
-    if (!message) return 'Message is required.';
+    if (!email.trim()) return 'Email is required.';
+    if (!emailRegex.test(email.trim()))
+      return 'Please enter a valid email address.';
+    if (!message.trim()) return 'Message is required.';
+    if (phone && !/^\+?[0-9]{7,15}$/.test(phone.trim()))
+      return 'Please enter a valid phone number.';
     return '';
   };
 
@@ -73,7 +86,7 @@ const ContactForm: FC = () => {
       const payload: EnquiryType = {
         fullname: `${firstName} ${lastName}`,
         email,
-        contact: phone,
+        contact: phone.trim() ? `+${countryCode}${phone.trim()}` : '',
         subject: subject?.value || 'development',
         message,
       };
@@ -244,39 +257,111 @@ const ContactForm: FC = () => {
             <div className='flex gap-x-10 justify-end w-full text-black md:pl-10 bg-white p-10 rounded-3xl shadow-2xl md:mt-20'>
               <div className='flex flex-col gap-y-4  w-full'>
                 <div className='relative flex space-x-4'>
-                  <input
-                    type='text'
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    placeholder='First name *'
-                    className='border-b border-gray-400 w-full h-10 bg-transparent focus:outline-none focus:border-gray-600 transition-all duration-300'
-                  />
-                  <input
-                    type='text'
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                    placeholder='Last name *'
-                    className='border-b border-gray-400 w-full h-10 bg-transparent focus:outline-none focus:border-gray-600 transition-all duration-300'
-                  />
+                  <div className='w-full'>
+                    <input
+                      type='text'
+                      value={firstName}
+                      onChange={(e) => {
+                        const value = e.target.value;
+                        setFirstName(value);
+                        const nameRegex = /^[a-zA-Z\s'-]+$/;
+                        if (!value.trim())
+                          setFirstNameError('First name is required.');
+                        else if (!nameRegex.test(value.trim()))
+                          setFirstNameError('Please enter a valid name');
+                        else setFirstNameError('');
+                      }}
+                      placeholder='First name *'
+                      pattern='.*\S.*'
+                      className='border-b border-gray-400 w-full h-10 bg-transparent focus:outline-none focus:border-gray-600 transition-all duration-300'
+                    />
+                    {firstNameError && (
+                      <p className='text-red-500 text-xs mt-1'>
+                        {firstNameError}
+                      </p>
+                    )}
+                  </div>
+                  <div className='w-full'>
+                    <input
+                      type='text'
+                      value={lastName}
+                      onChange={(e) => {
+                        const value = e.target.value;
+                        setLastName(value);
+                        const nameRegex = /^[a-zA-Z\s'-]+$/;
+                        if (!value.trim())
+                          setLastNameError('Last name is required.');
+                        else if (!nameRegex.test(value.trim()))
+                          setLastNameError('Please enter a valid last name.');
+                        else setLastNameError('');
+                      }}
+                      placeholder='Last name *'
+                      pattern='.*\S.*'
+                      className='border-b border-gray-400 w-full h-10 bg-transparent focus:outline-none focus:border-gray-600 transition-all duration-300'
+                    />
+                    {lastNameError && (
+                      <p className='text-red-500 text-xs mt-1'>
+                        {lastNameError}
+                      </p>
+                    )}
+                  </div>
                 </div>
                 <div className='relative'>
                   <input
-                    type='text'
+                    type='email'
                     value={email}
-                    onChange={handleEmailChange}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      setEmail(value);
+                      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                      if (!value.trim()) setEmailError('Email is required.');
+                      else if (!emailRegex.test(value.trim()))
+                        setEmailError('Please enter a valid email address.');
+                      else setEmailError('');
+                    }}
                     className='border-b border-gray-400 w-full h-10 bg-transparent focus:outline-none focus:border-gray-600 transition-all duration-300'
                     placeholder='Email Address *'
                   />
+                  {emailError && (
+                    <p className='text-red-500 text-xs mt-1'>{emailError}</p>
+                  )}
                 </div>
+
                 <div className='relative'>
-                  <input
-                    type='text'
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    placeholder='Phone Number'
-                    className='border-b border-gray-400 w-full h-10 bg-transparent focus:outline-none focus:border-gray-600 transition-all duration-300'
+                  <PhoneInput
+                    country="in"
+                    value={`${countryCode}${phone}`}
+                    onChange={(value, data: { dialCode: string }) => {
+                      const dialCode = data?.dialCode || '';
+                      setCountryCode(dialCode);
+                      const actualNumber = value.slice(dialCode.length);
+                      setPhone(actualNumber);
+                      if (actualNumber && actualNumber.length < 7)
+                        setPhoneError('Please enter a valid phone number.');
+                      else setPhoneError('');
+                    }}
+                    inputStyle={{
+                      width: '100%',
+                      border: 'none',
+                      borderBottom: '1px solid #9ca3af',
+                      borderRadius: '0',
+                      backgroundColor: 'transparent',
+                      height: '40px',
+                    }}
+                    buttonStyle={{
+                      border: 'none',
+                      borderBottom: '1px solid #9ca3af',
+                      backgroundColor: 'transparent',
+                      borderRadius: '0',
+                    }}
+                    containerStyle={{ width: '100%' }}
+                    placeholder='Phone Number (Optional)'
                   />
+                  {phoneError && (
+                    <p className='text-red-500 text-xs mt-1'>{phoneError}</p>
+                  )}
                 </div>
+
                 <CustomDropdown
                   selected={subject}
                   onChange={(option) => setSubject(option)}
