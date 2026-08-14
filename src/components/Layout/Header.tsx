@@ -17,6 +17,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [showIndustriesDropdown, setShowIndustriesDropdown] = useState(false);
+  const [showServicesDropdown, setShowServicesDropdown] = useState(false);
   const headerAnimation = useAnimation();
   const router = useRouter();
   const { pathname } = router;
@@ -74,7 +75,31 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
     { name: 'Food And Beverages', href: '/domain/food-and-beverages' },
     // { name: 'Travel And Hospitality', href: '/domain/travel-and-hospitality' },
   ];
+  const servicesList = [
+    {
+      name: 'Custom Software Development',
+      href: '/services/custom-software-development',
+    },
+    { name: 'IT Staff Augmentation', href: '/services/it-staff-augmentation' },
+    { name: 'Website Development', href: '/services/web-development' },
 
+    { name: 'MVP Development', href: '/services/mvp-development' },
+    {
+      name: 'Cloud Computing And DevOps',
+      href: '/services/cloud-computing-solutions',
+    },
+    {
+      name: 'Mobile App Development',
+      href: '/services/mobile-app-development',
+    },
+
+    // { name: 'E-Commerce Development', href: '/services/e-commerce-development' },
+    { name: 'AI & ML Solutions', href: '/services/ai-ml' },
+    {
+      name: 'Digital Marketing Services',
+      href: '/services/digital-marketing-services',
+    },
+  ];
   // const handleRequestQuote = () => {
   //   const footer = document.getElementById('footer');
   //   if (footer) {
@@ -155,9 +180,41 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
             <li className={`${pathname === '/portfolio' && 'text-orange-500'}`}>
               <Link href='/portfolio'>Portfolio</Link>
             </li>
-            <li className={`${pathname === '/services' && 'text-orange-500'}`}>
-              <Link href='/services'>Services</Link>
+
+            <li
+              className={`relative ${
+                pathname.startsWith('/services') && 'text-orange-500'
+              }`}
+              onMouseEnter={() => setShowServicesDropdown(true)}
+              onMouseLeave={() => setShowServicesDropdown(false)}
+            >
+              <Link
+                href='/services'
+                className='cursor-pointer'
+                aria-haspopup='true'
+              >
+                Services
+              </Link>
+              {showServicesDropdown && (
+                <ul className='absolute left-0 mt-0 w-64 rounded-2xl rounded-tl-none shadow-lg bg-black ring-1 ring-black ring-opacity-5 py-2 pr-2 border border-orange-500 space-y-3'>
+                  {servicesList.map((service) => (
+                    <li
+                      key={service.name}
+                      className={` hover:bg-orange-500 text-white text-sm rounded-sm ${
+                        pathname === service.href
+                          ? 'bg-orange-500 text-white'
+                          : ''
+                      }`}
+                    >
+                      <Link href={service.href} className='block px-3 py-1'>
+                        {service.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
+
             <li className={`${pathname === '/career' && 'text-orange-500'}`}>
               <Link href='/career'>Careers</Link>
             </li>

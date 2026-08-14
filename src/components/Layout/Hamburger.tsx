@@ -27,6 +27,7 @@ const ChevronIcon = ({ isUp }: { isUp: boolean }) => (
 const Hamburger = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showIndustriesDropdown, setShowIndustriesDropdown] = useState(false);
+  const [showServicesDropdown, setShowServicesDropdown] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const router = useRouter();
@@ -62,34 +63,61 @@ const Hamburger = () => {
     { name: 'Food And Beverages', href: '/domain/food-and-beverages' },
     // { name: 'Travel And Hospitality', href: '/domain/travel-and-hospitality' },
   ];
+  const servicesList = [
+    {
+      name: 'Custom Software Development',
+      href: '/services/custom-software-development',
+    },
+    { name: 'IT Staff Augmentation', href: '/services/it-staff-augmentation' },
+    { name: 'Website Development', href: '/services/web-development' },
 
+    { name: 'MVP Development', href: '/services/mvp-development' },
+    {
+      name: 'Cloud Computing And DevOps',
+      href: '/services/cloud-computing-solutions',
+    },
+    {
+      name: 'Mobile App Development',
+      href: '/services/mobile-app-development',
+    },
+
+    // { name: 'E-Commerce Development', href: '/services/e-commerce-development' },
+    { name: 'AI & ML Solutions', href: '/services/ai-ml' },
+    {
+      name: 'Digital Marketing Services',
+      href: '/services/digital-marketing-services',
+    },
+  ];
   const toggleIndustriesDropdown = () => {
     setShowIndustriesDropdown((prev) => !prev);
+  };
+  const toggleServicesDropdown = () => {
+    setShowServicesDropdown((prev) => !prev);
   };
 
   const handleLinkClick = () => {
     setIsOpen(false);
   };
 
-  const handleRequestQuote = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
+  // const handleRequestQuote = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  //   e.preventDefault();
 
-    const footer = document.getElementById('footer');
+  //   const footer = document.getElementById('footer');
 
-    if (footer) {
-      const headerOffset = 100;
-      const elementPosition =
-        footer.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - headerOffset;
+  //   if (footer) {
+  //     const headerOffset = 100;
+  //     const elementPosition =
+  //       footer.getBoundingClientRect().top + window.scrollY;
+  //     const offsetPosition = elementPosition - headerOffset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
+  //     window.scrollTo({
+  //       top: offsetPosition,
+  //       behavior: 'smooth',
+  //     });
 
-      setIsOpen(false);
-    }
-  };
+  //     setIsOpen(false);
+  //   }
+  // };
 
   return (
     <>
@@ -186,12 +214,47 @@ const Hamburger = () => {
 
           <li
             className={`w-full ${
-              pathname === '/services' ? 'text-orange-500' : ''
+              pathname.startsWith('/services') ? 'text-orange-500' : ''
             }`}
           >
-            <Link href='/services' onClick={handleLinkClick}>
-              Services
-            </Link>
+            <div className='flex cursor-pointer items-center justify-between'>
+              <Link
+                href='/services'
+                className='flex-1'
+                onClick={handleLinkClick}
+              >
+                Services
+              </Link>
+              <button
+                type='button'
+                onClick={toggleServicesDropdown}
+                aria-label='Toggle Services dropdown'
+                className='px-2'
+              >
+                <ChevronIcon isUp={showServicesDropdown} />
+              </button>
+            </div>
+
+            {showServicesDropdown && (
+              <ul className='ml-4 mt-2 space-y-2'>
+                {servicesList.map((service) => (
+                  <li
+                    key={service.name}
+                    className={`text-gray-700 opacity-60 hover:text-orange-500 ${
+                      pathname === service.href ? 'text-orange-500' : ''
+                    }`}
+                  >
+                    <Link
+                      href={service.href}
+                      className='block py-1'
+                      onClick={handleLinkClick}
+                    >
+                      {service.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
           </li>
 
           <li
@@ -226,8 +289,8 @@ const Hamburger = () => {
 
           <li className='mt-4 w-full'>
             <Link
-              href='#footer'
-              onClick={handleRequestQuote}
+              href='/contact-us'
+              onClick={handleLinkClick}
               className='inline-block w-full rounded-full bg-orange-500 px-5 py-3 text-center text-white'
             >
               Contact Us &#10230;
