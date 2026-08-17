@@ -74,6 +74,7 @@ interface WhyChooseUsData {
 interface BlogData {
   id: number;
   title: string;
+  slug: string;
   descp: string;
   image: { url: string; fileId: string }[];
 }

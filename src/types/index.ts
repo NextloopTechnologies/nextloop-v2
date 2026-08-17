@@ -1,4 +1,17 @@
 import { StaticImageData } from 'next/image';
+
+export interface AuthorType {
+  name?: string | null;
+  designation?: string | null;
+  description?: string | null;
+  profile?: string | null;
+}
+export interface CategoryType {
+  id: number;
+  name: string;
+  created_at: string;
+  updated_at: string;
+}
 export interface BlogType {
   id: number;
 
@@ -11,8 +24,12 @@ export interface BlogType {
   created_at: string;
 
   updated_at: string;
-
+  slug?: string | null;
   service?: string | null;
+  categories?: CategoryType;
+  category_id?: number | null;
+  author?: AuthorType;
+  author_id?: number | null;
 }
 
 type JobMode = 'Remote' | 'On-site' | 'Hybrid';

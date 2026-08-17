@@ -2,6 +2,7 @@ import supabaseClient from '../utils/client';
 interface BlogData {
   id: number;
   title: string;
+  slug: string;
   descp: string;
   image: any;
 }

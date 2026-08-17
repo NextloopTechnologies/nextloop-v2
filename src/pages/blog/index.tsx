@@ -169,7 +169,7 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
                  text-white  border-none p-0 cursor-pointer'
                 onClick={(e) => {
                   e.stopPropagation();
-                  router.push(`/blog/${data?.[0]?.id}`);
+                  router.push(`/blog/${data?.[0]?.slug}`);
                 }}
               >
                 READ MORE
@@ -188,7 +188,7 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
                 <BlogCard
                   key={blog.id}
                   blog={blog}
-                  onClick={() => router.push(`/blog/${blog.id}`)}
+                  onClick={() => router.push(`/blog/${blog.slug}`)}
                 />
               ))
             ) : (
