@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { Facebook, Instagram,Linkedin } from 'lucide-react';
+import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
@@ -315,12 +315,6 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error }) => {
         )}
 
         <div className='max-w-7xl mx-auto px-4 flex gap-5 items-start'>
-          {/* {tocItems.length > 0 && (
-            <div className='hidden md:block'>
-              <TableOfContents items={tocItems} activeId={activeId} />
-            </div>
-          )} */}
-
           <div className='hidden md:flex flex-col gap-6  w-56 shrink-0'>
             {tocItems.length > 0 && (
               <TableOfContents items={tocItems} activeId={activeId} />
@@ -361,7 +355,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const { data, error } = await supabaseClient
     .from('blogs')
     .select('*,author(*), categories(*)')
-    // .filter('id', 'eq', params?.id)
+    .eq('status', 'published')
     .filter('slug', 'eq', params?.slug)
     .single();
 

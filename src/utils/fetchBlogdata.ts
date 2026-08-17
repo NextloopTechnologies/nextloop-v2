@@ -10,6 +10,7 @@ export async function fetchLatestBlogs(limit = 3): Promise<BlogData[]> {
   const { data, error } = await supabaseClient
     .from('blogs')
     .select('*')
+    .eq('status', 'published')
     .order('created_at', { ascending: false })
     .limit(limit);
 

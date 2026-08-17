@@ -220,6 +220,7 @@ export async function getServerSideProps() {
   const { data, error } = await supabaseClient
     .from('blogs')
     .select('*')
+    .eq('status', 'published')
     .order('created_at', { ascending: false });
 
   if (error) {
