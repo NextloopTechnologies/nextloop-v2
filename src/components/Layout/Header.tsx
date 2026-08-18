@@ -89,7 +89,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
   //     });
   //   }
   // };
-
+  const isLightPage = pathname.startsWith('/portfolio/');
   return (
     <>
       {isLoading && (
@@ -99,7 +99,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
       )}
       <nav
         className={`px-10 fixed transition-all duration-300 ease-in-out top-0 left-0 w-full z-30 ${
-          isSticky
+          isSticky || isLightPage
             ? 'bg-white text-black shadow-md'
             : headerColor ?? 'text-white'
         }`}
