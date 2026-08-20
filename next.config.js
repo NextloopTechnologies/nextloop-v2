@@ -12,11 +12,35 @@ const securityHeaders = [
     key: 'Strict-Transport-Security',
     value: 'max-age=63072000; includeSubDomains; preload',
   },
-  {
-    key: 'Content-Security-Policy-Report-Only',
-    value:
-      "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:;",
+  { 
+    key: 'Content-Security-Policy-Report-Only', 
+    value: "default-src 'self'; " +
+           "script-src 'self' 'unsafe-inline' 'unsafe-eval' " +
+           "https://www.googletagmanager.com " +
+           "https://www.google-analytics.com " +
+           "https://aplo-evnt.com " +
+           "https://embed.tawk.to " +
+           "https://cdn.jsdelivr.net " +
+           "https://assets.apollo.io; " + 
+           "connect-src 'self' " +
+           "https://aplo-evnt.com " +
+           "https://www.google-analytics.com " +
+           "https://*.google-analytics.com " +
+           "https://*.analytics.google.com " +
+           "https://www.googletagmanager.com " +
+           "https://embed.tawk.to " +
+           "wss://*.tawk.to " +
+           "https://*.tawk.to; " +
+           "img-src 'self' data: https: " +
+           "https://res.cloudinary.com " +
+           "https://embed.tawk.to " +
+           "https://*.tawk.to; " +
+           "media-src 'self' https://res.cloudinary.com; " +
+           "style-src 'self' 'unsafe-inline' https://embed.tawk.to; " +
+           "font-src 'self' data: https://embed.tawk.to; " +
+           "frame-src 'self' https://embed.tawk.to https://www.google.com;"
   },
+
 ];
 
 /** @type {import('next').NextConfig} */
