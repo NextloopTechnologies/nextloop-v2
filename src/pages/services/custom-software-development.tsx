@@ -7,6 +7,7 @@ import { servicesSubPagesData } from '../../utils/staticTextImgData';
 interface BlogData {
   id: number;
   title: string;
+  slug: string;
   descp: string;
   image: any;
 }
