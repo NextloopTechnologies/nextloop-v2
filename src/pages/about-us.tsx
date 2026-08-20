@@ -117,12 +117,10 @@ const AboutUsHome = () => {
   return (
     <Layout>
       <Head>
-        <title>
-          Blockchain Development Company & IT Services | Custom Web3 Solutions
-        </title>
+        <title>Custom Software & AI Development Company | Nextloop</title>
         <meta
           name='description'
-          content='Get to know our team at Nextloop. We are a contract-based it company in India that provides custom blockchain app & web development services for businesses across the globe'
+          content='Nextloop Technologies is a CMMI Level 3 certified custom software and AI development partner. We provide scalable IT solutions and staff augmentation globally.'
         />
         <script
           type='application/ld+json'

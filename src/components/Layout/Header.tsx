@@ -6,6 +6,10 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 import LoaderSvg from '../Loader/loader';
+import {
+  availableIndustries,
+  availableServices,
+} from '../../utils/staticTextImgData';
 import { NextLoopColoredLogo } from '../../../assets';
 
 interface HeaderProps {
@@ -17,6 +21,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [showIndustriesDropdown, setShowIndustriesDropdown] = useState(false);
+  const [showServicesDropdown, setShowServicesDropdown] = useState(false);
   const headerAnimation = useAnimation();
   const router = useRouter();
   const { pathname } = router;
@@ -63,17 +68,6 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
       router.events.off('routeChangeComplete', handleComplete);
     };
   }, [router]);
-
-  const industries = [
-    // { name: 'E-commerce', href: '/domain/ecommerce' },
-    { name: 'Events', href: '/domain/events' },
-    { name: 'Fin-Tech', href: '/domain/fintech' },
-    { name: 'Healthcare', href: '/domain/healthcare' },
-    // { name: 'Hotel', href: '/domain/hotel' },
-    { name: 'Oil And Gas', href: '/domain/oil-and-gas' },
-    { name: 'Food And Beverages', href: '/domain/food-and-beverages' },
-    // { name: 'Travel And Hospitality', href: '/domain/travel-and-hospitality' },
-  ];
 
   // const handleRequestQuote = () => {
   //   const footer = document.getElementById('footer');
@@ -135,7 +129,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
               </div>
               {showIndustriesDropdown && (
                 <ul className='absolute left-0 mt-0 w-48 rounded-2xl rounded-tl-none shadow-lg bg-black ring-1 ring-black ring-opacity-5 py-2 pr-2 border border-orange-500 space-y-3'>
-                  {industries.map((industry) => (
+                  {availableIndustries.map((industry) => (
                     <li
                       key={industry.name}
                       className={` hover:bg-orange-500 text-white text-sm rounded-sm ${
@@ -155,9 +149,41 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
             <li className={`${pathname === '/portfolio' && 'text-orange-500'}`}>
               <Link href='/portfolio'>Portfolio</Link>
             </li>
-            <li className={`${pathname === '/services' && 'text-orange-500'}`}>
-              <Link href='/services'>Services</Link>
+
+            <li
+              className={`relative ${
+                pathname.startsWith('/services') && 'text-orange-500'
+              }`}
+              onMouseEnter={() => setShowServicesDropdown(true)}
+              onMouseLeave={() => setShowServicesDropdown(false)}
+            >
+              <Link
+                href='/services'
+                className='cursor-pointer'
+                aria-haspopup='true'
+              >
+                Services
+              </Link>
+              {showServicesDropdown && (
+                <ul className='absolute left-0 mt-0 w-64 rounded-2xl rounded-tl-none shadow-lg bg-black ring-1 ring-black ring-opacity-5 py-2 pr-2 border border-orange-500 space-y-3'>
+                  {availableServices.map((service) => (
+                    <li
+                      key={service.name}
+                      className={` hover:bg-orange-500 text-white text-sm rounded-sm ${
+                        pathname === service.href
+                          ? 'bg-orange-500 text-white'
+                          : ''
+                      }`}
+                    >
+                      <Link href={service.href} className='block px-3 py-1'>
+                        {service.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
+
             <li className={`${pathname === '/career' && 'text-orange-500'}`}>
               <Link href='/career'>Careers</Link>
             </li>
