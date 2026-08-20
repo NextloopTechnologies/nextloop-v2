@@ -68,7 +68,7 @@ const TableOfContents: React.FC<{ items: TocItem[]; activeId: string }> = ({
     <aside className='bg-white border-2 border-orange-500 rounded-lg overflow-hidden sticky top-6 w-56 shrink-0'>
       {/* Orange header */}
       <div className='bg-orange-500 text-white text-[0.7rem] font-bold tracking-widest uppercase px-3 py-2'>
-        TABLES OF CONTENT
+        TABLE OF CONTENT
       </div>
 
       {/* Links */}
