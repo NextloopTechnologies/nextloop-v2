@@ -13,6 +13,7 @@ interface BlogItem {
   id: number;
   title: string;
   descp: string;
+  slug: string;
   image: { url: string; fileId: string }[];
 }
 
@@ -37,7 +38,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ blogData }) => {
             <div
               key={blog.id}
               className='bg-white rounded-lg shadow-md p-4 border cursor-pointer flex flex-col h-full'
-              onClick={() => router.push(`/blog/${blog.id}`)}
+              onClick={() => router.push(`/blog/${blog.slug}`)}
             >
               <div className='relative w-full h-56 mb-4'>
                 <Image

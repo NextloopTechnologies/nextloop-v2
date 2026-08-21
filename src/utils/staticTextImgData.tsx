@@ -34,6 +34,16 @@ import {
   eventAssets,
   fintechAssets,
   healthcareAssets,
+  Service1,
+  Service2,
+  Service3,
+  Service4,
+  Service5,
+  // Service6,
+  Service7,
+  Service9,
+  // Service11,
+  Service12,
 } from '../../assets';
 import {
   ArthnextLogo,
@@ -135,6 +145,109 @@ export const faqsContent: IFAQ[] = [
     answer:
       'We use a wide range of technologies including JavaScript (React, Node.js), Java, Python, and many more to ensure the best solution for your business.',
   },
+];
+
+export interface SiteRoute {
+  name: string;
+  href: string;
+  image?: string;
+  description?: string;
+}
+
+export const availableIndustries: SiteRoute[] = [
+  { name: 'Events', href: '/domain/events' },
+  { name: 'Fin-Tech', href: '/domain/fintech' },
+  { name: 'Healthcare', href: '/domain/healthcare' },
+  { name: 'Oil And Gas', href: '/domain/oil-and-gas' },
+  { name: 'Food And Beverages', href: '/domain/food-and-beverages' },
+  // { name: 'Hotel', href: '/domain/hotel' },
+  // { name: 'E-commerce', href: '/domain/ecommerce' },
+  // { name: 'Travel And Hospitality', href: '/domain/travel-and-hospitality' },
+];
+
+export const availableServices: SiteRoute[] = [
+  {
+    name: 'AI & ML Solutions',
+    href: '/services/ai-ml',
+    image: Service9 as unknown as string,
+    description:
+      'Turn complex data into meaningful outcomes using intelligent systems built for real use cases. Our generative AI service includes developing models that automate tasks, generate insights and enhance user experiences. From chatbots to predictive systems, these solutions help integrate AI into everyday business workflows.',
+  },
+  {
+    name: 'MVP Development',
+    href: '/services/mvp-development',
+    image: Service3 as unknown as string,
+    description:
+      'Start with a focused version of your product that solves a real problem and can be tested quickly in the market. Designed for early-stage ideas, our MVP development service for startups helps you validate concepts, gather real user feedback and move forward with clarity.',
+  },
+  {
+    name: 'Website Development',
+    href: '/services/web-development',
+    image: Service2 as unknown as string,
+    description:
+      'Create a strong digital presence with websites that are fast, easy to navigate, and built for real users. Through our website design and development service, we emphasize delivering responsive experiences that not only look good but also perform seamlessly across devices.',
+  },
+  {
+    name: 'IT Staff Augmentation',
+    href: '/services/it-staff-augmentation',
+    image: Service7 as unknown as string,
+    description:
+      'Expand your development capacity without long hiring cycles. If you need to hire remote developers, we enable you to add skilled professionals to your team who work within your processes and contribute from day one. It helps you manage changing project demands while keeping delivery consistent and on schedule.',
+  },
+  {
+    name: 'Mobile App Development',
+    href: '/services/mobile-app-development',
+    image: Service5 as unknown as string,
+    description:
+      'Mobile experiences today need to feel seamless, whether users are on Android, iOS, or multiple devices. Covering native and cross-platform builds, our cross-platform app development service focuses on delivering apps that run smoothly, stay consistent and keep users engaged over time.',
+  },
+  {
+    name: 'Custom Software Development',
+    href: '/services/custom-software-development',
+    image: Service1 as unknown as string,
+    description:
+      'We design and build software tailored to your business needs, from internal tools to full-scale platforms. With our custom software application development service, we focus on creating reliable, scalable solutions that simplify operations and support your business as it grows.',
+  },
+  {
+    name: 'Cloud Computing And DevOps',
+    href: '/services/cloud-computing-solutions',
+    image: Service4 as unknown as string,
+    description:
+      'Managing infrastructure becomes easier when systems are built to scale, adapt and stay secure from the start. As a cloud services provider, our aim is to create environments that handle workloads efficiently while also supporting flexibility, performance and long-term stability.',
+  },
+  {
+    name: 'Digital Marketing Services',
+    href: '/services/digital-marketing-services',
+    image: Service12 as unknown as string,
+    description:
+      "Take your brand to the next level with Nextloop's data-driven digital marketing solutions. Through SEO, advertisements, and social media interaction, we combine strategy, technology, and creativity to increase traffic, lead generation, and conversions.",
+  },
+  // {
+  //   name: 'UI/UX Development',
+  //   href: '/services/ui-ux-development',
+  //   image: Service6 as unknown as string,
+  // },
+  // { name: 'Technical Support', href: '/services/technical-support' },
+  // {
+  //   name: 'E-Commerce Development',
+  //   href: '/services/e-commerce-development',
+  //   image: Service6 as unknown as string,
+  // },
+  // {
+  //   name: 'Quality Assurance & Software Testing',
+  //   href: '/services/software-testing-qa-services',
+  //   image: Service11 as unknown as string,
+  // },
+];
+
+export const quickLinks: SiteRoute[] = [
+  { name: 'About us', href: '/about-us' },
+  { name: 'Portfolio', href: '/portfolio' },
+  { name: 'Services', href: '/services' },
+  { name: 'Careers', href: '/career' },
+  { name: 'Blogs', href: '/blog' },
+  { name: 'Culture', href: '/culture' },
+  { name: 'Contact Us', href: '/contact-us' },
 ];
 
 export const expertiseData = [

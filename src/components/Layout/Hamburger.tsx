@@ -5,6 +5,10 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 import LoaderSvg from '../Loader/loader';
+import {
+  availableIndustries,
+  availableServices,
+} from '../../utils/staticTextImgData';
 import { NextLoopColoredLogo } from '../../../assets';
 import navIcon from '../../../public/hamburger.svg';
 
@@ -54,40 +58,6 @@ const Hamburger = () => {
     };
   }, [router.events]);
 
-  const industries = [
-    // { name: 'E-commerce', href: '/domain/ecommerce' },
-    { name: 'Events', href: '/domain/events' },
-    { name: 'Fin-Tech', href: '/domain/fintech' },
-    { name: 'Healthcare', href: '/domain/healthcare' },
-    { name: 'Oil And Gas', href: '/domain/oil-and-gas' },
-    { name: 'Food And Beverages', href: '/domain/food-and-beverages' },
-    // { name: 'Travel And Hospitality', href: '/domain/travel-and-hospitality' },
-  ];
-  const servicesList = [
-    {
-      name: 'Custom Software Development',
-      href: '/services/custom-software-development',
-    },
-    { name: 'IT Staff Augmentation', href: '/services/it-staff-augmentation' },
-    { name: 'Website Development', href: '/services/web-development' },
-
-    { name: 'MVP Development', href: '/services/mvp-development' },
-    {
-      name: 'Cloud Computing And DevOps',
-      href: '/services/cloud-computing-solutions',
-    },
-    {
-      name: 'Mobile App Development',
-      href: '/services/mobile-app-development',
-    },
-
-    // { name: 'E-Commerce Development', href: '/services/e-commerce-development' },
-    { name: 'AI & ML Solutions', href: '/services/ai-ml' },
-    {
-      name: 'Digital Marketing Services',
-      href: '/services/digital-marketing-services',
-    },
-  ];
   const toggleIndustriesDropdown = () => {
     setShowIndustriesDropdown((prev) => !prev);
   };
@@ -98,26 +68,6 @@ const Hamburger = () => {
   const handleLinkClick = () => {
     setIsOpen(false);
   };
-
-  // const handleRequestQuote = (e: React.MouseEvent<HTMLAnchorElement>) => {
-  //   e.preventDefault();
-
-  //   const footer = document.getElementById('footer');
-
-  //   if (footer) {
-  //     const headerOffset = 100;
-  //     const elementPosition =
-  //       footer.getBoundingClientRect().top + window.scrollY;
-  //     const offsetPosition = elementPosition - headerOffset;
-
-  //     window.scrollTo({
-  //       top: offsetPosition,
-  //       behavior: 'smooth',
-  //     });
-
-  //     setIsOpen(false);
-  //   }
-  // };
 
   return (
     <>
@@ -182,7 +132,7 @@ const Hamburger = () => {
 
             {showIndustriesDropdown && (
               <ul className='ml-4 mt-2 space-y-2'>
-                {industries.map((industry) => (
+                {availableIndustries.map((industry) => (
                   <li
                     key={industry.name}
                     className={`text-gray-700 opacity-60 hover:text-orange-500 ${
@@ -237,7 +187,7 @@ const Hamburger = () => {
 
             {showServicesDropdown && (
               <ul className='ml-4 mt-2 space-y-2'>
-                {servicesList.map((service) => (
+                {availableServices.map((service) => (
                   <li
                     key={service.name}
                     className={`text-gray-700 opacity-60 hover:text-orange-500 ${

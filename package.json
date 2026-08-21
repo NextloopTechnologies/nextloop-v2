@@ -37,6 +37,7 @@
   "devDependencies": {
     "@next/bundle-analyzer": "^13.1.1",
     "@next/eslint-plugin-next": "^13.1.1",
+    "@tailwindcss/typography": "^0.5.20",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@types/node": "^20.5.9",

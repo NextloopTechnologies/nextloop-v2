@@ -4,6 +4,11 @@ import Link from 'next/link';
 import React, { FC } from 'react';
 
 import {
+  availableIndustries,
+  availableServices,
+  quickLinks,
+} from '../../utils/staticTextImgData';
+import {
   Certificate1,
   Certificate2,
   Certificate3,
@@ -28,47 +33,6 @@ const OURVALUES_DATA: ServiceCardProps[] = [
   {
     image: Certificate5 as unknown as string,
   },
-];
-
-const services = [
-  {
-    label: 'Custom Software Development',
-    href: '/services/custom-software-development',
-  },
-  { label: 'IT Staff Augmentation', href: '/services/it-staff-augmentation' },
-  { label: 'Website Development', href: '/services/web-development' },
-  { label: 'Mobile App Development', href: '/services/mobile-app-development' },
-  { label: 'MVP Development', href: '/services/mvp-development' },
-  { label: 'AI & ML Solutions', href: '/services/ai-ml' },
-  {
-    label: 'Cloud Computing & DevOps',
-    href: '/services/cloud-computing-solutions',
-  },
-  // { label: 'E-commerce Development', href: '/services/e-commerce-development' },
-  {
-    label: 'Digital Marketing Services',
-    href: '/services/digital-marketing-services',
-  },
-];
-
-const industrySolutions = [
-  { label: 'Events', href: '/domain/events' },
-  { label: 'Fin-Tech', href: '/domain/fintech' },
-  { label: 'Healthcare', href: '/domain/healthcare' },
-  // { label: 'Hotel', href: '/domain/hotel' },
-  { label: 'Oil And Gas', href: '/domain/oil-and-gas' },
-  { label: 'Food And Beverages', href: '/domain/food-and-beverages' },
-  // { label: 'Travel And Hospitality', href: '/domain/travel-and-hospitality' },
-];
-
-const quickLinks = [
-  { label: 'About us', href: '/about-us' },
-  { label: 'Portfolio', href: '/portfolio' },
-  { label: 'Services', href: '/services' },
-  { label: 'Careers', href: '/career' },
-  { label: 'Blogs', href: '/blog' },
-  { label: 'Culture', href: '/culture' },
-  { label: 'Contact Us', href: '/contact-us' },
 ];
 
 const Pitchthought: FC = () => {
@@ -125,13 +89,13 @@ const Pitchthought: FC = () => {
                 Services
               </h3>
               <ul className='space-y-2'>
-                {services.map(({ label, href }) => (
-                  <li key={label}>
+                {availableServices.map(({ name, href }) => (
+                  <li key={name}>
                     <Link
                       href={href}
                       className='text-white text-sm hover:text-orange-400 transition-colors'
                     >
-                      {label}
+                      {name}
                     </Link>
                   </li>
                 ))}
@@ -143,13 +107,13 @@ const Pitchthought: FC = () => {
                 Industry Solutions
               </h3>
               <ul className='space-y-2'>
-                {industrySolutions.map(({ label, href }) => (
-                  <li key={label}>
+                {availableIndustries.map(({ name, href }) => (
+                  <li key={name}>
                     <Link
                       href={href}
                       className='text-white text-sm hover:text-orange-400 transition-colors'
                     >
-                      {label}
+                      {name}
                     </Link>
                   </li>
                 ))}
@@ -161,13 +125,13 @@ const Pitchthought: FC = () => {
                 Quick Links
               </h3>
               <ul className='space-y-2'>
-                {quickLinks.map(({ label, href }) => (
-                  <li key={label}>
+                {quickLinks.map(({ name, href }) => (
+                  <li key={name}>
                     <Link
                       href={href}
                       className='text-white text-sm hover:text-orange-400 transition-colors'
                     >
-                      {label}
+                      {name}
                     </Link>
                   </li>
                 ))}

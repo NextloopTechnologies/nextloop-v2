@@ -3,83 +3,7 @@ import React, { FC } from 'react';
 
 import OurServieceCard from '../OurServieceCard';
 import palette from '../../styles/pallette';
-import {
-  Service1,
-  Service2,
-  Service3,
-  Service4,
-  Service5,
-  //Service6,
-  Service7,
-  // Service8,
-  Service9,
-  Service11,
-  Service12,
-} from '../../../assets';
-
-interface ServiceCardProps {
-  heading: string;
-  image: string;
-  link: string;
-}
-
-const SERVICE_DATA: ServiceCardProps[] = [
-  {
-    heading: 'Custom Software Development',
-    image: Service1 as unknown as string,
-    link: '/services/custom-software-development',
-  },
-  {
-    heading: 'IT Staff Augmentation',
-    image: Service7 as unknown as string,
-    link: '/services/it-staff-augmentation',
-  },
-  {
-    heading: 'Website Development',
-    image: Service2 as unknown as string,
-    link: '/services/web-development',
-  },
-  {
-    heading: 'MVP Development',
-    image: Service3 as unknown as string,
-    link: '/services/mvp-development',
-  },
-  {
-    heading: 'Cloud Computing & Devops Solutions',
-    image: Service4 as unknown as string,
-    link: '/services/cloud-computing-solutions',
-  },
-  {
-    heading: 'Mobile App Development',
-    image: Service5 as unknown as string,
-    link: '/services/mobile-app-development',
-  },
-  // {
-  //   heading: 'UI/UX Design & Development ',
-  //   image: Service6 as unknown as string,
-  //   link: '/services/ui-ux-development',
-  // },
-  // {
-  //   heading: 'E-commerce Development',
-  //   image: Service6 as unknown as string,
-  //   link: '/services/e-commerce-development',
-  // },
-  {
-    heading: 'AI & ML Solutions',
-    image: Service9 as unknown as string,
-    link: '/services/ai-ml',
-  },
-  {
-    heading: 'Quality Assurance & Software Testing ',
-    image: Service11 as unknown as string,
-    link: '',
-  },
-  {
-    heading: 'Digital Marketing Services',
-    image: Service12 as unknown as string,
-    link: '/services/digital-marketing-services',
-  },
-];
+import { availableServices } from '../../utils/staticTextImgData';
 
 const Services: FC = () => {
   return (
@@ -105,13 +29,13 @@ const Services: FC = () => {
 
       {/* Services Grid */}
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 p-4 mt-10 place-items-center'>
-        {SERVICE_DATA.map((data, index) => (
+        {availableServices.map((data, index) => (
           <Link
             key={index}
-            href={data.link}
+            href={data.href}
             className='transition-transform hover:scale-105'
           >
-            <OurServieceCard heading={data.heading} image={data.image} />
+            <OurServieceCard heading={data.name} image={data.image ?? ''} />
           </Link>
         ))}
       </div>
