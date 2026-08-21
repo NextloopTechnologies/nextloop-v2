@@ -155,7 +155,7 @@ export interface SiteRoute {
 }
 
 export const availableIndustries: SiteRoute[] = [
-  { name: 'Events', href: '/domain/events' },
+  // { name: 'Events', href: '/domain/events' },
   { name: 'Fin-Tech', href: '/domain/fintech' },
   { name: 'Healthcare', href: '/domain/healthcare' },
   { name: 'Oil And Gas', href: '/domain/oil-and-gas' },

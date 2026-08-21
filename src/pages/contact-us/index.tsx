@@ -1,3 +1,4 @@
+import { isValidPhoneNumber } from 'libphonenumber-js';
 import Head from 'next/head';
 import Link from 'next/link';
 import React, { FC, useState } from 'react';
@@ -36,6 +37,7 @@ const ContactForm: FC = () => {
   const [lastName, setLastName] = useState('');
   const [phone, setPhone] = useState('');
   const [countryCode, setCountryCode] = useState('91');
+  const [countryIso, setCountryIso] = useState<string>('IN');
   const [message, setMessage] = useState('');
   const [subject, setSubject] = useState<OptionType | null>(null);
   const [error, setError] = useState('');
@@ -57,8 +59,11 @@ const ContactForm: FC = () => {
     if (!emailRegex.test(email.trim()))
       return 'Please enter a valid email address.';
     if (!message.trim()) return 'Message is required.';
-    if (phone && !/^\+?[0-9]{7,15}$/.test(phone.trim()))
-      return 'Please enter a valid phone number.';
+    if (phone.trim()) {
+      const fullNumber = `+${countryCode}${phone.trim()}`;
+      if (!isValidPhoneNumber(fullNumber, countryIso as any))
+        return 'Please enter a valid phone number for selected country.';
+    }
     return '';
   };
 
@@ -329,16 +334,32 @@ const ContactForm: FC = () => {
 
                 <div className='relative'>
                   <PhoneInput
-                    country="in"
+                    country='in'
                     value={`${countryCode}${phone}`}
-                    onChange={(value, data: { dialCode: string }) => {
+                    onChange={(
+                      value,
+                      data: { dialCode: string; countryCode: string }
+                    ) => {
                       const dialCode = data?.dialCode || '';
+                      const iso = data?.countryCode?.toUpperCase() || 'IN';
                       setCountryCode(dialCode);
+                      setCountryIso(iso);
                       const actualNumber = value.slice(dialCode.length);
                       setPhone(actualNumber);
-                      if (actualNumber && actualNumber.length < 7)
-                        setPhoneError('Please enter a valid phone number.');
-                      else setPhoneError('');
+                      if (!actualNumber) {
+                        setPhoneError('');
+                      } else {
+                        const fullNumber = `+${value}`;
+                        const valid = isValidPhoneNumber(
+                          fullNumber,
+                          iso as any
+                        );
+                        setPhoneError(
+                          valid
+                            ? ''
+                            : 'Please enter a valid phone number for selected country.'
+                        );
+                      }
                     }}
                     inputStyle={{
                       width: '100%',
