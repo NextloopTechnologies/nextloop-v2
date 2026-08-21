@@ -120,7 +120,7 @@ const HealthCare: React.FC = () => {
         <WhyBuild
           image={getStaticImageData(healthcareAssets.whyBuildImg)}
           title='What Is Healthcare Software Development —  '
-          colouredTitle='And Why Does It Matter?'
+          colouredTitle='And Why Does It Matter'
           informationSection={
             <div className='max-w-[737px] flex flex-col justify-center px-5 md:px-0 gap-2'>
               <p

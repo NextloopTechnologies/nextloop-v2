@@ -97,7 +97,7 @@ const Events = () => {
         />
         <WhyBuild
           image={getStaticImageData(eventAssets.WhyBuildEventManagement)}
-          title='Why build a custom software solution for'
+          title='Why Build a Custom Software Solution for'
           colouredTitle='Event Management'
           informationSection={
             <div className={`mx-14 md:mx-10 lg:mx-0 md:max-w-[600px] `}>
@@ -121,7 +121,7 @@ const Events = () => {
                 out the first invitation to saying goodbye to the last guest.
               </p>
               <h3
-                className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} uppercase my-2 font-semibold`}
+                className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}  my-2 font-semibold`}
               >
                 The Benefits of Event Management Software
               </h3>
@@ -144,7 +144,7 @@ const Events = () => {
         {/* <ClientReviews /> */}
         <DesignYourEvents />
         <FAQ faqsContent={faqsContent} />
-        <CustomRequestQuote title='Your complete event management platform' />
+        <CustomRequestQuote title='Your Complete Event Management Platform' />
       </Layout>
     </>
   );

@@ -17,7 +17,7 @@ const data = [
   {
     id: 2,
     image: getStaticImageData(oilAndGasAssets.complianceKeyImg),
-    title: 'Oil and gas field service management software',
+    title: 'Oil and Gas Field Service Management Software',
     description:
       'Use smart technology for tracking maintenance planning and daily inspections. Decrease your operating expenses prolong your asset life and easily prevent unplanned equipment failures by proactively managing all machinery lifecycles.',
   },
@@ -31,14 +31,14 @@ const data = [
   {
     id: 4,
     image: getStaticImageData(oilAndGasAssets.dataSoftwareImg),
-    title: 'Supply chain optimization for oilfield services',
+    title: 'Supply Chain Optimization for Oilfield Services',
     description:
       'Use integrated tools for better inventory logistics and procurement management. Cut your lead times totally avoid material shortages and keep field operations uniform across distant remote locations without any stress.',
   },
   {
     id: 5,
     image: getStaticImageData(oilAndGasAssets.fleetImg),
-    title: 'Digital twin technology for oil and gas',
+    title: 'Digital Twin Technology for Oil and Gas',
     description:
       'Make much smarter decisions using virtual replicas to estimate equipment breakdowns early. You can dramatically reduce downtime and increase daily operational efficiency with our clear actionable data driven insights.',
   },
@@ -72,13 +72,13 @@ const ImageWithHoverInfo: React.FC<ImageWithHoverInfoProps> = ({
     />
     <div className='absolute bottom-0 flex flex-col items-center text-white mb-4 group-hover:opacity-0 transition-opacity'>
       <h2
-        className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} uppercase font-bold`}
+        className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}  font-bold`}
       >
         {title}
       </h2>
     </div>
     <div className='absolute inset-0 bg-[#FA8145BF] flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 p-10 m-3 transition-opacity'>
-      <h2 className='uppercase text-lg lg:text-base xl:text-2xl font-bold text-white mb-2'>
+      <h2 className='text-lg lg:text-base xl:text-2xl font-bold text-white mb-2'>
         {title}
       </h2>
       <p
@@ -97,8 +97,8 @@ const WhatCanIBuild = () => {
         <h2
           className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold text-center`}
         >
-          How to improve operational efficiency{' '}
-          <span className='text-orange-500'>in oil and gas</span>
+          How to Improve Operational Efficiency{' '}
+          <span className='text-orange-500'>in Oil and Gas</span>
         </h2>
         <div
           className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} mx-10  text-center mt-5`}

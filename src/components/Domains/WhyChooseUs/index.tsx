@@ -14,7 +14,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ whyChooseContent }) => {
       <h1
         className={` font-bold text-center mb-[30px] ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop}`}
       >
-        Why Partner with <span className='text-orange-500'>Next Loop?</span>
+        Why Partner with <span className='text-orange-500'>NextLoop?</span>
       </h1>
       <div className='relative flex flex-col items-center md:px-5 mb-5 md:mb-0'>
         <div className='md:absolute md:left-[13%] bg-[#FA8145] sm:pl-[300px] md:pl-[370px] lg:pl-[515px] text-white md:flex md:flex-col md:justify-center lg:h-[480px] z-10'>
