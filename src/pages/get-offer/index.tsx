@@ -2,19 +2,13 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 
+import { OfferFormData } from '../../types';
 import { createOfferApplications } from '../../utils/db';
 import { offerPageBg, offersLogo } from '../../../assets';
 
-interface FormData {
-  name: string;
-  email: string;
-  phone: string;
-  company_name?: string;
-}
-
 const OffersPage = () => {
   const router = useRouter();
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<OfferFormData>({
     name: '',
     email: '',
     phone: '',

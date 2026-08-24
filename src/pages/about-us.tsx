@@ -10,7 +10,7 @@ import {
   TrophyIcon,
 } from 'lucide-react';
 import Head from 'next/head';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import { useRef } from 'react';
 
 import Layout from '../components/Layout/Layout';
@@ -18,6 +18,7 @@ import MeetFounders from '../components/MeetFounders';
 import PageHero from '../components/PageHero';
 import Timeline from '../components/Timeline';
 import palette from '../styles/pallette';
+import { CertificateCardProps, Service } from '../types';
 import { getSchemaMarkup } from '../utils/seoSchemas';
 import { AboutNextloopBackground } from '../../assets';
 import aboutBg from '../../assets/about-us-hero.webp';
@@ -25,18 +26,6 @@ import cert1 from '../../assets/certificates/1.png';
 import cert2 from '../../assets/certificates/2.png';
 import cert3 from '../../assets/certificates/3.png';
 import cert5 from '../../assets/certificates/5.png';
-// export interface Service {
-
-//   icon: string;
-//   title: string;
-//   description: string;
-// }
-
-export interface Service {
-  icon: React.ElementType;
-  title: string;
-  description: string;
-}
 
 const servicesData: Service[] = [
   {
@@ -106,12 +95,6 @@ const certificateCardArr = [
     sub: 'We are a DesignRush Verified Agency for 2024 — a mark of trust, creativity, and professional excellence in the digital service space.',
   },
 ];
-
-interface CertificateCardProps {
-  img: StaticImageData;
-  title: string;
-  sub: string;
-}
 
 const AboutUsHome = () => {
   return (

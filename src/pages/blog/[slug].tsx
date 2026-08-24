@@ -7,14 +7,8 @@ import { useEffect, useState } from 'react';
 import { FaXTwitter } from 'react-icons/fa6';
 
 import Layout from '../../components/Layout/Layout';
-import { BlogType } from '../../types';
+import { BlogIDProps, BlogType, TocItem } from '../../types';
 import supabaseClient from '../../utils/client';
-
-interface TocItem {
-  id: string;
-  text: string;
-  level: number;
-}
 
 const MetaRow: React.FC<{ publishedAt?: string; readTime?: string }> = ({
   publishedAt,
@@ -200,11 +194,6 @@ const AuthorSection: React.FC<{ blog: BlogType }> = ({ blog }) => {
     </div>
   );
 };
-
-interface BlogIDProps {
-  data?: BlogType;
-  error?: string;
-}
 
 const BlogID: React.FC<BlogIDProps> = ({ data, error }) => {
   const [tocItems, setTocItems] = useState<TocItem[]>([]);

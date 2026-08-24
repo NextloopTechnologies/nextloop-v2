@@ -1,9 +1,6 @@
 import React from 'react';
 
-import {
-  NotJustAPartnerData,
-  PartnerItem,
-} from '../pages/services/BaseServicePages';
+import { NotJustAPartnerData, PartnerItem } from '../types';
 
 interface NotJustAPartnerProps {
   data?: NotJustAPartnerData;

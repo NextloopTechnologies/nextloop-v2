@@ -23,12 +23,7 @@ import { MdComputer } from 'react-icons/md';
 import { PiExcludeSquareDuotone, PiEyeBold } from 'react-icons/pi';
 
 import { getStaticImageData } from './helper';
-import type {
-  TechKey,
-  TechTalentData,
-} from '../pages/services/BaseServicePages';
-import { IFAQ } from '../types';
-import { CultureEvent } from '../types';
+import { CultureEvent, IFAQ, TechKey, TechTalentData } from '../types';
 import {
   ecommerceAssets,
   eventAssets,

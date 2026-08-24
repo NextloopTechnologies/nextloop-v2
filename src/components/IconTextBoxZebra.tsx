@@ -2,7 +2,7 @@ import { MoveLeft, MoveRight } from 'lucide-react';
 import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 
-import { ExpertiseData } from '../pages/services/BaseServicePages';
+import { ExpertiseData } from '../types';
 
 interface IconTextBoxZebraProps {
   data: ExpertiseData;

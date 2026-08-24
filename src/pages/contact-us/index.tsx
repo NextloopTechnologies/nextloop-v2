@@ -1,4 +1,3 @@
-import { isValidPhoneNumber } from 'libphonenumber-js';
 import Head from 'next/head';
 import Link from 'next/link';
 import React, { FC, useState } from 'react';
@@ -19,99 +18,144 @@ import 'react-phone-input-2/lib/style.css';
 import CustomDropdown from '../../components/CustomDropdown';
 import Layout from '../../components/Layout/Layout';
 import palette from '../../styles/pallette';
-import { EnquiryType } from '../../types';
+import {
+  ContactFormData,
+  ContactFormErrors,
+  EnquiryType,
+  OptionType,
+} from '../../types';
 import { createInquiryForm } from '../../utils/db';
 import {
-  strictNameRegex,
   validateEmail,
   validateLastName,
   validateName,
   validatePhone,
-} from '../../utils/validation';
-
-interface OptionType {
-  label: string;
-  value: string;
-}
+} from '../../utils/formValidation';
 
 const ContactForm: FC = () => {
-  const [firstNameError, setFirstNameError] = useState('');
-  const [lastNameError, setLastNameError] = useState('');
-  const [emailError, setEmailError] = useState('');
-  const [phoneError, setPhoneError] = useState('');
-  const [email, setEmail] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [phone, setPhone] = useState('');
   const [countryCode, setCountryCode] = useState('91');
   const [countryIso, setCountryIso] = useState<string>('IN');
-  const [message, setMessage] = useState('');
   const [subject, setSubject] = useState<OptionType | null>(null);
-  const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+
+  const [formData, setFormData] = useState<ContactFormData>({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: '',
+    message: '',
+  });
+
+  const [errors, setErrors] = useState<ContactFormErrors>({
+    firstName: null,
+    lastName: null,
+    email: null,
+    phoneNumber: null,
+    subject: null,
+    message: null,
+  });
+
   const location =
     '101, Kanchan Sagar, 18/1, Near Industry House, Old Palasia, Indore, Madhya Pradesh 452001';
 
-  const validateForm = () => {
-    if (!firstName.trim()) return 'First name is required.';
-    if (!strictNameRegex.test(firstName.trim()))
-      return 'First name should contain only letters and must be under 20 characters.';
-    if (!lastName.trim()) return 'Last name is required.';
-    if (!strictNameRegex.test(lastName.trim()))
-      return 'Last name should contain only letters and must be under 20 characters.';
-    if (!subject) return 'Subject is required.';
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
-    const emailErrorMsg = validateEmail(email);
-    if (emailErrorMsg) return emailErrorMsg;
+  const handleBlur = (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    let error: string | null = null;
 
-    if (!message.trim()) return 'Message is required.';
+    if (name === 'firstName') error = validateName(value) || null;
+    else if (name === 'lastName') error = validateLastName(value) || null;
+    else if (name === 'email') error = validateEmail(value) || null;
+    else if (name === 'message')
+      error = !value.trim() ? 'Message is required.' : null;
 
-    const phoneErrorMsg = validatePhone(phone, countryCode, countryIso);
-    if (phoneErrorMsg) return phoneErrorMsg;
+    setErrors((prev) => ({ ...prev, [name]: error }));
+  };
 
-    return '';
+  const handleFocus = (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name } = e.target;
+    setErrors((prev) => ({ ...prev, [name]: null }));
   };
 
   const resetForm = () => {
-    setFirstName('');
-    setLastName('');
-    setEmail('');
-    setPhone('');
-    setMessage('');
+    setFormData({
+      firstName: '',
+      lastName: '',
+      email: '',
+      phoneNumber: '',
+      message: '',
+    });
+    setErrors({
+      firstName: null,
+      lastName: null,
+      email: null,
+      phoneNumber: null,
+      subject: null,
+      message: null,
+    });
     setSubject(null);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
     setSuccessMessage('');
 
-    const validationError = validateForm();
-    if (validationError) {
-      setError(validationError);
+    // Validate all fields on submit
+    const newErrors: ContactFormErrors = {
+      firstName: validateName(formData.firstName) || null,
+      lastName: validateLastName(formData.lastName) || null,
+      email: validateEmail(formData.email) || null,
+      phoneNumber:
+        validatePhone(formData.phoneNumber, countryCode, countryIso) || null,
+      subject: !subject
+        ? 'Please select a subject, this field is required.'
+        : null,
+      message: !formData.message.trim() ? 'Message is required.' : null,
+    };
+
+    if (Object.values(newErrors).some(Boolean)) {
+      setErrors(newErrors);
       return;
     }
 
     try {
       const payload: EnquiryType = {
-        fullname: `${firstName} ${lastName}`,
-        email,
-        contact: phone.trim() ? `+${countryCode}${phone.trim()}` : '',
+        fullname: `${formData.firstName} ${formData.lastName}`,
+        email: formData.email,
+        contact: formData.phoneNumber.trim()
+          ? `+${countryCode}${formData.phoneNumber.trim()}`
+          : '',
         subject: subject?.value || 'development',
-        message,
+        message: formData.message,
       };
+
       const { success } = await createInquiryForm(payload);
 
       if (success) {
         setSuccessMessage('Your message has been sent successfully!');
+        setTimeout(() => setSuccessMessage(''), 3000);
         resetForm();
-        // Clear success message after 3 seconds
-        setTimeout(() => {
-          setSuccessMessage('');
-        }, 3000);
-      } else setError('Something went wrong. Please try again.');
+      } else {
+        setErrors((prev) => ({
+          ...prev,
+          message: 'Something went wrong. Please try again.',
+        }));
+      }
     } catch {
-      setError('An error occurred while submitting the form.');
+      setErrors((prev) => ({
+        ...prev,
+        message: 'An error occurred while submitting the form.',
+      }));
     }
   };
 
@@ -267,66 +311,66 @@ const ContactForm: FC = () => {
             <div className='flex gap-x-10 justify-end w-full text-black md:pl-10 bg-white p-10 rounded-3xl shadow-2xl md:mt-20'>
               <div className='flex flex-col gap-y-4  w-full'>
                 <div className='relative flex space-x-4'>
+                  {/* First Name */}
                   <div className='w-full'>
                     <input
                       type='text'
-                      value={firstName}
-                      onChange={(e) => {
-                        const value = e.target.value;
-                        setFirstName(value);
-                        setFirstNameError(validateName(value));
-                      }}
+                      name='firstName'
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      onFocus={handleFocus}
                       placeholder='First name *'
-                      pattern='.*\S.*'
                       className='border-b border-gray-400 w-full h-10 bg-transparent focus:outline-none focus:border-gray-600 transition-all duration-300'
                     />
-                    {firstNameError && (
+                    {errors.firstName && (
                       <p className='text-red-500 text-xs mt-1'>
-                        {firstNameError}
+                        {errors.firstName}
                       </p>
                     )}
                   </div>
+                  {/* Last Name */}
                   <div className='w-full'>
                     <input
                       type='text'
-                      value={lastName}
-                      onChange={(e) => {
-                        const value = e.target.value;
-                        setLastName(value);
-                        setLastNameError(validateLastName(value));
-                      }}
+                      name='lastName'
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      onFocus={handleFocus}
                       placeholder='Last name *'
-                      pattern='.*\S.*'
                       className='border-b border-gray-400 w-full h-10 bg-transparent focus:outline-none focus:border-gray-600 transition-all duration-300'
                     />
-                    {lastNameError && (
+                    {errors.lastName && (
                       <p className='text-red-500 text-xs mt-1'>
-                        {lastNameError}
+                        {errors.lastName}
                       </p>
                     )}
                   </div>
                 </div>
+
+                {/* Email */}
                 <div className='relative'>
                   <input
                     type='email'
-                    value={email}
-                    onChange={(e) => {
-                      const value = e.target.value;
-                      setEmail(value);
-                      setEmailError(validateEmail(value));
-                    }}
+                    name='email'
+                    value={formData.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    onFocus={handleFocus}
                     className='border-b border-gray-400 w-full h-10 bg-transparent focus:outline-none focus:border-gray-600 transition-all duration-300'
                     placeholder='Email Address *'
                   />
-                  {emailError && (
-                    <p className='text-red-500 text-xs mt-1'>{emailError}</p>
+                  {errors.email && (
+                    <p className='text-red-500 text-xs mt-1'>{errors.email}</p>
                   )}
                 </div>
 
+                {/* Phone */}
                 <div className='relative'>
                   <PhoneInput
                     country='in'
-                    value={`${countryCode}${phone}`}
+                    value={`${countryCode}${formData.phoneNumber}`}
                     onChange={(
                       value,
                       data: { dialCode: string; countryCode: string }
@@ -336,21 +380,17 @@ const ContactForm: FC = () => {
                       setCountryCode(dialCode);
                       setCountryIso(iso);
                       const actualNumber = value.slice(dialCode.length);
-                      setPhone(actualNumber);
-                      if (!actualNumber) {
-                        setPhoneError('');
-                      } else {
-                        const fullNumber = `+${value}`;
-                        const valid = isValidPhoneNumber(
-                          fullNumber,
-                          iso as any
-                        );
-                        setPhoneError(
-                          valid
-                            ? ''
-                            : 'Please enter a valid phone number for selected country.'
-                        );
-                      }
+                      setFormData((prev) => ({
+                        ...prev,
+                        phoneNumber: actualNumber,
+                      }));
+                      const phoneError = actualNumber
+                        ? validatePhone(actualNumber, dialCode, iso) || null
+                        : null;
+                      setErrors((prev) => ({
+                        ...prev,
+                        phoneNumber: phoneError,
+                      }));
                     }}
                     inputStyle={{
                       width: '100%',
@@ -369,25 +409,47 @@ const ContactForm: FC = () => {
                     containerStyle={{ width: '100%' }}
                     placeholder='Phone Number (Optional)'
                   />
-                  {phoneError && (
-                    <p className='text-red-500 text-xs mt-1'>{phoneError}</p>
+                  {errors.phoneNumber && (
+                    <p className='text-red-500 text-xs mt-1'>
+                      {errors.phoneNumber}
+                    </p>
                   )}
                 </div>
 
-                <CustomDropdown
-                  selected={subject}
-                  onChange={(option) => setSubject(option)}
-                />
+                <div>
+                  <CustomDropdown
+                    selected={subject}
+                    onChange={(option) => {
+                      setSubject(option);
+                      setErrors((prev) => ({ ...prev, subject: null }));
+                    }}
+                  />
+                  {errors.subject && (
+                    <p className='text-red-500 text-xs mt-1'>
+                      {errors.subject}
+                    </p>
+                  )}
+                </div>
+
+                {/* Message */}
                 <div className='relative'>
                   <div className='mb-2 text-gray-400'>Message *</div>
                   <textarea
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
+                    name='message'
+                    value={formData.message}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    onFocus={handleFocus}
                     placeholder=''
                     className='border border-gray-400 w-full h-32 bg-transparent focus:outline-none focus:border-gray-600 transition-all duration-300'
                   />
+                  {errors.message && (
+                    <p className='text-red-500 text-xs mt-1'>
+                      {errors.message}
+                    </p>
+                  )}
                 </div>
-                {error && <div className='text-red-500'>{error}</div>}
+
                 {successMessage && (
                   <div className='text-green-500'>{successMessage}</div>
                 )}

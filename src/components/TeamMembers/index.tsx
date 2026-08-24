@@ -2,12 +2,8 @@ import Image from 'next/image';
 import React from 'react';
 import { FaAngular, FaAws, FaPython, FaReact } from 'react-icons/fa';
 
-import type {
-  TeamMember,
-  TeamMembersSectionData,
-  TechKey,
-} from '../../pages/services/BaseServicePages';
 import palette from '../../styles/pallette';
+import type { TeamMember, TeamMembersSectionData, TechKey } from '../../types';
 
 const techIconMap: Record<TechKey, React.ReactNode> = {
   react: <FaReact className='w-8 h-8 text-[#61DAFB]' />,
