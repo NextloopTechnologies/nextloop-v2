@@ -360,32 +360,32 @@ export const servicesWhyChooseUsData = [
 const staticServices = [
   {
     image: getStaticImageData(ecommerceAssets.ECommerceBg),
-    title: 'E-COMMERCE WEBSITE.',
+    title: 'E-Commerce Website.',
     description: 'Start selling immediately, without limits.',
     link: '/domain/ecommerce',
   },
   {
     image: getStaticImageData(eventAssets.eventsBg),
-    title: 'CREATE A PROFESSIONAL EVENT WEBSITE',
+    title: 'Create a Professional Event Website',
     description: '',
     link: '/domain/events',
   },
   {
     image: getStaticImageData(fintechAssets.fintechBg),
-    title: 'FINTECH WEBSITE DESIGN',
+    title: 'Fintech Website Design',
     description: '',
     link: '/domain/fintech',
   },
   {
     image: getStaticImageData(healthcareAssets.healthCareBg),
-    title: 'HEALTHCARE SOFTWARE DEVELOPMENT',
+    title: 'Healthcare Software Development',
     description: 'Transforming patient care.',
     link: '/domain/healthcare',
   },
 ];
 
 export const servicesAreaOfExpertiseData = {
-  mainHeader: 'OUR AREAS OF EXPERTISE',
+  mainHeader: 'Our Areas Of Expertise',
   mainDescription:
     "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
   items: staticServices,
@@ -585,7 +585,7 @@ export const servicesSubPagesData = {
       },
       items: [
         {
-          title: 'FRONTEND',
+          title: 'Frontend',
           items: [
             { name: 'AngularJS', image: AngularIcon.src },
             { name: 'React', image: ReactIcon.src },
@@ -607,7 +607,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'OPEN SOURCE',
+          title: 'Open Source',
           items: [
             { name: 'AngularJS', image: javaIcon.src },
             { name: 'React', image: nodeIcon.src },
@@ -629,7 +629,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'CLOUD',
+          title: 'Cloud',
           items: [
             { name: 'AngularJS', image: amazonWebServicesIcon.src },
             { name: 'React', image: msAzureIcon.src },
@@ -640,7 +640,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'BLOCKCHAIN',
+          title: 'BlockChain',
           items: [
             { name: 'AngularJS', image: solidityIcon.src },
             { name: 'React', image: web3Icon.src },
@@ -651,7 +651,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'OTHERS',
+          title: 'Others',
           items: [
             { name: 'AngularJS', image: uiPathIcon.src },
             { name: 'React', image: drupalIcon.src },
@@ -883,14 +883,14 @@ export const servicesSubPagesData = {
     },
     techStackData: {
       headingData: {
-        heading: 'OUR',
-        coloredHeading: 'TECH STACK',
+        heading: 'Our',
+        coloredHeading: 'Tech Stack',
         description:
           'We leverage cutting-edge technologies to build robust solutions.',
       },
       items: [
         {
-          title: 'FRONTEND',
+          title: 'Frontend',
           items: [
             { name: 'AngularJS', image: AngularIcon.src },
             { name: 'React', image: ReactIcon.src },
@@ -901,7 +901,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'MOBILE',
+          title: 'Mobile',
           items: [
             { name: 'AngularJS', image: androidIcon.src },
             { name: 'React', image: iosIcon.src },
@@ -912,7 +912,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'OPEN SOURCE',
+          title: 'Open Source',
           items: [
             { name: 'AngularJS', image: javaIcon.src },
             { name: 'React', image: nodeIcon.src },
@@ -934,7 +934,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'CLOUD',
+          title: 'Cloud',
           items: [
             { name: 'AngularJS', image: amazonWebServicesIcon.src },
             { name: 'React', image: msAzureIcon.src },
@@ -945,7 +945,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'BLOCKCHAIN',
+          title: 'BlockChain',
           items: [
             { name: 'AngularJS', image: solidityIcon.src },
             { name: 'React', image: web3Icon.src },
@@ -956,7 +956,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'OTHERS',
+          title: 'Others',
           items: [
             { name: 'AngularJS', image: uiPathIcon.src },
             { name: 'React', image: drupalIcon.src },
@@ -1076,7 +1076,7 @@ export const servicesSubPagesData = {
       },
     ],
     areaOfExpertiseData: {
-      mainHeader: 'OUR AREAS OF EXPERTISE',
+      mainHeader: 'Our Area Of Expertise',
       mainDescription:
         "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
       items: staticServices,
@@ -1208,7 +1208,7 @@ export const servicesSubPagesData = {
       },
       items: [
         {
-          title: 'FRONTEND',
+          title: 'Frontend',
           items: [
             { name: 'AngularJS', image: AngularIcon.src },
             { name: 'React', image: ReactIcon.src },
@@ -1230,7 +1230,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'OPEN SOURCE',
+          title: 'Open Source',
           items: [
             { name: 'AngularJS', image: javaIcon.src },
             { name: 'React', image: nodeIcon.src },
@@ -1252,7 +1252,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'CLOUD',
+          title: 'Cloud',
           items: [
             { name: 'AngularJS', image: amazonWebServicesIcon.src },
             { name: 'React', image: msAzureIcon.src },
@@ -1263,7 +1263,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'BLOCKCHAIN',
+          title: 'BlockChain',
           items: [
             { name: 'AngularJS', image: solidityIcon.src },
             { name: 'React', image: web3Icon.src },
@@ -1274,7 +1274,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'OTHERS',
+          title: 'Others',
           items: [
             { name: 'AngularJS', image: uiPathIcon.src },
             { name: 'React', image: drupalIcon.src },
@@ -1533,7 +1533,7 @@ export const servicesSubPagesData = {
       },
       items: [
         {
-          title: 'FRONTEND',
+          title: 'Frontend',
           items: [
             { name: 'AngularJS', image: AngularIcon.src },
             { name: 'React', image: ReactIcon.src },
@@ -1544,7 +1544,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'MOBILE',
+          title: 'Mobile',
           items: [
             { name: 'AngularJS', image: androidIcon.src },
             { name: 'React', image: iosIcon.src },
@@ -1555,7 +1555,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'OPEN SOURCE',
+          title: 'Open Source',
           items: [
             { name: 'AngularJS', image: javaIcon.src },
             { name: 'React', image: nodeIcon.src },
@@ -1577,7 +1577,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'CLOUD',
+          title: 'Cloud',
           items: [
             { name: 'AngularJS', image: amazonWebServicesIcon.src },
             { name: 'React', image: msAzureIcon.src },
@@ -1588,7 +1588,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'BLOCKCHAIN',
+          title: 'BlockChain',
           items: [
             { name: 'AngularJS', image: solidityIcon.src },
             { name: 'React', image: web3Icon.src },
@@ -1599,7 +1599,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'OTHERS',
+          title: 'Others',
           items: [
             { name: 'AngularJS', image: uiPathIcon.src },
             { name: 'React', image: drupalIcon.src },
@@ -1783,15 +1783,15 @@ export const servicesSubPagesData = {
     },
     expertiseData: {
       headingData: {
-        coloredHeading: 'OUR EXPERTISE IN ',
-        heading: 'AI & ML SOLUTIONS',
+        coloredHeading: 'Our Expertise IN ',
+        heading: 'AI & ML Solutions',
         description:
           'We bring years of experience in developing mobile applications that are scalable, secure, and designed for seamless user experiences. Our team works with the latest tools, technologies, and trends to build apps that exceed expectations.',
       },
       items: [
         {
           id: 1,
-          title: 'AI STRATEGY AND ROADMAP CONSULTING:',
+          title: 'AI Strategy And Raodmap Consulting:',
           description:
             'We help businesses define a clear AI strategy and create a roadmap to implement AI-driven solutions effectively.',
           image: IoFileTrayStackedOutline,
@@ -1799,7 +1799,7 @@ export const servicesSubPagesData = {
         },
         {
           id: 2,
-          title: 'AI-DRIVEN MOBILE AND WEB APPLICATION DEVELOPMENT:',
+          title: 'AI-Driven Mobile And Web Application Development:',
           description:
             'We build intelligent mobile and web applications that leverage AI for automation, personalization, and enhanced user experiences.',
           image: FaRegFileAlt,
@@ -1807,7 +1807,7 @@ export const servicesSubPagesData = {
         },
         {
           id: 3,
-          title: 'CUSTOM AI SOLUTIONS DEVELOPMENT:',
+          title: 'Custom AI Solutions Development:',
           description:
             'Custom AI Solutions Development - We develop tailor-made AI solutions designed to solve unique business challenges and drive innovation.',
           image: HiOutlineOfficeBuilding,
@@ -1896,14 +1896,14 @@ export const servicesSubPagesData = {
 
     techStackData: {
       headingData: {
-        heading: 'OUR',
-        coloredHeading: 'TECH STACK',
+        heading: 'Our',
+        coloredHeading: 'Tech Stack',
         description:
           'We leverage cutting-edge technologies to build robust solutions.',
       },
       items: [
         {
-          title: 'FRONTEND',
+          title: 'Frontend',
           items: [
             { name: 'AngularJS', image: AngularIcon.src },
             { name: 'React', image: ReactIcon.src },
@@ -1914,7 +1914,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'MOBILE',
+          title: 'Mobile',
           items: [
             { name: 'AngularJS', image: androidIcon.src },
             { name: 'React', image: iosIcon.src },
@@ -1925,7 +1925,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'OPEN SOURCE',
+          title: 'Open Source',
           items: [
             { name: 'AngularJS', image: javaIcon.src },
             { name: 'React', image: nodeIcon.src },
@@ -1947,7 +1947,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'CLOUD',
+          title: 'Cloud',
           items: [
             { name: 'AngularJS', image: amazonWebServicesIcon.src },
             { name: 'React', image: msAzureIcon.src },
@@ -1958,7 +1958,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'BLOCKCHAIN',
+          title: 'BlockChain',
           items: [
             { name: 'AngularJS', image: solidityIcon.src },
             { name: 'React', image: web3Icon.src },
@@ -1969,7 +1969,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'OTHERS',
+          title: 'Others',
           items: [
             { name: 'AngularJS', image: uiPathIcon.src },
             { name: 'React', image: drupalIcon.src },
@@ -1996,42 +1996,42 @@ export const servicesSubPagesData = {
       items: [
         {
           id: 1,
-          title: 'TAILORED SOLUTIONS FOR YOUR BUSINESS',
+          title: 'Tailored Solutions For Your Business',
           descp:
             'We create custom apps that align with your unique business goals.',
           icon: MdOutlineAddLocation,
         },
         {
           id: 2,
-          title: 'EXPERT DEVELOPERS',
+          title: 'Expert Developers',
           descp:
             'Our skilled team builds secure, high-performing apps with the latest technologies.',
           icon: PiExcludeSquareDuotone,
         },
         {
           id: 3,
-          title: 'END-TO-END SERVICES',
+          title: 'End-To-End Services',
           descp:
             'We manage the entire app process, from idea to deployment and support.',
           icon: PiEyeBold,
         },
         {
           id: 4,
-          title: 'FOCUS ON USER EXPERIENCE',
+          title: 'Focues On User Experience',
           descp:
             'We design apps that are intuitive and user-friendly for seamless experiences.',
           icon: MdOutlineAddLocation,
         },
         {
           id: 5,
-          title: 'SCALABLE SOLUTIONS',
+          title: 'Scalable Solutions',
           descp:
             'Our apps grow with your business, whether you’re a startup or an enterprise.',
           icon: PiExcludeSquareDuotone,
         },
         {
           id: 6,
-          title: 'AGILE DEVELOPMENT PROCESS',
+          title: 'Agile Development PRocess',
           descp:
             'We use agile methods for flexible, fast development that adapts to your needs.',
           icon: PiEyeBold,
@@ -2039,7 +2039,7 @@ export const servicesSubPagesData = {
       ],
     },
     areaOfExpertiseData: {
-      mainHeader: 'OUR AREAS OF EXPERTISE',
+      mainHeader: 'Our Areas Of Expertise',
       mainDescription:
         "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
       items: staticServices,
@@ -2181,14 +2181,14 @@ export const servicesSubPagesData = {
     ],
     techStackData: {
       headingData: {
-        heading: 'OUR',
-        coloredHeading: 'TECH STACK',
+        heading: 'Our',
+        coloredHeading: 'Tech Stack',
         description:
           'We leverage cutting-edge technologies to build robust solutions.',
       },
       items: [
         {
-          title: 'FRONTEND',
+          title: 'Frontend',
           items: [
             { name: 'AngularJS', image: AngularIcon.src },
             { name: 'React', image: ReactIcon.src },
@@ -2199,7 +2199,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'MOBILE',
+          title: 'Mobile',
           items: [
             { name: 'AngularJS', image: androidIcon.src },
             { name: 'React', image: iosIcon.src },
@@ -2210,7 +2210,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'OPEN SOURCE',
+          title: 'Open Source',
           items: [
             { name: 'AngularJS', image: javaIcon.src },
             { name: 'React', image: nodeIcon.src },
@@ -2232,7 +2232,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'CLOUD',
+          title: 'Cloud',
           items: [
             { name: 'AngularJS', image: amazonWebServicesIcon.src },
             { name: 'React', image: msAzureIcon.src },
@@ -2243,7 +2243,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'BLOCKCHAIN',
+          title: 'BlockChain',
           items: [
             { name: 'AngularJS', image: solidityIcon.src },
             { name: 'React', image: web3Icon.src },
@@ -2254,7 +2254,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'OTHERS',
+          title: 'Others',
           items: [
             { name: 'AngularJS', image: uiPathIcon.src },
             { name: 'React', image: drupalIcon.src },
@@ -2319,7 +2319,7 @@ export const servicesSubPagesData = {
       ],
     },
     areaOfExpertiseData: {
-      mainHeader: 'OUR AREAS OF EXPERTISE',
+      mainHeader: 'Our Areas Of Expertise',
       mainDescription:
         "At Nextloop, we specialize in developing custom software solutions for various industries. Here's a look at the sectors where we excel.",
       items: staticServices,
@@ -2476,7 +2476,7 @@ export const servicesSubPagesData = {
       },
       items: [
         {
-          title: 'FRONTEND',
+          title: 'Frontend',
           items: [
             { name: 'AngularJS', image: AngularIcon.src },
             { name: 'React', image: ReactIcon.src },
@@ -2487,7 +2487,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'MOBILE',
+          title: 'Mobile',
           items: [
             { name: 'AngularJS', image: androidIcon.src },
             { name: 'React', image: iosIcon.src },
@@ -2498,7 +2498,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'OPEN SOURCE',
+          title: 'Open Source',
           items: [
             { name: 'AngularJS', image: javaIcon.src },
             { name: 'React', image: nodeIcon.src },
@@ -2520,7 +2520,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'CLOUD',
+          title: 'Cloud',
           items: [
             { name: 'AngularJS', image: amazonWebServicesIcon.src },
             { name: 'React', image: msAzureIcon.src },
@@ -2531,7 +2531,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'BLOCKCHAIN',
+          title: 'BlockChain',
           items: [
             { name: 'AngularJS', image: solidityIcon.src },
             { name: 'React', image: web3Icon.src },
@@ -2542,7 +2542,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'OTHERS',
+          title: 'Others',
           items: [
             { name: 'AngularJS', image: uiPathIcon.src },
             { name: 'React', image: drupalIcon.src },
@@ -2823,7 +2823,7 @@ export const servicesSubPagesData = {
       },
       items: [
         {
-          title: 'FRONTEND',
+          title: 'Frontend',
           items: [
             { name: 'AngularJS', image: AngularIcon.src },
             { name: 'React', image: ReactIcon.src },
@@ -2834,7 +2834,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'MOBILE',
+          title: 'Mobile',
           items: [
             { name: 'AngularJS', image: androidIcon.src },
             { name: 'React', image: iosIcon.src },
@@ -2845,7 +2845,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'OPEN SOURCE',
+          title: 'Open Source',
           items: [
             { name: 'AngularJS', image: javaIcon.src },
             { name: 'React', image: nodeIcon.src },
@@ -2867,7 +2867,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'CLOUD',
+          title: 'Cloud',
           items: [
             { name: 'AngularJS', image: amazonWebServicesIcon.src },
             { name: 'React', image: msAzureIcon.src },
@@ -2878,7 +2878,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'BLOCKCHAIN',
+          title: 'BlockChain',
           items: [
             { name: 'AngularJS', image: solidityIcon.src },
             { name: 'React', image: web3Icon.src },
@@ -2889,7 +2889,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'OTHERS',
+          title: 'Others',
           items: [
             { name: 'AngularJS', image: uiPathIcon.src },
             { name: 'React', image: drupalIcon.src },

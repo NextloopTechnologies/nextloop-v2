@@ -5,22 +5,22 @@ import palette from '../../styles/pallette';
 
 const steps = [
   {
-    title: 'DISCOVER',
+    title: 'Discover',
     desc: 'We start by finding out about your company, its goals, its users and the problems it faces. We do in-depth research and have strategic conversations to give you a clear plan, whether you need full-scale corporate architecture or focused MVP software development services.',
     icon: Search,
   },
   {
-    title: 'DESIGN',
+    title: 'Design',
     desc: 'As a company that specializes in UI/UX design services, we take these ideas and make them into system architecture and user interfaces that are easy to use. Our main goal is still to make wireframing simple, easy to use and interactive, which makes sure it works perfectly.',
     icon: PenTool,
   },
   {
-    title: 'BUILD',
+    title: 'Build',
     desc: 'We build safe, high-performance apps using modern tech stacks and agile sprints. We build strong, scalable backend systems that are perfectly in line with your long-term business goals by using the best cloud service providers in India.',
     icon: Code2,
   },
   {
-    title: 'DELIVER',
+    title: 'Deliver',
     desc: 'We deliver your product with perfect accuracy. We promise a safe, perfect launch by combining our full range of software testing and QA services. After deployment, we keep an eye on things and make improvements to make sure growth is long-term.',
     icon: Rocket,
   },

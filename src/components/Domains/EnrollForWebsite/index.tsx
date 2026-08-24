@@ -53,7 +53,7 @@ export const TitleDescCard = ({
     className={`flex h-auto w-full max-w-[340px] flex-col rounded-2xl border border-white/5 bg-[#1C1C1D]/95 p-5 shadow-xl shadow-black/20 transition duration-300 hover:-translate-y-1 md:max-w-[320px] md:p-6 ${className}`}
   >
     <h3
-      className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} uppercase`}
+      className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} `}
     >
       {title}
     </h3>

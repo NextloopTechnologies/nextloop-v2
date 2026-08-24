@@ -48,9 +48,9 @@ const CareersPage: React.FC<{ jobs?: Job[]; error?: string }> = ({
 
 const WhyUs = () => (
   <div className='min-h-screen flex flex-col justify-center items-center text-center gap-12 p-8 lg:px-0 lg:py-8'>
-    <p className='font-bold xl:text-4xl md:text-5xl text-3xl uppercase xl:w-1/2 text-center'>
-      CURIOUS ABOUT HOW WE MANAGE TO MAKE ALL THIS{' '}
-      <span className='text-orange-500'>POSSIBLE?</span>
+    <p className='font-bold xl:text-4xl md:text-5xl text-3xl  xl:w-1/2 text-center'>
+      Curious About How We Manage To Make All This{' '}
+      <span className='text-orange-500'>Possible?</span>
     </p>
 
     <SlidingImages images={careerImages || []} />
@@ -60,8 +60,8 @@ const WhyUs = () => (
 const Jobs: React.FC<{ jobs?: Job[]; error?: string }> = ({ error, jobs }) => (
   <div>
     <div className='min-h-screen aboutUsPageBackgroundImage flex flex-col gap-14 items-center justify-center text-white p-8 lg:px-0 lg:py-8'>
-      <p className='font-bold xl:text-4xl md:text-5xl text-3xl uppercase xl:w-[30%] text-center'>
-        find a <span className='text-orange-500'>suitable job</span> for you
+      <p className='font-bold xl:text-4xl md:text-5xl text-3xl  xl:w-[30%] text-center'>
+        Find a <span className='text-orange-500'>Suitable Job</span> For You
       </p>
       {error ? (
         <div className='flex items-center justify-center h-screen text-4xl'>

@@ -28,7 +28,7 @@ const SuccessSolutionCard: React.FC<SuccessSolutionCardProps> = ({
         alt='success-image'
       />
       <h3
-        className={` text-[#1D1D1D] mb-4 mt-4 uppercase ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
+        className={` text-[#1D1D1D] mb-4 mt-4  ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}`}
       >
         {title}
       </h3>

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 import palette from '../styles/pallette';
+import { toTitleCase } from '../utils/helper';
 
 type FounderItem = {
   name: string;
@@ -40,11 +41,11 @@ const MeetFounders = () => {
     <div className='bg-white text-center px-6 py-20'>
       {/* Header */}
       <div className='max-w-2xl mx-auto mb-16'>
-        <p className='text-orange-500 text-xs font-bold uppercase tracking-[0.3em] mb-3'>
-          Meet the people
+        <p className='text-orange-500 text-xs font-bold tracking-[0.3em] mb-3'>
+          Meet the People
         </p>
         <h2
-          className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-black uppercase font-bold`}
+          className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-black  font-bold`}
         >
           Our <span className='text-orange-500'>Leadership Team</span>
         </h2>
@@ -80,9 +81,9 @@ const MeetFounders = () => {
                 <div className='absolute bottom-0 left-0 right-0 p-6 text-left'>
                   <div className='w-6 h-[2px] bg-orange-500 mb-3' />
                   <h3 className='text-white text-xl font-bold leading-tight'>
-                    {founder.name}
+                    {toTitleCase(founder.name)}
                   </h3>
-                  <p className='text-orange-400 text-xs font-semibold uppercase tracking-widest mt-1'>
+                  <p className='text-orange-400 text-xs font-semibold  tracking-widest mt-1'>
                     {founder.title}
                   </p>
                 </div>

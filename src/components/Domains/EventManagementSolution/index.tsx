@@ -7,7 +7,7 @@ import { getStaticImageData } from '../../../utils/helper';
 const data = [
   {
     id: 1,
-    title: 'Create your event website',
+    title: 'Create your Event Website',
     subTitle:
       'Unlimited event listings are available. Your event website can support languages. You can choose from event layouts and calendars. ',
     description:
@@ -16,14 +16,14 @@ const data = [
   },
   {
     id: 2,
-    title: 'Make an interactive seating map',
+    title: 'Make an Interactive Seating Map',
     description:
       'Design a floor plan. Guests can. Buy seats directly. Configure rows, tables or standing areas. Apply pricing to each section. Choose from over 1000 templates. These templates are for conferences, concerts, sports events, weddings, parties and more. You can also host events with our live streaming solution. ',
     image: getStaticImageData(eventAssets.EventManagement2),
   },
   {
     id: 3,
-    title: 'Sell tickets and membership plans',
+    title: 'Sell Tickets and Membership Plans',
     subTitle:
       'Create ticket types. Price them as you like. Add membership plans. Set capacity limits. Include a ticket policy.',
     description:
@@ -32,7 +32,7 @@ const data = [
   },
   {
     id: 4,
-    title: 'Promote your events',
+    title: 'Promote your Events',
     subTitle:
       'Use email marketing. Create coupon and promo codes. Integrate with Google and Facebook. ',
     description:
@@ -41,7 +41,7 @@ const data = [
   },
   {
     id: 5,
-    title: 'Build a community around your event',
+    title: 'Build a Community Around your Event',
     subTitle: 'Create a members area. Have a live event feed and a forum. ',
     description:
       'Great events build lasting connections. Give attendees a space to engage before during and, after the event. They can discuss on a forum. They can view a content feed. They can also set up a profile in the members area. ',
@@ -49,7 +49,7 @@ const data = [
   },
   {
     id: 6,
-    title: 'Track and manage attendance',
+    title: 'Track and Manage Attendance',
     subTitle:
       'Manage your guest list. Use guest and waitlists. Send automated email confirmation. ',
     description:
@@ -58,7 +58,7 @@ const data = [
   },
   {
     id: 7,
-    title: 'Manage the day of your event with our website',
+    title: 'Manage the Day of your Event With our Website',
     subTitle: 'Use a ticketing app. Process walk-in ticket sales. ',
     description:
       'When the event starts everything needs to run. Check in guests and scan tickets. Manage your guest list on your phone. Keep the energy going with a live event discussion feed. ',
@@ -160,7 +160,7 @@ export const EventIdeaRow = ({
       <h2
         className={`${palette.fontSize.subtitleLarge.mobile} md:${
           palette.fontSize.subtitleLarge.desktop
-        } uppercase font-extrabold ${
+        }  font-extrabold ${
           position === POSITION.LEFT
             ? 'md:ml-[250px] text-left'
             : 'md:ml-0 w-[60%]'
@@ -217,8 +217,8 @@ const EventManagementSolution = () => {
       <h1
         className={`font-bold text-center ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} w-full`}
       >
-        Your complete{' '}
-        <span className='text-orange-500'>event management solution</span>
+        Your Complete{' '}
+        <span className='text-orange-500'>Event Management Solution</span>
       </h1>
 
       <div className='flex flex-col gap-12 mt-7 mb-10'>

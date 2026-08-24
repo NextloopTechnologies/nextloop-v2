@@ -193,7 +193,7 @@ const DesktopTimeline = () => {
         {/* ── Heading & description pinned at top of sticky viewport ── */}
         <div className='w-full text-center px-6 pt-24  shrink-0'>
           <h2
-            className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-white`}
+            className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop}  font-bold text-white`}
           >
             Our <span className='text-orange-500'>Journey</span>
           </h2>
