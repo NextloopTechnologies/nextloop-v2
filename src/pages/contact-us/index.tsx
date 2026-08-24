@@ -21,6 +21,13 @@ import Layout from '../../components/Layout/Layout';
 import palette from '../../styles/pallette';
 import { EnquiryType } from '../../types';
 import { createInquiryForm } from '../../utils/db';
+import {
+  strictNameRegex,
+  validateEmail,
+  validateLastName,
+  validateName,
+  validatePhone,
+} from '../../utils/validation';
 
 interface OptionType {
   label: string;
@@ -46,24 +53,22 @@ const ContactForm: FC = () => {
     '101, Kanchan Sagar, 18/1, Near Industry House, Old Palasia, Indore, Madhya Pradesh 452001';
 
   const validateForm = () => {
-    const nameRegex = /^[a-zA-Z\s'-]{1,20}$/;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!firstName.trim()) return 'First name is required.';
-    if (!nameRegex.test(firstName.trim()))
+    if (!strictNameRegex.test(firstName.trim()))
       return 'First name should contain only letters and must be under 20 characters.';
     if (!lastName.trim()) return 'Last name is required.';
-    if (!nameRegex.test(lastName.trim()))
+    if (!strictNameRegex.test(lastName.trim()))
       return 'Last name should contain only letters and must be under 20 characters.';
     if (!subject) return 'Subject is required.';
-    if (!email.trim()) return 'Email is required.';
-    if (!emailRegex.test(email.trim()))
-      return 'Please enter a valid email address.';
+
+    const emailErrorMsg = validateEmail(email);
+    if (emailErrorMsg) return emailErrorMsg;
+
     if (!message.trim()) return 'Message is required.';
-    if (phone.trim()) {
-      const fullNumber = `+${countryCode}${phone.trim()}`;
-      if (!isValidPhoneNumber(fullNumber, countryIso as any))
-        return 'Please enter a valid phone number for selected country.';
-    }
+
+    const phoneErrorMsg = validatePhone(phone, countryCode, countryIso);
+    if (phoneErrorMsg) return phoneErrorMsg;
+
     return '';
   };
 
@@ -269,12 +274,7 @@ const ContactForm: FC = () => {
                       onChange={(e) => {
                         const value = e.target.value;
                         setFirstName(value);
-                        const nameRegex = /^[a-zA-Z\s'-]+$/;
-                        if (!value.trim())
-                          setFirstNameError('First name is required.');
-                        else if (!nameRegex.test(value.trim()))
-                          setFirstNameError('Please enter a valid name');
-                        else setFirstNameError('');
+                        setFirstNameError(validateName(value));
                       }}
                       placeholder='First name *'
                       pattern='.*\S.*'
@@ -293,12 +293,7 @@ const ContactForm: FC = () => {
                       onChange={(e) => {
                         const value = e.target.value;
                         setLastName(value);
-                        const nameRegex = /^[a-zA-Z\s'-]+$/;
-                        if (!value.trim())
-                          setLastNameError('Last name is required.');
-                        else if (!nameRegex.test(value.trim()))
-                          setLastNameError('Please enter a valid last name.');
-                        else setLastNameError('');
+                        setLastNameError(validateLastName(value));
                       }}
                       placeholder='Last name *'
                       pattern='.*\S.*'
@@ -318,11 +313,7 @@ const ContactForm: FC = () => {
                     onChange={(e) => {
                       const value = e.target.value;
                       setEmail(value);
-                      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                      if (!value.trim()) setEmailError('Email is required.');
-                      else if (!emailRegex.test(value.trim()))
-                        setEmailError('Please enter a valid email address.');
-                      else setEmailError('');
+                      setEmailError(validateEmail(value));
                     }}
                     className='border-b border-gray-400 w-full h-10 bg-transparent focus:outline-none focus:border-gray-600 transition-all duration-300'
                     placeholder='Email Address *'
