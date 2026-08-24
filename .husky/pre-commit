@@ -4,5 +4,4 @@
 set -e
 
 npx lint-staged --concurrent false
-npm run pretty
 npm test
