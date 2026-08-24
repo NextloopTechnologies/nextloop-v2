@@ -169,7 +169,7 @@ const HealthCare: React.FC = () => {
 
         <FAQ faqsContent={faqsContent} />
 
-        <CustomRequestQuote title='see what your healthcare website could look like' />
+        <CustomRequestQuote title='See What your Healthcare Website Could Look Like' />
       </Layout>
     </>
   );

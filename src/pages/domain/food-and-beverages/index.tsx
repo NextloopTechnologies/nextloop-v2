@@ -83,25 +83,25 @@ const whyChooseContent: IWhyChooseUs[] = [
 const enrolData = [
   {
     id: 1,
-    title: 'You can run your restaurants presence in a smarter way. ',
+    title: 'You can Run your Restaurants Presence in a Smarter Way. ',
     description:
       'Your restaurant needs an online ordering system that works well for you. This system helps you show your menu in a way get more orders and make things easy for your customers from the time they look at your menu to the time they pay. ',
   },
   {
     id: 2,
-    title: 'You can show your menu online.  ',
+    title: 'You can Show your Menu Online.  ',
     description:
       'You can add pictures and descriptions of your dishes so people will want to buy them. People can make a reservation, at your restaurant at any time. They can book a table on your website, day or night. ',
   },
   {
     id: 3,
-    title: 'You can accept payments in an easy way. ',
+    title: 'You can Accept Payments in an Easy Way. ',
     description:
       'You can take payments using methods and you will know exactly how much money you have. ',
   },
   {
     id: 4,
-    title: 'You can control everything from one place.  ',
+    title: 'You can Control Everything From One Place.  ',
     description:
       'You can manage your orders make updates and see how well your restaurant is doing from one easy to use dashboard. ',
   },
@@ -179,8 +179,8 @@ const FoodAndBeverages: React.FC = () => {
             <h1
               className={` ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold text-center max-w-[950px] mx-auto`}
             >
-              Get a robust online{' '}
-              <span className='text-orange-500'>ordering system</span>
+              Get a Robust Online{' '}
+              <span className='text-orange-500'>Ordering System</span>
             </h1>
           }
         />
@@ -221,7 +221,7 @@ const FoodAndBeverages: React.FC = () => {
 
         <FAQ faqsContent={faqsContent} />
 
-        <CustomRequestQuote title='see what your restaurant website could look like' />
+        <CustomRequestQuote title='See What Your Restaurant Website Could Look Like' />
       </Layout>
     </>
   );

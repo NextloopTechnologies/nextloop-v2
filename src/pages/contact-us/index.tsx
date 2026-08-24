@@ -116,7 +116,7 @@ const ContactForm: FC = () => {
             <div className='flex justify-center w-full text-black mt-6 md:mt-0 '>
               <div className='flex flex-col justify-start lg:w-2/3 gap-y-4 w-full md:mt-32'>
                 <h2
-                  className={`${palette.fontSize.heading2.mobile} md:text-3xl 2xl:text-4xl text-black uppercase font-bold text-center`}
+                  className={`${palette.fontSize.heading2.mobile} md:text-3xl 2xl:text-4xl text-black  font-bold text-center`}
                 >
                   Get in Touch {'  '}
                   <span className='text-orange-500'>with Us!</span>

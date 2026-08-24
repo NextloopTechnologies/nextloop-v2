@@ -70,13 +70,13 @@ function BlogCard({ blog, onClick }: { blog: BlogType; onClick: () => void }) {
         )}
 
         <button
-          className='self-start mt-auto text-[11px] font-bold tracking-[0.08em] uppercase text-orange-500  transition-colors duration-200 bg-transparent border-none p-0 cursor-pointer'
+          className='self-start mt-auto text-[11px] font-bold tracking-[0.08em]  text-orange-500  transition-colors duration-200 bg-transparent border-none p-0 cursor-pointer'
           onClick={(e) => {
             e.stopPropagation();
             onClick();
           }}
         >
-          READ MORE...
+          Read More...
         </button>
       </div>
     </article>
@@ -165,21 +165,21 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
               {/* Divider + Read More */}
 
               <button
-                className='self-start text-[14px] font-bold w-44 h-10 uppercase bg-orange-500 rounded-3xl 
+                className='self-start text-[14px] font-bold w-44 h-10  bg-orange-500 rounded-3xl 
                  text-white  border-none p-0 cursor-pointer'
                 onClick={(e) => {
                   e.stopPropagation();
                   router.push(`/blog/${data?.[0]?.slug}`);
                 }}
               >
-                READ MORE
+                Read More
               </button>
             </div>
           </div>
           <h2
-            className={`${palette.fontSize.heading2.mobile} md:text-4xl uppercase font-bold text-black mt-20 `}
+            className={`${palette.fontSize.heading2.mobile} md:text-4xl font-bold text-black mt-20 `}
           >
-            ALL <span className='text-orange-500'>BLOGS</span>
+            All <span className='text-orange-500'>Blogs</span>
           </h2>
 
           <div className='grid grid-cols-1 mt-12 md:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch w-full'>

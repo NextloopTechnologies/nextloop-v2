@@ -39,7 +39,7 @@ const faqsContent: IFAQ[] = [
 
 const whyChooseContent: IWhyChooseUs[] = [
   {
-    title: 'WHAT IS FINTECH WEB DESIGN',
+    title: 'What Is Fintech Web Design',
     descp:
       "Fintech web design is the specialised practice of designing and developing websites for companies that deliver financial services through technology. It's a discipline that goes well beyond aesthetics. A fintech website has to do several things at once: communicate credibility, provide a frictionless user experience, meet strict security and compliance standards, and convert visitors into customers — in a sector where those visitors are especially cautious about trust. In practice, that means bringing together user interface design, visual design, information architecture, content strategy, and full-stack web development — all working in concert. Get any one of these elements wrong, and the entire experience suffers. Get them right, and your website becomes one of your strongest business assets. ",
     image: getStaticImageData(fintechAssets.whyChooseUsImg1),
@@ -148,7 +148,7 @@ const Fintech: React.FC = () => {
             <WebDesignCompany />
             {/* <ClientReviews /> */}
             <FAQ faqsContent={faqsContent} />
-            <CustomRequestQuote title='ready to grow your fintech business with new website' />
+            <CustomRequestQuote title='Ready to Grow your Fintech Business with New Website' />
           </div>
         </div>
       </Layout>

@@ -28,7 +28,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ whyChooseContent }) => {
             />
           </div>
           <h1
-            className={`lg:leading-none font-bold uppercase mb-5 ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} mx-10 md:mx-5 md:mb-3`}
+            className={`lg:leading-none font-bold  mb-5 ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} mx-10 md:mx-5 md:mb-3`}
           >
             {whyChooseContent?.[0]?.title}
           </h1>
@@ -52,7 +52,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ whyChooseContent }) => {
             />
           </div>
           <h1
-            className={` lg:leading-none font-bold uppercase ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} mx-10 md:mx-5 md:mb-3`}
+            className={` lg:leading-none font-bold  ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} mx-10 md:mx-5 md:mb-3`}
           >
             {whyChooseContent?.[1]?.title}
           </h1>

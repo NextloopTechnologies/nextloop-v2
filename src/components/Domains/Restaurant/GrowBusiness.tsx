@@ -13,13 +13,13 @@ const growBusinessData = [
   },
   {
     icon: <Gift size={28} color='white' />,
-    title: 'Reward repeat customers ',
+    title: 'Reward Repeat Customers ',
     descp:
       ' Strengthen loyalty with a fully customizable rewards program designed to turn first-time visitors into regulars.',
   },
   {
     icon: <Megaphone size={28} color='white' />,
-    title: 'Boost your visibility ',
+    title: 'Boost Your Visibility ',
     descp:
       'Leverage a built-in suite of marketing tools that help you promote your brand, fill more seats, and stay top of mind.',
   },

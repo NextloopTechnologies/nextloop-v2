@@ -126,7 +126,7 @@ const IconTextBoxZebra: React.FC<IconTextBoxZebraProps> = ({ data }) => {
                 {renderIcon(item)}
               </div>
               <div className='text-left'>
-                <h3 className='font-bold text-lg uppercase'>{item?.title}</h3>
+                <h3 className='font-bold text-lg'>{item?.title}</h3>
                 <p className='text-sm mt-2'>{item?.description}</p>
               </div>
             </div>

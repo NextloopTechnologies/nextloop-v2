@@ -110,7 +110,7 @@ const CultureSection = ({
                 </span>
               </div>
 
-              <h2 className='text-4xl font-bold text-black mb-5 leading-tight uppercase tracking-tight'>
+              <h2 className='text-4xl font-bold text-black mb-5 leading-tight  tracking-tight'>
                 {title}
               </h2>
 

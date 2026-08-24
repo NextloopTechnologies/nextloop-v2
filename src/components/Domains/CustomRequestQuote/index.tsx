@@ -21,7 +21,7 @@ const CustomRequestQuote = ({ title }: Props) => {
           onClick={() => router.push('/contact-us')}
           className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} w-48 flex md:mx-0 bg-white px-5 py-1 justify-center items-center rounded-full hover:scale-105 transition-transform duration-100`}
         >
-          <span className='flex items-center'>Request quote</span>{' '}
+          <span className='flex items-center'>Request Quote</span>{' '}
           <span
             className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} flex ml-1`}
           >
