@@ -66,7 +66,7 @@ const FAQ: React.FC<AccordionProps> = ({ faqsContent }) => {
       <h2
         className={`${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} font-bold`}
       >
-        FAQ'S
+        Frequently Asked Questions
       </h2>
       <div className='w-full p-10'>
         {faqsContent?.map((faq) => (

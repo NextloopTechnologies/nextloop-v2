@@ -57,7 +57,7 @@ const AboutUs: FC = () => {
 
                 <div className='text-sm lg:text-[18px] mt-8 flex flex-col gap-y-4'>
                   <p>
-                    Founded in 2020 with a vision of driving the loop towards
+                    Founded in 2019 with a vision of driving the loop towards
                     new age technologies. Next loop has evolved into a thriving
                     enterprise where unique minds shape innovative experiences
                     for millions of users.{' '}

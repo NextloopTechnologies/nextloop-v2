@@ -92,25 +92,25 @@ const faqsContent: IFAQ[] = [
 const customData = [
   {
     id: 1,
-    title: 'Hire oil and gas software developers',
+    title: 'Hire Oil and Gas Software Developers',
     description:
       'We deliver tailored solutions that solve your unique daily challenges. We truly understand the sector complexities. From complex resource management to strict safety protocols we craft the right technology to clearly optimize your overall field performance.',
   },
   {
     id: 2,
-    title: 'IoT integration for oil and gas field operations',
+    title: 'IoT Integration for Oil and Gas Field Operations',
     description:
       'We provide real time monitoring and smart predictive maintenance. These enhanced decision making capabilities easily keep you ahead of the curve. Our tools improve operational efficiency while actively reducing downtime with AI in refinery operations.',
   },
   {
     id: 3,
-    title: 'Real time pipeline monitoring solutions',
+    title: 'Real Time Pipeline Monitoring Solutions',
     description:
       'We specialize in building custom systems designed specifically for the energy sector today. Whether you need a comprehensive asset management system or regulatory compliance tools our platforms remain scalable secure and tailored to you.',
   },
   {
     id: 4,
-    title: 'Proven energy sector software case studies',
+    title: 'Proven Energy Sector Software Case Studies',
     description:
       'We consistently deliver impactful solutions that enhance daily productivity and improve worker safety. We drive true supply chain optimization for oilfield services. Partner with us to experience a smooth reliable and future ready digital transformation.',
   },
@@ -135,8 +135,8 @@ const OilAndGas = () => {
             <h1
               className={`${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} text-white font-bold text-center w-full`}
             >
-              Custom oil and gas software{' '}
-              <span className='text-orange-500'>development company</span>
+              Custom Oil and Gas Software{' '}
+              <span className='text-orange-500'>Development Company</span>
             </h1>
           }
           customSubtitleClassname={`xl:w-[51%] ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop}`}
@@ -147,8 +147,8 @@ const OilAndGas = () => {
 
         <WhyBuild
           image={getStaticImageData(oilAndGasAssets.whyBuildOilAndGas)}
-          title='Why build <br /> a custom software solution for the'
-          colouredTitle='oil and gas'
+          title='Why Build <br /> a Custom Software Solution for the'
+          colouredTitle='Oil and Gas'
           informationSection={
             <div className='max-w-[737px] md:flex md:flex-col justify-center px-5 md:px-0 md:w-full w-[350px] gap-2'>
               <p
@@ -176,8 +176,8 @@ const OilAndGas = () => {
 
         <WhyWorkWithUs
           data={customData}
-          title='Specialized oilfield'
-          colouredTitle='IT consulting services'
+          title='Specialized Oilfield'
+          colouredTitle='IT Consulting Services'
           subtitle='Get oil and gas app development services faster and effectively. No tech skills are needed. Your delivery date is calculated upfront and we lock a fixed price. But we offer more than just fantastic software. Take a look.'
         />
 
@@ -194,7 +194,7 @@ const OilAndGas = () => {
           colouredTitle='Real customer'
         /> */}
 
-        <CustomRequestQuote title='Your complete oil and gas solution' />
+        <CustomRequestQuote title='Your Complete Oil and Gas Solution' />
       </Layout>
     </>
   );
