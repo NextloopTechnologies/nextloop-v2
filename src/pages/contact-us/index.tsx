@@ -11,84 +11,151 @@ import {
 } from 'react-icons/fa6';
 import { ImLocation } from 'react-icons/im';
 import { IoIosMail, IoMdMail } from 'react-icons/io';
+import PhoneInput from 'react-phone-input-2';
+
+import 'react-phone-input-2/lib/style.css';
 
 import CustomDropdown from '../../components/CustomDropdown';
 import Layout from '../../components/Layout/Layout';
 import palette from '../../styles/pallette';
-import { EnquiryType } from '../../types';
+import {
+  ContactFormData,
+  ContactFormErrors,
+  EnquiryType,
+  OptionType,
+} from '../../types';
 import { createInquiryForm } from '../../utils/db';
-
-interface OptionType {
-  label: string;
-  value: string;
-}
+import {
+  validateEmail,
+  validateLastName,
+  validateName,
+  validatePhone,
+} from '../../utils/formValidation';
 
 const ContactForm: FC = () => {
-  const [email, setEmail] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [message, setMessage] = useState('');
+  const [countryCode, setCountryCode] = useState('91');
+  const [countryIso, setCountryIso] = useState<string>('IN');
   const [subject, setSubject] = useState<OptionType | null>(null);
-  const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+
+  const [formData, setFormData] = useState<ContactFormData>({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: '',
+    message: '',
+  });
+
+  const [errors, setErrors] = useState<ContactFormErrors>({
+    firstName: null,
+    lastName: null,
+    email: null,
+    phoneNumber: null,
+    subject: null,
+    message: null,
+  });
+
   const location =
     '101, Kanchan Sagar, 18/1, Near Industry House, Old Palasia, Indore, Madhya Pradesh 452001';
-  const handleEmailChange = (e: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
-    setEmail(e.target.value);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const validateForm = () => {
-    if (!firstName) return 'First name is required.';
-    if (!lastName) return 'Last name is required.';
-    if (!subject) return 'Subject is required.';
-    if (!email) return 'Email is required.';
-    if (!message) return 'Message is required.';
-    return '';
+  const handleBlur = (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    let error: string | null = null;
+
+    if (name === 'firstName') error = validateName(value) || null;
+    else if (name === 'lastName') error = validateLastName(value) || null;
+    else if (name === 'email') error = validateEmail(value) || null;
+    else if (name === 'message')
+      error = !value.trim() ? 'Message is required.' : null;
+
+    setErrors((prev) => ({ ...prev, [name]: error }));
+  };
+
+  const handleFocus = (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name } = e.target;
+    setErrors((prev) => ({ ...prev, [name]: null }));
   };
 
   const resetForm = () => {
-    setFirstName('');
-    setLastName('');
-    setEmail('');
-    setPhone('');
-    setMessage('');
+    setFormData({
+      firstName: '',
+      lastName: '',
+      email: '',
+      phoneNumber: '',
+      message: '',
+    });
+    setErrors({
+      firstName: null,
+      lastName: null,
+      email: null,
+      phoneNumber: null,
+      subject: null,
+      message: null,
+    });
     setSubject(null);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
     setSuccessMessage('');
 
-    const validationError = validateForm();
-    if (validationError) {
-      setError(validationError);
+    // Validate all fields on submit
+    const newErrors: ContactFormErrors = {
+      firstName: validateName(formData.firstName) || null,
+      lastName: validateLastName(formData.lastName) || null,
+      email: validateEmail(formData.email) || null,
+      phoneNumber:
+        validatePhone(formData.phoneNumber, countryCode, countryIso) || null,
+      subject: !subject
+        ? 'Please select a subject, this field is required.'
+        : null,
+      message: !formData.message.trim() ? 'Message is required.' : null,
+    };
+
+    if (Object.values(newErrors).some(Boolean)) {
+      setErrors(newErrors);
       return;
     }
 
     try {
       const payload: EnquiryType = {
-        fullname: `${firstName} ${lastName}`,
-        email,
-        contact: phone,
+        fullname: `${formData.firstName} ${formData.lastName}`,
+        email: formData.email,
+        contact: formData.phoneNumber.trim()
+          ? `+${countryCode}${formData.phoneNumber.trim()}`
+          : '',
         subject: subject?.value || 'development',
-        message,
+        message: formData.message,
       };
+
       const { success } = await createInquiryForm(payload);
 
       if (success) {
         setSuccessMessage('Your message has been sent successfully!');
+        setTimeout(() => setSuccessMessage(''), 3000);
         resetForm();
-        // Clear success message after 3 seconds
-        setTimeout(() => {
-          setSuccessMessage('');
-        }, 3000);
-      } else setError('Something went wrong. Please try again.');
+      } else {
+        setErrors((prev) => ({
+          ...prev,
+          message: 'Something went wrong. Please try again.',
+        }));
+      }
     } catch {
-      setError('An error occurred while submitting the form.');
+      setErrors((prev) => ({
+        ...prev,
+        message: 'An error occurred while submitting the form.',
+      }));
     }
   };
 
@@ -244,53 +311,145 @@ const ContactForm: FC = () => {
             <div className='flex gap-x-10 justify-end w-full text-black md:pl-10 bg-white p-10 rounded-3xl shadow-2xl md:mt-20'>
               <div className='flex flex-col gap-y-4  w-full'>
                 <div className='relative flex space-x-4'>
-                  <input
-                    type='text'
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    placeholder='First name *'
-                    className='border-b border-gray-400 w-full h-10 bg-transparent focus:outline-none focus:border-gray-600 transition-all duration-300'
-                  />
-                  <input
-                    type='text'
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                    placeholder='Last name *'
-                    className='border-b border-gray-400 w-full h-10 bg-transparent focus:outline-none focus:border-gray-600 transition-all duration-300'
-                  />
+                  {/* First Name */}
+                  <div className='w-full'>
+                    <input
+                      type='text'
+                      name='firstName'
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      onFocus={handleFocus}
+                      placeholder='First name *'
+                      className='border-b border-gray-400 w-full h-10 bg-transparent focus:outline-none focus:border-gray-600 transition-all duration-300'
+                    />
+                    {errors.firstName && (
+                      <p className='text-red-500 text-xs mt-1'>
+                        {errors.firstName}
+                      </p>
+                    )}
+                  </div>
+                  {/* Last Name */}
+                  <div className='w-full'>
+                    <input
+                      type='text'
+                      name='lastName'
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      onFocus={handleFocus}
+                      placeholder='Last name *'
+                      className='border-b border-gray-400 w-full h-10 bg-transparent focus:outline-none focus:border-gray-600 transition-all duration-300'
+                    />
+                    {errors.lastName && (
+                      <p className='text-red-500 text-xs mt-1'>
+                        {errors.lastName}
+                      </p>
+                    )}
+                  </div>
                 </div>
+
+                {/* Email */}
                 <div className='relative'>
                   <input
-                    type='text'
-                    value={email}
-                    onChange={handleEmailChange}
+                    type='email'
+                    name='email'
+                    value={formData.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    onFocus={handleFocus}
                     className='border-b border-gray-400 w-full h-10 bg-transparent focus:outline-none focus:border-gray-600 transition-all duration-300'
                     placeholder='Email Address *'
                   />
+                  {errors.email && (
+                    <p className='text-red-500 text-xs mt-1'>{errors.email}</p>
+                  )}
                 </div>
+
+                {/* Phone */}
                 <div className='relative'>
-                  <input
-                    type='text'
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    placeholder='Phone Number'
-                    className='border-b border-gray-400 w-full h-10 bg-transparent focus:outline-none focus:border-gray-600 transition-all duration-300'
+                  <PhoneInput
+                    country='in'
+                    value={`${countryCode}${formData.phoneNumber}`}
+                    onChange={(
+                      value,
+                      data: { dialCode: string; countryCode: string }
+                    ) => {
+                      const dialCode = data?.dialCode || '';
+                      const iso = data?.countryCode?.toUpperCase() || 'IN';
+                      setCountryCode(dialCode);
+                      setCountryIso(iso);
+                      const actualNumber = value.slice(dialCode.length);
+                      setFormData((prev) => ({
+                        ...prev,
+                        phoneNumber: actualNumber,
+                      }));
+                      const phoneError = actualNumber
+                        ? validatePhone(actualNumber, dialCode, iso) || null
+                        : null;
+                      setErrors((prev) => ({
+                        ...prev,
+                        phoneNumber: phoneError,
+                      }));
+                    }}
+                    inputStyle={{
+                      width: '100%',
+                      border: 'none',
+                      borderBottom: '1px solid #9ca3af',
+                      borderRadius: '0',
+                      backgroundColor: 'transparent',
+                      height: '40px',
+                    }}
+                    buttonStyle={{
+                      border: 'none',
+                      borderBottom: '1px solid #9ca3af',
+                      backgroundColor: 'transparent',
+                      borderRadius: '0',
+                    }}
+                    containerStyle={{ width: '100%' }}
+                    placeholder='Phone Number (Optional)'
                   />
+                  {errors.phoneNumber && (
+                    <p className='text-red-500 text-xs mt-1'>
+                      {errors.phoneNumber}
+                    </p>
+                  )}
                 </div>
-                <CustomDropdown
-                  selected={subject}
-                  onChange={(option) => setSubject(option)}
-                />
+
+                <div>
+                  <CustomDropdown
+                    selected={subject}
+                    onChange={(option) => {
+                      setSubject(option);
+                      setErrors((prev) => ({ ...prev, subject: null }));
+                    }}
+                  />
+                  {errors.subject && (
+                    <p className='text-red-500 text-xs mt-1'>
+                      {errors.subject}
+                    </p>
+                  )}
+                </div>
+
+                {/* Message */}
                 <div className='relative'>
                   <div className='mb-2 text-gray-400'>Message *</div>
                   <textarea
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
+                    name='message'
+                    value={formData.message}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    onFocus={handleFocus}
                     placeholder=''
                     className='border border-gray-400 w-full h-32 bg-transparent focus:outline-none focus:border-gray-600 transition-all duration-300'
                   />
+                  {errors.message && (
+                    <p className='text-red-500 text-xs mt-1'>
+                      {errors.message}
+                    </p>
+                  )}
                 </div>
-                {error && <div className='text-red-500'>{error}</div>}
+
                 {successMessage && (
                   <div className='text-green-500'>{successMessage}</div>
                 )}

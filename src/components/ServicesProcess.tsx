@@ -1,9 +1,6 @@
 import React from 'react';
 
-import {
-  ServiceProcessData,
-  ServiceProcessStep,
-} from '../pages/services/BaseServicePages';
+import { ServiceProcessData, ServiceProcessStep } from '../types';
 
 interface ServicesProcessProps {
   data?: ServiceProcessData;

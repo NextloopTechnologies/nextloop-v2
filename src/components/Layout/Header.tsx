@@ -69,20 +69,6 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
     };
   }, [router]);
 
-  // const handleRequestQuote = () => {
-  //   const footer = document.getElementById('footer');
-  //   if (footer) {
-  //     const headerOffset = isSticky ? 250 : 0;
-  //     const elementPosition =
-  //       footer.getBoundingClientRect().top + window.scrollY;
-  //     const offsetPosition = elementPosition - headerOffset;
-
-  //     window.scrollTo({
-  //       top: offsetPosition,
-  //       behavior: 'smooth',
-  //     });
-  //   }
-  // };
   const isLightPage = pathname.startsWith('/portfolio/');
   return (
     <>
@@ -195,7 +181,6 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
             </li>
             <li>
               <Link
-                // onClick={handleRequestQuote}
                 className='bg-orange-500 ml-10 text-white px-5 py-3 rounded-full flex items-center justify-center'
                 href='/contact-us'
               >

@@ -1,11 +1,6 @@
+import { BlogData } from '../types';
 import supabaseClient from '../utils/client';
-interface BlogData {
-  id: number;
-  title: string;
-  slug: string;
-  descp: string;
-  image: any;
-}
+
 export async function fetchLatestBlogs(limit = 3): Promise<BlogData[]> {
   const { data, error } = await supabaseClient
     .from('blogs')

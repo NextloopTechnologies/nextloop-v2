@@ -1,10 +1,7 @@
 import React from 'react';
 
-import {
-  TechTalentData,
-  TechTalentItem,
-} from '../pages/services/BaseServicePages';
 import palette from '../styles/pallette';
+import { TechTalentData, TechTalentItem } from '../types';
 
 interface TechTalentProps {
   data?: TechTalentData;
