@@ -33,7 +33,8 @@ const securityHeaders = [
       'https://www.googletagmanager.com ' +
       'https://embed.tawk.to ' +
       'wss://*.tawk.to ' +
-      'https://*.tawk.to; ' +
+      'https://*.tawk.to ' +
+      'https://*.supabase.co; ' +
       "img-src 'self' data: https: " +
       'https://res.cloudinary.com ' +
       'https://embed.tawk.to ' +
