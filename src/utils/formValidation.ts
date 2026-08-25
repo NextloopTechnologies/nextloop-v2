@@ -22,6 +22,13 @@ export const validateEmail = (email: string): string => {
     return 'Please enter a valid email address.';
   return '';
 };
+export const validateLinkedIn = (url: string): string => {
+  if (!url.trim()) return 'LinkedIn URL is required.';
+  const regex = /^https:\/\/(www\.)?linkedin\.com\/in\/.+$/;
+  if (!regex.test(url.trim()))
+    return 'Please enter a valid LinkedIn profile URL.';
+  return '';
+};
 
 export const validatePhone = (
   phone: string,
