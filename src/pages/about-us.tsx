@@ -10,7 +10,7 @@ import {
   TrophyIcon,
 } from 'lucide-react';
 import Head from 'next/head';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import { useRef } from 'react';
 
 import Layout from '../components/Layout/Layout';
@@ -18,6 +18,7 @@ import MeetFounders from '../components/MeetFounders';
 import PageHero from '../components/PageHero';
 import Timeline from '../components/Timeline';
 import palette from '../styles/pallette';
+import { CertificateCardProps, Service } from '../types';
 import { getSchemaMarkup } from '../utils/seoSchemas';
 import { AboutNextloopBackground } from '../../assets';
 import aboutBg from '../../assets/about-us-hero.webp';
@@ -25,23 +26,11 @@ import cert1 from '../../assets/certificates/1.png';
 import cert2 from '../../assets/certificates/2.png';
 import cert3 from '../../assets/certificates/3.png';
 import cert5 from '../../assets/certificates/5.png';
-// export interface Service {
-
-//   icon: string;
-//   title: string;
-//   description: string;
-// }
-
-export interface Service {
-  icon: React.ElementType;
-  title: string;
-  description: string;
-}
 
 const servicesData: Service[] = [
   {
     icon: CalendarCheck,
-    title: 'Founded in 2020',
+    title: 'Founded in 2019',
     description:
       'Nextloop Technologies delivers innovative IT solutions across industries.',
   },
@@ -58,7 +47,7 @@ const servicesData: Service[] = [
   {
     icon: Rocket,
     title: 'Projects Completed',
-    description: 'Successfully delivered 30+ projects globally.',
+    description: 'Successfully delivered 40+ projects globally.',
   },
   {
     icon: Headset,
@@ -75,11 +64,11 @@ const servicesData: Service[] = [
 
 const arr = [
   {
-    title: 'our mission',
+    title: 'Our Mission',
     sub: 'Our mission is to empower startups, enterprises, and growing businesses by delivering skilled, strategic, and future-focused technology teams. Through custom software development, AI-driven innovation, and scalable digital solutions, we help companies build competitive, high-performance products that are designed for long-term success in an evolving digital landscape. ',
   },
   {
-    title: 'vision',
+    title: 'Vision',
     sub: 'At Nextloop Technologies, we envision a future where technology professionals are more than contributors — they are innovators, problem-solvers, and growth partners. We foster a culture where creativity is valued, ownership is encouraged, and every achievement is shared collectively. Our goal is to build an ecosystem where talent, innovation, and collaboration drive meaningful digital transformation for businesses worldwide. ',
   },
 ];
@@ -106,12 +95,6 @@ const certificateCardArr = [
     sub: 'We are a DesignRush Verified Agency for 2024 — a mark of trust, creativity, and professional excellence in the digital service space.',
   },
 ];
-
-interface CertificateCardProps {
-  img: StaticImageData;
-  title: string;
-  sub: string;
-}
 
 const AboutUsHome = () => {
   return (
@@ -192,7 +175,7 @@ const Certificates: React.FC = () => {
       <p
         className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold md:mt-20`}
       >
-        COMMITMENT TO<span className='text-orange-500'> EXCELLENCE</span>
+        Commitment To<span className='text-orange-500'> Excellence</span>
       </p>
       <div className='w-full'>
         {/* Desktop View */}
@@ -265,7 +248,7 @@ const EndToEnd = () => {
   return (
     <div className='flex flex-col items-center justify-center p-8 md:mt-5 md:mx-20 py-28'>
       <h2
-        className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold text-center mb-10 uppercase`}
+        className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold text-center mb-10 `}
       >
         Your end-to-end{' '}
         <span className='text-orange-500'> software development</span> partner
@@ -305,7 +288,7 @@ const Card: React.FC<{ title: string; sub: string }> = ({ title, sub }) => {
               <ArrowRight className='object-cover text-black ' size={25} />
             </div>
             <span
-              className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} uppercase font-semibold`}
+              className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop}  font-semibold`}
             >
               {title}
             </span>
@@ -331,7 +314,7 @@ const AboutNextLoop = () => (
       <h2
         className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold mb-4`}
       >
-        ABOUT NEXTLOOP TECHNOLOGIES
+        About Nextloop Technologies
       </h2>
       <p
         className={`${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} mb-10`}
@@ -349,7 +332,7 @@ const AboutNextLoop = () => (
           <p>Senior-level developers</p>
         </div>
         <div className='text-center'>
-          <h3 className='text-5xl font-bold text-orange-500'>30+</h3>
+          <h3 className='text-5xl font-bold text-orange-500'>40+</h3>
           <p>Successful projects</p>
         </div>
       </div>

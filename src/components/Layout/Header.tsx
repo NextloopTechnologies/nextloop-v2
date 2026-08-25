@@ -69,21 +69,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
     };
   }, [router]);
 
-  // const handleRequestQuote = () => {
-  //   const footer = document.getElementById('footer');
-  //   if (footer) {
-  //     const headerOffset = isSticky ? 250 : 0;
-  //     const elementPosition =
-  //       footer.getBoundingClientRect().top + window.scrollY;
-  //     const offsetPosition = elementPosition - headerOffset;
-
-  //     window.scrollTo({
-  //       top: offsetPosition,
-  //       behavior: 'smooth',
-  //     });
-  //   }
-  // };
-
+  const isLightPage = pathname.startsWith('/portfolio/');
   return (
     <>
       {isLoading && (
@@ -93,7 +79,7 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
       )}
       <nav
         className={`px-10 fixed transition-all duration-300 ease-in-out top-0 left-0 w-full z-30 ${
-          isSticky
+          isSticky || isLightPage
             ? 'bg-white text-black shadow-md'
             : headerColor ?? 'text-white'
         }`}
@@ -195,7 +181,6 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
             </li>
             <li>
               <Link
-                // onClick={handleRequestQuote}
                 className='bg-orange-500 ml-10 text-white px-5 py-3 rounded-full flex items-center justify-center'
                 href='/contact-us'
               >

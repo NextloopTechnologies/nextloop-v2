@@ -19,34 +19,34 @@ type BoxProps = {
 const orangeBoxData: BoxProps[] = [
   {
     icon: <FileText size={32} />, // Using Lucide icon components
-    title: 'customized reports',
+    title: 'Customized Reports',
   },
   {
     icon: <Cpu size={32} />,
-    title: 'design infrastructure',
+    title: 'Design Infrastructure',
   },
   {
     icon: <Cloud size={32} />,
-    title: 'On demand updates',
+    title: 'On Demand Updates',
   },
 ];
 
 const blackBoxData: BoxProps[] = [
   {
     icon: <BarChart2 size={32} />,
-    title: 'On demand updates',
+    title: 'On Demand Updates',
   },
   {
     icon: <Settings size={32} />,
-    title: 'custom integration',
+    title: 'Custom Integration',
   },
   {
     icon: <Columns3 size={32} />,
-    title: 'constant support',
+    title: 'Constant Support',
   },
   {
     icon: <GitBranch size={32} />,
-    title: 'development from scratch',
+    title: 'Development from Scratch',
   },
 ];
 
@@ -96,7 +96,7 @@ const Benefits: React.FC = () => {
           requirements, or user journeys that fintech businesses need.
         </p>
       </div>
-      <div className='flex flex-col items-center text-white uppercase font-bold md:mb-14 md:gap-1 gap-20 py-10'>
+      <div className='flex flex-col items-center text-white font-bold md:mb-14 md:gap-1 gap-20 py-10'>
         <div className='flex flex-col md:flex-row md:flex-wrap md:justify-center items-center space-y-20 md:space-y-0 md:space-x-20 gap-5 md:gap-0'>
           {orangeBoxData?.map(({ icon, title }, idx) => (
             <OrangeBox key={idx} title={title} icon={icon} />

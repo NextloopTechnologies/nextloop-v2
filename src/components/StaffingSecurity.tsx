@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { SecurityData, SecurityItem } from '../pages/services/BaseServicePages';
 import palette from '../styles/pallette';
+import { SecurityData, SecurityItem } from '../types';
 
 interface StaffingSecurityProps {
   data: SecurityData;

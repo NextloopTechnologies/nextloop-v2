@@ -50,7 +50,7 @@ const TransformYourBusiness = () => {
         <h2
           className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-white font-bold leading-none text-center mb-10 mt-10`}
         >
-          Transform your <span className='text-orange-500'>business today</span>
+          Transform your <span className='text-orange-500'>Business Today</span>
         </h2>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-14 mb-20'>
           {data?.map(({ descp, id, icon, title }) => (

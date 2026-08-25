@@ -20,7 +20,7 @@ const sampleData: Data[] = [
   {
     id: 2,
     image: getStaticImageData(eventAssets.Fashion),
-    title: 'Fashion shows and red carpets',
+    title: 'Fashion Shows and Red Carpets',
   },
   {
     id: 3,
@@ -68,7 +68,7 @@ export const Card = ({
       alt={data.title}
     />
     <h3
-      className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} font-medium leading-6 uppercase text-center mx-20 ${titleClassname}`}
+      className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} font-medium leading-6  text-center mx-20 ${titleClassname}`}
     >
       {data.title}
     </h3>
@@ -89,8 +89,8 @@ const DesignYourEvents = () => {
       <h1
         className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold text-center mx-10`}
       >
-        Design your events website the way{' '}
-        <span className='text-orange-500'>you want</span>
+        Design your Events Website the Way{' '}
+        <span className='text-orange-500'>you Want</span>
       </h1>
 
       <div className='grid gap-10 mx-auto grid-cols-1 lg:grid-cols-3 md:grid-cols-2'>

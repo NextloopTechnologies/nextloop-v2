@@ -1,18 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { FaXTwitter } from 'react-icons/fa6';
 
 import Layout from '../../components/Layout/Layout';
-import { BlogType } from '../../types';
+import { BlogIDProps, BlogType, TocItem } from '../../types';
 import supabaseClient from '../../utils/client';
-
-interface TocItem {
-  id: string;
-  text: string;
-  level: number;
-}
 
 const MetaRow: React.FC<{ publishedAt?: string; readTime?: string }> = ({
   publishedAt,
@@ -65,14 +61,14 @@ const TableOfContents: React.FC<{ items: TocItem[]; activeId: string }> = ({
   if (items.length === 0) return null;
 
   return (
-    <aside className='bg-white border-2 border-orange-500 rounded-lg overflow-hidden sticky top-6 w-56 shrink-0'>
+    <aside className='bg-white border-2 border-orange-500 rounded-lg overflow-hidden  w-56 shrink-0'>
       {/* Orange header */}
       <div className='bg-orange-500 text-white text-[0.7rem] font-bold tracking-widest uppercase px-3 py-2'>
-        TABLE OF CONTENT
+        TABLE OF CONTENTS
       </div>
 
       {/* Links */}
-      <ul className='list-none m-0 px-2 py-2 flex flex-col gap-0.5'>
+      <ul className='list-none m-0 px-2 py-2 flex flex-col gap-0.5  custom-scrollbar'>
         {items.map((item) => (
           <li key={item.id}>
             <a
@@ -105,10 +101,99 @@ const TableOfContents: React.FC<{ items: TocItem[]; activeId: string }> = ({
   );
 };
 
-interface BlogIDProps {
-  data?: BlogType;
-  error?: string;
-}
+const AuthorSection: React.FC<{ blog: BlogType }> = ({ blog }) => {
+  if (!blog?.author || !blog.author.name) return null;
+  const handleShare = (platform: string) => {
+    const url = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(blog.title || 'Check out this blog!');
+
+    let shareUrl = '';
+
+    if (platform === 'facebook') {
+      shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+    } else if (platform === 'twitter') {
+      shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+    } else if (platform === 'linkedin') {
+      shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${title}`;
+    }
+
+    if (shareUrl) {
+      // window.open(shareUrl, '_blank', 'width=600,height=400');
+      window.open(shareUrl, '_blank', 'noopener,noreferrer');
+    }
+  };
+
+  return (
+    <div className='flex flex-col gap-4 mt-6'>
+      {/* The Author Card */}
+      <div className='bg-[#f9f9f9] p-5 rounded-lg w-56 shrink-0'>
+        <h3 className='text-orange-500 font-bold text-lg mb-4'>The Author</h3>
+
+        <div className='flex justify-between items-start mb-4'>
+          <div>
+            <h4 className='font-bold text-black text-sm'>{blog.author.name}</h4>
+            <p className='text-gray-500 italic text-xs'>
+              {blog.author.designation}
+            </p>
+          </div>
+
+          {blog.author.profile && (
+            <a
+              href={blog.author.profile}
+              target='_blank'
+              rel='noreferrer'
+              className='bg-[#0a66c2] p-1 rounded inline-block'
+            >
+              <Linkedin size={16} color='white' />
+            </a>
+          )}
+        </div>
+
+        {blog.author.description && (
+          <p className='text-gray-700 text-xs leading-relaxed'>
+            {blog.author.description}
+          </p>
+        )}
+      </div>
+
+      {/* Share Article Card */}
+      <div className='bg-[#f9f9f9] p-5 rounded-lg w-56 shrink-0'>
+        <h3 className='text-orange-500 font-bold text-[1rem] mb-4'>
+          Share this article:
+        </h3>
+        <div className='flex gap-3'>
+          <button
+            onClick={() => handleShare('facebook')}
+            className='bg-[#333333] p-2 rounded-full hover:bg-orange-500 transition-colors'
+          >
+            <Facebook size={18} color='white' />
+          </button>
+
+          <button
+            onClick={() => handleShare('linkedin')}
+            className='bg-[#333333] p-2 rounded-full hover:bg-orange-500 transition-colors'
+          >
+            <Linkedin size={18} color='white' />
+          </button>
+
+          <button
+            onClick={() => handleShare('twitter')}
+            className='bg-[#333333] p-2 rounded-full hover:bg-orange-500 transition-colors'
+          >
+            <FaXTwitter size={18} color='white' />
+          </button>
+
+          <a
+            href='#'
+            className='bg-[#333333] p-2 rounded-full hover:bg-orange-500 transition-colors'
+          >
+            <Instagram size={18} color='white' />
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const BlogID: React.FC<BlogIDProps> = ({ data, error }) => {
   const [tocItems, setTocItems] = useState<TocItem[]>([]);
@@ -188,6 +273,12 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error }) => {
     <Layout headerColor='text-black'>
       <div className='bg-white min-h-screen pb-16  lg:mt-11'>
         <div className='max-w-4xl mx-auto px-4 pt-8 text-center'>
+          {/* Category Badge */}
+          {data.categories?.name && (
+            <span className='inline-block bg-orange-500 text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-4'>
+              {data.categories.name}
+            </span>
+          )}
           <h1 className='text-2xl md:text-3xl lg:text-[2rem] font-extrabold leading-tight text-gray-900'>
             {data.title}
           </h1>
@@ -197,7 +288,8 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error }) => {
         {data.image?.[0]?.url && (
           <div className='max-w-7xl mx-auto px-4 mb-6'>
             <div className=' overflow-hidden shadow-md'>
-              <div className='w-full h-[400px] relative'>
+              {/* <div className='w-full h-[400px] relative'> */}
+              <div className='w-full aspect-video relative'>
                 <Image
                   src={data.image[0].url}
                   alt={data.title}
@@ -212,24 +304,28 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error }) => {
         )}
 
         <div className='max-w-7xl mx-auto px-4 flex gap-5 items-start'>
-          {tocItems.length > 0 && (
-            <div className='hidden md:block'>
+          <div className='hidden md:flex flex-col gap-6  w-56 shrink-0'>
+            {tocItems.length > 0 && (
               <TableOfContents items={tocItems} activeId={activeId} />
-            </div>
-          )}
+            )}
+            {data && <AuthorSection blog={data} />}
+          </div>
 
           <div className='flex-1 min-w-0'>
             <div className='ql-snow'>
               <div
                 className='ql-editor !p-0 prose prose-sm md:prose-base max-w-none
-               prose-headings:text-gray-900
-               prose-h2:border-b prose-h2:pb-1
-               prose-h3:text-blue-700
-               prose-a:text-blue-600
-               prose-blockquote:border-blue-500 prose-blockquote:bg-blue-50
-               prose-code:bg-gray-100 prose-code:px-1 prose-code:rounded
-               prose-pre:bg-slate-800 prose-pre:text-gray-100
-               prose-img:rounded-lg prose-img:shadow-md'
+                [&_p]:!my-4
+                prose-headings:mt-0
+                prose-headings:mb-1
+                [&_p:has(> br:only-child)]:hidden
+                 prose-headings:text-gray-900
+                 prose-a:text-blue-600
+                 prose-a:no-underline
+                 prose-blockquote:border-blue-500 prose-blockquote:bg-blue-50
+                 prose-code:bg-gray-100 prose-code:px-1 prose-code:rounded
+                 prose-pre:bg-slate-800 prose-pre:text-gray-100
+                 prose-img:rounded-lg prose-img:shadow-md'
                 dangerouslySetInnerHTML={{
                   __html: processedHtml || data.descp,
                 }}
@@ -247,8 +343,9 @@ export default BlogID;
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const { data, error } = await supabaseClient
     .from('blogs')
-    .select('*')
-    .filter('id', 'eq', params?.id)
+    .select('*,author(*), categories(*)')
+    .eq('status', 'published')
+    .filter('slug', 'eq', params?.slug)
     .single();
 
   if (error) {

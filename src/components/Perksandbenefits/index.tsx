@@ -24,7 +24,7 @@ const PerksBenefitsSection = () => {
   return (
     <section className='w-full bg-white py-20 px-4'>
       <div className=' min-h-fit w-full md:max-w-6xl mx-auto text-center'>
-        <h2 className='text-3xl text-black md:text-4xl font-bold uppercase'>
+        <h2 className='text-3xl text-black md:text-4xl font-bold '>
           Perks & <span className='text-orange-500'>Benefits</span>
         </h2>
 

@@ -16,7 +16,7 @@ const LifeAtNextloop = () => {
           {/* Text */}
           <div className='text-center md:text-left flex-1'>
             <h3 className='text-xl sm:text-2xl font-bold text-white'>
-              Want to know more about Nextloop?
+              Want to know More About Nextloop?
             </h3>
           </div>
 

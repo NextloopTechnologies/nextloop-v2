@@ -1,10 +1,7 @@
 import React from 'react';
 
-import {
-  ComparisonRow,
-  ComparisonTableData,
-} from '../pages/services/BaseServicePages';
 import palette from '../styles/pallette';
+import { ComparisonRow, ComparisonTableData } from '../types';
 
 interface StaffingTableProps {
   data: ComparisonTableData;
