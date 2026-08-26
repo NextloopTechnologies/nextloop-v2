@@ -223,9 +223,8 @@ const PopupForm: React.FC = () => {
                       onFocus={() =>
                         setErrors((prev) => ({ ...prev, name: null }))
                       }
-                      className={`w-full border rounded-xl px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 ${
-                        errors.name ? 'border-red-500' : 'border-gray-300'
-                      }`}
+                      className={`w-full border rounded-xl px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 ${errors.name ? 'border-red-500' : 'border-gray-300'
+                        }`}
                       placeholder='Name'
                     />
                     {errors.name && (
@@ -255,9 +254,8 @@ const PopupForm: React.FC = () => {
                       onFocus={() =>
                         setErrors((prev) => ({ ...prev, email: null }))
                       }
-                      className={`w-full border rounded-xl px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 ${
-                        errors.email ? 'border-red-500' : 'border-gray-300'
-                      }`}
+                      className={`w-full border rounded-xl px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 ${errors.email ? 'border-red-500' : 'border-gray-300'
+                        }`}
                       placeholder='name@company.com'
                     />
                     {errors.email && (
@@ -282,9 +280,8 @@ const PopupForm: React.FC = () => {
                         }));
                         setErrors((prev) => ({ ...prev, service: null }));
                       }}
-                      className={`w-full border rounded-xl px-4 py-3 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 appearance-none bg-white ${
-                        errors.service ? 'border-red-500' : 'border-gray-300'
-                      }`}
+                      className={`w-full border rounded-xl px-4 py-3 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 appearance-none bg-white ${errors.service ? 'border-red-500' : 'border-gray-300'
+                        }`}
                       aria-label='Select a service'
                     >
                       <option value=''>Select a service</option>
@@ -393,11 +390,10 @@ const PopupForm: React.FC = () => {
 
                 {status && (
                   <div
-                    className={`rounded-xl px-4 py-3 text-sm ${
-                      status.ok
+                    className={`rounded-xl px-4 py-3 text-sm ${status.ok
                         ? 'bg-emerald-100 text-emerald-700'
                         : 'bg-rose-100 text-rose-700'
-                    }`}
+                      }`}
                   >
                     {status.msg}
                   </div>
