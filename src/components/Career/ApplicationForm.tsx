@@ -5,6 +5,11 @@ import React, { ChangeEvent, FormEvent, useRef, useState } from 'react';
 import { AppliedJob } from '../../types';
 import { AppliedJobDefaultFormValues } from '../../utils/constant';
 import { createAppliedJob } from '../../utils/db';
+import {
+  validateEmail,
+  validateLinkedIn,
+  validateName,
+} from '../../utils/formValidation';
 import { uploadResume } from '../../utils/uploadApi';
 
 const ApplicationForm: React.FC<{ jobId: number }> = ({ jobId }) => {
@@ -17,6 +22,12 @@ const ApplicationForm: React.FC<{ jobId: number }> = ({ jobId }) => {
   const [isError, setIsError] = useState<string>('');
   const resumeFileInputRef = useRef<HTMLInputElement>(null);
   const formData = new FormData();
+  const [errors, setErrors] = useState<{
+    fullname: string | null;
+    email: string | null;
+    linkedin_url: string | null;
+    phone: string | null;
+  }>({ fullname: null, email: null, linkedin_url: null, phone: null });
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -52,7 +63,16 @@ const ApplicationForm: React.FC<{ jobId: number }> = ({ jobId }) => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    const newErrors = {
+      fullname: validateName(initialValues.fullname) || null,
+      email: validateEmail(initialValues.email) || null,
+      linkedin_url: validateLinkedIn(initialValues.linkedin_url) || null,
+      phone: !initialValues.phone.trim() ? 'Phone number is required.' : null,
+    };
+    if (Object.values(newErrors).some(Boolean)) {
+      setErrors(newErrors);
+      return;
+    }
     try {
       setIsLoading(true);
 
@@ -67,6 +87,12 @@ const ApplicationForm: React.FC<{ jobId: number }> = ({ jobId }) => {
 
       setFeedback('Thankyou for applying!');
       setInitialValues(AppliedJobDefaultFormValues);
+      setErrors({
+        fullname: null,
+        email: null,
+        linkedin_url: null,
+        phone: null,
+      });
 
       if (resumeFileInputRef.current) {
         resumeFileInputRef.current.value = '';
@@ -94,11 +120,18 @@ const ApplicationForm: React.FC<{ jobId: number }> = ({ jobId }) => {
             name='fullname'
             value={initialValues.fullname}
             onChange={handleChange}
-            required
-            minLength={3}
-            maxLength={100}
             className='mt-1 p-3 form-input'
+            onBlur={() =>
+              setErrors((prev) => ({
+                ...prev,
+                fullname: validateName(initialValues.fullname) || null,
+              }))
+            }
+            onFocus={() => setErrors((prev) => ({ ...prev, fullname: null }))}
           />
+          {errors.fullname && (
+            <p className='text-red-500 text-xs mt-1'>{errors.fullname}</p>
+          )}
         </label>
       </div>
       <div className='mb-4'>
@@ -109,9 +142,18 @@ const ApplicationForm: React.FC<{ jobId: number }> = ({ jobId }) => {
             name='email'
             value={initialValues.email}
             onChange={handleChange}
-            required
+            onBlur={() =>
+              setErrors((prev) => ({
+                ...prev,
+                email: validateEmail(initialValues.email) || null,
+              }))
+            }
+            onFocus={() => setErrors((prev) => ({ ...prev, email: null }))}
             className='mt-1 p-3 form-input'
           />
+          {errors.email && (
+            <p className='text-red-500 text-xs mt-1'>{errors.email}</p>
+          )}
         </label>
       </div>
       <div className='mb-4'>
@@ -122,11 +164,23 @@ const ApplicationForm: React.FC<{ jobId: number }> = ({ jobId }) => {
             name='phone'
             value={initialValues.phone}
             onChange={handleChange}
+            onBlur={() =>
+              setErrors((prev) => ({
+                ...prev,
+                phone: !initialValues.phone.trim()
+                  ? 'Phone number is required.'
+                  : null,
+              }))
+            }
+            onFocus={() => setErrors((prev) => ({ ...prev, phone: null }))}
             pattern='[6-9]{1}[0-9]{9}'
             title='Must be 10 digits and start between 6-9'
             className='mt-1 p-3 form-input'
             maxLength={10}
           />
+          {errors.phone && (
+            <p className='text-red-500 text-xs mt-1'>{errors.phone}</p>
+          )}
         </label>
       </div>
       <div className='mb-4'>
@@ -151,9 +205,21 @@ const ApplicationForm: React.FC<{ jobId: number }> = ({ jobId }) => {
             name='linkedin_url'
             value={initialValues.linkedin_url}
             onChange={handleChange}
-            required
+            onBlur={() =>
+              setErrors((prev) => ({
+                ...prev,
+                linkedin_url:
+                  validateLinkedIn(initialValues.linkedin_url) || null,
+              }))
+            }
+            onFocus={() =>
+              setErrors((prev) => ({ ...prev, linkedin_url: null }))
+            }
             className='mt-1 p-3 form-input'
           />
+          {errors.linkedin_url && (
+            <p className='text-red-500 text-xs mt-1'>{errors.linkedin_url}</p>
+          )}
         </label>
       </div>
       <div className='mb-4'>
