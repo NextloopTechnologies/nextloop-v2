@@ -257,6 +257,8 @@ const ContactForm: FC = () => {
                         href='https://www.facebook.com/profile.php?id=61556914381569&mibextid=ZbWKwL'
                         passHref
                         className='w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center'
+                        target='_blank'
+                        rel='noopener noreferrer'
                       >
                         <FaFacebookF size={24} className='text-white' />
                       </Link>
@@ -265,6 +267,8 @@ const ContactForm: FC = () => {
                       <Link
                         href='https://g.co/kgs/7LnLSHN'
                         className='w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center'
+                        target='_blank'
+                        rel='noopener noreferrer'
                       >
                         <FaGoogle size={24} className='text-white' />
                       </Link>
@@ -284,6 +288,8 @@ const ContactForm: FC = () => {
                         aria-disabled
                         href='https://www.instagram.com/nextloop.technologies/'
                         className='w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center'
+                        target='_blank'
+                        rel='noopener noreferrer'
                       >
                         <FaInstagram size={24} className='text-white' />
                       </Link>
@@ -292,6 +298,8 @@ const ContactForm: FC = () => {
                       <Link
                         href='https://www.linkedin.com/company/nextloop-technologies-llp'
                         className='w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center'
+                        target='_blank'
+                        rel='noopener noreferrer'
                       >
                         <FaLinkedinIn size={24} className='text-white' />
                       </Link>
@@ -300,6 +308,8 @@ const ContactForm: FC = () => {
                       <Link
                         href='https://x.com/Nextloop_'
                         className='w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center'
+                        target='_blank'
+                        rel='noopener noreferrer'
                       >
                         <FaXTwitter size={24} className='text-white' />
                       </Link>

@@ -356,7 +356,7 @@ const Timeline = () => {
     const update = () => {
       const w = window.innerWidth;
       if (w < 640) setBreakpoint('mobile');
-      else if (w <= 1024) setBreakpoint('tablet');
+      else if (w <= 1150) setBreakpoint('tablet');
       else setBreakpoint('desktop');
     };
     update();
