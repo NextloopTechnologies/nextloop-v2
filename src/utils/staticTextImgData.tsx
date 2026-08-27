@@ -596,7 +596,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'MOBILE',
+          title: 'Mobile',
           items: [
             { name: 'AngularJS', image: androidIcon.src },
             { name: 'React', image: iosIcon.src },
@@ -1219,7 +1219,7 @@ export const servicesSubPagesData = {
           ],
         },
         {
-          title: 'MOBILE',
+          title: 'Mobile',
           items: [
             { name: 'AngularJS', image: androidIcon.src },
             { name: 'React', image: iosIcon.src },
