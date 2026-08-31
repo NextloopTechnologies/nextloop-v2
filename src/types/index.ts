@@ -43,6 +43,7 @@ export interface BlogType {
   updated_at: string;
   slug?: string | null;
   service?: string | null;
+  read_time?: number;
   categories?: CategoryType;
   category_id?: number | null;
   author?: AuthorType;

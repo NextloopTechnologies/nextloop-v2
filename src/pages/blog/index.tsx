@@ -89,7 +89,9 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
 }) => {
   const router = useRouter();
   const [visibleCount, setVisibleCount] = useState(9);
-  const filtered = data ? data.filter((blog) => blog.title && blog.descp) : [];
+  const filtered = data
+    ? data.filter((blog, i) => i !== 0 && blog.title && blog.descp)
+    : [];
   const visibleBlogs = filtered.slice(0, visibleCount);
 
   return (
@@ -122,7 +124,10 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
         </div>
       ) : (
         <div className='bg-white min-h-screen px-4 flex flex-col justify-center items-center md:px-8 xl:px-24 py-12 '>
-          <div className='relative w-11/12 aspect-[16/9] rounded-lg'>
+          <div
+            className='relative w-11/12 aspect-[16/9] rounded-lg cursor-pointer'
+            onClick={() => router.push(`/blog/${data?.[0]?.slug}`)}
+          >
             {/* Background image */}
             {data?.[0]?.image?.[0]?.url ? (
               <Image

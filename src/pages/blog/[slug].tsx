@@ -10,8 +10,9 @@ import Layout from '../../components/Layout/Layout';
 import { BlogIDProps, BlogType, TocItem } from '../../types';
 import supabaseClient from '../../utils/client';
 
-const MetaRow: React.FC<{ publishedAt?: string; readTime?: string }> = ({
+const MetaRow: React.FC<{ publishedAt?: string; readTime?: number }> = ({
   publishedAt,
+  readTime,
 }) => (
   <div className='flex flex-wrap items-center justify-center gap-4 mt-3 mb-5'>
     {publishedAt && (
@@ -34,7 +35,7 @@ const MetaRow: React.FC<{ publishedAt?: string; readTime?: string }> = ({
       </span>
     )}
 
-    <span className='flex items-center gap-1.5 text-[#1B1B1B] text-xs font-medium'>
+    {/* <span className='flex items-center gap-1.5 text-[#1B1B1B] text-xs font-medium'>
       <svg
         width={12}
         height={12}
@@ -50,7 +51,27 @@ const MetaRow: React.FC<{ publishedAt?: string; readTime?: string }> = ({
         <path d='M16 3.13a4 4 0 0 1 0 7.75' />
       </svg>
       Reviewed by NextLoop Team
-    </span>
+    </span> */}
+    {readTime && (
+      <>
+        <span className='text-gray-300'>|</span>
+        <span className='flex items-center gap-1.5 text-[#1B1B1B] text-xs font-medium'>
+          <svg
+            width={12}
+            height={12}
+            viewBox='0 0 24 24'
+            fill='none'
+            color='#FA8145'
+            stroke='currentColor'
+            strokeWidth={2}
+          >
+            <circle cx='12' cy='12' r='10' />
+            <polyline points='12 6 12 12 16 14' />
+          </svg>
+          {readTime} min read
+        </span>
+      </>
+    )}
   </div>
 );
 
@@ -208,11 +229,14 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error }) => {
     const items: TocItem[] = [];
 
     div.querySelectorAll('h1,h2,h3,h4').forEach((el, i) => {
+      const text = el.textContent?.trim() ?? '';
+      if (!text) return;
+
       const id = `toc-heading-${i}`;
       el.id = id;
       items.push({
         id,
-        text: el.textContent ?? '',
+        text,
         level: parseInt(el.tagName.substring(1)),
       });
     });
@@ -282,7 +306,7 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error }) => {
           <h1 className='text-2xl md:text-3xl lg:text-[2rem] font-extrabold leading-tight text-gray-900'>
             {data.title}
           </h1>
-          <MetaRow publishedAt={publishedAt} />
+          <MetaRow publishedAt={publishedAt} readTime={data.read_time} />
         </div>
 
         {data.image?.[0]?.url && (
