@@ -64,7 +64,7 @@ const Layout: React.FC<LayoutProps> = ({
           <div
             id={id}
             ref={(el: HTMLDivElement | null) => {
-              if (divRefs?.length) divRefs[8] = el;
+              if (divRefs?.length) divRefs[7] = el;
             }}
             className='container mx-auto'
           >
@@ -76,7 +76,7 @@ const Layout: React.FC<LayoutProps> = ({
           <div
             id={id}
             ref={(el: HTMLDivElement | null) => {
-              if (divRefs?.length) divRefs[8] = el;
+              if (divRefs?.length) divRefs[7] = el;
             }}
           >
             {showFooter && <PitchThought />}
