@@ -43,10 +43,12 @@ export interface BlogType {
   updated_at: string;
   slug?: string | null;
   service?: string | null;
+  read_time?: number;
   categories?: CategoryType;
   category_id?: number | null;
   author?: AuthorType;
   author_id?: number | null;
+  featured_blogs?: number[] | null;
 }
 
 /** Lightweight blog card data returned by fetchLatestBlogs */
@@ -69,6 +71,7 @@ export interface TocItem {
 export interface BlogIDProps {
   data?: BlogType;
   error?: string;
+  featuredBlogs?: BlogType[];
 }
 
 // ---------------------------------------------------------------------------
