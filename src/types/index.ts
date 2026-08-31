@@ -47,6 +47,9 @@ export interface BlogType {
   category_id?: number | null;
   author?: AuthorType;
   author_id?: number | null;
+  meta_title?: string | null;
+  meta_description?: string | null;
+  meta_keywords?: string[] | null;
 }
 
 /** Lightweight blog card data returned by fetchLatestBlogs */
