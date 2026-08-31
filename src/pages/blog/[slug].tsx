@@ -35,23 +35,6 @@ const MetaRow: React.FC<{ publishedAt?: string; readTime?: number }> = ({
       </span>
     )}
 
-    {/* <span className='flex items-center gap-1.5 text-[#1B1B1B] text-xs font-medium'>
-      <svg
-        width={12}
-        height={12}
-        viewBox='0 0 24 24'
-        fill='none '
-        color='#FA8145'
-        stroke='currentColor'
-        strokeWidth={2}
-      >
-        <path d='M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2' />
-        <circle cx='9' cy='7' r='4' />
-        <path d='M23 21v-2a4 4 0 0 0-3-3.87' />
-        <path d='M16 3.13a4 4 0 0 1 0 7.75' />
-      </svg>
-      Reviewed by NextLoop Team
-    </span> */}
     {readTime && (
       <>
         <span className='text-gray-300'>|</span>
@@ -215,8 +198,65 @@ const AuthorSection: React.FC<{ blog: BlogType }> = ({ blog }) => {
     </div>
   );
 };
+// ---- Featured Blog ----
 
-const BlogID: React.FC<BlogIDProps> = ({ data, error }) => {
+function stripHtml(html: string) {
+  return html?.replace(/<[^>]*>/g, '') ?? '';
+}
+
+const FeaturedBlogs: React.FC<{ blogs: BlogType[] }> = ({ blogs }) => {
+  if (!blogs || blogs.length === 0) return null;
+
+  return (
+    <div className='max-w-7xl mx-auto px-4 mt-16 mb-8'>
+      <h2 className='text-2xl md:text-3xl font-bold text-center text-gray-900 mb-8'>
+        Featured <span className='text-orange-500'>Blogs</span>
+      </h2>
+
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+        {blogs.map((blog) => (
+          <a
+            key={blog.id}
+            href={`/blog/${blog.slug}`}
+            className='group flex flex-col overflow-hidden rounded-lg border border-[#C8C8C8] bg-white hover:shadow-lg transition-all duration-300 no-underline'
+          >
+            {/* Image */}
+            <div className='relative w-full h-[200px] overflow-hidden'>
+              {blog.image?.[0]?.url ? (
+                <Image
+                  src={blog.image[0].url}
+                  alt={blog.title}
+                  fill
+                  className='object-cover'
+                  sizes='(max-width: 768px) 100vw, 400px'
+                />
+              ) : (
+                <div className='w-full h-full bg-gradient-to-br from-[#1e3a5f] to-[#0d1b2e]' />
+              )}
+            </div>
+
+            {/* Content */}
+            <div className='flex flex-col gap-2 p-4 flex-1'>
+              <h3 className='text-[15px] font-semibold text-gray-900 line-clamp-2 group-hover:text-orange-500 transition-colors duration-200'>
+                {blog.title}
+              </h3>
+
+              <p className='text-[13px] text-gray-500 line-clamp-2'>
+                {stripHtml(blog.descp)}
+              </p>
+
+              <span className='mt-auto text-[12px] font-bold text-orange-500 uppercase tracking-wide'>
+                Read More →
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const BlogID: React.FC<BlogIDProps> = ({ data, error, featuredBlogs }) => {
   const [tocItems, setTocItems] = useState<TocItem[]>([]);
   const [activeId, setActiveId] = useState('');
   const [processedHtml, setProcessedHtml] = useState('');
@@ -357,6 +397,9 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error }) => {
             </div>
           </div>
         </div>
+        {featuredBlogs && featuredBlogs.length > 0 && (
+          <FeaturedBlogs blogs={featuredBlogs} />
+        )}
       </div>
     </Layout>
   );
@@ -375,10 +418,19 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   if (error) {
     return { props: { error: error.message } };
   }
-
+  let featuredBlogs: BlogType[] = [];
+  if (data?.featured_blogs?.length) {
+    const { data: fb } = await supabaseClient
+      .from('blogs')
+      .select('id, title, slug, image, descp, created_at')
+      .in('id', data.featured_blogs)
+      .eq('status', 'published');
+    featuredBlogs = (fb ?? []) as BlogType[];
+  }
   return {
     props: {
       data: data ?? null,
+      featuredBlogs,
     },
   };
 };
