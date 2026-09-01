@@ -277,11 +277,11 @@ const EndToEnd = () => {
 
 const Card: React.FC<{ title: string; sub: string }> = ({ title, sub }) => {
   return (
-    <div className='p-4 border-[2px] border-orange-400  h-[420px] sm:h-[320px] w-full relative'>
+    <div className='p-4 border-[2px] border-orange-400 min-h-[320px] w-full relative'>
       <div className='w-full h-full absolute bottom-6 left-6'>
         <div
           style={{ boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px' }}
-          className='bg-white rounded-[2px] flex flex-col gap-2 max-w-md py-10 px-4 h-[420px] sm:h-[320px]'
+          className='bg-white rounded-[2px] flex flex-col gap-2 max-w-md py-10 px-4 min-h-[320px] h-auto'
         >
           <div className='flex gap-2 items-center'>
             <div>
