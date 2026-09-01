@@ -15,7 +15,7 @@ const IconTextBoxZebra: React.FC<IconTextBoxZebraProps> = ({ data }) => {
 
   useEffect(() => {
     const handleResize = (): void => {
-      setPerView(window.innerWidth >= 640 ? 2 : 1);
+      setPerView(window.innerWidth >= 1024 ? 2 : 1);
     };
     handleResize();
     window.addEventListener('resize', handleResize);

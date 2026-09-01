@@ -99,11 +99,13 @@ const OurProcess: React.FC<OurProcessProps> = ({ processData }) => {
         ref={containerRef}
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
-        className='w-full max-w-4xl flex items-stretch cursor-ns-resize select-none'
-        style={{ height: `${PANEL_H}px` }}
+        // className='w-full max-w-4xl flex items-stretch cursor-ns-resize select-none'
+        // style={{ height: `${PANEL_H}px` }}
+        className='w-full max-w-4xl flex flex-col md:flex-row items-stretch cursor-ns-resize select-none'
+        style={{ height: undefined }}
       >
         {/* Left — scrolling titles */}
-        <div className='relative overflow-hidden w-[260px] h-[160px] shrink-0'>
+        <div className='relative overflow-hidden w-full md:w-[260px] h-[160px] shrink-0'>
           <div
             className='absolute w-full transition-transform duration-400 ease-[cubic-bezier(0.4,0,0.2,1)]'
             style={{ transform: `translateY(${titleTrackY}px)` }}
@@ -133,10 +135,10 @@ const OurProcess: React.FC<OurProcessProps> = ({ processData }) => {
         </div>
 
         {/* Divider */}
-        <div className='mx-8 w-px bg-orange-400 shrink-0' />
+        <div className='mx-3 md:mx-8 w-px bg-orange-400 shrink-0 hidden md:block' />
 
         {/* Right — scrolling descriptions */}
-        <div className='relative overflow-hidden flex-1 h-[160px]'>
+        <div className='relative overflow-hidden w-full flex-1 h-[160px] mt-4 md:mt-0'>
           <div
             className='absolute w-full transition-transform duration-400 ease-[cubic-bezier(0.4,0,0.2,1)]'
             style={{ transform: `translateY(${descTrackY}px)` }}
