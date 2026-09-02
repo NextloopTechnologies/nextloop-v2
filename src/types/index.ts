@@ -14,6 +14,19 @@ export type ImageLike =
   | React.ReactNode
   | React.ElementType;
 
+/**
+ * Props cloned onto an icon element supplied as an `ImageLike`.
+ *
+ * React 19's `@types/react` types `ReactElement.props` as `unknown` rather than
+ * `any`, so `React.isValidElement` needs this type argument before the element's
+ * props can be spread or read.
+ */
+export type IconElementProps = {
+  className?: string;
+  size?: string | number;
+  color?: string;
+};
+
 export type TechKey = 'react' | 'aws' | 'angular' | 'python';
 
 // ---------------------------------------------------------------------------
