@@ -6,8 +6,20 @@ import { cloudStoragePlugin } from '@payloadcms/plugin-cloud-storage';
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import { buildConfig } from 'payload';
 
+import { AppliedJobs } from './src/collections/AppliedJobs';
+import { Authors } from './src/collections/Authors';
+import { Blogs } from './src/collections/Blogs';
+import { Categories } from './src/collections/Categories';
+import { Enquiries } from './src/collections/Enquiries';
+import { Ideas } from './src/collections/Ideas';
+import { Jobs } from './src/collections/Jobs';
 import { Media } from './src/collections/Media';
+import { OfferApplications } from './src/collections/OfferApplications';
+import { Offers } from './src/collections/Offers';
+import { PopupSubmissions } from './src/collections/PopupSubmissions';
+import { Portfolio } from './src/collections/Portfolio';
 import { Resumes } from './src/collections/Resumes';
+import { Testimonials } from './src/collections/Testimonials';
 import { imagekitStorage } from './src/lib/payload/imagekitStorage';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -34,6 +46,18 @@ export default buildConfig({
     },
     Media,
     Resumes,
+    Blogs,
+    Authors,
+    Categories,
+    Portfolio,
+    Testimonials,
+    Jobs,
+    AppliedJobs,
+    Enquiries,
+    PopupSubmissions,
+    Ideas,
+    Offers,
+    OfferApplications,
   ],
 
   plugins: [

@@ -1,7 +1,7 @@
-import type { Metadata } from 'next';
-
 import config from '@payload-config';
 import { generatePageMetadata, NotFoundPage } from '@payloadcms/next/views';
+import type { Metadata } from 'next';
+
 import { importMap } from '../importMap';
 
 type Args = {
