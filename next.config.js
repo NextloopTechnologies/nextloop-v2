@@ -1,5 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 // eslint-disable-next-line @typescript-eslint/no-var-requires
+const { withPayload } = require('@payloadcms/next/withPayload');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
@@ -35,11 +37,11 @@ const securityHeaders = [
       'wss://*.tawk.to ' +
       'https://*.tawk.to ' +
       'https://*.supabase.co; ' +
-      "img-src 'self' data: https: " +
+      "img-src 'self' data: blob: https: " +
       'https://res.cloudinary.com ' +
       'https://embed.tawk.to ' +
       'https://*.tawk.to; ' +
-      "media-src 'self' https://res.cloudinary.com; " +
+      "media-src 'self' blob: https://res.cloudinary.com; " +
       "style-src 'self' 'unsafe-inline' https://embed.tawk.to https://www.gstatic.com; " +
       "font-src 'self' data: https://embed.tawk.to; " +
       "frame-src 'self' https://embed.tawk.to https://www.google.com https://www.recaptcha.net;",
@@ -47,7 +49,7 @@ const securityHeaders = [
 ];
 
 /** @type {import('next').NextConfig} */
-module.exports = withBundleAnalyzer({
+module.exports = withPayload(withBundleAnalyzer({
   poweredByHeader: false,
   trailingSlash: true,
   basePath: '',
@@ -71,4 +73,4 @@ module.exports = withBundleAnalyzer({
       },
     ],
   },
-});
+}));
