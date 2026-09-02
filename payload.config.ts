@@ -5,6 +5,7 @@ import { postgresAdapter } from '@payloadcms/db-postgres';
 import { cloudStoragePlugin } from '@payloadcms/plugin-cloud-storage';
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import { buildConfig } from 'payload';
+import sharp from 'sharp';
 
 import { AppliedJobs } from './src/collections/AppliedJobs';
 import { Authors } from './src/collections/Authors';
@@ -89,6 +90,10 @@ export default buildConfig({
   // Global ceiling for every upload collection. Stops the public resume
   // endpoint being usable as free file hosting.
   upload: { limits: { fileSize: 8 * 1024 * 1024 } },
+
+  // Required for the imageSizes on the media collection to actually be
+  // generated. Without it Payload warns and silently produces no renditions.
+  sharp,
 
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || 'dev-only-placeholder-secret',

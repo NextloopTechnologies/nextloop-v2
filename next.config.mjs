@@ -1,8 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const { withPayload } = require('@payloadcms/next/withPayload');
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
+import { withPayload } from '@payloadcms/next/withPayload';
+import bundleAnalyzer from '@next/bundle-analyzer';
+
+const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 });
 
@@ -49,7 +49,7 @@ const securityHeaders = [
 ];
 
 /** @type {import('next').NextConfig} */
-module.exports = withPayload(withBundleAnalyzer({
+export default withPayload(withBundleAnalyzer({
   poweredByHeader: false,
   trailingSlash: true,
   basePath: '',
