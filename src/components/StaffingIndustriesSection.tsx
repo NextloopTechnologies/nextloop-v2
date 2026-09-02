@@ -2,6 +2,7 @@ import { StaticImageData } from 'next/image';
 import React from 'react';
 
 import palette from '../styles/pallette';
+import { IconElementProps } from '../types';
 
 type ImageLike = StaticImageData | string | React.ReactNode | React.ElementType;
 
@@ -46,7 +47,7 @@ const StaffingIndustriesSection: React.FC<{ industriesData: StaffingData }> = ({
               className='flex flex-col items-center text-center gap-3 rounded-xl border border-gray-200 bg-white px-5 py-7 shadow-sm'
             >
               <div className='flex items-center justify-center w-12 h-12'>
-                {cat.image && React.isValidElement(cat.image)
+                {cat.image && React.isValidElement<IconElementProps>(cat.image)
                   ? React.cloneElement(cat.image, {
                       ...cat.image.props,
                       className: 'w-9 h-9 text-orange-500',

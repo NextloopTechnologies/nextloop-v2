@@ -1,18 +1,18 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { NavigationOptions } from 'swiper/types';
 
 interface SliderProps {
-  slides: JSX.Element[];
+  slides: React.JSX.Element[];
   visibleItems?: number;
   showArrows?: boolean;
   showDots?: boolean;
   autoPlay?: boolean;
   className?: string;
   swiperParams?: object;
-  header?: JSX.Element;
+  header?: React.JSX.Element;
 }
 
 const Slider: React.FC<SliderProps> = ({

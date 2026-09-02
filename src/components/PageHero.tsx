@@ -2,6 +2,7 @@ import Image, { StaticImageData } from 'next/image';
 import React from 'react';
 
 import palette from '../styles/pallette';
+import { IconElementProps } from '../types';
 
 type ImageLike = StaticImageData | string | React.ReactNode | React.ElementType;
 
@@ -21,7 +22,7 @@ const PageHero: React.FC<{
   return (
     <div className='h-[80vh] relative flex items-center justify-center text-white'>
       {image &&
-        (React.isValidElement(image) ? (
+        (React.isValidElement<IconElementProps>(image) ? (
           React.cloneElement(image, {
             ...image.props,
             className: `${
