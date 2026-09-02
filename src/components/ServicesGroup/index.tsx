@@ -28,7 +28,7 @@ const Services: FC = () => {
       </header>
 
       {/* Services Grid */}
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 p-4 mt-10 place-items-center'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 p-4 lg:p-6 mt-10 place-items-center'>
         {availableServices.map((data, index) => (
           <Link
             key={index}

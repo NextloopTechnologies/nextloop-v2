@@ -10,7 +10,7 @@ interface ServiceCardProps {
 
 const OurServieceCard: FC<ServiceCardProps> = ({ heading, image }) => {
   return (
-    <div className='group relative w-[250px] h-[170px] sm:w-[240px] sm:h-[190px] lg:w-[360px] lg:h-[210px] cursor-pointer'>
+    <div className='group relative w-[250px] h-[170px] sm:w-[240px] sm:h-[190px] lg:w-[300px] lg:h-[210px] xl:w-[360px] xl:h-[210px] cursor-pointer'>
       <div className='relative h-full w-full overflow-hidden rounded-2xl shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl'>
         <Image
           src={image}
