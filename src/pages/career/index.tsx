@@ -85,7 +85,7 @@ const JobCard: React.FC<{ job: Job }> = ({
 }) => {
   const router = useRouter();
   return (
-    <div className='group w-[370px] bg-white text-black rounded-xl flex flex-col transition-all duration-300 hover:bg-orange-500 hover:shadow-lg hover:scale-105'>
+    <div className='group w-full max-w-[370px] bg-white text-black rounded-xl flex flex-col transition-all duration-300 hover:bg-orange-500 hover:shadow-lg hover:scale-105'>
       {/* TITLE */}
       <div className='px-6 pt-8 min-h-[110px]'>
         <p className='font-semibold text-lg md:text-xl leading-tight transition-colors duration-300 group-hover:text-white'>
