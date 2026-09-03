@@ -239,7 +239,7 @@ export const quickLinks: SiteRoute[] = [
   { name: 'About us', href: '/about-us' },
   { name: 'Portfolio', href: '/portfolio' },
   { name: 'Services', href: '/services' },
-  { name: 'Careers', href: '/career' },
+  { name: 'Careers', href: '/careers' },
   { name: 'Blogs', href: '/blog' },
   { name: 'Culture', href: '/culture' },
   { name: 'Contact Us', href: '/contact-us' },
