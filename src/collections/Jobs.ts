@@ -18,7 +18,16 @@ export const Jobs: CollectionConfig = {
     // Production addresses jobs as /career/<numeric id>. A slug makes the
     // URL readable and indexable.
     slugField(),
-    { name: 'descp', type: 'code', admin: { language: 'html' } },
+    {
+      name: 'descp',
+      type: 'textarea',
+      label: 'Description',
+      admin: {
+        rows: 10,
+        description:
+          'Plain text. The careers page renders this inside a <p>, so HTML here would show as literal markup.',
+      },
+    },
     { name: 'responsibilities', type: 'text', hasMany: true },
     { name: 'qualifications', type: 'text', hasMany: true },
     { name: 'skills', type: 'text', hasMany: true },

@@ -16,7 +16,15 @@ export const Portfolio: CollectionConfig = {
   fields: [
     { name: 'title', type: 'text', required: true },
     slugField(),
-    { name: 'descp', type: 'code', admin: { language: 'html', description: 'Case-study body as HTML, preserved from production.' } },
+    {
+      name: 'descp',
+      type: 'richText',
+      label: 'Case study',
+      admin: {
+        description:
+          'NOTE: the current site renders this wrapped in an <h1>, so the whole case study is one giant heading. Fix that when the front end reads from Payload.',
+      },
+    },
     { name: 'images', type: 'upload', relationTo: 'media', hasMany: true },
     { name: 'active', type: 'checkbox', defaultValue: true, admin: { position: 'sidebar', description: 'Unchecked hides it from the public site.' } },
     seoFields(),

@@ -55,11 +55,11 @@ export const Blogs: CollectionConfig = {
     },
     {
       name: 'descp',
-      type: 'code',
+      type: 'richText',
+      label: 'Body',
       admin: {
-        language: 'html',
         description:
-          'Post body as HTML, preserved from the react-quill editor. Existing posts migrate unchanged.',
+          'The existing 7 posts are HTML from react-quill; the migration converts them to rich text so editors get a proper editor rather than raw markup.',
       },
     },
     {

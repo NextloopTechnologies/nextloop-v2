@@ -26,7 +26,9 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 
+import { JSDOM } from 'jsdom';
 import { getPayload } from 'payload';
+import { convertHTMLToLexical, editorConfigFactory } from '@payloadcms/richtext-lexical';
 
 import config from '../../payload.config';
 import { slugify } from '../../src/fields/slug';
@@ -61,6 +63,25 @@ const lookup = (col: string, from: unknown) =>
   from == null ? undefined : idMap[col]?.get(from as string | number);
 
 const payload = await getPayload({ config });
+
+/**
+ * blogs.descp and portfolio.descp are HTML authored in react-quill. Payload now
+ * stores them as Lexical rich text so editors get a real editor instead of raw
+ * markup, so the seed converts on the way in — the same step the real migration
+ * will do. Falls back to a plain paragraph if a document fails to parse, rather
+ * than dropping the content.
+ */
+const editorConfig = await editorConfigFactory.default({ config: payload.config });
+const htmlToLexical = (html: unknown) => {
+  const raw = typeof html === 'string' ? html.trim() : '';
+  if (!raw) return undefined;
+  try {
+    return convertHTMLToLexical({ editorConfig, html: raw, JSDOM });
+  } catch (err) {
+    skipped.push(`richtext: ${(err as Error).message.slice(0, 80)}`);
+    return undefined;
+  }
+};
 const counts: Record<string, number> = {};
 const skipped: string[] = [];
 
@@ -179,7 +200,7 @@ for (const b of await read<Record<string, unknown>>('blogs')) {
   await create('blogs', {
     title: b.title ?? 'Untitled', slug: b.slug ?? `post-${b.id}`,
     status: b.status === 'published' ? 'published' : 'draft',
-    descp: b.descp, service: b.service,
+    descp: htmlToLexical(b.descp), service: b.service,
     readTime: b.read_time ?? 2,
     tags: b.tags ?? [], metaKeywords: b.meta_keywords ?? [],
     metaTitle: b.meta_title, metaDescription: b.meta_description, canonicalUrl: b.canonical_url,
@@ -193,7 +214,7 @@ for (const p of await read<Record<string, unknown>>('portfolio')) {
   await create('portfolio', {
     title: p.title ?? 'Untitled',
     slug: slugify(String(p.title ?? `project-${p.id}`)),
-    descp: p.descp, active: p.active !== false,
+    descp: htmlToLexical(p.descp), active: p.active !== false,
     ...(img ? { images: [img] } : {}),
   }, p.id as number);
 }
@@ -243,4 +264,10 @@ if (skipped.length) {
   if (skipped.length > 20) console.log(`  ...and ${skipped.length - 20} more`);
 }
 if (!IMAGES) console.log('\nImages not uploaded (pass --images to exercise the ImageKit adapter).');
+// Payload's pool keeps the event loop alive, so the process must be told to
+// exit — but a bare process.exit() discards buffered stdout when output is
+// piped to a file, which silently swallowed this whole summary. Flush first.
+await new Promise<void>((resolve) => {
+  process.stdout.write('', () => resolve());
+});
 process.exit(0);
