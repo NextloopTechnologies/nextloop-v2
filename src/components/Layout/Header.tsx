@@ -69,7 +69,8 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
     };
   }, [router]);
 
-  const isLightPage = pathname.startsWith('/portfolio/');
+  const isLightPage =
+    pathname.startsWith('/portfolio/') || pathname.startsWith('/careers/');
   return (
     <>
       {isLoading && (
