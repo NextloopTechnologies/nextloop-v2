@@ -34,3 +34,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# production snapshots for local seeding — may contain PII, never commit
+.seed-data/
