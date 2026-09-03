@@ -1,6 +1,7 @@
 import type { CollectionConfig } from 'payload';
 
 import { adminOnly, publishedOrAdmin } from '../access';
+import { slugField } from '../fields/slug';
 
 /**
  * Maps production `public.blogs` (7 rows).
@@ -34,14 +35,7 @@ export const Blogs: CollectionConfig = {
 
   fields: [
     { name: 'title', type: 'text', required: true },
-    {
-      name: 'slug',
-      type: 'text',
-      required: true,
-      unique: true,
-      index: true,
-      admin: { description: 'URL path segment. Changing it breaks existing links.' },
-    },
+    slugField(),
     {
       name: 'status',
       type: 'select',
@@ -104,6 +98,15 @@ export const Blogs: CollectionConfig = {
         { name: 'metaTitle', type: 'text', maxLength: 60 },
         { name: 'metaDescription', type: 'textarea', maxLength: 160 },
         { name: 'metaKeywords', type: 'text', hasMany: true },
+        {
+          name: 'ogImage',
+          type: 'upload',
+          relationTo: 'media',
+          admin: {
+            description:
+              'Shown when the post is shared. Use the 1200x630 "og" size — the site ships no Open Graph tags today.',
+          },
+        },
         {
           name: 'canonicalUrl',
           type: 'text',

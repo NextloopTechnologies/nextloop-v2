@@ -15,7 +15,11 @@
     "prepare": "husky install",
     "test": "jest",
     "test-watch": "jest --watch",
-    "pretty": "prettier --write ."
+    "pretty": "prettier --write .",
+    "generate:importmap": "payload generate:importmap",
+    "generate:types": "payload generate:types",
+    "predev": "payload generate:importmap",
+    "prebuild": "payload generate:importmap"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.88.0",

@@ -275,7 +275,7 @@ export interface Blog {
   id: number;
   title: string;
   /**
-   * URL path segment. Changing it breaks existing links.
+   * Auto-filled from title if left blank. Changing it after publish breaks existing links and any inbound SEO.
    */
   slug: string;
   status: 'draft' | 'published';
@@ -301,6 +301,10 @@ export interface Blog {
   metaTitle?: string | null;
   metaDescription?: string | null;
   metaKeywords?: string[] | null;
+  /**
+   * Shown when the post is shared. Use the 1200x630 "og" size — the site ships no Open Graph tags today.
+   */
+  ogImage?: (number | null) | Media;
   /**
    * Only set this when the post is republished from elsewhere.
    */
@@ -352,6 +356,10 @@ export interface Portfolio {
   id: number;
   title: string;
   /**
+   * Auto-filled from title if left blank. Changing it after publish breaks existing links and any inbound SEO.
+   */
+  slug: string;
+  /**
    * Case-study body as HTML, preserved from production.
    */
   descp?: string | null;
@@ -360,6 +368,18 @@ export interface Portfolio {
    * Unchecked hides it from the public site.
    */
   active?: boolean | null;
+  /**
+   * Truncated past ~60 characters in search results.
+   */
+  metaTitle?: string | null;
+  /**
+   * Truncated past ~160 characters.
+   */
+  metaDescription?: string | null;
+  /**
+   * Shown when the page is shared. The site has no Open Graph tags today, so links posted to LinkedIn or WhatsApp render bare — use the 1200x630 "og" size.
+   */
+  ogImage?: (number | null) | Media;
   updatedAt: string;
   createdAt: string;
 }
@@ -383,6 +403,10 @@ export interface Testimonial {
 export interface Job {
   id: number;
   title: string;
+  /**
+   * Auto-filled from title if left blank. Changing it after publish breaks existing links and any inbound SEO.
+   */
+  slug: string;
   descp?: string | null;
   responsibilities?: string[] | null;
   qualifications?: string[] | null;
@@ -401,6 +425,18 @@ export interface Job {
    * Off by default, matching production. Unchecked jobs 404 publicly.
    */
   visibility?: boolean | null;
+  /**
+   * Truncated past ~60 characters in search results.
+   */
+  metaTitle?: string | null;
+  /**
+   * Truncated past ~160 characters.
+   */
+  metaDescription?: string | null;
+  /**
+   * Shown when the page is shared. The site has no Open Graph tags today, so links posted to LinkedIn or WhatsApp render bare — use the 1200x630 "og" size.
+   */
+  ogImage?: (number | null) | Media;
   updatedAt: string;
   createdAt: string;
 }
@@ -768,6 +804,7 @@ export interface BlogsSelect<T extends boolean = true> {
   metaTitle?: T;
   metaDescription?: T;
   metaKeywords?: T;
+  ogImage?: T;
   canonicalUrl?: T;
   featuredBlogs?: T;
   updatedAt?: T;
@@ -803,9 +840,13 @@ export interface CategoriesSelect<T extends boolean = true> {
  */
 export interface PortfolioSelect<T extends boolean = true> {
   title?: T;
+  slug?: T;
   descp?: T;
   images?: T;
   active?: T;
+  metaTitle?: T;
+  metaDescription?: T;
+  ogImage?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -827,6 +868,7 @@ export interface TestimonialsSelect<T extends boolean = true> {
  */
 export interface JobsSelect<T extends boolean = true> {
   title?: T;
+  slug?: T;
   descp?: T;
   responsibilities?: T;
   qualifications?: T;
@@ -836,6 +878,9 @@ export interface JobsSelect<T extends boolean = true> {
   jobType?: T;
   package?: T;
   visibility?: T;
+  metaTitle?: T;
+  metaDescription?: T;
+  ogImage?: T;
   updatedAt?: T;
   createdAt?: T;
 }

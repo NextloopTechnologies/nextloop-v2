@@ -29,6 +29,7 @@ import path from 'node:path';
 import { getPayload } from 'payload';
 
 import config from '../../payload.config';
+import { slugify } from '../../src/fields/slug';
 
 const args = process.argv.slice(2);
 const flag = (n: string, d: string) => {
@@ -114,7 +115,10 @@ for (const t of await read<Record<string, unknown>>('testimonials')) {
 
 for (const j of await read<Record<string, unknown>>('jobs')) {
   await create('jobs', {
-    title: j.title ?? 'Untitled', descp: j.descp,
+    title: j.title ?? 'Untitled',
+    // production has no slug on jobs; derive one so seeded rows are addressable
+    slug: `${slugify(String(j.title ?? 'job'))}-${j.id}`,
+    descp: j.descp,
     responsibilities: j.responsibilities ?? [], qualifications: j.qualifications ?? [], skills: j.skills ?? [],
     location: j.location, jobMode: j.job_mode, jobType: j.job_type, package: j.package,
     visibility: Boolean(j.visibility),
@@ -187,7 +191,9 @@ for (const b of await read<Record<string, unknown>>('blogs')) {
 for (const p of await read<Record<string, unknown>>('portfolio')) {
   const img = await ensureMedia(p.image, (p.title as string) ?? 'Portfolio image');
   await create('portfolio', {
-    title: p.title ?? 'Untitled', descp: p.descp, active: p.active !== false,
+    title: p.title ?? 'Untitled',
+    slug: slugify(String(p.title ?? `project-${p.id}`)),
+    descp: p.descp, active: p.active !== false,
     ...(img ? { images: [img] } : {}),
   }, p.id as number);
 }

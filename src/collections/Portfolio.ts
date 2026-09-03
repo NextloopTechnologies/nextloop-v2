@@ -1,6 +1,8 @@
 import type { CollectionConfig } from 'payload';
 
 import { adminOnly, publishedOrAdmin } from '../access';
+import { seoFields } from '../fields/seo';
+import { slugField } from '../fields/slug';
 
 /**
  * Maps production `public.portfolio` (4 rows).
@@ -13,9 +15,11 @@ export const Portfolio: CollectionConfig = {
   admin: { useAsTitle: 'title', defaultColumns: ['title', 'active', 'updatedAt'], group: 'Content' },
   fields: [
     { name: 'title', type: 'text', required: true },
+    slugField(),
     { name: 'descp', type: 'code', admin: { language: 'html', description: 'Case-study body as HTML, preserved from production.' } },
     { name: 'images', type: 'upload', relationTo: 'media', hasMany: true },
     { name: 'active', type: 'checkbox', defaultValue: true, admin: { position: 'sidebar', description: 'Unchecked hides it from the public site.' } },
+    seoFields(),
   ],
 };
 

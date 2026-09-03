@@ -1,6 +1,8 @@
 import type { CollectionConfig } from 'payload';
 
 import { adminOnly, publishedOrAdmin } from '../access';
+import { seoFields } from '../fields/seo';
+import { slugField } from '../fields/slug';
 
 /**
  * Maps production `public.jobs` (64 rows).
@@ -13,6 +15,9 @@ export const Jobs: CollectionConfig = {
   admin: { useAsTitle: 'title', defaultColumns: ['title', 'location', 'jobMode', 'visibility'], group: 'Careers' },
   fields: [
     { name: 'title', type: 'text', required: true },
+    // Production addresses jobs as /career/<numeric id>. A slug makes the
+    // URL readable and indexable.
+    slugField(),
     { name: 'descp', type: 'code', admin: { language: 'html' } },
     { name: 'responsibilities', type: 'text', hasMany: true },
     { name: 'qualifications', type: 'text', hasMany: true },
@@ -37,6 +42,7 @@ export const Jobs: CollectionConfig = {
       defaultValue: false,
       admin: { position: 'sidebar', description: 'Off by default, matching production. Unchecked jobs 404 publicly.' },
     },
+    seoFields(),
   ],
 };
 
