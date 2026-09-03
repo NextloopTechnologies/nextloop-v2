@@ -41,7 +41,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ whyChooseContent }) => {
       </div>
 
       <div className='relative flex flex-col items-center md:pl-[150px] md:py-[500px] md:px-5'>
-        <div className='md:absolute md:right-[13%] bg-[#1D1D1D] md:pl-[80px] sm:pr-[305px] md:pr-[375px] lg:pr-[520px] text-white md:flex md:flex-col md:justify-center md:h-[480px] mb-6'>
+        <div className='md:absolute md:right-[13%] bg-[#1D1D1D] md:pl-[80px] sm:pr-[200px] md:pr-[280px] lg:pr-[520px] text-white md:flex md:flex-col md:justify-center md:h-[480px] mb-6'>
           <div className='md:absolute md:-right-[8%] md:w-[47%] md:top-[18%] md:transform md:-translate-y-[12%] m-5 md:m-0'>
             <Image
               src={whyChooseContent?.[1]?.image as StaticImageData}
@@ -52,7 +52,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ whyChooseContent }) => {
             />
           </div>
           <h1
-            className={` lg:leading-none font-bold  ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} mx-10 md:mx-5 md:mb-3`}
+            className={` lg:leading-none font-bold leading-snug ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} mx-10 md:mx-5 md:mb-3`}
           >
             {whyChooseContent?.[1]?.title}
           </h1>
