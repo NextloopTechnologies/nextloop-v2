@@ -15,6 +15,8 @@
 const BASE = process.argv[2] || 'http://localhost:3000';
 
 // Captured from production on 2026-09-02, Next 13.4.4.
+// Entries marked `fixed:` were deliberately changed from the captured baseline —
+// each is a repaired defect, and the new value is now the thing under test.
 // title: null means "no <title> tag at all" (a baselined defect).
 const BASELINE = [
   { path: '/', title: 'IT Staff Augmentation | Custom Software Solutions | AI Remote Teams', descLen: 172, h1: 1, jsonLd: 1 },
@@ -28,24 +30,23 @@ const BASELINE = [
   { path: '/services/ai-ml/', title: 'AI & ML Solutions Custom Development & Consulting | Nextloop', descLen: 156, h1: 1, jsonLd: 1 },
   { path: '/services/cloud-computing-solutions/', title: 'Enterprise Cloud & DevOps Services India |AWS & Azure Experts', descLen: 161, h1: 1, jsonLd: 1 },
   { path: '/services/digital-marketing-services/', title: 'Best Performance Marketing & SEO Services India', descLen: 160, h1: 1, jsonLd: 0 },
-  { path: '/services/e-commerce-development/', title: 'Nextloop Technologies | Custom Software Development', descLen: 293, h1: 1, jsonLd: 0, knownDefect: 'wrong/duplicated title; description 293 chars' },
+  { path: '/services/e-commerce-development/', title: 'E-Commerce Development Services | Nextloop Technologies', descLen: 157, h1: 1, jsonLd: 0, fixed: 'was a copy of the custom-software title with a 293-char description' },
   { path: '/services/software-testing-qa-services/', title: 'Software Testing & QA Services | Nextloop Quality Assurance', descLen: 159, h1: 1, jsonLd: 0 },
   { path: '/culture/', title: 'Life at Nextloop', descLen: 123, h1: 1, jsonLd: 0 },
   { path: '/contact-us/', title: 'Contact Nextloop Technologies | Get in Touch for Custom IT Software Solutions', descLen: 191, h1: 0, jsonLd: 0, knownDefect: 'zero H1' },
   { path: '/cookies-policy/', title: 'Nextloop Technologies | Cookie Policy', descLen: 145, h1: 2, jsonLd: 0 },
   { path: '/privacy/', title: 'Nextloop Technologies | Privacy Policy', descLen: 168, h1: 2, jsonLd: 0 },
-  { path: '/domain/', title: null, descLen: 0, h1: 0, jsonLd: 0, knownDefect: 'no title, no description, no H1' },
+  { path: '/domain/', title: 'Industry Software Solutions | Fintech, Healthcare, Energy | Nextloop', h1: 1, jsonLd: 1, fixed: 'was a <div>Domain</div> stub with no title, description or H1' },
   { path: '/domain/fintech/', title: 'Fintech App & Software Development Company | Nextloop Technologies', descLen: 147, h1: 7, jsonLd: 0, knownDefect: '7 H1s' },
   { path: '/domain/healthcare/', title: 'Healthcare Software Development Services | Hire AI Health Developers', descLen: 173, h1: 8, jsonLd: 0, knownDefect: '8 H1s' },
   { path: '/domain/oil-and-gas/', title: 'Enterprise software development for oil and gas | Nextloop', descLen: 156, h1: 2, jsonLd: 0 },
   { path: '/domain/food-and-beverages/', title: 'Food & Beverage Software Solutions | Nextloop Technologies', descLen: 156, h1: 7, jsonLd: 0, knownDefect: '7 H1s' },
   { path: '/domain/ecommerce/', title: 'E-commerce Development Services | Nextloop Technologies', descLen: 163, h1: 0, jsonLd: 0, knownDefect: 'zero H1' },
   { path: '/domain/events/', title: 'Build the Best Event Management Software using our Event Management Tools', descLen: 159, h1: 4, jsonLd: 0 },
-  { path: '/domain/hotel/', title: null, descLen: 0, h1: 6, jsonLd: 0, knownDefect: 'no title, no description' },
+  { path: '/domain/hotel/', title: 'Hotel & Hospitality Software Development | Nextloop Technologies', h1: 6, jsonLd: 0, fixed: 'had no title or description' },
   { path: '/domain/travel-and-hospitality/', title: 'Hotel Management Software (PMS) & Custom Travel App Development Services', descLen: 155, h1: 6, jsonLd: 0 },
-  { path: '/get-offer/', title: null, descLen: 0, h1: 0, jsonLd: 0, knownDefect: 'no title, no description' },
-  { path: '/get-offer/specialoffers/', title: null, descLen: 0, jsonLd: 0, knownDefect: 'indexable with no title' },
-  { path: '/services/BaseServicePages/', title: 'Service Page', jsonLd: 0, knownDefect: 'shared component leaked as a public route' },
+  { path: '/get-offer/', title: 'Claim Your Offer | Nextloop Technologies', h1: 0, jsonLd: 0, fixed: 'had no title or description' },
+  { path: '/get-offer/specialoffers/', title: 'Your Offers | Nextloop Technologies', jsonLd: 0, noindex: true, fixed: 'was indexable with no title; now noindex (URL carries applicant PII)' },
 ];
 
 const decode = (s) =>
@@ -103,8 +104,16 @@ for (const b of BASELINE) {
   const canonical = pick(html, /rel="canonical" href="([^"]*)"/);
   record('CANONICAL', b.path, !!canonical, canonical || 'missing');
 
-  record('NO-OG', b.path, (html.match(/property="og:/g) || []).length === 0,
-    'baseline has zero OG tags — a change here is a diff, not a win');
+  // Was: assert zero OG tags. The site now ships them on every page, so the
+  // assertion is inverted — a page losing them is the regression to catch.
+  const og = (html.match(/property="og:/g) || []).length;
+  record('OG', b.path, og >= 6, `${og} og: tags (expect >= 6)`);
+  const tw = (html.match(/name="twitter:/g) || []).length;
+  record('TWITTER', b.path, tw >= 4, `${tw} twitter: tags (expect >= 4)`);
+
+  if (b.noindex) {
+    record('NOINDEX', b.path, /name="robots" content="noindex/.test(html), 'must not be indexable');
+  }
 }
 
 // Is a real database reachable? Several assertions below are meaningless without
@@ -123,6 +132,8 @@ if (!dbUp) {
 
 // Routes that must 404
 record('404', '/no-such-page-xyz/', (await fetch(BASE + '/no-such-page-xyz/')).status === 404, 'unknown route');
+// The shared service-page component was living in pages/ and served as a route.
+record('404', '/services/BaseServicePages/', (await fetch(BASE + '/services/BaseServicePages/')).status === 404, 'component must not be a route');
 if (dbUp) {
   const r = await fetch(BASE + '/career/999999/', { redirect: 'follow' });
   record('404', '/career/999999/', r.status === 404, `status ${r.status} (expected 404)`);

@@ -7,8 +7,11 @@ import { useEffect, useState } from 'react';
 import { FaXTwitter } from 'react-icons/fa6';
 
 import Layout from '../../components/Layout/Layout';
+import Seo from '../../components/Seo';
 import { BlogIDProps, BlogType, TocItem } from '../../types';
 import supabaseClient from '../../utils/client';
+import { getBaseUrl } from '../../utils/getBaseUrl';
+import { articleSchema, breadcrumbSchema, toPlainText } from '../../utils/structuredData';
 
 const MetaRow: React.FC<{ publishedAt?: string; readTime?: string }> = ({
   publishedAt,
@@ -269,8 +272,43 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error }) => {
       })
     : undefined;
 
+  // meta_title / meta_description / canonical_url already exist on the blogs
+  // table. Until now the page rendered none of them and shipped an empty
+  // <title>, so every post was invisible in search results.
+  const blogUrl = `${getBaseUrl()}/blog/${data.slug ?? ''}/`;
+  const metaTitle = data.meta_title?.trim() || `${data.title} | Nextloop Technologies`;
+  const metaDescription =
+    data.meta_description?.trim() || toPlainText(data.descp, 158);
+  const coverImage = data.image?.[0]?.url;
+
   return (
     <Layout headerColor='text-black'>
+      <Seo
+        title={metaTitle}
+        description={metaDescription}
+        image={coverImage}
+        canonical={data.canonical_url?.trim() || undefined}
+        type='article'
+        publishedTime={data.created_at}
+        modifiedTime={data.updated_at ?? data.created_at}
+        author={data.author?.name ?? undefined}
+        jsonLd={[
+          articleSchema({
+            title: data.title,
+            description: metaDescription,
+            url: blogUrl,
+            image: coverImage,
+            datePublished: data.created_at,
+            dateModified: data.updated_at ?? data.created_at,
+            authorName: data.author?.name ?? undefined,
+          }),
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Blogs', path: '/blog/' },
+            { name: data.title, path: `/blog/${data.slug ?? ''}/` },
+          ]),
+        ]}
+      />
       <div className='bg-white min-h-screen pb-16  lg:mt-11'>
         <div className='max-w-4xl mx-auto px-4 pt-8 text-center'>
           {/* Category Badge */}
@@ -348,13 +386,19 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     .filter('slug', 'eq', params?.slug)
     .single();
 
+  // A missing slug used to return HTTP 200 with the raw PostgREST message
+  // ("JSON object requested, multiple (or no) rows returned") rendered on the
+  // page — a soft 404 that let Google index unlimited junk URLs.
   if (error) {
-    return { props: { error: error.message } };
+    if (error.code === 'PGRST116' || !data) return { notFound: true };
+    return { props: { error: 'Unable to load this article.' } };
   }
+
+  if (!data) return { notFound: true };
 
   return {
     props: {
-      data: data ?? null,
+      data,
     },
   };
 };

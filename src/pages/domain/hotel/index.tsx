@@ -9,6 +9,7 @@ import SimpleWebsite from '../../../components/Domains/SimpleWebsite';
 import WhatWeDo from '../../../components/Domains/WhatWeDo';
 import WhyBuild from '../../../components/Domains/WhyBuild';
 import Layout from '../../../components/Layout/Layout';
+import Seo from '../../../components/Seo';
 import { IFAQ } from '../../../types';
 import { getStaticImageData } from '../../../utils/helper';
 
@@ -63,6 +64,10 @@ const WhatWeDoData = [
 const Hotel = () => {
   return (
     <Layout>
+      <Seo
+        title='Hotel & Hospitality Software Development | Nextloop Technologies'
+        description='Property management, booking engines and guest apps for hotels and hospitality groups — built by Nextloop Technologies.'
+      />
       <CustomPageHero
         image={getStaticImageData(hotelAssets.hotelBg)}
         titleChildren={

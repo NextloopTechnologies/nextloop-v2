@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 
+import Seo from '../../components/Seo';
 import { OfferFormData } from '../../types';
 import { createOfferApplications } from '../../utils/db';
 import { offerPageBg, offersLogo } from '../../../assets';
@@ -58,6 +59,10 @@ const OffersPage = () => {
 
   return (
     <div className='relative min-h-screen flex flex-col'>
+      <Seo
+        title='Claim Your Offer | Nextloop Technologies'
+        description='Tell us about your project and we will match you to the right Nextloop offer — discovery workshops, MVP sprints and dedicated development pods.'
+      />
       <div className='absolute inset-0'>
         <div
           className='w-full h-1/2 bg-cover bg-center bg-no-repeat'

@@ -60,6 +60,17 @@ export interface BlogType {
   category_id?: number | null;
   author?: AuthorType;
   author_id?: number | null;
+  /**
+   * SEO columns that have existed in production all along but were never
+   * rendered — blog posts shipped with no title or description at all.
+   */
+  meta_title?: string | null;
+  meta_description?: string | null;
+  meta_keywords?: string[] | null;
+  canonical_url?: string | null;
+  tags?: string[] | null;
+  read_time?: number | null;
+  status?: 'draft' | 'published';
 }
 
 /** Lightweight blog card data returned by fetchLatestBlogs */

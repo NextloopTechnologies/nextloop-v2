@@ -5,8 +5,11 @@ import { useRouter } from 'next/router';
 import { useEffect, useRef } from 'react';
 
 import Layout from '../../components/Layout/Layout';
+import Seo from '../../components/Seo';
 import { IPortfolio } from '../../types';
 import supabaseClient from '../../utils/client';
+import { getBaseUrl } from '../../utils/getBaseUrl';
+import { breadcrumbSchema, caseStudySchema, toPlainText } from '../../utils/structuredData';
 
 const PortfolioID: React.FC<{ data?: IPortfolio; error?: string }> = ({
   data,
@@ -23,6 +26,24 @@ const PortfolioID: React.FC<{ data?: IPortfolio; error?: string }> = ({
 
   return (
     <Layout>
+      <Seo
+        title={`${data?.title ?? 'Case study'} | Portfolio | Nextloop Technologies`}
+        description={toPlainText(data?.descp, 158)}
+        image={data?.image?.[0]?.url}
+        jsonLd={[
+          caseStudySchema({
+            title: data?.title ?? 'Case study',
+            description: toPlainText(data?.descp, 300),
+            url: `${getBaseUrl()}/portfolio/${data?.id ?? ''}/`,
+            image: data?.image?.[0]?.url,
+          }),
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Portfolio', path: '/portfolio/' },
+            { name: data?.title ?? 'Case study', path: `/portfolio/${data?.id ?? ''}/` },
+          ]),
+        ]}
+      />
       <div className='xl:p-24 lg:p-8 p-4 flex flex-col'>
         {data ? (
           <div className='flex flex-col w-full min-h-screen items-center justify-center'>
@@ -57,17 +78,18 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     .filter('id', 'eq', params?.id)
     .single();
 
+  // Was HTTP 200 with the raw PostgREST error on screen — a soft 404 that let
+  // Google index unlimited /portfolio/<anything> URLs as valid pages.
   if (error) {
-    return {
-      props: {
-        error: error.message,
-      },
-    };
+    if (error.code === 'PGRST116' || !data) return { notFound: true };
+    return { props: { error: 'Unable to load this case study.' } };
   }
+
+  if (!data) return { notFound: true };
 
   return {
     props: {
-      data: data || [],
+      data,
     },
   };
 };

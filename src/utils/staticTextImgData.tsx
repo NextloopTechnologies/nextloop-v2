@@ -2080,9 +2080,12 @@ export const servicesSubPagesData = {
   },
   ecommerceDevelopment: {
     metaData: {
-      pageMetaTitle: 'Nextloop Technologies | Custom Software Development',
+      // Was a verbatim copy of the custom-software page's title, with a
+      // 293-character description (results truncate around 160). Both rewritten
+      // to describe the page they are actually on.
+      pageMetaTitle: 'E-Commerce Development Services | Nextloop Technologies',
       pageMetaDescription:
-        'Nextloop Technologies, specialize in creating custom software solutions that are built to solve your unique business challenges. Our team of skilled developers and designers work collaboratively to develop software that enhances your efficiency, productivity, and overall business performance.',
+        'Custom e-commerce development from Nextloop Technologies — storefronts, marketplaces and headless commerce built to convert and to scale with your catalogue.',
     },
     heroImage: servicesWebdevelopmentHero,
     heroSectionData: {

@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 
+import Seo from '../components/Seo';
 import { Error404Svg } from '../../assets/SvgExport';
 
 const Layout = dynamic(() => import('../components/Layout/Layout'), {
@@ -10,6 +11,14 @@ const Layout = dynamic(() => import('../components/Layout/Layout'), {
 export default function Custom404() {
   return (
     <>
+      {/* Outside <Layout>: Layout is dynamic({ ssr: false }), so anything
+          nested inside it is skipped during server rendering — which is why
+          the 404 page shipped with an empty <title>. */}
+      <Seo
+        title='Page not found | Nextloop Technologies'
+        description='That page does not exist or has moved.'
+        noindex
+      />
       <Layout>
         <div className='flex flex-col items-center justify-center h-screen text-center bg-gray-400 py-16'>
           <Error404Svg />

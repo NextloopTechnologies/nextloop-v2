@@ -4,9 +4,18 @@ import React, { useEffect, useState } from 'react';
 import Layout from '../../components/Layout/Layout';
 import { Modal } from '../../components/Modal/Modal';
 import { OfferCard } from '../../components/OfferCard/OfferCard';
+import Seo from '../../components/Seo';
 import { offers as localOffers } from '../../data/offers';
 import { DBOffer } from '../../types';
 import { getAllOffers, updateOffer } from '../../utils/db';
+
+const OffersSeo: React.FC = () => (
+  <Seo
+    title='Your Offers | Nextloop Technologies'
+    description='Offers selected for your enquiry.'
+    noindex
+  />
+);
 
 const SpecialOffers: React.FC = () => {
   const router = useRouter();
@@ -98,6 +107,7 @@ const SpecialOffers: React.FC = () => {
   if (loading && !offers.length) {
     return (
       <Layout headerColor='bg-[#022435] text-white' showFooter={false}>
+        <OffersSeo />
         <div className='min-h-screen flex items-center justify-center'>
           <p>Loading offers...</p>
         </div>
@@ -108,6 +118,7 @@ const SpecialOffers: React.FC = () => {
   if (error && !offers.length) {
     return (
       <Layout headerColor='bg-[#022435] text-white' showFooter={false}>
+        <OffersSeo />
         <div className='min-h-screen flex items-center justify-center'>
           <p className='text-red-500'>{error}</p>
         </div>
@@ -117,6 +128,7 @@ const SpecialOffers: React.FC = () => {
 
   return (
     <Layout headerColor='bg-[#022435] text-white' showFooter={false}>
+      <OffersSeo />
       <div className='min-h-screen w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pt-20 sm:pt-24 lg:pt-22'>
         <h1 className='text-xl sm:text-2xl lg:text-3xl font-bold text-center mb-2 lg:mb-3 text-gray-800'>
           SPECIAL OFFERS

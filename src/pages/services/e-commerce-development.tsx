@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import ServicePage from './BaseServicePages';
+import ServicePage from '../../components/ServicePage/BaseServicePages';
 import { BlogData } from '../../types';
 import { fetchLatestBlogs } from '../../utils/fetchBlogdata';
 import { servicesSubPagesData } from '../../utils/staticTextImgData';

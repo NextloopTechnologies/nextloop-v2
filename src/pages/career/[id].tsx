@@ -4,8 +4,15 @@ import React from 'react';
 import JobDetails from '../../components/Career/JobDetail';
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
+import Seo from '../../components/Seo';
 import { Job } from '../../types';
 import supabaseClient from '../../utils/client';
+import { getBaseUrl } from '../../utils/getBaseUrl';
+import {
+  breadcrumbSchema,
+  jobPostingSchema,
+  toPlainText,
+} from '../../utils/structuredData';
 import careerBg from '../../../assets/careerBg.webp';
 
 const CareerID: React.FC<{ data?: Job[]; error?: string }> = ({
@@ -26,13 +33,42 @@ const CareerID: React.FC<{ data?: Job[]; error?: string }> = ({
       </Layout>
     );
 
+  // These tags previously sat in the component body rather than inside <Head>,
+  // so they never reached the document head — every job page rendered an empty
+  // <title>. They were also identical across all 64 postings.
+  const job = data?.[0];
+  const jobUrl = job ? `${getBaseUrl()}/career/${job.id}/` : undefined;
+  const jobDescription = job
+    ? toPlainText(job.descp, 158) ||
+      `${job.title} at Nextloop Technologies${job.location ? `, ${job.location}` : ''}.`
+    : '';
+
   return (
     <Layout>
-      <title>Nextloop Technologies | Careers</title>
-      <meta
-        name='description'
-        content='Advance your career at Nextloop Technologies. Be part of a forward-thinking team that values creativity and professional development in technology.'
-      />
+      {job && (
+        <Seo
+          title={`${job.title}${job.location ? ` — ${job.location}` : ''} | Careers at Nextloop`}
+          description={jobDescription}
+          jsonLd={[
+            // JobPosting is what Google Jobs indexes. Without it these 64
+            // postings are invisible to the largest source of job-search traffic.
+            jobPostingSchema({
+              title: job.title,
+              description: job.descp || jobDescription,
+              url: jobUrl ?? '',
+              datePosted: job.created_at,
+              location: job.location,
+              jobMode: job.job_mode,
+              jobType: job.job_type,
+            }),
+            breadcrumbSchema([
+              { name: 'Home', path: '/' },
+              { name: 'Careers', path: '/career/' },
+              { name: job.title, path: `/career/${job.id}/` },
+            ]),
+          ]}
+        />
+      )}
       <PageHero
         image={careerBg}
         title='careers'
