@@ -34,7 +34,7 @@ specific capabilities, people and evidence.
 | e-commerce page title/description | Was a copy of the custom-software title, 293-char description |
 | `BaseServicePages` moved out of `pages/` | Shared component served as a public route |
 
-### Commit `896d4a7`
+### Commit `459a6a9`
 
 | Fix | Was |
 |---|---|
@@ -136,13 +136,13 @@ efficiency" does not.
 
 ## Part 2 — Front-end work still outstanding
 
-### 2.1 Dynamic sitemap — ~~do this next~~ **done** (`896d4a7`)
+### 2.1 Dynamic sitemap — ~~do this next~~ **done** (`459a6a9`)
 Static pages deliberately carry no `lastmod`. The old file claimed dates it could
 not know, and a build-time timestamp would be worse — every page would claim to
 change on every deploy. Only database-backed URLs get one, because only they have
 a real edit date.
 
-### 2.2 Heading structure — **done** (`896d4a7`)
+### 2.2 Heading structure — **done** (`459a6a9`)
 Every route now has exactly one H1, asserted in the regression suite so it stays
 that way. Two things were worth more than the H1 counts themselves:
 
