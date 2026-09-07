@@ -56,9 +56,9 @@ export interface BlogType {
   updated_at: string;
   slug?: string | null;
   service?: string | null;
-  categories?: CategoryType;
+  categories?: CategoryType | null;
   category_id?: number | null;
-  author?: AuthorType;
+  author?: AuthorType | null;
   author_id?: number | null;
   /**
    * SEO columns that have existed in production all along but were never

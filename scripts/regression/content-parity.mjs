@@ -75,6 +75,27 @@ if (blogPaths.length + jobPaths.length + casePaths.length === 0) {
 }
 
 // ---------------------------------------------------------------------------
+// Listing routes.
+//
+// These were missing from the first version of this file, and that omission
+// cost a live 500: `getServerSideProps` refuses to serialise `undefined`, an
+// unpopulated relationship produced one, and only the listing route passes a
+// whole collection through props — so only it failed, and only for a store
+// where some document omits the field. Detail routes alone cannot catch that.
+// ---------------------------------------------------------------------------
+
+for (const route of ['/blog/', '/career/', '/portfolio/']) {
+  const { status, html } = await get(route);
+  check('LIST-STATUS', route, status === 200, `status ${status}`);
+  if (status !== 200) continue;
+  check('LIST-H1', route, count(html, /<h1[\s>]/g) === 1, `${count(html, /<h1[\s>]/g)} H1s`);
+  check('LIST-NO-RAW-LEXICAL', route, !/\{&quot;root&quot;|\{"root":/.test(html),
+    'card previews must be HTML, never a serialised Lexical document');
+  check('LIST-BODY', route, visibleText(html).length > 300,
+    `${visibleText(html).length} chars rendered`);
+}
+
+// ---------------------------------------------------------------------------
 // The contract
 // ---------------------------------------------------------------------------
 

@@ -35,6 +35,22 @@ import type {
 
 type MediaLike = { id: number | string; url?: string | null } | number | string | null | undefined;
 
+/**
+ * Everything leaving this module goes through here.
+ *
+ * `getServerSideProps` refuses to serialise `undefined` and fails the whole
+ * route with a stack trace — which is exactly what an optional relationship
+ * produces when a post has no category. Fixing the three fields that did it is
+ * not enough: any future adapter field that returns `undefined` for missing
+ * data would fail the same way, and only for the documents that happen to omit
+ * it, so a seeded database can pass while production breaks.
+ *
+ * JSON.stringify drops undefined-valued keys, so a round trip makes the result
+ * serialisable by construction. The adapters still return `null` deliberately —
+ * this is the net beneath them, not a substitute for meaning it.
+ */
+const serialisable = <T,>(value: T): T => JSON.parse(JSON.stringify(value)) as T;
+
 /** A relationship comes back as an id when unpopulated; only a document is usable. */
 const isDoc = <T extends object>(value: unknown): value is T =>
   typeof value === 'object' && value !== null;
@@ -68,8 +84,8 @@ const richTextToHtml = (value: unknown): string => {
   }
 };
 
-const toAuthor = (value: unknown): AuthorType | undefined => {
-  if (!isDoc<Record<string, unknown>>(value)) return undefined;
+const toAuthor = (value: unknown): AuthorType | null => {
+  if (!isDoc<Record<string, unknown>>(value)) return null;
   return {
     name: (value.name as string) ?? null,
     designation: (value.designation as string) ?? null,
@@ -78,8 +94,8 @@ const toAuthor = (value: unknown): AuthorType | undefined => {
   };
 };
 
-const toCategory = (value: unknown): CategoryType | undefined => {
-  if (!isDoc<Record<string, unknown>>(value)) return undefined;
+const toCategory = (value: unknown): CategoryType | null => {
+  if (!isDoc<Record<string, unknown>>(value)) return null;
   return {
     id: Number(value.id),
     name: (value.name as string) ?? '',
@@ -116,8 +132,8 @@ const toJob = (doc: Record<string, unknown>): Job => ({
   qualifications: (doc.qualifications as string[]) ?? [],
   skills: (doc.skills as string[]) ?? [],
   location: (doc.location as string) ?? '',
-  job_mode: doc.jobMode as Job['job_mode'],
-  job_type: doc.jobType as Job['job_type'],
+  job_mode: (doc.jobMode as Job['job_mode']) ?? null,
+  job_type: (doc.jobType as Job['job_type']) ?? null,
   package: (doc.package as string) ?? '',
   created_at: (doc.createdAt as string) ?? '',
   updated_at: (doc.updatedAt as string) ?? '',
@@ -158,7 +174,7 @@ export const payloadReader: ContentReader = {
       limit: 0,
       depth: 1,
     });
-    return docs.map((d) => toBlog(d as unknown as Record<string, unknown>));
+    return serialisable(docs.map((d) => toBlog(d as unknown as Record<string, unknown>)));
   },
 
   async getBlogBySlug(slug) {
@@ -170,7 +186,7 @@ export const payloadReader: ContentReader = {
       depth: 2, // author and category have to arrive as documents, not ids
     });
     const doc = docs[0];
-    return doc ? toBlog(doc as unknown as Record<string, unknown>) : null;
+    return doc ? serialisable(toBlog(doc as unknown as Record<string, unknown>)) : null;
   },
 
   async listJobs() {
@@ -181,7 +197,7 @@ export const payloadReader: ContentReader = {
       limit: 0,
       depth: 0,
     });
-    return docs.map((d) => toJob(d as unknown as Record<string, unknown>));
+    return serialisable(docs.map((d) => toJob(d as unknown as Record<string, unknown>)));
   },
 
   async getJobByRef(ref) {
@@ -193,7 +209,7 @@ export const payloadReader: ContentReader = {
       depth: 0,
     });
     const doc = docs[0];
-    return doc ? toJob(doc as unknown as Record<string, unknown>) : null;
+    return doc ? serialisable(toJob(doc as unknown as Record<string, unknown>)) : null;
   },
 
   /**
@@ -213,7 +229,7 @@ export const payloadReader: ContentReader = {
       limit: 0,
       depth: 1,
     });
-    return docs.map((d) => toPortfolio(d as unknown as Record<string, unknown>));
+    return serialisable(docs.map((d) => toPortfolio(d as unknown as Record<string, unknown>)));
   },
 
   async getPortfolioByRef(ref) {
@@ -225,6 +241,6 @@ export const payloadReader: ContentReader = {
       depth: 1,
     });
     const doc = docs[0];
-    return doc ? toPortfolio(doc as unknown as Record<string, unknown>) : null;
+    return doc ? serialisable(toPortfolio(doc as unknown as Record<string, unknown>)) : null;
   },
 };
