@@ -32,7 +32,7 @@ const ServiceBox: React.FC<ServiceBoxProps> = ({ title, descp, icon }) => {
       </div>
       <div className='pl-14 py-8 mx-2'>
         <h3
-          className={`text-[#1D1D1D] ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} mb-4 uppercase`}
+          className={`text-[#1D1D1D] ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} mb-4 `}
         >
           {title}
         </h3>
