@@ -130,7 +130,7 @@ const ClientReviews = ({ colouredTitle, title, className }: Props) => {
     <div
       className={`bg-[#1D1D1D] pt-[50px] pb-[70px] flex flex-col items-center gap-[50px] ${className}`}
     >
-      <h1
+      <h2
         className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase md:mx-10 font-bold text-white text-center`}
       >
         {!title && !colouredTitle ? (
@@ -142,7 +142,7 @@ const ClientReviews = ({ colouredTitle, title, className }: Props) => {
             {title} <span className='text-orange-500'>{colouredTitle}</span>
           </>
         )}
-      </h1>
+      </h2>
       <div className='flex flex-col md:flex-row items-center gap-14'>
         <div className='hidden md:flex items-center md:flex-col'>
           <button

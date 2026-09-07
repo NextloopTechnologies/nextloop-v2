@@ -84,12 +84,13 @@ const OffersPage = () => {
         <div className='flex-1 flex items-center'>
           <div className='w-full max-w-2xl mx-auto px-4 sm:px-6 lg:px-8'>
             <div className='bg-white rounded-lg shadow-lg py-6 px-4 sm:py-8 sm:px-8 md:py-10 md:px-12 lg:px-24'>
-              <h2 className='text-center text-[#173F5F] text-xl sm:text-2xl font-bold mb-1'>
-                Unlock Exclusive Offers with
-              </h2>
-              <h2 className='text-center text-[#173F5F] text-xl sm:text-2xl font-bold mb-4 sm:mb-6'>
-                Nextloop Technologies!
-              </h2>
+              {/* One sentence was split across two <h2>s to get a line break,
+                  which left /get-offer/ with no H1 and two headings that each
+                  read as a fragment. Same two centred lines, one heading. */}
+              <h1 className='text-center text-[#173F5F] text-xl sm:text-2xl font-bold mb-4 sm:mb-6'>
+                <span className='block mb-1'>Unlock Exclusive Offers with</span>
+                <span className='block'>Nextloop Technologies!</span>
+              </h1>
 
               {error && (
                 <p className='text-red-500 text-sm text-center mb-4'>{error}</p>

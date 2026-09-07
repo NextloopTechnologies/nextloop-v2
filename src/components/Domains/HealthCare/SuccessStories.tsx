@@ -35,12 +35,12 @@ const successSolutionContent = [
 const SuccessStories: React.FC = () => {
   return (
     <div>
-      <h1
+      <h2
         className={`text-black font-bold text-center ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} mb-4 `}
       >
         What Our Remote Developers Can{' '}
         <span className='text-orange-500'>Build for Your Business</span>
-      </h1>
+      </h2>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-5 mt-[20px] md:p-20 p-10'>
         {successSolutionContent?.map(
           ({ descp, image, title }, index: number) => (

@@ -182,12 +182,14 @@ const ContactForm: FC = () => {
           >
             <div className='flex justify-center w-full text-black mt-6 md:mt-0 '>
               <div className='flex flex-col justify-start lg:w-2/3 gap-y-4 w-full md:mt-32'>
-                <h2
+                {/* The page's only heading, and it shipped as an <h2>, which is
+                    why /contact-us/ had no H1 at all. Same styling, right level. */}
+                <h1
                   className={`${palette.fontSize.heading2.mobile} md:text-3xl 2xl:text-4xl text-black  font-bold text-center`}
                 >
                   Get in Touch {'  '}
                   <span className='text-orange-500'>with Us!</span>
-                </h2>
+                </h1>
                 <div className='w-full h-40 rounded-lg overflow-hidden'>
                   <iframe
                     src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.9360155863986!2d75.8852473!3d22.7282604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962e39ac69c135d%3A0xe95bb5f20aa420ac!2sNextloop%20Technologies%20LLP!5e0!3m2!1sen!2sin!4v1653091257496!5m2!1sen!2sin'

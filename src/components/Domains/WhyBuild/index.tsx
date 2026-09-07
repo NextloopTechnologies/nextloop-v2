@@ -20,7 +20,7 @@ const WhyBuild = ({
 }: Props) => {
   return (
     <div className='flex flex-col items-center md:pt-20 pt-10 pb-10 gap-[30px] md:px-20'>
-      <h1
+      <h2
         className={` font-bold text-center max-w-[1300px] ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} px-10`}
       >
         {typeof title === 'string' ? (
@@ -31,7 +31,7 @@ const WhyBuild = ({
         {colouredTitle && (
           <span className='text-orange-500'>{` ${colouredTitle}?`}</span>
         )}
-      </h1>
+      </h2>
 
       <div
         className={`flex flex-col lg:flex-row gap-[10px] md:gap-[50px] justify-between items-center ${infoAndImgClassname}`}

@@ -176,21 +176,21 @@ const FoodAndBeverages: React.FC = () => {
           imageClassname='w-[450px] h-[450px] mx-auto'
           data={enrolData}
           titleElement={
-            <h1
+            <h2
               className={` ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold text-center max-w-[950px] mx-auto`}
             >
               Get a Robust Online{' '}
               <span className='text-orange-500'>Ordering System</span>
-            </h1>
+            </h2>
           }
         />
 
         <GrowBusiness />
         {/* <div className='min-h-screen flex flex-col items-center justify-center text-center py-[112px] mx-auto gap-[109px]'>
-        <h1 className='font-bold text-3xl uppercase md:text-6xl lg:text-7xl xl:text-8xl sm:text-4xl w-full mb-[25px]'>
+        <h2 className='font-bold text-3xl uppercase md:text-6xl lg:text-7xl xl:text-8xl sm:text-4xl w-full mb-[25px]'>
           The tools you need to grow your{' '}
           <span className='text-orange-500'>business</span>
-        </h1>
+        </h2>
         <div className='container flex flex-col items-center mx-auto p-6'>
           <div className='grid grid-cols-1 lg:grid-cols-3 gap-[75px] mt-[45px]'>
             <ToolBox

@@ -22,7 +22,7 @@ export const Portfolio: CollectionConfig = {
       label: 'Case study',
       admin: {
         description:
-          'NOTE: the current site renders this wrapped in an <h1>, so the whole case study is one giant heading. Fix that when the front end reads from Payload.',
+          'The full case study. The live site used to render this inside an <h1>, making each entry one enormous heading; that is fixed, so headings you set here now mean what they say.',
       },
     },
     { name: 'images', type: 'upload', relationTo: 'media', hasMany: true },

@@ -153,12 +153,12 @@ const HealthCare: React.FC = () => {
 
         <ProductServices
           title={
-            <h1
+            <h2
               className={`text-black font-bold text-center  ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop}`}
             >
               Specialised{' '}
               <span className='text-orange-500'>Healthcare Services</span>{' '}
-            </h1>
+            </h2>
           }
           data={productServiceContent}
         />

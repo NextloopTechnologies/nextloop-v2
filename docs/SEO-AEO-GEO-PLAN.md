@@ -16,7 +16,9 @@ specific capabilities, people and evidence.
 
 ---
 
-## Already shipped (commit `417a994`)
+## Already shipped
+
+### Commit `417a994`
 
 | Fix | Was |
 |---|---|
@@ -31,6 +33,18 @@ specific capabilities, people and evidence.
 | `/domain/` is a real hub page | Was `<div>Domain</div>`, live and indexable |
 | e-commerce page title/description | Was a copy of the custom-software title, 293-char description |
 | `BaseServicePages` moved out of `pages/` | Shared component served as a public route |
+
+### Commit `896d4a7`
+
+| Fix | Was |
+|---|---|
+| `/sitemap.xml` generated from the database, as an index over three children | A hand-maintained file with 22 URLs and `lastmod` dates frozen at whenever it was last generated |
+| `/sitemap-jobs.xml` | Job URLs had no path into the index at all |
+| Eight live pages added to the sitemap | `/domain/`, `/domain/ecommerce/`, `/domain/events/`, `/domain/hotel/`, `/domain/travel-and-hospitality/`, `/get-offer/`, `/services/e-commerce-development/`, `/services/software-testing-qa-services/` were all omitted |
+| **`/domain/ecommerce/` server-renders** | Every component was `dynamic({ ssr: false })`, so the server sent 695 characters — the nav and nothing else. Now 5,496 |
+| Exactly one H1 on every page | healthcare 8, fintech 7, food-and-beverages 7, hotel 6, travel 6, events 4, oil-and-gas 2, cookies 2, privacy 2; contact-us, ecommerce and get-offer had none |
+| Portfolio bodies out of the H1 | `parse(\`<h1>${descp}</h1>\`)` wrapped each entire case study in a second H1 |
+| robots.txt groups repeat their own rules | Named crawlers carried only `Allow: /`; robots.txt groups do not inherit, so **Googlebot was free to crawl `/admin/`** |
 
 ---
 
@@ -122,22 +136,22 @@ efficiency" does not.
 
 ## Part 2 — Front-end work still outstanding
 
-### 2.1 Dynamic sitemap — **do this next**
-`public/sitemap.xml` is a static file with 22 hardcoded URLs and `lastmod` dates
-that will never update. It omits every blog post, every job, every portfolio
-entry, and six live pages. Generate it from the database via
-`getServerSideProps` on a `/sitemap.xml` route.
+### 2.1 Dynamic sitemap — ~~do this next~~ **done** (`896d4a7`)
+Static pages deliberately carry no `lastmod`. The old file claimed dates it could
+not know, and a build-time timestamp would be worse — every page would claim to
+change on every deploy. Only database-backed URLs get one, because only they have
+a real edit date.
 
-Add a **separate job sitemap** — Google Jobs benefits from job URLs being
-discoverable independently.
+### 2.2 Heading structure — **done** (`896d4a7`)
+Every route now has exactly one H1, asserted in the regression suite so it stays
+that way. Two things were worth more than the H1 counts themselves:
 
-### 2.2 Heading structure
-Real defects found in the audit, all still open:
-- `/contact-us/` and `/domain/ecommerce/` have **zero H1**
-- `/domain/healthcare/` has **8 H1s**, fintech and food-and-beverages **7 each**
-
-An H1 per page is not a style preference — it is how a parser decides what the
-page is about.
+- `/domain/ecommerce/` was not a heading problem. Every component was imported
+  `dynamic({ ssr: false })`, so the whole page was invisible to a crawler; the
+  missing H1 was just the symptom that happened to get measured.
+- The suite now asserts a **floor on server-rendered text** per route. Counting
+  tags could not see a page collapse to nav-only while still reporting a healthy
+  title and description. This can.
 
 ### 2.3 FAQPage and Service schema on the static pages
 Once 1.3 and 1.8 exist, emit them. `structuredData.ts` already has `faqSchema`
@@ -161,6 +175,15 @@ the homepage are the obvious candidates for dynamic import.
 ### 2.7 Image alt text
 Enforced in Payload now (`alt` is required on `media`), but the front end must
 actually render it once reading from Payload.
+
+---
+
+### 2.8 Thin pages now in the sitemap
+`/get-offer/` renders 80 characters of text — a heading and four form fields. It
+is a legitimate destination and it is now indexable and listed, but as it stands
+it is thin content, and thin pages listed in a sitemap dilute the quality signal
+for everything around them. It wants a paragraph explaining the offer, or a
+`noindex`.
 
 ---
 
@@ -188,8 +211,8 @@ No amount of schema compensates for content that is not extractable.
 
 ## Suggested order
 
-**Now** — dynamic sitemap (2.1), heading fixes (2.2), redirects collection (1.2).
-Cheap, and 1.2 must precede any slug rename.
+**Now** — ~~dynamic sitemap (2.1)~~, ~~heading fixes (2.2)~~, redirects collection
+(1.2). 1.2 must precede any slug rename.
 
 **Next** — editable page SEO (1.1) and FAQ collection (1.3). The first unblocks
 marketing entirely; the second is the largest AEO gain available.

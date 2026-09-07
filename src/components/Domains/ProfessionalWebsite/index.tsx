@@ -37,11 +37,11 @@ const sampleData = [
 const ProfessionalWebsite = () => {
   return (
     <div className='flex flex-col py-[122px] mx-auto gap-[109px]'>
-      <h1 className='text-3xl mx-3 md:text-7xl uppercase max-w-[1200px] md:mx-auto font-bold text-center'>
+      <h2 className='text-3xl mx-3 md:text-7xl uppercase max-w-[1200px] md:mx-auto font-bold text-center'>
         A professional{' '}
         <span className='text-orange-500'>website development</span> that makes
         you impossible to ignore
-      </h1>
+      </h2>
 
       <div className='grid grid-cols-1 md:grid-cols-2 md:rounded-xl gap-4 md:gap-0 mx-5 md:mx-16'>
         {sampleData.map((data, index) => (

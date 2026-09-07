@@ -60,12 +60,12 @@ const WebDesignCompany: React.FC = () => {
   return (
     <div className='py-[100px]'>
       <div className='flex flex-col text-center items-center'>
-        <h1
+        <h2
           className={`text-black font-bold text-center ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} px-10`}
         >
           What to Look for in a{' '}
           <span className='text-orange-500'>Fintech Web Design Company</span>
-        </h1>
+        </h2>
         <p
           className={`md:mx-2 mx-10 mt-10 ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} xl:mx-[150px]`}
         >

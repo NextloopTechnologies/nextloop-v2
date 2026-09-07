@@ -46,12 +46,12 @@ const WhatWeDo: React.FC<WhatWeDoProps> = ({ content }) => {
   return (
     <div className='flex  flex-col items-center px-10'>
       <div className='flex flex-col pt-[50px] pb-[80px] mx-2 gap-10'>
-        <h1
+        <h2
           className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold text-center`}
         >
           Our Hospitality &{' '}
           <span className='text-orange-500'>Travel Software Solutions</span>
-        </h1>
+        </h2>
 
         <div className='grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8'>
           {content.map(({ description, image, title }, idx) => (

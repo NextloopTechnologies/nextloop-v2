@@ -28,12 +28,12 @@ const growBusinessData = [
 const GrowBusiness = () => {
   return (
     <div className='flex flex-col items-center justify-center text-center mx-auto py-10'>
-      <h1
+      <h2
         className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold  w-full`}
       >
         The Tools Built to{' '}
         <span className='text-orange-500'>Grow Your Business</span>
-      </h1>
+      </h2>
 
       <div className='container flex flex-col items-center mx-auto p-6'>
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-[75px] mt-[45px]'>

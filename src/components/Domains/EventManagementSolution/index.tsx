@@ -214,12 +214,12 @@ export const EventIdeaRow = ({
 const EventManagementSolution = () => {
   return (
     <div className='flex flex-col'>
-      <h1
+      <h2
         className={`font-bold text-center ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} w-full`}
       >
         Your Complete{' '}
         <span className='text-orange-500'>Event Management Solution</span>
-      </h1>
+      </h2>
 
       <div className='flex flex-col gap-12 mt-7 mb-10'>
         {data.map(({ description, id, image, subTitle, title }, index) => (

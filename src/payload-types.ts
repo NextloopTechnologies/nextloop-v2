@@ -284,9 +284,23 @@ export interface Blog {
    */
   coverImage?: (number | null) | Media;
   /**
-   * Post body as HTML, preserved from the react-quill editor. Existing posts migrate unchanged.
+   * The existing 7 posts are HTML from react-quill; the migration converts them to rich text so editors get a proper editor rather than raw markup.
    */
-  descp?: string | null;
+  descp?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   author?: (number | null) | Author;
   category?: (number | null) | Category;
   tags?: string[] | null;
@@ -360,9 +374,23 @@ export interface Portfolio {
    */
   slug: string;
   /**
-   * Case-study body as HTML, preserved from production.
+   * The full case study. The live site used to render this inside an <h1>, making each entry one enormous heading; that is fixed, so headings you set here now mean what they say.
    */
-  descp?: string | null;
+  descp?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   images?: (number | Media)[] | null;
   /**
    * Unchecked hides it from the public site.
@@ -407,6 +435,9 @@ export interface Job {
    * Auto-filled from title if left blank. Changing it after publish breaks existing links and any inbound SEO.
    */
   slug: string;
+  /**
+   * Plain text. The careers page renders this inside a <p>, so HTML here would show as literal markup.
+   */
   descp?: string | null;
   responsibilities?: string[] | null;
   qualifications?: string[] | null;

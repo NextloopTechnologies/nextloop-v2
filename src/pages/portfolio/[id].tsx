@@ -57,7 +57,17 @@ const PortfolioID: React.FC<{ data?: IPortfolio; error?: string }> = ({
               width={900}
               height={900}
             />
-            {data.descp && parse(`<h1>${data.descp}</h1>`)}
+            {/* This was `parse(\`<h1>${'${data.descp}'}</h1>\`)` — the entire case
+                study, headings and all, wrapped in a second H1. It looked fine
+                only because Tailwind's preflight resets heading sizes, so the
+                damage was invisible on screen and total to a parser: every case
+                study claimed a multi-paragraph H1 and had no readable outline.
+                The body is already HTML, so it just needs a prose container. */}
+            {data.descp && (
+              <div className='prose prose-lg mt-10 w-full max-w-3xl'>
+                {parse(data.descp)}
+              </div>
+            )}
           </div>
         ) : (
           <div className='h-screen flex items-center justify-center text-2xl'>
