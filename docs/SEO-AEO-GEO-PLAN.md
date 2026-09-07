@@ -34,13 +34,13 @@ specific capabilities, people and evidence.
 | e-commerce page title/description | Was a copy of the custom-software title, 293-char description |
 | `BaseServicePages` moved out of `pages/` | Shared component served as a public route |
 
-### Commit `459a6a9`
+### Commit `__COMMIT__`
 
 | Fix | Was |
 |---|---|
 | `/sitemap.xml` generated from the database, as an index over three children | A hand-maintained file with 22 URLs and `lastmod` dates frozen at whenever it was last generated |
 | `/sitemap-jobs.xml` | Job URLs had no path into the index at all |
-| Eight live pages added to the sitemap | `/domain/`, `/domain/ecommerce/`, `/domain/events/`, `/domain/hotel/`, `/domain/travel-and-hospitality/`, `/get-offer/`, `/services/e-commerce-development/`, `/services/software-testing-qa-services/` were all omitted |
+| Seven live pages added to the sitemap | `/domain/`, `/domain/ecommerce/`, `/domain/events/`, `/domain/hotel/`, `/domain/travel-and-hospitality/`, `/services/e-commerce-development/`, `/services/software-testing-qa-services/` were all omitted |
 | **`/domain/ecommerce/` server-renders** | Every component was `dynamic({ ssr: false })`, so the server sent 695 characters — the nav and nothing else. Now 5,496 |
 | Exactly one H1 on every page | healthcare 8, fintech 7, food-and-beverages 7, hotel 6, travel 6, events 4, oil-and-gas 2, cookies 2, privacy 2; contact-us, ecommerce and get-offer had none |
 | Portfolio bodies out of the H1 | `parse(\`<h1>${descp}</h1>\`)` wrapped each entire case study in a second H1 |
@@ -136,13 +136,13 @@ efficiency" does not.
 
 ## Part 2 — Front-end work still outstanding
 
-### 2.1 Dynamic sitemap — ~~do this next~~ **done** (`459a6a9`)
+### 2.1 Dynamic sitemap — ~~do this next~~ **done** (`__COMMIT__`)
 Static pages deliberately carry no `lastmod`. The old file claimed dates it could
 not know, and a build-time timestamp would be worse — every page would claim to
 change on every deploy. Only database-backed URLs get one, because only they have
 a real edit date.
 
-### 2.2 Heading structure — **done** (`459a6a9`)
+### 2.2 Heading structure — **done** (`__COMMIT__`)
 Every route now has exactly one H1, asserted in the regression suite so it stays
 that way. Two things were worth more than the H1 counts themselves:
 
@@ -178,12 +178,12 @@ actually render it once reading from Payload.
 
 ---
 
-### 2.8 Thin pages now in the sitemap
-`/get-offer/` renders 80 characters of text — a heading and four form fields. It
-is a legitimate destination and it is now indexable and listed, but as it stands
-it is thin content, and thin pages listed in a sitemap dilute the quality signal
-for everything around them. It wants a paragraph explaining the offer, or a
-`noindex`.
+### 2.8 `/get-offer/` is thin and stays out of the sitemap
+It renders 80 characters of text — a heading and four form fields. It is a real
+destination and remains crawlable and linkable from campaigns, but it is not
+advertised in the sitemap: thin pages listed there dilute the quality signal for
+everything around them. The regression suite asserts it stays out. Give it a
+paragraph explaining the offer and it can go back in.
 
 ---
 

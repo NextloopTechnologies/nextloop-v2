@@ -196,8 +196,8 @@ for (const child of ['/sitemap-pages.xml', '/sitemap-content.xml', '/sitemap-job
 }
 
 const pageLocs = [...sitemapBodies['/sitemap-pages.xml'].matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-record('SITEMAP-COUNT', '/sitemap-pages.xml', pageLocs.length === 28,
-  `${pageLocs.length} URLs (was 22 hardcoded; expected 28)`);
+record('SITEMAP-COUNT', '/sitemap-pages.xml', pageLocs.length === 27,
+  `${pageLocs.length} URLs (was 22 hardcoded; expected 27)`);
 record('SITEMAP-ABS', '/sitemap-pages.xml', pageLocs.every((l) => /^https?:\/\//.test(l)),
   'every loc is absolute');
 record('SITEMAP-SLASH', '/sitemap-pages.xml',
@@ -206,15 +206,18 @@ record('SITEMAP-SLASH', '/sitemap-pages.xml',
 
 // The eight live pages the old sitemap omitted.
 for (const p of ['/domain/', '/domain/ecommerce/', '/domain/events/', '/domain/hotel/',
-                 '/domain/travel-and-hospitality/', '/get-offer/',
+                 '/domain/travel-and-hospitality/',
                  '/services/e-commerce-development/', '/services/software-testing-qa-services/']) {
   record('SITEMAP-ADDED', p, pageLocs.some((l) => new URL(l).pathname === p), 'was missing from the old sitemap');
 }
 
-// noindex and sitemap-listed are contradictory instructions.
-record('SITEMAP-EXCLUDES', '/get-offer/specialoffers/',
-  !pageLocs.some((l) => new URL(l).pathname === '/get-offer/specialoffers/'),
-  'noindex page must not be advertised');
+// Pages that exist and are crawlable but must not be advertised.
+for (const [p, why] of [
+  ['/get-offer/specialoffers/', 'noindex; the URL carries applicant PII'],
+  ['/get-offer/', 'thin lead-capture form — crawlable, deliberately not advertised'],
+]) {
+  record('SITEMAP-EXCLUDES', p, !pageLocs.some((l) => new URL(l).pathname === p), why);
+}
 
 // Every advertised static URL must actually answer 200 — a sitemap full of
 // redirects or 404s is worse than no sitemap.
