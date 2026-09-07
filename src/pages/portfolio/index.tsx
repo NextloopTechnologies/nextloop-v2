@@ -7,8 +7,8 @@ import { useRouter } from 'next/router';
 
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
+import { listPortfolio } from '../../lib/content';
 import { IPortfolio } from '../../types';
-import supabaseClient from '../../utils/client';
 import { getSchemaMarkup } from '../../utils/seoSchemas';
 import portfolioBg from '../../../assets/portfolioBg.png';
 
@@ -84,22 +84,9 @@ const ProjectCard: React.FC<{ proj: IPortfolio; index: number }> = ({
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const { data, error } = await supabaseClient
-    .from('portfolio')
-    .select('id, title, image')
-    .order('id', { ascending: false });
-
-  if (error) {
-    return {
-      props: {
-        error: error.message,
-      },
-    };
+  try {
+    return { props: { data: await listPortfolio() } };
+  } catch (e) {
+    return { props: { error: e instanceof Error ? e.message : 'Unable to load case studies.' } };
   }
-
-  return {
-    props: {
-      data: data || [],
-    },
-  };
 };

@@ -6,8 +6,8 @@ import { useEffect, useRef } from 'react';
 
 import Layout from '../../components/Layout/Layout';
 import Seo from '../../components/Seo';
+import { getPortfolioByRef } from '../../lib/content';
 import { IPortfolio } from '../../types';
-import supabaseClient from '../../utils/client';
 import { getBaseUrl } from '../../utils/getBaseUrl';
 import { breadcrumbSchema, caseStudySchema, toPlainText } from '../../utils/structuredData';
 
@@ -82,24 +82,16 @@ const PortfolioID: React.FC<{ data?: IPortfolio; error?: string }> = ({
 export default PortfolioID;
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  const { data, error } = await supabaseClient
-    .from('portfolio')
-    .select('id, title, descp, image')
-    .filter('id', 'eq', params?.id)
-    .single();
+  const ref = typeof params?.id === 'string' ? params.id : '';
+  if (!ref) return { notFound: true };
 
-  // Was HTTP 200 with the raw PostgREST error on screen — a soft 404 that let
-  // Google index unlimited /portfolio/<anything> URLs as valid pages.
-  if (error) {
-    if (error.code === 'PGRST116' || !data) return { notFound: true };
+  try {
+    // Was HTTP 200 with the raw PostgREST error on screen — a soft 404 that let
+    // Google index unlimited /portfolio/<anything> URLs as valid pages.
+    const data = await getPortfolioByRef(ref);
+    if (!data) return { notFound: true };
+    return { props: { data } };
+  } catch {
     return { props: { error: 'Unable to load this case study.' } };
   }
-
-  if (!data) return { notFound: true };
-
-  return {
-    props: {
-      data,
-    },
-  };
 };

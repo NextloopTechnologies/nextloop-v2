@@ -8,8 +8,8 @@ import { FaXTwitter } from 'react-icons/fa6';
 
 import Layout from '../../components/Layout/Layout';
 import Seo from '../../components/Seo';
+import { getBlogBySlug } from '../../lib/content';
 import { BlogIDProps, BlogType, TocItem } from '../../types';
-import supabaseClient from '../../utils/client';
 import { getBaseUrl } from '../../utils/getBaseUrl';
 import { articleSchema, breadcrumbSchema, toPlainText } from '../../utils/structuredData';
 
@@ -379,26 +379,19 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error }) => {
 export default BlogID;
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  const { data, error } = await supabaseClient
-    .from('blogs')
-    .select('*,author(*), categories(*)')
-    .eq('status', 'published')
-    .filter('slug', 'eq', params?.slug)
-    .single();
+  const slug = typeof params?.slug === 'string' ? params.slug : '';
+  if (!slug) return { notFound: true };
 
-  // A missing slug used to return HTTP 200 with the raw PostgREST message
-  // ("JSON object requested, multiple (or no) rows returned") rendered on the
-  // page — a soft 404 that let Google index unlimited junk URLs.
-  if (error) {
-    if (error.code === 'PGRST116' || !data) return { notFound: true };
+  try {
+    // A missing slug used to return HTTP 200 with the raw PostgREST message
+    // ("JSON object requested, multiple (or no) rows returned") rendered on the
+    // page — a soft 404 that let Google index unlimited junk URLs. Missing is
+    // now `null` and 404s; only a genuine failure reaches the catch, because a
+    // database outage must not deindex every article on the site.
+    const data = await getBlogBySlug(slug);
+    if (!data) return { notFound: true };
+    return { props: { data } };
+  } catch {
     return { props: { error: 'Unable to load this article.' } };
   }
-
-  if (!data) return { notFound: true };
-
-  return {
-    props: {
-      data,
-    },
-  };
 };

@@ -8,8 +8,8 @@ import LifeAtNextloop from '../../components/lifeatnextloop';
 import PageHero from '../../components/PageHero';
 import PerksBenefitsSection from '../../components/Perksandbenefits';
 import SlidingImages from '../../components/SlidingImages';
+import { listJobs } from '../../lib/content';
 import { Job } from '../../types';
-import supabaseClient from '../../utils/client';
 import { getSchemaMarkup } from '../../utils/seoSchemas';
 import { careerImages } from '../../../assets';
 import careerBg from '../../../assets/careerBg.webp';
@@ -123,23 +123,9 @@ const JobCard: React.FC<{ job: Job }> = ({
 export default CareersPage;
 
 export async function getServerSideProps() {
-  // Fetch data from Supabase
-  const { data: jobs, error } = await supabaseClient
-    .from('jobs')
-    .select('*')
-    .filter('visibility', 'eq', true);
-
-  if (error) {
-    return {
-      props: {
-        error: error.message,
-      },
-    };
+  try {
+    return { props: { jobs: await listJobs() } };
+  } catch (e) {
+    return { props: { error: e instanceof Error ? e.message : 'Unable to load roles.' } };
   }
-
-  return {
-    props: {
-      jobs: jobs || [],
-    },
-  };
 }

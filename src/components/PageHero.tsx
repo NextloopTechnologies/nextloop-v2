@@ -6,19 +6,30 @@ import { IconElementProps } from '../types';
 
 type ImageLike = StaticImageData | string | React.ReactNode | React.ElementType;
 
+/**
+ * `titleAs` exists because this banner is the page's real heading on a listing
+ * route and decoration on a detail route. /career/<id>/ rendered the banner's
+ * "careers" as an H1 *and* the job title as an H1 — two H1s, with the generic
+ * one first, so a parser read every one of the 64 job pages as being about
+ * "careers" rather than about the role. Detail routes pass 'p': same styling,
+ * out of the document outline, leaving the one true heading to the content.
+ */
 const PageHero: React.FC<{
   image: ImageLike;
   title: string;
   subtitle: string;
   coloredTitle?: string;
   opacity?: string;
+  titleAs?: 'h1' | 'p';
 }> = ({
   image,
   subtitle,
   title,
   coloredTitle = false,
   opacity = 'opacity-40',
+  titleAs = 'h1',
 }) => {
+  const Title = titleAs;
   return (
     <div className='h-[80vh] relative flex items-center justify-center text-white'>
       {image &&
@@ -63,18 +74,18 @@ const PageHero: React.FC<{
       <div className={`absolute inset-0 bg-black ${opacity}`}></div>
       <div className='flex flex-col gap-8 items-center z-20 px-4 lg:p-0 md:w-[70%] lg:w-[60%]'>
         {coloredTitle ? (
-          <h1
+          <Title
             className={`${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} font-bold text-center`}
           >
             <span className='text-orange-500'>{coloredTitle}</span>
             {title}
-          </h1>
+          </Title>
         ) : (
-          <h1
+          <Title
             className={`${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} font-bold `}
           >
             {title}
-          </h1>
+          </Title>
         )}
         <span
           className={`${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop} text-center px-4 md:px-0`}

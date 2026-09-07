@@ -6,9 +6,9 @@ import { useState } from 'react';
 
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
+import { listBlogs } from '../../lib/content';
 import palette from '../../styles/pallette';
 import { BlogType } from '../../types';
-import supabaseClient from '../../utils/client';
 import blogsBg from '../../../assets/blogs.png';
 
 function stripHtml(html: string) {
@@ -217,15 +217,9 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
 export default BlogPage;
 
 export async function getServerSideProps() {
-  const { data, error } = await supabaseClient
-    .from('blogs')
-    .select('*')
-    .eq('status', 'published')
-    .order('created_at', { ascending: false });
-
-  if (error) {
-    return { props: { error: error.message } };
+  try {
+    return { props: { data: await listBlogs() } };
+  } catch (e) {
+    return { props: { error: e instanceof Error ? e.message : 'Unable to load articles.' } };
   }
-
-  return { props: { data: data || [] } };
 }

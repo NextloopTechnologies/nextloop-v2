@@ -1,4 +1,4 @@
-import supabaseClient from './client';
+import { listBlogs, listJobs, listPortfolio } from '../lib/content';
 
 /**
  * Sitemap generation.
@@ -139,20 +139,22 @@ ${maps}
 // ---------------------------------------------------------------------------
 // Database-backed entries
 //
-// Each of these mirrors the filter the corresponding page already applies, so
-// the sitemap can never advertise a URL the site answers with a 404 — blogs
-// filter on `status = 'published'`, jobs on `visibility = true`.
+// These go through the same content seam the pages use, so a sitemap can never
+// advertise URLs from one store while the pages render from the other. Each
+// settles independently and swallows its own failure: an empty urlset is a
+// valid sitemap, a 500 is not.
 // ---------------------------------------------------------------------------
 
-export const blogEntries = async (): Promise<SitemapEntry[]> => {
-  const { data, error } = await supabaseClient
-    .from('blogs')
-    .select('slug, created_at, updated_at')
-    .eq('status', 'published');
+const safely = async <T,>(load: () => Promise<T[]>): Promise<T[]> => {
+  try {
+    return await load();
+  } catch {
+    return [];
+  }
+};
 
-  if (error || !data) return [];
-
-  return data
+export const blogEntries = async (): Promise<SitemapEntry[]> =>
+  (await safely(listBlogs))
     .filter((row) => isUsableSegment(row.slug))
     .map((row) => ({
       path: `/blog/${row.slug}/`,
@@ -160,17 +162,9 @@ export const blogEntries = async (): Promise<SitemapEntry[]> => {
       changefreq: 'monthly' as const,
       priority: 0.6,
     }));
-};
 
-export const jobEntries = async (): Promise<SitemapEntry[]> => {
-  const { data, error } = await supabaseClient
-    .from('jobs')
-    .select('id, created_at, updated_at')
-    .filter('visibility', 'eq', true);
-
-  if (error || !data) return [];
-
-  return data
+export const jobEntries = async (): Promise<SitemapEntry[]> =>
+  (await safely(listJobs))
     .filter((row) => isUsableSegment(row.id))
     .map((row) => ({
       path: `/career/${row.id}/`,
@@ -180,25 +174,16 @@ export const jobEntries = async (): Promise<SitemapEntry[]> => {
       changefreq: 'weekly' as const,
       priority: 0.7,
     }));
-};
 
-export const portfolioEntries = async (): Promise<SitemapEntry[]> => {
-  const { data, error } = await supabaseClient
-    .from('portfolio')
-    .select('id, created_at, updated_at')
-    .order('id', { ascending: false });
-
-  if (error || !data) return [];
-
-  return data
+export const portfolioEntries = async (): Promise<SitemapEntry[]> =>
+  (await safely(listPortfolio))
     .filter((row) => isUsableSegment(row.id))
     .map((row) => ({
       path: `/portfolio/${row.id}/`,
-      lastmod: toIso(row.updated_at) ?? toIso(row.created_at),
+      lastmod: undefined,
       changefreq: 'monthly' as const,
       priority: 0.6,
     }));
-};
 
 /**
  * Absolute base for `<loc>` values.
