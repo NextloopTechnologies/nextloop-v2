@@ -66,7 +66,7 @@ const PortfolioSlide = () => {
 
   return (
     <section className='w-full bg-black py-16 px-4'>
-      <div className='w-[80vw] mx-auto'>
+      <div className='w-full px-10 md:px-16 mx-auto'>
         {/* Heading */}
         <div className='text-center mb-14'>
           <h2
@@ -89,7 +89,7 @@ const PortfolioSlide = () => {
               (item, index) => (
                 <div key={index} className='flex flex-col w-full'>
                   {/* Image */}
-                  <div className='relative w-full h-[300px] sm:h-[380px] md:h-[420px] lg:h-[480px] xl:h-[520px]'>
+                  <div className='relative w-full aspect-[4/3]'>
                     <Image
                       src={item.image}
                       alt={item.caption}

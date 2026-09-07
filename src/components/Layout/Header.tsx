@@ -69,7 +69,8 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
     };
   }, [router]);
 
-  const isLightPage = pathname.startsWith('/portfolio/');
+  const isLightPage =
+    pathname.startsWith('/portfolio/') || pathname.startsWith('/careers/');
   return (
     <>
       {isLoading && (
@@ -170,8 +171,8 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
               )}
             </li>
 
-            <li className={`${pathname === '/career' && 'text-orange-500'}`}>
-              <Link href='/career'>Careers</Link>
+            <li className={`${pathname === '/careers' && 'text-orange-500'}`}>
+              <Link href='/careers'>Careers</Link>
             </li>
             <li className={`${pathname === '/blog' && 'text-orange-500'}`}>
               <Link href='/blog'>Blogs</Link>
