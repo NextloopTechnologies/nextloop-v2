@@ -6,6 +6,7 @@ import type {
   AuthorType,
   BlogType,
   CategoryType,
+  DBOffer,
   IFileUpload,
   IPortfolio,
   Job,
@@ -242,5 +243,29 @@ export const payloadReader: ContentReader = {
     });
     const doc = docs[0];
     return doc ? serialisable(toPortfolio(doc as unknown as Record<string, unknown>)) : null;
+  },
+
+  async listOffers() {
+    const payload = await getPayloadClient();
+    const { docs } = await payload.find({
+      collection: 'offers',
+      where: { active: { equals: true } },
+      limit: 0,
+      depth: 0,
+    });
+    return serialisable(
+      docs.map((d) => {
+        const doc = d as unknown as Record<string, unknown>;
+        return {
+          id: Number(doc.id),
+          title: (doc.title as string) ?? '',
+          description: (doc.description as string) ?? '',
+          active: doc.active !== false,
+          // Icons live in the repo, not the database; the caller joins them.
+          icon: { src: '' },
+          't&c_points': (doc.termsPoints as never) ?? [],
+        } as DBOffer;
+      })
+    );
   },
 };

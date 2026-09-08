@@ -88,9 +88,52 @@ normalises to the properties that must match.
    reverting should be an env var, not a deploy.
 5. Only then delete `src/utils/client.ts` and the reader.
 
-## Still on Supabase
+## Writes
 
-The four write paths — contact, job application, offer, popup — still post
-directly to Supabase from the browser with the anon key. They are unchanged by
-this work and are the second half of the cutover: they need Payload endpoints
-with server-side captcha, which also gets the anon key out of the client.
+All four forms — contact, job application, offer, popup — post to
+`/api/forms/[kind]/` and are written server-side through `lib/content/writes.ts`,
+following the same `CONTENT_SOURCE` flag as the reads.
+
+They previously inserted into Supabase **from the browser** with the anon key.
+Three things followed from that:
+
+- The anon key had to be public and RLS had to be `FOR ALL TO public USING
+  (true)`, so anyone holding it could read, write and delete every row in every
+  table. The site could not function otherwise — the open RLS was load-bearing,
+  not an oversight.
+- The popup's reCAPTCHA was decorative: the token was checked for existence in
+  the browser and never sent anywhere. Anything that skipped the form and posted
+  straight to PostgREST was unaffected by it.
+- Nothing was rate-limited or validated beyond what each form did for itself.
+
+**The anon key is now absent from the client bundle** — verified by grepping the
+built `.next/static` output for the key, the project URL and the string
+`supabase`: zero matches, where every page previously carried it.
+
+The endpoint validates each of the five known shapes and rejects everything
+else, rate-limits per IP, answers a honeypot with a decoy success, and never
+returns a database error to the caller.
+
+### reCAPTCHA is not currently enforcing anything
+
+In `.env.local`, `RECAPTCHA_SECRET_KEY` and `NEXT_PUBLIC_RECAPTCHA_SITE_KEY`
+hold the **same 11-character placeholder**. A secret equal to the published site
+key is not a secret, and neither value is long enough to be a real key.
+
+Enforcing would reject every popup submission until real keys are set; skipping
+silently would be the theatre this endpoint exists to remove. So enforcement is
+skipped **only** when the secret is definitionally absent — missing, or
+identical to the public key — and logs an error every time it is. The moment a
+real secret is set, enforcement is strict and there is no flag to turn it off.
+
+Validation and rate limiting apply either way.
+
+## Still open
+
+- **RLS lockdown.** Nothing in the browser holds the anon key any more, so the
+  open policies can be closed. That is a production database change, not a code
+  change, and wants doing deliberately.
+- **Resume uploads** still go to the external `NEXT_PUBLIC_API_ENDPOINT/upload`
+  host rather than through Payload's `resumes` collection. The URL is stored in
+  `legacyResumeUrl` rather than pretending it is a Payload upload.
+- **No email adapter**, so a locked-out admin cannot recover.

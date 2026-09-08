@@ -1,5 +1,5 @@
 import type { ContentReader } from './index';
-import type { BlogType, IPortfolio, Job } from '../../types';
+import type { BlogType, DBOffer, IPortfolio, Job } from '../../types';
 import supabaseClient from '../../utils/client';
 
 /**
@@ -104,5 +104,11 @@ export const supabaseReader: ContentReader = {
       fail('getPortfolioByRef', message);
     }
     return (data as IPortfolio) ?? null;
+  },
+
+  async listOffers() {
+    const { data, error } = await supabaseClient.from('offers').select();
+    if (error) fail('listOffers', error.message);
+    return (data ?? []) as DBOffer[];
   },
 };

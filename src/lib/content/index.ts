@@ -1,4 +1,4 @@
-import type { BlogType, IPortfolio, Job } from '../../types';
+import type { BlogType, DBOffer, IPortfolio, Job } from '../../types';
 
 /**
  * The one place the front end asks for content.
@@ -39,6 +39,8 @@ export interface ContentReader {
   getJobByRef(ref: string): Promise<Job | null>;
   listPortfolio(): Promise<IPortfolio[]>;
   getPortfolioByRef(ref: string): Promise<IPortfolio | null>;
+  /** Offers shown on /get-offer/specialoffers/. Read, not a write path. */
+  listOffers(): Promise<DBOffer[]>;
 }
 
 const reader = async (): Promise<ContentReader> => {
@@ -56,3 +58,4 @@ export const listJobs = async () => (await reader()).listJobs();
 export const getJobByRef = async (ref: string) => (await reader()).getJobByRef(ref);
 export const listPortfolio = async () => (await reader()).listPortfolio();
 export const getPortfolioByRef = async (ref: string) => (await reader()).getPortfolioByRef(ref);
+export const listOffers = async () => (await reader()).listOffers();

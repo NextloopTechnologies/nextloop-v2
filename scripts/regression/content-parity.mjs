@@ -177,6 +177,55 @@ for (const route of [...blogPaths, ...jobPaths, ...casePaths]) {
   ].join('  '));
 }
 
+// ---------------------------------------------------------------------------
+// The write endpoint.
+//
+// Only the rejection paths are exercised: they prove the endpoint exists, is
+// POST-only, validates, and refuses unknown forms — without writing a row on
+// every test run. A suite that seeds junk into the database every time it runs
+// stops being run.
+// ---------------------------------------------------------------------------
+
+const postForm = async (kind, body) => {
+  const res = await fetch(`${BASE}/api/forms/${kind}/`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+    redirect: 'manual',
+  });
+  return { status: res.status, body: await res.text() };
+};
+
+{
+  // The forms post with a trailing slash because `trailingSlash: true` applies
+  // to API routes too — without it every submission costs a 308 round trip.
+  const noSlash = await fetch(`${BASE}/api/forms/enquiry`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: '{}',
+    redirect: 'manual',
+  });
+  check('FORM-SLASH', '/api/forms/enquiry', [307, 308].includes(noSlash.status),
+    `status ${noSlash.status} — the slashless path redirects, so callers must include it`);
+
+  const getIt = await fetch(`${BASE}/api/forms/enquiry/`, { redirect: 'manual' });
+  check('FORM-METHOD', '/api/forms/enquiry/', getIt.status === 405,
+    `GET -> ${getIt.status} (expected 405)`);
+
+  const unknown = await postForm('not-a-form', {});
+  check('FORM-UNKNOWN', '/api/forms/not-a-form/', unknown.status === 404,
+    `status ${unknown.status} (expected 404 — this must not be a general write proxy)`);
+
+  const bad = await postForm('enquiry', { fullname: 'X', email: 'not-an-email', subject: 'S' });
+  check('FORM-VALIDATION', '/api/forms/enquiry/', bad.status === 400,
+    `status ${bad.status} (expected 400 on an invalid email)`);
+
+  // A database error must never reach the submitter as a raw message.
+  check('FORM-NO-LEAK', '/api/forms/enquiry/',
+    !/postgres|supabase|PGRST|relation |column /i.test(bad.body),
+    'error responses must not leak database detail');
+}
+
 // Unknown refs must 404 on either source — a soft 200 lets a crawler index
 // unlimited junk URLs, which is what the old PostgREST error path did.
 for (const route of ['/blog/no-such-post-xyz/', '/career/99999999/', '/portfolio/99999999/']) {

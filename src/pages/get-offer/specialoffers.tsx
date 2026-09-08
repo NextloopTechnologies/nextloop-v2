@@ -7,8 +7,9 @@ import { Modal } from '../../components/Modal/Modal';
 import { OfferCard } from '../../components/OfferCard/OfferCard';
 import Seo from '../../components/Seo';
 import { offers as localOffers } from '../../data/offers';
+import { listOffers } from '../../lib/content';
 import { DBOffer } from '../../types';
-import { getAllOffers, updateOffer } from '../../utils/db';
+import { updateOffer } from '../../utils/db';
 
 const OffersSeo: React.FC = () => (
   <Seo
@@ -138,10 +139,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   }
 
   try {
-    const response = await getAllOffers();
-    if (!response.success || !response.data) {
-      return { props: { offers: [], loadError: 'Failed to fetch offers' } };
-    }
+    const rows = await listOffers();
 
     /**
      * Icons live in the repo and are joined to database rows by title. Several
@@ -153,7 +151,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
     return {
       props: {
-        offers: response.data.map((offer: DBOffer) => ({
+        offers: rows.map((offer: DBOffer) => ({
           ...offer,
           icon: iconByTitle.get((offer.title ?? '').trim().toLowerCase()) ?? { src: '' },
         })),
