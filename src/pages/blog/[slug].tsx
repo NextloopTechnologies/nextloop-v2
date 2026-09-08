@@ -273,13 +273,21 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error }) => {
   return (
     <Layout headerColor='text-black'>
       <Head>
-        <title>{data.meta_title || data.title}</title>
+        <title>
+          {data?.meta_title ||
+            data?.title ||
+            'Read Nextloop’s software development blogs to get useful technology-based insights'}
+        </title>
 
-        {data.meta_description && (
-          <meta name='description' content={data.meta_description} />
-        )}
+        <meta
+          name='description'
+          content={
+            data?.meta_description ||
+            'Discover expert advice through Nextloop Technologies IT consulting blogs. We cover strategies for technology and information management to help your business grow and succeed.'
+          }
+        />
 
-        {data.meta_keywords && data.meta_keywords.length > 0 && (
+        {data?.meta_keywords && data.meta_keywords.length > 0 && (
           <meta name='keywords' content={data.meta_keywords.join(', ')} />
         )}
       </Head>
