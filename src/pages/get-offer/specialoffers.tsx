@@ -1,5 +1,6 @@
+import type { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import Layout from '../../components/Layout/Layout';
 import { Modal } from '../../components/Modal/Modal';
@@ -17,54 +18,20 @@ const OffersSeo: React.FC = () => (
   />
 );
 
-const SpecialOffers: React.FC = () => {
+const SpecialOffers: React.FC<{ offers: DBOffer[]; loadError?: string }> = ({
+  offers,
+  loadError,
+}) => {
   const router = useRouter();
 
   const { application_detail } = router.query;
-
-  const [offers, setOffers] = useState<DBOffer[]>([]);
 
   const [selectedOffer, setSelectedOffer] = useState<DBOffer | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   const [loading, setLoading] = useState(false);
 
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (router.isReady && application_detail) {
-      const fetchOffers = async () => {
-        try {
-          setLoading(true);
-
-          const response = await getAllOffers();
-
-          if (response.success && response.data) {
-            const offersWithIcons = response.data.map((offer: DBOffer) => {
-              const localOffer = localOffers.find(
-                (local) => local.title === offer.title
-              );
-              return {
-                ...offer,
-                icon: localOffer?.icon || { src: '' },
-              };
-            });
-            setOffers(offersWithIcons);
-          } else {
-            setError('Failed to fetch offers');
-          }
-        } catch (err) {
-          setError('An error occurred while fetching offers');
-        } finally {
-          setLoading(false);
-        }
-      };
-
-      fetchOffers();
-    } else if (router.isReady && !application_detail) {
-      router.push('/get-offer');
-    }
-  }, [router, application_detail]);
+  const [error, setError] = useState<string | null>(loadError ?? null);
 
   const handleCloseModal = () => {
     setSelectedOffer(null);
@@ -103,17 +70,6 @@ const SpecialOffers: React.FC = () => {
       setLoading(false);
     }
   };
-
-  if (loading && !offers.length) {
-    return (
-      <Layout headerColor='bg-[#022435] text-white' showFooter={false}>
-        <OffersSeo />
-        <div className='min-h-screen flex items-center justify-center'>
-          <p>Loading offers...</p>
-        </div>
-      </Layout>
-    );
-  }
 
   if (error && !offers.length) {
     return (
@@ -165,3 +121,45 @@ const SpecialOffers: React.FC = () => {
 };
 
 export default SpecialOffers;
+
+/**
+ * The offers used to load in a `useEffect`, which meant the page shipped an
+ * empty shell and then hit Supabase from the browser with the anon key — the
+ * same key this cutover is trying to get out of the client. Fetched on the
+ * server now, so the page arrives complete and the key stays server-side.
+ *
+ * The redirect for a missing `application_detail` also moves here: it used to
+ * happen after mount, so a visitor briefly saw an empty offers page before
+ * being bounced.
+ */
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+  if (!query.application_detail) {
+    return { redirect: { destination: '/get-offer/', permanent: false } };
+  }
+
+  try {
+    const response = await getAllOffers();
+    if (!response.success || !response.data) {
+      return { props: { offers: [], loadError: 'Failed to fetch offers' } };
+    }
+
+    /**
+     * Icons live in the repo and are joined to database rows by title. Several
+     * offers share a title, and a title renamed in the admin matches nothing —
+     * which used to yield `{ src: '' }` and a broken image across the card.
+     * A miss now simply means no icon.
+     */
+    const iconByTitle = new Map(localOffers.map((o) => [o.title.trim().toLowerCase(), o.icon]));
+
+    return {
+      props: {
+        offers: response.data.map((offer: DBOffer) => ({
+          ...offer,
+          icon: iconByTitle.get((offer.title ?? '').trim().toLowerCase()) ?? { src: '' },
+        })),
+      },
+    };
+  } catch {
+    return { props: { offers: [], loadError: 'An error occurred while fetching offers' } };
+  }
+};

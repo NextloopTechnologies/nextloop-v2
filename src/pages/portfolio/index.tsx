@@ -3,12 +3,13 @@
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
 import { listPortfolio } from '../../lib/content';
 import { IPortfolio } from '../../types';
+import { firstImageUrl } from '../../utils/media';
 import { getSchemaMarkup } from '../../utils/seoSchemas';
 import portfolioBg from '../../../assets/portfolioBg.png';
 
@@ -57,14 +58,16 @@ export default Portfolio;
 const ProjectCard: React.FC<{ proj: IPortfolio; index: number }> = ({
   proj,
 }) => {
-  const router = useRouter();
-
-  const imageUrl = proj.image?.[0]?.url || '/placeholder.png';
+  // `image` is jsonb[] on portfolio, so PostgREST returns each element as a
+  // JSON string and `image[0].url` is undefined for every row — which is why
+  // every card silently fell back to the placeholder. firstImageUrl handles
+  // both shapes.
+  const imageUrl = firstImageUrl(proj.image) ?? '/placeholder.png';
 
   return (
-    <div
+    <Link
+      href={`/portfolio/${proj.id}/`}
       className=' w-full flex flex-col items-center justify-end cursor-pointer group'
-      onClick={() => router.push(`/portfolio/${proj.id}`)}
     >
       <Image
         src={imageUrl}
@@ -79,7 +82,7 @@ const ProjectCard: React.FC<{ proj: IPortfolio; index: number }> = ({
           {proj.title}
         </p>
       </div>
-    </div>
+    </Link>
   );
 };
 

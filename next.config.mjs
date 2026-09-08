@@ -66,11 +66,20 @@ export default withPayload(withBundleAnalyzer({
   },
 
   images: {
+    /**
+     * Image URLs come out of the database, so a row can point anywhere. A host
+     * that is not listed here fails differently in each environment and neither
+     * failure is obvious: production serves a 400 from /_next/image (a broken
+     * image), while the dev loader *throws*, taking the whole route down.
+     *
+     * The CSP below already permits Cloudinary, so legacy rows on that host are
+     * plausible; listing it here makes the two agree. Add a host only when
+     * content actually lives there — this list is what the optimiser is willing
+     * to go and fetch on request.
+     */
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'ik.imagekit.io',
-      },
+      { protocol: 'https', hostname: 'ik.imagekit.io' },
+      { protocol: 'https', hostname: 'res.cloudinary.com' },
     ],
   },
 }));

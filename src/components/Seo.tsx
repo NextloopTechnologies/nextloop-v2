@@ -47,11 +47,21 @@ export const cleanCanonical = (asPath: string, baseUrl: string): string => {
   return new URL(pathOnly, baseUrl).toString();
 };
 
-const absolute = (url: string | undefined, baseUrl: string): string => {
-  if (!url) return new URL(DEFAULT_OG_IMAGE, baseUrl).toString();
-  if (/^https?:\/\//i.test(url)) return url;
-  return new URL(url, baseUrl).toString();
+/** Resolve against the site root, or null if there is nothing to resolve. */
+const toAbsolute = (url: string | undefined | null, baseUrl: string): string | null => {
+  const trimmed = url?.trim();
+  if (!trimmed) return null;
+  if (/^https?:\/\//i.test(trimmed)) return trimmed;
+  try {
+    return new URL(trimmed, baseUrl).toString();
+  } catch {
+    return null;
+  }
 };
+
+/** Images fall back to the org image; a canonical must never fall back to one. */
+const absoluteImage = (url: string | undefined, baseUrl: string): string =>
+  toAbsolute(url, baseUrl) ?? new URL(DEFAULT_OG_IMAGE, baseUrl).toString();
 
 export const Seo: React.FC<SeoProps> = ({
   title,
@@ -68,8 +78,12 @@ export const Seo: React.FC<SeoProps> = ({
 }) => {
   const router = useRouter();
   const baseUrl = getBaseUrl(router);
-  const url = canonical ?? cleanCanonical(router.asPath, baseUrl);
-  const ogImage = absolute(image, baseUrl);
+  // The override comes from a database column, so it can be relative or
+  // host-only. A relative canonical resolves against the current page —
+  // href="www.example.com/x" on /blog/y becomes /blog/y/www.example.com/x,
+  // which 404s and de-indexes the post. Normalised like every other URL here.
+  const url = toAbsolute(canonical, baseUrl) ?? cleanCanonical(router.asPath, baseUrl);
+  const ogImage = absoluteImage(image, baseUrl);
   const graphs = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 
   return (

@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
@@ -15,16 +16,25 @@ function stripHtml(html: string) {
   return html?.replace(/<[^>]*>/g, '') ?? '';
 }
 
-function BlogCard({ blog, onClick }: { blog: BlogType; onClick: () => void }) {
-  return (
-    <article
-      onClick={onClick}
-      className='group flex flex-col w-full h-full lg:max-w-[400px] self-start cursor-pointer
+/**
+ * This card was an `<article onClick={router.push(...)}>`. That is not a link:
+ * a crawler saw no href, so nothing on the site pointed at an article except
+ * the sitemap; keyboard users could not reach one; and open-in-new-tab did
+ * nothing. It is an anchor now.
+ *
+ * A post with no slug renders as a plain card instead of linking to the literal
+ * URL `/blog/null` — the sitemap already filters those rows out, the page that
+ * links to them did not.
+ */
+const CARD_CLASS = `group flex flex-col w-full h-full lg:max-w-[400px] self-start cursor-pointer
                   overflow-hidden p-3 rounded-lg hover:shadow-lg 
                  bg-white border border-[#C8C8C8]
                  transition-all duration-300 ease-out
-                 hover:bg-[#1D1D1D] hover:border-[#1D1D1D]'
-    >
+                 hover:bg-[#1D1D1D] hover:border-[#1D1D1D]`;
+
+function BlogCard({ blog }: { blog: BlogType }) {
+  const body = (
+    <>
       <div className='relative w-full h-[200px] shrink-0 overflow-hidden'>
         {blog.image?.[0]?.url ? (
           <Image
@@ -69,17 +79,23 @@ function BlogCard({ blog, onClick }: { blog: BlogType; onClick: () => void }) {
           </p>
         )}
 
-        <button
-          className='self-start mt-auto text-[11px] font-bold tracking-[0.08em]  text-orange-500  transition-colors duration-200 bg-transparent border-none p-0 cursor-pointer'
-          onClick={(e) => {
-            e.stopPropagation();
-            onClick();
-          }}
-        >
+        {/* A button inside an anchor is invalid HTML and swallows the click.
+            Same look, no nested interactive element. */}
+        <span className='self-start mt-auto text-[11px] font-bold tracking-[0.08em] text-orange-500 transition-colors duration-200'>
           Read More...
-        </button>
+        </span>
       </div>
-    </article>
+    </>
+  );
+
+  // A post with no slug has nowhere to link to, so it stays a plain article
+  // rather than pointing at the literal URL /blog/null.
+  return blog.slug ? (
+    <Link href={`/blog/${blog.slug}/`} className={CARD_CLASS}>
+      {body}
+    </Link>
+  ) : (
+    <article className={CARD_CLASS}>{body}</article>
   );
 }
 
@@ -91,6 +107,13 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
   const [visibleCount, setVisibleCount] = useState(9);
   const filtered = data ? data.filter((blog) => blog.title && blog.descp) : [];
   const visibleBlogs = filtered.slice(0, visibleCount);
+  /**
+   * The hero used to read the unfiltered `data[0]` while the grid below read
+   * `filtered`. A newest post with an empty body therefore appeared large at the
+   * top and was missing from "All Blogs" — and if every post was empty, the hero
+   * showed one while the grid said "No blogs found". Same list, one source.
+   */
+  const featured = filtered[0];
 
   return (
     <Layout>
@@ -124,10 +147,10 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
         <div className='bg-white min-h-screen px-4 flex flex-col justify-center items-center md:px-8 xl:px-24 py-12 '>
           <div className='relative w-11/12 aspect-[16/9] rounded-lg'>
             {/* Background image */}
-            {data?.[0]?.image?.[0]?.url ? (
+            {featured?.image?.[0]?.url ? (
               <Image
-                src={data[0].image[0].url as string}
-                alt={data[0].title ?? 'latest blog'}
+                src={featured.image?.[0]?.url as string}
+                alt={featured.title ?? 'latest blog'}
                 fill
                 className='object-fit-contain opacity-80'
                 priority
@@ -139,9 +162,9 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
             <div className='relative md:absolute md:-bottom-16 md:right-0 bg-white w-full md:w-3/4 border-[#D8D8D8] border-2 p-4 sm:p-6 flex flex-col gap-3 sm:gap-5 z-10'>
               {/* Date + Tag */}
               <div className='flex items-center gap-2.5 flex-wrap font-light '>
-                {data?.[0]?.created_at && (
+                {featured?.created_at && (
                   <span className='text-[12px] font-semibold text-slate-500'>
-                    {new Date(data[0].created_at).toLocaleDateString('en-GB', {
+                    {new Date(featured.created_at).toLocaleDateString('en-GB', {
                       day: '2-digit',
                       month: 'long',
                       year: 'numeric',
@@ -152,13 +175,13 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
 
               {/* Title */}
               <h3 className='text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-black leading-snug line-clamp-2'>
-                {data?.[0]?.title ?? ''}
+                {featured?.title ?? ''}
               </h3>
 
               {/* Excerpt */}
-              {data?.[0]?.descp && (
+              {featured?.descp && (
                 <p className='text-[14px] leading-relaxed text-[#1B1B1B] lg:line-clamp-2 md:line-clamp-4 sm:line-clamp-5 line-clamp-3'>
-                  {stripHtml(data[0].descp)}
+                  {stripHtml(featured.descp)}
                 </p>
               )}
 
@@ -169,7 +192,10 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
                  text-white  border-none p-0 cursor-pointer'
                 onClick={(e) => {
                   e.stopPropagation();
-                  router.push(`/blog/${data?.[0]?.slug}`);
+                  // Was `/blog/${slug}` unguarded: a post with no slug sent the
+                  // hero CTA — the most prominent link on the page — to the
+                  // literal URL /blog/undefined.
+                  if (featured?.slug) router.push(`/blog/${featured.slug}/`);
                 }}
               >
                 Read More
@@ -185,11 +211,7 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
           <div className='grid grid-cols-1 mt-12 md:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch w-full'>
             {visibleBlogs.length > 0 ? (
               visibleBlogs.map((blog) => (
-                <BlogCard
-                  key={blog.id}
-                  blog={blog}
-                  onClick={() => router.push(`/blog/${blog.slug}`)}
-                />
+                <BlogCard key={blog.id} blog={blog} />
               ))
             ) : (
               <p className='col-span-3 text-center text-gray-400 text-lg py-20'>

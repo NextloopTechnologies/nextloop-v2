@@ -84,10 +84,28 @@ if (blogPaths.length + jobPaths.length + casePaths.length === 0) {
 // where some document omits the field. Detail routes alone cannot catch that.
 // ---------------------------------------------------------------------------
 
-for (const route of ['/blog/', '/career/', '/portfolio/']) {
+const LISTINGS = [
+  ['/blog/', /href="\/blog\/[^"]+"/g],
+  ['/career/', /href="\/career\/[^"]+"/g],
+  ['/portfolio/', /href="\/portfolio\/[^"]+"/g],
+];
+
+for (const [route, linkRe] of LISTINGS) {
   const { status, html } = await get(route);
   check('LIST-STATUS', route, status === 200, `status ${status}`);
   if (status !== 200) continue;
+
+  // Every card on these pages was a <div onClick={router.push}>. It navigates
+  // for a mouse user and does not exist for a crawler, so not one blog post,
+  // job or case study had an internal link pointing at it — the JobPosting and
+  // BlogPosting schema on those pages had nothing to be found by. A listing
+  // page that renders cards but emits no hrefs is the regression to catch.
+  const hrefs = new Set([...html.matchAll(linkRe)].map((m) => m[0]));
+  check('LIST-LINKS', route, hrefs.size > 0,
+    `${hrefs.size} detail links in the HTML`);
+  check('LIST-LINK-SLASH', route,
+    [...hrefs].every((h) => h.endsWith('/"')),
+    'detail links carry the trailing slash, so no click costs a redirect');
   check('LIST-H1', route, count(html, /<h1[\s>]/g) === 1, `${count(html, /<h1[\s>]/g)} H1s`);
   check('LIST-NO-RAW-LEXICAL', route, !/\{&quot;root&quot;|\{"root":/.test(html),
     'card previews must be HTML, never a serialised Lexical document');

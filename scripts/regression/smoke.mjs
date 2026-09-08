@@ -50,7 +50,6 @@ const BASELINE = [
   { path: '/domain/hotel/', title: 'Hotel & Hospitality Software Development | Nextloop Technologies', h1: 1, jsonLd: 0, fixed: 'had no title or description; was 6 H1s' , minText: 3000 },
   { path: '/domain/travel-and-hospitality/', title: 'Hotel Management Software (PMS) & Custom Travel App Development Services', descLen: 155, h1: 1, jsonLd: 0 , fixed: 'was 6 H1s' , minText: 3000 },
   { path: '/get-offer/', title: 'Claim Your Offer | Nextloop Technologies', h1: 1, jsonLd: 0, fixed: 'had no title or description; was zero H1: one sentence split across two h2s to force a line break' , minText: 70 },
-  { path: '/get-offer/specialoffers/', title: 'Your Offers | Nextloop Technologies', h1: 1, jsonLd: 0, noindex: true, fixed: 'was indexable with no title; now noindex (URL carries applicant PII)' , minText: 80 },
 ];
 
 const decode = (s) =>
@@ -265,6 +264,21 @@ for (const [h, expected] of [
 }
 record('HEADER', 'content-security-policy', !!hdr.headers.get('content-security-policy'), 'present');
 record('HEADER', 'x-powered-by absent', !hdr.headers.get('x-powered-by'), 'poweredByHeader:false');
+
+// /get-offer/specialoffers/ used to render an empty shell, fetch its offers
+// from the browser with the anon key, and only then bounce a visitor who
+// arrived without `application_detail`. The fetch and the bounce are both
+// server-side now, so the bare URL redirects before anything renders. It was
+// previously baselined as a 200 with a noindex tag; a redirect is strictly
+// better — there is no page to keep out of the index.
+{
+  const bare = await fetch(BASE + '/get-offer/specialoffers/', { redirect: 'manual' });
+  record('REDIRECT', '/get-offer/specialoffers/', [302, 307, 308].includes(bare.status),
+    `status ${bare.status} (expected a redirect when application_detail is absent)`);
+  const target = bare.headers.get('location') ?? '';
+  record('REDIRECT-TARGET', '/get-offer/specialoffers/', target.endsWith('/get-offer/'),
+    `-> ${target}`);
+}
 
 // trailingSlash redirect
 const noSlash = await fetch(BASE + '/about-us', { redirect: 'manual' });

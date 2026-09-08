@@ -1,6 +1,6 @@
 import { MapPin } from 'lucide-react';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { LiaLongArrowAltRightSolid } from 'react-icons/lia';
 
 import Layout from '../../components/Layout/Layout';
@@ -83,7 +83,6 @@ const Jobs: React.FC<{ jobs?: Job[]; error?: string }> = ({ error, jobs }) => (
 const JobCard: React.FC<{ job: Job }> = ({
   job: { title, job_mode, job_type, id },
 }) => {
-  const router = useRouter();
   return (
     <div className='group w-[370px] bg-white text-black rounded-xl flex flex-col transition-all duration-300 hover:bg-orange-500 hover:shadow-lg hover:scale-105'>
       {/* TITLE */}
@@ -108,13 +107,16 @@ const JobCard: React.FC<{ job: Job }> = ({
           <span>{job_mode}</span>
         </div>
 
-        <button
-          onClick={() => router.push(`/career/${id}`)}
+        {/* Was a <button onClick={router.push}>: no href, so none of the 64
+            postings had a single internal link pointing at it, and the
+            JobPosting schema on those pages had nothing to be discovered by. */}
+        <Link
+          href={`/career/${id}/`}
           className='flex items-center gap-2 font-semibold text-base transition-all duration-300 text-orange-500 group-hover:text-white group-hover:translate-x-1'
         >
           View Details
           <LiaLongArrowAltRightSolid className='w-6 h-6' />
-        </button>
+        </Link>
       </div>
     </div>
   );

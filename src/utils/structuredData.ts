@@ -30,7 +30,10 @@ export const articleSchema = (a: {
 }) => ({
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
-  headline: a.title.slice(0, 110),
+  // `.slice` on a null title threw during render — after getServerSideProps
+  // had already succeeded, so the route's own try/catch could not see it and
+  // /blog/<slug> returned a hard 500 for that one post.
+  headline: (a.title ?? '').slice(0, 110),
   ...(a.description ? { description: a.description } : {}),
   mainEntityOfPage: { '@type': 'WebPage', '@id': a.url },
   url: a.url,

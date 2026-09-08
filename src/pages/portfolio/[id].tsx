@@ -9,6 +9,7 @@ import Seo from '../../components/Seo';
 import { getPortfolioByRef } from '../../lib/content';
 import { IPortfolio } from '../../types';
 import { getBaseUrl } from '../../utils/getBaseUrl';
+import { firstImageUrl } from '../../utils/media';
 import { breadcrumbSchema, caseStudySchema, toPlainText } from '../../utils/structuredData';
 
 const PortfolioID: React.FC<{ data?: IPortfolio; error?: string }> = ({
@@ -50,8 +51,10 @@ const PortfolioID: React.FC<{ data?: IPortfolio; error?: string }> = ({
             <h1 ref={titleRef} className='font-bold text-4xl mt-5 mb-14'>
               {data.title}
             </h1>
+            {/* `as string` was hiding an undefined src on every case study:
+                portfolio.image is jsonb[], so image[0] is a JSON string. */}
             <Image
-              src={data?.image?.[0]?.url as string}
+              src={firstImageUrl(data.image) ?? '/placeholder.png'}
               alt='portfolio-image'
               className='object-contain'
               width={900}

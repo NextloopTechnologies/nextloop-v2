@@ -24,12 +24,19 @@ export const OfferCard: React.FC<OfferCardProps> = ({
       onClick={onClick}
     >
       <div className='flex flex-col'>
-        <Image
-          src={icon.src}
-          alt={title}
-          fill
-          className='w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 object-contain'
-        />
+        {/* `fill` needs a positioned ancestor and ignores width/height classes,
+            so this stretched across the whole card — and with an empty src it
+            rendered a broken-image box over the offer. Sized explicitly, and
+            skipped entirely when there is no icon to show. */}
+        {icon?.src ? (
+          <Image
+            src={icon.src}
+            alt={title}
+            width={80}
+            height={80}
+            className='w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 object-contain'
+          />
+        ) : null}
         <span className='font-bold block border-b-2 pb-2 border-white text-lg sm:text-xl w-full text-left'>
           {title}
         </span>

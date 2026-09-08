@@ -38,7 +38,10 @@ const BlogSection: React.FC<BlogSectionProps> = ({ blogData }) => {
       <div className='grid md:grid-cols-3 gap-6 mt-10'>
         {blogData?.map((blog) => {
           const imageUrl = blog.image?.[0]?.url || '/fallback-image.jpg'; // fallback if image missing
-          const shortDesc = stripHtml(blog.descp).slice(0, 150) + '...'; // short preview
+          const plain = stripHtml(blog.descp);
+          // Was unconditional: an empty body rendered a card whose text was
+          // just "...".
+          const shortDesc = plain.length > 150 ? `${plain.slice(0, 150)}...` : plain;
 
           return (
             <Link
