@@ -59,6 +59,23 @@ export default withPayload(withBundleAnalyzer({
     return [{ source: '/:path*', headers: securityHeaders }];
   },
 
+  /**
+   * Minification: on, by default, and deliberately not configured here.
+   *
+   * This config used to carry `swcMinify: true`. It was removed in the Next 15
+   * upgrade (8e07e25) because the option no longer exists: SWC minification
+   * became the default in Next 13.5 and the flag was dropped in 15. Leaving it
+   * in does not enable anything — it produces an "Unrecognized key(s)" warning
+   * on every build and is then ignored.
+   *
+   * If you are here because a build output looked unminified: check which build
+   * you looked at. `.next/` from `npm run dev` is never minified and carries an
+   * `eval-source-map` banner. A production chunk from `npm run build` is one
+   * long line with mangled identifiers.
+   *
+   * The only minification knob Next 15 still has turns it OFF. Don't.
+   */
+
   // 🔧 EMFILE / too-many-open-files FIX
   experimental: {
     workerThreads: false,
