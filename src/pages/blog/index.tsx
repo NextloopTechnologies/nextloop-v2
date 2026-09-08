@@ -126,7 +126,12 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
         <div className='bg-white min-h-screen px-4 flex flex-col justify-center items-center md:px-8 xl:px-24 py-12 '>
           <div
             className='relative w-11/12 aspect-[16/9] rounded-lg cursor-pointer'
-            onClick={() => router.push(`/blog/${data?.[0]?.slug}`)}
+            onClick={() => {
+              const slug = data?.[0]?.slug;
+              if (slug) {
+                router.push(`/blog/${slug}`);
+              }
+            }}
           >
             {/* Background image */}
             {data?.[0]?.image?.[0]?.url ? (

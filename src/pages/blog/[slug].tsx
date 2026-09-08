@@ -12,7 +12,7 @@ import supabaseClient from '../../utils/client';
 
 const MetaRow: React.FC<{ publishedAt?: string; readTime?: number }> = ({
   publishedAt,
-  readTime,
+  readTime = 2,
 }) => (
   <div className='flex flex-wrap items-center justify-center gap-4 mt-3 mb-5'>
     {publishedAt && (
