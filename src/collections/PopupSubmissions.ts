@@ -1,6 +1,7 @@
 import type { CollectionConfig } from 'payload';
 
 import { submitOnly } from '../access';
+import { notifyOnCreate } from '../lib/payload/notify';
 
 /**
  * Maps production `public.popup_form` (28 rows).
@@ -11,6 +12,9 @@ import { submitOnly } from '../access';
 export const PopupSubmissions: CollectionConfig = {
   slug: 'popup-submissions',
   access: submitOnly,
+
+  // Saved first, notified second, and a mail failure never costs the lead.
+  hooks: { afterChange: [notifyOnCreate('popup enquiry')] },
   admin: {
     useAsTitle: 'name',
     defaultColumns: ['name', 'email', 'service', 'country', 'createdAt'],

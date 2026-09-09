@@ -1,6 +1,7 @@
 import type { CollectionConfig } from 'payload';
 
 import { submitOnly } from '../access';
+import { notifyOnCreate } from '../lib/payload/notify';
 
 /**
  * Maps production `public.offer_applications` (66 rows).
@@ -14,6 +15,9 @@ import { submitOnly } from '../access';
 export const OfferApplications: CollectionConfig = {
   slug: 'offer-applications',
   access: submitOnly,
+
+  // Saved first, notified second, and a mail failure never costs the lead.
+  hooks: { afterChange: [notifyOnCreate('offer application')] },
   admin: {
     useAsTitle: 'name',
     defaultColumns: ['name', 'email', 'offer', 'companyName', 'createdAt'],

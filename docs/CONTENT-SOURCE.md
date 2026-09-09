@@ -233,6 +233,70 @@ ADMIN_EMAIL=... ADMIN_PASSWORD=... node scripts/regression/access.mjs
 
 Without credentials the staff half is reported as skipped, never as passed.
 
+## Email
+
+Payload substitutes a console logger when no adapter is configured, and every
+send then reports success. That is how `forgot-password` came to return HTTP 200
+`{"message":"Success"}` while the reset link went to the server log — a
+locked-out admin was told to check an inbox for a mail that was never sent.
+
+Two halves of that are worth separating. Returning success for an address that
+does not exist is **deliberate and correct**: it stops the endpoint being used to
+enumerate accounts, and `scripts/regression/email.mjs` asserts it stays that way.
+Returning success when no mail could possibly be sent is the part that was wrong.
+
+`src/lib/payload/email.ts` makes a misconfigured mailer loud wherever it can be:
+
+| Environment | Missing config | Behaviour |
+| --- | --- | --- |
+| development | any | Payload's console logger. Printing a reset link to the terminal is the most useful thing locally, and nobody is misled. |
+| production | any | Logs an error at boot naming the missing variables, then installs an adapter that **throws on send**. A 500 on forgot-password is a bad day; a silent success is a bad quarter. |
+| production | none | Resend. |
+
+It does not throw at boot. Refusing to start the marketing site because password
+resets are unavailable trades a small outage for a total one.
+
+`EMAIL_OVERRIDE_RECIPIENT` redirects every recipient to one inbox — set it on any
+staging deploy pointed at production data, or testing will mail real candidates.
+
+### Lead notifications
+
+An `afterChange` hook on enquiries, applied-jobs, offer-applications,
+popup-submissions and ideas emails `LEAD_NOTIFICATION_TO` when a submission
+arrives. Empty means notifications are off, which is a valid configuration and
+is not logged as an error.
+
+Three properties matter more than the email:
+
+1. **A lead is never lost to a mail problem.** Everything is caught. This is not
+   theoretical — with the catch removed, a failing send makes Payload roll the
+   transaction back, so the visitor gets a 500 *and the row is never written*.
+   Measured: `DELIVERY-FORM-STILL-201 — got 500` and
+   `DELIVERY-LEAD-PERSISTED — totalDocs=0`. Notification is a courtesy to staff;
+   the record is the product.
+2. **It cannot hang the form.** `afterChange` runs inside the request, so the
+   send is raced against a 5s timeout. Fire-and-forget was the alternative and is
+   worse: a serverless host can freeze the function once the response is sent, so
+   a detached promise may never run.
+3. **Values are escaped.** Form fields are attacker-controlled and are rendered
+   as HTML into a colleague's inbox. The subject line is additionally stripped of
+   control characters — a CR/LF there ends the header, which would let a
+   submitter append `Bcc:` and receive a copy of every notification.
+
+```bash
+# Run the suite against a deliberately broken mailer — that is the point
+RESEND_API_KEY=re_definitely_invalid \
+EMAIL_FROM_ADDRESS=noreply@example.invalid \
+LEAD_NOTIFICATION_TO=nobody@example.invalid \
+CONTENT_SOURCE=payload npm start
+
+ADMIN_EMAIL=... ADMIN_PASSWORD=... npm run regression:email
+```
+
+Before any of this reaches production, `nextlooptechnologies.com` has to be
+verified in Resend (SPF/DKIM DNS records). Until then sends fail — loudly now,
+which is the improvement.
+
 ## Still open
 
 - **RLS lockdown.** Nothing in the browser holds the anon key any more, so the
@@ -244,9 +308,9 @@ Without credentials the staff half is reported as skipped, never as passed.
   onto the `resumes` collection it must upload server-side, through the Local
   API — `resumes.create` is `adminOnly` now, so a browser-side upload straight
   at `/payload-api/resumes` will (correctly) 403.
-- **No email adapter**, so a locked-out admin cannot recover — and
-  `forgot-password` returns HTTP 200 `{"message":"Success"}` regardless, writing
-  the reset link to the server console. Silent failure, not a visible one.
+- **Resend domain verification.** The adapter is wired, but
+  `nextlooptechnologies.com` is not verified in Resend yet, so nothing can
+  actually deliver until the DNS records are in place.
 - **No migrations.** `db-postgres` only pushes schema outside production
   (`connect.js:110`), and there are no migration files, so a production deploy
   would start against a database with no `payload` schema.

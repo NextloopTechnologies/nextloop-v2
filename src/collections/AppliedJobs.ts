@@ -1,6 +1,7 @@
 import type { CollectionConfig } from 'payload';
 
 import { submitOnly } from '../access';
+import { notifyOnCreate } from '../lib/payload/notify';
 
 /**
  * Maps production `public.applied_jobs` (6,896 rows).
@@ -16,6 +17,9 @@ import { submitOnly } from '../access';
 export const AppliedJobs: CollectionConfig = {
   slug: 'applied-jobs',
   access: submitOnly,
+
+  // Saved first, notified second, and a mail failure never costs the lead.
+  hooks: { afterChange: [notifyOnCreate('job application')] },
   admin: {
     useAsTitle: 'fullname',
     defaultColumns: ['fullname', 'email', 'job', 'experience', 'createdAt'],

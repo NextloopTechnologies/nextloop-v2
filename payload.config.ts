@@ -22,8 +22,13 @@ import { Portfolio } from './src/collections/Portfolio';
 import { Resumes } from './src/collections/Resumes';
 import { Testimonials } from './src/collections/Testimonials';
 import { imagekitStorage } from './src/lib/payload/imagekitStorage';
+import { assertEmailConfigured, buildEmailAdapter } from './src/lib/payload/email';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
+
+// Surfaced at boot rather than on the first send: somebody should see this
+// before a person is locked out, not after.
+assertEmailConfigured();
 
 export default buildConfig({
   // NOTE: the marketing site already owns `/api/*` via the pages router
@@ -117,6 +122,13 @@ export default buildConfig({
   }),
   secret: process.env.PAYLOAD_SECRET || 'dev-only-placeholder-secret',
   typescript: { outputFile: path.resolve(dirname, 'src/payload-types.ts') },
+
+  /**
+   * Without this Payload substitutes a console logger and every send reports
+   * success — which is how `forgot-password` came to return HTTP 200 while the
+   * reset link went to the server log. See src/lib/payload/email.ts.
+   */
+  email: buildEmailAdapter(),
 
   db: postgresAdapter({
     // Payload owns its own tables; `schemaName` keeps them out of `public`
