@@ -373,14 +373,14 @@ const staticServices = [
   //   link: '/domain/events',
   // },
   {
-    image: oilAndGasAssets.oilAndGasBg,
+    image: getStaticImageData(oilAndGasAssets.oilAndGasBg),
     title: 'Oil And Gas',
     description: '',
     link: '/domain/oil-and-gas',
   },
   {
-    image: restaurantAssets.restaurantBg,
-    title: 'Food And Bevrages',
+    image: getStaticImageData(restaurantAssets.restaurantBg),
+    title: 'Food And Beverages',
     description: '',
     link: '/domain/food-and-beverages',
   },
