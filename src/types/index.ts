@@ -43,10 +43,12 @@ export interface BlogType {
   updated_at: string;
   slug?: string | null;
   service?: string | null;
+  read_time?: number;
   categories?: CategoryType;
   category_id?: number | null;
   author?: AuthorType;
   author_id?: number | null;
+  featured_blogs?: number[] | null;
   meta_title?: string | null;
   meta_description?: string | null;
   meta_keywords?: string[] | null;
@@ -72,6 +74,7 @@ export interface TocItem {
 export interface BlogIDProps {
   data?: BlogType;
   error?: string;
+  featuredBlogs?: BlogType[];
 }
 
 // ---------------------------------------------------------------------------
