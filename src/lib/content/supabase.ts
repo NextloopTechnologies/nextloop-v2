@@ -31,13 +31,15 @@ export const supabaseReader: ContentReader = {
     return (data ?? []) as BlogType[];
   },
 
-  async getBlogBySlug(slug) {
-    const { data, error } = await supabaseClient
+  async getBlogBySlug(slug, includeDrafts = false) {
+    let query = supabaseClient
       .from('blogs')
       .select('*,author(*), categories(*)')
-      .eq('status', 'published')
-      .filter('slug', 'eq', slug)
-      .single();
+      .filter('slug', 'eq', slug);
+
+    if (!includeDrafts) query = query.eq('status', 'published');
+
+    const { data, error } = await query.single();
 
     if (error) {
       // Read the message before the narrowing below: `.single()` types `error`

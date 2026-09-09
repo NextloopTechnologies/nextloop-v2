@@ -19,7 +19,11 @@
     "generate:importmap": "payload generate:importmap",
     "generate:types": "payload generate:types",
     "predev": "payload generate:importmap",
-    "prebuild": "payload generate:importmap"
+    "prebuild": "payload generate:importmap",
+    "regression:smoke": "node scripts/regression/smoke.mjs",
+    "regression:parity": "node scripts/regression/content-parity.mjs",
+    "regression:preview": "node scripts/regression/preview.mjs",
+    "regression": "npm run regression:smoke && npm run regression:parity && npm run regression:preview"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.88.0",

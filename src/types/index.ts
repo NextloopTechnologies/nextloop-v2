@@ -93,6 +93,8 @@ export interface TocItem {
 export interface BlogIDProps {
   data?: BlogType;
   error?: string;
+  /** True only when a verified preview token let an unpublished post through. */
+  preview?: boolean;
 }
 
 // ---------------------------------------------------------------------------

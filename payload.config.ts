@@ -3,7 +3,7 @@ import { fileURLToPath } from 'url';
 
 import { postgresAdapter } from '@payloadcms/db-postgres';
 import { cloudStoragePlugin } from '@payloadcms/plugin-cloud-storage';
-import { lexicalEditor } from '@payloadcms/richtext-lexical';
+import { EXPERIMENTAL_TableFeature, lexicalEditor } from '@payloadcms/richtext-lexical';
 import { buildConfig } from 'payload';
 import sharp from 'sharp';
 
@@ -95,7 +95,26 @@ export default buildConfig({
   // generated. Without it Payload warns and silently produces no renditions.
   sharp,
 
-  editor: lexicalEditor(),
+  /**
+   * The editor is configured once for every rich-text field in the project, so
+   * enabling tables here enables them on `blogs.descp` and `portfolio.descp`
+   * alike. That is the intended scope — a case study has the same reason to
+   * carry a comparison table as an article does.
+   *
+   * `EXPERIMENTAL_` is Payload's own prefix and only warns that the *stored
+   * node shape* may change in a future release; it is a shipped feature, not a
+   * flag. The read path already handles it: `TableHTMLConverter` is part of the
+   * default converter set `convertLexicalToHTML` uses, so a table authored here
+   * renders as a real `<table>` in `src/lib/content/payload.ts` with no adapter
+   * change. The blog template wraps the body in an `overflow-x-auto` container
+   * so a wide table scrolls instead of stretching the article column.
+   *
+   * Spreading `defaultFeatures` rather than listing features by hand keeps
+   * everything the editor has today and adds one thing.
+   */
+  editor: lexicalEditor({
+    features: ({ defaultFeatures }) => [...defaultFeatures, EXPERIMENTAL_TableFeature()],
+  }),
   secret: process.env.PAYLOAD_SECRET || 'dev-only-placeholder-secret',
   typescript: { outputFile: path.resolve(dirname, 'src/payload-types.ts') },
 

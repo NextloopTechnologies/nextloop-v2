@@ -31,6 +31,20 @@ export const Blogs: CollectionConfig = {
     useAsTitle: 'title',
     defaultColumns: ['title', 'author', 'category', 'status', 'updatedAt'],
     group: 'Content',
+    /**
+     * Renders the Preview button in the document header.
+     *
+     * It points at `/api/preview/`, not straight at `/blog/<slug>/`, because a
+     * draft is not readable on the public route by design. That endpoint checks
+     * the caller's admin session and mints a short-lived, slug-scoped cookie —
+     * the button is the entry point, the authorisation lives there. Returning
+     * null for a post with no slug yet hides the button rather than offering a
+     * link to a 404.
+     */
+    preview: (doc) => {
+      const slug = typeof doc?.slug === 'string' ? doc.slug : '';
+      return slug ? `/api/preview/?slug=${encodeURIComponent(slug)}` : null;
+    },
   },
 
   fields: [

@@ -178,11 +178,13 @@ export const payloadReader: ContentReader = {
     return serialisable(docs.map((d) => toBlog(d as unknown as Record<string, unknown>)));
   },
 
-  async getBlogBySlug(slug) {
+  async getBlogBySlug(slug, includeDrafts = false) {
     const payload = await getPayloadClient();
     const { docs } = await payload.find({
       collection: 'blogs',
-      where: { and: [{ status: { equals: 'published' } }, { slug: { equals: slug } }] },
+      where: includeDrafts
+        ? { slug: { equals: slug } }
+        : { and: [{ status: { equals: 'published' } }, { slug: { equals: slug } }] },
       limit: 1,
       depth: 2, // author and category have to arrive as documents, not ids
     });

@@ -37,3 +37,6 @@ yarn-error.log*
 
 # production snapshots for local seeding — may contain PII, never commit
 .seed-data/
+
+# Transfer staging for files synced from a Claude session. Never source.
+Claude outputs/

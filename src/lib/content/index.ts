@@ -34,7 +34,12 @@ export const contentSource: ContentSource =
  */
 export interface ContentReader {
   listBlogs(): Promise<BlogType[]>;
-  getBlogBySlug(slug: string): Promise<BlogType | null>;
+  /**
+   * `includeDrafts` is only ever true behind a verified preview token. It is an
+   * explicit argument rather than ambient state so that every caller able to
+   * surface an unpublished post is visible in a grep for the word.
+   */
+  getBlogBySlug(slug: string, includeDrafts?: boolean): Promise<BlogType | null>;
   listJobs(): Promise<Job[]>;
   getJobByRef(ref: string): Promise<Job | null>;
   listPortfolio(): Promise<IPortfolio[]>;
@@ -53,7 +58,8 @@ const reader = async (): Promise<ContentReader> => {
 };
 
 export const listBlogs = async () => (await reader()).listBlogs();
-export const getBlogBySlug = async (slug: string) => (await reader()).getBlogBySlug(slug);
+export const getBlogBySlug = async (slug: string, includeDrafts = false) =>
+  (await reader()).getBlogBySlug(slug, includeDrafts);
 export const listJobs = async () => (await reader()).listJobs();
 export const getJobByRef = async (ref: string) => (await reader()).getJobByRef(ref);
 export const listPortfolio = async () => (await reader()).listPortfolio();

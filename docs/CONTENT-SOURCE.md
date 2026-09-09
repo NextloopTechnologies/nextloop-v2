@@ -68,6 +68,14 @@ node scripts/regression/smoke.mjs http://localhost:3000
 # Payload source
 CONTENT_SOURCE=payload npm start
 node scripts/regression/content-parity.mjs http://localhost:3000
+
+# preview + tables. The negative half (401/400/405, forged, expired,
+# cross-slug and malformed tokens) always runs; naming an unpublished
+# slug adds the positive half rather than skipping it.
+PREVIEW_TEST_SLUG=<an-unpublished-slug> node scripts/regression/preview.mjs
+
+# or all three
+npm run regression
 ```
 
 The contract test discovers what to check from the sitemaps, which are
@@ -78,6 +86,70 @@ For a side-by-side, run each source with `--fingerprint` and diff the two
 outputs. Ids, timestamps and image hosts legitimately differ between the stores,
 so a byte comparison would fail on all of it and prove nothing; the fingerprint
 normalises to the properties that must match.
+
+## Draft preview
+
+`getBlogBySlug` filters on `status = 'published'`, so an unpublished post 404s
+on the public route. Preview lifts that filter for exactly one post, for one
+person, for half an hour — and nothing else.
+
+The chain:
+
+1. **The Preview button** (`admin.preview` on the `blogs` collection) links to
+   `/api/preview/?slug=<slug>`, not to `/blog/<slug>/`. It is hidden until the
+   document has a slug, so it never offers a link to a 404.
+2. **`/api/preview`** calls `payload.auth()` on the incoming request. The admin
+   and the site share an origin, so the editor's session cookie is already
+   there. Anonymous callers get a 401 before anything is minted.
+3. **The token** carries `{ slug, exp }` signed with HMAC-SHA256 over
+   `PAYLOAD_SECRET`, and is set as an httpOnly `SameSite=Lax` cookie, then the
+   request is redirected to the real article URL.
+4. **`/blog/[slug]`** verifies the token against the slug it is about to
+   render. Only then does it pass `includeDrafts: true` into the seam.
+
+Four decisions worth keeping:
+
+- **No `?secret=` in the URL.** A URL token is a password that lands in browser
+  history, `Referer` headers and every access log between here and the browser,
+  and it never expires. The session is the credential; the cookie is derived
+  from it.
+- **Scoped to one slug, not a global preview mode.** A token minted for one
+  draft returns 404 on every other draft. A mode flag would unlock the whole
+  unpublished queue at once, which is exactly the failure worth designing out.
+- **Thirty minutes.** A link pasted into Slack stops working on its own.
+- **Fails closed.** With `PAYLOAD_SECRET` unset, minting returns null and
+  verification returns false, so preview breaks rather than opening.
+
+A previewed draft carries both a `noindex` meta tag and an `X-Robots-Tag`
+header, is served `Cache-Control: private, no-store`, and shows a sticky banner
+— a screenshot of a draft should be recognisable as one. A *published* post
+reached with a preview cookie is treated as an ordinary page view: no banner, no
+noindex. The banner belongs to the draft, not to the cookie.
+
+**Under `CONTENT_SOURCE=supabase` this is only as strong as RLS.** The Supabase
+reader drops the `status` filter the same way, so whether a draft is actually
+readable depends on the anon policy, not on this code. Under Payload the Local
+API bypasses access control by design and the filter here is the gate. Preview
+is intended for the Payload source; the Supabase branch exists so the two
+readers keep the same signature.
+
+## Tables in rich text
+
+`EXPERIMENTAL_TableFeature()` is enabled on the shared `lexicalEditor`, so it
+applies to `blogs.descp` and `portfolio.descp` alike. The `EXPERIMENTAL_` prefix
+is Payload's own and warns only that the stored node shape may change in a
+future release — it is shipped, not a flag.
+
+Nothing was needed on the read side: `TableHTMLConverter` is already part of the
+default converter set `convertLexicalToHTML` uses, so a table authored in the
+admin arrives as real `<table>` markup through `src/lib/content/payload.ts`.
+
+The blog template scopes `display:block; overflow-x:auto` to `table` elements
+inside the body, so a wide table scrolls within the article column instead of
+pushing the page sideways on a phone. `scripts/regression/preview.mjs` asserts
+both that the classes reach the markup and that Tailwind emitted rules for them
+— a class with no rule behind it looks right in a diff and does nothing in a
+browser.
 
 ## Cutover, when the time comes
 

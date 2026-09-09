@@ -9,6 +9,7 @@ import { FaXTwitter } from 'react-icons/fa6';
 import Layout from '../../components/Layout/Layout';
 import Seo from '../../components/Seo';
 import { getBlogBySlug } from '../../lib/content';
+import { PREVIEW_COOKIE, readCookie, verifyPreviewToken } from '../../lib/preview';
 import { BlogIDProps, BlogType, TocItem } from '../../types';
 import { getBaseUrl } from '../../utils/getBaseUrl';
 import { articleSchema, breadcrumbSchema, toPlainText } from '../../utils/structuredData';
@@ -198,7 +199,18 @@ const AuthorSection: React.FC<{ blog: BlogType }> = ({ blog }) => {
   );
 };
 
-const BlogID: React.FC<BlogIDProps> = ({ data, error }) => {
+/**
+ * Shown only on a previewed draft. Deliberately loud and fixed to the viewport:
+ * the failure mode worth designing against is an editor screenshotting a draft
+ * and circulating it as if it were live.
+ */
+const PreviewBanner: React.FC = () => (
+  <div className='sticky top-0 z-50 bg-amber-400 text-amber-950 text-sm font-semibold text-center px-4 py-2'>
+    Draft preview — this post is not published and is not visible to the public.
+  </div>
+);
+
+const BlogID: React.FC<BlogIDProps> = ({ data, error, preview = false }) => {
   const [tocItems, setTocItems] = useState<TocItem[]>([]);
   const [activeId, setActiveId] = useState('');
   const [processedHtml, setProcessedHtml] = useState('');
@@ -283,7 +295,9 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error }) => {
 
   return (
     <Layout headerColor='text-black'>
+      {preview && <PreviewBanner />}
       <Seo
+        noindex={preview}
         title={metaTitle}
         description={metaDescription}
         image={coverImage}
@@ -350,7 +364,13 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error }) => {
           </div>
 
           <div className='flex-1 min-w-0'>
-            <div className='ql-snow'>
+            {/*
+              Tables come out of the editor at their natural width, which on a
+              phone is wider than the article column and would otherwise push
+              the whole page sideways. Scoping the scroll to the table itself
+              (rather than the body) keeps paragraphs wrapping normally.
+            */}
+            <div className='ql-snow [&_table]:block [&_table]:overflow-x-auto [&_table]:max-w-full'>
               <div
                 className='ql-editor !p-0 prose prose-sm md:prose-base max-w-none
                 [&_p]:!my-4
@@ -363,7 +383,11 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error }) => {
                  prose-blockquote:border-blue-500 prose-blockquote:bg-blue-50
                  prose-code:bg-gray-100 prose-code:px-1 prose-code:rounded
                  prose-pre:bg-slate-800 prose-pre:text-gray-100
-                 prose-img:rounded-lg prose-img:shadow-md'
+                 prose-img:rounded-lg prose-img:shadow-md
+                 prose-table:w-full prose-th:bg-gray-50 prose-th:text-left
+                 prose-th:px-3 prose-th:py-2 prose-td:px-3 prose-td:py-2
+                 prose-th:border prose-td:border prose-th:border-gray-200
+                 prose-td:border-gray-200'
                 dangerouslySetInnerHTML={{
                   __html: processedHtml || data.descp,
                 }}
@@ -378,9 +402,24 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error }) => {
 
 export default BlogID;
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async ({ params, req, res }) => {
   const slug = typeof params?.slug === 'string' ? params.slug : '';
   if (!slug) return { notFound: true };
+
+  // The token is scoped to one slug and signed, so this is the only thing that
+  // can lift the published filter — and only for the post it was minted for.
+  const preview = verifyPreviewToken(
+    readCookie(req.headers.cookie, PREVIEW_COOKIE),
+    slug
+  );
+
+  if (preview) {
+    // Belt and braces alongside the noindex meta tag: a header cannot be
+    // stripped by a proxy that rewrites HTML, and it also stops the response
+    // being cached by anything in front of the app.
+    res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+    res.setHeader('Cache-Control', 'private, no-store, max-age=0');
+  }
 
   try {
     // A missing slug used to return HTTP 200 with the raw PostgREST message
@@ -388,9 +427,11 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     // page — a soft 404 that let Google index unlimited junk URLs. Missing is
     // now `null` and 404s; only a genuine failure reaches the catch, because a
     // database outage must not deindex every article on the site.
-    const data = await getBlogBySlug(slug);
+    const data = await getBlogBySlug(slug, preview);
     if (!data) return { notFound: true };
-    return { props: { data } };
+    // A published post reached through a preview cookie is just a normal page
+    // view — the banner and noindex belong to drafts, not to the cookie.
+    return { props: { data, preview: preview && data.status !== 'published' } };
   } catch {
     return { props: { error: 'Unable to load this article.' } };
   }
