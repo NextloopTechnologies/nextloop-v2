@@ -128,7 +128,10 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
             className='relative w-11/12 aspect-[16/9] rounded-lg cursor-pointer'
             onClick={() => {
               const slug = data?.[0]?.slug;
-              if (slug) {
+              const isValidSlug =
+                typeof slug === 'string' &&
+                /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug);
+              if (isValidSlug) {
                 router.push(`/blog/${slug}`);
               }
             }}
