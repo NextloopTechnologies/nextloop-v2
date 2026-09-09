@@ -58,7 +58,6 @@ module.exports = withBundleAnalyzer({
   },
 
   // 🔧 EMFILE / too-many-open-files FIX
-  swcMinify: true,
   experimental: {
     workerThreads: false,
     cpus: 1,
