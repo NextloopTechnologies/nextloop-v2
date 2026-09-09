@@ -2,6 +2,7 @@
 
 import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import { GetServerSideProps } from 'next';
+import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { FaXTwitter } from 'react-icons/fa6';
@@ -335,6 +336,25 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error, featuredBlogs }) => {
 
   return (
     <Layout headerColor='text-black'>
+      <Head>
+        <title>
+          {data?.meta_title ||
+            data?.title ||
+            'Read Nextloop’s software development blogs to get useful technology-based insights'}
+        </title>
+
+        <meta
+          name='description'
+          content={
+            data?.meta_description ||
+            'Discover expert advice through Nextloop Technologies IT consulting blogs. We cover strategies for technology and information management to help your business grow and succeed.'
+          }
+        />
+
+        {data?.meta_keywords && data.meta_keywords.length > 0 && (
+          <meta name='keywords' content={data.meta_keywords.join(', ')} />
+        )}
+      </Head>
       <div className='bg-white min-h-screen pb-16  lg:mt-11'>
         <div className='max-w-4xl mx-auto px-4 pt-8 text-center'>
           {/* Category Badge */}

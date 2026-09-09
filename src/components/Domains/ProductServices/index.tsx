@@ -32,7 +32,7 @@ const ServiceBox: React.FC<ServiceBoxProps> = ({ title, descp, icon }) => {
       </div>
       <div className='pl-14 py-8 mx-2'>
         <h3
-          className={`text-[#1D1D1D] ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} mb-4 uppercase`}
+          className={`text-[#1D1D1D] ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} mb-4 `}
         >
           {title}
         </h3>
@@ -48,9 +48,9 @@ const ServiceBox: React.FC<ServiceBoxProps> = ({ title, descp, icon }) => {
 
 const ProductServices: React.FC<ProductServicesProps> = ({ title, data }) => {
   return (
-    <div className='py-[100px] md:px-[200px] px-[80px]'>
+    <div className='py-[100px] px-[80px] md:px-[100px] lg:px-[200px]'>
       <div className='mb-14'>{title}</div>
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-[85px]'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-[50px] lg:gap-[85px]'>
         {data?.map(({ descp, icon, title }, index: number) => (
           <ServiceBox key={index} descp={descp} icon={icon} title={title} />
         ))}

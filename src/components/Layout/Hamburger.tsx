@@ -209,10 +209,10 @@ const Hamburger = () => {
 
           <li
             className={`w-full ${
-              pathname === '/career' ? 'text-orange-500' : ''
+              pathname === '/careers' ? 'text-orange-500' : ''
             }`}
           >
-            <Link href='/career' onClick={handleLinkClick}>
+            <Link href='/careers' onClick={handleLinkClick}>
               Careers
             </Link>
           </li>

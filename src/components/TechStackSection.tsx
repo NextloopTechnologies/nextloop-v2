@@ -43,11 +43,11 @@ const TechStack: React.FC<TechStackProps> = ({ techStackData }) => {
         </p>
       )}
 
-      <div className='flex justify-center mt-6 border-b border-gray-600'>
+      <div className='flex flex-wrap justify-center mt-6 border-b border-gray-600'>
         {techStackData.items?.map((category) => (
           <button
             key={category.title}
-            className={`px-4 py-2 text-lg font-medium ${
+            className={`px-3 py-2 text-sm md:text-lg font-medium whitespace-nowrap ${
               activeTab === category.title
                 ? 'text-orange-500 border-b-2 border-orange-500'
                 : 'text-gray-400'

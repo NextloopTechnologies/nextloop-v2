@@ -14,7 +14,7 @@ interface ServiceCardProps {
 
 const OURVALUES_DATA: ServiceCardProps[] = [
   {
-    heading: 'Manager, Levram Lifesciesnce Private Limited',
+    heading: 'Manager, Levram Lifescience Private Limited',
     image: Levram1 as unknown as string,
     title: 'Brijesh Panchal',
     desc: "Nextloop Technologies LLP delivered the project on time, meeting the client's expectations. They communicated frequently and promptly via email, ensuring an effective workflow. ",

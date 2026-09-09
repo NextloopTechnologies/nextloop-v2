@@ -40,7 +40,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ blogData }) => {
               className='bg-white rounded-lg shadow-md p-4 border cursor-pointer flex flex-col h-full'
               onClick={() => router.push(`/blog/${blog.slug}`)}
             >
-              <div className='relative w-full h-56 mb-4'>
+              <div className='relative w-full aspect-[16/9] mb-4'>
                 <Image
                   src={imageUrl}
                   alt={blog.title}
