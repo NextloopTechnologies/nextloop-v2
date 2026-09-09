@@ -25,10 +25,12 @@ import { PiExcludeSquareDuotone, PiEyeBold } from 'react-icons/pi';
 import { getStaticImageData } from './helper';
 import { CultureEvent, IFAQ, TechKey, TechTalentData } from '../types';
 import {
-  ecommerceAssets,
-  eventAssets,
   fintechAssets,
   healthcareAssets,
+  oilAndGasAssets,
+  // ecommerceAssets,
+  // eventAssets,
+  restaurantAssets,
   Service1,
   Service2,
   Service3,
@@ -358,17 +360,29 @@ export const servicesWhyChooseUsData = [
 ];
 
 const staticServices = [
+  // {
+  //   image: getStaticImageData(ecommerceAssets.ECommerceBg),
+  //   title: 'E-Commerce Website.',
+  //   description: 'Start selling immediately, without limits.',
+  //   link: '/domain/ecommerce',
+  // },
+  // {
+  //   image: getStaticImageData(eventAssets.eventsBg),
+  //   title: 'Create a Professional Event Website',
+  //   description: '',
+  //   link: '/domain/events',
+  // },
   {
-    image: getStaticImageData(ecommerceAssets.ECommerceBg),
-    title: 'E-Commerce Website.',
-    description: 'Start selling immediately, without limits.',
-    link: '/domain/ecommerce',
+    image: getStaticImageData(oilAndGasAssets.oilAndGasBg),
+    title: 'Oil And Gas',
+    description: '',
+    link: '/domain/oil-and-gas',
   },
   {
-    image: getStaticImageData(eventAssets.eventsBg),
-    title: 'Create a Professional Event Website',
+    image: getStaticImageData(restaurantAssets.restaurantBg),
+    title: 'Food And Beverages',
     description: '',
-    link: '/domain/events',
+    link: '/domain/food-and-beverages',
   },
   {
     image: getStaticImageData(fintechAssets.fintechBg),
