@@ -140,11 +140,6 @@ const Home: React.FC = () => {
         </title>
 
         <meta
-          name='title'
-          content='IT Staff Augmentation | Custom Software Solutions | AI Remote Teams'
-        />
-
-        <meta
           name='description'
           content='Leading IT outsourcing company in Indore & USA. We provide custom software development, staff augmentation & dedicated developers for AI, SaaS & MVP development'
         />
