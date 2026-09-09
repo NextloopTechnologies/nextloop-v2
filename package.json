@@ -23,7 +23,8 @@
     "regression:smoke": "node scripts/regression/smoke.mjs",
     "regression:parity": "node scripts/regression/content-parity.mjs",
     "regression:preview": "node scripts/regression/preview.mjs",
-    "regression": "npm run regression:smoke && npm run regression:parity && npm run regression:preview"
+    "regression": "npm run regression:smoke && npm run regression:parity && npm run regression:preview && npm run regression:access",
+    "regression:access": "node scripts/regression/access.mjs"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.88.0",

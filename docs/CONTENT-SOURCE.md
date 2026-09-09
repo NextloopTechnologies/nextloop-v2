@@ -200,6 +200,39 @@ real secret is set, enforcement is strict and there is no flag to turn it off.
 
 Validation and rate limiting apply either way.
 
+## The REST API is a second front door
+
+`/api/forms/[kind]` enforces a 5-per-minute rate limit, a honeypot, field
+validation and (once a real secret is set) reCAPTCHA. **None of that lives in
+the database layer.** Payload also exposes every collection at
+`/payload-api/<collection>`, and that route does not pass through the forms
+handler — so for as long as a collection allowed public `create`, the front door
+was locked and the side door was not.
+
+Measured, before the fix: six consecutive anonymous `POST /payload-api/enquiries`
+requests returned 201 every time, while the sixth request to
+`/api/forms/enquiry/` returned 429. `POST /payload-api/resumes` got past access
+control and validation and reached the storage adapter — an unauthenticated file
+upload into the project's ImageKit account.
+
+Both are now `adminOnly`, which looks like it should break the public forms and
+does not: every legitimate submission is written by `writes.ts` through
+`payload.create` on the **Local API**, which runs with `overrideAccess: true` and
+never consults access control. Closing REST create costs the forms nothing and
+removes the only unauthenticated write path into the database. Staff keep
+`create` so a lead can still be added by hand in the panel.
+
+`scripts/regression/access.mjs` probes every collection anonymously for read,
+create, update, delete and file upload, then checks the two things that would
+make "locked down" indistinguishable from "broken": that `/api/forms/enquiry/`
+still returns 201, and that a signed-in admin can still create and read a lead.
+
+```bash
+ADMIN_EMAIL=... ADMIN_PASSWORD=... node scripts/regression/access.mjs
+```
+
+Without credentials the staff half is reported as skipped, never as passed.
+
 ## Still open
 
 - **RLS lockdown.** Nothing in the browser holds the anon key any more, so the
@@ -207,5 +240,15 @@ Validation and rate limiting apply either way.
   change, and wants doing deliberately.
 - **Resume uploads** still go to the external `NEXT_PUBLIC_API_ENDPOINT/upload`
   host rather than through Payload's `resumes` collection. The URL is stored in
-  `legacyResumeUrl` rather than pretending it is a Payload upload.
-- **No email adapter**, so a locked-out admin cannot recover.
+  `legacyResumeUrl` rather than pretending it is a Payload upload. When that moves
+  onto the `resumes` collection it must upload server-side, through the Local
+  API — `resumes.create` is `adminOnly` now, so a browser-side upload straight
+  at `/payload-api/resumes` will (correctly) 403.
+- **No email adapter**, so a locked-out admin cannot recover — and
+  `forgot-password` returns HTTP 200 `{"message":"Success"}` regardless, writing
+  the reset link to the server console. Silent failure, not a visible one.
+- **No migrations.** `db-postgres` only pushes schema outside production
+  (`connect.js:110`), and there are no migration files, so a production deploy
+  would start against a database with no `payload` schema.
+- **`.env.local` declares `DATABASE_URI` four times and `PAYLOAD_SECRET` twice.**
+  Last wins, silently. Needs resolving before any deploy reads from it.

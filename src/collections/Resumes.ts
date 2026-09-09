@@ -20,9 +20,17 @@ export const Resumes: CollectionConfig = {
     read: ({ req }) => Boolean(req.user),
     update: ({ req }) => Boolean(req.user),
     delete: ({ req }) => Boolean(req.user),
-    // Public create: applicants upload through the careers form. The endpoint
-    // in front of this still enforces captcha, MIME and size limits.
-    create: () => true,
+    /**
+     * Not public, despite applicants being anonymous.
+     *
+     * The careers form uploads server-side, through the Local API, which
+     * bypasses access control — so this rule only ever applies to someone
+     * posting a file straight at `/payload-api/resumes`. Leaving it open made
+     * that an unauthenticated upload endpoint into the project's ImageKit
+     * account: free hosting for anyone who found the URL, with the captcha,
+     * MIME and size checks all sitting in front of a door nobody had to use.
+     */
+    create: ({ req }) => Boolean(req.user),
   },
 
   admin: {

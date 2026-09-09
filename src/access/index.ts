@@ -17,13 +17,28 @@ export const adminOnly: Access = ({ req }) => Boolean(req.user);
 export const publicRead: Access = () => true;
 
 /**
- * Anyone may submit; only staff may read it back.
+ * Inbound-only: the public forms write here, nothing about a submission is ever
+ * publicly readable, and the REST API is not a way in.
  *
- * This is the shape every lead table should have had: the public forms need to
- * insert, but nothing about a submission should ever be publicly readable.
+ * `create` is `adminOnly`, which reads like it would break the public forms and
+ * does not. Every legitimate submission is written by `src/lib/content/writes.ts`
+ * through `payload.create` on the **Local API**, which runs with
+ * `overrideAccess: true` by default — access control is not consulted at all on
+ * that path. So this rule governs exactly one caller: an anonymous HTTP client
+ * posting straight at `/payload-api/<collection>`.
+ *
+ * That caller had to be shut out. `/api/forms/[kind]` enforces a 5-per-minute
+ * rate limit, a honeypot, field validation and (once a real secret is set)
+ * reCAPTCHA. None of that lives in the database layer, so while REST create was
+ * public the front door was locked and the side door was not: posting directly
+ * at `/payload-api/enquiries` accepted unlimited writes with none of those
+ * checks. Same door on applied-jobs, popup-submissions, ideas and
+ * offer-applications.
+ *
+ * Staff keep create so a lead can still be added by hand in the admin panel.
  */
 export const submitOnly = {
-  create: (() => true) as Access,
+  create: adminOnly,
   read: adminOnly,
   update: adminOnly,
   delete: adminOnly,
