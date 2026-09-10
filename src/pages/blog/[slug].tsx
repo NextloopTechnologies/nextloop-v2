@@ -8,14 +8,20 @@ import { FaXTwitter } from 'react-icons/fa6';
 
 import Layout from '../../components/Layout/Layout';
 import Seo from '../../components/Seo';
-import { getBlogBySlug } from '../../lib/content';
+import { getBlogBySlug, listBlogs } from '../../lib/content';
 import { PREVIEW_COOKIE, readCookie, verifyPreviewToken } from '../../lib/preview';
 import { BlogIDProps, BlogType, TocItem } from '../../types';
 import { getBaseUrl } from '../../utils/getBaseUrl';
 import { articleSchema, breadcrumbSchema, toPlainText } from '../../utils/structuredData';
 
-const MetaRow: React.FC<{ publishedAt?: string; readTime?: string }> = ({
+/**
+ * `readTime` is nullable because the Payload adapter returns null for an unset
+ * column and getServerSideProps refuses to serialise undefined. A default
+ * parameter only fires for undefined, so null is coalesced explicitly.
+ */
+const MetaRow: React.FC<{ publishedAt?: string; readTime?: number | null }> = ({
   publishedAt,
+  readTime,
 }) => (
   <div className='flex flex-wrap items-center justify-center gap-4 mt-3 mb-5'>
     {publishedAt && (
@@ -38,23 +44,24 @@ const MetaRow: React.FC<{ publishedAt?: string; readTime?: string }> = ({
       </span>
     )}
 
-    <span className='flex items-center gap-1.5 text-[#1B1B1B] text-xs font-medium'>
-      <svg
-        width={12}
-        height={12}
-        viewBox='0 0 24 24'
-        fill='none '
-        color='#FA8145'
-        stroke='currentColor'
-        strokeWidth={2}
-      >
-        <path d='M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2' />
-        <circle cx='9' cy='7' r='4' />
-        <path d='M23 21v-2a4 4 0 0 0-3-3.87' />
-        <path d='M16 3.13a4 4 0 0 1 0 7.75' />
-      </svg>
-      Reviewed by NextLoop Team
-    </span>
+    <>
+      <span className='text-gray-300'>|</span>
+      <span className='flex items-center gap-1.5 text-[#1B1B1B] text-xs font-medium'>
+        <svg
+          width={12}
+          height={12}
+          viewBox='0 0 24 24'
+          fill='none'
+          color='#FA8145'
+          stroke='currentColor'
+          strokeWidth={2}
+        >
+          <circle cx='12' cy='12' r='10' />
+          <polyline points='12 6 12 12 16 14' />
+        </svg>
+        {readTime ?? 2} min read
+      </span>
+    </>
   </div>
 );
 
@@ -198,6 +205,7 @@ const AuthorSection: React.FC<{ blog: BlogType }> = ({ blog }) => {
     </div>
   );
 };
+// ---- Featured Blog ----
 
 /**
  * Shown only on a previewed draft. Deliberately loud and fixed to the viewport:
@@ -210,7 +218,65 @@ const PreviewBanner: React.FC = () => (
   </div>
 );
 
-const BlogID: React.FC<BlogIDProps> = ({ data, error, preview = false }) => {
+function stripHtml(html: string) {
+  return html?.replace(/<[^>]*>/g, '') ?? '';
+}
+
+const FeaturedBlogs: React.FC<{ blogs: BlogType[] }> = ({ blogs }) => {
+  if (!blogs || blogs.length === 0) return null;
+
+  return (
+    <div className='max-w-7xl mx-auto px-4 mt-16 mb-8'>
+      <h2 className='text-2xl md:text-3xl font-bold text-center text-gray-900 mb-8'>
+        Featured <span className='text-orange-500'>Blogs</span>
+      </h2>
+
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+        {blogs.map((blog) => (
+          <a
+            key={blog.id}
+            // trailingSlash: true, so the un-slashed form costs every featured
+            // link a 308 before it reaches the page.
+            href={`/blog/${blog.slug}/`}
+            className='group flex flex-col overflow-hidden rounded-lg border border-[#C8C8C8] bg-white hover:shadow-lg transition-all duration-300 no-underline'
+          >
+            {/* Image */}
+            <div className='relative w-full h-[200px] overflow-hidden'>
+              {blog.image?.[0]?.url ? (
+                <Image
+                  src={blog.image[0].url}
+                  alt={blog.title}
+                  fill
+                  className='object-cover'
+                  sizes='(max-width: 768px) 100vw, 400px'
+                />
+              ) : (
+                <div className='w-full h-full bg-gradient-to-br from-[#1e3a5f] to-[#0d1b2e]' />
+              )}
+            </div>
+
+            {/* Content */}
+            <div className='flex flex-col gap-2 p-4 flex-1'>
+              <h3 className='text-[15px] font-semibold text-gray-900 line-clamp-2 group-hover:text-orange-500 transition-colors duration-200'>
+                {blog.title}
+              </h3>
+
+              <p className='text-[13px] text-gray-500 line-clamp-2'>
+                {stripHtml(blog.descp)}
+              </p>
+
+              <span className='mt-auto text-[12px] font-bold text-orange-500 uppercase tracking-wide'>
+                Read More →
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const BlogID: React.FC<BlogIDProps> = ({ data, error, preview = false, featuredBlogs }) => {
   const [tocItems, setTocItems] = useState<TocItem[]>([]);
   const [activeId, setActiveId] = useState('');
   const [processedHtml, setProcessedHtml] = useState('');
@@ -223,11 +289,14 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error, preview = false }) => {
     const items: TocItem[] = [];
 
     div.querySelectorAll('h1,h2,h3,h4').forEach((el, i) => {
+      const text = el.textContent?.trim() ?? '';
+      if (!text) return;
+
       const id = `toc-heading-${i}`;
       el.id = id;
       items.push({
         id,
-        text: el.textContent ?? '',
+        text,
         level: parseInt(el.tagName.substring(1)),
       });
     });
@@ -334,7 +403,7 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error, preview = false }) => {
           <h1 className='text-2xl md:text-3xl lg:text-[2rem] font-extrabold leading-tight text-gray-900'>
             {data.title}
           </h1>
-          <MetaRow publishedAt={publishedAt} />
+          <MetaRow publishedAt={publishedAt} readTime={data.read_time} />
         </div>
 
         {data.image?.[0]?.url && (
@@ -395,6 +464,9 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error, preview = false }) => {
             </div>
           </div>
         </div>
+        {featuredBlogs && featuredBlogs.length > 0 && (
+          <FeaturedBlogs blogs={featuredBlogs} />
+        )}
       </div>
     </Layout>
   );
@@ -429,9 +501,31 @@ export const getServerSideProps: GetServerSideProps = async ({ params, req, res 
     // database outage must not deindex every article on the site.
     const data = await getBlogBySlug(slug, preview);
     if (!data) return { notFound: true };
+
+    /**
+     * Featured blogs (from staging) read through the seam, not through
+     * supabaseClient directly. The original went straight to Supabase, which
+     * would have kept this one query pointed at the old database after
+     * CONTENT_SOURCE flips to payload — a single un-migrated read hiding inside
+     * an otherwise migrated page. listBlogs() already filters to published.
+     */
+    let featuredBlogs: BlogType[] = [];
+    const featuredIds = data.featured_blogs;
+    if (featuredIds?.length) {
+      const all = await listBlogs();
+      const wanted = new Set(featuredIds.map(Number));
+      featuredBlogs = all.filter((b) => wanted.has(Number(b.id)));
+    }
+
     // A published post reached through a preview cookie is just a normal page
     // view — the banner and noindex belong to drafts, not to the cookie.
-    return { props: { data, preview: preview && data.status !== 'published' } };
+    return {
+      props: {
+        data,
+        featuredBlogs,
+        preview: preview && data.status !== 'published',
+      },
+    };
   } catch {
     return { props: { error: 'Unable to load this article.' } };
   }

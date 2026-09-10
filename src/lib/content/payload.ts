@@ -105,6 +105,15 @@ const toCategory = (value: unknown): CategoryType | null => {
   };
 };
 
+/** A hasMany relationship arrives as ids or as documents, depending on depth. */
+const toIdList = (value: unknown): number[] | null => {
+  if (!Array.isArray(value)) return null;
+  const ids = value
+    .map((v) => (isDoc<{ id: unknown }>(v) ? Number((v as { id: unknown }).id) : Number(v)))
+    .filter((n) => Number.isFinite(n));
+  return ids.length > 0 ? ids : null;
+};
+
 const toBlog = (doc: Record<string, unknown>): BlogType => ({
   id: Number(doc.id),
   title: (doc.title as string) ?? '',
@@ -123,6 +132,15 @@ const toBlog = (doc: Record<string, unknown>): BlogType => ({
   tags: (doc.tags as string[]) ?? null,
   read_time: (doc.readTime as number) ?? null,
   status: (doc.status as 'draft' | 'published') ?? 'published',
+  /**
+   * `featuredBlogs` is a hasMany relationship here and was `int[]` in
+   * production, where the page reads it as `featured_blogs`. Unmapped, the
+   * featured section would keep working on Supabase and silently render
+   * nothing the day CONTENT_SOURCE flips — the exact class of divergence this
+   * adapter exists to absorb. Depth may give ids or documents; both reduce to
+   * an id, and anything unresolvable is dropped rather than rendered as NaN.
+   */
+  featured_blogs: toIdList(doc.featuredBlogs),
 });
 
 const toJob = (doc: Record<string, unknown>): Job => ({

@@ -37,7 +37,7 @@ const CareerID: React.FC<{ data?: Job[]; error?: string }> = ({
   // so they never reached the document head — every job page rendered an empty
   // <title>. They were also identical across all 64 postings.
   const job = data?.[0];
-  const jobUrl = job ? `${getBaseUrl()}/career/${job.id}/` : undefined;
+  const jobUrl = job ? `${getBaseUrl()}/careers/${job.id}/` : undefined;
   const jobDescription = job
     ? toPlainText(job.descp, 158) ||
       `${job.title} at Nextloop Technologies${job.location ? `, ${job.location}` : ''}.`
@@ -63,21 +63,14 @@ const CareerID: React.FC<{ data?: Job[]; error?: string }> = ({
             }),
             breadcrumbSchema([
               { name: 'Home', path: '/' },
-              { name: 'Careers', path: '/career/' },
-              { name: job.title, path: `/career/${job.id}/` },
+              { name: 'Careers', path: '/careers/' },
+              { name: job.title, path: `/careers/${job.id}/` },
             ]),
           ]}
         />
       )}
-      {/* Decoration on this route: JobDetails renders the job title as the H1
-          just below. The error branch above keeps its H1 — there is no job
-          title on that page for it to compete with. */}
-      <PageHero
-        titleAs='p'
-        image={careerBg}
-        title='careers'
-        subtitle='If you are looking for a complete business solution at a one place in combination with distinctive designs, that is what you can expect from us. To stimulate the growth of your company, we focus on various services, although we do not limit ourselves to this. We keep  learning and stay ourselves up to date with current market trends.'
-      />
+      {/* No hero on the job detail page — staging removed it deliberately
+          (64dde37). JobDetails renders the job title as the page's H1. */}
       <div className='xl:p-24 lg:p-8 p-4 flex flex-col'>
         {data?.map((j) => (
           <JobDetails job={j} key={j.id} />

@@ -75,7 +75,7 @@ export const STATIC_ROUTES: SitemapEntry[] = [
   { path: '/domain/travel-and-hospitality/', changefreq: 'monthly', priority: 0.7 },
 
   { path: '/blog/', changefreq: 'daily', priority: 0.7 },
-  { path: '/career/', changefreq: 'daily', priority: 0.7 },
+  { path: '/careers/', changefreq: 'daily', priority: 0.7 },
   { path: '/portfolio/', changefreq: 'weekly', priority: 0.7 },
 ];
 
@@ -167,7 +167,7 @@ export const jobEntries = async (): Promise<SitemapEntry[]> =>
   (await safely(listJobs))
     .filter((row) => isUsableSegment(row.id))
     .map((row) => ({
-      path: `/career/${row.id}/`,
+      path: `/careers/${row.id}/`,
       lastmod: toIso(row.updated_at) ?? toIso(row.created_at),
       // Postings open and close; this is the one collection that genuinely
       // changes week to week.

@@ -133,11 +133,11 @@ for (const b of BASELINE) {
 }
 
 // Is a real database reachable? Several assertions below are meaningless without
-// one: `/career/[id]` only 404s when a query returns zero rows, so against a
+// one: `/careers/[id]` only 404s when a query returns zero rows, so against a
 // placeholder Supabase URL it takes the error branch and returns 200.
 const dbUp = await (async () => {
   try {
-    const r = await fetch(BASE + '/career/999999/');
+    const r = await fetch(BASE + '/careers/999999/');
     return !(await r.text()).includes('fetch failed');
   } catch { return false; }
 })();
@@ -151,10 +151,10 @@ record('404', '/no-such-page-xyz/', (await fetch(BASE + '/no-such-page-xyz/')).s
 // The shared service-page component was living in pages/ and served as a route.
 record('404', '/services/BaseServicePages/', (await fetch(BASE + '/services/BaseServicePages/')).status === 404, 'component must not be a route');
 if (dbUp) {
-  const r = await fetch(BASE + '/career/999999/', { redirect: 'follow' });
-  record('404', '/career/999999/', r.status === 404, `status ${r.status} (expected 404)`);
+  const r = await fetch(BASE + '/careers/999999/', { redirect: 'follow' });
+  record('404', '/careers/999999/', r.status === 404, `status ${r.status} (expected 404)`);
 } else {
-  record('SKIP', '/career/999999/', true, 'needs a database');
+  record('SKIP', '/careers/999999/', true, 'needs a database');
 }
 
 // Static assets
@@ -168,6 +168,22 @@ for (const p of ['/robots.txt', '/favicon.ico', '/llm.txt', '/llm-full.txt']) {
 //
 // public/sitemap.xml was a hand-maintained file with 22 URLs and frozen lastmod
 // dates. It is now four generated routes. Note these are served WITHOUT a
+// The /career/ -> /careers/ rename (276bf9a) moved a live route. Without a
+// redirect, every external link and whatever ranking 64 job postings had
+// accumulated points at a 404 — and a redirect is exactly the kind of thing
+// that gets dropped in a later refactor, silently, because nothing links to
+// the old path any more. One hop, not two: a chain dilutes the signal.
+for (const [from, to] of [['/career/', '/careers/'], ['/career/4/', '/careers/4/']]) {
+  const r = await fetch(BASE + from, { redirect: 'manual' });
+  const loc = r.headers.get('location') || '';
+  record(
+    'REDIRECT',
+    from,
+    (r.status === 308 || r.status === 301) && loc.endsWith(to),
+    `status ${r.status} -> ${loc || 'no location'} (expected 308 -> ${to})`
+  );
+}
+
 // trailing-slash redirect despite `trailingSlash: true` — Next exempts paths
 // with a file extension, and that exemption is worth asserting: a 308 here
 // would break every crawler that fetches the sitemap.

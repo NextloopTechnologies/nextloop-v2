@@ -111,7 +111,7 @@ const JobCard: React.FC<{ job: Job }> = ({
             postings had a single internal link pointing at it, and the
             JobPosting schema on those pages had nothing to be discovered by. */}
         <Link
-          href={`/career/${id}/`}
+          href={`/careers/${id}/`}
           className='flex items-center gap-2 font-semibold text-base transition-all duration-300 text-orange-500 group-hover:text-white group-hover:translate-x-1'
         >
           View Details

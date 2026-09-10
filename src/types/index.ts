@@ -71,6 +71,8 @@ export interface BlogType {
   tags?: string[] | null;
   read_time?: number | null;
   status?: 'draft' | 'published';
+  /** From staging: drives the featured blog section on the listing page. */
+  featured_blogs?: number[] | null;
 }
 
 /** Lightweight blog card data returned by fetchLatestBlogs */
@@ -95,6 +97,7 @@ export interface BlogIDProps {
   error?: string;
   /** True only when a verified preview token let an unpublished post through. */
   preview?: boolean;
+  featuredBlogs?: BlogType[];
 }
 
 // ---------------------------------------------------------------------------

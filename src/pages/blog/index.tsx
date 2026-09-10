@@ -105,7 +105,9 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
 }) => {
   const router = useRouter();
   const [visibleCount, setVisibleCount] = useState(9);
-  const filtered = data ? data.filter((blog) => blog.title && blog.descp) : [];
+  const filtered = data
+    ? data.filter((blog, i) => i !== 0 && blog.title && blog.descp)
+    : [];
   const visibleBlogs = filtered.slice(0, visibleCount);
   /**
    * The hero used to read the unfiltered `data[0]` while the grid below read
@@ -145,7 +147,18 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
         </div>
       ) : (
         <div className='bg-white min-h-screen px-4 flex flex-col justify-center items-center md:px-8 xl:px-24 py-12 '>
-          <div className='relative w-11/12 aspect-[16/9] rounded-lg'>
+          <div
+            className='relative w-11/12 aspect-[16/9] rounded-lg cursor-pointer'
+            onClick={() => {
+              const slug = data?.[0]?.slug;
+              const isValidSlug =
+                typeof slug === 'string' &&
+                /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug);
+              if (isValidSlug) {
+                router.push(`/blog/${slug}`);
+              }
+            }}
+          >
             {/* Background image */}
             {featured?.image?.[0]?.url ? (
               <Image

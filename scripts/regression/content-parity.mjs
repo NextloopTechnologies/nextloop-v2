@@ -86,7 +86,7 @@ if (blogPaths.length + jobPaths.length + casePaths.length === 0) {
 
 const LISTINGS = [
   ['/blog/', /href="\/blog\/[^"]+"/g],
-  ['/career/', /href="\/career\/[^"]+"/g],
+  ['/careers/', /href="\/careers\/[^"]+"/g],
   ['/portfolio/', /href="\/portfolio\/[^"]+"/g],
 ];
 
@@ -161,7 +161,7 @@ for (const route of [...blogPaths, ...jobPaths, ...casePaths]) {
   if (route.startsWith('/blog/')) {
     check('ARTICLE-LD', route, html.includes('"BlogPosting"'), 'BlogPosting schema');
   }
-  if (route.startsWith('/career/')) {
+  if (route.startsWith('/careers/')) {
     // 64 live postings were invisible to Google Jobs before this shipped.
     check('JOB-LD', route, html.includes('"JobPosting"'), 'JobPosting schema');
   }
@@ -228,7 +228,7 @@ const postForm = async (kind, body) => {
 
 // Unknown refs must 404 on either source — a soft 200 lets a crawler index
 // unlimited junk URLs, which is what the old PostgREST error path did.
-for (const route of ['/blog/no-such-post-xyz/', '/career/99999999/', '/portfolio/99999999/']) {
+for (const route of ['/blog/no-such-post-xyz/', '/careers/99999999/', '/portfolio/99999999/']) {
   const { status } = await get(route);
   check('404', route, status === 404, `status ${status} (expected 404)`);
 }

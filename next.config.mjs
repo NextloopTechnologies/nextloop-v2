@@ -60,6 +60,26 @@ export default withPayload(withBundleAnalyzer({
   },
 
   /**
+   * /career/ was renamed to /careers/ on staging (276bf9a). The code rename was
+   * complete — every internal link moved — but a renamed route is a moved page
+   * on the public internet, not just a moved file: external links, whatever
+   * ranking 64 job postings had accumulated, and the URLs already submitted in
+   * the old sitemap all still point at /career/.
+   *
+   * 308 (permanent, method-preserving) so search engines transfer the ranking
+   * rather than treating both as unrelated pages.
+   */
+  async redirects() {
+    return [
+      // Destinations carry the trailing slash so `trailingSlash: true` does not
+      // add a second hop: /career/4/ -> /careers/4 -> /careers/4/ wastes a
+      // round trip and dilutes the signal a permanent redirect is meant to pass.
+      { source: '/career', destination: '/careers/', permanent: true },
+      { source: '/career/:path*', destination: '/careers/:path*/', permanent: true },
+    ];
+  },
+
+  /**
    * Minification: on, by default, and deliberately not configured here.
    *
    * This config used to carry `swcMinify: true`. It was removed in the Next 15
