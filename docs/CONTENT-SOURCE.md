@@ -297,6 +297,71 @@ Before any of this reaches production, `nextlooptechnologies.com` has to be
 verified in Resend (SPF/DKIM DNS records). Until then sends fail — loudly now,
 which is the improvement.
 
+## Migrations
+
+`db-postgres` pushes schema only outside production — `connect.js:110`,
+`// Only push schema if not in production`. So the schema a production database
+gets is exactly what the committed migrations create, and nothing else.
+
+`src/migrations/20260910_105541_initial.ts` creates all 27 tables for the 14
+collections. Two things about it were **not** generated and had to be added by
+hand; both are load-bearing, and both will recur the next time a migration is
+generated:
+
+1. **`CREATE SCHEMA IF NOT EXISTS "payload"`.** The config sets
+   `schemaName: 'payload'`, so every statement is schema-qualified — but
+   `migrate:create` diffs against a database where dev-mode push already made
+   that schema, so it never emits the `CREATE SCHEMA`. On a genuinely empty
+   database the first statement fails with `schema "payload" does not exist`,
+   the transaction rolls back, and **nothing at all is created**. Measured
+   before the fix: 0 tables, `public` the only schema.
+2. **The unused `payload` and `req` parameters were removed** from `up()` and
+   `down()`, and the import specifiers sorted. `tsconfig` sets
+   `noUnusedParameters`, so the generated signature is a *type error*, not a
+   lint warning: `next build` fails with
+   `'payload' is declared but its value is never read`.
+
+**After running `npm run migrate:create <name>`, do both of those again.**
+
+### Running them
+
+Vercel prefers a `vercel-build` script over `build` when one exists, so that is
+where migration is wired:
+
+```json
+"vercel-build": "payload generate:importmap && payload migrate && next build"
+```
+
+`generate:importmap` is named explicitly because **npm only fires `pre<name>`
+for the script it is actually running** — `prebuild` does not run before
+`vercel-build`, and without that step the admin ships without its import map.
+Local `npm run build` is unchanged and still migrates nothing.
+
+Migration is idempotent, so it is safe on every deploy: an already-applied
+migration is skipped. `npm run migrate:status` shows what has run;
+`payload migrate:down` rolls back the last batch. Both verified — down to 0
+tables and back up to 27.
+
+The Vercel build environment must be able to reach the production database,
+since the migration runs there rather than at runtime.
+
+### Verified end to end
+
+On a database that had never been touched:
+
+| Step | Result |
+| --- | --- |
+| `npm run vercel-build` | migration applied, build compiled, exit 0 |
+| tables in `payload` schema | 27 |
+| `/`, `/blog/`, `/career/`, `/sitemap.xml` | 200 on an empty database |
+| `/admin/` and `/admin/create-first-user/` | 200 |
+| `POST /users/first-register` | first admin created, login returns a token |
+| second `first-register` | 403 — the window closes on its own |
+| schema push attempted in production | none |
+
+That last row is the point of the exercise: production gets its schema from
+migrations, never from a push.
+
 ## Still open
 
 - **RLS lockdown.** Nothing in the browser holds the anon key any more, so the

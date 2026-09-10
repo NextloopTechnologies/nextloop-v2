@@ -25,7 +25,11 @@
     "regression:preview": "node scripts/regression/preview.mjs",
     "regression": "npm run regression:smoke && npm run regression:parity && npm run regression:preview && npm run regression:access && npm run regression:email",
     "regression:access": "node scripts/regression/access.mjs",
-    "regression:email": "npx tsx scripts/regression/email.mjs"
+    "regression:email": "npx tsx scripts/regression/email.mjs",
+    "migrate": "payload migrate",
+    "migrate:status": "payload migrate:status",
+    "migrate:create": "payload migrate:create",
+    "vercel-build": "payload generate:importmap && payload migrate && next build"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.88.0",
