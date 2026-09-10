@@ -134,6 +134,58 @@ export default buildConfig({
     // Payload owns its own tables; `schemaName` keeps them out of `public`
     // so the existing application tables stay untouched until cutover.
     schemaName: 'payload',
-    pool: { connectionString: process.env.DATABASE_URI || '' },
+
+    /**
+     * Schema push is opt-in, not the default.
+     *
+     * Payload pushes schema whenever NODE_ENV is not production and it is not
+     * mid-migration (`db-postgres/connect.js:110`). That is convenient while
+     * collections are churning against a local database — and dangerous the
+     * moment `.env.local` points somewhere real, because `npm run dev` then
+     * diffs the config against the cloud database and starts altering it
+     * outside migrations, unrecorded. One absent-minded dev run is all it
+     * takes to undo a migration.
+     *
+     * Now that migrations exist, they are the only thing that changes schema
+     * unless someone deliberately asks otherwise:
+     *
+     *   PAYLOAD_DB_PUSH=true npm run dev
+     */
+    push: process.env.PAYLOAD_DB_PUSH === 'true',
+    pool: {
+      /**
+       * Two endpoints, because migrations and serverless want opposite things.
+       *
+       * Supabase offers a transaction pooler and a direct connection. Vercel
+       * runs each request in its own function instance, so runtime needs the
+       * pooler or the direct connection limit is exhausted under any real
+       * traffic. Migrations are DDL inside a transaction and want the direct
+       * connection, where advisory locks and multi-statement transactions
+       * behave the way the migrator expects.
+       *
+       * Payload sets `PAYLOAD_MIGRATING=true` before it initialises
+       * (`payload/dist/bin/migrate.js:36`), so that flag can pick the endpoint
+       * — but only if it is read late enough. It is NOT read late enough as a
+       * plain property: `buildConfig` is evaluated when this module is
+       * imported, which happens before the bin sets the flag, so a normal
+       * ternary here always sees `undefined`. Verified: the migration ran
+       * against the wrong database, 0 tables created in the intended one.
+       *
+       * A getter defers evaluation to when node-postgres actually constructs
+       * the Pool, which is inside `adapter.connect()` during `payload.init` —
+       * after the flag is set. Verified both directions: `payload migrate`
+       * created 27 tables via DATABASE_URI_DIRECT, while the running app read
+       * 5 blogs from DATABASE_URI.
+       *
+       * Leaving DATABASE_URI_DIRECT unset is fine and supported — everything
+       * then uses DATABASE_URI, which is the right setup for local development
+       * and for any host that is not serverless.
+       */
+      get connectionString() {
+        const migrating = process.env.PAYLOAD_MIGRATING === 'true';
+        const direct = process.env.DATABASE_URI_DIRECT;
+        return (migrating && direct) ? direct : process.env.DATABASE_URI || '';
+      },
+    },
   }),
 });
