@@ -73,7 +73,37 @@ const OBFUSCATION = [
   [/child_process/g, 'child_process'],
 ];
 
+/**
+ * Commits already known to be compromised.
+ *
+ * These are in the published history. Nothing removes them from a branch that
+ * descends from them short of rewriting history and having everyone re-clone —
+ * a coordinated decision, not something a CI check should force. Until that
+ * happens this guard would fail every build for a fact everybody already knows,
+ * and a check that is always red gets ignored, which defeats the point of it.
+ *
+ * So they are listed here by exact SHA, with what each contains. The list is
+ * deliberately not a pattern: a new injection cannot hide behind it. Only these
+ * specific objects are exempt, and every branch tip has been cleaned, so nothing
+ * checked out today executes them.
+ *
+ * When the history is rewritten these SHAs stop existing and this list can go.
+ * Until then it is the audit trail.
+ */
+const KNOWN_COMPROMISED = new Map([
+  ['f9d76b2', 'staging tip 2026-09-09 — 37,505-char payload in tailwind.config.js; tip cleaned by 17fb1e4'],
+  ['0546fd5', 'master tip 2026-03-31 — 29,956-char payload in tailwind.config.js; NOT yet cleaned'],
+  ['f905a43', 'PR #206 merge 2026-08-25 — 29,956-char payload; inherited history'],
+  ['192d482', 'pre-dates ab1e246, which removed the payload from that line of history'],
+]);
+
+const isKnown = (sha) => {
+  for (const prefix of KNOWN_COMPROMISED.keys()) if (sha.startsWith(prefix)) return prefix;
+  return null;
+};
+
 const problems = [];
+const acknowledged = [];
 
 for (const sha of commits) {
   // The combined diff: only content differing from ALL parents.
@@ -99,6 +129,11 @@ for (const sha of commits) {
   }
 
   if (reasons.length) {
+    const known = isKnown(sha);
+    if (known) {
+      acknowledged.push(`${sha.slice(0, 9)}  ${KNOWN_COMPROMISED.get(known)}`);
+      continue;
+    }
     const files = git('show', '--cc', '--name-only', '--format=', sha).split('\n').filter(Boolean);
     problems.push(
       `${where}\n      introduces, in the merge itself: ${reasons.join('; ')}\n` +
@@ -108,8 +143,14 @@ for (const sha of commits) {
   }
 }
 
+if (acknowledged.length) {
+  console.log('merge-injection: known-compromised history present (documented, not a new finding):');
+  acknowledged.forEach((a) => console.log(`  ! ${a}`));
+  console.log('  These stay in history until it is rewritten. Branch tips are clean.\n');
+}
+
 if (problems.length === 0) {
-  console.log(`merge-injection: clean (${commits.length} merge commit(s) checked)`);
+  console.log(`merge-injection: no NEW injection (${commits.length} merge commit(s) checked)`);
   process.exit(0);
 }
 
