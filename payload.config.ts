@@ -184,7 +184,32 @@ export default buildConfig({
       get connectionString() {
         const migrating = process.env.PAYLOAD_MIGRATING === 'true';
         const direct = process.env.DATABASE_URI_DIRECT;
-        return (migrating && direct) ? direct : process.env.DATABASE_URI || '';
+        const uri = (migrating && direct) ? direct : process.env.DATABASE_URI;
+
+        /**
+         * Fail with the actual cause rather than letting node-postgres default.
+         *
+         * An empty connection string is not treated as an error by pg — it
+         * falls back to localhost:5432, so a missing environment variable
+         * surfaces as `connect ECONNREFUSED 127.0.0.1:5432` from inside a build
+         * container that was never going to have a database. That reads as a
+         * network or firewall problem and sends you looking in the wrong place;
+         * it cost a Vercel deploy exactly that way.
+         *
+         * On Vercel, remember variables are scoped per environment: a value set
+         * for Production is not visible to a Preview build.
+         */
+        if (!uri) {
+          throw new Error(
+            `${migrating ? 'payload migrate' : 'Payload'} has no database connection string: ` +
+              `${migrating ? 'DATABASE_URI_DIRECT and ' : ''}DATABASE_URI are both unset. ` +
+              'This is a missing environment variable, not a network failure — ' +
+              'pg would otherwise default to localhost:5432. On Vercel, check the ' +
+              'variable is set for the environment being built (Production and ' +
+              'Preview are scoped separately).'
+          );
+        }
+        return uri;
       },
     },
   }),
