@@ -37,3 +37,4 @@ yarn-error.log*
 
 # Production snapshots. Contains real lead PII. Never commit.
 .seed-data/
+config.bat
