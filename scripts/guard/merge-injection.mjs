@@ -97,21 +97,43 @@ const KNOWN_COMPROMISED = new Map([
   //
   // main is the production branch and was infected three times:
   //   25 Apr -> 6 May, 12 May -> 2 Jul, 25 Aug -> 26 Aug  (~63 days total)
-  // Its tip is clean today; these remain in history.
-  ['0546fd5', '2026-03-31 Piyush Shrivastava  — master tip, 29,956-char payload'],
-  ['fe42f18', '2026-04-25 Piyush Shrivastava  — ADDED payload to main (PR #155)'],
-  ['070994b', '2026-05-12 Piyush Shrivastava  — payload transition'],
-  ['955b90c', '2026-05-12 Pritesh Singh Bhati — ADDED payload to main (PR #166)'],
-  ['9c3e56d', '2026-07-02 Pritesh Singh Bhati — removed payload from main (PR #174)'],
-  ['a95523f', '2026-08-24 Pritesh Singh Bhati — 29,956-char payload'],
-  ['f905a43', '2026-08-25 Piyush Shrivastava  — ADDED payload to main (PR #206)'],
-  ['f9d76b2', '2026-09-09 Pritesh Singh Bhati — staging tip, 37,505-char payload'],
-  ['192d482', 'pre-dates ab1e246, which removed the payload from that line'],
+  //
+  // WHAT AN ENTRY HERE MEANS, EXACTLY: this commit is known-bad, it is in
+  // history, and the content is gone at the branch tip. It is NOT a statement
+  // that the commit is harmless, and it does not suppress anything at the tip —
+  // repo-hygiene.mjs checks the working tree independently and does not consult
+  // this list. Entries stay until history is rewritten.
+  //
+  // Full 40-character SHAs, matched exactly. The 7-character prefixes this file
+  // used previously were 28 bits: short enough that a crafted commit could be
+  // made to collide with an allowlisted one, which would turn the allowlist
+  // into a way to smuggle a payload past the guard. An allowlist is the one
+  // place in this script where that matters, so it is exact-match only.
+  ['0546fd5659de8aa1a545977f9f70ee9efd79e1a4', '2026-03-31 Piyush Shrivastava  — master tip, 29,956-char payload'],
+  ['fe42f18beb25e903d2cf0c9f8b9b6a0035f8c9dc', '2026-04-25 Piyush Shrivastava  — ADDED payload to main (PR #155)'],
+  ['070994bb71334d5db4b2f1c58c6648b7b6db5659', '2026-05-12 Piyush Shrivastava  — payload transition'],
+  ['955b90ca0c5899effbd128ae55ee9474f08e517f', '2026-05-12 Pritesh Singh Bhati — ADDED payload to main (PR #166)'],
+  ['9c3e56d0504c990bb35bf2120d415441d564a793', '2026-07-02 Pritesh Singh Bhati — removed payload from main (PR #174)'],
+  ['a95523faa36c1220cf70aaa00afe8a4d56da7df8', '2026-08-24 Pritesh Singh Bhati — 29,956-char payload'],
+  ['f905a43ceb6f29f4ad88f466094c7ece996e0beb', '2026-08-25 Piyush Shrivastava  — ADDED payload to main (PR #206)'],
+  ['f9d76b225795490cb6bccbc0bf9d1b8030c69ffe', '2026-09-09 Pritesh Singh Bhati — staging tip, 37,505-char payload'],
+  ['192d482ac20eb5aca961e292526052b3ec9951e2', 'pre-dates ab1e246, which removed the payload from that line'],
+
+  // Added during the 14 Sep investigation. These two are NOT historical: they
+  // are the current tips of origin/main and origin/master, created by a force
+  // push that reverted both branches to an infected state after main had been
+  // clean for 19 days. They are allowlisted only because sec/payload-main and
+  // sec/payload-master remove the content on top of them. If either of those
+  // fixes is dropped, repo-hygiene.mjs fails on the tree — this list will not
+  // cover for it.
+  ['d27ded0271330bcc20ee099077399c403c3d5e1e', '2026-08-26 Piyush Shrivastava  — main tip after force push, 37,505-char payload'],
+  ['6fd11b84b3c38c0aae57c193a4d40c509364d5ee', '2026-09-09 Piyush Shrivastava  — master tip after force push, 37,505-char payload'],
 ]);
 
 const isKnown = (sha) => {
-  for (const prefix of KNOWN_COMPROMISED.keys()) if (sha.startsWith(prefix)) return prefix;
-  return null;
+  // Exact match only — see the note on the list above. A short-prefix match
+  // here would let a crafted SHA inherit another commit's exemption.
+  return KNOWN_COMPROMISED.has(sha) ? sha : null;
 };
 
 const problems = [];
