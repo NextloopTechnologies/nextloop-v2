@@ -1,0 +1,32 @@
+# Line endings are normalised to LF in the repository, always.
+#
+# Without this, a commit from a machine with core.autocrlf=true rewrites every
+# line of every file. That happened in September 2026: 133 files, ~43,000
+# insertions and ~43,000 deletions, and a one-line addition to .gitignore
+# travelling inside it where no reviewer could see it.
+#
+# `text=auto` lets git decide what is text; `eol=lf` fixes what goes into the
+# repository. Working copies still get native endings on checkout, so nobody's
+# editor has to change.
+* text=auto eol=lf
+
+# Binary: never touch these.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.svg text eol=lf
+*.pdf binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.mp4 binary
+*.webm binary
+
+# Generated — collapse in reviews so a lockfile churn cannot hide a real change.
+package-lock.json linguist-generated=true -diff
+src/app/(payload)/admin/importMap.js linguist-generated=true
+src/migrations/*.json linguist-generated=true -diff
