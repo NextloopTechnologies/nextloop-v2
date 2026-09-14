@@ -34,3 +34,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# Production snapshots. Contains real lead PII. Never commit.
+.seed-data/
