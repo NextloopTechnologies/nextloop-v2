@@ -1,0 +1,124 @@
+#!/usr/bin/env node
+/**
+ * Detects code injected directly into merge commits.
+ *
+ * This is the check that would have caught the actual attack on this
+ * repository, and the reason it needs to exist is worth stating precisely.
+ *
+ * A merge commit normally contains nothing of its own — every line comes from
+ * one parent or the other. Git only records content in the merge itself when a
+ * human resolved a conflict. So content in a merge commit that appears in
+ * NEITHER parent is, by definition, hand-written into the merge.
+ *
+ * That is where the payload was hidden here:
+ *
+ *   origin/staging  f9d76b2  "Merge pull request #215…"  INFECTED
+ *     parent 2240c25                                     clean
+ *     parent 8bdfd63                                     clean
+ *
+ *   origin/master   0546fd5  "Merge pull request #153…"  INFECTED
+ *     parent 2c3733e                                     clean
+ *     parent 5d1d806                                     clean
+ *
+ * It is chosen because it is invisible to ordinary review:
+ *
+ *   - `git log -S<string>` skips merge commits by default, so searching the
+ *     history for the payload finds nothing.
+ *   - GitHub's "Files changed" tab on a pull request diffs the branch against
+ *     its base. The merge commit's own content is not shown there.
+ *   - `git log -p` likewise omits merge diffs unless asked.
+ *
+ * `git show --cc` is the exception: the combined diff shows exactly the content
+ * that differs from all parents — i.e. the conflict resolution and nothing
+ * else. On an honest merge that is small and about conflicting edits. On this
+ * attack it is a 37,000-character line.
+ *
+ * So: flag merge commits whose combined diff introduces anything that looks
+ * like code rather than a plausible conflict resolution.
+ *
+ * Run:
+ *   node scripts/guard/merge-injection.mjs              # merges on HEAD not in origin/main
+ *   node scripts/guard/merge-injection.mjs <rev-range>  # explicit range
+ *   node scripts/guard/merge-injection.mjs --commit <sha>
+ */
+
+import { execFileSync } from 'node:child_process';
+
+const git = (...args) => {
+  try {
+    return execFileSync('git', args, { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 });
+  } catch {
+    return '';
+  }
+};
+
+const args = process.argv.slice(2);
+let commits;
+
+if (args[0] === '--commit') {
+  commits = [args[1]];
+} else {
+  const range = args[0] || 'origin/main..HEAD';
+  commits = git('rev-list', '--merges', range).split('\n').filter(Boolean);
+}
+
+/** Content this size in a conflict resolution is not a conflict resolution. */
+const MAX_RESOLUTION_LINE = 2000;
+const OBFUSCATION = [
+  [/_0x[0-9a-f]{4,6}/g, 'hex-named identifiers (javascript-obfuscator)'],
+  [/global\s*\[\s*['"]!['"]\s*\]/g, "global['!'] marker"],
+  [/(\\x[0-9a-fA-F]{2}){20,}/g, 'long hex-escape runs'],
+  [/createRequire\s*\(/g, 'createRequire shim in ESM'],
+  [/\beval\s*\(/g, 'eval('],
+  [/child_process/g, 'child_process'],
+];
+
+const problems = [];
+
+for (const sha of commits) {
+  // The combined diff: only content differing from ALL parents.
+  const cc = git('show', '--cc', '--no-color', '--format=', sha);
+  if (!cc.trim()) continue; // honest merge, nothing of its own
+
+  const added = cc
+    .split('\n')
+    .filter((l) => /^[+ ]{1,2}[^+ -]/.test(l) || (l.startsWith('+') && !l.startsWith('+++')))
+    .join('\n');
+
+  const subject = git('log', '-1', '--format=%s%n%an%n%ad', '--date=short', sha).split('\n');
+  const where = `${sha.slice(0, 9)}  ${subject[1] || '?'}  ${subject[2] || '?'}  ${(subject[0] || '').slice(0, 44)}`;
+
+  const reasons = [];
+
+  const longest = Math.max(...cc.split('\n').map((l) => l.length), 0);
+  if (longest > MAX_RESOLUTION_LINE) reasons.push(`a ${longest}-character line`);
+
+  for (const [rx, label] of OBFUSCATION) {
+    const n = (added.match(rx) || []).length;
+    if (n) reasons.push(`${label} ×${n}`);
+  }
+
+  if (reasons.length) {
+    const files = git('show', '--cc', '--name-only', '--format=', sha).split('\n').filter(Boolean);
+    problems.push(
+      `${where}\n      introduces, in the merge itself: ${reasons.join('; ')}\n` +
+        `      files: ${files.slice(0, 6).join(', ')}\n` +
+        `      inspect with: git show --cc ${sha.slice(0, 9)}`
+    );
+  }
+}
+
+if (problems.length === 0) {
+  console.log(`merge-injection: clean (${commits.length} merge commit(s) checked)`);
+  process.exit(0);
+}
+
+console.error('\nmerge-injection: REFUSING\n');
+problems.forEach((p) => console.error(`  - ${p}\n`));
+console.error(
+  'Content in a merge commit that is in neither parent was hand-written into\n' +
+    'the merge. It is invisible to `git log -S` and to GitHub\'s Files-changed\n' +
+    'tab, which is why this repository carried an obfuscated payload on master\n' +
+    'for 167 days. See the header of scripts/guard/merge-injection.mjs.\n'
+);
+process.exit(1);

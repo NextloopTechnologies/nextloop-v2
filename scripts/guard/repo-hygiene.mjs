@@ -119,6 +119,51 @@ if (crlf.length) {
 }
 
 // ---------------------------------------------------------------------------
+// 4. no obfuscated payloads, and no lines long enough to hide one
+//
+// The config.bat entry was the smaller half of the problem. The larger half was
+// ~37,000 characters of obfuscated JavaScript appended to a build config —
+// tailwind.config.js on two branches, next.config.mjs on a third — after the
+// closing bracket and ~150 spaces of padding, so it sat off-screen in any
+// editor without wrapping. Both files execute on every build; tailwind.config
+// also runs on every `npm run dev`.
+// ---------------------------------------------------------------------------
+const OBFUSCATION = [
+  [/_0x[0-9a-f]{4,6}/g, 'hex-named identifiers (javascript-obfuscator output)'],
+  [/global\s*\[\s*['"]!['"]\s*\]/g, "global['!'] marker"],
+  [/(\\x[0-9a-fA-F]{2}){20,}/g, 'long runs of hex escapes'],
+];
+
+/** Minified vendor bundles legitimately have long lines; our source does not. */
+const SOURCE = /\.(ts|tsx|jsx|mjs|cjs)$|(^|\/)(next|tailwind|postcss|jest|lint-staged)\.config\.[cm]?js$/i;
+const MAX_LINE = 5000;
+
+files
+  .map((f) => f.trim())
+  .filter((f) => f && SOURCE.test(f))
+  .forEach((f) => {
+    let text;
+    try {
+      text = fs.readFileSync(f, 'utf8');
+    } catch {
+      return;
+    }
+    const longest = Math.max(...text.split('\n').map((l) => l.length), 0);
+    if (longest > MAX_LINE) {
+      problems.push(
+        `${f} has a ${longest}-character line\n` +
+          '    Source files do not have lines this long. Padding a payload past\n' +
+          '    the right edge of the editor is how ~37,000 characters of\n' +
+          '    obfuscated JavaScript sat in a build config unnoticed.'
+      );
+    }
+    for (const [rx, label] of OBFUSCATION) {
+      const n = (text.match(rx) || []).length;
+      if (n > 3) problems.push(`${f} contains ${label} (×${n}) — obfuscated code does not belong in source`);
+    }
+  });
+
+// ---------------------------------------------------------------------------
 
 if (problems.length === 0) {
   console.log('repo-hygiene: clean');
