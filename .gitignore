@@ -34,4 +34,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-config.bat
+
+# Production snapshots. Contains real lead PII. Never commit.
+.seed-data/
+
+# Transfer staging for files synced from a Claude session.
+Claude outputs/
