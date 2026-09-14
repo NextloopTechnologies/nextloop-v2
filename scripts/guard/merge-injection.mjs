@@ -91,10 +91,22 @@ const OBFUSCATION = [
  * Until then it is the audit trail.
  */
 const KNOWN_COMPROMISED = new Map([
-  ['f9d76b2', 'staging tip 2026-09-09 — 37,505-char payload in tailwind.config.js; tip cleaned by 17fb1e4'],
-  ['0546fd5', 'master tip 2026-03-31 — 29,956-char payload in tailwind.config.js; NOT yet cleaned'],
-  ['f905a43', 'PR #206 merge 2026-08-25 — 29,956-char payload; inherited history'],
-  ['192d482', 'pre-dates ab1e246, which removed the payload from that line of history'],
+  // Every merge across main, staging and master whose combined diff carries a
+  // payload — or removes one. Collected by scanning all 228+ merges, not by
+  // hand, so the list is the full set rather than what happened to be noticed.
+  //
+  // main is the production branch and was infected three times:
+  //   25 Apr -> 6 May, 12 May -> 2 Jul, 25 Aug -> 26 Aug  (~63 days total)
+  // Its tip is clean today; these remain in history.
+  ['0546fd5', '2026-03-31 Piyush Shrivastava  — master tip, 29,956-char payload'],
+  ['fe42f18', '2026-04-25 Piyush Shrivastava  — ADDED payload to main (PR #155)'],
+  ['070994b', '2026-05-12 Piyush Shrivastava  — payload transition'],
+  ['955b90c', '2026-05-12 Pritesh Singh Bhati — ADDED payload to main (PR #166)'],
+  ['9c3e56d', '2026-07-02 Pritesh Singh Bhati — removed payload from main (PR #174)'],
+  ['a95523f', '2026-08-24 Pritesh Singh Bhati — 29,956-char payload'],
+  ['f905a43', '2026-08-25 Piyush Shrivastava  — ADDED payload to main (PR #206)'],
+  ['f9d76b2', '2026-09-09 Pritesh Singh Bhati — staging tip, 37,505-char payload'],
+  ['192d482', 'pre-dates ab1e246, which removed the payload from that line'],
 ]);
 
 const isKnown = (sha) => {
