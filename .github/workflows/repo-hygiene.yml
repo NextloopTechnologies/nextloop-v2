@@ -1,0 +1,30 @@
+# Runs on every push and pull request, including from forks.
+#
+# The local pre-commit hook is advisory: `git commit --no-verify` skips it, and
+# it does not run at all for anyone who has not installed husky. This workflow
+# is the copy that cannot be bypassed from a developer machine, which is the
+# whole point — the guard exists because of something that reached the remote.
+#
+# Pair this with a branch protection rule requiring this check to pass before
+# merging to staging and main, or it reports a failure nobody is obliged to act
+# on. That part has to be configured in GitHub settings; a workflow file cannot
+# grant itself authority.
+name: repo hygiene
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: No hidden executables, no line-ending rewrites
+        run: node scripts/guard/repo-hygiene.mjs

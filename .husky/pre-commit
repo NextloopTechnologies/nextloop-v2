@@ -1,6 +1,12 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+# Runs first and cheaply: refuses hidden executables, .gitignore entries that
+# conceal something that runs, and repo-wide line-ending rewrites. This is the
+# advisory copy — `--no-verify` skips it — so the same check runs in CI, where
+# it cannot be skipped. See scripts/guard/repo-hygiene.mjs.
+node scripts/guard/repo-hygiene.mjs --staged || exit 1
+
 # Disable concurent to run build-types after ESLint in lint-staged
 npx lint-staged --concurrent false
 npm test
