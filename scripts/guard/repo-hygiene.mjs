@@ -163,6 +163,36 @@ files
     }
   });
 
+
+// ---------------------------------------------------------------------------
+// 5. every build config must still PARSE
+//
+// Removing a payload is not enough — the removal has to leave a working file.
+// On two branches the payload was appended to the SAME line as the closing
+// "};" with 149 spaces between them. Deleting that line removed the brace and
+// the config stopped parsing, which shipped to staging and broke the build.
+// "the payload is gone" and "the file is valid" are different checks and both
+// are needed.
+// ---------------------------------------------------------------------------
+const PARSEABLE = /(^|\/)(next|tailwind|postcss|jest|lint-staged|babel|eslint)\.config\.[cm]?js$/i;
+
+files
+  .map((f) => f.trim())
+  .filter((f) => f && PARSEABLE.test(f) && fs.existsSync(f))
+  .forEach((f) => {
+    try {
+      execFileSync(process.execPath, ['--check', f], { stdio: 'pipe' });
+    } catch (error) {
+      const detail = String(error.stderr || error.message).split('\n').find((l) => /Error/.test(l)) || '';
+      problems.push(
+        `${f} does not parse: ${detail.trim()}\n` +
+          '    A build config that does not parse fails every build. If you just\n' +
+          '    stripped a payload out of this file, check you did not take a\n' +
+          '    closing brace with it — the payload was appended to the same line.'
+      );
+    }
+  });
+
 // ---------------------------------------------------------------------------
 
 if (problems.length === 0) {
