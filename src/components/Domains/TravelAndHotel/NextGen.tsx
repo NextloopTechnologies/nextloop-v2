@@ -7,12 +7,12 @@ import palette from '../../../styles/pallette';
 const NextGen = () => {
   return (
     <div className='bg-white py-[100px] md:mx-10'>
-      <h1
+      <h2
         className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-black font-bold text-center px-10`}
       >
         A Wide Range of Travel & Hotel Web Solutions{' '}
         <span className='text-orange-500'>— All Under One Roof</span>
-      </h1>
+      </h2>
       <div className='flex flex-col lg:flex-row gap-[20px] justify-between mx-5 mt-[30px]'>
         <Image
           src={travelandhotelAssets.nextGen1}

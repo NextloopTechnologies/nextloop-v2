@@ -2,6 +2,7 @@ import Image, { StaticImageData } from 'next/image';
 import React from 'react';
 
 import palette from '../../../styles/pallette';
+import { IconElementProps } from '../../../types';
 
 type IconLike = StaticImageData | string | React.ReactNode | React.ElementType;
 
@@ -27,7 +28,7 @@ const ToolBox: React.FC<ToolBoxProps> = ({
     >
       {/* render either an image or an icon component/element */}
       {icons &&
-        (React.isValidElement(icons) ? (
+        (React.isValidElement<IconElementProps>(icons) ? (
           React.cloneElement(icons, {
             ...icons.props,
             className: `${

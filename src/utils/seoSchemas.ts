@@ -831,7 +831,7 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
     name: 'Careers at Nextloop Technologies',
     description:
       'Explore remote-friendly tech opportunities and join our software delivery sprints.',
-    url: withSiteUrl('/career/'),
+    url: withSiteUrl('/careers/'),
     inLanguage: 'en',
     dateModified: CURRENT_DATE,
     mainEntity: {

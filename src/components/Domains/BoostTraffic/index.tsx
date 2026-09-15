@@ -65,11 +65,11 @@ export const TitleDescCard = ({
     >
       {title}
     </h4>
-    <h1
+    <p
       className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-orange-500 font-bold`}
     >
       {percentage}
-    </h1>
+    </p>
     <p
       className={`${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} text-[#BAB7B5] font-normal`}
     >
@@ -92,12 +92,12 @@ const BoostTraffic = () => {
       />
       <div className='relative z-10 w-full min-h-screen bg-black bg-opacity-85 py-12 px-4 md:py-24 md:px-8'>
         <div className='max-w-7xl mx-auto flex flex-col h-full'>
-          <h1
+          <h2
             className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center mb-16 text-white`}
           >
             Boost traffic and revenue with a full{' '}
             <span className='text-orange-500'>marketing suite</span>
-          </h1>
+          </h2>
 
           <div className='flex-grow grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr'>
             {sampleData.map((data) => (
