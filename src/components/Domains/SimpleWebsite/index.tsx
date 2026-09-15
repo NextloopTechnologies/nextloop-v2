@@ -36,10 +36,10 @@ const sampleData: ShadowCardData[] = [
 const SimpleWebsite = () => {
   return (
     <div className='flex flex-col py-[122px] mx-auto gap-[109px]'>
-      <h1 className='text-3xl mx-1 md:text-7xl uppercase max-w-[1200px] md:mx-auto font-bold text-center'>
+      <h2 className='text-3xl mx-1 md:text-7xl uppercase max-w-[1200px] md:mx-auto font-bold text-center'>
         A simple website development for{' '}
         <span className='text-orange-500'>hotels</span>
-      </h1>
+      </h2>
 
       <div className='flex flex-wrap items-center gap-5 mx-auto'>
         {sampleData.map((data) => (

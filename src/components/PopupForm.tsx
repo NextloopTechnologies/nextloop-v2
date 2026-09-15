@@ -7,7 +7,7 @@ import PhoneInput from 'react-phone-input-2';
 
 import 'react-phone-input-2/lib/style.css';
 
-import supabaseClient from '../utils/client';
+import { submitPopupForm } from '../utils/db';
 import {
   validateEmail,
   validateName,
@@ -141,14 +141,20 @@ const PopupForm: React.FC = () => {
     setLoading(true);
 
     try {
-      const { error } = await supabaseClient.from('popup_form').insert([
-        {
-          ...formData,
-          country: formData.country.trim(),
-        },
-      ]);
+      /**
+       * This used to insert straight into Supabase from the browser, and the
+       * captcha token above was checked for existence here and then thrown
+       * away — never sent anywhere, never verified. Anything that skipped this
+       * form and posted to PostgREST with the anon key was unaffected by it.
+       * The token now travels with the submission and is verified server-side.
+       */
+      const { success, msgText } = await submitPopupForm({
+        ...formData,
+        country: formData.country.trim(),
+        captchaToken,
+      });
 
-      if (error) throw new Error(error.message);
+      if (!success) throw new Error(msgText ?? 'Something went wrong.');
 
       setStatus({ msg: 'Submitted! We will contact you soon.', ok: true });
       setFormData({ name: '', email: '', service: '', phone: '', country: '' });

@@ -2,18 +2,26 @@
 
 import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import { GetServerSideProps } from 'next';
-import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { FaXTwitter } from 'react-icons/fa6';
 
 import Layout from '../../components/Layout/Layout';
+import Seo from '../../components/Seo';
+import { getBlogBySlug, listBlogs } from '../../lib/content';
+import { PREVIEW_COOKIE, readCookie, verifyPreviewToken } from '../../lib/preview';
 import { BlogIDProps, BlogType, TocItem } from '../../types';
-import supabaseClient from '../../utils/client';
+import { getBaseUrl } from '../../utils/getBaseUrl';
+import { articleSchema, breadcrumbSchema, toPlainText } from '../../utils/structuredData';
 
-const MetaRow: React.FC<{ publishedAt?: string; readTime?: number }> = ({
+/**
+ * `readTime` is nullable because the Payload adapter returns null for an unset
+ * column and getServerSideProps refuses to serialise undefined. A default
+ * parameter only fires for undefined, so null is coalesced explicitly.
+ */
+const MetaRow: React.FC<{ publishedAt?: string; readTime?: number | null }> = ({
   publishedAt,
-  readTime = 2,
+  readTime,
 }) => (
   <div className='flex flex-wrap items-center justify-center gap-4 mt-3 mb-5'>
     {publishedAt && (
@@ -51,7 +59,7 @@ const MetaRow: React.FC<{ publishedAt?: string; readTime?: number }> = ({
           <circle cx='12' cy='12' r='10' />
           <polyline points='12 6 12 12 16 14' />
         </svg>
-        {readTime} min read
+        {readTime ?? 2} min read
       </span>
     </>
   </div>
@@ -199,6 +207,17 @@ const AuthorSection: React.FC<{ blog: BlogType }> = ({ blog }) => {
 };
 // ---- Featured Blog ----
 
+/**
+ * Shown only on a previewed draft. Deliberately loud and fixed to the viewport:
+ * the failure mode worth designing against is an editor screenshotting a draft
+ * and circulating it as if it were live.
+ */
+const PreviewBanner: React.FC = () => (
+  <div className='sticky top-0 z-50 bg-amber-400 text-amber-950 text-sm font-semibold text-center px-4 py-2'>
+    Draft preview — this post is not published and is not visible to the public.
+  </div>
+);
+
 function stripHtml(html: string) {
   return html?.replace(/<[^>]*>/g, '') ?? '';
 }
@@ -216,7 +235,9 @@ const FeaturedBlogs: React.FC<{ blogs: BlogType[] }> = ({ blogs }) => {
         {blogs.map((blog) => (
           <a
             key={blog.id}
-            href={`/blog/${blog.slug}`}
+            // trailingSlash: true, so the un-slashed form costs every featured
+            // link a 308 before it reaches the page.
+            href={`/blog/${blog.slug}/`}
             className='group flex flex-col overflow-hidden rounded-lg border border-[#C8C8C8] bg-white hover:shadow-lg transition-all duration-300 no-underline'
           >
             {/* Image */}
@@ -255,7 +276,7 @@ const FeaturedBlogs: React.FC<{ blogs: BlogType[] }> = ({ blogs }) => {
   );
 };
 
-const BlogID: React.FC<BlogIDProps> = ({ data, error, featuredBlogs }) => {
+const BlogID: React.FC<BlogIDProps> = ({ data, error, preview = false, featuredBlogs }) => {
   const [tocItems, setTocItems] = useState<TocItem[]>([]);
   const [activeId, setActiveId] = useState('');
   const [processedHtml, setProcessedHtml] = useState('');
@@ -332,27 +353,45 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error, featuredBlogs }) => {
       })
     : undefined;
 
+  // meta_title / meta_description / canonical_url already exist on the blogs
+  // table. Until now the page rendered none of them and shipped an empty
+  // <title>, so every post was invisible in search results.
+  const blogUrl = `${getBaseUrl()}/blog/${data.slug ?? ''}/`;
+  const metaTitle = data.meta_title?.trim() || `${data.title} | Nextloop Technologies`;
+  const metaDescription =
+    data.meta_description?.trim() || toPlainText(data.descp, 158);
+  const coverImage = data.image?.[0]?.url;
+
   return (
     <Layout headerColor='text-black'>
-      <Head>
-        <title>
-          {data?.meta_title ||
-            data?.title ||
-            'Read Nextloop’s software development blogs to get useful technology-based insights'}
-        </title>
-
-        <meta
-          name='description'
-          content={
-            data?.meta_description ||
-            'Discover expert advice through Nextloop Technologies IT consulting blogs. We cover strategies for technology and information management to help your business grow and succeed.'
-          }
-        />
-
-        {data?.meta_keywords && data.meta_keywords.length > 0 && (
-          <meta name='keywords' content={data.meta_keywords.join(', ')} />
-        )}
-      </Head>
+      {preview && <PreviewBanner />}
+      <Seo
+        noindex={preview}
+        title={metaTitle}
+        description={metaDescription}
+        image={coverImage}
+        canonical={data.canonical_url?.trim() || undefined}
+        type='article'
+        publishedTime={data.created_at}
+        modifiedTime={data.updated_at ?? data.created_at}
+        author={data.author?.name ?? undefined}
+        jsonLd={[
+          articleSchema({
+            title: data.title,
+            description: metaDescription,
+            url: blogUrl,
+            image: coverImage,
+            datePublished: data.created_at,
+            dateModified: data.updated_at ?? data.created_at,
+            authorName: data.author?.name ?? undefined,
+          }),
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Blogs', path: '/blog/' },
+            { name: data.title, path: `/blog/${data.slug ?? ''}/` },
+          ]),
+        ]}
+      />
       <div className='bg-white min-h-screen pb-16  lg:mt-11'>
         <div className='max-w-4xl mx-auto px-4 pt-8 text-center'>
           {/* Category Badge */}
@@ -394,7 +433,13 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error, featuredBlogs }) => {
           </div>
 
           <div className='flex-1 min-w-0'>
-            <div className='ql-snow'>
+            {/*
+              Tables come out of the editor at their natural width, which on a
+              phone is wider than the article column and would otherwise push
+              the whole page sideways. Scoping the scroll to the table itself
+              (rather than the body) keeps paragraphs wrapping normally.
+            */}
+            <div className='ql-snow [&_table]:block [&_table]:overflow-x-auto [&_table]:max-w-full'>
               <div
                 className='ql-editor !p-0 prose prose-sm md:prose-base max-w-none
                 [&_p]:!my-4
@@ -407,7 +452,11 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error, featuredBlogs }) => {
                  prose-blockquote:border-blue-500 prose-blockquote:bg-blue-50
                  prose-code:bg-gray-100 prose-code:px-1 prose-code:rounded
                  prose-pre:bg-slate-800 prose-pre:text-gray-100
-                 prose-img:rounded-lg prose-img:shadow-md'
+                 prose-img:rounded-lg prose-img:shadow-md
+                 prose-table:w-full prose-th:bg-gray-50 prose-th:text-left
+                 prose-th:px-3 prose-th:py-2 prose-td:px-3 prose-td:py-2
+                 prose-th:border prose-td:border prose-th:border-gray-200
+                 prose-td:border-gray-200'
                 dangerouslySetInnerHTML={{
                   __html: processedHtml || data.descp,
                 }}
@@ -425,30 +474,59 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error, featuredBlogs }) => {
 
 export default BlogID;
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  const { data, error } = await supabaseClient
-    .from('blogs')
-    .select('*,author(*), categories(*)')
-    .eq('status', 'published')
-    .filter('slug', 'eq', params?.slug)
-    .single();
+export const getServerSideProps: GetServerSideProps = async ({ params, req, res }) => {
+  const slug = typeof params?.slug === 'string' ? params.slug : '';
+  if (!slug) return { notFound: true };
 
-  if (error) {
-    return { props: { error: error.message } };
+  // The token is scoped to one slug and signed, so this is the only thing that
+  // can lift the published filter — and only for the post it was minted for.
+  const preview = verifyPreviewToken(
+    readCookie(req.headers.cookie, PREVIEW_COOKIE),
+    slug
+  );
+
+  if (preview) {
+    // Belt and braces alongside the noindex meta tag: a header cannot be
+    // stripped by a proxy that rewrites HTML, and it also stops the response
+    // being cached by anything in front of the app.
+    res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+    res.setHeader('Cache-Control', 'private, no-store, max-age=0');
   }
-  let featuredBlogs: BlogType[] = [];
-  if (data?.featured_blogs?.length) {
-    const { data: fb } = await supabaseClient
-      .from('blogs')
-      .select('id, title, slug, image, descp, created_at')
-      .in('id', data.featured_blogs)
-      .eq('status', 'published');
-    featuredBlogs = (fb ?? []) as BlogType[];
+
+  try {
+    // A missing slug used to return HTTP 200 with the raw PostgREST message
+    // ("JSON object requested, multiple (or no) rows returned") rendered on the
+    // page — a soft 404 that let Google index unlimited junk URLs. Missing is
+    // now `null` and 404s; only a genuine failure reaches the catch, because a
+    // database outage must not deindex every article on the site.
+    const data = await getBlogBySlug(slug, preview);
+    if (!data) return { notFound: true };
+
+    /**
+     * Featured blogs (from staging) read through the seam, not through
+     * supabaseClient directly. The original went straight to Supabase, which
+     * would have kept this one query pointed at the old database after
+     * CONTENT_SOURCE flips to payload — a single un-migrated read hiding inside
+     * an otherwise migrated page. listBlogs() already filters to published.
+     */
+    let featuredBlogs: BlogType[] = [];
+    const featuredIds = data.featured_blogs;
+    if (featuredIds?.length) {
+      const all = await listBlogs();
+      const wanted = new Set(featuredIds.map(Number));
+      featuredBlogs = all.filter((b) => wanted.has(Number(b.id)));
+    }
+
+    // A published post reached through a preview cookie is just a normal page
+    // view — the banner and noindex belong to drafts, not to the cookie.
+    return {
+      props: {
+        data,
+        featuredBlogs,
+        preview: preview && data.status !== 'published',
+      },
+    };
+  } catch {
+    return { props: { error: 'Unable to load this article.' } };
   }
-  return {
-    props: {
-      data: data ?? null,
-      featuredBlogs,
-    },
-  };
 };

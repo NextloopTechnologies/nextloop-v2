@@ -3,6 +3,8 @@ import Link from 'next/link';
 import React from 'react';
 import { BiRightArrowAlt } from 'react-icons/bi';
 
+import { IconElementProps } from '../types';
+
 type ImageLike = string | StaticImageData | React.ReactNode | React.ElementType;
 
 interface ProductCardProps {
@@ -21,7 +23,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   <Link href={link} className='block group relative w-full h-full'>
     <div className='relative h-96'>
       {/* support image or icon */}
-      {React.isValidElement(image) ? (
+      {React.isValidElement<IconElementProps>(image) ? (
         React.cloneElement(image, {
           ...image.props,
           className: `${

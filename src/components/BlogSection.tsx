@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useRouter } from 'next/router';
+import Link from 'next/link';
 import React from 'react';
 import { BiRightArrowAlt } from 'react-icons/bi';
 
@@ -21,9 +21,15 @@ interface BlogSectionProps {
   blogData: BlogItem[];
 }
 
+/**
+ * These cards were `<div onClick={router.push(...)}>`. That is not a link:
+ * a crawler sees no href, so ten service pages were passing exactly zero
+ * internal link equity to the blog; keyboard users could not reach them; and
+ * nobody could middle-click one open. `next/link` fixes all three and keeps the
+ * styling. The href carries the trailing slash `next.config.mjs` enforces —
+ * router.push without it cost every click a redirect.
+ */
 const BlogSection: React.FC<BlogSectionProps> = ({ blogData }) => {
-  const router = useRouter();
-
   return (
     <section className='flex flex-col py-16 px-4 md:px-10 text-center'>
       <h2 className='text-3xl md:text-4xl font-bold'>
@@ -32,13 +38,16 @@ const BlogSection: React.FC<BlogSectionProps> = ({ blogData }) => {
       <div className='grid md:grid-cols-3 gap-6 mt-10'>
         {blogData?.map((blog) => {
           const imageUrl = blog.image?.[0]?.url || '/fallback-image.jpg'; // fallback if image missing
-          const shortDesc = stripHtml(blog.descp).slice(0, 150) + '...'; // short preview
+          const plain = stripHtml(blog.descp);
+          // Was unconditional: an empty body rendered a card whose text was
+          // just "...".
+          const shortDesc = plain.length > 150 ? `${plain.slice(0, 150)}...` : plain;
 
           return (
-            <div
+            <Link
               key={blog.id}
-              className='bg-white rounded-lg shadow-md p-4 border cursor-pointer flex flex-col h-full'
-              onClick={() => router.push(`/blog/${blog.slug}`)}
+              href={`/blog/${blog.slug}/`}
+              className='bg-white rounded-lg shadow-md p-4 border cursor-pointer flex flex-col h-full text-left'
             >
               <div className='relative w-full aspect-[16/9] mb-4'>
                 <Image
@@ -60,7 +69,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ blogData }) => {
                   Learn More <BiRightArrowAlt className='ml-1' />
                 </span>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>

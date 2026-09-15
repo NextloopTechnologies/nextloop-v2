@@ -34,6 +34,8 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-
-# Production snapshots. Contains real lead PII. Never commit.
+# Production snapshots for seeding a test Payload instance. Contains real
+# lead PII when exported with --with-pii. Never commit.
 .seed-data/
+# Transfer staging for files synced from a Claude session. Never source.
+Claude outputs/

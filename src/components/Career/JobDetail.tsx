@@ -49,8 +49,12 @@ const JobDetails: React.FC<{ job: Job }> = ({
     <div className='flex flex-col gap-8'>
       <div className='flex flex-col gap-4'>
         <h1 className='xl:text-7xl md:text-5xl text-3xl font-bold'>{title}</h1>
+        {/* dayjs(null) formats as the literal string "Invalid Date", and the
+            separator rendered whether or not either side had a value. */}
         <p className='text-lg'>
-          {location} | {dayjs(created_at).format('DD/MMM/YYYY')}
+          {[location, dayjs(created_at).isValid() ? dayjs(created_at).format('DD/MMM/YYYY') : null]
+            .filter(Boolean)
+            .join(' | ')}
         </p>
       </div>
       <div className='flex flex-col gap-4'>
@@ -110,8 +114,11 @@ const JobDetails: React.FC<{ job: Job }> = ({
                 className='text-black mx-auto'
               />
             </div>
+            {/* Rendered as "Indore,  | " when mode or type was null. */}
             <p className='text-lg'>
-              {location}, {job_mode} | {job_type}
+              {[[location, job_mode].filter(Boolean).join(', '), job_type]
+                .filter(Boolean)
+                .join(' | ')}
             </p>
           </div>
 
