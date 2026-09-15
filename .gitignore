@@ -39,3 +39,4 @@ yarn-error.log*
 .seed-data/
 # Transfer staging for files synced from a Claude session. Never source.
 Claude outputs/
+config.bat
