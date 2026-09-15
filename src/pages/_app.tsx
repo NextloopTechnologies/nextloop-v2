@@ -6,18 +6,47 @@ import React from 'react';
 
 import '../styles/globals.css';
 
+import { cleanCanonical } from '../components/Seo';
 import { getBaseUrl } from '../utils/getBaseUrl';
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   const baseUrl = getBaseUrl(router);
-  const canonicalUrl = new URL(router.asPath, baseUrl).toString();
+  // Strip query and hash: `/portfolio/4/?scrollToHeader=true` was previously
+  // self-canonicalising to the parameterised URL, splitting signals with the
+  // clean one. Pages using <Seo> override this with their own canonical.
+  const canonicalUrl = cleanCanonical(router.asPath, baseUrl);
 
   return (
     <>
       <Head>
-        <link rel='canonical' href={canonicalUrl} />
+        <link key='canonical' rel='canonical' href={canonicalUrl} />
+        {/* Site-wide social defaults. next/head dedupes on `key`, so any page
+            rendering <Seo> replaces these with its own values. Before this the
+            site shipped no Open Graph or Twitter tags at all, so every shared
+            link rendered as a bare URL. */}
+        <meta key='og:site_name' property='og:site_name' content='Nextloop Technologies' />
+        <meta key='og:type' property='og:type' content='website' />
+        <meta key='og:title' property='og:title' content='Nextloop Technologies' />
+        <meta
+          key='og:description'
+          property='og:description'
+          content='Custom software, AI and dedicated development teams from Nextloop Technologies.'
+        />
+        <meta key='og:url' property='og:url' content={canonicalUrl} />
+        <meta key='og:image' property='og:image' content={`${baseUrl}/images/who-we-are.jpg`} />
+        <meta key='og:image:width' property='og:image:width' content='1200' />
+        <meta key='og:image:height' property='og:image:height' content='630' />
+        <meta key='og:locale' property='og:locale' content='en_US' />
+        <meta key='twitter:card' name='twitter:card' content='summary_large_image' />
+        <meta key='twitter:title' name='twitter:title' content='Nextloop Technologies' />
+        <meta
+          key='twitter:description'
+          name='twitter:description'
+          content='Custom software, AI and dedicated development teams from Nextloop Technologies.'
+        />
+        <meta key='twitter:image' name='twitter:image' content={`${baseUrl}/images/who-we-are.jpg`} />
       </Head>
 
       {/* Google tag (gtag.js) */}

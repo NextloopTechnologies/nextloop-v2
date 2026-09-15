@@ -1,31 +1,58 @@
+# robots.txt has no inheritance: a crawler obeys the single most specific group
+# that matches it and ignores every other group entirely. The named groups below
+# previously carried only "Allow: /", so the Disallow rules in the "*" group did
+# not apply to Googlebot, Bingbot or any of the AI crawlers — all of them were
+# free to crawl /admin/. Each group now repeats the rules it needs.
+
 User-agent: Googlebot
 Allow: /
+Disallow: /admin/
+Disallow: /config/
+Disallow: /api/private/
 
 User-agent: Bingbot
 Allow: /
+Disallow: /admin/
+Disallow: /config/
+Disallow: /api/private/
 
 User-agent: GPTBot
 Allow: /
 Allow: /llm.txt
 Allow: /llm-full.txt
+Disallow: /admin/
+Disallow: /config/
+Disallow: /api/private/
 
 User-agent: PerplexityBot
 Allow: /
 Allow: /llm.txt
 Allow: /llm-full.txt
+Disallow: /admin/
+Disallow: /config/
+Disallow: /api/private/
 
 User-agent: ClaudeBot
 Allow: /
 Allow: /llm.txt
 Allow: /llm-full.txt
+Disallow: /admin/
+Disallow: /config/
+Disallow: /api/private/
 
 User-agent: ChatGPT-User
 Allow: /
 Allow: /llm.txt
 Allow: /llm-full.txt
+Disallow: /admin/
+Disallow: /config/
+Disallow: /api/private/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /admin/
+Disallow: /config/
+Disallow: /api/private/
 
 User-agent: CCBot
 Disallow: /
@@ -34,8 +61,14 @@ User-agent: *
 Allow: /
 Allow: /llm.txt
 Allow: /llm-full.txt
-
 Disallow: /admin/
 Disallow: /config/
 Disallow: /api/private/
+
+# /get-offer/specialoffers/ is deliberately NOT disallowed. It carries applicant
+# details in the query string and must stay out of the index, which is done with
+# a noindex meta tag — a crawler blocked from fetching the page can never see
+# that tag, so blocking it here would keep the URL indexable, not remove it.
+
 Sitemap: https://www.nextlooptechnologies.com/sitemap.xml
+Sitemap: https://www.nextlooptechnologies.com/sitemap-jobs.xml

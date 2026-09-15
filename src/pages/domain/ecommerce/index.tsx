@@ -15,39 +15,37 @@ import palette from '../../../styles/pallette';
 import { IFAQ } from '../../../types';
 import { getStaticImageData } from '../../../utils/helper';
 
+/**
+ * Every component on this page was imported with `{ ssr: false }` — the hero and
+ * the Layout included. The server therefore sent 695 characters of HTML, which
+ * was the nav and nothing else, while /domain/fintech/ builds from the same
+ * components and sends 10,315. The audit recorded this page as "zero H1"; the
+ * missing H1 was the visible symptom of the entire page being invisible to a
+ * crawler.
+ *
+ * `dynamic()` without that flag still code-splits. It just also renders.
+ */
 const BoostTraffic = dynamic(
-  () => import('../../../components/Domains/BoostTraffic'),
-  { ssr: false }
+  () => import('../../../components/Domains/BoostTraffic')
 );
 const CustomRequestQuote = dynamic(
-  () => import('../../../components/Domains/CustomRequestQuote'),
-  { ssr: false }
+  () => import('../../../components/Domains/CustomRequestQuote')
 );
 const EnrollForWebsite = dynamic(
-  () => import('../../../components/Domains/EnrollForWebsite'),
-  { ssr: false }
+  () => import('../../../components/Domains/EnrollForWebsite')
 );
-const FAQ = dynamic(() => import('../../../components/Domains/FAQ'), {
-  ssr: false,
-});
+const FAQ = dynamic(() => import('../../../components/Domains/FAQ'));
 const ProductServices = dynamic(
-  () => import('../../../components/Domains/ProductServices'),
-  { ssr: false }
+  () => import('../../../components/Domains/ProductServices')
 );
 const SellEverywhere = dynamic(
-  () => import('../../../components/Domains/SellEverywhere'),
-  { ssr: false }
+  () => import('../../../components/Domains/SellEverywhere')
 );
-const WhatWeDo = dynamic(() => import('../../../components/Domains/WhatWeDo'), {
-  ssr: false,
-});
-const WhyBuild = dynamic(() => import('../../../components/Domains/WhyBuild'), {
-  ssr: false,
-});
+const WhatWeDo = dynamic(() => import('../../../components/Domains/WhatWeDo'));
+const WhyBuild = dynamic(() => import('../../../components/Domains/WhyBuild'));
 
 const CustomPageHero = dynamic(
-  () => import('../../../components/CustomPageHero/CustomPageHero'),
-  { ssr: false }
+  () => import('../../../components/CustomPageHero/CustomPageHero')
 );
 
 const sampleData = [
@@ -219,12 +217,12 @@ const Ecommerce = () => {
           imageClassname='w-[450px] h-[450px]'
           data={sampleData}
           titleElement={
-            <h1
+            <h2
               className={` ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center md:max-w-[950px] max-w-[350px] mx-auto`}
             >
               One <span className='text-orange-500'>dashboard</span> for total
               business control
-            </h1>
+            </h2>
           }
         />
         <SellEverywhere />
@@ -232,12 +230,12 @@ const Ecommerce = () => {
 
         <ProductServices
           title={
-            <h1
+            <h2
               className={`text-black ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} uppercase font-bold text-center max-w-[1306px]`}
             >
               sell your <span className='text-orange-500'>own products</span> or
               find products to sell
-            </h1>
+            </h2>
           }
           data={productServiceContent}
         />

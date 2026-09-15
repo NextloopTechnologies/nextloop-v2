@@ -86,10 +86,10 @@ const EnrollForWebsite = ({
       />
       <div className='flex flex-col py-10 md:py-20 gap-5 z-[2] items-center justify-center'>
         {titleElement || (
-          <h1 className='text-3xl md:text-7xl uppercase font-bold text-center max-w-[1400px] mx-auto'>
+          <h2 className='text-3xl md:text-7xl uppercase font-bold text-center max-w-[1400px] mx-auto'>
             Enroll for website development to boost your hotel's most{' '}
             <span className='text-orange-500'>profitable channel</span>
-          </h1>
+          </h2>
         )}
 
         <div className='grid w-full max-w-7xl grid-cols-1 items-center gap-8 px-4 md:grid-cols-2 md:px-6 lg:px-10'>

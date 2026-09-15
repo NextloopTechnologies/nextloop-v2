@@ -46,12 +46,12 @@ const content: { title: string; descp: string; icon: StaticImageData }[] = [
 
 const FlourishBusiness = () => (
   <div className=' relative bg-[#010103]'>
-    <h1
+    <h2
       className={` text-white ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop}  font-bold text-center py-14 px-10`}
     >
       Elevate Your Travel & Hospitality Brand{' '}
       <span className='text-orange-500'>with Nextloop Technologies</span>
-    </h1>
+    </h2>
     <div className='relative w-full'>
       <Image
         className='absolute inset-0 w-full object-cover z-[1]'
