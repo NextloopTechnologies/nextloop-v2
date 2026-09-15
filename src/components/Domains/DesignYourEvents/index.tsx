@@ -86,12 +86,12 @@ export const Card = ({
 const DesignYourEvents = () => {
   return (
     <div className='flex flex-col py-[50px] mx-auto gap-[10px]'>
-      <h1
+      <h2
         className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold text-center mx-10`}
       >
         Design your Events Website the Way{' '}
         <span className='text-orange-500'>you Want</span>
-      </h1>
+      </h2>
 
       <div className='grid gap-10 mx-auto grid-cols-1 lg:grid-cols-3 md:grid-cols-2'>
         {sampleData.map((data) => (

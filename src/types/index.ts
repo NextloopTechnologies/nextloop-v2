@@ -14,6 +14,19 @@ export type ImageLike =
   | React.ReactNode
   | React.ElementType;
 
+/**
+ * Props cloned onto an icon element supplied as an `ImageLike`.
+ *
+ * React 19's `@types/react` types `ReactElement.props` as `unknown` rather than
+ * `any`, so `React.isValidElement` needs this type argument before the element's
+ * props can be spread or read.
+ */
+export type IconElementProps = {
+  className?: string;
+  size?: string | number;
+  color?: string;
+};
+
 export type TechKey = 'react' | 'aws' | 'angular' | 'python';
 
 // ---------------------------------------------------------------------------
@@ -43,10 +56,23 @@ export interface BlogType {
   updated_at: string;
   slug?: string | null;
   service?: string | null;
-  categories?: CategoryType;
+  categories?: CategoryType | null;
   category_id?: number | null;
-  author?: AuthorType;
+  author?: AuthorType | null;
   author_id?: number | null;
+  /**
+   * SEO columns that have existed in production all along but were never
+   * rendered — blog posts shipped with no title or description at all.
+   */
+  meta_title?: string | null;
+  meta_description?: string | null;
+  meta_keywords?: string[] | null;
+  canonical_url?: string | null;
+  tags?: string[] | null;
+  read_time?: number | null;
+  status?: 'draft' | 'published';
+  /** From staging: drives the featured blog section on the listing page. */
+  featured_blogs?: number[] | null;
 }
 
 /** Lightweight blog card data returned by fetchLatestBlogs */
@@ -69,6 +95,9 @@ export interface TocItem {
 export interface BlogIDProps {
   data?: BlogType;
   error?: string;
+  /** True only when a verified preview token let an unpublished post through. */
+  preview?: boolean;
+  featuredBlogs?: BlogType[];
 }
 
 // ---------------------------------------------------------------------------

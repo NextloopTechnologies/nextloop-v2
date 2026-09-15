@@ -80,12 +80,12 @@ const Benefits: React.FC = () => {
   return (
     <div className='bg-white w-full'>
       <div className='flex flex-col text-center items-center'>
-        <h1
+        <h2
           className={`text-black ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} font-bold text-center mb-10`}
         >
           The Benefits of Custom{' '}
           <span className='text-orange-500'>Fintech Software Development</span>
-        </h1>
+        </h2>
         <p
           className={`text-black ${palette.fontSize.description.mobile} md:${palette.fontSize.description.desktop} xl:mx-[150px] mx-10 md:mb-24 mb-10`}
         >

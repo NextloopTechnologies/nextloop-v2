@@ -6,9 +6,10 @@ import Head from 'next/head';
 import React, { useEffect, useRef, useState } from 'react';
 
 import { getSchemaMarkup } from '../utils/seoSchemas';
-const ClientSays = dynamic(() => import('../components/ClientSays'), {
-  ssr: false,
-});
+// Was `{ ssr: false }`: the testimonials never reached the HTML, so the one
+// piece of social proof on the homepage was invisible to crawlers and to
+// anything reading the page without running JavaScript. Still code-split.
+const ClientSays = dynamic(() => import('../components/ClientSays'));
 import Intro from '../components/Intro';
 import Layout from '../components/Layout/Layout';
 import OurCLient from '../components/OurClinet';
@@ -114,15 +115,22 @@ const Home: React.FC = () => {
 
   const scrollToNext = () => {
     if (visibleDiv) {
-      const currentIndex = divRefs.current.findIndex(
-        (div) => div?.id === visibleDiv
+      const validDivs = divRefs.current.filter(
+        (div): div is HTMLDivElement => !!div
       );
-      if (currentIndex >= 0 && currentIndex < divRefs.current.length - 1) {
-        const nextDiv = divRefs.current[currentIndex + 1];
+      const currentIndex = validDivs.findIndex((div) => div?.id === visibleDiv);
+      if (currentIndex >= 0 && currentIndex < validDivs.length - 1) {
+        const nextDiv = validDivs[currentIndex + 1];
         if (nextDiv) {
           nextDiv.scrollIntoView({ behavior: 'smooth' });
+          return;
         }
       }
+      // scroll to bottom of the page
+      window?.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: 'smooth',
+      });
     }
   };
 
@@ -138,11 +146,6 @@ const Home: React.FC = () => {
         <title>
           IT Staff Augmentation | Custom Software Solutions | AI Remote Teams
         </title>
-
-        <meta
-          name='title'
-          content='IT Staff Augmentation | Custom Software Solutions | AI Remote Teams'
-        />
 
         <meta
           name='description'

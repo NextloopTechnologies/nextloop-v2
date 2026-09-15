@@ -34,11 +34,11 @@ const OurExpertise = () => {
   return (
     <div className=' bg-white flex'>
       <div className='flex flex-col text-center items-center'>
-        <h1
+        <h2
           className={`font-bold sm:text-4xl w-full mb-[45px] ${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop}`}
         >
           Our expertise Your <span className='text-orange-500'>Success!</span>
-        </h1>
+        </h2>
 
         <p
           className={`xl:mx-[150px] mx-10 ${palette.fontSize.subtitle.mobile} md:${palette.fontSize.subtitle.desktop}`}

@@ -20,8 +20,8 @@ const StaffingTable = ({ data }: StaffingTableProps) => {
       </h2>
       <p className='text-gray-400 mt-4 mb-12'>{headingData.description}</p>
 
-      <div className='w-[80%] flex justify-center'>
-        <div className='w-full max-w-7xl overflow-hidden border border-gray-500 shadow-sm'>
+      <div className='w-full md:w-[80%] flex justify-center'>
+        <div className='w-full max-w-7xl overflow-x-auto border border-gray-500 shadow-sm'>
           <table className='w-full border-collapse'>
             <thead>
               <tr className='bg-orange-500'>
