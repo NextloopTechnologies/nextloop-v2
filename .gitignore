@@ -39,3 +39,8 @@ yarn-error.log*
 .seed-data/
 # Transfer staging for files synced from a Claude session. Never source.
 Claude outputs/
+
+# Migration checkpoint. Ids only, no PII — but it is machine state,
+# not source, and committing it would make a resumed run skip rows
+# on someone else's machine.
+.migrate-state.json

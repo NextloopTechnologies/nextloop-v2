@@ -29,7 +29,9 @@
     "migrate": "payload migrate",
     "migrate:status": "payload migrate:status",
     "migrate:create": "payload migrate:create",
-    "vercel-build": "payload generate:importmap && payload migrate && next build"
+    "vercel-build": "payload generate:importmap && payload migrate && next build",
+    "migrate:data": "npx tsx --env-file=.env.local scripts/migrate/migrate.mts",
+    "migrate:verify": "npx tsx --env-file=.env.local scripts/migrate/verify.mts"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.88.0",
