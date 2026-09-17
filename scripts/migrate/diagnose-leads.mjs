@@ -103,9 +103,9 @@ submissions carry blank required fields and addresses that are not addresses.
 
 Three options, and it is a judgement call, not a technical one:
 
-  relax      drop `required` on the fields that historical data does not have,
-             and change `email` to `text`. Everything migrates. You lose
-             validation on new submissions too, which is how the mess started.
+  relax      drop "required" on the fields that historical data does not have,
+             and change the "email" type to "text". Everything migrates. You
+             lose validation on new submissions too, which is how this started.
   repair     fix the rows in the source before migrating. Right for a handful,
              not for hundreds.
   quarantine keep the constraints, migrate what passes, and export the rest to
