@@ -112,26 +112,61 @@ for (const { table, collection } of PAIRS) {
 
 console.log('\nreferences — relationships that should point somewhere\n');
 
-const REFS: { collection: string; field: string; why: string }[] = [
-  { collection: 'blogs', field: 'author', why: 'a post with no author renders a blank byline' },
-  { collection: 'blogs', field: 'category', why: 'an uncategorised post drops out of category listings' },
-  { collection: 'applied-jobs', field: 'job', why: 'an application not attached to a posting is unactionable' },
-  { collection: 'offer-applications', field: 'offer', why: 'same, for offers' },
+/**
+ * `sourceColumn` is what makes this check meaningful.
+ *
+ * The first version counted Payload documents with an empty relationship and
+ * called every one a problem. It reported "blogs.category: 6 of 6 missing",
+ * which read as total data loss — and was wrong: six of the seven source rows
+ * have category_id NULL. The migration had dropped nothing.
+ *
+ * A relationship is only missing if the SOURCE had one. So each check now asks
+ * the source how many rows carry the foreign key, and compares against that.
+ */
+const REFS: { collection: string; field: string; table: string; sourceColumn: string; why: string }[] = [
+  { collection: 'blogs', field: 'author', table: 'blogs', sourceColumn: 'author_id', why: 'a post with no author renders a blank byline' },
+  { collection: 'blogs', field: 'category', table: 'blogs', sourceColumn: 'category_id', why: 'an uncategorised post drops out of category listings' },
+  { collection: 'applied-jobs', field: 'job', table: 'applied_jobs', sourceColumn: 'job_id', why: 'an application not attached to a posting is unactionable' },
+  { collection: 'offer-applications', field: 'offer', table: 'offer_applications', sourceColumn: 'offer_id', why: 'same, for offers' },
 ];
 
-for (const { collection, field, why } of REFS) {
-  const { totalDocs: total } = await payload.count({ collection: collection as never });
-  const { totalDocs: missing } = await payload.count({
-    collection: collection as never,
-    where: { [field]: { exists: false } } as never,
+const sourceNonNull = async (table: string, column: string): Promise<number> => {
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}?select=id&${column}=not.is.null`, {
+    headers: { ...headers, Prefer: 'count=exact', Range: '0-0' },
   });
-  const pct = total ? ((missing / total) * 100).toFixed(1) : '0.0';
+  const total = (res.headers.get('content-range') ?? '').split('/')[1];
+  return total && total !== '*' ? Number(total) : -1;
+};
+
+for (const { collection, field, table, sourceColumn, why } of REFS) {
+  const { totalDocs: total } = await payload.count({ collection: collection as never });
+  const { totalDocs: resolved } = await payload.count({
+    collection: collection as never,
+    where: { [field]: { exists: true } } as never,
+  });
+  const expected = await sourceNonNull(table, sourceColumn);
   const label = `${collection}.${field}`;
-  if (missing === 0) {
-    console.log(`  ${label.padEnd(32)} all ${total} resolve`);
+
+  if (total === 0) {
+    console.log(`  ${label.padEnd(32)} nothing migrated yet`);
+    continue;
+  }
+  if (expected < 0) {
+    console.log(`  ${label.padEnd(32)} ${resolved}/${total} resolve (source count unavailable)`);
+    notes.push(`${label}: could not read the source to know how many should resolve`);
+    continue;
+  }
+  // Fewer documents than source rows is a count problem, reported above; scale
+  // the expectation so a partial migration is not also flagged here.
+  const expectedHere = Math.min(expected, total);
+  if (resolved >= expectedHere) {
+    const blank = total - resolved;
+    const because = blank ? ` (${blank} blank, and ${blank} source rows have no ${sourceColumn})` : '';
+    console.log(`  ${label.padEnd(32)} all ${expectedHere} that should resolve, do${because}`);
   } else {
-    console.log(`  ${label.padEnd(32)} ${missing}/${total} MISSING (${pct}%) — ${why}`);
-    problems.push(`${label}: ${missing} of ${total} documents have no target`);
+    const lost = expectedHere - resolved;
+    console.log(`  ${label.padEnd(32)} ${lost} LOST — source has ${expected} with ${sourceColumn}, only ${resolved} resolve — ${why}`);
+    problems.push(`${label}: ${lost} relationships present in the source did not survive`);
   }
 }
 
