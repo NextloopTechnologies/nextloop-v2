@@ -144,6 +144,29 @@ for (const { table, collection } of PAIRS) {
 
   let repaired = 0, already = 0, undated = 0, missing = 0, failed = 0;
 
+  /**
+   * Read every document's current createdAt in one pass.
+   *
+   * This did a findByID per row to decide whether a repair was needed — two
+   * network round trips per row instead of one, across 7,500 rows, against a
+   * pooler that measures about 1.4 writes a second. It made the run take three
+   * hours, and it made the DRY RUN take an hour and a half, which is a
+   * ridiculous price for a preview that writes nothing.
+   *
+   * Paging the collection is the same information in roughly fifteen calls.
+   */
+  const current = new Map<string, unknown>();
+  for (let page = 1; ; page++) {
+    const res = (await payload.find({
+      collection: collection as never,
+      limit: 500,
+      page,
+      depth: 0,
+    })) as { docs: Record<string, unknown>[]; hasNextPage?: boolean };
+    for (const d of res.docs) current.set(String(d.id), d.createdAt);
+    if (!res.hasNextPage || !res.docs.length) break;
+  }
+
   for (const row of rows) {
     const docId = map[String(row.id)];
     if (docId === undefined) { missing++; continue; }
@@ -151,21 +174,10 @@ for (const { table, collection } of PAIRS) {
     const when = rowDate(row);
     if (!when) { undated++; continue; }
 
+    if (!current.has(String(docId))) { missing++; continue; }
     totals.checked++;
 
-    let current: Record<string, unknown>;
-    try {
-      current = (await payload.findByID({
-        collection: collection as never,
-        id: docId as string | number,
-        depth: 0,
-      })) as Record<string, unknown>;
-    } catch {
-      missing++;
-      continue;
-    }
-
-    if (sameDay(current.createdAt, when)) { already++; continue; }
+    if (sameDay(current.get(String(docId)), when)) { already++; continue; }
     if (DRY) { repaired++; continue; }
 
     try {
