@@ -156,9 +156,17 @@ for (const { collection, field, table, sourceColumn, why } of REFS) {
     notes.push(`${label}: could not read the source to know how many should resolve`);
     continue;
   }
-  // Fewer documents than source rows is a count problem, reported above; scale
-  // the expectation so a partial migration is not also flagged here.
-  const expectedHere = Math.min(expected, total);
+  /**
+   * Discount rows that never got written.
+   *
+   * A row that failed to migrate cannot have a relationship in Payload, and it
+   * is already counted as a count mismatch. Without this, the same five failed
+   * offer_applications were reported twice — once as missing documents and
+   * again as lost relationships — which reads as ten problems and sends you
+   * looking for a second cause that does not exist.
+   */
+  const notWritten = Math.max(0, (await sourceCount(table)) - total);
+  const expectedHere = Math.max(0, Math.min(expected, total) - Math.min(expected, notWritten));
   if (resolved >= expectedHere) {
     const blank = total - resolved;
     const because = blank ? ` (${blank} blank, and ${blank} source rows have no ${sourceColumn})` : '';
@@ -297,13 +305,38 @@ if (existsSync(STATE_FILE)) {
   const done = state.done ?? {};
   const gaps: string[] = [];
 
+  /**
+   * Pages the id list.
+   *
+   * This fetched `?select=id` with no Range header. PostgREST caps an unbounded
+   * response at 1,000 rows, so on applied_jobs it read the first 1,000 ids,
+   * found all of them in the checkpoint, and concluded nothing was missing —
+   * while the count check right above it said nine rows short. The two halves
+   * of the same report disagreed and only one of them was right.
+   *
+   * Any query against a table that can exceed 1,000 rows has to page. There is
+   * no error when it does not; the answer is just quietly wrong.
+   */
+  const allIds = async (table: string): Promise<string[] | null> => {
+    const out: string[] = [];
+    for (let from = 0; ; from += 1000) {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}?select=id&order=id.asc`, {
+        headers: { ...headers, Range: `${from}-${from + 999}` },
+      });
+      if (!res.ok) return out.length ? out : null;
+      const rows = (await res.json()) as { id: string | number }[];
+      out.push(...rows.map((r) => String(r.id)));
+      if (rows.length < 1000) return out;
+    }
+  };
+
   for (const { table } of PAIRS) {
     const written = new Set(done[table] ?? []);
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}?select=id`, { headers });
-    if (!res.ok) continue;
-    const ids = ((await res.json()) as { id: string | number }[]).map((r) => String(r.id));
+    if (!written.size) continue;
+    const ids = await allIds(table);
+    if (!ids) continue;
     const missing = ids.filter((id) => !written.has(id));
-    if (missing.length && written.size) {
+    if (missing.length) {
       gaps.push(`  ${table.padEnd(20)} ${missing.length} not written — ids: ${missing.slice(0, 12).join(', ')}${missing.length > 12 ? ` …+${missing.length - 12}` : ''}`);
     }
   }
