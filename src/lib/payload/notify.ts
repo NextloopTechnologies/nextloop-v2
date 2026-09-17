@@ -127,6 +127,24 @@ export const notifyOnCreate =
     // Edits and imports are not new leads.
     if (operation !== 'create') return doc;
 
+    /**
+     * A migration is not a lead arriving.
+     *
+     * Replaying years of applications through payload.create() runs this hook
+     * once per row. On the first real leads run that was ~7,600 send attempts —
+     * every one of them a mail to the team about an application from months or
+     * years ago. They happened to fail on an unverified Resend domain, which is
+     * the only reason nobody's inbox was destroyed; EMAIL_OVERRIDE_RECIPIENT was
+     * empty, so a verified domain would have delivered all of them.
+     *
+     * It also made the import unusable: ~1.4s per row waiting on a doomed send,
+     * about three hours for the leads phase.
+     *
+     * The importer passes context.migration; anything bulk-loading documents
+     * should do the same.
+     */
+    if ((req.context as { migration?: boolean } | undefined)?.migration === true) return doc;
+
     const to = recipients();
     if (to.length === 0 || !emailConfigured()) return doc;
 

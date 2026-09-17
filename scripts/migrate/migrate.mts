@@ -348,6 +348,11 @@ const create = async (
     const doc = await payload.create({
       collection: collection as never,
       data: data as never,
+      // Tells the afterChange lead-notification hook that this is an import,
+      // not a lead arriving. Without it, replaying applied_jobs mails the team
+      // once per historical application — ~7,600 of them on the first real run,
+      // at roughly 1.4s each. See src/lib/payload/notify.ts.
+      context: { migration: true },
       ...(file ? { file } : {}),
     });
     const id = (doc as { id: string | number }).id;
@@ -449,6 +454,7 @@ const uploadUrlToMedia = async (
     const doc = await payload.create({
       collection: 'media',
       data: { alt } as never,
+      context: { migration: true },
       file: { data: got.buf, name, mimetype: got.type, size: got.buf.length },
     });
     const id = (doc as { id: string | number }).id;
@@ -645,6 +651,7 @@ const migrateResumes = async () => {
         const doc = await payload.create({
           collection: 'resumes',
           data: {} as never,
+          context: { migration: true },
           file: { data: got.buf, name, mimetype: got.type, size: got.buf.length },
         });
         const resumeId = (doc as { id: string | number }).id;
@@ -653,6 +660,7 @@ const migrateResumes = async () => {
           collection: 'applied-jobs',
           id: lookup('applied-jobs', item.legacyId) as string | number,
           data: { resume: resumeId } as never,
+          context: { migration: true },
         });
 
         state.resumes[item.legacyId] = resumeId;
