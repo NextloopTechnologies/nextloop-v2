@@ -223,7 +223,7 @@ const htmlToLexical = (html: unknown, where: string) => {
   try {
     return convertHTMLToLexical({ editorConfig, html: raw, JSDOM });
   } catch (err) {
-    failures.push(`${where}: rich text did not convert — ${(err as Error).message.slice(0, 90)}`);
+    failures.push(`${where}: rich text did not convert — ${explain(err)}`);
     return undefined;
   }
 };
@@ -231,6 +231,30 @@ const htmlToLexical = (html: unknown, where: string) => {
 const counts: Record<string, number> = {};
 const skippedAlready: Record<string, number> = {};
 const failures: string[] = [];
+
+/**
+ * Unpacks what Payload actually said.
+ *
+ * The first version did `.message.slice(0, 140)`. Payload's ValidationError
+ * message is a generic "The following field is invalid: X" and the part you
+ * need — which field, and why — lives in `error.data.errors`. Truncating threw
+ * it away, so a blog failed three times in a row and the report never once said
+ * why. An error report that does not identify the error is not a report.
+ */
+let lastRawError: unknown;
+
+const explain = (err: unknown): string => {
+  lastRawError = err;
+  const e = err as { name?: string; message?: string; data?: { errors?: { field?: string; message?: string; path?: string }[] } };
+  const detail = e?.data?.errors;
+  if (Array.isArray(detail) && detail.length) {
+    return detail.map((d) => `${d.field ?? d.path ?? '?'}: ${d.message ?? 'invalid'}`).join('; ');
+  }
+  const msg = e?.message ?? String(err);
+  // Long messages are kept whole. A migration failure report is read once, by
+  // someone trying to fix it; brevity is not the goal.
+  return e?.name && e.name !== 'Error' ? `${e.name}: ${msg}` : msg;
+};
 
 const create = async (
   collection: string,
@@ -260,7 +284,7 @@ const create = async (
     await saveState();
     return id;
   } catch (err) {
-    failures.push(`${collection}#${legacyId}: ${(err as Error).message.slice(0, 140)}`);
+    failures.push(`${collection}#${legacyId}: ${explain(err)}`);
     return undefined;
   }
 };
@@ -351,7 +375,7 @@ const ensureMedia = async (raw: unknown, alt: string, where: string) => {
     counts.media = (counts.media ?? 0) + 1;
     return id;
   } catch (err) {
-    failures.push(`${where}: cover image — ${(err as Error).message.slice(0, 90)}`);
+    failures.push(`${where}: cover image — ${explain(err)}`);
     return undefined;
   }
 };
@@ -548,7 +572,7 @@ const migrateResumes = async () => {
         counts.resumes = (counts.resumes ?? 0) + 1;
         await saveState();
       } catch (err) {
-        failures.push(`resume applied_jobs#${item.legacyId}: ${(err as Error).message.slice(0, 90)}`);
+        failures.push(`resume applied_jobs#${item.legacyId}: ${explain(err)}`);
       } finally {
         if (++done % 100 === 0) {
           const rate = done / ((Date.now() - started) / 1000);
@@ -599,6 +623,11 @@ if (failures.length) {
   console.log(`\n${failures.length} FAILED:`);
   for (const f of failures.slice(0, 40)) console.log(`  ${f}`);
   if (failures.length > 40) console.log(`  ...and ${failures.length - 40} more`);
+  if (process.env.MIGRATE_DEBUG === '1' && lastRawError) {
+    // Last resort when the structured detail still does not name the cause.
+    console.log('\nFull error object for the last failure (MIGRATE_DEBUG=1):\n');
+    console.dir(lastRawError, { depth: 6, maxStringLength: 400 });
+  }
   console.log('\nRe-running picks up where this stopped; the rows above are not retried');
   console.log('automatically, because a row that failed twice usually needs looking at.');
 }
