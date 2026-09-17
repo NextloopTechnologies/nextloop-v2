@@ -373,10 +373,24 @@ const countWhere = async (query: string): Promise<number> => {
   return total && total !== '*' ? Number(total) : -1;
 };
 
-const allWithUrl = await countWhere('resume_url=not.is.null');
+/**
+ * `not.is.null` is not the same question as "has a CV".
+ *
+ * Roughly a thousand applications carry resume_url = '' — an empty string, not
+ * NULL, because the old form posted the field whether or not a file was
+ * attached. PostgREST counts those as present, so this measured against 6,964
+ * applications when only about 5,975 have a URL at all, and reported the
+ * difference as CVs that failed to migrate. The migration was right and the
+ * verifier was wrong.
+ */
+const HAS_URL = 'resume_url=not.is.null&resume_url=neq.';
+
+const allRowCount = await countWhere('id=not.is.null');
+const allWithUrl = await countWhere(HAS_URL);
 const withLegacyUrl = resumeCutoff
-  ? await countWhere(`resume_url=not.is.null&created_at=gte.${resumeCutoff.toISOString()}`)
+  ? await countWhere(`${HAS_URL}&created_at=gte.${resumeCutoff.toISOString()}`)
   : allWithUrl;
+const noUrlAtAll = allRowCount - allWithUrl;
 
 if (resumeCutoff) {
   console.log(`  cutoff in effect: on or after ${resumeCutoff.toISOString().slice(0, 10)} (--resumes-since ${SINCE_MONTHS})`);
@@ -389,6 +403,9 @@ const { totalDocs: linked } = await payload.count({
   where: { resume: { exists: true } } as never,
 });
 
+if (noUrlAtAll > 0) {
+  console.log(`  applications with no CV at all      ${noUrlAtAll}  (resume_url null or empty — nothing to fetch)`);
+}
 console.log(`  applications in scope with a CV URL ${withLegacyUrl}`);
 console.log(`  documents in the resumes collection ${storedResumes}`);
 console.log(`  applications linked to a stored CV  ${linked}`);
