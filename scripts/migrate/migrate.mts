@@ -217,15 +217,88 @@ const editorConfig = await editorConfigFactory.default({ config: payload.config 
  * becomes a failure rather than silently losing its body — the seeder tolerated
  * that because it was a fixture.
  */
-const htmlToLexical = (html: unknown, where: string) => {
+const htmlToLexical = async (html: unknown, where: string) => {
   const raw = typeof html === 'string' ? html.trim() : '';
   if (!raw) return undefined;
   try {
-    return convertHTMLToLexical({ editorConfig, html: raw, JSDOM });
+    const tree = convertHTMLToLexical({ editorConfig, html: raw, JSDOM });
+    await hydrateUploadNodes(tree, where);
+    return tree;
   } catch (err) {
     failures.push(`${where}: rich text did not convert — ${explain(err)}`);
     return undefined;
   }
+};
+
+/**
+ * Makes the <img> tags inside a post body into real Payload uploads.
+ *
+ * convertHTMLToLexical turns every <img> into a Lexical *upload* node, and an
+ * upload node's `value` must be the id of a document in the media collection.
+ * The converter has never heard of Payload's media collection — all it has is
+ * the original src — so what it produces is an upload node pointing at a URL,
+ * and Payload rejects the whole document:
+ *
+ *   descp: upload node failed to validate: This field is not a valid upload ID.
+ *
+ * Six of the seven posts have no inline images, which is why exactly one failed
+ * and why it looked like something specific to that row.
+ *
+ * So: walk the converted tree, and for every upload node, fetch what the src
+ * pointed at, store it as media, and rewrite the node to reference it. An image
+ * that cannot be fetched has its node dropped rather than failing the post —
+ * losing one picture is recoverable, losing the article is not — and each drop
+ * is reported so it is a decision someone can see rather than a silent hole.
+ */
+const UPLOAD_URL_KEYS = ['value', 'src', 'url'] as const;
+
+const findUploadUrl = (node: Record<string, unknown>): string | undefined => {
+  for (const k of UPLOAD_URL_KEYS) {
+    const v = node[k];
+    if (typeof v === 'string' && /^https?:\/\//i.test(v)) return v;
+  }
+  const fields = node.fields as Record<string, unknown> | undefined;
+  if (fields) {
+    for (const k of UPLOAD_URL_KEYS) {
+      const v = fields[k];
+      if (typeof v === 'string' && /^https?:\/\//i.test(v)) return v;
+    }
+  }
+  return undefined;
+};
+
+const hydrateUploadNodes = async (tree: unknown, where: string): Promise<void> => {
+  const root = (tree as { root?: { children?: unknown[] } })?.root;
+  if (!root) return;
+
+  const visit = async (parent: { children?: unknown[] }): Promise<void> => {
+    if (!Array.isArray(parent.children)) return;
+    const kept: unknown[] = [];
+    for (const child of parent.children) {
+      const node = child as Record<string, unknown>;
+      if (node?.type === 'upload') {
+        const url = findUploadUrl(node);
+        if (!url) {
+          failures.push(`${where}: an inline image has no usable src — node dropped`);
+          continue;
+        }
+        const id = await uploadUrlToMedia(url, `Image in ${where}`, where);
+        if (id === undefined) {
+          // uploadUrlToMedia has already recorded why.
+          continue;
+        }
+        node.value = id;
+        node.relationTo = 'media';
+        kept.push(node);
+        continue;
+      }
+      await visit(node as { children?: unknown[] });
+      kept.push(child);
+    }
+    parent.children = kept;
+  };
+
+  await visit(root);
 };
 
 const counts: Record<string, number> = {};
@@ -356,28 +429,42 @@ const fetchBinary = async (url: string, attempts = 3): Promise<{ buf: Buffer; ty
   return null;
 };
 
-const ensureMedia = async (raw: unknown, alt: string, where: string) => {
-  const img = firstImage(raw);
-  if (!img?.url) return undefined;
-  if (mediaByUrl.has(img.url)) return mediaByUrl.get(img.url);
+/**
+ * Fetches a URL and stores it as a media document, once per URL.
+ *
+ * Shared by cover images and by the inline images inside post bodies, so the
+ * same picture used in both places becomes one media document rather than two.
+ */
+const uploadUrlToMedia = async (
+  url: string,
+  alt: string,
+  where: string
+): Promise<string | number | undefined> => {
+  if (mediaByUrl.has(url)) return mediaByUrl.get(url);
   if (DRY) return undefined;
   try {
-    const got = await fetchBinary(img.url);
-    if (!got) { failures.push(`${where}: cover image 404 — ${img.url.slice(0, 80)}`); return undefined; }
-    const name = decodeURIComponent(new URL(img.url).pathname.split('/').pop() || 'image.jpg');
+    const got = await fetchBinary(url);
+    if (!got) { failures.push(`${where}: image gone (404) — ${url.slice(0, 90)}`); return undefined; }
+    const name = decodeURIComponent(new URL(url).pathname.split('/').pop() || 'image.jpg');
     const doc = await payload.create({
       collection: 'media',
       data: { alt } as never,
       file: { data: got.buf, name, mimetype: got.type, size: got.buf.length },
     });
     const id = (doc as { id: string | number }).id;
-    mediaByUrl.set(img.url, id);
+    mediaByUrl.set(url, id);
     counts.media = (counts.media ?? 0) + 1;
     return id;
   } catch (err) {
-    failures.push(`${where}: cover image — ${explain(err)}`);
+    failures.push(`${where}: image — ${explain(err)}`);
     return undefined;
   }
+};
+
+const ensureMedia = async (raw: unknown, alt: string, where: string) => {
+  const img = firstImage(raw);
+  if (!img?.url) return undefined;
+  return uploadUrlToMedia(img.url, alt, where);
 };
 
 // ---------------------------------------------------------------------------
@@ -435,7 +522,7 @@ const migrateContent = async () => {
     await create('blogs', 'blogs', b.id, {
       title: b.title ?? 'Untitled', slug: b.slug ?? `post-${b.id}`,
       status: b.status === 'published' ? 'published' : 'draft',
-      descp: htmlToLexical(b.descp, `blogs#${b.id}`), service: b.service,
+      descp: await htmlToLexical(b.descp, `blogs#${b.id}`), service: b.service,
       readTime: b.read_time ?? 2,
       tags: b.tags ?? [], metaKeywords: b.meta_keywords ?? [],
       metaTitle: b.meta_title, metaDescription: b.meta_description, canonicalUrl: b.canonical_url,
@@ -450,7 +537,7 @@ const migrateContent = async () => {
     await create('portfolio', 'portfolio', p.id, {
       title: p.title ?? 'Untitled',
       slug: slugify(String(p.title ?? `project-${p.id}`)),
-      descp: htmlToLexical(p.descp, `portfolio#${p.id}`),
+      descp: await htmlToLexical(p.descp, `portfolio#${p.id}`),
       active: p.active !== false,
       ...(img ? { images: [img] } : {}),
     });
