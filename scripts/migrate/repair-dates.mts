@@ -86,7 +86,8 @@ const PAIRS: { table: string; collection: string }[] = [
 ];
 
 /** PostgREST caps an unbounded response at 1,000 rows. Always page. */
-const allRows = async <T>(table: string, select: string): Promise<T[]> => {
+// The trailing comma is required: in .mts, a bare <T> is parsed as JSX.
+const allRows = async <T,>(table: string, select: string): Promise<T[]> => {
   const out: T[] = [];
   for (let from = 0; ; from += 1000) {
     const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}?select=${select}&order=id.asc`, {
