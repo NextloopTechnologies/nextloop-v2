@@ -6,7 +6,12 @@
  *
  *   --dry-run          Report what would change, write nothing.
  *   --collection <c>   Repair one collection instead of all.
+ *   --concurrency <n>  Parallel updates (default 5).
  *   --state <file>     Checkpoint path (default .migrate-state.json).
+ *
+ * Safe to interrupt and safe to re-run: it keeps no state of its own, and a
+ * document whose createdAt already matches its source row is skipped. Do NOT
+ * run two copies at once — see the note on concurrency further down.
  *
  * Why this exists
  * ---------------
@@ -47,6 +52,8 @@ const flag = (n: string, d: string) => {
 };
 const DRY = args.includes('--dry-run');
 const ONLY = flag('collection', '');
+/** Parallel updates. Five is what the resumes phase has run thousands of files at. */
+const CONCURRENCY = Math.max(1, Number(flag('concurrency', '5')));
 const STATE_FILE = path.resolve(flag('state', '.migrate-state.json'));
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -167,6 +174,22 @@ for (const { table, collection } of PAIRS) {
     if (!res.hasNextPage || !res.docs.length) break;
   }
 
+  /**
+   * Decide the whole collection first, then write in parallel.
+   *
+   * The updates were sequential — one round trip at a time against a pooler
+   * that manages about 1.4 writes a second, which is where the ninety minutes
+   * went. Nothing about them is order-dependent: each sets one field on one
+   * document by id, and no two entries in the queue touch the same document.
+   *
+   * Running two PROCESSES would be a different matter — the migration's
+   * checkpoint is rewritten whole after every write, so concurrent processes
+   * clobber each other's progress and the next run re-creates rows the
+   * checkpoint has forgotten. Concurrency inside one process has none of that:
+   * there is no shared file, and the tallies below are incremented by awaited
+   * code on a single thread.
+   */
+  const queue: { docId: string | number; when: string }[] = [];
   for (const row of rows) {
     const docId = map[String(row.id)];
     if (docId === undefined) { missing++; continue; }
@@ -180,45 +203,77 @@ for (const { table, collection } of PAIRS) {
     if (sameDay(current.get(String(docId)), when)) { already++; continue; }
     if (DRY) { repaired++; continue; }
 
+    queue.push({ docId, when });
+  }
+
+  const writeOne = async (docId: string | number, when: string) => {
+    await payload.update({
+      collection: collection as never,
+      id: docId as string | number,
+      data: { createdAt: when } as never,
+      context: { migration: true },
+    });
+  };
+
+  /**
+   * The read-back proof runs alone, before the pool starts. Payload owns
+   * createdAt; if this version ignores it on update, that must surface on the
+   * first write rather than after several thousand reported successes — and
+   * proving it inside concurrent workers would mean several writes had already
+   * gone out before the answer came back.
+   */
+  if (queue.length && !proven && !DRY) {
+    const first = queue.shift() as { docId: string | number; when: string };
     try {
-      await payload.update({
+      await writeOne(first.docId, first.when);
+      const back = (await payload.findByID({
         collection: collection as never,
-        id: docId as string | number,
-        data: { createdAt: when } as never,
-        context: { migration: true },
-      });
-
-      /**
-       * Prove the first one actually stuck before doing thousands more.
-       * Payload owns this field; an update that is silently ignored would
-       * otherwise be reported as several thousand successful repairs.
-       */
-      if (!proven) {
-        const back = (await payload.findByID({
-          collection: collection as never,
-          id: docId as string | number,
-          depth: 0,
-        })) as Record<string, unknown>;
-        if (!sameDay(back.createdAt, when)) {
-          console.error(
-            `\nSTOPPING. Wrote createdAt to ${collection}#${docId} and read back ` +
-              `${String(back.createdAt)}, expected ${when}.\n\n` +
-              'This Payload version is not accepting createdAt on update, so repairing\n' +
-              'in place will not work. Nothing further has been attempted — better to\n' +
-              'stop than to report 7,500 repairs that did not happen.\n'
-          );
-          process.exit(1);
-        }
-        proven = true;
-        console.log('  (verified: the first write stuck — continuing)\n');
+        id: first.docId as string | number,
+        depth: 0,
+      })) as Record<string, unknown>;
+      if (!sameDay(back.createdAt, first.when)) {
+        console.error(
+          `\nSTOPPING. Wrote createdAt to ${collection}#${first.docId} and read back ` +
+            `${String(back.createdAt)}, expected ${first.when}.\n\n` +
+            'This Payload version is not accepting createdAt on update, so repairing\n' +
+            'in place will not work. One document was written and nothing further was\n' +
+            'attempted — better to stop than to report 7,500 repairs that did not happen.\n'
+        );
+        process.exit(1);
       }
-
+      proven = true;
       repaired++;
-      if (repaired % 500 === 0) console.log(`    ${collection}: ${repaired} repaired…`);
+      console.log('  (verified: the first write stuck — continuing)\n');
     } catch (err) {
       failed++;
-      if (problems.length < 20) problems.push(`${collection}#${docId}: ${(err as Error).message.slice(0, 120)}`);
+      problems.push(`${collection}#${first.docId}: ${(err as Error).message.slice(0, 120)}`);
     }
+  }
+
+  if (queue.length) {
+    const started = Date.now();
+    let done = 0;
+    const worker = async () => {
+      for (;;) {
+        const item = queue.shift();
+        if (!item) return;
+        try {
+          await writeOne(item.docId, item.when);
+          repaired++;
+        } catch (err) {
+          failed++;
+          if (problems.length < 20) {
+            problems.push(`${collection}#${item.docId}: ${(err as Error).message.slice(0, 120)}`);
+          }
+        }
+        if (++done % 500 === 0) {
+          const rate = done / ((Date.now() - started) / 1000);
+          const left = Math.round(queue.length / Math.max(rate, 0.01) / 60);
+          console.log(`    ${collection}: ${done} written, ${queue.length} left (~${left} min at ${rate.toFixed(1)}/s)`);
+        }
+      }
+    };
+    await Promise.all(Array.from({ length: CONCURRENCY }, worker));
   }
 
   totals.repaired += repaired;
