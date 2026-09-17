@@ -47,7 +47,7 @@
  * will duplicate rows. --wipe deletes it deliberately, together with the data.
  */
 
-import { readFile, writeFile, rm } from 'node:fs/promises';
+import { readFile, writeFile, rm, appendFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 
@@ -304,6 +304,10 @@ const hydrateUploadNodes = async (tree: unknown, where: string): Promise<void> =
 const counts: Record<string, number> = {};
 const skippedAlready: Record<string, number> = {};
 const failures: string[] = [];
+const quarantined: Record<string, number> = {};
+
+/** Real names, emails and phone numbers end up here. Gitignored; delete when done. */
+const QUARANTINE_FILE = path.resolve(flag('quarantine', '.migrate-rejected.jsonl'));
 
 /**
  * Unpacks what Payload actually said.
@@ -362,8 +366,41 @@ const create = async (
     await saveState();
     return id;
   } catch (err) {
-    failures.push(`${collection}#${legacyId}: ${explain(err)}`);
+    const reason = explain(err);
+    failures.push(`${collection}#${legacyId}: ${reason}`);
+    await quarantine(table, legacyId, reason, data);
     return undefined;
+  }
+};
+
+/**
+ * Records a row Payload refused, so a rejection is a decision rather than a
+ * hole in the data.
+ *
+ * The first leads run left 67 rows behind and the only evidence was a count
+ * that did not add up. Most of them are junk — addresses like "aaaaa@aaaaa"
+ * and "999999", blank names — collected by forms that had no validation for
+ * years. Keeping the validation is right; losing the rows silently is not.
+ *
+ * Written as JSONL, one row per line, appended as it goes so an interrupted
+ * run keeps what it found. The file holds real names, emails and phone
+ * numbers, so it is gitignored and should be treated like the seed snapshots:
+ * not committed, not copied around, deleted when the decision is made.
+ *
+ * With this, the counts reconcile. 530 enquiries = 489 migrated + 41
+ * quarantined, and every one of the 41 has a reason next to it.
+ */
+const quarantine = async (table: string, legacyId: unknown, reason: string, data: Record<string, unknown>) => {
+  if (DRY) return;
+  try {
+    await appendFile(
+      QUARANTINE_FILE,
+      JSON.stringify({ table, id: legacyId, reason, row: data, at: new Date().toISOString() }) + '\n',
+      'utf8'
+    );
+    quarantined[table] = (quarantined[table] ?? 0) + 1;
+  } catch {
+    // Never let the audit trail take down the run it is auditing.
   }
 };
 
@@ -712,6 +749,15 @@ for (const [c, n] of Object.entries(counts).sort()) console.log(`  ${c.padEnd(22
 if (Object.keys(skippedAlready).length) {
   console.log('\nAlready present (checkpoint), left alone:');
   for (const [c, n] of Object.entries(skippedAlready).sort()) console.log(`  ${c.padEnd(22)} ${n}`);
+}
+
+if (Object.keys(quarantined).length) {
+  const total = Object.values(quarantined).reduce((a, b) => a + b, 0);
+  console.log(`\nQuarantined ${total} row(s) Payload refused — ${path.basename(QUARANTINE_FILE)}:`);
+  for (const [t, n] of Object.entries(quarantined).sort()) console.log(`  ${t.padEnd(22)} ${n}`);
+  console.log('  Counts now reconcile: migrated + quarantined = source.');
+  console.log('  That file holds real contact details. It is gitignored; delete it once');
+  console.log('  someone has decided what the rows are worth.');
 }
 
 if (failures.length) {
