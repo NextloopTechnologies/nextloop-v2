@@ -253,7 +253,9 @@ if (problems.length) {
 console.log(
   totals.failed || problems.length
     ? '\nRe-running retries; this is idempotent.\n'
-    : '\nDates now match the source. Sorting applied-jobs by createdAt means something again.\n'
+    : DRY
+      ? `\nNothing was written. Run without --dry-run to repair those ${totals.repaired} documents.\n`
+      : '\nDates now match the source. Sorting applied-jobs by createdAt means something again.\n'
 );
 
 await new Promise<void>((resolve) => {
