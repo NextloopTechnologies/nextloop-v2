@@ -24,6 +24,9 @@
  * Exit 0 only if every check passes. Anything else is 1.
  */
 
+import { readFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+
 import { getPayload } from 'payload';
 import config from '../../payload.config';
 
@@ -163,39 +166,118 @@ const same = (a: unknown, b: unknown) => {
   return String(a).trim() === String(b).trim();
 };
 
+/**
+ * Shows where two strings actually diverge.
+ *
+ * The first version of this printed `slice(0, 40)` of each side, which produced
+ * a "mismatch" whose two values were character-for-character identical on
+ * screen — the difference was at position 44. A report that cannot be acted on
+ * is worse than no report: it burns the reader's trust in every other line.
+ */
+const showDiff = (a: unknown, b: unknown): string => {
+  const x = String(a ?? ''), y = String(b ?? '');
+  let i = 0;
+  while (i < x.length && i < y.length && x[i] === y[i]) i++;
+  const from = Math.max(0, i - 12);
+  const win = (s: string) =>
+    (from ? '…' : '') + JSON.stringify(s.slice(from, i + 28)).slice(1, -1) + (s.length > i + 28 ? '…' : '');
+  return `diverge at char ${i}: payload "${win(x)}" vs source "${win(y)}"`;
+};
+
 for (const [collection, { table, map }] of Object.entries(FIELDS)) {
   const { docs } = await payload.find({ collection: collection as never, limit: SAMPLES, depth: 0 });
   if (!docs.length) { console.log(`  ${collection.padEnd(22)} no documents to sample`); continue; }
 
   let checked = 0;
   let bad = 0;
+  let ambiguous = 0;
   for (const doc of docs as Record<string, unknown>[]) {
     // legacyUuid on popup-submissions is the only stored back-reference; for the
     // rest we match on a natural key, which is why the maps above start with one.
     const [firstPayloadField, firstSourceCol] = Object.entries(map)[0] as [string, string];
     const probe = doc[firstPayloadField];
     if (probe == null) continue;
+
+    /**
+     * Fetch every row matching the key, not just the first.
+     *
+     * The first version used `limit=1` and compared against whatever came back.
+     * When the key is not unique in the source — two offers sharing a title, say
+     * — that silently compares a Payload document against a DIFFERENT source
+     * row, and every other field then "mismatches". It reported four corrupted
+     * offer descriptions that were not corrupted at all. A non-unique key means
+     * this check cannot say anything, so it must say nothing rather than
+     * something false.
+     */
     const res = await fetch(
-      `${SUPABASE_URL}/rest/v1/${table}?${firstSourceCol}=eq.${encodeURIComponent(String(probe))}&select=*&limit=1`,
+      `${SUPABASE_URL}/rest/v1/${table}?${firstSourceCol}=eq.${encodeURIComponent(String(probe))}&select=*`,
       { headers }
     );
-    const row = ((await res.json()) as Record<string, unknown>[])[0];
-    if (!row) {
+    const rows = (await res.json()) as Record<string, unknown>[];
+    if (rows.length === 0) {
       bad++;
-      problems.push(`${collection}: a document (${firstPayloadField}=${String(probe).slice(0, 40)}) has no matching source row`);
+      problems.push(
+        `${collection}: a document (${firstPayloadField}=${String(probe).slice(0, 60)}) has no matching source row`
+      );
       continue;
     }
+    if (rows.length > 1) {
+      ambiguous++;
+      continue;
+    }
+    const row = rows[0] as Record<string, unknown>;
     for (const [pf, sc] of Object.entries(map)) {
       checked++;
       if (!same(doc[pf], row[sc])) {
         bad++;
-        problems.push(
-          `${collection}.${pf}: "${String(doc[pf]).slice(0, 40)}" in Payload, "${String(row[sc]).slice(0, 40)}" in source`
-        );
+        problems.push(`${collection}.${pf}: ${showDiff(doc[pf], row[sc])}`);
       }
     }
   }
-  console.log(`  ${collection.padEnd(22)} ${checked} field comparisons, ${bad} mismatched`);
+  const note = ambiguous ? `, ${ambiguous} skipped (key not unique in source)` : '';
+  console.log(`  ${collection.padEnd(22)} ${checked} field comparisons, ${bad} mismatched${note}`);
+  if (ambiguous) {
+    notes.push(
+      `${collection}: ${ambiguous} sampled documents could not be compared — the natural key is duplicated in the source, so there is no way to tell which row a document came from`
+    );
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 3b. which rows did not make it
+//
+// A count mismatch says how many are missing. It does not say which, and
+// "6 of 7 blogs" is not something you can act on. The migration checkpoint
+// records every source id it wrote, so diffing that against the source names
+// the survivors' opposite exactly.
+//
+// The checkpoint is used ONLY to name rows here. Every pass/fail verdict above
+// comes from reading both databases, because a migration's own bookkeeping is
+// the one source that cannot be trusted to audit itself.
+// ---------------------------------------------------------------------------
+
+const STATE_FILE = flag('state', '.migrate-state.json');
+if (existsSync(STATE_FILE)) {
+  const state = JSON.parse(await readFile(STATE_FILE, 'utf8')) as { done?: Record<string, string[]> };
+  const done = state.done ?? {};
+  const gaps: string[] = [];
+
+  for (const { table } of PAIRS) {
+    const written = new Set(done[table] ?? []);
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}?select=id`, { headers });
+    if (!res.ok) continue;
+    const ids = ((await res.json()) as { id: string | number }[]).map((r) => String(r.id));
+    const missing = ids.filter((id) => !written.has(id));
+    if (missing.length && written.size) {
+      gaps.push(`  ${table.padEnd(20)} ${missing.length} not written — ids: ${missing.slice(0, 12).join(', ')}${missing.length > 12 ? ` …+${missing.length - 12}` : ''}`);
+    }
+  }
+
+  if (gaps.length) {
+    console.log('\nrows the migration did not write\n');
+    for (const g of gaps) console.log(g);
+    console.log('\n  Re-running the migration retries these. If one fails twice, look at the row.');
+  }
 }
 
 // ---------------------------------------------------------------------------
