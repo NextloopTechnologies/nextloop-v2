@@ -354,13 +354,34 @@ if (existsSync(STATE_FILE)) {
 
 console.log('\nresumes\n');
 
-const withLegacyUrl = await (async () => {
-  const res = await fetch(`${SUPABASE_URL}/rest/v1/applied_jobs?select=id&resume_url=not.is.null`, {
+/**
+ * The migration can be told to fetch only recent CVs (--resumes-since). This
+ * has to be told the same thing, or it measures against a target nobody aimed
+ * at: after a six-month run it reported 59% of CVs missing as a problem, when
+ * that 59% was the policy doing exactly what it was asked to.
+ *
+ * Pass the same value here that you passed to the migration.
+ */
+const SINCE_MONTHS = Number(flag('resumes-since', '0'));
+const resumeCutoff = SINCE_MONTHS > 0 ? new Date(Date.now() - SINCE_MONTHS * 30.44 * 86_400_000) : null;
+
+const countWhere = async (query: string): Promise<number> => {
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/applied_jobs?select=id&${query}`, {
     headers: { ...headers, Prefer: 'count=exact', Range: '0-0' },
   });
   const total = (res.headers.get('content-range') ?? '').split('/')[1];
   return total && total !== '*' ? Number(total) : -1;
-})();
+};
+
+const allWithUrl = await countWhere('resume_url=not.is.null');
+const withLegacyUrl = resumeCutoff
+  ? await countWhere(`resume_url=not.is.null&created_at=gte.${resumeCutoff.toISOString()}`)
+  : allWithUrl;
+
+if (resumeCutoff) {
+  console.log(`  cutoff in effect: on or after ${resumeCutoff.toISOString().slice(0, 10)} (--resumes-since ${SINCE_MONTHS})`);
+  console.log(`  older applications with a CV     ${allWithUrl - withLegacyUrl}  (deliberately not fetched)`);
+}
 
 const { totalDocs: storedResumes } = await payload.count({ collection: 'resumes' as never });
 const { totalDocs: linked } = await payload.count({
@@ -368,7 +389,7 @@ const { totalDocs: linked } = await payload.count({
   where: { resume: { exists: true } } as never,
 });
 
-console.log(`  applications with a legacy CV URL   ${withLegacyUrl}`);
+console.log(`  applications in scope with a CV URL ${withLegacyUrl}`);
 console.log(`  documents in the resumes collection ${storedResumes}`);
 console.log(`  applications linked to a stored CV  ${linked}`);
 
