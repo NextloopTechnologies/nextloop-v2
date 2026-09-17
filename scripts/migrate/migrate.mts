@@ -29,7 +29,11 @@
  *                      checkpoint. For repeating a rehearsal from clean.
  *   --limit <n>        Cap rows per table. For a quick smoke run. 0 = no cap.
  *   --concurrency <n>  Parallel resume downloads/uploads (default 5).
+ *   --resumes-since <n>  Only fetch CVs for applications from the last n months.
+ *                      0 (default) fetches all of them. Skipped applications
+ *                      keep legacyResumeUrl, so nothing becomes unreachable.
  *   --state <file>     Checkpoint path (default .migrate-state.json).
+ *   --quarantine <f>   Where refused rows go (default .migrate-rejected.jsonl).
  *
  * Phases run in dependency order and can be run separately:
  *   content   authors, categories, jobs, offers, testimonials, blogs, portfolio
@@ -655,15 +659,63 @@ const migrateLeads = async () => {
 const migrateResumes = async () => {
   console.log('\n— resumes —');
 
+  /**
+   * Age cutoff.
+   *
+   * Re-hosting every CV ever submitted is both the longest part of this
+   * migration and the least defensible: a CV is personal data, and one attached
+   * to an application from three years ago is data nobody has a reason to hold,
+   * let alone copy onto a new provider. --resumes-since 6 fetches only the last
+   * six months.
+   *
+   * The date has to come from the SOURCE row. Payload's createdAt is when the
+   * migration wrote the document, which is today for all of them.
+   *
+   * Skipped applications keep legacyResumeUrl, so the CV is still reachable for
+   * as long as the old host is up — this drops the copy, not the record.
+   */
+  const SINCE_MONTHS = Number(flag('resumes-since', '0'));
+  const cutoff = SINCE_MONTHS > 0 ? new Date(Date.now() - SINCE_MONTHS * 30.44 * 86_400_000) : null;
+
+  const DATE_KEYS = ['created_at', 'createdAt', 'created', 'applied_at', 'date'] as const;
+  const rowDate = (row: Record<string, unknown>): Date | null => {
+    for (const k of DATE_KEYS) {
+      const v = row[k];
+      if (typeof v === 'string' || typeof v === 'number') {
+        const d = new Date(v);
+        if (!Number.isNaN(d.getTime())) return d;
+      }
+    }
+    return null;
+  };
+
   const queue: { legacyId: string; url: string }[] = [];
+  let tooOld = 0;
+  let undated = 0;
   for await (const a of source<Record<string, unknown>>('applied_jobs')) {
     const url = typeof a.resume_url === 'string' ? a.resume_url.trim() : '';
     if (!url) continue;
     if (state.resumes[String(a.id)]) continue;
     if (!lookup('applied-jobs', a.id)) continue; // leads phase has not created it yet
+    if (cutoff) {
+      const d = rowDate(a);
+      if (d === null) {
+        // No usable date. Fetching is the safer default — skipping would drop a
+        // CV on the strength of a missing field.
+        undated++;
+      } else if (d < cutoff) {
+        tooOld++;
+        continue;
+      }
+    }
     queue.push({ legacyId: String(a.id), url });
   }
 
+  if (cutoff) {
+    console.log(`  cutoff: applications on or after ${cutoff.toISOString().slice(0, 10)} (--resumes-since ${SINCE_MONTHS})`);
+    console.log(`  ${tooOld} older than that — skipped, legacyResumeUrl kept`);
+    if (undated) console.log(`  ${undated} had no readable date — fetched anyway, rather than dropped on a guess`);
+  }
   console.log(`  ${queue.length} to fetch (${Object.keys(state.resumes).length} already done)`);
   if (DRY || !queue.length) {
     counts.resumes = (counts.resumes ?? 0) + queue.length;
