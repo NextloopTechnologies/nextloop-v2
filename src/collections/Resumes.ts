@@ -46,6 +46,17 @@ export const Resumes: CollectionConfig = {
       'application/pdf',
       'application/msword',
       'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      /**
+       * A legacy .doc IS 'application/msword' — but the sniffer reports the
+       * container it actually found, and pre-2007 Word files are Microsoft
+       * Compound File Binary. So every .doc CV was being refused by a list that
+       * names .doc on the line above.
+       *
+       * Found during the resume migration: the single most common rejection,
+       * on files production had accepted for years. Excluding it is not a
+       * policy anyone chose, it is a detection detail leaking into one.
+       */
+      'application/x-cfb',
     ],
     // NOTE: Payload has no per-collection size cap. The 8MB ceiling is set
     // globally in payload.config.ts (`upload.limits.fileSize`); the careers
