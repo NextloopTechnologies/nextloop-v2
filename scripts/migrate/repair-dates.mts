@@ -1,0 +1,320 @@
+#!/usr/bin/env node
+/**
+ * Puts the real submission dates back on already-migrated documents.
+ *
+ *   npx tsx --env-file=.env.local scripts/migrate/repair-dates.mts [options]
+ *
+ *   --dry-run          Report what would change, write nothing.
+ *   --collection <c>   Repair one collection instead of all.
+ *   --concurrency <n>  Parallel updates (default 5).
+ *   --state <file>     Checkpoint path (default .migrate-state.json).
+ *
+ * Safe to interrupt and safe to re-run: it keeps no state of its own, and a
+ * document whose createdAt already matches its source row is skipped. Do NOT
+ * run two copies at once — see the note on concurrency further down.
+ *
+ * Why this exists
+ * ---------------
+ * migrate.mts never mapped the source created_at. Payload stamps createdAt at
+ * write time, so every one of ~7,500 migrated documents claims it was created
+ * on the day the migration ran. applied-jobs lists createdAt as a default
+ * column in the admin, so the collection shows a column of identical dates —
+ * and "most recent application" sorts by nothing.
+ *
+ * The data is not wrong, only the timestamps, so this repairs in place rather
+ * than re-migrating. That matters because the target here is the same database
+ * production reads: a wipe-and-redo would delete live rows to fix a column.
+ *
+ * It is idempotent. A document whose createdAt already matches its source row
+ * is left alone, so this can be run repeatedly and after every future
+ * migration pass.
+ *
+ * A note on trusting this
+ * -----------------------
+ * Payload owns createdAt. Whether it honours an explicit value on update is a
+ * property of the version installed, not something to assume — so the first
+ * write is read back and compared before the other 7,499 are attempted. If the
+ * value does not stick, this stops and says so rather than reporting thousands
+ * of successful no-ops.
+ */
+
+import { readFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import path from 'node:path';
+
+import { getPayload } from 'payload';
+import config from '../../payload.config';
+
+const args = process.argv.slice(2);
+const flag = (n: string, d: string) => {
+  const i = args.indexOf(`--${n}`);
+  return i === -1 ? d : (args[i + 1] as string);
+};
+const DRY = args.includes('--dry-run');
+const ONLY = flag('collection', '');
+/** Parallel updates. Five is what the resumes phase has run thousands of files at. */
+const CONCURRENCY = Math.max(1, Number(flag('concurrency', '5')));
+const STATE_FILE = path.resolve(flag('state', '.migrate-state.json'));
+
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const SUPABASE_KEY = process.env.SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+if (!SUPABASE_URL || !SUPABASE_KEY) {
+  console.error('Missing NEXT_PUBLIC_SUPABASE_URL or a key. Run with --env-file=.env.local');
+  process.exit(2);
+}
+const headers = { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` } as Record<string, string>;
+
+if (!existsSync(STATE_FILE)) {
+  console.error(
+    `No ${path.basename(STATE_FILE)}. This repairs documents the migration wrote, and the\n` +
+      'checkpoint is what maps a source row to the document it became. Without it there\n' +
+      'is no way to know which document belongs to which row.'
+  );
+  process.exit(2);
+}
+const state = JSON.parse(await readFile(STATE_FILE, 'utf8')) as {
+  idMap?: Record<string, Record<string, string | number>>;
+};
+const idMap = state.idMap ?? {};
+
+const PAIRS: { table: string; collection: string }[] = [
+  { table: 'author', collection: 'authors' },
+  { table: 'categories', collection: 'categories' },
+  { table: 'testimonials', collection: 'testimonials' },
+  { table: 'jobs', collection: 'jobs' },
+  { table: 'offers', collection: 'offers' },
+  { table: 'blogs', collection: 'blogs' },
+  { table: 'portfolio', collection: 'portfolio' },
+  { table: 'applied_jobs', collection: 'applied-jobs' },
+  { table: 'enquiry', collection: 'enquiries' },
+  { table: 'popup_form', collection: 'popup-submissions' },
+  { table: 'ideas', collection: 'ideas' },
+  { table: 'offer_applications', collection: 'offer-applications' },
+];
+
+/** PostgREST caps an unbounded response at 1,000 rows. Always page. */
+// The trailing comma is required: in .mts, a bare <T> is parsed as JSX.
+const allRows = async <T,>(table: string, select: string): Promise<T[]> => {
+  const out: T[] = [];
+  for (let from = 0; ; from += 1000) {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}?select=${select}&order=id.asc`, {
+      headers: { ...headers, Range: `${from}-${from + 999}` },
+    });
+    if (!res.ok) throw new Error(`${table}: HTTP ${res.status} ${await res.text()}`);
+    const rows = (await res.json()) as T[];
+    out.push(...rows);
+    if (rows.length < 1000) return out;
+  }
+};
+
+const DATE_KEYS = ['created_at', 'createdAt', 'created', 'applied_at', 'date'] as const;
+const rowDate = (row: Record<string, unknown>): string | null => {
+  for (const k of DATE_KEYS) {
+    const v = row[k];
+    if (typeof v === 'string' || typeof v === 'number') {
+      const d = new Date(v);
+      if (!Number.isNaN(d.getTime())) return d.toISOString();
+    }
+  }
+  return null;
+};
+
+const sameDay = (a: unknown, b: string) => {
+  if (typeof a !== 'string') return false;
+  const x = new Date(a), y = new Date(b);
+  return !Number.isNaN(x.getTime()) && Math.abs(x.getTime() - y.getTime()) < 1000;
+};
+
+const payload = await getPayload({ config });
+
+let proven = DRY; // in a dry run there is nothing to prove
+const totals = { checked: 0, repaired: 0, alreadyRight: 0, noDate: 0, noDoc: 0, failed: 0 };
+const problems: string[] = [];
+
+console.log(DRY ? 'DRY RUN — nothing will be written\n' : '');
+
+for (const { table, collection } of PAIRS) {
+  if (ONLY && ONLY !== collection) continue;
+  const map = idMap[collection] ?? {};
+  if (!Object.keys(map).length) {
+    console.log(`  ${collection.padEnd(22)} nothing migrated, skipping`);
+    continue;
+  }
+
+  let rows: Record<string, unknown>[];
+  try {
+    rows = await allRows<Record<string, unknown>>(table, '*');
+  } catch (err) {
+    problems.push(`${table}: could not read source — ${(err as Error).message}`);
+    continue;
+  }
+
+  let repaired = 0, already = 0, undated = 0, missing = 0, failed = 0;
+
+  /**
+   * Read every document's current createdAt in one pass.
+   *
+   * This did a findByID per row to decide whether a repair was needed — two
+   * network round trips per row instead of one, across 7,500 rows, against a
+   * pooler that measures about 1.4 writes a second. It made the run take three
+   * hours, and it made the DRY RUN take an hour and a half, which is a
+   * ridiculous price for a preview that writes nothing.
+   *
+   * Paging the collection is the same information in roughly fifteen calls.
+   */
+  const current = new Map<string, unknown>();
+  for (let page = 1; ; page++) {
+    const res = (await payload.find({
+      collection: collection as never,
+      limit: 500,
+      page,
+      depth: 0,
+    })) as { docs: Record<string, unknown>[]; hasNextPage?: boolean };
+    for (const d of res.docs) current.set(String(d.id), d.createdAt);
+    if (!res.hasNextPage || !res.docs.length) break;
+  }
+
+  /**
+   * Decide the whole collection first, then write in parallel.
+   *
+   * The updates were sequential — one round trip at a time against a pooler
+   * that manages about 1.4 writes a second, which is where the ninety minutes
+   * went. Nothing about them is order-dependent: each sets one field on one
+   * document by id, and no two entries in the queue touch the same document.
+   *
+   * Running two PROCESSES would be a different matter — the migration's
+   * checkpoint is rewritten whole after every write, so concurrent processes
+   * clobber each other's progress and the next run re-creates rows the
+   * checkpoint has forgotten. Concurrency inside one process has none of that:
+   * there is no shared file, and the tallies below are incremented by awaited
+   * code on a single thread.
+   */
+  const queue: { docId: string | number; when: string }[] = [];
+  for (const row of rows) {
+    const docId = map[String(row.id)];
+    if (docId === undefined) { missing++; continue; }
+
+    const when = rowDate(row);
+    if (!when) { undated++; continue; }
+
+    if (!current.has(String(docId))) { missing++; continue; }
+    totals.checked++;
+
+    if (sameDay(current.get(String(docId)), when)) { already++; continue; }
+    if (DRY) { repaired++; continue; }
+
+    queue.push({ docId, when });
+  }
+
+  const writeOne = async (docId: string | number, when: string) => {
+    await payload.update({
+      collection: collection as never,
+      id: docId as string | number,
+      data: { createdAt: when } as never,
+      context: { migration: true },
+    });
+  };
+
+  /**
+   * The read-back proof runs alone, before the pool starts. Payload owns
+   * createdAt; if this version ignores it on update, that must surface on the
+   * first write rather than after several thousand reported successes — and
+   * proving it inside concurrent workers would mean several writes had already
+   * gone out before the answer came back.
+   */
+  if (queue.length && !proven && !DRY) {
+    const first = queue.shift() as { docId: string | number; when: string };
+    try {
+      await writeOne(first.docId, first.when);
+      const back = (await payload.findByID({
+        collection: collection as never,
+        id: first.docId as string | number,
+        depth: 0,
+      })) as Record<string, unknown>;
+      if (!sameDay(back.createdAt, first.when)) {
+        console.error(
+          `\nSTOPPING. Wrote createdAt to ${collection}#${first.docId} and read back ` +
+            `${String(back.createdAt)}, expected ${first.when}.\n\n` +
+            'This Payload version is not accepting createdAt on update, so repairing\n' +
+            'in place will not work. One document was written and nothing further was\n' +
+            'attempted — better to stop than to report 7,500 repairs that did not happen.\n'
+        );
+        process.exit(1);
+      }
+      proven = true;
+      repaired++;
+      console.log('  (verified: the first write stuck — continuing)\n');
+    } catch (err) {
+      failed++;
+      problems.push(`${collection}#${first.docId}: ${(err as Error).message.slice(0, 120)}`);
+    }
+  }
+
+  if (queue.length) {
+    const started = Date.now();
+    let done = 0;
+    const worker = async () => {
+      for (;;) {
+        const item = queue.shift();
+        if (!item) return;
+        try {
+          await writeOne(item.docId, item.when);
+          repaired++;
+        } catch (err) {
+          failed++;
+          if (problems.length < 20) {
+            problems.push(`${collection}#${item.docId}: ${(err as Error).message.slice(0, 120)}`);
+          }
+        }
+        if (++done % 500 === 0) {
+          const rate = done / ((Date.now() - started) / 1000);
+          const left = Math.round(queue.length / Math.max(rate, 0.01) / 60);
+          console.log(`    ${collection}: ${done} written, ${queue.length} left (~${left} min at ${rate.toFixed(1)}/s)`);
+        }
+      }
+    };
+    await Promise.all(Array.from({ length: CONCURRENCY }, worker));
+  }
+
+  totals.repaired += repaired;
+  totals.alreadyRight += already;
+  totals.noDate += undated;
+  totals.noDoc += missing;
+  totals.failed += failed;
+
+  const bits = [
+    `${repaired} ${DRY ? 'would be repaired' : 'repaired'}`,
+    already ? `${already} already right` : '',
+    undated ? `${undated} no source date` : '',
+    missing ? `${missing} not migrated` : '',
+    failed ? `${failed} FAILED` : '',
+  ].filter(Boolean);
+  console.log(`  ${collection.padEnd(22)} ${bits.join(', ')}`);
+}
+
+console.log('\n' + '='.repeat(64));
+console.log(`\n  checked        ${totals.checked}`);
+console.log(`  ${DRY ? 'would repair ' : 'repaired     '}  ${totals.repaired}`);
+console.log(`  already right  ${totals.alreadyRight}`);
+if (totals.noDate) console.log(`  no source date ${totals.noDate}  (left as-is rather than invented)`);
+if (totals.noDoc) console.log(`  not migrated   ${totals.noDoc}  (quarantined or failed rows)`);
+if (totals.failed) console.log(`  FAILED         ${totals.failed}`);
+
+if (problems.length) {
+  console.log('\nproblems:\n');
+  for (const p of problems) console.log(`  - ${p}`);
+}
+
+console.log(
+  totals.failed || problems.length
+    ? '\nRe-running retries; this is idempotent.\n'
+    : DRY
+      ? `\nNothing was written. Run without --dry-run to repair those ${totals.repaired} documents.\n`
+      : '\nDates now match the source. Sorting applied-jobs by createdAt means something again.\n'
+);
+
+await new Promise<void>((resolve) => {
+  if (process.stdout.write('')) resolve();
+  else process.stdout.once('drain', () => resolve());
+});
+process.exit(totals.failed || problems.length ? 1 : 0);

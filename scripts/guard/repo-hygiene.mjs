@@ -193,6 +193,51 @@ files
     }
   });
 
+
+// ---------------------------------------------------------------------------
+// 6. obfuscated payloads ANYWHERE, not just in files that look like code
+//
+// Rule 4 only inspects .ts/.tsx/.jsx/.mjs/.cjs and the named configs. On
+// 15 Sep a payload arrived as:
+//
+//   src/app/(payload)/admin/[[...segments]]/public/fonts/fa-solid-400.woff2
+//
+// 37,566 characters of the same obfuscated JavaScript, first four bytes
+// "glob" — the opening of global['!']. It sat among nineteen real FontAwesome
+// files, named to match them (every genuine one is fa-solid-900; this was the
+// only 400, and the only one without .eot/.svg/.ttf/.woff siblings).
+//
+// This guard passed it. An extension allowlist is an assumption about where an
+// attacker will put things, and that assumption had already been wrong twice.
+// So: every tracked file that is textual at all gets checked, whatever it is
+// called. Genuinely binary files are skipped on a NUL sniff, which is what
+// makes this cheap — a real .woff2 exits on the first few bytes.
+// ---------------------------------------------------------------------------
+files
+  .map((f) => f.trim())
+  .filter((f) => f && !SOURCE.test(f) && fs.existsSync(f))
+  .forEach((f) => {
+    let buf;
+    try {
+      buf = fs.readFileSync(f);
+    } catch {
+      return;
+    }
+    if (buf.includes(0)) return; // binary; a real font stops here
+    const text = buf.toString('utf8');
+    for (const [rx, label] of OBFUSCATION) {
+      const n = (text.match(rx) || []).length;
+      if (n > 3) {
+        problems.push(
+          `${f} contains ${label} (\u00d7${n})\n` +
+            '    This file does not have a source extension, which is the point.\n' +
+            '    A payload was delivered as a .woff2 among nineteen real fonts.'
+        );
+        break;
+      }
+    }
+  });
+
 // ---------------------------------------------------------------------------
 
 if (problems.length === 0) {
