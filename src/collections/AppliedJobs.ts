@@ -22,7 +22,15 @@ export const AppliedJobs: CollectionConfig = {
   hooks: { afterChange: [notifyOnCreate('job application')] },
   admin: {
     useAsTitle: 'fullname',
-    defaultColumns: ['fullname', 'email', 'job', 'experience', 'createdAt'],
+    /**
+     * `resume` is here because the first question anyone asks of this list is
+     * "did they attach a CV" — and without the column you have to open every
+     * application to find out. 920 of the production rows have no file at all,
+     * and after the migration some more are missing because the legacy host
+     * 404'd or the file was not a document, so "has a CV" is genuinely varied
+     * information rather than a column that always says yes.
+     */
+    defaultColumns: ['fullname', 'email', 'job', 'resume', 'experience', 'createdAt'],
     group: 'Careers',
     description: 'Candidate applications. Never publicly readable.',
   },
