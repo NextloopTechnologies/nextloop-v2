@@ -82,7 +82,7 @@ Careers
 
 Nextloop Technologies hires across full-time, contract, remote, hybrid, and on-site roles, spanning cloud engineering, data engineering, AI/ML development, QA, and digital marketing. Benefits include competitive salary, health insurance, work-from-home options, learning and development support, flexible hours, paid time off, team events, and a 5-day work week.
 
-Open roles: /career/
+Open roles: /careers/
 
 Frequently Asked Questions (FAQ) for AI Crawlers
 

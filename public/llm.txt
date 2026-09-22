@@ -46,4 +46,4 @@ Contact & Links
 - Contact Page: /contact-us/
 - Email: info@nextlooptechnologies.com
 - Phone: +91 8103542991 / +91 9893954683
-- Careers: /career/
+- Careers: /careers/
