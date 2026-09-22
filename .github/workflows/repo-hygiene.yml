@@ -29,6 +29,12 @@ jobs:
       - name: No hidden executables, obfuscation, or line-ending rewrites
         run: node scripts/guard/repo-hygiene.mjs
 
+      # The pre-commit copy is advisory — `--no-verify` skips it and it never
+      # runs for anyone who has not installed husky. This is the copy that
+      # cannot be bypassed from a developer machine.
+      - name: No credentials, keys or data dumps
+        run: node scripts/guard/secrets.mjs
+
       # The check that would have caught the actual attack. Content in a merge
       # commit that is in neither parent was hand-written into the merge — it is
       # invisible to `git log -S` and to GitHub's Files-changed tab, which is how
@@ -37,4 +43,4 @@ jobs:
         run: |
           BASE="${{ github.event.pull_request.base.sha || 'origin/main' }}"
           git fetch origin main --quiet || true
-          node scripts/guard/merge-injection.mjs "$BASE..HEAD" 
+          node scripts/guard/merge-injection.mjs "$BASE..HEAD"
