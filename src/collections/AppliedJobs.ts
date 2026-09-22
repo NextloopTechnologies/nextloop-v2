@@ -1,6 +1,6 @@
 import type { CollectionConfig } from 'payload';
 
-import { submitOnly } from '../access';
+import { roleAccess } from '../access/collectionAccess';
 import { notifyOnCreate } from '../lib/payload/notify';
 
 /**
@@ -8,7 +8,8 @@ import { notifyOnCreate } from '../lib/payload/notify';
  *
  * This is the table most exposed today: `FOR ALL TO public USING (true)` means
  * anyone with the anon key can read, alter or delete every candidate record.
- * `submitOnly` is the corrective — public create, staff-only everything else.
+ * `roleAccess('applied-jobs')` is the corrective — HR only, and not readable by
+ * marketing or sales, who until now could read every application.
  *
  * `resume` replaces the bare `resume_url` text column. Routing it through the
  * private `resumes` collection means access is enforced on read rather than the
@@ -16,7 +17,7 @@ import { notifyOnCreate } from '../lib/payload/notify';
  */
 export const AppliedJobs: CollectionConfig = {
   slug: 'applied-jobs',
-  access: submitOnly,
+  access: roleAccess('applied-jobs'),
 
   // Saved first, notified second, and a mail failure never costs the lead.
   hooks: { afterChange: [notifyOnCreate('job application')] },

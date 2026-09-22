@@ -1,6 +1,6 @@
 import type { CollectionConfig } from 'payload';
 
-import { adminOnly, publishedOrAdmin } from '../access';
+import { roleAccess } from '../access/collectionAccess';
 import { slugField } from '../fields/slug';
 
 /**
@@ -20,12 +20,7 @@ import { slugField } from '../fields/slug';
 export const Blogs: CollectionConfig = {
   slug: 'blogs',
 
-  access: {
-    read: publishedOrAdmin('status', 'published'),
-    create: adminOnly,
-    update: adminOnly,
-    delete: adminOnly,
-  },
+  access: roleAccess('blogs'),
 
   admin: {
     useAsTitle: 'title',
@@ -65,7 +60,9 @@ export const Blogs: CollectionConfig = {
       name: 'coverImage',
       type: 'upload',
       relationTo: 'media',
-      admin: { description: 'Migrated from the first entry of the old image jsonb.' },
+      admin: {
+        description: 'Migrated from the first entry of the old image jsonb.',
+      },
     },
     {
       name: 'descp',
@@ -88,7 +85,12 @@ export const Blogs: CollectionConfig = {
       relationTo: 'categories',
       admin: { position: 'sidebar' },
     },
-    { name: 'tags', type: 'text', hasMany: true, admin: { position: 'sidebar' } },
+    {
+      name: 'tags',
+      type: 'text',
+      hasMany: true,
+      admin: { position: 'sidebar' },
+    },
     {
       name: 'readTime',
       type: 'number',
@@ -99,7 +101,9 @@ export const Blogs: CollectionConfig = {
     {
       name: 'service',
       type: 'text',
-      admin: { description: 'Legacy free-text field carried over from production.' },
+      admin: {
+        description: 'Legacy free-text field carried over from production.',
+      },
     },
     {
       type: 'collapsible',
@@ -124,7 +128,10 @@ export const Blogs: CollectionConfig = {
         {
           name: 'canonicalUrl',
           type: 'text',
-          admin: { description: 'Only set this when the post is republished from elsewhere.' },
+          admin: {
+            description:
+              'Only set this when the post is republished from elsewhere.',
+          },
         },
       ],
     },
@@ -133,7 +140,9 @@ export const Blogs: CollectionConfig = {
       type: 'relationship',
       relationTo: 'blogs',
       hasMany: true,
-      admin: { description: 'Related posts. Was an int[] of blog ids in production.' },
+      admin: {
+        description: 'Related posts. Was an int[] of blog ids in production.',
+      },
     },
   ],
 };

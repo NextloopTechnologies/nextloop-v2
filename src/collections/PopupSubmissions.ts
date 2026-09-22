@@ -1,6 +1,6 @@
 import type { CollectionConfig } from 'payload';
 
-import { submitOnly } from '../access';
+import { roleAccess } from '../access/collectionAccess';
 import { notifyOnCreate } from '../lib/payload/notify';
 
 /**
@@ -11,7 +11,7 @@ import { notifyOnCreate } from '../lib/payload/notify';
  */
 export const PopupSubmissions: CollectionConfig = {
   slug: 'popup-submissions',
-  access: submitOnly,
+  access: roleAccess('popup-submissions'),
 
   // Saved first, notified second, and a mail failure never costs the lead.
   hooks: { afterChange: [notifyOnCreate('popup enquiry')] },
@@ -26,7 +26,15 @@ export const PopupSubmissions: CollectionConfig = {
     { name: 'service', type: 'text', required: true },
     { name: 'phone', type: 'text' },
     { name: 'country', type: 'text' },
-    { name: 'legacyUuid', type: 'text', admin: { readOnly: true, hidden: true, description: 'Original uuid PK, preserved for traceability.' } },
+    {
+      name: 'legacyUuid',
+      type: 'text',
+      admin: {
+        readOnly: true,
+        hidden: true,
+        description: 'Original uuid PK, preserved for traceability.',
+      },
+    },
   ],
 };
 
