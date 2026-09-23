@@ -49,3 +49,4 @@ Claude outputs/
 # review. Real names, emails and phone numbers. Same rule as .seed-data/:
 # never commit, delete once someone has decided what they are worth.
 .migrate-rejected.jsonl
+backup-*.sql
