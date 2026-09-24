@@ -1,6 +1,6 @@
 import type { CollectionConfig } from 'payload';
 
-import { submitOnly } from '../access';
+import { roleAccess } from '../access/collectionAccess';
 import { notifyOnCreate } from '../lib/payload/notify';
 
 /**
@@ -10,11 +10,12 @@ import { notifyOnCreate } from '../lib/payload/notify';
  * including name, email and mobile — into a URL query string, then updates it
  * by that id from the browser. With `FOR ALL TO public USING (true)` in force,
  * editing the id in the URL really does let anyone overwrite another person's
- * record. `submitOnly` closes that; the URL-borne PII is a separate front-end fix.
+ * record. `roleAccess('offer-applications')` closes that, scoping it to sales;
+ * the URL-borne PII is a separate front-end fix.
  */
 export const OfferApplications: CollectionConfig = {
   slug: 'offer-applications',
-  access: submitOnly,
+  access: roleAccess('offer-applications'),
 
   // Saved first, notified second, and a mail failure never costs the lead.
   hooks: { afterChange: [notifyOnCreate('offer application')] },

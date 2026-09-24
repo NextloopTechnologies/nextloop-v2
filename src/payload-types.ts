@@ -150,6 +150,10 @@ export interface UserAuthOperations {
 export interface User {
   id: number;
   name?: string | null;
+  /**
+   * Decides what this account can see and change. Admin includes every other role. Changes take effect immediately.
+   */
+  role: 'admin' | 'marketing' | 'sales' | 'hr';
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -711,6 +715,7 @@ export interface PayloadMigration {
  */
 export interface UsersSelect<T extends boolean = true> {
   name?: T;
+  role?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;
