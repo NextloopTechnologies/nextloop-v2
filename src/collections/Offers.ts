@@ -1,6 +1,6 @@
 import type { CollectionConfig } from 'payload';
 
-import { adminOnly, publishedOrAdmin } from '../access';
+import { roleAccess } from '../access/collectionAccess';
 
 /**
  * Maps production `public.offers` (8 rows).
@@ -9,13 +9,28 @@ import { adminOnly, publishedOrAdmin } from '../access';
  */
 export const Offers: CollectionConfig = {
   slug: 'offers',
-  access: { read: publishedOrAdmin('active', true), create: adminOnly, update: adminOnly, delete: adminOnly },
-  admin: { useAsTitle: 'title', defaultColumns: ['title', 'active', 'createdAt'], group: 'Offers' },
+  access: roleAccess('offers'),
+  admin: {
+    useAsTitle: 'title',
+    defaultColumns: ['title', 'active', 'createdAt'],
+    group: 'Offers',
+  },
   fields: [
     { name: 'title', type: 'text', required: true },
     { name: 'description', type: 'textarea', required: true },
-    { name: 'termsPoints', type: 'text', hasMany: true, label: 'Terms & conditions', admin: { description: 'Was the awkwardly named `t&c_points` column.' } },
-    { name: 'active', type: 'checkbox', defaultValue: true, admin: { position: 'sidebar' } },
+    {
+      name: 'termsPoints',
+      type: 'text',
+      hasMany: true,
+      label: 'Terms & conditions',
+      admin: { description: 'Was the awkwardly named `t&c_points` column.' },
+    },
+    {
+      name: 'active',
+      type: 'checkbox',
+      defaultValue: true,
+      admin: { position: 'sidebar' },
+    },
   ],
 };
 
