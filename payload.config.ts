@@ -1,12 +1,15 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
-
 import { postgresAdapter } from '@payloadcms/db-postgres';
 import { cloudStoragePlugin } from '@payloadcms/plugin-cloud-storage';
-import { EXPERIMENTAL_TableFeature, lexicalEditor } from '@payloadcms/richtext-lexical';
+import {
+  EXPERIMENTAL_TableFeature,
+  lexicalEditor,
+} from '@payloadcms/richtext-lexical';
+import path from 'path';
 import { buildConfig } from 'payload';
 import sharp from 'sharp';
+import { fileURLToPath } from 'url';
 
+import { assertRBACCoverage } from './src/access/collectionAccess';
 import { AppliedJobs } from './src/collections/AppliedJobs';
 import { Authors } from './src/collections/Authors';
 import { Blogs } from './src/collections/Blogs';
@@ -21,14 +24,46 @@ import { PopupSubmissions } from './src/collections/PopupSubmissions';
 import { Portfolio } from './src/collections/Portfolio';
 import { Resumes } from './src/collections/Resumes';
 import { Testimonials } from './src/collections/Testimonials';
+import { Users } from './src/collections/Users';
+import {
+  assertEmailConfigured,
+  buildEmailAdapter,
+} from './src/lib/payload/email';
 import { imagekitStorage } from './src/lib/payload/imagekitStorage';
-import { assertEmailConfigured, buildEmailAdapter } from './src/lib/payload/email';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Surfaced at boot rather than on the first send: somebody should see this
 // before a person is locked out, not after.
 assertEmailConfigured();
+
+/**
+ * Listed here rather than inline in buildConfig so the RBAC coverage check can
+ * see them. That check is the backstop for the one failure mode this model has:
+ * Payload's default access is "any authenticated user", so a collection added
+ * to this array and forgotten in the access matrix is not inert — it is open to
+ * every role, silently. Better a crash at boot than a sales account that can
+ * read candidate CVs.
+ */
+const collections = [
+  Users,
+  Media,
+  Resumes,
+  Blogs,
+  Authors,
+  Categories,
+  Portfolio,
+  Testimonials,
+  Jobs,
+  AppliedJobs,
+  Enquiries,
+  PopupSubmissions,
+  Ideas,
+  Offers,
+  OfferApplications,
+];
+
+assertRBACCoverage(collections);
 
 export default buildConfig({
   // NOTE: the marketing site already owns `/api/*` via the pages router
@@ -43,28 +78,7 @@ export default buildConfig({
     importMap: { baseDir: path.resolve(dirname, 'src') },
   },
 
-  collections: [
-    {
-      slug: 'users',
-      auth: true,
-      admin: { useAsTitle: 'email' },
-      fields: [{ name: 'name', type: 'text' }],
-    },
-    Media,
-    Resumes,
-    Blogs,
-    Authors,
-    Categories,
-    Portfolio,
-    Testimonials,
-    Jobs,
-    AppliedJobs,
-    Enquiries,
-    PopupSubmissions,
-    Ideas,
-    Offers,
-    OfferApplications,
-  ],
+  collections,
 
   plugins: [
     cloudStoragePlugin({
@@ -93,8 +107,10 @@ export default buildConfig({
   ],
 
   // Global ceiling for every upload collection. Stops the public resume
-  // endpoint being usable as free file hosting.
-  upload: { limits: { fileSize: 8 * 1024 * 1024 } },
+  // endpoint being usable as free file hosting. Lowered from 8MB to 5MB as
+  // part of this change — see the note in the summary, since it is a behaviour
+  // change for anyone uploading a CV between those two sizes.
+  upload: { limits: { fileSize: 5_000_000 } },
 
   // Required for the imageSizes on the media collection to actually be
   // generated. Without it Payload warns and silently produces no renditions.
@@ -118,7 +134,10 @@ export default buildConfig({
    * everything the editor has today and adds one thing.
    */
   editor: lexicalEditor({
-    features: ({ defaultFeatures }) => [...defaultFeatures, EXPERIMENTAL_TableFeature()],
+    features: ({ defaultFeatures }) => [
+      ...defaultFeatures,
+      EXPERIMENTAL_TableFeature(),
+    ],
   }),
   secret: process.env.PAYLOAD_SECRET || 'dev-only-placeholder-secret',
   typescript: { outputFile: path.resolve(dirname, 'src/payload-types.ts') },
@@ -146,12 +165,14 @@ export default buildConfig({
      * outside migrations, unrecorded. One absent-minded dev run is all it
      * takes to undo a migration.
      *
-     * Now that migrations exist, they are the only thing that changes schema
-     * unless someone deliberately asks otherwise:
-     *
-     *   PAYLOAD_DB_PUSH=true npm run dev
+     * Now that migrations exist, they are the only thing that changes schema,
+     * and the PAYLOAD_DB_PUSH escape hatch is gone with them. Roles land on a
+     * database holding ~6,955 applied_jobs rows and 2,875 resumes behind a
+     * schema-only backup, so a single absent-minded `npm run dev` against a
+     * populated .env.local is not a risk worth keeping a flag for. Turning push
+     * back on now means editing this line, deliberately, in a diff.
      */
-    push: process.env.PAYLOAD_DB_PUSH === 'true',
+    push: false,
     pool: {
       /**
        * Two endpoints, because migrations and serverless want opposite things.
@@ -184,7 +205,7 @@ export default buildConfig({
       get connectionString() {
         const migrating = process.env.PAYLOAD_MIGRATING === 'true';
         const direct = process.env.DATABASE_URI_DIRECT;
-        const uri = (migrating && direct) ? direct : process.env.DATABASE_URI;
+        const uri = migrating && direct ? direct : process.env.DATABASE_URI;
 
         /**
          * Fail with the actual cause rather than letting node-postgres default.
@@ -201,8 +222,12 @@ export default buildConfig({
          */
         if (!uri) {
           throw new Error(
-            `${migrating ? 'payload migrate' : 'Payload'} has no database connection string: ` +
-              `${migrating ? 'DATABASE_URI_DIRECT and ' : ''}DATABASE_URI are both unset. ` +
+            `${
+              migrating ? 'payload migrate' : 'Payload'
+            } has no database connection string: ` +
+              `${
+                migrating ? 'DATABASE_URI_DIRECT and ' : ''
+              }DATABASE_URI are both unset. ` +
               'This is a missing environment variable, not a network failure — ' +
               'pg would otherwise default to localhost:5432. On Vercel, check the ' +
               'variable is set for the environment being built (Production and ' +

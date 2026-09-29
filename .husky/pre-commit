@@ -7,6 +7,12 @@
 # it cannot be skipped. See scripts/guard/repo-hygiene.mjs.
 node scripts/guard/repo-hygiene.mjs --staged || exit 1
 
+# Credentials, not executables: tokens, private keys, connection strings with
+# passwords, data dumps, and anything named NEXT_PUBLIC_*SECRET/PRIVATE. Scans
+# only the lines being added. A credential that reaches the remote has to be
+# rotated, not deleted, so this is the last cheap moment to catch one.
+node scripts/guard/secrets.mjs --staged || exit 1
+
 # Disable concurent to run build-types after ESLint in lint-staged
 npx lint-staged --concurrent false
 npm test

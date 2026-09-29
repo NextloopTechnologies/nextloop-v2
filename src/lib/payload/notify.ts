@@ -32,7 +32,8 @@ import { emailConfigured } from './email';
 const SEND_TIMEOUT_MS = 5_000;
 
 /** Never render these into an email, whatever collection they came from. */
-const SKIP_FIELD = /^(id|_.*|updatedAt|.*password.*|.*salt.*|.*hash.*|.*token.*|.*secret.*)$/i;
+const SKIP_FIELD =
+  /^(id|_.*|updatedAt|.*password.*|.*salt.*|.*hash.*|.*token.*|.*secret.*)$/i;
 
 const escapeHtml = (value: string): string =>
   value
@@ -52,8 +53,10 @@ const label = (key: string): string =>
 const renderable = (value: unknown): string | null => {
   if (value === null || value === undefined || value === '') return null;
   if (typeof value === 'string') return value;
-  if (typeof value === 'number' || typeof value === 'boolean') return String(value);
-  if (Array.isArray(value) && value.every((v) => typeof v === 'string')) return value.join(', ');
+  if (typeof value === 'number' || typeof value === 'boolean')
+    return String(value);
+  if (Array.isArray(value) && value.every((v) => typeof v === 'string'))
+    return value.join(', ');
   return null;
 };
 
@@ -65,8 +68,13 @@ const rows = (doc: Record<string, unknown>): string =>
     .map(
       ([key, value]) =>
         `<tr>` +
-        `<td style="padding:6px 12px 6px 0;color:#666;vertical-align:top;white-space:nowrap">${escapeHtml(label(key))}</td>` +
-        `<td style="padding:6px 0;color:#111">${escapeHtml(value).replace(/\n/g, '<br>')}</td>` +
+        `<td style="padding:6px 12px 6px 0;color:#666;vertical-align:top;white-space:nowrap">${escapeHtml(
+          label(key)
+        )}</td>` +
+        `<td style="padding:6px 0;color:#111">${escapeHtml(value).replace(
+          /\n/g,
+          '<br>'
+        )}</td>` +
         `</tr>`
     )
     .join('');
@@ -95,12 +103,28 @@ export const buildLeadEmailHtml = (
   adminUrl: string | null
 ): string =>
   `<div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.5">` +
-  `<p style="margin:0 0 16px">A new ${escapeHtml(subject)} came in through the website.</p>` +
+  `<p style="margin:0 0 16px">A new ${escapeHtml(
+    subject
+  )} came in through the website.</p>` +
   `<table style="border-collapse:collapse">${rows(doc)}</table>` +
   (adminUrl
-    ? `<p style="margin:20px 0 0"><a href="${escapeHtml(adminUrl)}" style="color:#2563eb">Open it in the admin panel</a></p>`
+    ? `<p style="margin:20px 0 0"><a href="${escapeHtml(
+        adminUrl
+      )}" style="color:#2563eb">Open it in the admin panel</a></p>`
     : '') +
   `</div>`;
+
+/**
+ * Control characters, stripped from anything that becomes a mail header.
+ *
+ * Declared here rather than inline because prettier reflows the expression it
+ * used to live in, which moved the regex off the line its
+ * eslint-disable-next-line comment was attached to and failed the pre-commit
+ * hook. A directive that only holds while the formatter leaves a line alone is
+ * not a directive. On its own line the two cannot be separated.
+ */
+// eslint-disable-next-line no-control-regex
+const CONTROL_CHARS = /[\u0000-\u001f\u007f]+/g;
 
 /**
  * A subject line is a mail *header*, not body content. A CR or LF in it ends
@@ -109,10 +133,14 @@ export const buildLeadEmailHtml = (
  * characters are stripped and the result is bounded — the name here comes
  * straight off a public form.
  */
-export const leadEmailSubject = (subject: string, doc: Record<string, unknown>): string => {
-  const raw = String(doc.fullname || doc.name || doc.mail || doc.email || 'website');
-  // eslint-disable-next-line no-control-regex
-  const safe = raw.replace(/[\u0000-\u001f\u007f]+/g, ' ').trim().slice(0, 120);
+export const leadEmailSubject = (
+  subject: string,
+  doc: Record<string, unknown>
+): string => {
+  const raw = String(
+    doc.fullname || doc.name || doc.mail || doc.email || 'website'
+  );
+  const safe = raw.replace(CONTROL_CHARS, ' ').trim().slice(0, 120);
   return `New ${subject} — ${safe || 'website'}`;
 };
 
@@ -143,7 +171,10 @@ export const notifyOnCreate =
      * The importer passes context.migration; anything bulk-loading documents
      * should do the same.
      */
-    if ((req.context as { migration?: boolean } | undefined)?.migration === true) return doc;
+    if (
+      (req.context as { migration?: boolean } | undefined)?.migration === true
+    )
+      return doc;
 
     const to = recipients();
     if (to.length === 0 || !emailConfigured()) return doc;
@@ -151,7 +182,10 @@ export const notifyOnCreate =
     try {
       const record = doc as Record<string, unknown>;
       const adminUrl = process.env.NEXT_PUBLIC_SITE_URL
-        ? `${process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, '')}/admin/collections/${collection.slug}/${record.id}`
+        ? `${process.env.NEXT_PUBLIC_SITE_URL.replace(
+            /\/$/,
+            ''
+          )}/admin/collections/${collection.slug}/${record.id}`
         : null;
 
       await Promise.race([
@@ -161,7 +195,10 @@ export const notifyOnCreate =
           html: buildLeadEmailHtml(subject, record, adminUrl),
         }),
         new Promise((_, reject) =>
-          setTimeout(() => reject(new Error(`timed out after ${SEND_TIMEOUT_MS}ms`)), SEND_TIMEOUT_MS)
+          setTimeout(
+            () => reject(new Error(`timed out after ${SEND_TIMEOUT_MS}ms`)),
+            SEND_TIMEOUT_MS
+          )
         ),
       ]);
     } catch (error) {

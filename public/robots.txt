@@ -4,17 +4,25 @@
 # not apply to Googlebot, Bingbot or any of the AI crawlers — all of them were
 # free to crawl /admin/. Each group now repeats the rules it needs.
 
+# /payload-api/ is Payload's REST API. The lead, resume and user collections
+# already answer 403 to an anonymous caller, so this is not what keeps them
+# private — access control is. It is here because the *public* collections do
+# answer 200, and a crawler indexing /payload-api/blogs/ would be indexing the
+# same content twice, once as JSON with no canonical pointing home.
+
 User-agent: Googlebot
 Allow: /
 Disallow: /admin/
 Disallow: /config/
 Disallow: /api/private/
+Disallow: /payload-api/
 
 User-agent: Bingbot
 Allow: /
 Disallow: /admin/
 Disallow: /config/
 Disallow: /api/private/
+Disallow: /payload-api/
 
 User-agent: GPTBot
 Allow: /
@@ -23,6 +31,7 @@ Allow: /llm-full.txt
 Disallow: /admin/
 Disallow: /config/
 Disallow: /api/private/
+Disallow: /payload-api/
 
 User-agent: PerplexityBot
 Allow: /
@@ -31,6 +40,7 @@ Allow: /llm-full.txt
 Disallow: /admin/
 Disallow: /config/
 Disallow: /api/private/
+Disallow: /payload-api/
 
 User-agent: ClaudeBot
 Allow: /
@@ -39,6 +49,7 @@ Allow: /llm-full.txt
 Disallow: /admin/
 Disallow: /config/
 Disallow: /api/private/
+Disallow: /payload-api/
 
 User-agent: ChatGPT-User
 Allow: /
@@ -47,12 +58,14 @@ Allow: /llm-full.txt
 Disallow: /admin/
 Disallow: /config/
 Disallow: /api/private/
+Disallow: /payload-api/
 
 User-agent: Google-Extended
 Allow: /
 Disallow: /admin/
 Disallow: /config/
 Disallow: /api/private/
+Disallow: /payload-api/
 
 User-agent: CCBot
 Disallow: /
@@ -64,6 +77,7 @@ Allow: /llm-full.txt
 Disallow: /admin/
 Disallow: /config/
 Disallow: /api/private/
+Disallow: /payload-api/
 
 # /get-offer/specialoffers/ is deliberately NOT disallowed. It carries applicant
 # details in the query string and must stay out of the index, which is done with

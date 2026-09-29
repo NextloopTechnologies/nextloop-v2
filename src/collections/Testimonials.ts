@@ -1,6 +1,6 @@
 import type { CollectionConfig } from 'payload';
 
-import { adminOnly, publicRead } from '../access';
+import { roleAccess } from '../access/collectionAccess';
 
 /**
  * Maps production `public.testimonials` (6 rows).
@@ -9,8 +9,12 @@ import { adminOnly, publicRead } from '../access';
  */
 export const Testimonials: CollectionConfig = {
   slug: 'testimonials',
-  access: { read: publicRead, create: adminOnly, update: adminOnly, delete: adminOnly },
-  admin: { useAsTitle: 'feedbackBy', defaultColumns: ['feedbackBy', 'compAndDesig'], group: 'Content' },
+  access: roleAccess('testimonials'),
+  admin: {
+    useAsTitle: 'feedbackBy',
+    defaultColumns: ['feedbackBy', 'compAndDesig'],
+    group: 'Content',
+  },
   fields: [
     { name: 'feedbackBy', type: 'text', label: 'Name' },
     { name: 'feedbackDescp', type: 'textarea', label: 'Quote' },

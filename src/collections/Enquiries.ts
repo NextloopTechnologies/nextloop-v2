@@ -1,12 +1,12 @@
 import type { CollectionConfig } from 'payload';
 
-import { submitOnly } from '../access';
+import { roleAccess } from '../access/collectionAccess';
 import { notifyOnCreate } from '../lib/payload/notify';
 
 /** Maps production `public.enquiry` (529 rows) — contact-form submissions. */
 export const Enquiries: CollectionConfig = {
   slug: 'enquiries',
-  access: submitOnly,
+  access: roleAccess('enquiries'),
 
   // Saved first, notified second, and a mail failure never costs the lead.
   hooks: { afterChange: [notifyOnCreate('enquiry')] },

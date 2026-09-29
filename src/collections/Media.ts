@@ -1,5 +1,7 @@
 import type { CollectionConfig } from 'payload';
 
+import { roleAccess } from '../access/collectionAccess';
+
 /**
  * Public image library — blog covers, portfolio shots, anything rendered on the
  * marketing site.
@@ -10,13 +12,13 @@ import type { CollectionConfig } from 'payload';
 export const Media: CollectionConfig = {
   slug: 'media',
 
-  access: {
-    // Public read: these are rendered on the marketing site.
-    read: () => true,
-    create: ({ req }) => Boolean(req.user),
-    update: ({ req }) => Boolean(req.user),
-    delete: ({ req }) => Boolean(req.user),
-  },
+  /**
+   * Public read — these are rendered on the marketing site — with writes
+   * limited to marketing. Sales keeps read so the image previews on portfolio
+   * and testimonial documents resolve in the panel. See the `media` row in
+   * src/access/collectionAccess.ts, which is the only split in the matrix.
+   */
+  access: roleAccess('media'),
 
   admin: {
     useAsTitle: 'filename',

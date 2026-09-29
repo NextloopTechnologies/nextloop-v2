@@ -1,5 +1,7 @@
 import type { CollectionConfig } from 'payload';
 
+import { roleAccess } from '../access/collectionAccess';
+
 /**
  * Private candidate CVs.
  *
@@ -15,27 +17,29 @@ import type { CollectionConfig } from 'payload';
 export const Resumes: CollectionConfig = {
   slug: 'resumes',
 
-  access: {
-    // Authenticated staff only — this is the whole point of the collection.
-    read: ({ req }) => Boolean(req.user),
-    update: ({ req }) => Boolean(req.user),
-    delete: ({ req }) => Boolean(req.user),
-    /**
-     * Not public, despite applicants being anonymous.
-     *
-     * The careers form uploads server-side, through the Local API, which
-     * bypasses access control — so this rule only ever applies to someone
-     * posting a file straight at `/payload-api/resumes`. Leaving it open made
-     * that an unauthenticated upload endpoint into the project's ImageKit
-     * account: free hosting for anyone who found the URL, with the captcha,
-     * MIME and size checks all sitting in front of a door nobody had to use.
-     */
-    create: ({ req }) => Boolean(req.user),
-  },
+  /**
+   * HR only — narrowed from "any authenticated user", which until now meant
+   * marketing and sales could read every candidate CV.
+   *
+   * `create` is not public, despite applicants being anonymous. The careers
+   * form uploads server-side through the Local API, which bypasses access
+   * control, so this rule only ever applies to someone posting a file straight
+   * at `/payload-api/resumes`. Leaving it open made that an unauthenticated
+   * upload endpoint into the project's ImageKit account: free hosting for
+   * anyone who found the URL, with the captcha, MIME and size checks all
+   * sitting in front of a door nobody had to use.
+   */
+  access: roleAccess('resumes'),
 
   admin: {
     useAsTitle: 'filename',
-    defaultColumns: ['filename', 'candidateName', 'mimeType', 'filesize', 'createdAt'],
+    defaultColumns: [
+      'filename',
+      'candidateName',
+      'mimeType',
+      'filesize',
+      'createdAt',
+    ],
     group: 'Assets',
     description: 'Private. Never publicly readable.',
   },

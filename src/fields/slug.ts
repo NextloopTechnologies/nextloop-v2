@@ -60,7 +60,10 @@ const shorten = (slug: string, max = GENERATED_MAX): string => {
   if (slug.length <= max) return slug;
   const cut = slug.slice(0, max);
   const lastHyphen = cut.lastIndexOf('-');
-  return (lastHyphen > max * 0.6 ? cut.slice(0, lastHyphen) : cut).replace(/-+$/g, '');
+  return (lastHyphen > max * 0.6 ? cut.slice(0, lastHyphen) : cut).replace(
+    /-+$/g,
+    ''
+  );
 };
 
 const formatSlug =
@@ -88,7 +91,10 @@ type Args = {
   description?: string;
 };
 
-export const slugField = ({ from = 'title', description }: Args = {}): Field => ({
+export const slugField = ({
+  from = 'title',
+  description,
+}: Args = {}): Field => ({
   name: 'slug',
   type: 'text',
   required: true,
@@ -101,7 +107,8 @@ export const slugField = ({ from = 'title', description }: Args = {}): Field => 
       `Auto-filled from ${from} if left blank. Changing it after publish breaks existing links and any inbound SEO.`,
   },
   validate: (value: unknown) => {
-    if (typeof value !== 'string' || value.length === 0) return 'A slug is required.';
+    if (typeof value !== 'string' || value.length === 0)
+      return 'A slug is required.';
     if (value.length > MAX_SLUG) {
       return `This slug is ${value.length} characters; the limit is ${MAX_SLUG}. Shorten it yourself — the field will not do it for you, because guessing where to cut a URL is how links break.`;
     }

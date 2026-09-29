@@ -1,6 +1,6 @@
 import type { CollectionConfig } from 'payload';
 
-import { adminOnly, publicRead } from '../access';
+import { roleAccess } from '../access/collectionAccess';
 
 /**
  * Maps production `public.categories` (1 row).
@@ -9,11 +9,22 @@ import { adminOnly, publicRead } from '../access';
  */
 export const Categories: CollectionConfig = {
   slug: 'categories',
-  access: { read: publicRead, create: adminOnly, update: adminOnly, delete: adminOnly },
-  admin: { useAsTitle: 'name', defaultColumns: ['name', 'slug'], group: 'Content' },
+  access: roleAccess('categories'),
+  admin: {
+    useAsTitle: 'name',
+    defaultColumns: ['name', 'slug'],
+    group: 'Content',
+  },
   fields: [
     { name: 'name', type: 'text', required: true, maxLength: 100 },
-    { name: 'slug', type: 'text', required: true, unique: true, index: true, maxLength: 100 },
+    {
+      name: 'slug',
+      type: 'text',
+      required: true,
+      unique: true,
+      index: true,
+      maxLength: 100,
+    },
     { name: 'description', type: 'textarea' },
   ],
 };
