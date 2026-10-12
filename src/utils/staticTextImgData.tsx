@@ -3025,23 +3025,23 @@ export const servicesSubPagesData = {
   staffingServices: {
     metaData: {
       pageMetaTitle:
-        'IT Staff Augmentation Services | Hire Dedicated AI Developers ',
+        'IT Staff Augmentation | Hire Dedicated Developers India',
       pageMetaDescription:
-        'Access top-tier AI talent and remote tech teams. Nextloop provides expert IT staff augmentation services to bridge your skill gaps and drive innovation.',
+        'Nextloop is an IT staff augmentation company. Hire dedicated developers India, remote developers and software teams. 100% in-house. Request profiles.',
     },
     heroImage: staffingService,
     heroSectionData: {
       coloredTitle: 'Scale Your Engineering Fast with ',
       title: 'Premier IT Staff Augmentation Services',
       subtitle:
-        "Nextloop is a leading IT staff augmentation company offering a ready-to-deploy pool of elite in-house talent. Whether you need to hire dedicated developers to rescue a project or scale your entire tech team, we provide professionals you can trust with your code and your product's success. No freelancers. No portals. Just 100% full-time experts.",
+        'Unlike many IT staff augmentation companies, Nextloop staffs every engagement with full-time, in-house employees. Hire dedicated developers in India, hire remote developers who join your sprints from day one, or hire a complete software development team. No freelancers. No portals. Just vetted engineers who work as part of your team.',
     },
     staffingPartnerData: {
       headingData: {
         heading: 'Trusted By Fast-Growing ',
         coloredHeading: 'Startups & Global Corporates',
         description:
-          'Join the ranks of successful businesses that have partnered with us for exceptional IT solutions.',
+          'Startups, product companies and enterprises rely on our IT staff augmentation services to add engineering capacity without slowing down delivery.',
       },
       items: [
         { title: 'Stamens Software', image: Stamens },
@@ -3101,10 +3101,10 @@ export const servicesSubPagesData = {
     },
     comparisonTableData: {
       headingData: {
-        heading: 'The True Cost of Hiring: ',
-        coloredHeading: ' A Comparison Matrix',
+        heading: 'Staff Augmentation vs ',
+        coloredHeading: 'In-House Hiring vs Freelancers',
         description:
-          'Transparent. Secure. Hassle-Free. Subtitle: Experience the ease of choosing our IT staff augmentation services and never go back to traditional hiring again.',
+          'See how IT staff augmentation services compare with building an in-house team or hiring freelancers on the factors that drive cost and delivery risk.',
       },
       columns: {
         metric: 'Metric',
@@ -3114,93 +3114,95 @@ export const servicesSubPagesData = {
       },
       rows: [
         {
-          metric: 'Recruitment Cycle',
-          traditional: '45+ Days',
-          freelancers: '10-15 Days',
-          nextloop: '1-3 Days',
+          metric: 'Recruitment cycle',
+          traditional: '45+ days',
+          freelancers: '10-15 days',
+          nextloop: 'Matched profiles in 1-3 working days',
         },
         {
-          metric: 'Back Outs',
-          traditional: '30-50% (Last-minute drops)',
-          freelancers: '30% (Unreliable)',
-          nextloop: '0%\n(Full time Nextloop employees)',
+          metric: 'Back-outs',
+          traditional: '30-50% last-minute drop-outs',
+          freelancers: 'Around 30%, unreliable',
+          nextloop: 'Full-time employees, so no contractor drop-outs',
         },
         {
-          metric: 'Cost To Hire',
-          traditional: '$10k+ (HR, Portals, Time)',
-          freelancers: '10-20% Platform Fees',
-          nextloop: '0%\n(Full time Nextloop employees)',
+          metric: 'Cost to hire',
+          traditional: '$10k+ (HR, portals, time)',
+          freelancers: '10-20% platform fees',
+          nextloop: 'No placement or platform fees',
         },
         {
-          metric: 'Retention & Perks',
+          metric: 'Retention & perks',
           traditional: 'High overhead (Bonus, Gifts)',
           freelancers: 'High risk of project abandonment',
-          nextloop: '$0\n(Nextloop handles retention)',
+          nextloop: 'Nextloop handles retention',
         },
         {
-          metric: 'Training & Upskilling',
-          traditional: 'Time-consuming & Expensive',
+          metric: 'Training & upskilling',
+          traditional: 'Time-consuming and expensive',
           freelancers: 'Freelancers rarely upskill',
-          nextloop: '$0\n(In-house training center)',
+          nextloop: 'Trained at our in-house centre',
         },
       ],
     },
     serviceProcessData: {
       heading: 'How Our IT Staff Augmentation',
-      coloredHeading: ' Process Works',
+      coloredHeading: 'Process Works',
+      description:
+        'Five simple steps from first call to a productive team. Whether you hire remote developers or a full software development team, the process stays the same.',
       steps: [
         {
           step: 1,
           title: 'Requirement Analysis',
           description:
-            'Understanding your project needs, tech stack, and team dynamics.',
+            'We study your product, tech stack, team structure and goals to define the exact roles you need.',
         },
         {
           step: 2,
           title: 'Talent Matching & Screening',
           description:
-            'Selecting pre-vetted developers with matching skills and experience.',
+            'We shortlist pre-vetted in-house developers whose skills and domain experience fit your project.',
         },
         {
           step: 3,
           title: 'Onboarding & Integration',
           description:
-            'Seamless integration with your team, tools, and development processes.',
+            'Developers join your tools, repositories and channels and align with your sprint rhythm.',
         },
         {
           step: 4,
-          title: 'Project Execution & Monitoring',
+          title: 'Execution & Monitoring',
           description:
-            'Daily collaboration, code reviews, and performance tracking.',
+            'Daily collaboration, code reviews and regular performance tracking keep delivery on course.',
         },
         {
           step: 5,
-          title: 'Ongoing Support & Scaling',
+          title: 'Support & Scaling',
           description:
-            'Continuous assessment, skill development, and team expansion as needed.',
+            'Continuous assessment and skill development, with freedom to scale up or down.',
         },
       ],
     },
     SecurityData: {
-      heading: 'Bank-Grade Security & IP Protection',
+      heading: 'Security and IP Protection for Remote Developers',
       items: [
         {
           icon: FaMapMarkerAlt,
-          title: 'NDAs & Strict Contracts:',
+          title: 'NDAs & Strict Contracts',
           description:
-            'Meticulously composed agreements with strict data handling and IP ownership guidelines.',
+            'Every engagement starts with a signed NDA and clear IP ownership terms. Everything we build for you belongs to you.',
         },
         {
           icon: FaDesktop,
-          title: 'Company Assigned Devices:',
+          title: 'Company-Assigned Devices',
           description:
-            'Programmers collaborate using organization designated, monitored hardware.',
+            'Developers work on Nextloop-managed, monitored hardware rather than personal laptops, which keeps access controlled.',
         },
         {
           icon: FaEye,
-          title: 'Private Repositories:',
+          title: 'Private, Client-Owned Repositories',
           description:
-            'Entire source code is maintained and pushed daily to a Client-owned private repository.',
+            'Code is pushed daily to a private repository that you own, so you can review progress and keep full control.',
         },
       ],
     },
@@ -3238,48 +3240,48 @@ export const servicesSubPagesData = {
     },
     staffingIndustriesData: {
       headingData: {
-        heading: 'Stand Out from Other  ',
-        coloredHeading: 'IT Staff Augmentation Companies',
+        heading: 'Why Choose Nextloop as Your ',
+        coloredHeading: 'IT Staff Augmentation Partner',
         description:
-          "We don't just provide coders; we offer comprehensive remote IT staffing services focused on product engineering. When you hire remote developers through us, you get engineers with past experience complementing your project’s domain, working with the utmost focus on data security and agile delivery.",
+          'Most IT staff augmentation companies act as middlemen for freelancers. We do not. Our resource augmentation services are delivered by engineers we hire, train and manage ourselves, so you get consistent quality, clear accountability and developers who stay with your project.',
       },
       items: [
         {
           id: 1,
           title: '100% In-House Developers',
           description:
-            'We strictly say NO to freelancers. Every resource is a Nextloop employee.',
+            'Every developer is a full-time Nextloop employee. We never use freelancers or subcontractors, so you work with one accountable team.',
           image: MdComputer,
         },
         {
           id: 2,
           title: 'Niche Specialization',
           description:
-            ' Deep expertise in modern tech stacks backed by our on-premise training center. Ideal when you need to hire software developers fast.',
+            'Deep expertise in modern tech stacks, built at our on-premise training centre. Ideal when you need to hire a software developer in India quickly.',
           image: FaHandHoldingMedical,
         },
         {
           id: 3,
-          title: ' Domain Matching',
+          title: 'Domain Matching',
           description:
-            'Hire dedicated resources who have already built products similar to yours (Healthcare, Fintech, E-commerce, etc.).',
+            'We match you with engineers who have already built products in your industry, such as healthcare, fintech or e-commerce.',
           image: BsBank,
         },
         {
           id: 4,
           title: 'Proactive Participation',
           description:
-            'Our engineers actively participate in product discussions, offering architectural suggestions and improvements.',
+            'Our engineers join planning and architecture discussions and suggest improvements, instead of only closing tickets.',
           image: FiShoppingCart,
         },
       ],
     },
     techTalentData: {
       headingData: {
-        heading: 'Build Your ',
-        coloredHeading: 'Digital Future With The Best Tech Talent',
+        heading: 'Hire Dedicated Developers in India ',
+        coloredHeading: 'by Role and Technology',
         description:
-          'When you partner with Nextloop, you get access to a diverse pool of vetted specialists. We make it simple to scale your project exactly how you envision it:',
+          'Choose from a pool of vetted specialists and scale your project exactly the way you envision it. Every developer is a full-time Nextloop employee, available as a single hire or as part of a team.',
       },
       items: [
         {
@@ -3287,51 +3289,51 @@ export const servicesSubPagesData = {
           icon: FaSearch,
           title: 'Hire Mobile App Developers',
           description:
-            'Need cross-platform excellence? Hire React Native developers from our bench to build seamless iOS and Android experiences. Our React Native developers boast an average rating of 4.8/5.',
+            'Need cross-platform excellence? Hire React Native developers from our bench to build seamless iOS and Android experiences.',
           position: 'left',
           color: 'dark',
         },
         {
           label: 'B',
           icon: FaCogs,
-          title: 'Web & Full Stack',
+          title: 'Web & Full Stack Developers',
           description:
-            'Need end-to-end architecture? Hire full stack experts. We make it easy to hire full stack developers who fluently bridge frontend logic and backend databases.',
+            'Need end-to-end architecture? Hire a software developer in India who works across frontend, backend and databases and ships complete features.',
           position: 'left',
           color: 'orange',
         },
         {
           label: 'C',
           icon: FaBrain,
-          title: 'Backend & Frontend',
+          title: 'Backend & Frontend Developers',
           description:
-            'Scale gracefully. You can hire dedicated developers specifically tailored to your immediate sprint needs.',
+            'Hire dedicated developers for the layer you need: scalable APIs and databases, or fast, accessible interfaces.',
           position: 'right',
           color: 'blue',
         },
       ],
     } as TechTalentData,
     NotJustAPartnerData: {
-      heading: 'Not Just A Partner,',
-      coloredHeading: 'But An Extension Of Your In-House Team.',
+      heading: 'An Extension of',
+      coloredHeading: 'Your In-House Team',
       items: [
         {
           icon: HeartPulse,
           title: 'No Intrusive Agency Managers',
           description:
-            'You have unrestricted, unconditional direct access to your resources.',
+            'Unrestricted, direct access to your developers, with no account-manager layers in between.',
         },
         {
           icon: HardHat,
           title: 'A Fully Managed Team',
           description:
-            'We manage hiring, grievances, retention, and the happiness index of your developers.',
+            'We manage hiring, payroll, equipment, grievances and retention, so you focus on your product.',
         },
         {
           icon: Leaf,
           title: 'Customizable Work Culture',
           description:
-            "When you hire dedicated developers through Nextloop, they seamlessly adapt to your company's workflows and time zones.",
+            'Developers adapt to your workflows and sprint rhythm, with overlapping hours across time zones.',
         },
       ],
     },
@@ -3340,19 +3342,32 @@ export const servicesSubPagesData = {
         id: 1,
         question: 'How long will it take to find a suitable developer?',
         answer:
-          'Within 3 to 7 days, the complete process from requirement sharing to onboarding is completed.',
+          'Once we understand your requirements, we share matched profiles in 1-3 working days and can onboard shortly after you approve a candidate. Because our developers are already employed and trained in-house, there is no lengthy recruitment cycle.',
       },
       {
         id: 2,
-        question: 'Can I hire developers for my specific time zone?',
+        question: 'Can your developers work in my time zone?',
         answer:
-          'Yes, our resources offer overlapping hours to match your preferred daily stand-up schedules.',
+          'Yes. Our developers adjust their hours to overlap with your team, including daily stand-ups. Working hours, stand-ups and reporting are agreed before the engagement starts.',
       },
       {
         id: 3,
         question: 'Who owns the code?',
         answer:
-          ' You do. 100%. We sign strict NDAs and IP assignment contracts before the project begins.',
+          'You do. Every engagement is covered by an NDA and a contract that assigns all IP to you. Developers push code daily to a private repository that you own, so you hold the full source history at all times.',
+      },
+      {
+        id: 4,
+        question:
+          'How is IT staff augmentation different from outsourcing or a dedicated development team?',
+        answer:
+          'With IT staff augmentation, developers join your team and take direction from you. Outsourcing hands a whole project to a vendor who manages delivery. A dedicated team is a full team assigned only to you. Nextloop offers all three resource augmentation models.',
+      },
+      {
+        id: 5,
+        question: 'How do you keep our code and data secure?',
+        answer:
+          'Every engagement is covered by an NDA and IP assignment. Developers work on Nextloop-managed, monitored devices, access is limited to what your project needs, and code lives in your private repository.',
       },
     ],
   },

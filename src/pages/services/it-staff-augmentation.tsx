@@ -13,8 +13,30 @@ const initialData = {
   schemaKey: 'service-staff-augmentation' as const,
 };
 
-const StaffingDevelopment: React.FC<{ blogData: BlogData[] }> = ({ blogData }) => (
-  <ServicePage {...initialData} blogData={blogData} />
+const StaffingDevelopment: React.FC<{ blogData: BlogData[] }> = ({
+  blogData,
+}) => (
+  <ServicePage
+    {...initialData}
+    blogData={blogData}
+    heroCtas
+    faqTopDivider
+    statsStrip={[
+      { end: 40, suffix: '+', label: 'Successful Projects' },
+      { end: 80, suffix: '+', label: 'Tech Professionals' },
+      { end: 98, suffix: '%+', label: 'Client Satisfaction' },
+    ]}
+    midCta={{
+      heading: 'Not Sure Which Engagement Model Fits?',
+      description:
+        "Tell us about your project and we'll map the right resource augmentation services, whether that is one specialist, a team extension or a full dedicated team, within two business days.",
+    }}
+    bottomCta={{
+      heading: 'Ready to Scope Your Project?',
+      description:
+        'Talk to our engineering team about the developers you need. We will reply with matched profiles and clear next steps.',
+    }}
+  />
 );
 
 export default StaffingDevelopment;

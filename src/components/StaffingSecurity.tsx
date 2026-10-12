@@ -26,11 +26,11 @@ export const StaffingSecurity = ({ data }: StaffingSecurityProps) => {
   return (
     <div className='bg-zinc-900 py-16 px-6 md:px-16 lg:px-24'>
       <h2
-        className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-white font-bold leading-tight text-center mb-12`}
+        className={`${palette.fontSize.heading2.mobile} md:${palette.fontSize.heading2.desktop} text-white font-bold leading-tight text-center mb-4 max-w-4xl mx-auto`}
       >
         {data.heading}
       </h2>
-      <div className='max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10'>
+      <div className='max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 mt-8'>
         {data.items.map((item: SecurityItem, i: number) => (
           <SecurityCard key={i} item={item} />
         ))}

@@ -51,3 +51,4 @@ Claude outputs/
 .migrate-rejected.jsonl
 backup-*.sql
 
+config.bat

@@ -59,7 +59,11 @@ export const ServicesProcess = ({ data }: ServicesProcessProps) => {
         {heading}
         <span className='text-orange-500'> {coloredHeading}</span>
       </h2>
-      <p className='text-gray-400 mt-4 mb-12'>{description}</p>
+      {description ? (
+        <p className='text-gray-400 mt-4 mb-12 max-w-3xl'>{description}</p>
+      ) : (
+        <div className='mb-12' />
+      )}
 
       <div className='flex flex-col gap-8 lg:hidden max-w-lg mx-auto'>
         {steps.map((item: ServiceProcessStep) => (
