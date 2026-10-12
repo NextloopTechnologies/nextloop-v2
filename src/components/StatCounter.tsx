@@ -53,9 +53,8 @@ const StatCounter: React.FC<StatCounterProps> = ({
   }, [end, duration]);
 
   return (
-    <span ref={ref} className='text-4xl font-bold text-orange-400'>
-      {count}
-      {suffix}
+    <span ref={ref} className='text-4xl font-bold text-orange-400 whitespace-nowrap'>
+      {`${count}${suffix}`}
     </span>
   );
 };

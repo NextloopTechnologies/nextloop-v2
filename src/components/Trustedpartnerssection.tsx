@@ -75,6 +75,12 @@ const TrustedPartnersSection: React.FC<{
         </span>
       </h2>
 
+      {data.headingData.description ? (
+        <p className='mt-4 mb-2 max-w-3xl text-gray-500 text-sm md:text-base leading-relaxed px-4'>
+          {data.headingData.description}
+        </p>
+      ) : null}
+
       <div className='mt-4 mb-10 h-0.5 w-10 rounded-full bg-orange-400' />
 
       <div className='flex flex-wrap justify-center gap-9 max-w-5xl'>

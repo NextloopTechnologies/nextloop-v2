@@ -37,7 +37,7 @@ const StaffingIndustriesSection: React.FC<{ industriesData: StaffingData }> = ({
           </span>
         </h2>
 
-        <p className='text-gray-400 mt-4 mb-12'>
+        <p className='text-gray-400 mt-4 mb-12 max-w-3xl'>
           {industriesData.headingData.description}
         </p>
         <div className='w-full mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-4'>

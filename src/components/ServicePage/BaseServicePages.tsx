@@ -1,6 +1,9 @@
 import Head from 'next/head';
 import React from 'react';
 
+import ServiceCtaBand from './ServiceCtaBand';
+import ServiceCtaButtons from './ServiceCtaButtons';
+import ServiceStatStrip from './ServiceStatStrip';
 import BlogSection from '../../components/BlogSection';
 import FAQ from '../../components/Domains/FAQ';
 import IconTextBoxZebra from '../../components/IconTextBoxZebra';
@@ -42,6 +45,11 @@ const ServicePage: React.FC<ServicePageProps> = ({
   techTalentData,
   NotJustAPartnerData,
   serviceProcessData,
+  heroCtas,
+  statsStrip,
+  midCta,
+  bottomCta,
+  faqTopDivider,
 }) => {
   return (
     <Layout>
@@ -66,7 +74,12 @@ const ServicePage: React.FC<ServicePageProps> = ({
           title={heroSectionData.title}
           subtitle={heroSectionData.subtitle}
           opacity='opacity-80'
+          actions={heroCtas ? <ServiceCtaButtons tone='dark' /> : undefined}
         />
+      )}
+
+      {statsStrip && statsStrip.length > 0 && (
+        <ServiceStatStrip items={statsStrip} />
       )}
 
       {expertiseData && <IconTextBoxZebra data={expertiseData} />}
@@ -86,6 +99,9 @@ const ServicePage: React.FC<ServicePageProps> = ({
       {/* {teamMembersData && teamMembersData?.items?.length > 0 && <TeamMembers data={teamMembersData} />} */}
 
       {comparisonTableData && <StaffingTable data={comparisonTableData} />}
+
+      {midCta && <ServiceCtaBand {...midCta} />}
+
       {serviceProcessData && serviceProcessData.steps.length > 0 && (
         <ServicesProcess data={serviceProcessData} />
       )}
@@ -130,7 +146,11 @@ const ServicePage: React.FC<ServicePageProps> = ({
         />
       )}
 
-      {faqsContent.length > 0 && <FAQ faqsContent={faqsContent} />}
+      {faqsContent.length > 0 && (
+        <FAQ faqsContent={faqsContent} withTopDivider={faqTopDivider} />
+      )}
+
+      {bottomCta && <ServiceCtaBand {...bottomCta} />}
     </Layout>
   );
 };

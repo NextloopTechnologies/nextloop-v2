@@ -454,6 +454,17 @@ export interface ServiceProcessData {
   steps: ServiceProcessStep[];
 }
 
+export interface ServiceStatItem {
+  end: number;
+  suffix?: string;
+  label: string;
+}
+
+export interface ServiceCtaBandData {
+  heading: string;
+  description: string;
+}
+
 export interface ServicePageProps {
   schemaKey?: PageSchemaKey;
   metaData?: {
@@ -496,4 +507,9 @@ export interface ServicePageProps {
   techTalentData?: TechTalentData;
   NotJustAPartnerData?: NotJustAPartnerData;
   serviceProcessData?: ServiceProcessData;
+  heroCtas?: boolean;
+  statsStrip?: ServiceStatItem[];
+  midCta?: ServiceCtaBandData;
+  bottomCta?: ServiceCtaBandData;
+  faqTopDivider?: boolean;
 }
