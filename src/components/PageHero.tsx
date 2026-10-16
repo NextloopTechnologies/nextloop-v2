@@ -21,6 +21,7 @@ const PageHero: React.FC<{
   coloredTitle?: string;
   opacity?: string;
   titleAs?: 'h1' | 'p';
+  actions?: React.ReactNode;
 }> = ({
   image,
   subtitle,
@@ -28,10 +29,15 @@ const PageHero: React.FC<{
   coloredTitle = false,
   opacity = 'opacity-40',
   titleAs = 'h1',
+  actions,
 }) => {
   const Title = titleAs;
   return (
-    <div className='h-[80vh] relative flex items-center justify-center text-white'>
+    <div
+      className={`relative flex items-center justify-center text-white ${
+        actions ? 'h-auto pt-28 pb-8 md:pt-32 md:pb-10' : 'h-[80vh]'
+      }`}
+    >
       {image &&
         (React.isValidElement<IconElementProps>(image) ? (
           React.cloneElement(image, {
@@ -72,7 +78,11 @@ const PageHero: React.FC<{
           />
         ) : null)}
       <div className={`absolute inset-0 bg-black ${opacity}`}></div>
-      <div className='flex flex-col gap-8 items-center z-20 px-4 lg:p-0 md:w-[70%] lg:w-[60%]'>
+      <div
+        className={`flex flex-col items-center z-20 px-4 lg:p-0 md:w-[70%] lg:w-[60%] ${
+          actions ? 'gap-5 md:gap-6' : 'gap-8'
+        }`}
+      >
         {coloredTitle ? (
           <Title
             className={`${palette.fontSize.heading1.mobile} md:${palette.fontSize.heading1.desktop} font-bold text-center`}
@@ -92,6 +102,7 @@ const PageHero: React.FC<{
         >
           {subtitle}
         </span>
+        {actions}
       </div>
     </div>
   );
