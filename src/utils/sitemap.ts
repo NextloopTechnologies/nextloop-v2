@@ -22,7 +22,14 @@ import { listBlogs, listJobs, listPortfolio } from '../lib/content';
  *    tolerant and the static routes always ship.
  */
 
-export type ChangeFreq = 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
+export type ChangeFreq =
+  | 'always'
+  | 'hourly'
+  | 'daily'
+  | 'weekly'
+  | 'monthly'
+  | 'yearly'
+  | 'never';
 
 export interface SitemapEntry {
   /** Site-relative, with the trailing slash `next.config.mjs` enforces. */
@@ -52,17 +59,51 @@ export const STATIC_ROUTES: SitemapEntry[] = [
   { path: '/contact-us/', changefreq: 'monthly', priority: 0.8 },
 
   { path: '/services/', changefreq: 'monthly', priority: 0.9 },
-  { path: '/services/custom-software-development/', changefreq: 'monthly', priority: 0.8 },
-  { path: '/services/it-staff-augmentation/', changefreq: 'monthly', priority: 0.8 },
+  {
+    path: '/services/custom-software-development/',
+    changefreq: 'monthly',
+    priority: 0.8,
+  },
+  {
+    path: '/services/it-staff-augmentation/',
+    changefreq: 'monthly',
+    priority: 0.8,
+  },
   { path: '/services/web-development/', changefreq: 'monthly', priority: 0.8 },
-  { path: '/services/mobile-app-development/', changefreq: 'monthly', priority: 0.8 },
+  {
+    path: '/services/mobile-app-development/',
+    changefreq: 'monthly',
+    priority: 0.8,
+  },
   { path: '/services/mvp-development/', changefreq: 'monthly', priority: 0.8 },
   { path: '/services/ai-ml/', changefreq: 'monthly', priority: 0.8 },
-  { path: '/services/cloud-computing-solutions/', changefreq: 'monthly', priority: 0.8 },
-  { path: '/services/digital-marketing-services/', changefreq: 'monthly', priority: 0.8 },
+  {
+    path: '/services/ai-enabled-custom-software-development/',
+    changefreq: 'monthly',
+    priority: 0.8,
+  },
+  { path: '/services/ai-automation/', changefreq: 'monthly', priority: 0.8 },
+  {
+    path: '/services/cloud-computing-solutions/',
+    changefreq: 'monthly',
+    priority: 0.8,
+  },
+  {
+    path: '/services/digital-marketing-services/',
+    changefreq: 'monthly',
+    priority: 0.8,
+  },
   // Both of these are live, indexable and were missing from the old sitemap.
-  { path: '/services/e-commerce-development/', changefreq: 'monthly', priority: 0.8 },
-  { path: '/services/software-testing-qa-services/', changefreq: 'monthly', priority: 0.8 },
+  {
+    path: '/services/e-commerce-development/',
+    changefreq: 'monthly',
+    priority: 0.8,
+  },
+  {
+    path: '/services/software-testing-qa-services/',
+    changefreq: 'monthly',
+    priority: 0.8,
+  },
 
   { path: '/domain/', changefreq: 'monthly', priority: 0.7 },
   { path: '/domain/fintech/', changefreq: 'monthly', priority: 0.7 },
@@ -72,7 +113,11 @@ export const STATIC_ROUTES: SitemapEntry[] = [
   { path: '/domain/ecommerce/', changefreq: 'monthly', priority: 0.7 },
   { path: '/domain/events/', changefreq: 'monthly', priority: 0.7 },
   { path: '/domain/hotel/', changefreq: 'monthly', priority: 0.7 },
-  { path: '/domain/travel-and-hospitality/', changefreq: 'monthly', priority: 0.7 },
+  {
+    path: '/domain/travel-and-hospitality/',
+    changefreq: 'monthly',
+    priority: 0.7,
+  },
 
   { path: '/blog/', changefreq: 'daily', priority: 0.7 },
   { path: '/careers/', changefreq: 'daily', priority: 0.7 },
@@ -97,16 +142,24 @@ const toIso = (value: unknown): string | undefined => {
 /** Slugs and ids reach the URL, so anything path-unsafe disqualifies the row. */
 const isUsableSegment = (value: unknown): value is string | number => {
   if (typeof value === 'number') return Number.isFinite(value);
-  return typeof value === 'string' && value.trim().length > 0 && !/[/\s?#]/.test(value);
+  return (
+    typeof value === 'string' &&
+    value.trim().length > 0 &&
+    !/[/\s?#]/.test(value)
+  );
 };
 
-export const renderUrlset = (entries: SitemapEntry[], baseUrl: string): string => {
+export const renderUrlset = (
+  entries: SitemapEntry[],
+  baseUrl: string
+): string => {
   const urls = entries
     .map((entry) => {
       const loc = escapeXml(new URL(entry.path, baseUrl).toString());
       const parts = [`    <loc>${loc}</loc>`];
       if (entry.lastmod) parts.push(`    <lastmod>${entry.lastmod}</lastmod>`);
-      if (entry.changefreq) parts.push(`    <changefreq>${entry.changefreq}</changefreq>`);
+      if (entry.changefreq)
+        parts.push(`    <changefreq>${entry.changefreq}</changefreq>`);
       if (entry.priority !== undefined) {
         parts.push(`    <priority>${entry.priority.toFixed(1)}</priority>`);
       }
@@ -121,7 +174,10 @@ ${urls}
 `;
 };
 
-export const renderSitemapIndex = (paths: string[], baseUrl: string): string => {
+export const renderSitemapIndex = (
+  paths: string[],
+  baseUrl: string
+): string => {
   const maps = paths
     .map((path) => {
       const loc = escapeXml(new URL(path, baseUrl).toString());
@@ -145,7 +201,7 @@ ${maps}
 // valid sitemap, a 500 is not.
 // ---------------------------------------------------------------------------
 
-const safely = async <T,>(load: () => Promise<T[]>): Promise<T[]> => {
+const safely = async <T>(load: () => Promise<T[]>): Promise<T[]> => {
   try {
     return await load();
   } catch {
@@ -206,7 +262,9 @@ export const resolveBaseUrl = (req?: {
 
   const host = header('x-forwarded-host') ?? header('host');
   if (host) {
-    const proto = header('x-forwarded-proto') ?? (host.startsWith('localhost') ? 'http' : 'https');
+    const proto =
+      header('x-forwarded-proto') ??
+      (host.startsWith('localhost') ? 'http' : 'https');
     return `${proto}://${host}`;
   }
 
@@ -217,5 +275,6 @@ export const resolveBaseUrl = (req?: {
 export const XML_HEADERS = {
   'Content-Type': 'application/xml; charset=utf-8',
   // Sitemaps are cheap to regenerate and expensive to serve stale.
-  'Cache-Control': 'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400',
+  'Cache-Control':
+    'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400',
 } as const;
