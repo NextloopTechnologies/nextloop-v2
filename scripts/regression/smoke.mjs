@@ -27,7 +27,7 @@ const BASELINE = [
   { path: '/about-us/', title: 'Custom Software & AI Development Company | Nextloop', descLen: 159, h1: 1, jsonLd: 1 , minText: 3000 },
   { path: '/services/', title: 'Offshore development center | Custom Web & software services provider', descLen: 172, h1: 1, jsonLd: 1 , minText: 2000 },
   { path: '/services/custom-software-development/', title: 'Custom Software Development Outsourcing | Nextloop Technologies', descLen: 175, h1: 1, jsonLd: 1 },
-  { path: '/services/it-staff-augmentation/', title: 'IT Staff Augmentation Services | Hire Dedicated AI Developers', descLen: 152, h1: 1, jsonLd: 1 },
+  { path: '/services/it-staff-augmentation/', title: 'IT Staff Augmentation | Hire Dedicated Developers India', descLen: 149, h1: 1, jsonLd: 1 },
   { path: '/services/web-development/', title: 'Scalable Web Development & IT Outsourcing Services in India', descLen: 216, h1: 1, jsonLd: 1 },
   { path: '/services/mobile-app-development/', title: 'Native Mobile Application Development India | iOS & Android Experts', descLen: 166, h1: 1, jsonLd: 1 },
   { path: '/services/mvp-development/', title: 'Build Your MVP Faster with Expert Software Development Services', descLen: 153, h1: 1, jsonLd: 0 },
@@ -211,8 +211,8 @@ for (const child of ['/sitemap-pages.xml', '/sitemap-content.xml', '/sitemap-job
 }
 
 const pageLocs = [...sitemapBodies['/sitemap-pages.xml'].matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-record('SITEMAP-COUNT', '/sitemap-pages.xml', pageLocs.length === 27,
-  `${pageLocs.length} URLs (was 22 hardcoded; expected 27)`);
+record('SITEMAP-COUNT', '/sitemap-pages.xml', pageLocs.length === 29,
+  `${pageLocs.length} URLs (was 22 hardcoded; expected 29)`);
 record('SITEMAP-ABS', '/sitemap-pages.xml', pageLocs.every((l) => /^https?:\/\//.test(l)),
   'every loc is absolute');
 record('SITEMAP-SLASH', '/sitemap-pages.xml',

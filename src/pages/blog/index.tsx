@@ -105,17 +105,34 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
 }) => {
   const router = useRouter();
   const [visibleCount, setVisibleCount] = useState(9);
-  const filtered = data
-    ? data.filter((blog, i) => i !== 0 && blog.title && blog.descp)
-    : [];
-  const visibleBlogs = filtered.slice(0, visibleCount);
   /**
-   * The hero used to read the unfiltered `data[0]` while the grid below read
-   * `filtered`. A newest post with an empty body therefore appeared large at the
-   * top and was missing from "All Blogs" — and if every post was empty, the hero
-   * showed one while the grid said "No blogs found". Same list, one source.
+   * One list, filtered only on what makes a post renderable.
+   *
+   * This used to carry `i !== 0` as well, which was meant to keep the hero post
+   * out of the grid below — but it was applied to the *dataset*, not to the
+   * grid. So the newest post was removed before anything read it, and
+   * `featured` then picked up the SECOND newest. The newest post appeared
+   * nowhere on this page at all, while the service pages — which call
+   * `listBlogs()` through `fetchLatestBlogs` with no such filter — went on
+   * showing it. Measured on production: `/blog/ai-development-company-in-india/`
+   * was linked from /services/ai-ml/ and absent from /blog/.
+   *
+   * The title/descp filter stays. An untitled or empty post has nothing to
+   * render and used to appear as a blank card linking to `/blog/null`.
    */
+  const filtered = data ? data.filter((blog) => blog.title && blog.descp) : [];
+
+  /** Newest renderable post, shown large at the top. */
   const featured = filtered[0];
+
+  /**
+   * The grid is everything *after* the hero — this is where excluding the first
+   * post belongs, and doing it here rather than in `filtered` is the whole fix.
+   * Previously the hero also appeared as the first card, because both read from
+   * index 0 of the same slice.
+   */
+  const rest = filtered.slice(1);
+  const visibleBlogs = rest.slice(0, visibleCount);
 
   return (
     <Layout>
@@ -223,17 +240,17 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
 
           <div className='grid grid-cols-1 mt-12 md:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch w-full'>
             {visibleBlogs.length > 0 ? (
-              visibleBlogs.map((blog) => (
-                <BlogCard key={blog.id} blog={blog} />
-              ))
+              visibleBlogs.map((blog) => <BlogCard key={blog.id} blog={blog} />)
             ) : (
               <p className='col-span-3 text-center text-gray-400 text-lg py-20'>
-                No blogs found.
+                {filtered.length === 0
+                  ? 'No blogs found.'
+                  : 'No other blogs yet.'}
               </p>
             )}
           </div>
 
-          {visibleCount < filtered.length && (
+          {visibleCount < rest.length && (
             <button
               onClick={() => setVisibleCount((prev) => prev + 9)}
               className='mt-10 px-10 py-3 text-[13px] font-bold uppercase tracking-widest 
@@ -255,6 +272,10 @@ export async function getServerSideProps() {
   try {
     return { props: { data: await listBlogs() } };
   } catch (e) {
-    return { props: { error: e instanceof Error ? e.message : 'Unable to load articles.' } };
+    return {
+      props: {
+        error: e instanceof Error ? e.message : 'Unable to load articles.',
+      },
+    };
   }
 }
