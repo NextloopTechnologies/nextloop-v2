@@ -9,10 +9,19 @@ import { FaXTwitter } from 'react-icons/fa6';
 import Layout from '../../components/Layout/Layout';
 import Seo from '../../components/Seo';
 import { getBlogBySlug, listBlogs } from '../../lib/content';
-import { PREVIEW_COOKIE, readCookie, verifyPreviewToken } from '../../lib/preview';
+import {
+  PREVIEW_COOKIE,
+  readCookie,
+  verifyPreviewToken,
+} from '../../lib/preview';
 import { BlogIDProps, BlogType, TocItem } from '../../types';
+import { blogDate, formatBlogDate } from '../../utils/blogDate';
 import { getBaseUrl } from '../../utils/getBaseUrl';
-import { articleSchema, breadcrumbSchema, toPlainText } from '../../utils/structuredData';
+import {
+  articleSchema,
+  breadcrumbSchema,
+  toPlainText,
+} from '../../utils/structuredData';
 
 /**
  * `readTime` is nullable because the Payload adapter returns null for an unset
@@ -276,7 +285,12 @@ const FeaturedBlogs: React.FC<{ blogs: BlogType[] }> = ({ blogs }) => {
   );
 };
 
-const BlogID: React.FC<BlogIDProps> = ({ data, error, preview = false, featuredBlogs }) => {
+const BlogID: React.FC<BlogIDProps> = ({
+  data,
+  error,
+  preview = false,
+  featuredBlogs,
+}) => {
   const [tocItems, setTocItems] = useState<TocItem[]>([]);
   const [activeId, setActiveId] = useState('');
   const [processedHtml, setProcessedHtml] = useState('');
@@ -345,19 +359,26 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error, preview = false, featuredB
 
   if (!data) return null;
 
-  const publishedAt = data.created_at
-    ? new Date(data.created_at).toLocaleDateString('en-GB', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric',
-      })
-    : undefined;
+  /**
+   * The date the post says it was published, which is now the editor's own
+   * `publishedAt` and only falls back to `created_at` where there is none —
+   * a Supabase read, or a draft being previewed before it has ever gone live.
+   * `publishedIso` is the machine-readable form behind the article metadata,
+   * so the date Google is told matches the one on the page.
+   */
+  const publishedIso = blogDate(data) ?? undefined;
+  const publishedAt = formatBlogDate(data, {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
 
   // meta_title / meta_description / canonical_url already exist on the blogs
   // table. Until now the page rendered none of them and shipped an empty
   // <title>, so every post was invisible in search results.
   const blogUrl = `${getBaseUrl()}/blog/${data.slug ?? ''}/`;
-  const metaTitle = data.meta_title?.trim() || `${data.title} | Nextloop Technologies`;
+  const metaTitle =
+    data.meta_title?.trim() || `${data.title} | Nextloop Technologies`;
   const metaDescription =
     data.meta_description?.trim() || toPlainText(data.descp, 158);
   const coverImage = data.image?.[0]?.url;
@@ -372,8 +393,8 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error, preview = false, featuredB
         image={coverImage}
         canonical={data.canonical_url?.trim() || undefined}
         type='article'
-        publishedTime={data.created_at}
-        modifiedTime={data.updated_at ?? data.created_at}
+        publishedTime={publishedIso}
+        modifiedTime={data.updated_at ?? publishedIso}
         author={data.author?.name ?? undefined}
         jsonLd={[
           articleSchema({
@@ -381,8 +402,8 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error, preview = false, featuredB
             description: metaDescription,
             url: blogUrl,
             image: coverImage,
-            datePublished: data.created_at,
-            dateModified: data.updated_at ?? data.created_at,
+            datePublished: publishedIso,
+            dateModified: data.updated_at ?? publishedIso,
             authorName: data.author?.name ?? undefined,
           }),
           breadcrumbSchema([
@@ -474,7 +495,11 @@ const BlogID: React.FC<BlogIDProps> = ({ data, error, preview = false, featuredB
 
 export default BlogID;
 
-export const getServerSideProps: GetServerSideProps = async ({ params, req, res }) => {
+export const getServerSideProps: GetServerSideProps = async ({
+  params,
+  req,
+  res,
+}) => {
   const slug = typeof params?.slug === 'string' ? params.slug : '';
   if (!slug) return { notFound: true };
 

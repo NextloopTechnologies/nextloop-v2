@@ -10,6 +10,7 @@ import PageHero from '../../components/PageHero';
 import { listBlogs } from '../../lib/content';
 import palette from '../../styles/pallette';
 import { BlogType } from '../../types';
+import { formatBlogDate } from '../../utils/blogDate';
 import blogsBg from '../../../assets/blogs.png';
 
 function stripHtml(html: string) {
@@ -33,6 +34,12 @@ const CARD_CLASS = `group flex flex-col w-full h-full lg:max-w-[400px] self-star
                  hover:bg-[#1D1D1D] hover:border-[#1D1D1D]`;
 
 function BlogCard({ blog }: { blog: BlogType }) {
+  /**
+   * The editor's publish date, falling back to the row's creation date for
+   * posts and sources that have none. Was `created_at` unconditionally, which
+   * meant the date on a card was whenever the row happened to be written.
+   */
+  const published = formatBlogDate(blog);
   const body = (
     <>
       <div className='relative w-full h-[200px] shrink-0 overflow-hidden'>
@@ -59,13 +66,9 @@ function BlogCard({ blog }: { blog: BlogType }) {
           </h2>
 
           <div className='flex items-center gap-2.5 flex-wrap'>
-            {blog.created_at && (
+            {published && (
               <span className='text-[12px] font-semibold text-black group-hover:text-white'>
-                {new Date(blog.created_at).toLocaleDateString('en-GB', {
-                  day: '2-digit',
-                  month: 'long',
-                  year: 'numeric',
-                })}
+                {published}
               </span>
             )}
           </div>
@@ -133,6 +136,7 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
    */
   const rest = filtered.slice(1);
   const visibleBlogs = rest.slice(0, visibleCount);
+  const featuredDate = featured ? formatBlogDate(featured) : undefined;
 
   return (
     <Layout>
@@ -192,13 +196,9 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
             <div className='relative md:absolute md:-bottom-16 md:right-0 bg-white w-full md:w-3/4 border-[#D8D8D8] border-2 p-4 sm:p-6 flex flex-col gap-3 sm:gap-5 z-10'>
               {/* Date + Tag */}
               <div className='flex items-center gap-2.5 flex-wrap font-light '>
-                {featured?.created_at && (
+                {featuredDate && (
                   <span className='text-[12px] font-semibold text-slate-500'>
-                    {new Date(featured.created_at).toLocaleDateString('en-GB', {
-                      day: '2-digit',
-                      month: 'long',
-                      year: 'numeric',
-                    })}
+                    {featuredDate}
                   </span>
                 )}
               </div>

@@ -1,7 +1,30 @@
-import type { CollectionConfig } from 'payload';
+import type { CollectionBeforeChangeHook, CollectionConfig } from 'payload';
 
 import { roleAccess } from '../access/collectionAccess';
 import { slugField } from '../fields/slug';
+
+/**
+ * Stamps `publishedAt` the first time a post goes live.
+ *
+ * Without it the field is one more thing an editor has to remember, and a post
+ * saved with it blank would show no date at all. It is only ever filled when
+ * empty: an editor who backdates a post, or corrects a wrong date, keeps the
+ * value they set — this never overwrites one.
+ *
+ * `data` on an update carries only the fields that changed, so `status` and
+ * `publishedAt` are read from `originalDoc` when the incoming payload omits
+ * them. Reading `data` alone would re-stamp a published post on every edit
+ * that happened not to touch those two fields.
+ */
+const stampPublishedAt: CollectionBeforeChangeHook = ({
+  data,
+  originalDoc,
+}) => {
+  const status = data?.status ?? originalDoc?.status;
+  const publishedAt = data?.publishedAt ?? originalDoc?.publishedAt;
+  if (status !== 'published' || publishedAt) return data;
+  return { ...data, publishedAt: new Date().toISOString() };
+};
 
 /**
  * Maps production `public.blogs` (7 rows).
@@ -24,7 +47,7 @@ export const Blogs: CollectionConfig = {
 
   admin: {
     useAsTitle: 'title',
-    defaultColumns: ['title', 'author', 'category', 'status', 'updatedAt'],
+    defaultColumns: ['title', 'author', 'category', 'status', 'publishedAt'],
     group: 'Content',
     /**
      * Renders the Preview button in the document header.
@@ -55,6 +78,18 @@ export const Blogs: CollectionConfig = {
         { label: 'Published', value: 'published' },
       ],
       admin: { position: 'sidebar' },
+    },
+    {
+      name: 'publishedAt',
+      label: 'Publish date',
+      type: 'date',
+      index: true,
+      admin: {
+        position: 'sidebar',
+        date: { pickerAppearance: 'dayOnly', displayFormat: 'd MMMM yyyy' },
+        description:
+          'The date the site shows on the post. Filled in automatically the first time it is published — set it by hand to backdate an import or to correct a date. The listing orders posts by this, so changing it moves the post.',
+      },
     },
     {
       name: 'coverImage',
@@ -145,6 +180,10 @@ export const Blogs: CollectionConfig = {
       },
     },
   ],
+
+  hooks: {
+    beforeChange: [stampPublishedAt],
+  },
 };
 
 export default Blogs;

@@ -284,6 +284,10 @@ export interface Blog {
   slug: string;
   status: 'draft' | 'published';
   /**
+   * The date the site shows on the post. Filled in automatically the first time it is published — set it by hand to backdate an import or to correct a date. The listing orders posts by this, so changing it moves the post.
+   */
+  publishedAt?: string | null;
+  /**
    * Migrated from the first entry of the old image jsonb.
    */
   coverImage?: (number | null) | Media;
@@ -830,6 +834,7 @@ export interface BlogsSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
   status?: T;
+  publishedAt?: T;
   coverImage?: T;
   descp?: T;
   author?: T;

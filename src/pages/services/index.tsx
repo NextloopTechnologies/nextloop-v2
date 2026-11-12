@@ -34,15 +34,22 @@ const Services = () => {
         opacity='opacity-80'
       />
       <div className='grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12 xl:p-24 md:p-8 p-4 place-items-center'>
-        {availableServices.map((service, idx) => (
+        {availableServices.map((service) => (
           <Link href={service.href} key={service.href}>
             <div className='flex flex-col items-center justify-center text-center gap-8 shadow-md md:h-[580px] px-8 py-8 md:py-0 bg-white text-black hover:bg-[#1D1D1D] hover:text-white transition-all duration-200 ease-in-out'>
-              <Image
-                src={`/services/${idx}.png`}
-                alt={`service: ${service.name}`}
-                height={140}
-                width={140}
-              />
+              {/* Each service names its own art in `availableServices`. This
+                  was `/services/{idx}.png`, which tied a card's picture to its
+                  array position: the list had drifted out of step with the
+                  numbering, so Mobile, MVP, Cloud and AI & ML each showed a
+                  neighbour's icon, and any insert would have shifted more. */}
+              {service.cardImage && (
+                <Image
+                  src={service.cardImage}
+                  alt={`service: ${service.name}`}
+                  height={140}
+                  width={140}
+                />
+              )}
               <h2 className='font-medium lg:text-3xl text-2xl w-full'>
                 {service.name}
               </h2>

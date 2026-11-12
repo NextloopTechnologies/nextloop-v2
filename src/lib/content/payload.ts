@@ -11,6 +11,7 @@ import type {
   IPortfolio,
   Job,
 } from '../../types';
+import { blogDateValue } from '../../utils/blogDate';
 
 /**
  * The Payload reader.
@@ -34,7 +35,12 @@ import type {
  * readers can be compared as like for like.
  */
 
-type MediaLike = { id: number | string; url?: string | null } | number | string | null | undefined;
+type MediaLike =
+  | { id: number | string; url?: string | null }
+  | number
+  | string
+  | null
+  | undefined;
 
 /**
  * Everything leaving this module goes through here.
@@ -50,7 +56,7 @@ type MediaLike = { id: number | string; url?: string | null } | number | string 
  * serialisable by construction. The adapters still return `null` deliberately —
  * this is the net beneath them, not a substitute for meaning it.
  */
-const serialisable = <T,>(value: T): T => JSON.parse(JSON.stringify(value)) as T;
+const serialisable = <T>(value: T): T => JSON.parse(JSON.stringify(value)) as T;
 
 /** A relationship comes back as an id when unpopulated; only a document is usable. */
 const isDoc = <T extends object>(value: unknown): value is T =>
@@ -62,7 +68,9 @@ const toFileUpload = (media: MediaLike): IFileUpload | null => {
   return { fileId: String(media.id), url: media.url };
 };
 
-const toFileUploads = (media: MediaLike | MediaLike[]): IFileUpload[] | null => {
+const toFileUploads = (
+  media: MediaLike | MediaLike[]
+): IFileUpload[] | null => {
   const list = (Array.isArray(media) ? media : [media])
     .map(toFileUpload)
     .filter((f): f is IFileUpload => f !== null);
@@ -109,7 +117,9 @@ const toCategory = (value: unknown): CategoryType | null => {
 const toIdList = (value: unknown): number[] | null => {
   if (!Array.isArray(value)) return null;
   const ids = value
-    .map((v) => (isDoc<{ id: unknown }>(v) ? Number((v as { id: unknown }).id) : Number(v)))
+    .map((v) =>
+      isDoc<{ id: unknown }>(v) ? Number((v as { id: unknown }).id) : Number(v)
+    )
     .filter((n) => Number.isFinite(n));
   return ids.length > 0 ? ids : null;
 };
@@ -122,6 +132,7 @@ const toBlog = (doc: Record<string, unknown>): BlogType => ({
   image: toFileUploads(doc.coverImage as MediaLike),
   created_at: (doc.createdAt as string) ?? '',
   updated_at: (doc.updatedAt as string) ?? '',
+  published_at: (doc.publishedAt as string) ?? null,
   service: (doc.service as string) ?? null,
   author: toAuthor(doc.author),
   categories: toCategory(doc.category),
@@ -173,7 +184,9 @@ const toPortfolio = (doc: Record<string, unknown>): IPortfolio => ({
  * the cutover forcing that decision on the same day.
  */
 const refWhere = (ref: string): Where =>
-  /^\d+$/.test(ref) ? { or: [{ id: { equals: Number(ref) } }, { slug: { equals: ref } }] } : { slug: { equals: ref } };
+  /^\d+$/.test(ref)
+    ? { or: [{ id: { equals: Number(ref) } }, { slug: { equals: ref } }] }
+    : { slug: { equals: ref } };
 
 const getPayloadClient = async () => {
   const [{ getPayload }, config] = await Promise.all([
@@ -184,6 +197,22 @@ const getPayloadClient = async () => {
 };
 
 export const payloadReader: ContentReader = {
+  /**
+   * Ordered by the date the site actually prints.
+   *
+   * The sort is finished in JS rather than left to `sort: '-publishedAt'`
+   * because `publishedAt` is nullable: Postgres puts NULLs first in a DESC
+   * sort, so a single post missing one would take the hero slot on /blog/
+   * ahead of everything newer than it. Sorting on the same fallback the pages
+   * display keeps the order and the dates telling the same story, and the
+   * query returns every published post anyway (limit: 0), so there is nothing
+   * to page past.
+   *
+   * `-createdAt` stays on the query as the base order. Array sort is stable,
+   * so two posts sharing a publish date — which the day-only picker makes
+   * likely — keep newest-written-first instead of landing in whatever order
+   * the database handed them over.
+   */
   async listBlogs() {
     const payload = await getPayloadClient();
     const { docs } = await payload.find({
@@ -193,7 +222,11 @@ export const payloadReader: ContentReader = {
       limit: 0,
       depth: 1,
     });
-    return serialisable(docs.map((d) => toBlog(d as unknown as Record<string, unknown>)));
+    const blogs = docs.map((d) =>
+      toBlog(d as unknown as Record<string, unknown>)
+    );
+    blogs.sort((a, b) => blogDateValue(b) - blogDateValue(a));
+    return serialisable(blogs);
   },
 
   async getBlogBySlug(slug, includeDrafts = false) {
@@ -202,12 +235,19 @@ export const payloadReader: ContentReader = {
       collection: 'blogs',
       where: includeDrafts
         ? { slug: { equals: slug } }
-        : { and: [{ status: { equals: 'published' } }, { slug: { equals: slug } }] },
+        : {
+            and: [
+              { status: { equals: 'published' } },
+              { slug: { equals: slug } },
+            ],
+          },
       limit: 1,
       depth: 2, // author and category have to arrive as documents, not ids
     });
     const doc = docs[0];
-    return doc ? serialisable(toBlog(doc as unknown as Record<string, unknown>)) : null;
+    return doc
+      ? serialisable(toBlog(doc as unknown as Record<string, unknown>))
+      : null;
   },
 
   async listJobs() {
@@ -218,7 +258,9 @@ export const payloadReader: ContentReader = {
       limit: 0,
       depth: 0,
     });
-    return serialisable(docs.map((d) => toJob(d as unknown as Record<string, unknown>)));
+    return serialisable(
+      docs.map((d) => toJob(d as unknown as Record<string, unknown>))
+    );
   },
 
   async getJobByRef(ref) {
@@ -230,7 +272,9 @@ export const payloadReader: ContentReader = {
       depth: 0,
     });
     const doc = docs[0];
-    return doc ? serialisable(toJob(doc as unknown as Record<string, unknown>)) : null;
+    return doc
+      ? serialisable(toJob(doc as unknown as Record<string, unknown>))
+      : null;
   },
 
   /**
@@ -250,7 +294,9 @@ export const payloadReader: ContentReader = {
       limit: 0,
       depth: 1,
     });
-    return serialisable(docs.map((d) => toPortfolio(d as unknown as Record<string, unknown>)));
+    return serialisable(
+      docs.map((d) => toPortfolio(d as unknown as Record<string, unknown>))
+    );
   },
 
   async getPortfolioByRef(ref) {
@@ -262,7 +308,9 @@ export const payloadReader: ContentReader = {
       depth: 1,
     });
     const doc = docs[0];
-    return doc ? serialisable(toPortfolio(doc as unknown as Record<string, unknown>)) : null;
+    return doc
+      ? serialisable(toPortfolio(doc as unknown as Record<string, unknown>))
+      : null;
   },
 
   async listOffers() {

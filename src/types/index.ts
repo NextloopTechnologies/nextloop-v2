@@ -54,6 +54,16 @@ export interface BlogType {
   descp: string;
   created_at: string;
   updated_at: string;
+  /**
+   * The date an editor says the post went live, set in the panel.
+   *
+   * Separate from `created_at`, which is when the row was written — the two
+   * drift apart the moment a post is drafted for a week, imported, or
+   * backdated. The site prints this; `created_at` is the fallback for the
+   * posts and the sources that have no value for it, which includes every
+   * Supabase read, since the column exists only in Payload.
+   */
+  published_at?: string | null;
   slug?: string | null;
   service?: string | null;
   categories?: CategoryType | null;
