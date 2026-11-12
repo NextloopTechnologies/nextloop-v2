@@ -39,6 +39,7 @@ import {
   // Service6,
   Service7,
   Service9,
+  Service10,
   // Service11,
   Service12,
 } from '../../assets';
@@ -149,6 +150,23 @@ export interface SiteRoute {
   href: string;
   image?: string;
   description?: string;
+  /**
+   * Card art for /services/.
+   *
+   * That page used to address its images by array position —
+   * `/services/<idx>.png` — so the picture a service showed depended on where
+   * it happened to sit in this list rather than on what it is. The list had
+   * been reordered since those files were numbered, which left Mobile, MVP,
+   * Cloud and AI & ML each wearing a neighbour's icon. Every service now names
+   * its own file here and the page reads nothing but this field, so reordering
+   * or inserting a service can no longer repaint the others.
+   *
+   * `/services/6.png` (UI/UX) and `/services/8.png` (support) are unused
+   * leftovers of that scheme, kept for the commented-out services below.
+   * `/services/9.png` (ads) is likewise spare since Digital Marketing moved
+   * to its own file.
+   */
+  cardImage?: string;
 }
 
 export const availableIndustries: SiteRoute[] = [
@@ -163,16 +181,25 @@ export const availableIndustries: SiteRoute[] = [
 ];
 
 export const availableServices: SiteRoute[] = [
+  // Custom Software Development was retired from this list in favour of the
+  // AI-enabled offering, which leads the list and inherits both its pictures.
+  // The page at /services/custom-software-development/ still exists and is
+  // still in the sitemap and the schema markup — nothing links to it from the
+  // site any more, so it needs either a redirect or a decision to keep it.
   {
-    name: 'Custom Software Development',
-    href: '/services/custom-software-development',
+    name: 'AI-Enabled Custom Software Development',
+    href: '/services/ai-enabled-custom-software-development',
+    // Inherited from the retired Custom Software Development entry: the
+    // banner for the home grid, the code-window icon for the /services card.
     image: Service1 as unknown as string,
+    cardImage: '/services/0.png',
     description:
-      'We design and build software tailored to your business needs, from internal tools to full-scale platforms. With our custom software application development service, we focus on creating reliable, scalable solutions that simplify operations and support your business as it grows.',
+      'Custom software built with AI across design, coding and testing, with AI features such as search, assistants and automation built into the product itself. Engineers stay responsible for architecture and review, so you gain delivery speed without giving up code quality or ownership of the IP.',
   },
   {
     name: 'IT Staff Augmentation',
     href: '/services/it-staff-augmentation',
+    cardImage: '/services/1.png',
     image: Service7 as unknown as string,
     description:
       'Expand your development capacity without long hiring cycles. If you need to hire remote developers, we enable you to add skilled professionals to your team who work within your processes and contribute from day one. It helps you manage changing project demands while keeping delivery consistent and on schedule.',
@@ -180,6 +207,7 @@ export const availableServices: SiteRoute[] = [
   {
     name: 'Website Development',
     href: '/services/web-development',
+    cardImage: '/services/2.png',
     image: Service2 as unknown as string,
     description:
       'Create a strong digital presence with websites that are fast, easy to navigate, and built for real users. Through our website design and development service, we emphasize delivering responsive experiences that not only look good but also perform seamlessly across devices.',
@@ -187,6 +215,7 @@ export const availableServices: SiteRoute[] = [
   {
     name: 'Mobile App Development',
     href: '/services/mobile-app-development',
+    cardImage: '/services/5.png',
     image: Service5 as unknown as string,
     description:
       'Mobile experiences today need to feel seamless, whether users are on Android, iOS, or multiple devices. Covering native and cross-platform builds, our cross-platform app development service focuses on delivering apps that run smoothly, stay consistent and keep users engaged over time.',
@@ -194,6 +223,7 @@ export const availableServices: SiteRoute[] = [
   {
     name: 'MVP Development',
     href: '/services/mvp-development',
+    cardImage: '/services/3.png',
     image: Service3 as unknown as string,
     description:
       'Start with a focused version of your product that solves a real problem and can be tested quickly in the market. Designed for early-stage ideas, our MVP development service for startups helps you validate concepts, gather real user feedback and move forward with clarity.',
@@ -201,6 +231,7 @@ export const availableServices: SiteRoute[] = [
   {
     name: 'Cloud Computing and DevOps',
     href: '/services/cloud-computing-solutions',
+    cardImage: '/services/4.png',
     image: Service4 as unknown as string,
     description:
       'Managing infrastructure becomes easier when systems are built to scale, adapt and stay secure from the start. As a cloud services provider, our aim is to create environments that handle workloads efficiently while also supporting flexibility, performance and long-term stability.',
@@ -208,6 +239,7 @@ export const availableServices: SiteRoute[] = [
   {
     name: 'AI & ML Solutions',
     href: '/services/ai-ml',
+    cardImage: '/services/7.png',
     image: Service9 as unknown as string,
     description:
       'Turn complex data into meaningful outcomes using intelligent systems built for real use cases. Our generative AI service includes developing models that automate tasks, generate insights and enhance user experiences. From chatbots to predictive systems, these solutions help integrate AI into everyday business workflows.',
@@ -216,8 +248,19 @@ export const availableServices: SiteRoute[] = [
     name: 'Digital Marketing Services',
     href: '/services/digital-marketing-services',
     image: Service12 as unknown as string,
+    cardImage: '/services/digital-marketing.png',
     description:
       "Take your brand to the next level with Nextloop's data-driven digital marketing solutions. Through SEO, advertisements, and social media interaction, we combine strategy, technology, and creativity to increase traffic, lead generation, and conversions.",
+  },
+  {
+    name: 'AI Automation',
+    href: '/services/ai-automation',
+    // Home-grid banner is not the robot (Service9): AI & ML sits next to this
+    // one in that grid, and two identical pictures side by side read as a bug.
+    image: Service10 as unknown as string,
+    cardImage: '/services/ai-automation.png',
+    description:
+      'Put AI to work on the processes that slow your team down. We build custom AI agents, document processing and workflow automation inside your own AWS or Azure account, so every answer comes from your approved sources and your data never passes through consumer chat tools.',
   },
   // {
   //   name: 'UI/UX Development',
