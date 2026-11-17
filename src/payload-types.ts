@@ -309,6 +309,22 @@ export interface Blog {
     };
     [k: string]: unknown;
   } | null;
+  /**
+   * Shown at the end of the post and published as FAQPage structured data. Leave empty and the post renders and validates exactly as it does today — no empty heading, no empty schema.
+   */
+  faqs?:
+    | {
+        /**
+         * Phrased the way a reader would ask it.
+         */
+        question: string;
+        /**
+         * A direct answer in a sentence or two. A line starting with "- " becomes a bullet in the rendered accordion; the schema always receives the plain text.
+         */
+        answer: string;
+        id?: string | null;
+      }[]
+    | null;
   author?: (number | null) | Author;
   category?: (number | null) | Category;
   tags?: string[] | null;
@@ -837,6 +853,13 @@ export interface BlogsSelect<T extends boolean = true> {
   publishedAt?: T;
   coverImage?: T;
   descp?: T;
+  faqs?:
+    | T
+    | {
+        question?: T;
+        answer?: T;
+        id?: T;
+      };
   author?: T;
   category?: T;
   tags?: T;

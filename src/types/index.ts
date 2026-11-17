@@ -47,6 +47,12 @@ export interface CategoryType {
   updated_at: string;
 }
 
+/** One question-and-answer pair on a blog post. */
+export interface BlogFaq {
+  question: string;
+  answer: string;
+}
+
 export interface BlogType {
   id: number;
   title: string;
@@ -64,6 +70,16 @@ export interface BlogType {
    * Supabase read, since the column exists only in Payload.
    */
   published_at?: string | null;
+
+  /**
+   * Per-post FAQs, written in the panel. Rendered at the foot of the article
+   * and emitted as FAQPage JSON-LD, which is why the answer is plain text:
+   * the schema's `text` property takes a string.
+   *
+   * Optional because only Payload has them — a Supabase read never sets this,
+   * and a post with no questions is the normal case, not an error.
+   */
+  faqs?: BlogFaq[] | null;
   slug?: string | null;
   service?: string | null;
   categories?: CategoryType | null;

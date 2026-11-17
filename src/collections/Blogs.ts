@@ -108,6 +108,51 @@ export const Blogs: CollectionConfig = {
           'The existing 7 posts are HTML from react-quill; the migration converts them to rich text so editors get a proper editor rather than raw markup.',
       },
     },
+    /**
+     * Per-post FAQs, rendered at the foot of the article and emitted as
+     * FAQPage JSON-LD.
+     *
+     * Plain text rather than rich text on purpose: the schema's `text` property
+     * takes a string, so a rich-text answer would have to be flattened back to
+     * one anyway, and markup that survives into JSON-LD is what trips Google's
+     * structured-data validator. Anything that needs headings or lists belongs
+     * in the body.
+     *
+     * The answers must stay truthful to the post. These are the lines most
+     * likely to be quoted verbatim by an AI answer engine, with the company's
+     * name attached and no surrounding context to soften them.
+     */
+    {
+      name: 'faqs',
+      label: 'FAQs',
+      type: 'array',
+      labels: { singular: 'Question', plural: 'Questions' },
+      admin: {
+        initCollapsed: true,
+        description:
+          'Shown at the end of the post and published as FAQPage structured data. Leave empty and the post renders and validates exactly as it does today — no empty heading, no empty schema.',
+      },
+      fields: [
+        {
+          name: 'question',
+          type: 'text',
+          required: true,
+          maxLength: 300,
+          admin: {
+            description: 'Phrased the way a reader would ask it.',
+          },
+        },
+        {
+          name: 'answer',
+          type: 'textarea',
+          required: true,
+          admin: {
+            description:
+              'A direct answer in a sentence or two. A line starting with "- " becomes a bullet in the rendered accordion; the schema always receives the plain text.',
+          },
+        },
+      ],
+    },
     {
       name: 'author',
       type: 'relationship',
