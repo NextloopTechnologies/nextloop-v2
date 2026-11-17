@@ -169,7 +169,12 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
       ) : (
         <div className='bg-white min-h-screen px-4 flex flex-col justify-center items-center md:px-8 xl:px-24 py-12 '>
           <div
-            className='relative w-11/12 aspect-[16/9] rounded-lg cursor-pointer'
+            /*
+              64/27 rather than 16/9: same width, three-quarters of the height.
+              The hero is sized by aspect ratio, so height is only ever set
+              here — 16 / (9 x 0.75) = 64 / 27 exactly, at every breakpoint.
+            */
+            className='relative w-11/12 aspect-[64/27] rounded-lg cursor-pointer'
             onClick={() => {
               const slug = data?.[0]?.slug;
               const isValidSlug =

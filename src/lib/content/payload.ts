@@ -4,6 +4,7 @@ import type { Where } from 'payload';
 import type { ContentReader } from './index';
 import type {
   AuthorType,
+  BlogFaq,
   BlogType,
   CategoryType,
   DBOffer,
@@ -124,6 +125,31 @@ const toIdList = (value: unknown): number[] | null => {
   return ids.length > 0 ? ids : null;
 };
 
+/**
+ * Payload array rows -> the FAQ pairs the page and the schema consume.
+ *
+ * Rows carry a Payload row `id` the site has no use for, and a half-filled row
+ * is possible through the API even though the panel marks both fields
+ * required. Anything missing a question or an answer is dropped rather than
+ * rendered: an empty <Question> in FAQPage JSON-LD is an invalid schema, and
+ * invalid schema on a page is worse for search than no schema at all.
+ *
+ * Returns null rather than [] when nothing survives, so the page's `faqs?.length`
+ * check reads the same whether the field is absent, empty, or all junk.
+ */
+const toFaqs = (value: unknown): BlogFaq[] | null => {
+  if (!Array.isArray(value)) return null;
+  const faqs = value
+    .map((row) => {
+      const r = (row ?? {}) as Record<string, unknown>;
+      const question = typeof r.question === 'string' ? r.question.trim() : '';
+      const answer = typeof r.answer === 'string' ? r.answer.trim() : '';
+      return question && answer ? { question, answer } : null;
+    })
+    .filter((f): f is BlogFaq => f !== null);
+  return faqs.length ? faqs : null;
+};
+
 const toBlog = (doc: Record<string, unknown>): BlogType => ({
   id: Number(doc.id),
   title: (doc.title as string) ?? '',
@@ -133,6 +159,7 @@ const toBlog = (doc: Record<string, unknown>): BlogType => ({
   created_at: (doc.createdAt as string) ?? '',
   updated_at: (doc.updatedAt as string) ?? '',
   published_at: (doc.publishedAt as string) ?? null,
+  faqs: toFaqs(doc.faqs),
   service: (doc.service as string) ?? null,
   author: toAuthor(doc.author),
   categories: toCategory(doc.category),

@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { FaXTwitter } from 'react-icons/fa6';
 
+import FAQ from '../../components/Domains/FAQ';
 import Layout from '../../components/Layout/Layout';
 import Seo from '../../components/Seo';
 import { getBlogBySlug, listBlogs } from '../../lib/content';
@@ -20,6 +21,7 @@ import { getBaseUrl } from '../../utils/getBaseUrl';
 import {
   articleSchema,
   breadcrumbSchema,
+  faqSchema,
   toPlainText,
 } from '../../utils/structuredData';
 
@@ -383,6 +385,13 @@ const BlogID: React.FC<BlogIDProps> = ({
     data.meta_description?.trim() || toPlainText(data.descp, 158);
   const coverImage = data.image?.[0]?.url;
 
+  /**
+   * The post's FAQs, or null when it has none — which is most posts. The page
+   * renders no heading and emits no schema in that case, rather than an empty
+   * section and an FAQPage with an empty `mainEntity`.
+   */
+  const faqs = data.faqs?.length ? data.faqs : null;
+
   return (
     <Layout headerColor='text-black'>
       {preview && <PreviewBanner />}
@@ -411,6 +420,14 @@ const BlogID: React.FC<BlogIDProps> = ({
             { name: 'Blogs', path: '/blog/' },
             { name: data.title, path: `/blog/${data.slug ?? ''}/` },
           ]),
+          /*
+            Only when the post has questions, and only alongside the accordion
+            below. FAQPage markup describing content a visitor cannot see on
+            the page breaches Google's structured-data guidelines and is the
+            kind of thing that earns a manual action, so the schema and the
+            rendered section are driven by the same array and cannot drift.
+          */
+          ...(faqs ? [faqSchema(faqs)] : []),
         ]}
       />
       <div className='bg-white min-h-screen pb-16  lg:mt-11'>
@@ -485,6 +502,22 @@ const BlogID: React.FC<BlogIDProps> = ({
             </div>
           </div>
         </div>
+        {faqs && (
+          <div className='max-w-4xl mx-auto px-4 mt-12'>
+            {/* The same component the domain pages use, so a reader meets one
+                FAQ treatment across the site. Payload rows have string ids
+                that mean nothing here, so the index supplies the key the
+                accordion opens on. */}
+            <FAQ
+              withTopDivider
+              faqsContent={faqs.map((faq, index) => ({
+                id: index,
+                question: faq.question,
+                answer: faq.answer,
+              }))}
+            />
+          </div>
+        )}
         {featuredBlogs && featuredBlogs.length > 0 && (
           <FeaturedBlogs blogs={featuredBlogs} />
         )}
