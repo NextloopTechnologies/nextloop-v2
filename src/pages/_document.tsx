@@ -10,12 +10,24 @@ export default function Document() {
           name='google-site-verification'
           content='rSkhwwyngCBXY24oCD9ERrGDGzkIFubisOa3k-JDjWs'
         />
+        <script
+          async
+          src='https://www.googletagmanager.com/gtm.js?id=GTM-TXGJTWK9'
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+            `,
+          }}
+        />
       </Head>
       <body>
-        {/* GTM NoScript Fallback */}
         <noscript
           dangerouslySetInnerHTML={{
-            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=G-ZZGFLK3MRW"
+            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXGJTWK9"
               height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
           }}
         />
