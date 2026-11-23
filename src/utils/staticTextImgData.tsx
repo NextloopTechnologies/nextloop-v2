@@ -262,6 +262,14 @@ export const availableServices: SiteRoute[] = [
     description:
       'Put AI to work on the processes that slow your team down. We build custom AI agents, document processing and workflow automation inside your own AWS or Azure account, so every answer comes from your approved sources and your data never passes through consumer chat tools.',
   },
+  {
+    name: 'AI Business Consultancy',
+    href: '/services/ai-business-consultancy',
+    image: Service9 as unknown as string,
+    cardImage: '/services/7.png',
+    description:
+      'Plan AI before you build it. We map the right use cases, security, hosting and cost so you do not spend on tools that cannot work with your data, systems or compliance needs.',
+  },
   // {
   //   name: 'UI/UX Development',
   //   href: '/services/ui-ux-development',

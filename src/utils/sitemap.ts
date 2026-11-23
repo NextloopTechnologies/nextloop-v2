@@ -84,6 +84,16 @@ export const STATIC_ROUTES: SitemapEntry[] = [
   },
   { path: '/services/ai-automation/', changefreq: 'monthly', priority: 0.8 },
   {
+    path: '/services/ai-business-consultancy/',
+    changefreq: 'monthly',
+    priority: 0.8,
+  },
+  {
+    path: '/products/hospital-management-software/',
+    changefreq: 'monthly',
+    priority: 0.8,
+  },
+  {
     path: '/services/cloud-computing-solutions/',
     changefreq: 'monthly',
     priority: 0.8,

@@ -136,6 +136,15 @@ const Header: React.FC<HeaderProps> = ({ isSticky, headerColor }) => {
             <li className={`${pathname === '/portfolio' && 'text-orange-500'}`}>
               <Link href='/portfolio'>Portfolio</Link>
             </li>
+            <li
+              className={`${
+                pathname.startsWith('/products') && 'text-orange-500'
+              }`}
+            >
+              <Link href='/products/hospital-management-software'>
+                Products
+              </Link>
+            </li>
 
             <li
               className={`relative ${
