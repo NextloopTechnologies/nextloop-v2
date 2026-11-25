@@ -143,9 +143,7 @@ const Home: React.FC = () => {
   return (
     <>
       <Head>
-        <title>
-          IT Staff Augmentation | Custom Software Solutions | AI Remote Teams
-        </title>
+        <title>AI-Native Custom Software Company | Nextloop</title>
 
         <meta
           name='description'

@@ -90,12 +90,24 @@ const HealthCare: React.FC = () => {
   return (
     <>
       <Head>
-        <title>
-          Healthcare Software Development Services | Hire AI Health Developers
-        </title>
+        <title>Healthcare Software Development | Nextloop</title>
         <meta
           name='description'
-          content='Nextloop Technologies builds next-gen healthcare apps with AI diagnostics, remote patient monitoring, and secure cloud integration. Scalable solutions for modern HealthTech.'
+          content='Nextloop builds healthcare apps with AI diagnostics, remote monitoring and secure cloud. Talk to us about your HealthTech roadmap.'
+        />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html:
+              '{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.nextlooptechnologies.com/"}, {"@type": "ListItem", "position": 2, "name": "Industries", "item": "https://www.nextlooptechnologies.com/domain/"}, {"@type": "ListItem", "position": 3, "name": "Healthcare", "item": "https://www.nextlooptechnologies.com/domain/healthcare/"}]}',
+          }}
+        />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html:
+              '{"@context": "https://schema.org", "@type": "WebPage", "name": "Healthcare | Nextloop Technologies", "url": "https://www.nextlooptechnologies.com/domain/healthcare/", "isPartOf": {"@type": "WebSite", "url": "https://www.nextlooptechnologies.com/"}}',
+          }}
         />
       </Head>
       <Layout>

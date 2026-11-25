@@ -70,13 +70,24 @@ const Events = () => {
   return (
     <>
       <Head>
-        <title>
-          Build the Best Event Management Software using our Event Management
-          Tools
-        </title>
+        <title>Event Management Software | Nextloop</title>
         <meta
           name='description'
-          content='At Nextloop Technologies, we build custom wedding planner software, secure banquet event order software and tailored event management software for non-profits.'
+          content='Nextloop builds wedding planner, banquet and event management software for organisers and non-profits. Talk to our team about your platform.'
+        />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html:
+              '{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.nextlooptechnologies.com/"}, {"@type": "ListItem", "position": 2, "name": "Industries", "item": "https://www.nextlooptechnologies.com/domain/"}, {"@type": "ListItem", "position": 3, "name": "Events", "item": "https://www.nextlooptechnologies.com/domain/events/"}]}',
+          }}
+        />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html:
+              '{"@context": "https://schema.org", "@type": "WebPage", "name": "Events | Nextloop Technologies", "url": "https://www.nextlooptechnologies.com/domain/events/", "isPartOf": {"@type": "WebSite", "url": "https://www.nextlooptechnologies.com/"}}',
+          }}
         />
       </Head>
       <Layout>

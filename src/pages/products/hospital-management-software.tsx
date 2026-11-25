@@ -13,6 +13,7 @@ import Layout from '../../components/Layout/Layout';
 import Seo from '../../components/Seo';
 import { BlogData } from '../../types';
 import { fetchLatestBlogs } from '../../utils/fetchBlogdata';
+import { breadcrumbSchema, faqSchema } from '../../utils/structuredData';
 
 const noto = Noto_Sans({
   subsets: ['latin'],
@@ -20,9 +21,58 @@ const noto = Noto_Sans({
   display: 'swap',
 });
 
-const TITLE = 'Hospital Management Software for Small Hospitals | Nextloop';
+const TITLE = 'Hospital Management Software | Nextloop';
 const DESC =
-  'Cloud hospital management system for private hospitals of 30-100 beds in India, covering registration, billing, insurance and scheme claims, wards, pharmacy and lab.';
+  'Cloud hospital management for 30–100 bed hospitals in India: registration, billing, TPA and PM-JAY claims, wards, pharmacy and lab. Book a free demo.';
+
+const hmsFaqs = [
+  {
+    question:
+      'What is the best hospital management software for a small hospital?',
+    answer:
+      'The best fit is software built for your size and your payers. Hospital Management Software is built for private hospitals of 30-100 beds in India, with TPA, PM-JAY, MP-ABN and CGHS claims, Hindi and English screens, and NABH-ready records.',
+  },
+  {
+    question: 'Is it right for a hospital my size?',
+    answer:
+      'It is built for private hospitals of 30-100 beds, including single-specialty and multi-specialty hospitals.',
+  },
+  {
+    question: 'My staff are not computer experts. Will they manage?',
+    answer:
+      'Screens work in Hindi and English, with large buttons and simple steps. Front-desk and nursing staff are trained on their own tasks.',
+  },
+  {
+    question: 'What happens if the internet goes down?',
+    answer:
+      'Registration, billing receipts, medicine rounds and pharmacy issues keep working and sync when the connection returns.',
+  },
+  {
+    question: 'Where is our patient data kept?',
+    answer:
+      'All patient data, logs and backups are stored in India. Every staff member has a personal login, data is encrypted, and backups run daily.',
+  },
+  {
+    question: 'Does it connect to ABDM?',
+    answer:
+      'It is built for ABDM: ABHA creation, Scan and Share, and record sharing.',
+  },
+  {
+    question: 'What is ABHA Scan and Share?',
+    answer:
+      "ABHA Scan and Share lets a patient register by scanning the hospital's QR code with their ABHA app. Their details reach the front desk instantly, so there is no form to fill.",
+  },
+  {
+    question: 'Is hospital software mandatory in India?',
+    answer:
+      'No general law makes it compulsory for every hospital. But NABH accreditation, PM-JAY and CGHS empanelment and insurance claims all depend on complete records produced quickly, which is hard on paper.',
+  },
+  {
+    question: 'What does hospital management software cost?',
+    answer:
+      'Plans depend on the number of beds and modules. Book a demo and we will share a quote.',
+  },
+];
 
 const jsonLd = [
   {
@@ -36,6 +86,15 @@ const jsonLd = [
     areaServed: { '@type': 'Country', name: 'India' },
     description: DESC,
   },
+  faqSchema(hmsFaqs),
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Products', path: '/products/hospital-management-software/' },
+    {
+      name: 'Hospital Management Software',
+      path: '/products/hospital-management-software/',
+    },
+  ]),
 ];
 
 const HospitalManagementSoftware: React.FC<{

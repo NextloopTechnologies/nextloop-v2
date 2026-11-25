@@ -132,6 +132,9 @@ export const STATIC_ROUTES: SitemapEntry[] = [
   { path: '/blog/', changefreq: 'daily', priority: 0.7 },
   { path: '/careers/', changefreq: 'daily', priority: 0.7 },
   { path: '/portfolio/', changefreq: 'weekly', priority: 0.7 },
+
+  { path: '/privacy/', changefreq: 'yearly', priority: 0.3 },
+  { path: '/cookies-policy/', changefreq: 'yearly', priority: 0.3 },
 ];
 
 /** The five characters that are not legal as raw text inside an XML element. */

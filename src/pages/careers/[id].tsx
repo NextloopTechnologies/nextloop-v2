@@ -40,14 +40,25 @@ const CareerID: React.FC<{ data?: Job[]; error?: string }> = ({
   const jobUrl = job ? `${getBaseUrl()}/careers/${job.id}/` : undefined;
   const jobDescription = job
     ? toPlainText(job.descp, 158) ||
-      `${job.title} at Nextloop Technologies${job.location ? `, ${job.location}` : ''}.`
+      `${job.title} at Nextloop Technologies${
+        job.location ? `, ${job.location}` : ''
+      }.`
     : '';
 
   return (
     <Layout>
       {job && (
         <Seo
-          title={`${job.title}${job.location ? ` — ${job.location}` : ''} | Careers at Nextloop`}
+          title={(() => {
+            const full = `${job.title}${
+              job.location ? ` — ${job.location}` : ''
+            } | Careers at Nextloop`;
+            if (full.length <= 60) return full;
+            const short = `${job.title} | Careers at Nextloop`;
+            return short.length <= 60
+              ? short
+              : `${job.title.slice(0, 40).trim()}… | Careers`;
+          })()}
           description={jobDescription}
           jsonLd={[
             // JobPosting is what Google Jobs indexes. Without it these 64
@@ -95,6 +106,10 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     // invisible to it.
     return { props: { data: [job] } };
   } catch (e) {
-    return { props: { error: e instanceof Error ? e.message : 'Unable to load this role.' } };
+    return {
+      props: {
+        error: e instanceof Error ? e.message : 'Unable to load this role.',
+      },
+    };
   }
 };

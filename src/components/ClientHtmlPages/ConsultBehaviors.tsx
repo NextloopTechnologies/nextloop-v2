@@ -93,9 +93,9 @@ const ConsultBehaviors = () => {
         const ke = e as KeyboardEvent;
         let n: Element | null = null;
         if (['ArrowDown', 'ArrowRight'].includes(ke.key))
-          n = tabs[(i + 1) % tabs.length];
+          n = tabs[(i + 1) % tabs.length] ?? null;
         if (['ArrowUp', 'ArrowLeft'].includes(ke.key))
-          n = tabs[(i - 1 + tabs.length) % tabs.length];
+          n = tabs[(i - 1 + tabs.length) % tabs.length] ?? null;
         if (n) {
           ke.preventDefault();
           select(n);

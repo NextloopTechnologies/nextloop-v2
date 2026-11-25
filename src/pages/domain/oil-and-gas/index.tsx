@@ -127,6 +127,20 @@ const OilAndGas = () => {
           name='description'
           content='Partner with a leading oil and gas digital transformation company. We build custom software solutions for the energy sector to scale daily field operations.'
         />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html:
+              '{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.nextlooptechnologies.com/"}, {"@type": "ListItem", "position": 2, "name": "Industries", "item": "https://www.nextlooptechnologies.com/domain/"}, {"@type": "ListItem", "position": 3, "name": "Oil And Gas", "item": "https://www.nextlooptechnologies.com/domain/oil-and-gas/"}]}',
+          }}
+        />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html:
+              '{"@context": "https://schema.org", "@type": "WebPage", "name": "Oil And Gas | Nextloop Technologies", "url": "https://www.nextlooptechnologies.com/domain/oil-and-gas/", "isPartOf": {"@type": "WebSite", "url": "https://www.nextlooptechnologies.com/"}}',
+          }}
+        />
       </Head>
       <Layout>
         <CustomPageHero

@@ -197,7 +197,20 @@ const AiEnabledCustomSoftware: React.FC<{ blogData: BlogData[] }> = ({
         <h2>Our Custom Software Development Services</h2>
         <p className='lead'>
           Pick one service or combine several. Each one can include AI where it
-          helps.
+          helps. For a traditional build without an AI-led delivery process, see
+          our{' '}
+          <Link href='/services/custom-software-development/'>
+            custom software development
+          </Link>{' '}
+          service. We also offer{' '}
+          <Link href='/services/e-commerce-development/'>
+            e-commerce development
+          </Link>{' '}
+          and{' '}
+          <Link href='/services/software-testing-qa-services/'>
+            software testing and QA
+          </Link>
+          .
         </p>
         <div className='svc'>
           <div>

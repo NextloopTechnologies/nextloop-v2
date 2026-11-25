@@ -44,12 +44,22 @@ const INDUSTRIES = [
 const DomainIndex: React.FC = () => (
   <Layout>
     <Seo
-      title='Industry Software Solutions | Fintech, Healthcare, Energy | Nextloop'
-      description='Industry-specific software from Nextloop Technologies — fintech, healthcare, oil and gas, and food and beverage platforms built by teams who know the domain.'
-      jsonLd={breadcrumbSchema([
-        { name: 'Home', path: '/' },
-        { name: 'Industries', path: '/domain/' },
-      ])}
+      title='Industry Software Solutions | Nextloop'
+      description='Industry software from Nextloop — fintech, healthcare, energy, F&B and more. Built by teams who know the domain. Explore solutions or contact us.'
+      jsonLd={[
+        breadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Industries', path: '/domain/' },
+        ]),
+        {
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          name: 'Industry Software Solutions | Nextloop',
+          description:
+            'Industry-specific software from Nextloop Technologies across fintech, healthcare, energy, F&B and more.',
+          url: 'https://www.nextlooptechnologies.com/domain/',
+        },
+      ]}
     />
 
     <section className='bg-white px-4 py-20 md:px-8 xl:px-24'>

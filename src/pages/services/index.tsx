@@ -12,12 +12,10 @@ const Services = () => {
   return (
     <Layout>
       <Head>
-        <title>
-          Offshore development center | Custom Web & software services provider
-        </title>
+        <title>Custom Software & IT Services | Nextloop</title>
         <meta
           name='description'
-          content='Get bespoke software development services tailored to your needs. We offer remote IT staffing services and custom mobile app & web development services to scale faster.'
+          content='Bespoke software, remote IT staffing, web and mobile apps from Nextloop. Explore our services and talk to our Indore team to scale faster.'
         />
         <script
           type='application/ld+json'

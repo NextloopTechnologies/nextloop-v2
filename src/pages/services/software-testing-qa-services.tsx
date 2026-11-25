@@ -9,10 +9,11 @@ import { servicesSubPagesData } from '../../utils/staticTextImgData';
 const initialData = {
   ...servicesSubPagesData.QAandTesting,
   blogData: [] as BlogData[],
+  schemaKey: 'service-qa-testing' as const,
 };
-const SoftwareTestingQA: React.FC<{ blogData: BlogData[] }> = ({ blogData }) => (
-  <ServicePage {...initialData} blogData={blogData} />
-);
+const SoftwareTestingQA: React.FC<{ blogData: BlogData[] }> = ({
+  blogData,
+}) => <ServicePage {...initialData} blogData={blogData} />;
 
 export default SoftwareTestingQA;
 

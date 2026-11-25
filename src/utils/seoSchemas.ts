@@ -8,6 +8,10 @@ export type PageSchemaKey =
   | 'service-web-app'
   | 'service-mobile-app'
   | 'service-cloud-devops'
+  | 'service-mvp'
+  | 'service-digital-marketing'
+  | 'service-ecommerce'
+  | 'service-qa-testing'
   | 'portfolio'
   | 'careers';
 
@@ -33,7 +37,7 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
         '@type': 'Organization',
         '@id': withSiteUrl('/#organization'),
         name: 'Nextloop Technologies',
-        legalName: 'Nextloop Technologies Pvt. Ltd.',
+        legalName: 'Nextloop Technologies LLP',
         url: withSiteUrl('/'),
         logo: {
           '@type': 'ImageObject',
@@ -84,7 +88,7 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
         '@type': 'WebPage',
         '@id': withSiteUrl('/#webpage'),
         url: withSiteUrl('/'),
-        name: 'IT Staff Augmentation | Custom Software Solutions | AI Remote Teams',
+        name: 'AI-Native Custom Software Company | Nextloop',
         description:
           'Leading IT outsourcing company in Indore & USA. We provide custom software development, staff augmentation & dedicated developers for AI, SaaS & MVP development.',
         isPartOf: { '@id': withSiteUrl('/#website') },
@@ -492,8 +496,8 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
     '@graph': [
       {
         '@type': 'WebPage',
-        '@id': withSiteUrl('/services/ai-machine-learning/#webpage'),
-        url: withSiteUrl('/services/ai-machine-learning/'),
+        '@id': withSiteUrl('/services/ai-ml/#webpage'),
+        url: withSiteUrl('/services/ai-ml/'),
         name: 'Artificial Intelligence & Custom ML Model Development | Nextloop Technologies',
         description:
           'Deploy secure, enterprise-grade AI applications. Specializing in intelligent workflow automation, data modeling, and custom NLP deployment pipelines.',
@@ -516,7 +520,7 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
               '@type': 'ListItem',
               position: 3,
               name: 'AI & ML Solutions',
-              item: withSiteUrl('/services/ai-machine-learning/'),
+              item: withSiteUrl('/services/ai-ml/'),
             },
           ],
         },
@@ -569,8 +573,8 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
     '@graph': [
       {
         '@type': 'WebPage',
-        '@id': withSiteUrl('/services/web-app-development/#webpage'),
-        url: withSiteUrl('/services/web-app-development/'),
+        '@id': withSiteUrl('/services/web-development/#webpage'),
+        url: withSiteUrl('/services/web-development/'),
         name: 'Responsive Web Application Development Company | Nextloop Technologies',
         description:
           'Engineered for speed, security, and user experience. Building fluid single-page applications (SPAs) and SaaS portals built to scale dynamically.',
@@ -593,7 +597,7 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
               '@type': 'ListItem',
               position: 3,
               name: 'Web App Development',
-              item: withSiteUrl('/services/web-app-development/'),
+              item: withSiteUrl('/services/web-development/'),
             },
           ],
         },
@@ -723,8 +727,8 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
     '@graph': [
       {
         '@type': 'WebPage',
-        '@id': withSiteUrl('/services/cloud-devops/#webpage'),
-        url: withSiteUrl('/services/cloud-devops/'),
+        '@id': withSiteUrl('/services/cloud-computing-solutions/#webpage'),
+        url: withSiteUrl('/services/cloud-computing-solutions/'),
         name: 'Cloud Engineering, DevOps Automation & Infrastructure Setup | Nextloop Technologies',
         description:
           'Eliminate build downtime. Automate code pipelines, cut architecture cloud bills, and achieve secure, 99.99% high-availability application scaling setups.',
@@ -747,7 +751,7 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
               '@type': 'ListItem',
               position: 3,
               name: 'Cloud & DevOps',
-              item: withSiteUrl('/services/cloud-devops/'),
+              item: withSiteUrl('/services/cloud-computing-solutions/'),
             },
           ],
         },
@@ -795,10 +799,214 @@ const pageSpecificSchemas: Record<PageSchemaKey, Record<string, unknown>> = {
       },
     ],
   },
+  'service-mvp': {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': withSiteUrl('/services/mvp-development/#webpage'),
+        url: withSiteUrl('/services/mvp-development/'),
+        name: 'MVP Development for Startups | Nextloop Technologies',
+        description:
+          'Validate your product idea with a focused MVP built for real users, clear feedback and a path to scale.',
+        breadcrumb: {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Home',
+              item: withSiteUrl('/'),
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'Services',
+              item: withSiteUrl('/services/'),
+            },
+            {
+              '@type': 'ListItem',
+              position: 3,
+              name: 'MVP Development',
+              item: withSiteUrl('/services/mvp-development/'),
+            },
+          ],
+        },
+        inLanguage: 'en',
+        dateModified: CURRENT_DATE,
+      },
+      {
+        '@type': 'Service',
+        name: 'MVP Development',
+        serviceType: 'Minimum Viable Product Development',
+        url: withSiteUrl('/services/mvp-development/'),
+        provider: {
+          '@type': 'Organization',
+          name: 'Nextloop Technologies',
+          url: withSiteUrl('/'),
+        },
+        description:
+          'Focused MVP builds that help startups validate concepts, gather user feedback and move forward with clarity.',
+      },
+    ],
+  },
+  'service-digital-marketing': {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': withSiteUrl('/services/digital-marketing-services/#webpage'),
+        url: withSiteUrl('/services/digital-marketing-services/'),
+        name: 'Digital Marketing Services | Nextloop Technologies',
+        description:
+          'SEO, ads and social campaigns that grow traffic, leads and conversions for software-led businesses.',
+        breadcrumb: {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Home',
+              item: withSiteUrl('/'),
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'Services',
+              item: withSiteUrl('/services/'),
+            },
+            {
+              '@type': 'ListItem',
+              position: 3,
+              name: 'Digital Marketing',
+              item: withSiteUrl('/services/digital-marketing-services/'),
+            },
+          ],
+        },
+        inLanguage: 'en',
+        dateModified: CURRENT_DATE,
+      },
+      {
+        '@type': 'Service',
+        name: 'Digital Marketing Services',
+        serviceType: 'Digital Marketing',
+        url: withSiteUrl('/services/digital-marketing-services/'),
+        provider: {
+          '@type': 'Organization',
+          name: 'Nextloop Technologies',
+          url: withSiteUrl('/'),
+        },
+        description:
+          'Data-driven SEO, ads and social programmes that turn visits into qualified pipeline.',
+      },
+    ],
+  },
+  'service-ecommerce': {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': withSiteUrl('/services/e-commerce-development/#webpage'),
+        url: withSiteUrl('/services/e-commerce-development/'),
+        name: 'E-Commerce Development Services | Nextloop Technologies',
+        description:
+          'Custom storefronts, catalogues and checkout flows built for performance, security and growth.',
+        breadcrumb: {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Home',
+              item: withSiteUrl('/'),
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'Services',
+              item: withSiteUrl('/services/'),
+            },
+            {
+              '@type': 'ListItem',
+              position: 3,
+              name: 'E-Commerce Development',
+              item: withSiteUrl('/services/e-commerce-development/'),
+            },
+          ],
+        },
+        inLanguage: 'en',
+        dateModified: CURRENT_DATE,
+      },
+      {
+        '@type': 'Service',
+        name: 'E-Commerce Development',
+        serviceType: 'E-Commerce Software Development',
+        url: withSiteUrl('/services/e-commerce-development/'),
+        provider: {
+          '@type': 'Organization',
+          name: 'Nextloop Technologies',
+          url: withSiteUrl('/'),
+        },
+        description:
+          'End-to-end e-commerce platforms with product, cart, payment and fulfilment workflows tailored to your catalogue.',
+      },
+    ],
+  },
+  'service-qa-testing': {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': withSiteUrl('/services/software-testing-qa-services/#webpage'),
+        url: withSiteUrl('/services/software-testing-qa-services/'),
+        name: 'Software Testing & QA Services | Nextloop Technologies',
+        description:
+          'Manual and automated QA that catches defects early and keeps releases stable across web and mobile.',
+        breadcrumb: {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Home',
+              item: withSiteUrl('/'),
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'Services',
+              item: withSiteUrl('/services/'),
+            },
+            {
+              '@type': 'ListItem',
+              position: 3,
+              name: 'QA & Software Testing',
+              item: withSiteUrl('/services/software-testing-qa-services/'),
+            },
+          ],
+        },
+        inLanguage: 'en',
+        dateModified: CURRENT_DATE,
+      },
+      {
+        '@type': 'Service',
+        name: 'Software Testing & QA Services',
+        serviceType: 'Quality Assurance',
+        url: withSiteUrl('/services/software-testing-qa-services/'),
+        provider: {
+          '@type': 'Organization',
+          name: 'Nextloop Technologies',
+          url: withSiteUrl('/'),
+        },
+        description:
+          'Functional, regression and automation testing embedded in your delivery cycle so releases ship with confidence.',
+      },
+    ],
+  },
   portfolio: {
     '@context': 'https://schema.org',
-    '@type': 'TechArticle',
-    headline: 'BrewPod B2B Technology Case Study',
+    '@type': 'CollectionPage',
+    name: 'Portfolio | Nextloop Technologies',
     description:
       'How Nextloop Technologies engineered a secure, high-performance platform turning an ambitious product idea into a successful market launch.',
     image: {

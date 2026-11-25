@@ -56,12 +56,24 @@ const Fintech: React.FC = () => {
   return (
     <>
       <Head>
-        <title>
-          Fintech App & Software Development Company | Nextloop Technologies
-        </title>
+        <title>Fintech Software Development | Nextloop</title>
         <meta
           name='description'
-          content='Partner with Nextloop for custom banking & financial software development services. Contact our team today to hire fintech software developers.'
+          content='Partner with Nextloop for custom banking and financial software. Hire fintech developers — contact our Indore team today.'
+        />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html:
+              '{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.nextlooptechnologies.com/"}, {"@type": "ListItem", "position": 2, "name": "Industries", "item": "https://www.nextlooptechnologies.com/domain/"}, {"@type": "ListItem", "position": 3, "name": "Fin-Tech", "item": "https://www.nextlooptechnologies.com/domain/fintech/"}]}',
+          }}
+        />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html:
+              '{"@context": "https://schema.org", "@type": "WebPage", "name": "Fin-Tech | Nextloop Technologies", "url": "https://www.nextlooptechnologies.com/domain/fintech/", "isPartOf": {"@type": "WebSite", "url": "https://www.nextlooptechnologies.com/"}}',
+          }}
         />
       </Head>
       <Layout>

@@ -20,10 +20,10 @@ const Portfolio: React.FC<{ data?: IPortfolio[]; error?: string }> = ({
   return (
     <Layout>
       <Head>
-        <title>Software Development Portfolio for Super App Development</title>
+        <title>Software Development Portfolio | Nextloop</title>
         <meta
           name='description'
-          content='Nextloop Technologies has a proven track record of delivering tailored technology, from custom IoT app development & vendor management software to learning management system development'
+          content='See Nextloop case studies across IoT, vendor management and LMS builds. Explore the portfolio, then talk to our team about your project.'
         />
         <script
           type='application/ld+json'
@@ -90,6 +90,10 @@ export const getServerSideProps: GetServerSideProps = async () => {
   try {
     return { props: { data: await listPortfolio() } };
   } catch (e) {
-    return { props: { error: e instanceof Error ? e.message : 'Unable to load case studies.' } };
+    return {
+      props: {
+        error: e instanceof Error ? e.message : 'Unable to load case studies.',
+      },
+    };
   }
 };

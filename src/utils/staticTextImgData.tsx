@@ -170,14 +170,31 @@ export interface SiteRoute {
 }
 
 export const availableIndustries: SiteRoute[] = [
-  // { name: 'Events', href: '/domain/events' },
   { name: 'Fin-Tech', href: '/domain/fintech' },
   { name: 'Healthcare', href: '/domain/healthcare' },
   { name: 'Oil And Gas', href: '/domain/oil-and-gas' },
   { name: 'Food And Beverages', href: '/domain/food-and-beverages' },
-  // { name: 'Hotel', href: '/domain/hotel' },
-  // { name: 'E-commerce', href: '/domain/ecommerce' },
-  // { name: 'Travel And Hospitality', href: '/domain/travel-and-hospitality' },
+  { name: 'E-commerce', href: '/domain/ecommerce' },
+  { name: 'Events', href: '/domain/events' },
+  { name: 'Hotel', href: '/domain/hotel' },
+  { name: 'Travel And Hospitality', href: '/domain/travel-and-hospitality' },
+  { name: 'All Industries', href: '/domain' },
+];
+
+/** Live orphan service URLs kept out of the main nav grid but linked in the footer. */
+export const footerExtraServices: SiteRoute[] = [
+  {
+    name: 'Custom Software Development',
+    href: '/services/custom-software-development',
+  },
+  {
+    name: 'E-Commerce Development',
+    href: '/services/e-commerce-development',
+  },
+  {
+    name: 'Quality Assurance & Software Testing',
+    href: '/services/software-testing-qa-services',
+  },
 ];
 
 export const availableServices: SiteRoute[] = [

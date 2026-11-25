@@ -9,11 +9,12 @@ import { servicesSubPagesData } from '../../utils/staticTextImgData';
 const initialData = {
   ...servicesSubPagesData.digitalMarketingServices,
   blogData: [] as BlogData[],
+  schemaKey: 'service-digital-marketing' as const,
 };
 
-const DigitalMarketingServices: React.FC<{ blogData: BlogData[] }> = ({ blogData }) => (
-  <ServicePage {...initialData} blogData={blogData} />
-);
+const DigitalMarketingServices: React.FC<{ blogData: BlogData[] }> = ({
+  blogData,
+}) => <ServicePage {...initialData} blogData={blogData} />;
 
 export default DigitalMarketingServices;
 

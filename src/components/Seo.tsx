@@ -48,7 +48,10 @@ export const cleanCanonical = (asPath: string, baseUrl: string): string => {
 };
 
 /** Resolve against the site root, or null if there is nothing to resolve. */
-const toAbsolute = (url: string | undefined | null, baseUrl: string): string | null => {
+const toAbsolute = (
+  url: string | undefined | null,
+  baseUrl: string
+): string | null => {
   const trimmed = url?.trim();
   if (!trimmed) return null;
   if (/^https?:\/\//i.test(trimmed)) return trimmed;
@@ -82,22 +85,35 @@ export const Seo: React.FC<SeoProps> = ({
   // host-only. A relative canonical resolves against the current page —
   // href="www.example.com/x" on /blog/y becomes /blog/y/www.example.com/x,
   // which 404s and de-indexes the post. Normalised like every other URL here.
-  const url = toAbsolute(canonical, baseUrl) ?? cleanCanonical(router.asPath, baseUrl);
+  const url =
+    toAbsolute(canonical, baseUrl) ?? cleanCanonical(router.asPath, baseUrl);
   const ogImage = absoluteImage(image, baseUrl);
   const graphs = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 
   return (
     <Head>
       <title>{title}</title>
-      {description && <meta key='description' name='description' content={description} />}
+      {description && (
+        <meta key='description' name='description' content={description} />
+      )}
       <link key='canonical' rel='canonical' href={url} />
-      {noindex && <meta name='robots' content='noindex,follow' />}
+      <meta
+        key='robots'
+        name='robots'
+        content={noindex ? 'noindex,follow' : 'index,follow'}
+      />
 
       {/* Open Graph — previously absent site-wide */}
       <meta key='og:site_name' property='og:site_name' content={SITE_NAME} />
       <meta key='og:type' property='og:type' content={type} />
       <meta key='og:title' property='og:title' content={title} />
-      {description && <meta key='og:description' property='og:description' content={description} />}
+      {description && (
+        <meta
+          key='og:description'
+          property='og:description'
+          content={description}
+        />
+      )}
       <meta key='og:url' property='og:url' content={url} />
       <meta key='og:image' property='og:image' content={ogImage} />
       <meta key='og:image:width' property='og:image:width' content='1200' />
@@ -109,13 +125,25 @@ export const Seo: React.FC<SeoProps> = ({
       {type === 'article' && modifiedTime && (
         <meta property='article:modified_time' content={modifiedTime} />
       )}
-      {type === 'article' && author && <meta property='article:author' content={author} />}
+      {type === 'article' && author && (
+        <meta property='article:author' content={author} />
+      )}
 
       {/* Twitter / X */}
-      <meta key='twitter:card' name='twitter:card' content='summary_large_image' />
+      <meta
+        key='twitter:card'
+        name='twitter:card'
+        content='summary_large_image'
+      />
       <meta key='twitter:site' name='twitter:site' content={TWITTER_HANDLE} />
       <meta key='twitter:title' name='twitter:title' content={title} />
-      {description && <meta key='twitter:description' name='twitter:description' content={description} />}
+      {description && (
+        <meta
+          key='twitter:description'
+          name='twitter:description'
+          content={description}
+        />
+      )}
       <meta key='twitter:image' name='twitter:image' content={ogImage} />
 
       {graphs.map((graph, i) => (
