@@ -22,6 +22,7 @@ import {
   articleSchema,
   breadcrumbSchema,
   faqSchema,
+  normalizeBodyHeadingTags,
   toPlainText,
 } from '../../utils/structuredData';
 
@@ -149,11 +150,11 @@ const AuthorSection: React.FC<{ blog: BlogType }> = ({ blog }) => {
     <div className='flex flex-col gap-4 mt-6'>
       {/* The Author Card */}
       <div className='bg-[#f9f9f9] p-5 rounded-lg w-56 shrink-0'>
-        <h3 className='text-orange-500 font-bold text-lg mb-4'>The Author</h3>
+        <p className='text-orange-500 font-bold text-lg mb-4'>The Author</p>
 
         <div className='flex justify-between items-start mb-4'>
           <div>
-            <h4 className='font-bold text-black text-sm'>{blog.author.name}</h4>
+            <p className='font-bold text-black text-sm'>{blog.author.name}</p>
             <p className='text-gray-500 italic text-xs'>
               {blog.author.designation}
             </p>
@@ -180,9 +181,9 @@ const AuthorSection: React.FC<{ blog: BlogType }> = ({ blog }) => {
 
       {/* Share Article Card */}
       <div className='bg-[#f9f9f9] p-5 rounded-lg w-56 shrink-0'>
-        <h3 className='text-orange-500 font-bold text-[1rem] mb-4'>
+        <p className='text-orange-500 font-bold text-[1rem] mb-4'>
           Share this article:
-        </h3>
+        </p>
         <div className='flex gap-3'>
           <button
             onClick={() => handleShare('facebook')}
@@ -277,7 +278,7 @@ const FeaturedBlogs: React.FC<{ blogs: BlogType[] }> = ({ blogs }) => {
               </p>
 
               <span className='mt-auto text-[12px] font-bold text-orange-500 uppercase tracking-wide'>
-                Read More →
+                Read: {(blog.title ?? 'article').slice(0, 36)} →
               </span>
             </div>
           </a>
@@ -301,10 +302,10 @@ const BlogID: React.FC<BlogIDProps> = ({
     if (!data?.descp) return;
 
     const div = document.createElement('div');
-    div.innerHTML = data.descp;
+    div.innerHTML = normalizeBodyHeadingTags(data.descp);
     const items: TocItem[] = [];
 
-    div.querySelectorAll('h1,h2,h3,h4').forEach((el, i) => {
+    div.querySelectorAll('h1,h2,h3,h4,h5,h6').forEach((el, i) => {
       const text = el.textContent?.trim() ?? '';
       if (!text) return;
 
@@ -379,10 +380,27 @@ const BlogID: React.FC<BlogIDProps> = ({
   // table. Until now the page rendered none of them and shipped an empty
   // <title>, so every post was invisible in search results.
   const blogUrl = `${getBaseUrl()}/blog/${data.slug ?? ''}/`;
-  const metaTitle =
+  const rawTitle =
     data.meta_title?.trim() || `${data.title} | Nextloop Technologies`;
-  const metaDescription =
-    data.meta_description?.trim() || toPlainText(data.descp, 158);
+  const metaTitle =
+    rawTitle.length < 50
+      ? `${rawTitle.replace(/\s*\|\s*Nextloop.*$/i, '')} | Nextloop`.slice(
+          0,
+          60
+        )
+      : rawTitle.length > 60
+      ? `${rawTitle.slice(0, 57).replace(/\s+\S*$/, '')}…`
+      : rawTitle;
+  let metaDescription =
+    data.meta_description?.trim() || toPlainText(data.descp, 155);
+  if (metaDescription.length < 140) {
+    metaDescription = `${metaDescription.replace(
+      /\.*$/,
+      ''
+    )}. Read more on the Nextloop blog.`.slice(0, 160);
+  } else if (metaDescription.length > 160) {
+    metaDescription = toPlainText(metaDescription, 158);
+  }
   const coverImage = data.image?.[0]?.url;
 
   /**

@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Link from 'next/link';
 import React, { FC, useState } from 'react';
 import { BiSolidPhoneCall } from 'react-icons/bi';
@@ -17,6 +16,7 @@ import 'react-phone-input-2/lib/style.css';
 
 import CustomDropdown from '../../components/CustomDropdown';
 import Layout from '../../components/Layout/Layout';
+import Seo from '../../components/Seo';
 import palette from '../../styles/pallette';
 import {
   ContactFormData,
@@ -31,6 +31,10 @@ import {
   validateName,
   validatePhone,
 } from '../../utils/formValidation';
+import {
+  breadcrumbSchema,
+  localBusinessSchema,
+} from '../../utils/structuredData';
 
 const ContactForm: FC = () => {
   const [countryCode, setCountryCode] = useState('91');
@@ -161,16 +165,17 @@ const ContactForm: FC = () => {
 
   return (
     <>
-      <Head>
-        <title>
-          Contact Nextloop Technologies | Get in Touch for Custom IT Software
-          Solutions
-        </title>
-        <meta
-          name='description'
-          content='Contact Nextloop Technologies for expert IT solutions, MVP & mobile development, UI/UX design, digital marketing, Staff augmentation & other customized solutions to grow your business'
-        />
-      </Head>
+      <Seo
+        title='Contact Nextloop Technologies | IT Software Help'
+        description='Contact Nextloop for custom software, MVP, mobile apps, digital marketing and staff augmentation. Talk to our Indore team today.'
+        jsonLd={[
+          localBusinessSchema(),
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Contact Us', path: '/contact-us/' },
+          ]),
+        ]}
+      />
       <Layout headerColor='bg-white' showFooter={false}>
         <form
           onSubmit={handleSubmit}

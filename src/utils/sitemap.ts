@@ -84,6 +84,16 @@ export const STATIC_ROUTES: SitemapEntry[] = [
   },
   { path: '/services/ai-automation/', changefreq: 'monthly', priority: 0.8 },
   {
+    path: '/services/ai-business-consultancy/',
+    changefreq: 'monthly',
+    priority: 0.8,
+  },
+  {
+    path: '/products/hospital-management-software/',
+    changefreq: 'monthly',
+    priority: 0.8,
+  },
+  {
     path: '/services/cloud-computing-solutions/',
     changefreq: 'monthly',
     priority: 0.8,
@@ -122,6 +132,9 @@ export const STATIC_ROUTES: SitemapEntry[] = [
   { path: '/blog/', changefreq: 'daily', priority: 0.7 },
   { path: '/careers/', changefreq: 'daily', priority: 0.7 },
   { path: '/portfolio/', changefreq: 'weekly', priority: 0.7 },
+
+  { path: '/privacy/', changefreq: 'yearly', priority: 0.3 },
+  { path: '/cookies-policy/', changefreq: 'yearly', priority: 0.3 },
 ];
 
 /** The five characters that are not legal as raw text inside an XML element. */

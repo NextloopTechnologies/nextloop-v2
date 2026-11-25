@@ -70,13 +70,24 @@ const TravelAndHospitality = () => {
   return (
     <>
       <Head>
-        <title>
-          Hotel Management Software (PMS) & Custom Travel App Development
-          Services
-        </title>
+        <title>Travel & Hotel Software Development | Nextloop</title>
         <meta
           name='description'
-          content='Build scalable hotel PMS and travel apps with Nextloop. Get Custom booking engines and AI-powered solutions to boost bookings and enhance guest experience.'
+          content='Build hotel PMS and travel apps with Nextloop. Custom booking engines and AI tools to boost bookings — talk to our team today.'
+        />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html:
+              '{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.nextlooptechnologies.com/"}, {"@type": "ListItem", "position": 2, "name": "Industries", "item": "https://www.nextlooptechnologies.com/domain/"}, {"@type": "ListItem", "position": 3, "name": "Travel And Hospitality", "item": "https://www.nextlooptechnologies.com/domain/travel-and-hospitality/"}]}',
+          }}
+        />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html:
+              '{"@context": "https://schema.org", "@type": "WebPage", "name": "Travel And Hospitality | Nextloop Technologies", "url": "https://www.nextlooptechnologies.com/domain/travel-and-hospitality/", "isPartOf": {"@type": "WebSite", "url": "https://www.nextlooptechnologies.com/"}}',
+          }}
         />
       </Head>
       <Layout>

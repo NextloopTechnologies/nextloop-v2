@@ -12,6 +12,7 @@ import Layout from '../../../components/Layout/Layout';
 import Seo from '../../../components/Seo';
 import { IFAQ } from '../../../types';
 import { getStaticImageData } from '../../../utils/helper';
+import { breadcrumbSchema } from '../../../utils/structuredData';
 
 const faqsContent: IFAQ[] = [
   {
@@ -65,8 +66,13 @@ const Hotel = () => {
   return (
     <Layout>
       <Seo
-        title='Hotel & Hospitality Software Development | Nextloop Technologies'
-        description='Property management, booking engines and guest apps for hotels and hospitality groups — built by Nextloop Technologies.'
+        title='Hotel & Hospitality Software | Nextloop'
+        description='Property management, booking engines and guest apps for hotels — built by Nextloop. Book a discovery call with our team today.'
+        jsonLd={breadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Industries', path: '/domain/' },
+          { name: 'Hotel', path: '/domain/hotel/' },
+        ])}
       />
       <CustomPageHero
         image={getStaticImageData(hotelAssets.hotelBg)}

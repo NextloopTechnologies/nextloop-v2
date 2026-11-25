@@ -9,6 +9,7 @@ import { servicesSubPagesData } from '../../utils/staticTextImgData';
 const initialData = {
   ...servicesSubPagesData.mvpDevelopment,
   blogData: [] as BlogData[],
+  schemaKey: 'service-mvp' as const,
 };
 
 const MvpDevelopment: React.FC<{ blogData: BlogData[] }> = ({ blogData }) => (

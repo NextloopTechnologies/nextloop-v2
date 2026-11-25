@@ -132,12 +132,12 @@ const ServicePage: React.FC<ServicePageProps> = ({
           swiperParams={{ spaceBetween: 40 }}
           header={
             <div className='p-14 flex flex-col items-center text-center'>
-              <div className='text-black font-bold text-2xl md:text-3xl'>
+              <h2 className='text-black font-bold text-2xl md:text-3xl'>
                 {areaOfExpertiseData.mainHeader}
-              </div>
-              <div className='font-semibold text-lg text-gray-600 mt-2'>
+              </h2>
+              <p className='font-semibold text-lg text-gray-600 mt-2'>
                 {areaOfExpertiseData.mainDescription}
-              </div>
+              </p>
             </div>
           }
           slides={areaOfExpertiseData.items.map((item, index) => (

@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -7,10 +6,15 @@ import { useState } from 'react';
 
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
+import Seo from '../../components/Seo';
 import { listBlogs } from '../../lib/content';
 import palette from '../../styles/pallette';
 import { BlogType } from '../../types';
 import { formatBlogDate } from '../../utils/blogDate';
+import {
+  breadcrumbSchema,
+  collectionPageSchema,
+} from '../../utils/structuredData';
 import blogsBg from '../../../assets/blogs.png';
 
 function stripHtml(html: string) {
@@ -85,7 +89,7 @@ function BlogCard({ blog }: { blog: BlogType }) {
         {/* A button inside an anchor is invalid HTML and swallows the click.
             Same look, no nested interactive element. */}
         <span className='self-start mt-auto text-[11px] font-bold tracking-[0.08em] text-orange-500 transition-colors duration-200'>
-          Read More...
+          Read: {(blog.title ?? 'article').slice(0, 42)}
         </span>
       </div>
     </>
@@ -140,16 +144,22 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
 
   return (
     <Layout>
-      <Head>
-        <title>
-          Read Nextloop’s software development blogs to get useful
-          technology-based insights
-        </title>
-        <meta
-          name='description'
-          content='Discover expert advice through Nextloop Technologies IT consulting blogs. We cover strategies for technology and information management to help your business grow and succeed.'
-        />
-      </Head>
+      <Seo
+        title='Software Development Blogs | Nextloop'
+        description='Read Nextloop blogs on software, AI, MVP and staffing. Practical guides for tech leaders — explore the latest posts and talk to our team.'
+        jsonLd={[
+          collectionPageSchema({
+            name: 'Software Development Blogs | Nextloop',
+            description:
+              'Expert software, AI and IT consulting articles from Nextloop Technologies.',
+            url: 'https://www.nextlooptechnologies.com/blog/',
+          }),
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Blogs', path: '/blog/' },
+          ]),
+        ]}
+      />
 
       <PageHero
         image={blogsBg}
@@ -209,9 +219,9 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
               </div>
 
               {/* Title */}
-              <h3 className='text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-black leading-snug line-clamp-2'>
+              <h2 className='text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-black leading-snug line-clamp-2'>
                 {featured?.title ?? ''}
-              </h3>
+              </h2>
 
               {/* Excerpt */}
               {featured?.descp && (
@@ -233,7 +243,7 @@ const BlogPage: React.FC<{ data?: BlogType[]; error?: string }> = ({
                   if (featured?.slug) router.push(`/blog/${featured.slug}/`);
                 }}
               >
-                Read More
+                Read the article
               </button>
             </div>
           </div>

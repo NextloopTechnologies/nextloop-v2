@@ -118,6 +118,20 @@ const FoodAndBeverages: React.FC = () => {
           name='description'
           content='Nextloop builds custom digital platforms for food businesses—POS, online ordering, inventory, delivery, analytics tools for cloud kitchens & restaurants'
         />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html:
+              '{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.nextlooptechnologies.com/"}, {"@type": "ListItem", "position": 2, "name": "Industries", "item": "https://www.nextlooptechnologies.com/domain/"}, {"@type": "ListItem", "position": 3, "name": "Food And Beverages", "item": "https://www.nextlooptechnologies.com/domain/food-and-beverages/"}]}',
+          }}
+        />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html:
+              '{"@context": "https://schema.org", "@type": "WebPage", "name": "Food And Beverages | Nextloop Technologies", "url": "https://www.nextlooptechnologies.com/domain/food-and-beverages/", "isPartOf": {"@type": "WebSite", "url": "https://www.nextlooptechnologies.com/"}}',
+          }}
+        />
       </Head>
       <Layout>
         <CustomPageHero

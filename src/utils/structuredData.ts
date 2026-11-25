@@ -46,7 +46,11 @@ export const articleSchema = (a: {
     : {}),
   author: a.authorName
     ? { '@type': 'Person', name: a.authorName }
-    : { '@type': 'Organization', name: 'Nextloop Technologies', ...organizationRef },
+    : {
+        '@type': 'Organization',
+        name: 'Nextloop Technologies',
+        ...organizationRef,
+      },
   publisher: {
     '@type': 'Organization',
     name: 'Nextloop Technologies',
@@ -74,11 +78,13 @@ export const jobPostingSchema = (j: {
   jobType?: string | null;
 }) => {
   const remote = (j.jobMode ?? '').toLowerCase() === 'remote';
-  const employmentType = ({
-    'Full Time': 'FULL_TIME',
-    'Part Time': 'PART_TIME',
-    Contract: 'CONTRACTOR',
-  } as Record<string, string>)[j.jobType ?? ''];
+  const employmentType = (
+    {
+      'Full Time': 'FULL_TIME',
+      'Part Time': 'PART_TIME',
+      Contract: 'CONTRACTOR',
+    } as Record<string, string>
+  )[j.jobType ?? ''];
 
   return {
     '@context': 'https://schema.org',
@@ -126,6 +132,150 @@ export const breadcrumbSchema = (crumbs: { name: string; path: string }[]) => ({
   })),
 });
 
+/** LocalBusiness / ProfessionalService — contact and location pages. */
+export const localBusinessSchema = () => ({
+  '@context': 'https://schema.org',
+  '@type': ['LocalBusiness', 'ProfessionalService'],
+  '@id': `${SITE}/contact-us/#localbusiness`,
+  name: 'Nextloop Technologies LLP',
+  url: `${SITE}/`,
+  image: `${SITE}/images/who-we-are.jpg`,
+  logo: `${SITE}/images/logo.png`,
+  email: 'info@nextlooptechnologies.com',
+  telephone: ['+91-9893738323', '+91-9924299318'],
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '101, Kanchan Sagar, 18/1, Near Industry House, Old Palasia',
+    addressLocality: 'Indore',
+    addressRegion: 'Madhya Pradesh',
+    postalCode: '452001',
+    addressCountry: 'IN',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 22.7244,
+    longitude: 75.8839,
+  },
+  areaServed: ['IN', 'US'],
+  sameAs: [
+    'https://www.linkedin.com/company/nextloop-technologies-llp',
+    'https://www.instagram.com/nextloop.technologies/',
+    'https://www.facebook.com/profile.php?id=61556914381569',
+  ],
+});
+
+/** CollectionPage — blog index and similar hubs. */
+export const collectionPageSchema = (p: {
+  name: string;
+  description: string;
+  url: string;
+}) => ({
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: p.name,
+  description: p.description,
+  url: p.url,
+  isPartOf: { '@type': 'WebSite', url: SITE, name: 'Nextloop Technologies' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Nextloop Technologies',
+    ...organizationRef,
+  },
+});
+
+/** WebPage + Service graph used by BaseServicePages schema keys. */
+export const servicePageGraph = (s: {
+  path: string;
+  pageName: string;
+  pageDescription: string;
+  serviceName: string;
+  serviceType: string;
+  serviceDescription: string;
+  crumbName: string;
+  offers?: string[];
+}) => ({
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      '@id': `${SITE}${s.path}#webpage`,
+      url: `${SITE}${s.path}`,
+      name: s.pageName,
+      description: s.pageDescription,
+      breadcrumb: {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: `${SITE}/`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Services',
+            item: `${SITE}/services/`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: s.crumbName,
+            item: `${SITE}${s.path}`,
+          },
+        ],
+      },
+      inLanguage: 'en',
+    },
+    {
+      '@type': 'Service',
+      name: s.serviceName,
+      serviceType: s.serviceType,
+      url: `${SITE}${s.path}`,
+      provider: {
+        '@type': 'Organization',
+        name: 'Nextloop Technologies',
+        url: SITE,
+      },
+      description: s.serviceDescription,
+      ...(s.offers?.length
+        ? {
+            hasOfferCatalog: {
+              '@type': 'OfferCatalog',
+              name: `${s.serviceName} offerings`,
+              itemListElement: s.offers.map((name) => ({
+                '@type': 'Offer',
+                itemOffered: { '@type': 'Service', name },
+              })),
+            },
+          }
+        : {}),
+    },
+  ],
+});
+
+/**
+ * Keep CMS body headings sequential under the page H1: demote body H1s and
+ * close skipped levels without touching classes or text.
+ */
+export const normalizeBodyHeadingTags = (html: string): string => {
+  if (!html) return html;
+  const stack: number[] = [];
+  let prevLevel = 1;
+  return html.replace(/<\/?h([1-6])(\s[^>]*)?>/gi, (tag, lvl, attrs = '') => {
+    if (tag.startsWith('</')) {
+      const open = stack.pop() ?? Number(lvl);
+      return `</h${open}>`;
+    }
+    let next = Number(lvl);
+    if (next === 1) next = 2;
+    if (next > prevLevel + 1) next = prevLevel + 1;
+    prevLevel = next;
+    stack.push(next);
+    return `<h${next}${attrs || ''}>`;
+  });
+};
+
 /** FAQPage — the schema most readily quoted by AI answer engines. */
 export const faqSchema = (faqs: { question: string; answer: string }[]) => ({
   '@context': 'https://schema.org',
@@ -150,11 +300,18 @@ export const caseStudySchema = (c: {
   ...(c.description ? { description: c.description } : {}),
   url: c.url,
   ...(c.image ? { image: c.image } : {}),
-  creator: { '@type': 'Organization', name: 'Nextloop Technologies', ...organizationRef },
+  creator: {
+    '@type': 'Organization',
+    name: 'Nextloop Technologies',
+    ...organizationRef,
+  },
 });
 
 /** Strips HTML and collapses whitespace, for descriptions built from body copy. */
-export const toPlainText = (html: string | null | undefined, maxLength = 160): string => {
+export const toPlainText = (
+  html: string | null | undefined,
+  maxLength = 160
+): string => {
   if (!html) return '';
   const text = html
     .replace(/<style[\s\S]*?<\/style>/gi, '')

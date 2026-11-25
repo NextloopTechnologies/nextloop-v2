@@ -62,6 +62,7 @@ const OffersPage = () => {
       <Seo
         title='Claim Your Offer | Nextloop Technologies'
         description='Tell us about your project and we will match you to the right Nextloop offer — discovery workshops, MVP sprints and dedicated development pods.'
+        noindex
       />
       <div className='absolute inset-0'>
         <div

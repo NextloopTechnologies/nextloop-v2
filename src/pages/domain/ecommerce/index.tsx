@@ -165,6 +165,20 @@ const Ecommerce = () => {
           name='description'
           content='Turn your online store into a sales powerhouse with Nextloop’s customised e-commerce development, secure tech, payment integration & scalable digital solutions'
         />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html:
+              '{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.nextlooptechnologies.com/"}, {"@type": "ListItem", "position": 2, "name": "Industries", "item": "https://www.nextlooptechnologies.com/domain/"}, {"@type": "ListItem", "position": 3, "name": "E-commerce", "item": "https://www.nextlooptechnologies.com/domain/ecommerce/"}]}',
+          }}
+        />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html:
+              '{"@context": "https://schema.org", "@type": "WebPage", "name": "E-commerce | Nextloop Technologies", "url": "https://www.nextlooptechnologies.com/domain/ecommerce/", "isPartOf": {"@type": "WebSite", "url": "https://www.nextlooptechnologies.com/"}}',
+          }}
+        />
       </Head>
       <Layout>
         <CustomPageHero

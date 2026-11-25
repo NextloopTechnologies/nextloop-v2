@@ -128,14 +128,14 @@ const FAQ: React.FC<AccordionProps> = ({
                   src={faqAssets.faqCrossIcon}
                   height={20}
                   width={20}
-                  alt=''
+                  alt='Collapse answer'
                 />
               ) : (
                 <Image
                   src={faqAssets.faqPlusIcon}
                   height={20}
                   width={20}
-                  alt=''
+                  alt='Expand answer'
                 />
               )}
             </div>

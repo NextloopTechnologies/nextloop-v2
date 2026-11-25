@@ -161,6 +161,18 @@ const Hamburger = () => {
               Portfolio
             </Link>
           </li>
+          <li
+            className={`w-full ${
+              pathname.startsWith('/products') ? 'text-orange-500' : ''
+            }`}
+          >
+            <Link
+              href='/products/hospital-management-software'
+              onClick={handleLinkClick}
+            >
+              Products
+            </Link>
+          </li>
 
           <li
             className={`w-full ${

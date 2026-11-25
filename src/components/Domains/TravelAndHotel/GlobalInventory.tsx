@@ -98,7 +98,7 @@ const GlobalInventory = () => {
         <div className='hidden md:block -mt-2'>
           <Image
             src={GlobalInventoryImage.src}
-            alt=''
+            alt='Global hotel and travel inventory dashboard'
             width={500}
             height={500}
             className='w-full h-full'

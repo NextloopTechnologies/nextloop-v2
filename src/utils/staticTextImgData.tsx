@@ -170,14 +170,31 @@ export interface SiteRoute {
 }
 
 export const availableIndustries: SiteRoute[] = [
-  // { name: 'Events', href: '/domain/events' },
   { name: 'Fin-Tech', href: '/domain/fintech' },
   { name: 'Healthcare', href: '/domain/healthcare' },
   { name: 'Oil And Gas', href: '/domain/oil-and-gas' },
   { name: 'Food And Beverages', href: '/domain/food-and-beverages' },
-  // { name: 'Hotel', href: '/domain/hotel' },
-  // { name: 'E-commerce', href: '/domain/ecommerce' },
-  // { name: 'Travel And Hospitality', href: '/domain/travel-and-hospitality' },
+  { name: 'E-commerce', href: '/domain/ecommerce' },
+  { name: 'Events', href: '/domain/events' },
+  { name: 'Hotel', href: '/domain/hotel' },
+  { name: 'Travel And Hospitality', href: '/domain/travel-and-hospitality' },
+  { name: 'All Industries', href: '/domain' },
+];
+
+/** Live orphan service URLs kept out of the main nav grid but linked in the footer. */
+export const footerExtraServices: SiteRoute[] = [
+  {
+    name: 'Custom Software Development',
+    href: '/services/custom-software-development',
+  },
+  {
+    name: 'E-Commerce Development',
+    href: '/services/e-commerce-development',
+  },
+  {
+    name: 'Quality Assurance & Software Testing',
+    href: '/services/software-testing-qa-services',
+  },
 ];
 
 export const availableServices: SiteRoute[] = [
@@ -261,6 +278,14 @@ export const availableServices: SiteRoute[] = [
     cardImage: '/services/ai-automation.png',
     description:
       'Put AI to work on the processes that slow your team down. We build custom AI agents, document processing and workflow automation inside your own AWS or Azure account, so every answer comes from your approved sources and your data never passes through consumer chat tools.',
+  },
+  {
+    name: 'AI Business Consultancy',
+    href: '/services/ai-business-consultancy',
+    image: Service9 as unknown as string,
+    cardImage: '/services/7.png',
+    description:
+      'Plan AI before you build it. We map the right use cases, security, hosting and cost so you do not spend on tools that cannot work with your data, systems or compliance needs.',
   },
   // {
   //   name: 'UI/UX Development',

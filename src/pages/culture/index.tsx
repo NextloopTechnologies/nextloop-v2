@@ -1,22 +1,36 @@
 import { motion } from 'framer-motion';
-import Head from 'next/head';
 import Image from 'next/image';
 
 import Layout from '../../components/Layout/Layout';
 import PageHero from '../../components/PageHero';
+import Seo from '../../components/Seo';
 import { CultureSectionProps } from '../../types';
 import { culturebg, cultureEvents } from '../../utils/staticTextImgData';
 
 const CulturePage = () => {
   return (
     <Layout>
-      <Head>
-        <title>Life at Nextloop</title>
-        <meta
-          name='description'
-          content='Explore life at Nextloop — team trips, celebrations, festivals, and everyday moments that reflect our people-first culture.'
-        />
-      </Head>
+      <Seo
+        title='Life at Nextloop | Team Culture & Events'
+        description='Explore life at Nextloop — team trips, celebrations, festivals and everyday wins. See our people-first culture, then talk to us about joining the team.'
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'WebPage',
+          name: 'Life at Nextloop | Team Culture & Events',
+          description:
+            'Explore life at Nextloop — team trips, celebrations, festivals and everyday wins that reflect our people-first culture.',
+          url: 'https://www.nextlooptechnologies.com/culture/',
+          isPartOf: {
+            '@type': 'WebSite',
+            name: 'Nextloop Technologies',
+            url: 'https://www.nextlooptechnologies.com/',
+          },
+          publisher: {
+            '@type': 'Organization',
+            name: 'Nextloop Technologies',
+          },
+        }}
+      />
 
       <PageHero
         image={culturebg}

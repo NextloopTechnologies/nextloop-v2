@@ -6,6 +6,7 @@ import React, { FC } from 'react';
 import {
   availableIndustries,
   availableServices,
+  footerExtraServices,
   quickLinks,
 } from '../../utils/staticTextImgData';
 import {
@@ -85,27 +86,29 @@ const Pitchthought: FC = () => {
           </div>
           <div className='lg:col-span-3 grid grid-cols-2 sm:grid-cols-3 gap-8'>
             <div>
-              <h3 className='text-white font-semibold text-sm mb-5  tracking-wider'>
+              <p className='text-white font-semibold text-sm mb-5  tracking-wider'>
                 Services
-              </h3>
+              </p>
               <ul className='space-y-2'>
-                {availableServices.map(({ name, href }) => (
-                  <li key={name}>
-                    <Link
-                      href={href}
-                      className='text-white text-sm hover:text-orange-400 transition-colors'
-                    >
-                      {name}
-                    </Link>
-                  </li>
-                ))}
+                {[...availableServices, ...footerExtraServices].map(
+                  ({ name, href }) => (
+                    <li key={name}>
+                      <Link
+                        href={href}
+                        className='text-white text-sm hover:text-orange-400 transition-colors'
+                      >
+                        {name}
+                      </Link>
+                    </li>
+                  )
+                )}
               </ul>
             </div>
 
             <div>
-              <h3 className='text-white font-semibold text-sm mb-5  tracking-wider'>
+              <p className='text-white font-semibold text-sm mb-5  tracking-wider'>
                 Industry Solutions
-              </h3>
+              </p>
               <ul className='space-y-2'>
                 {availableIndustries.map(({ name, href }) => (
                   <li key={name}>
@@ -121,9 +124,9 @@ const Pitchthought: FC = () => {
             </div>
 
             <div className='col-span-2 sm:col-span-1'>
-              <h3 className='text-white font-semibold text-sm mb-5  tracking-wider'>
+              <p className='text-white font-semibold text-sm mb-5  tracking-wider'>
                 Quick Links
-              </h3>
+              </p>
               <ul className='space-y-2'>
                 {quickLinks.map(({ name, href }) => (
                   <li key={name}>
@@ -140,9 +143,9 @@ const Pitchthought: FC = () => {
           </div>
 
           <div className='lg:col-span-1'>
-            <h3 className='text-white font-semibold text-sm mb-5  tracking-wider'>
+            <p className='text-white font-semibold text-sm mb-5  tracking-wider'>
               Contact Us
-            </h3>
+            </p>
             <ul className='space-y-4'>
               {/* Email */}
               <li className='flex items-start gap-3'>

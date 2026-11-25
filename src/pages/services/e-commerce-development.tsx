@@ -9,11 +9,12 @@ import { servicesSubPagesData } from '../../utils/staticTextImgData';
 const initialData = {
   ...servicesSubPagesData.ecommerceDevelopment,
   blogData: [] as BlogData[],
+  schemaKey: 'service-ecommerce' as const,
 };
 
-const ECommerceDevelopment: React.FC<{ blogData: BlogData[] }> = ({ blogData }) => (
-  <ServicePage {...initialData} blogData={blogData} />
-);
+const ECommerceDevelopment: React.FC<{ blogData: BlogData[] }> = ({
+  blogData,
+}) => <ServicePage {...initialData} blogData={blogData} />;
 
 export default ECommerceDevelopment;
 
